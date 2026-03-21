@@ -1695,31 +1695,23 @@
     var container = document.getElementById('note-latest-articles');
     if (!container) return;
     try {
-      var apiUrl = 'https://note.com/api/v2/creators/kizukikumitate/contents?kind=note&page=1&per=3';
-      var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(apiUrl);
-      var res = await fetch(proxyUrl);
-      var data = await res.json();
-      var articles = data && data.data && data.data.contents ? data.data.contents : [];
-      if (!articles.length) return;
+      var res = await fetch('./articles.json');
+      var articles = await res.json();
+      if (!articles || !articles.length) return;
 
       var html = '';
       for (var i = 0; i < articles.length; i++) {
         var a = articles[i];
-        var url   = 'https://note.com/kizukikumitate/n/' + (a.key || '');
-        var title = a.name || '無題';
-        var date  = a.publishAt ? a.publishAt.slice(0, 10).replace(/-/g, '.') : '';
-        var likes = a.likeCount || 0;
-        var thumb = a.eyecatch || '';
-        var thumbHtml = thumb
-          ? '<img class="note-article-thumb" src="' + thumb + '" alt="" loading="lazy">'
+        var thumbHtml = a.thumb
+          ? '<img class="note-article-thumb" src="' + a.thumb + '" alt="" loading="lazy">'
           : '<div class="note-article-thumb-placeholder"></div>';
-        html += '<a class="note-article-card" href="' + url + '" target="_blank" rel="noopener">'
+        html += '<a class="note-article-card" href="' + a.url + '" target="_blank" rel="noopener">'
               + thumbHtml
               + '<div class="note-article-body">'
-              + '<div class="note-article-title">' + title + '</div>'
+              + '<div class="note-article-title">' + a.title + '</div>'
               + '<div class="note-article-meta">'
-              + '<span>' + date + '</span>'
-              + '<span class="note-article-like">' + likes + '</span>'
+              + '<span>' + a.date + '</span>'
+              + '<span class="note-article-like">' + a.likes + '</span>'
               + '</div>'
               + '</div>'
               + '</a>';
