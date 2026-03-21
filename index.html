@@ -1698,7 +1698,6 @@
       var apiUrl = 'https://note.com/api/v2/creators/kizukikumitate/contents?kind=note&page=1&per=3';
       var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(apiUrl);
       var res = await fetch(proxyUrl);
-      if (!res.ok) return;
       var data = await res.json();
       var articles = data && data.data && data.data.contents ? data.data.contents : [];
       if (!articles.length) return;
