@@ -219,20 +219,11 @@
     align-items: center;
     margin-top: 3rem;
   }
-  .record-photos {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
   .record-photos img {
     width: 100%; aspect-ratio: 4/3;
     object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  }
-  .record-photos img:first-child {
-    grid-column: 1 / -1;
-    aspect-ratio: 16/9;
   }
   .record-stats {
     display: flex;
@@ -569,7 +560,6 @@
     <div class="record-grid">
       <div class="record-photos fade-up">
         <img src="./lsp-singapore.jpg" alt="2013年シンガポールでのLSPトレーニング修了">
-        <img src="./lsp-global.jpg" alt="世界中のファシリテーターとのオンライン交流">
       </div>
       <div class="fade-up">
         <div class="record-stats">
