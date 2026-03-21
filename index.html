@@ -805,9 +805,9 @@
 
   .note-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 6rem;
-    align-items: center;
+    grid-template-columns: 1fr 1.3fr 0.85fr;
+    gap: 3rem;
+    align-items: start;
   }
 
   .note-text h2 {
@@ -834,11 +834,33 @@
 
   .note-visual {
     background: white;
-    padding: 3rem;
+    padding: 2rem;
     border: 2px solid var(--light-border);
     border-top: 4px solid var(--gray);
     position: relative;
   }
+  .note-magazines {
+    background: white;
+    padding: 2rem;
+    border: 2px solid var(--light-border);
+    border-top: 4px solid var(--gray);
+  }
+  .note-magazines .note-mag-label { margin-bottom: 0.8rem; }
+  .note-magazines .magazine-row {
+    padding: 0.9rem 0;
+    gap: 0.8rem;
+  }
+  .note-magazines .magazine-row:hover {
+    margin: 0 -2rem;
+    padding: 0.9rem 2rem;
+  }
+  .note-magazines .mag-title {
+    font-size: 0.82rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   /* ---- Note Article Cards ---- */
   .note-articles-label {
     font-family: 'Jost', sans-serif;
@@ -1100,7 +1122,9 @@
     .hero-tagline p { font-size: 1.1rem; }
     .hero-left { padding: 7rem 2rem 3rem; }
     .hero-right { min-height: 260px; }
-    #about, #note-section, #contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2.5rem; }
+    #about, #contact { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 2.5rem; }
+    #note-section { padding: 4rem 2rem; }
+    #note-section .note-inner { grid-template-columns: 1fr; gap: 2rem; }
     #workshop, #themes { padding: 4rem 2rem; }
     .workshop-header { grid-template-columns: 1fr; gap: 1.5rem; }
     .workshop-cards { grid-template-columns: 1fr; }
@@ -1484,6 +1508,7 @@
       </p>
       <a href="https://note.com/kizukikumitate" target="_blank" class="btn-secondary">noteを読む →</a>
     </div>
+    <!-- 中央：最新記事 -->
     <div class="note-visual fade-up">
       <div class="note-articles-label">最新記事</div>
       <div id="note-latest-articles">
@@ -1518,11 +1543,13 @@
           </div>
         </a>
       </div>
-      <hr class="note-articles-divider">
+    </div>
+    <!-- 右：マガジン -->
+    <div class="note-magazines fade-up">
       <div class="note-mag-label">マガジン</div>
       <div class="magazine-row" data-mag="workshop">
         <span class="mag-num">1</span>
-        <span class="mag-title">ワークショップ＆ファシリテーション</span>
+        <span class="mag-title">ワークショップ＆F</span>
         <span class="mag-count" id="mag-count-workshop">83本</span>
       </div>
       <div class="magazine-row" data-mag="nordic">
@@ -1532,7 +1559,7 @@
       </div>
       <div class="magazine-row" data-mag="japan">
         <span class="mag-num">3</span>
-        <span class="mag-title">日本の閉塞感の突破にむけて</span>
+        <span class="mag-title">日本の閉塞感</span>
         <span class="mag-count" id="mag-count-japan">25本</span>
       </div>
       <div class="magazine-row" data-mag="overseas">
