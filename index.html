@@ -1696,11 +1696,10 @@
     if (!container) return;
     try {
       const apiUrl = 'https://note.com/api/v2/creators/kizukikumitate/contents?kind=note&page=1&per=3';
-      const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(apiUrl);
+      const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(apiUrl);
       const res = await fetch(proxyUrl);
       if (!res.ok) return;
-      const json = await res.json();
-      const data = JSON.parse(json.contents);
+      const data = await res.json();
       const articles = data?.data?.contents || [];
       if (!articles.length) return;
 
