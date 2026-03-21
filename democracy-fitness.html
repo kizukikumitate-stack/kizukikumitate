@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>デモクラシーフィットネス診断 | きづきくみたて</title>
+<title>デモクラシーフィットネス | きづきくみたて</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -26,10 +26,6 @@
     --charcoal:     #1e1e1e;
     --mid-gray:     #5a6a7a;
     --light-border: #dde4ea;
-    --cream:        var(--yellow-light);
-    --warm-white:   var(--off-white);
-    --forest:       var(--blue);
-    --amber:        var(--yellow);
     --amber-light:  #f8d040;
   }
 
@@ -37,12 +33,12 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: 'Noto Serif JP', serif;
-    background: var(--warm-white);
+    background: var(--off-white);
     color: var(--charcoal);
     overflow-x: hidden;
   }
 
-  /* NAV */
+  /* ===== NAV ===== */
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -56,309 +52,327 @@
     border-bottom: 3px solid var(--blue);
   }
   .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    text-decoration: none;
+    display: flex; align-items: center; gap: 0.7rem; text-decoration: none;
   }
-  .nav-logo img {
-    height: 44px;
-    width: auto;
-    object-fit: contain;
-  }
+  .nav-logo img { height: 44px; width: auto; object-fit: contain; }
   .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
+    display: flex; gap: 2rem; list-style: none;
   }
   .nav-links a {
     font-family: 'Jost', sans-serif;
-    font-weight: 400;
-    font-size: 0.85rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--charcoal);
-    transition: color 0.2s;
+    font-weight: 400; font-size: 0.85rem;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    text-decoration: none; color: var(--charcoal); transition: color 0.2s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--blue); }
 
-  /* HERO */
+  /* ===== HERO ===== */
   .df-hero {
     min-height: 100vh;
-    background: linear-gradient(135deg, var(--blue) 0%, #0d3f7a 60%, #1a2a4a 100%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 8rem 3rem 4rem;
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(135deg, #1a5fad 0%, #0d3f7a 60%, #1a2a4a 100%);
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: flex-start;
+    padding: 8rem 3rem 5rem;
+    position: relative; overflow: hidden;
   }
   .df-hero::before {
     content: '';
-    position: absolute;
-    top: -50%; right: -20%;
-    width: 80vw; height: 80vw;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.08);
+    position: absolute; top: -40%; right: -15%;
+    width: 70vw; height: 70vw; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.07);
     pointer-events: none;
   }
   .df-hero::after {
     content: '';
-    position: absolute;
-    bottom: -30%; left: -10%;
-    width: 60vw; height: 60vw;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.06);
+    position: absolute; bottom: -20%; left: -5%;
+    width: 55vw; height: 55vw; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.05);
     pointer-events: none;
   }
   .df-hero-eyebrow {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 1.2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(255,255,255,0.55); margin-bottom: 1.2rem;
+    position: relative; z-index: 1;
   }
   .df-hero h1 {
     font-family: 'Shippori Mincho', serif;
-    font-size: clamp(2.4rem, 6vw, 5rem);
-    font-weight: 800;
-    color: white;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
+    font-size: clamp(2.6rem, 6.5vw, 5.5rem);
+    font-weight: 800; color: white;
+    line-height: 1.15; margin-bottom: 1.6rem;
+    position: relative; z-index: 1;
   }
-  .df-hero h1 em {
-    font-style: normal;
-    color: var(--amber-light);
-  }
+  .df-hero h1 em { font-style: normal; color: var(--amber-light); }
   .df-hero-sub {
-    font-size: 1.05rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.8;
-    max-width: 520px;
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 1;
+    font-size: 1.05rem; color: rgba(255,255,255,0.78);
+    line-height: 1.9; max-width: 540px;
+    margin-bottom: 1rem; position: relative; z-index: 1;
   }
-  .df-hero-cta {
-    display: inline-block;
-    padding: 1rem 2.5rem;
-    background: var(--amber-light);
-    color: var(--charcoal);
-    font-family: 'Noto Serif JP', serif;
-    font-weight: 600;
-    font-size: 1rem;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.25s;
-    position: relative;
-    z-index: 1;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  }
-  .df-hero-cta:hover {
-    background: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  }
-  .df-hero-stats {
-    display: flex;
-    gap: 3rem;
-    margin-top: 4rem;
-    position: relative;
-    z-index: 1;
-  }
-  .df-stat {
-    color: white;
-  }
-  .df-stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem;
-    line-height: 1;
-    color: var(--amber-light);
-  }
-  .df-stat-label {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.6);
-    margin-top: 0.3rem;
-    font-family: 'Jost', sans-serif;
+  .df-hero-scroll {
+    margin-top: 4rem; position: relative; z-index: 1;
+    font-family: 'Jost', sans-serif; font-size: 0.75rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
   }
 
-  /* CONCEPT */
-  .df-concept {
-    padding: 6rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
+  /* ===== SECTION BASE ===== */
+  .section-wrap {
+    padding: 7rem 3rem;
+    max-width: 940px; margin: 0 auto;
+  }
+  .section-wrap.wide {
+    max-width: 1040px;
   }
   .section-label {
-    font-family: 'Jost', sans-serif;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--blue);
-    margin-bottom: 1rem;
-    font-weight: 500;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 1rem;
   }
-  .df-concept h2 {
+  .section-h2 {
     font-family: 'Shippori Mincho', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 800;
-    color: var(--charcoal);
-    margin-bottom: 2rem;
-    line-height: 1.4;
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    font-weight: 800; line-height: 1.35;
+    margin-bottom: 2rem; color: var(--charcoal);
   }
-  .df-concept p {
-    font-size: 1rem;
-    line-height: 2;
+  .body-text p {
+    font-size: 1rem; line-height: 2.1;
+    color: var(--mid-gray); margin-bottom: 1.5rem;
+  }
+  .body-text p:last-child { margin-bottom: 0; }
+
+  /* ===== SECTION 1: WHY ===== */
+  .why-bg { background: white; }
+  .why-bg .section-label { color: var(--red); }
+  .why-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem; margin-top: 3rem;
+  }
+  .why-card {
+    background: var(--off-white);
+    border-top: 3px solid var(--red);
+    border-radius: 0 0 10px 10px;
+    padding: 1.8rem 1.6rem;
+  }
+  .why-card-icon {
+    font-size: 1.8rem; margin-bottom: 0.8rem;
+  }
+  .why-card h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1rem; font-weight: 700;
+    margin-bottom: 0.6rem; color: var(--charcoal);
+  }
+  .why-card p {
+    font-size: 0.88rem; line-height: 1.8;
     color: var(--mid-gray);
-    margin-bottom: 1.4rem;
   }
 
-  /* MUSCLES GRID */
-  .df-muscles {
-    background: var(--gray-light);
-    padding: 6rem 3rem;
+  /* ===== SECTION 2: WHAT ===== */
+  .what-bg { background: var(--gray-light); }
+  .what-bg .section-label { color: var(--blue); }
+  .muscles-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem; align-items: start;
+    margin-bottom: 4rem;
   }
-  .df-muscles-inner {
-    max-width: 1000px;
-    margin: 0 auto;
+  .muscles-intro-text p {
+    font-size: 0.98rem; line-height: 2.1;
+    color: var(--mid-gray); margin-bottom: 1.2rem;
   }
-  .df-muscles h2 {
+  .muscles-intro-text p:last-child { margin-bottom: 0; }
+  .muscles-highlight {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .muscles-highlight h3 {
     font-family: 'Shippori Mincho', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 800;
-    margin-bottom: 0.8rem;
+    font-size: 1rem; font-weight: 700;
+    margin-bottom: 1.2rem; color: var(--charcoal);
   }
-  .df-muscles-lead {
-    color: var(--mid-gray);
-    margin-bottom: 3rem;
-    font-size: 0.95rem;
-    line-height: 1.8;
+  .muscles-highlight-stat {
+    display: flex; gap: 2rem; margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--light-border);
+  }
+  .muscles-stat-item { text-align: center; flex: 1; }
+  .muscles-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem; color: var(--blue); line-height: 1;
+  }
+  .muscles-stat-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; color: var(--mid-gray);
+    margin-top: 0.3rem; letter-spacing: 0.05em;
+  }
+  .muscles-highlight p {
+    font-size: 0.85rem; line-height: 1.8; color: var(--mid-gray);
   }
   .muscles-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
   }
   .muscle-card {
-    background: white;
-    border-radius: 12px;
-    padding: 1.4rem 1.2rem;
+    background: white; border-radius: 10px;
+    padding: 1.3rem 1.1rem;
     border-left: 4px solid var(--blue);
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .muscle-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   }
   .muscle-num {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    color: var(--blue);
-    opacity: 0.4;
-    margin-bottom: 0.3rem;
+    font-size: 1.3rem; color: var(--blue);
+    opacity: 0.35; margin-bottom: 0.3rem;
   }
   .muscle-name {
     font-family: 'Noto Serif JP', serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--charcoal);
+    font-size: 0.92rem; font-weight: 600; color: var(--charcoal);
   }
   .muscle-name-en {
     font-family: 'Jost', sans-serif;
-    font-size: 0.72rem;
-    color: var(--mid-gray);
-    margin-top: 0.2rem;
-    letter-spacing: 0.05em;
+    font-size: 0.68rem; color: var(--mid-gray);
+    margin-top: 0.2rem; letter-spacing: 0.04em;
   }
 
-  /* HOW IT WORKS */
-  .df-how {
-    padding: 6rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .df-how h2 {
-    font-family: 'Shippori Mincho', serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 800;
-    margin-bottom: 3rem;
-  }
-  .steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-  .step {
+  /* ===== SECTION 3: GASSHUKU ===== */
+  .gasshuku-bg { background: white; }
+  .gasshuku-bg .section-label { color: var(--green); }
+  .gasshuku-layout {
     display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 1.5rem;
-    align-items: start;
-    padding: 2rem 0;
-    border-bottom: 1px solid var(--light-border);
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem; align-items: start;
   }
-  .step:last-child { border-bottom: none; }
-  .step-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.2rem;
-    color: var(--blue);
-    opacity: 0.5;
-    line-height: 1;
-    padding-top: 0.1rem;
+  .gasshuku-schedule {
+    background: var(--gray-light);
+    border-radius: 12px; padding: 2rem;
   }
-  .step-content h3 {
+  .gasshuku-schedule h3 {
     font-family: 'Shippori Mincho', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    color: var(--charcoal);
+    font-size: 1rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--green);
   }
-  .step-content p {
-    font-size: 0.9rem;
-    color: var(--mid-gray);
-    line-height: 1.8;
+  .day-block { margin-bottom: 1.8rem; }
+  .day-block:last-child { margin-bottom: 0; }
+  .day-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--green);
+    font-weight: 500; margin-bottom: 0.6rem;
+  }
+  .day-item {
+    display: flex; gap: 0.8rem;
+    font-size: 0.88rem; line-height: 1.7;
+    color: var(--mid-gray); margin-bottom: 0.4rem;
+  }
+  .day-item-time {
+    flex-shrink: 0; color: var(--charcoal);
+    font-weight: 600; min-width: 60px;
   }
 
-  /* CTA SECTION */
-  .df-cta {
-    background: linear-gradient(135deg, var(--blue) 0%, #0d3f7a 100%);
-    padding: 6rem 3rem;
+  /* ===== SECTION 4: MONITORING ===== */
+  .monitor-bg { background: var(--yellow-light); }
+  .monitor-bg .section-label { color: var(--brown); }
+  .monitor-bg .section-h2 { color: var(--charcoal); }
+  .monitor-flow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0; margin-top: 3rem;
+    position: relative;
+  }
+  .monitor-flow::before {
+    content: '';
+    position: absolute;
+    top: 36px; left: 10%; right: 10%;
+    height: 2px;
+    background: repeating-linear-gradient(
+      to right, var(--brown) 0, var(--brown) 8px, transparent 8px, transparent 16px
+    );
+    opacity: 0.3;
+  }
+  .flow-step {
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    padding: 0 0.8rem;
+    position: relative; z-index: 1;
+  }
+  .flow-icon {
+    width: 72px; height: 72px;
+    background: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+  }
+  .flow-step h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.92rem; font-weight: 700;
+    color: var(--charcoal); margin-bottom: 0.5rem;
+  }
+  .flow-step p {
+    font-size: 0.82rem; line-height: 1.7; color: var(--mid-gray);
+  }
+  .monitor-quote {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: white;
+    border-left: 4px solid var(--yellow);
+    border-radius: 0 10px 10px 0;
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+    font-style: italic;
+  }
+
+  /* ===== SECTION 5: SURVEY ===== */
+  .survey-bg { background: linear-gradient(135deg, #1a5fad 0%, #0d3f7a 100%); }
+  .survey-bg .section-label { color: rgba(255,255,255,0.5); }
+  .survey-bg .section-h2 { color: white; }
+  .survey-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin: 3rem 0;
+  }
+  .survey-feature {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 1.8rem 1.5rem;
     text-align: center;
   }
-  .df-cta h2 {
-    font-family: 'Shippori Mincho', serif;
-    font-size: clamp(1.6rem, 3vw, 2.4rem);
-    font-weight: 800;
-    color: white;
-    margin-bottom: 1.2rem;
+  .survey-feature-icon {
+    font-size: 2rem; margin-bottom: 0.8rem;
   }
-  .df-cta p {
-    color: rgba(255,255,255,0.75);
-    font-size: 0.95rem;
-    line-height: 1.9;
-    max-width: 520px;
-    margin: 0 auto 2.5rem;
+  .survey-feature h3 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1rem; font-weight: 700;
+    color: white; margin-bottom: 0.5rem;
+  }
+  .survey-feature p {
+    font-size: 0.83rem; line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+  }
+  .survey-cta-wrap {
+    text-align: center; padding-top: 1rem;
   }
   .cta-btn {
     display: inline-block;
-    padding: 1.1rem 3rem;
+    padding: 1.1rem 3.5rem;
     background: var(--amber-light);
     color: var(--charcoal);
     font-family: 'Noto Serif JP', serif;
-    font-weight: 600;
-    font-size: 1.05rem;
-    text-decoration: none;
-    border-radius: 4px;
+    font-weight: 600; font-size: 1.05rem;
+    text-decoration: none; border-radius: 4px;
     transition: all 0.25s;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-    margin-bottom: 1.2rem;
-    display: block;
-    max-width: 380px;
-    margin: 0 auto 1rem;
   }
   .cta-btn:hover {
     background: white;
@@ -366,53 +380,47 @@
     box-shadow: 0 8px 30px rgba(0,0,0,0.25);
   }
   .cta-note {
-    color: rgba(255,255,255,0.5);
-    font-size: 0.78rem;
-    font-family: 'Jost', sans-serif;
     margin-top: 1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
   }
 
-  /* FADE UP */
+  /* ===== FADE UP ===== */
   .fade-up {
-    opacity: 0;
-    transform: translateY(24px);
+    opacity: 0; transform: translateY(24px);
     transition: opacity 0.7s ease, transform 0.7s ease;
   }
-  .fade-up.visible {
-    opacity: 1;
-    transform: none;
-  }
+  .fade-up.visible { opacity: 1; transform: none; }
 
-  /* FOOTER */
+  /* ===== FOOTER ===== */
   footer {
     background: var(--charcoal);
-    color: rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 2.5rem;
+    text-align: center; padding: 2.5rem;
     font-family: 'Jost', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
+    font-size: 0.8rem; letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.4);
   }
   .footer-back {
-    display: inline-block;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
-    transition: color 0.2s;
+    display: inline-block; color: rgba(255,255,255,0.55);
+    text-decoration: none; font-size: 0.8rem;
+    margin-bottom: 1rem; transition: color 0.2s;
   }
   .footer-back:hover { color: white; }
 
-  /* RESPONSIVE */
+  /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .df-hero { padding: 7rem 1.5rem 3rem; }
-    .df-hero-stats { gap: 2rem; }
-    .df-concept, .df-how { padding: 4rem 1.5rem; }
-    .df-muscles { padding: 4rem 1.5rem; }
-    .df-cta { padding: 4rem 1.5rem; }
+    .df-hero { padding: 7rem 1.5rem 3.5rem; }
+    .section-wrap { padding: 4.5rem 1.5rem; }
+    .muscles-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .gasshuku-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+    .monitor-flow { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .monitor-flow::before { display: none; }
+    .survey-features { grid-template-columns: 1fr; }
     .muscles-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-cards { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -434,64 +442,97 @@
   </ul>
 </nav>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="df-hero">
   <div class="df-hero-eyebrow">Democracy Fitness</div>
   <h1>デモクラシー<br>フィットネス<em>.</em></h1>
   <p class="df-hero-sub">
-    民主主義は筋肉でできている。<br>
-    あなたの組織の「対話力」を10の筋肉から診断する、新しいサーベイプログラムです。
+    民主主義は、筋肉でできている。<br>
+    対話の力を鍛えることで、組織は変わり、社会は変わる。
   </p>
-  <a href="mailto:kizukikumitate@gmail.com" class="df-hero-cta">
-    まずはサーベイのテストから →
-  </a>
-  <div class="df-hero-stats">
-    <div class="df-stat">
-      <div class="df-stat-num">10</div>
-      <div class="df-stat-label">民主主義の筋肉</div>
-    </div>
-    <div class="df-stat">
-      <div class="df-stat-num">60</div>
-      <div class="df-stat-label">診断の質問</div>
-    </div>
-    <div class="df-stat">
-      <div class="df-stat-num">2</div>
-      <div class="df-stat-label">可視化グラフ</div>
-    </div>
-  </div>
+  <div class="df-hero-scroll">Scroll ↓</div>
 </section>
 
-<!-- CONCEPT -->
-<section class="df-concept">
-  <div class="fade-up">
-    <div class="section-label">Concept</div>
-    <h2>民主主義は、<br>日常の対話から始まる。</h2>
-    <p>
-      デモクラシーフィットネスは、デンマークの民主主義教育の実践をベースに開発された、組織の「対話力診断」プログラムです。
-      民主主義を支える10の能力を「筋肉」に例え、個人と組織それぞれの強みと課題を可視化します。
-    </p>
-    <p>
-      会議で意見が出ない、反対意見を言えない、決定に誰も動かない——そんな組織の閉塞感の多くは、
-      民主的な対話の筋肉が鍛えられていないことに起因しています。
-      このサーベイは、その筋力を測り、どこから鍛えるべきかを教えてくれます。
-    </p>
-    <p>
-      Part 1「個人評価」では自分自身の対話力を、Part 2「組織評価」では組織全体の対話の質を、
-      60の質問を通じて多角的に測定します。
-    </p>
-  </div>
-</section>
-
-<!-- MUSCLES -->
-<section class="df-muscles">
-  <div class="df-muscles-inner">
+<!-- ===== SECTION 1: WHY ===== -->
+<section class="why-bg">
+  <div class="section-wrap">
     <div class="fade-up">
-      <div class="section-label">10 Muscles</div>
-      <h2>民主主義の10の筋肉</h2>
-      <p class="df-muscles-lead">
-        それぞれの筋肉は、健全な民主的対話を支えるための能力です。<br>
-        個人としても、組織としても、どの筋肉が強く、どこが弱いかを把握することが第一歩です。
+      <div class="section-label" style="color:var(--red);">Why Now</div>
+      <h2 class="section-h2">なぜ今、日本に<br>デモクラシーフィットネスが必要なのか。</h2>
+    </div>
+    <div class="body-text fade-up">
+      <p>
+        日本の組織や社会には、特有の対話の困難さがあります。
+        会議では誰も本音を言わない。反対意見を口にすることがはばかられる。
+        決まったことに誰も動かない——こうした光景は、多くの組織で繰り返されています。
       </p>
+      <p>
+        これは、個人の性格の問題ではありません。<strong>民主的な対話の「筋肉」が、日常的に鍛えられてこなかった</strong>ことに起因しています。
+        民主主義とは、選挙に行くことだけではなく、日常の対話の中で実践されるものです。
+      </p>
+      <p>
+        デンマークをはじめとする北欧社会では、学校教育から日常の会議まで、
+        対話の力を意識的に育てる文化があります。
+        デモクラシーフィットネスは、その実践を日本の文脈に持ち込む試みです。
+      </p>
+    </div>
+    <div class="why-cards fade-up">
+      <div class="why-card">
+        <div class="why-card-icon">🤐</div>
+        <h3>「発言できない」文化</h3>
+        <p>上下関係や同調圧力の中で、本音を言える場が失われている。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">🔄</div>
+        <h3>意思決定の形骸化</h3>
+        <p>決定プロセスに関わる実感がなく、当事者意識が育ちにくい。</p>
+      </div>
+      <div class="why-card">
+        <div class="why-card-icon">💪</div>
+        <h3>鍛えれば変わる</h3>
+        <p>対話力は生まれつきの才能ではなく、意識的なトレーニングで育てられる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: WHAT ===== -->
+<section class="what-bg">
+  <div class="section-wrap wide">
+    <div class="fade-up">
+      <div class="section-label" style="color:var(--blue);">What is it</div>
+      <h2 class="section-h2">デモクラシーフィットネスとは。</h2>
+    </div>
+    <div class="muscles-intro fade-up">
+      <div class="muscles-intro-text">
+        <p>
+          デモクラシーフィットネスは、民主的な対話を支える<strong>10の能力（筋肉）</strong>を軸に設計されたワークショッププログラムです。
+          それぞれの筋肉に対応した<strong>30分のワーク</strong>が10個あり、体験・内省・実践を繰り返しながら、対話力を段階的に鍛えていきます。
+        </p>
+        <p>
+          「好奇心を持って聴く」「自分の意見を言葉にする」「反対意見を建設的に表現する」——
+          これらは、意識して練習しなければなかなか身につきません。
+          各ワークは、安全な場で繰り返し実践できるよう設計されています。
+        </p>
+      </div>
+      <div class="muscles-highlight">
+        <h3>プログラムの構成</h3>
+        <div class="muscles-highlight-stat">
+          <div class="muscles-stat-item">
+            <div class="muscles-stat-num">10</div>
+            <div class="muscles-stat-label">の筋肉</div>
+          </div>
+          <div class="muscles-stat-item">
+            <div class="muscles-stat-num">10</div>
+            <div class="muscles-stat-label">のワーク</div>
+          </div>
+          <div class="muscles-stat-item">
+            <div class="muscles-stat-num">30<span style="font-size:1.2rem">分</span></div>
+            <div class="muscles-stat-label">×各ワーク</div>
+          </div>
+        </div>
+        <p>各ワークは独立しており、単発の研修にも、連続プログラムにも組み合わせて活用できます。</p>
+      </div>
     </div>
     <div class="muscles-grid fade-up">
       <div class="muscle-card">
@@ -548,55 +589,127 @@
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="df-how">
-  <div class="fade-up">
-    <div class="section-label">How it works</div>
-    <h2>サーベイの進め方</h2>
-  </div>
-  <div class="steps">
-    <div class="step fade-up">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <h3>サーベイを作成する（管理者）</h3>
-        <p>組織名を入力してサーベイを作成。発行された専用リンクをチームメンバーに共有します。</p>
-      </div>
+<!-- ===== SECTION 3: GASSHUKU ===== -->
+<section class="gasshuku-bg">
+  <div class="section-wrap wide">
+    <div class="fade-up">
+      <div class="section-label" style="color:var(--green);">Intensive Program</div>
+      <h2 class="section-h2">2日間の合宿型<br>集中プログラム。</h2>
     </div>
-    <div class="step fade-up">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <h3>Part 1：個人評価（30問）</h3>
-        <p>自分自身の行動や傾向を振り返る30の質問に答えます。日常の対話における自分の強みと成長ポイントが見えてきます。</p>
+    <div class="gasshuku-layout fade-up">
+      <div class="body-text">
+        <p>
+          デモクラシーフィットネスの10のワークを2日間で集中的に体験する合宿型プログラムです。
+          日常から離れた環境に身を置き、仲間とともに対話の筋肉を徹底的に鍛えます。
+        </p>
+        <p>
+          単なる研修ではなく、<strong>共に生活し、共に対話する</strong>なかで、
+          人の話を深く聴くことの難しさと豊かさ、自分の意見を言葉にする勇気、
+          反対意見と向き合う経験を積み重ねていきます。
+        </p>
+        <p>
+          長野県・軽井沢など自然豊かな環境での開催を想定しています。
+          企業チームや団体向けのカスタマイズも対応可能です。
+        </p>
       </div>
-    </div>
-    <div class="step fade-up">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <h3>Part 2：組織評価（30問）</h3>
-        <p>所属する組織・チームの対話の質を評価する30の質問。組織全体として、どの筋肉が発達していて、何が課題かが浮かび上がります。</p>
-      </div>
-    </div>
-    <div class="step fade-up">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <h3>結果を可視化する</h3>
-        <p>レーダーチャートで10の筋肉のバランスを、4象限マトリクスで「個人と組織の一致度」を確認。チームで結果を共有し、対話のきっかけにしてください。</p>
+      <div class="gasshuku-schedule">
+        <h3>2日間のイメージスケジュール</h3>
+        <div class="day-block">
+          <div class="day-label">Day 1</div>
+          <div class="day-item"><span class="day-item-time">午前</span><span>オリエンテーション／筋肉①②③ のワーク</span></div>
+          <div class="day-item"><span class="day-item-time">午後</span><span>筋肉④⑤⑥ のワーク／振り返り対話</span></div>
+          <div class="day-item"><span class="day-item-time">夜</span><span>夕食を囲んだ非公式な対話の場</span></div>
+        </div>
+        <div class="day-block">
+          <div class="day-label">Day 2</div>
+          <div class="day-item"><span class="day-item-time">午前</span><span>筋肉⑦⑧ のワーク／個人内省の時間</span></div>
+          <div class="day-item"><span class="day-item-time">午後</span><span>筋肉⑨⑩ のワーク／全体振り返り</span></div>
+          <div class="day-item"><span class="day-item-time">夕方</span><span>「これから」の宣言とクロージング</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="df-cta">
-  <h2 class="fade-up">まず、自分で試してみる。</h2>
-  <p class="fade-up">
-    サーベイはどなたでもテストとして回答できます。<br>
-    実際に体験してから、組織での導入をご検討ください。
-  </p>
-  <a href="mailto:kizukikumitate@gmail.com" class="cta-btn fade-up">
-    まずはサーベイのテストから
-  </a>
-  <p class="cta-note fade-up">kizukikumitate@gmail.com へメールが開きます</p>
+<!-- ===== SECTION 4: MONITORING ===== -->
+<section class="monitor-bg">
+  <div class="section-wrap wide">
+    <div class="fade-up">
+      <div class="section-label" style="color:var(--brown);">Self-Monitoring</div>
+      <h2 class="section-h2">ダイエットと同じ。<br>データを見ながら、改善サイクルを回す。</h2>
+    </div>
+    <div class="body-text fade-up">
+      <p>
+        筋肉トレーニングで成果を上げるには、今の状態を正確に把握し、変化を可視化し、
+        次のアクションを調整していくことが必要です。対話の筋肉も、まったく同じです。
+      </p>
+    </div>
+    <div class="monitor-flow fade-up">
+      <div class="flow-step">
+        <div class="flow-icon">📊</div>
+        <h3>測定する</h3>
+        <p>サーベイで現在の筋肉バランスを数値化する</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-icon">🔍</div>
+        <h3>分析する</h3>
+        <p>強みと課題を可視化し、チームで共有する</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-icon">🏋️</div>
+        <h3>鍛える</h3>
+        <p>優先する筋肉のワークに取り組む</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-icon">🔄</div>
+        <h3>再測定する</h3>
+        <p>定期的に再測定し、変化を確認する</p>
+      </div>
+    </div>
+    <div class="monitor-quote fade-up">
+      「体重計に乗ることからダイエットが始まるように、<br>
+      組織の対話力も、まず現状を知ることから始まります。」
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: SURVEY ===== -->
+<section class="survey-bg">
+  <div class="section-wrap">
+    <div class="fade-up">
+      <div class="section-label">Survey</div>
+      <h2 class="section-h2">診断サーベイで、<br>今の筋力を測ってみる。</h2>
+    </div>
+    <div class="body-text fade-up" style="color:rgba(255,255,255,0.75);">
+      <p style="color:rgba(255,255,255,0.75);">
+        デモクラシーフィットネス診断サーベイは、個人評価（Part 1）と組織評価（Part 2）の合計60問で構成されています。
+        レーダーチャートと4象限マトリクスで、あなたと組織の「筋肉バランス」を可視化します。
+      </p>
+    </div>
+    <div class="survey-features fade-up">
+      <div class="survey-feature">
+        <div class="survey-feature-icon">👤</div>
+        <h3>Part 1：個人評価</h3>
+        <p>自分自身の対話傾向を30問で振り返る。強みと成長ポイントが見えてくる。</p>
+      </div>
+      <div class="survey-feature">
+        <div class="survey-feature-icon">🏢</div>
+        <h3>Part 2：組織評価</h3>
+        <p>組織・チームの対話の質を30問で評価。全体傾向をデータで把握する。</p>
+      </div>
+      <div class="survey-feature">
+        <div class="survey-feature-icon">📈</div>
+        <h3>2つの可視化</h3>
+        <p>レーダーチャートと4象限マトリクスで、個人と組織の一致度を直感的に確認。</p>
+      </div>
+    </div>
+    <div class="survey-cta-wrap fade-up">
+      <a href="mailto:kizukikumitate@gmail.com" class="cta-btn">
+        まずはサーベイのテストから
+      </a>
+      <p class="cta-note">kizukikumitate@gmail.com へメールが開きます</p>
+    </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -608,17 +721,11 @@
 <script>
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-  setTimeout(() => {
-    document.querySelectorAll('.df-hero .fade-up').forEach(el => el.classList.add('visible'));
-  }, 200);
 </script>
 </body>
 </html>
