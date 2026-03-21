@@ -148,39 +148,66 @@
   /* ===== WHAT ===== */
   .what-bg { background: var(--gray-light); }
   .what-bg .section-label { color: var(--lsp-yellow); filter: brightness(0.8); }
-  .build-flow {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 0; margin-top: 3rem; position: relative;
-  }
-  .build-flow::before {
-    content: '';
-    position: absolute; top: 40px; left: 16%; right: 16%;
-    height: 2px;
-    background: repeating-linear-gradient(
-      to right, var(--lsp-red) 0, var(--lsp-red) 8px, transparent 8px, transparent 16px
-    );
-    opacity: 0.3;
+  /* ===== SPIRAL FLOW ===== */
+  .spiral-wrap { margin-top: 3rem; }
+  .spiral-grid {
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    grid-template-rows: auto 56px auto;
+    gap: 0;
+    max-width: 720px; margin: 0 auto;
   }
   .build-step {
+    background: white;
+    border-radius: 14px;
+    padding: 1.8rem 1.5rem 1.6rem;
+    box-shadow: 0 3px 16px rgba(0,0,0,0.07);
     display: flex; flex-direction: column;
     align-items: center; text-align: center;
-    padding: 0 1.5rem; position: relative; z-index: 1;
+    position: relative;
   }
   .build-step-num {
-    width: 80px; height: 80px;
-    background: white; border-radius: 50%;
+    width: 52px; height: 52px;
+    border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-family: 'DM Serif Display', serif;
-    font-size: 2rem; color: var(--lsp-red);
-    box-shadow: 0 3px 16px rgba(0,0,0,0.1);
-    margin-bottom: 1.2rem;
+    font-size: 1.1rem; font-weight: 700; color: white;
+    margin-bottom: 1rem; flex-shrink: 0;
   }
+  .build-step-num.s1 { background: var(--lsp-red); }
+  .build-step-num.s2 { background: var(--lsp-yellow); color: #1a1000; }
+  .build-step-num.s3 { background: var(--green); }
+  .build-step-num.s4 { background: var(--blue); }
   .build-step h3 {
     font-family: 'Shippori Mincho', serif;
-    font-size: 1.05rem; font-weight: 700;
+    font-size: 1.1rem; font-weight: 700;
     color: var(--charcoal); margin-bottom: 0.5rem;
   }
-  .build-step p { font-size: 0.85rem; line-height: 1.75; color: var(--mid-gray); }
+  .build-step p { font-size: 0.83rem; line-height: 1.75; color: var(--mid-gray); }
+  /* arrows */
+  .spiral-arrow {
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; color: #bbb; font-weight: 300;
+  }
+  .spiral-arrow.arr-right { grid-column: 2; grid-row: 1; }
+  .spiral-arrow.arr-down-r { grid-column: 3; grid-row: 2; }
+  .spiral-arrow.arr-left   { grid-column: 2; grid-row: 3; }
+  .spiral-arrow.arr-down-l { grid-column: 1; grid-row: 2; }
+  .spiral-center {
+    grid-column: 2; grid-row: 2;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem;
+    animation: spin-slow 8s linear infinite;
+  }
+  @keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .spiral-caption {
+    text-align: center; margin-top: 1.5rem;
+    font-size: 0.82rem; color: #aaa; letter-spacing: 0.05em;
+  }
+  @media (max-width: 640px) {
+    .spiral-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 1rem; }
+    .spiral-arrow, .spiral-center { display: none; }
+    .build-step { grid-column: 1 !important; grid-row: auto !important; }
+  }
 
   /* ===== COMBINATION ===== */
   .combo-bg { background: white; }
@@ -430,22 +457,44 @@
         <strong>平等な発言の場</strong>が生まれます。
       </p>
     </div>
-    <div class="build-flow fade-up">
-      <div class="build-step">
-        <div class="build-step-num">Build</div>
-        <h3>建てる</h3>
-        <p>問いに対して、言葉より先に手を動かす。ブロックで思考を形にする。</p>
+    <div class="spiral-wrap fade-up">
+      <div class="spiral-grid">
+        <!-- ① 問いかける (top-left) -->
+        <div class="build-step" style="grid-column:1;grid-row:1;">
+          <div class="build-step-num s1">①</div>
+          <h3>問いかける</h3>
+          <p>参加者全員が向き合う「問い」を立てる。答えより先に、問いが人を動かす。</p>
+        </div>
+        <!-- → -->
+        <div class="spiral-arrow arr-right">→</div>
+        <!-- ② 組み立てる (top-right) -->
+        <div class="build-step" style="grid-column:3;grid-row:1;">
+          <div class="build-step-num s2">②</div>
+          <h3>組み立てる</h3>
+          <p>言葉より先に手を動かす。ブロックで思考と感覚を形にする。</p>
+        </div>
+        <!-- ↓ left -->
+        <div class="spiral-arrow arr-down-l">↓</div>
+        <!-- center spiral -->
+        <div class="spiral-center">🌀</div>
+        <!-- ↓ right -->
+        <div class="spiral-arrow arr-down-r">↓</div>
+        <!-- ④ 深める (bottom-left) -->
+        <div class="build-step" style="grid-column:1;grid-row:3;">
+          <div class="build-step-num s4">④</div>
+          <h3>深める</h3>
+          <p>互いのモデルを通じて問いを深め、新たな洞察が生まれる。そしてまた①へ。</p>
+        </div>
+        <!-- ← -->
+        <div class="spiral-arrow arr-left">←</div>
+        <!-- ③ 共有する (bottom-right) -->
+        <div class="build-step" style="grid-column:3;grid-row:3;">
+          <div class="build-step-num s3">③</div>
+          <h3>共有する</h3>
+          <p>自分のモデルについて語る。「作ったもの」が会話の安全な入口になる。</p>
+        </div>
       </div>
-      <div class="build-step">
-        <div class="build-step-num">Share</div>
-        <h3>話す</h3>
-        <p>自分のモデルについて語る。「作ったもの」が会話の安全な入口になる。</p>
-      </div>
-      <div class="build-step">
-        <div class="build-step-num">Reflect</div>
-        <h3>深める</h3>
-        <p>互いのモデルを通じて問いを深め、チームとしての洞察を引き出す。</p>
-      </div>
+      <p class="spiral-caption">このサイクルが繰り返されることで、思考と対話が螺旋状に深まっていく</p>
     </div>
   </div>
 </section>
