@@ -1692,37 +1692,40 @@
 
   // ===== NOTE LATEST ARTICLES =====
   async function fetchNoteArticles() {
-    const container = document.getElementById('note-latest-articles');
+    var container = document.getElementById('note-latest-articles');
     if (!container) return;
     try {
-      const apiUrl = 'https://note.com/api/v2/creators/kizukikumitate/contents?kind=note&page=1&per=3';
-      const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(apiUrl);
-      const res = await fetch(proxyUrl);
+      var apiUrl = 'https://note.com/api/v2/creators/kizukikumitate/contents?kind=note&page=1&per=3';
+      var proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(apiUrl);
+      var res = await fetch(proxyUrl);
       if (!res.ok) return;
-      const data = await res.json();
-      const articles = data?.data?.contents || [];
+      var data = await res.json();
+      var articles = data && data.data && data.data.contents ? data.data.contents : [];
       if (!articles.length) return;
 
-      container.innerHTML = articles.map(a => {
-        const url   = 'https://note.com/kizukikumitate/n/' + a.key;
-        const title = a.name || '無題';
-        const date  = a.publishAt ? a.publishAt.slice(0, 10).replace(/-/g, '.') : '';
-        const likes = a.likeCount || 0;
-        const thumb = a.eyecatch || '';
-        const thumbEl = thumb
-          ? \`<img class="note-article-thumb" src="\${thumb}" alt="" loading="lazy">\`
-          : \`<div class="note-article-thumb-placeholder"></div>\`;
-        return \`<a class="note-article-card" href="\${url}" target="_blank" rel="noopener">
-          \${thumbEl}
-          <div class="note-article-body">
-            <div class="note-article-title">\${title}</div>
-            <div class="note-article-meta">
-              <span>\${date}</span>
-              <span class="note-article-like">\${likes}</span>
-            </div>
-          </div>
-        </a>\`;
-      }).join('');
+      var html = '';
+      for (var i = 0; i < articles.length; i++) {
+        var a = articles[i];
+        var url   = 'https://note.com/kizukikumitate/n/' + (a.key || '');
+        var title = a.name || '無題';
+        var date  = a.publishAt ? a.publishAt.slice(0, 10).replace(/-/g, '.') : '';
+        var likes = a.likeCount || 0;
+        var thumb = a.eyecatch || '';
+        var thumbHtml = thumb
+          ? '<img class="note-article-thumb" src="' + thumb + '" alt="" loading="lazy">'
+          : '<div class="note-article-thumb-placeholder"></div>';
+        html += '<a class="note-article-card" href="' + url + '" target="_blank" rel="noopener">'
+              + thumbHtml
+              + '<div class="note-article-body">'
+              + '<div class="note-article-title">' + title + '</div>'
+              + '<div class="note-article-meta">'
+              + '<span>' + date + '</span>'
+              + '<span class="note-article-like">' + likes + '</span>'
+              + '</div>'
+              + '</div>'
+              + '</a>';
+      }
+      container.innerHTML = html;
     } catch(e) { /* silent */ }
   }
 
