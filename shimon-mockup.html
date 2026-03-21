@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>志紋セクション 叩き台</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown:  #7f4f21;
+    --red:    #cf0029;
+    --pink:   #e5588a;
+    --yellow: #ffde00;
+    --green:  #009944;
+    --navy:   #0062b1;
+    --sky:    #37bef0;
+    --gray:   #6a7582;
+    --charcoal: #1e1e1e;
+    --mid-gray: #5a6a7a;
+    --off-white: #fafafa;
+    --light-border: #dde4ea;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Serif JP', serif;
+    background: var(--off-white);
+    color: var(--charcoal);
+  }
+
+  .banner {
+    background: #1e1e1e; color: white;
+    padding: 0.8rem 2rem; text-align: center;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.12em;
+  }
+  .banner span { color: #ffde00; }
+
+  /* ════════ セクション全体 ════════ */
+  #shimon {
+    padding: 7rem 2rem 6rem;
+    background: #fafafa;
+  }
+  .shimon-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--navy); margin-bottom: 0.6rem; font-weight: 500;
+  }
+  h2 {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600; line-height: 1.4;
+    margin-bottom: 0.6rem;
+  }
+  .shimon-sub {
+    font-size: 0.95rem; color: var(--mid-gray);
+    margin-bottom: 3rem; line-height: 1.8;
+  }
+
+  /* ════════ 引用フレーズ ════════ */
+  .shimon-quote {
+    text-align: center;
+    margin: 0 auto 4rem;
+    max-width: 600px;
+    padding: 2rem 2.5rem;
+    border-top: 2px solid var(--yellow);
+    border-bottom: 2px solid var(--yellow);
+    position: relative;
+  }
+  .shimon-quote::before {
+    content: '\201C';
+    font-size: 4rem; color: var(--yellow);
+    position: absolute; top: -1.2rem; left: 1.5rem;
+    font-family: Georgia, serif; line-height: 1;
+  }
+  .shimon-quote p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 2.1; color: #1a1000;
+    letter-spacing: 0.06em;
+  }
+
+  /* ════════ ロゴタイプ インタラクティブ ════════ */
+  .logotype-section-label {
+    font-family: 'Jost', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mid-gray); text-align: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .logotype-wrap {
+    position: relative;
+    margin-bottom: 0;
+    cursor: default;
+    /* 画像のアスペクト比 1500:450 = 10:3 */
+  }
+  .logotype-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* アノテーションドット */
+  .anno {
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  .anno-dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500;
+    color: white; cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+  .anno-dot:hover, .anno.active .anno-dot {
+    transform: scale(1.2);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  }
+
+  /* ツールチップ */
+  .anno-tip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%; transform: translateX(-50%);
+    background: white;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    width: 200px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+    transform: translateX(-50%) translateY(6px);
+    z-index: 20;
+    border-top: 3px solid var(--c);
+  }
+  .anno:hover .anno-tip, .anno.active .anno-tip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+  .anno-tip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%; transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: white;
+  }
+  .anno-tip-num {
+    font-family: 'Jost', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.1em; color: var(--c);
+    margin-bottom: 0.3rem; font-weight: 500;
+  }
+  .anno-tip-title {
+    font-size: 0.85rem; font-weight: 600;
+    margin-bottom: 0.3rem; line-height: 1.4;
+  }
+  .anno-tip-desc {
+    font-size: 0.75rem; color: var(--mid-gray); line-height: 1.65;
+  }
+
+  /* ステップパネル（クリックで下に表示） */
+  .step-panel {
+    margin-top: 0;
+    background: white;
+    border-radius: 0 0 12px 12px;
+    padding: 0;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease, padding 0.3s ease;
+    border: 1px solid var(--light-border);
+    border-top: none;
+  }
+  .step-panel.open {
+    max-height: 200px;
+    padding: 1.8rem 2rem;
+  }
+  .step-panel-inner {
+    display: flex; align-items: flex-start; gap: 1.2rem;
+  }
+  .step-panel-num {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 500;
+    color: white; flex-shrink: 0;
+    background: var(--active-c, #999);
+  }
+  .step-panel-title {
+    font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem;
+  }
+  .step-panel-desc {
+    font-size: 0.9rem; color: var(--mid-gray); line-height: 1.75;
+  }
+
+  /* ステップナビ */
+  .step-nav {
+    display: flex; gap: 0.5rem;
+    margin-top: 1.5rem; justify-content: center;
+    flex-wrap: wrap;
+  }
+  .step-nav-btn {
+    width: 36px; height: 36px; border-radius: 50%;
+    border: 2px solid var(--c); background: white;
+    color: var(--c); font-family: 'Jost', sans-serif;
+    font-size: 0.78rem; font-weight: 500; cursor: pointer;
+    transition: all 0.2s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step-nav-btn:hover, .step-nav-btn.active {
+    background: var(--c); color: white;
+  }
+
+  /* ════════ 8色グリッド ════════ */
+  .colors-wrap {
+    margin-top: 4rem;
+  }
+  .colors-label {
+    font-family: 'Jost', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mid-gray); text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  .colors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.8rem;
+  }
+  .color-card {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 0.9rem 1.1rem;
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    border-left: 4px solid var(--c);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .color-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  }
+  .color-dot {
+    width: 16px; height: 16px; border-radius: 50%;
+    background: var(--c); flex-shrink: 0;
+  }
+  .color-name { font-size: 0.88rem; font-weight: 600; }
+
+  /* ════════ リンク ════════ */
+  .shimon-cta {
+    text-align: center; margin-top: 3.5rem;
+  }
+  .shimon-cta a {
+    font-family: 'Jost', sans-serif; font-size: 0.88rem;
+    letter-spacing: 0.1em; color: var(--navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--navy);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .shimon-cta a:hover { opacity: 0.6; }
+
+  @media (max-width: 640px) {
+    .colors-grid { grid-template-columns: repeat(2, 1fr); }
+    .anno-dot { width: 24px; height: 24px; font-size: 0.6rem; }
+    .anno-tip { width: 160px; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="banner">志紋セクション インタラクティブ叩き台 ── <span>各番号をホバー or クリック</span>してみてください</div>
+
+<section id="shimon">
+  <div class="shimon-inner">
+
+    <div class="section-label">志紋</div>
+    <h2>きづきくみたての志</h2>
+    <p class="shimon-sub">この問いへの答えとして、ロゴにすべての想いを込めました。</p>
+
+    <!-- 引用 -->
+    <div class="shimon-quote">
+      <p>「この基地が起点となり、<br>人の想いが共鳴され、<br>そこから希望が生まれていく」</p>
+    </div>
+
+    <!-- ロゴタイプ インタラクティブ -->
+    <div class="logotype-section-label">ロゴタイプに込めたストーリー ── 各要素にカーソルを当ててみてください</div>
+
+    <div class="logotype-wrap" id="logotype-wrap">
+      <img src="./logotype.png" alt="きづきくみたて工房 ロゴタイプ">
+
+      <!-- ① 気づき（左端の傷マーク・"き" あたり） -->
+      <div class="anno" style="left:6%; top:52%; --c:#cf0029" data-step="1">
+        <div class="anno-dot" style="background:#cf0029">①</div>
+        <div class="anno-tip" style="--c:#cf0029">
+          <div class="anno-tip-num">STEP 01</div>
+          <div class="anno-tip-title">自らの意思で<br>変革へ踏み出す</div>
+          <div class="anno-tip-desc">傷を抱えながらも、自らの意思を持って変革のプロセスに入っていく</div>
+        </div>
+      </div>
+
+      <!-- ② 聞く（"づ""き" 音波マーク） -->
+      <div class="anno" style="left:26%; top:38%; --c:#0062b1" data-step="2">
+        <div class="anno-dot" style="background:#0062b1">②</div>
+        <div class="anno-tip" style="--c:#0062b1">
+          <div class="anno-tip-num">STEP 02</div>
+          <div class="anno-tip-title">対話・傾聴</div>
+          <div class="anno-tip-desc">いろいろな人の意見を聞いていく中で、気づきが生まれる</div>
+        </div>
+      </div>
+
+      <!-- ③ 見立てる（丸レンズ） -->
+      <div class="anno" style="left:43%; top:58%; --c:#e5588a" data-step="3">
+        <div class="anno-dot" style="background:#e5588a">③</div>
+        <div class="anno-tip" style="--c:#e5588a">
+          <div class="anno-tip-num">STEP 03</div>
+          <div class="anno-tip-title">自分の想いと<br>強みを発見</div>
+          <div class="anno-tip-desc">自分自身の存在・将来が良いものになるように物の見方を整える</div>
+        </div>
+      </div>
+
+      <!-- ④ 組み立てる（ブロック） -->
+      <div class="anno" style="left:62%; top:42%; --c:#009944" data-step="4">
+        <div class="anno-dot" style="background:#009944">④</div>
+        <div class="anno-tip" style="--c:#009944">
+          <div class="anno-tip-num">STEP 04</div>
+          <div class="anno-tip-title">要素を組み立てる</div>
+          <div class="anno-tip-desc">大切な要素を組み立て、より価値の高いものを生み出していく</div>
+        </div>
+      </div>
+
+      <!-- ⑤ 希望（望遠鏡） -->
+      <div class="anno" style="left:82%; top:55%; --c:#37bef0" data-step="5">
+        <div class="anno-dot" style="background:#37bef0">⑤</div>
+        <div class="anno-tip" style="--c:#37bef0; left:auto; right:0; transform:none;">
+          <div class="anno-tip-num">STEP 05</div>
+          <div class="anno-tip-title">希望へと変わる</div>
+          <div class="anno-tip-desc">望遠鏡が示す先に、希望の光が見えてくる</div>
+        </div>
+      </div>
+
+      <!-- ⑥ 北極星（★） -->
+      <div class="anno" style="left:94%; top:18%; --c:#ffde00" data-step="6">
+        <div class="anno-dot" style="background:#ffde00; color:#333; border-color:rgba(0,0,0,0.1)">⑥</div>
+        <div class="anno-tip" style="--c:#ffde00; left:auto; right:0; transform:none;">
+          <div class="anno-tip-num">STEP 06</div>
+          <div class="anno-tip-title">北極星・道標となる</div>
+          <div class="anno-tip-desc">常に自分の目指す道を示す道標として、周りを照らし続ける</div>
+        </div>
+      </div>
+
+    </div><!-- /logotype-wrap -->
+
+    <!-- クリックで下に展開するパネル -->
+    <div class="step-panel" id="step-panel">
+      <div class="step-panel-inner">
+        <div class="step-panel-num" id="panel-num">①</div>
+        <div>
+          <div class="step-panel-title" id="panel-title"></div>
+          <div class="step-panel-desc" id="panel-desc"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ステップナビ -->
+    <div class="step-nav">
+      <button class="step-nav-btn" style="--c:#cf0029" data-step="1">①</button>
+      <button class="step-nav-btn" style="--c:#0062b1" data-step="2">②</button>
+      <button class="step-nav-btn" style="--c:#e5588a" data-step="3">③</button>
+      <button class="step-nav-btn" style="--c:#009944" data-step="4">④</button>
+      <button class="step-nav-btn" style="--c:#37bef0" data-step="5">⑤</button>
+      <button class="step-nav-btn" style="--c:#ffde00; color:#333" data-step="6">⑥</button>
+    </div>
+
+    <!-- 8色 -->
+    <div class="colors-wrap">
+      <div class="colors-label">8色にこめた、大切にしていきたいありかた</div>
+      <div class="colors-grid">
+        <div class="color-card" style="--c:#7f4f21"><div class="color-dot"></div><span class="color-name">貢献欲</span></div>
+        <div class="color-card" style="--c:#cf0029"><div class="color-dot"></div><span class="color-name">冒険心</span></div>
+        <div class="color-card" style="--c:#e5588a"><div class="color-dot"></div><span class="color-name">感謝</span></div>
+        <div class="color-card" style="--c:#ffde00"><div class="color-dot"></div><span class="color-name">好奇心</span></div>
+        <div class="color-card" style="--c:#009944"><div class="color-dot"></div><span class="color-name">ご機嫌</span></div>
+        <div class="color-card" style="--c:#0062b1"><div class="color-dot"></div><span class="color-name">メタ認知</span></div>
+        <div class="color-card" style="--c:#37bef0"><div class="color-dot"></div><span class="color-name">自由</span></div>
+        <div class="color-card" style="--c:#6a7582"><div class="color-dot"></div><span class="color-name">断る力</span></div>
+      </div>
+    </div>
+
+    <div class="shimon-cta">
+      <a href="https://note.com/kizukikumitate/n/ndbeb5988cc6f" target="_blank" rel="noopener">
+        ロゴ誕生のストーリーを読む →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+const steps = {
+  1: { num: '①', title: '自らの意思で変革へ踏み出す', desc: '傷を抱えながらも、自らの意思を持って変革のプロセスに入っていく。きづきくみたての活動はここから始まります。', color: '#cf0029' },
+  2: { num: '②', title: '対話・傾聴', desc: 'いろいろな人の意見を聞いていく中で、気づきが生まれる。対話は変革の入り口です。', color: '#0062b1' },
+  3: { num: '③', title: '自分の想いと強みを発見', desc: '自分自身の存在・将来が良いものになるように物の見方を整える。「見立てる」ことで新しい自分が見えてくる。', color: '#e5588a' },
+  4: { num: '④', title: '要素を組み立てる', desc: '大切な要素を組み立て、より価値の高いものを生み出す。「くみたて」の核心です。', color: '#009944' },
+  5: { num: '⑤', title: '希望へと変わる', desc: '望遠鏡が示す先に、希望の光が見えてくる。変革のプロセスが実を結ぶ瞬間。', color: '#37bef0' },
+  6: { num: '⑥', title: '北極星・道標となる', desc: '常に自分の目指す道を示す道標として、周りを照らし続ける存在へ。', color: '#ffde00' }
+};
+
+let activeStep = null;
+const panel = document.getElementById('step-panel');
+const panelNum = document.getElementById('panel-num');
+const panelTitle = document.getElementById('panel-title');
+const panelDesc = document.getElementById('panel-desc');
+
+function showStep(n) {
+  const s = steps[n];
+  if (activeStep === n) {
+    // 同じをクリックで閉じる
+    panel.classList.remove('open');
+    document.querySelectorAll('.anno').forEach(a => a.classList.remove('active'));
+    document.querySelectorAll('.step-nav-btn').forEach(b => b.classList.remove('active'));
+    activeStep = null;
+    return;
+  }
+  activeStep = n;
+  panelNum.textContent = s.num;
+  panelNum.style.background = s.color;
+  panelTitle.textContent = s.title;
+  panelDesc.textContent = s.desc;
+  panel.style.setProperty('--active-c', s.color);
+  panel.classList.add('open');
+
+  document.querySelectorAll('.anno').forEach(a => a.classList.remove('active'));
+  document.querySelectorAll('.step-nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.anno[data-step="${n}"]`).classList.add('active');
+  document.querySelector(`.step-nav-btn[data-step="${n}"]`).classList.add('active');
+}
+
+// アノテーションドットのクリック
+document.querySelectorAll('.anno').forEach(anno => {
+  anno.querySelector('.anno-dot').addEventListener('click', () => {
+    showStep(parseInt(anno.dataset.step));
+  });
+});
+
+// ナビボタンのクリック
+document.querySelectorAll('.step-nav-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    showStep(parseInt(btn.dataset.step));
+  });
+});
+</script>
+</body>
+</html>
