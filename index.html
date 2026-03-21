@@ -1281,6 +1281,80 @@
     padding: 3rem 3rem 4rem;
     z-index: 2;
   }
+
+  /* ════ 問題意識 ════ */
+  #mondai {
+    background: #111820;
+    padding: 7rem 2rem;
+  }
+  .mondai-inner { max-width: 900px; margin: 0 auto; }
+  #mondai .section-label { color: #cf0029; }
+  #mondai h2 { color: white; margin-bottom: 1rem; }
+  .mondai-intro { color: rgba(255,255,255,0.6); font-size: 1rem; line-height: 1.9; margin-bottom: 3.5rem; max-width: 560px; }
+  .mondai-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .mondai-card { padding: 2.5rem 2rem; border: 1px solid rgba(207,0,41,0.3); border-top: 3px solid #cf0029; background: rgba(207,0,41,0.06); border-radius: 4px; }
+  .mondai-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .mondai-card h3 { color: white; font-size: 1.05rem; margin-bottom: 0.7rem; line-height: 1.5; }
+  .mondai-card p { color: rgba(255,255,255,0.55); font-size: 0.87rem; line-height: 1.8; }
+
+  /* ════ 志紋 ════ */
+  #shimon { padding: 7rem 2rem 6rem; background: var(--off-white); border-top: 1px solid var(--light-border); border-bottom: 1px solid var(--light-border); }
+  .shimon-inner { max-width: 960px; margin: 0 auto; }
+  #shimon .section-label { color: var(--blue); }
+  #shimon h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 600; line-height: 1.4; margin-bottom: 0.6rem; }
+  .shimon-sub { font-size: 0.95rem; color: var(--mid-gray); margin-bottom: 3rem; line-height: 1.8; }
+  .shimon-quote { text-align: center; margin: 0 auto 4rem; max-width: 600px; padding: 2rem 2.5rem; border-top: 2px solid var(--yellow); border-bottom: 2px solid var(--yellow); position: relative; }
+  .shimon-quote::before { content: 'C'; font-size: 4rem; color: var(--yellow); position: absolute; top: -1.2rem; left: 1.5rem; font-family: Georgia, serif; line-height: 1; }
+  .shimon-quote p { font-family: 'Shippori Mincho', serif; font-size: clamp(1rem, 2vw, 1.2rem); line-height: 2.1; color: #1a1000; letter-spacing: 0.06em; }
+  .logotype-section-label { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); text-align: center; margin-bottom: 1.2rem; }
+  .logotype-wrap { position: relative; margin-bottom: 0; }
+  .logotype-wrap img { width: 100%; height: auto; display: block; }
+  .anno { position: absolute; transform: translate(-50%, -50%); }
+  .anno-dot { width: 32px; height: 32px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-size: 0.72rem; font-weight: 500; color: white; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; position: relative; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  .anno-dot:hover, .anno.active .anno-dot { transform: scale(1.2); box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+  .anno-tip { position: absolute; bottom: calc(100% + 12px); left: 50%; transform: translateX(-50%); background: white; border-radius: 10px; padding: 1rem 1.2rem; width: 200px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); opacity: 0; pointer-events: none; transition: opacity 0.2s, transform 0.2s; transform: translateX(-50%) translateY(6px); z-index: 20; border-top: 3px solid var(--c, #999); }
+  .anno:hover .anno-tip, .anno.active .anno-tip { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+  .anno-tip::after { content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: white; }
+  .anno-tip-num { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--c, #999); margin-bottom: 0.3rem; font-weight: 500; }
+  .anno-tip-title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.3rem; line-height: 1.4; }
+  .anno-tip-desc { font-size: 0.75rem; color: var(--mid-gray); line-height: 1.65; }
+  .step-panel { margin-top: 0; background: white; border-radius: 0 0 12px 12px; padding: 0; overflow: hidden; max-height: 0; transition: max-height 0.4s ease, padding 0.3s ease; border: 1px solid var(--light-border); border-top: none; }
+  .step-panel.open { max-height: 200px; padding: 1.8rem 2rem; }
+  .step-panel-inner { display: flex; align-items: flex-start; gap: 1.2rem; }
+  .step-panel-num { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Jost', sans-serif; font-size: 1rem; font-weight: 500; color: white; flex-shrink: 0; }
+  .step-panel-title { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .step-panel-desc { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.75; }
+  .step-nav { display: flex; gap: 0.5rem; margin-top: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .step-nav-btn { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--c); background: white; color: var(--c); font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+  .step-nav-btn:hover, .step-nav-btn.active { background: var(--c); color: white; }
+  .shimon-colors-label { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); text-align: center; margin-bottom: 1.5rem; }
+  .shimon-colors { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-bottom: 3.5rem; }
+  .shimon-color-card { display: flex; align-items: center; gap: 0.8rem; padding: 0.9rem 1.1rem; background: white; border: 1px solid var(--light-border); border-radius: 8px; border-left: 4px solid var(--c); transition: transform 0.15s, box-shadow 0.15s; }
+  .shimon-color-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  .shimon-color-dot { width: 16px; height: 16px; border-radius: 50%; background: var(--c); flex-shrink: 0; }
+  .shimon-color-name { font-size: 0.88rem; font-weight: 600; }
+  .shimon-cta { text-align: center; margin-top: 3rem; }
+  .shimon-cta a { font-family: 'Jost', sans-serif; font-size: 0.88rem; letter-spacing: 0.1em; color: var(--blue); text-decoration: none; border-bottom: 1px solid var(--blue); padding-bottom: 2px; transition: opacity 0.2s; }
+  .shimon-cta a:hover { opacity: 0.6; }
+
+  /* ════ アプローチ ════ */
+  #approach { background: var(--blue-light); padding: 7rem 2rem; }
+  .approach-inner { max-width: 900px; margin: 0 auto; }
+  #approach .section-label { color: var(--blue); }
+  #approach h2 { margin-bottom: 1rem; }
+  .approach-intro { font-size: 1rem; color: var(--mid-gray); line-height: 1.9; margin-bottom: 3.5rem; max-width: 560px; }
+  .approach-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .approach-card { padding: 2.5rem 2rem; background: white; border: 1px solid rgba(26,95,173,0.15); border-top: 3px solid var(--blue); border-radius: 4px; }
+  .approach-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .approach-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; line-height: 1.5; }
+  .approach-card p { font-size: 0.87rem; color: var(--mid-gray); line-height: 1.8; }
+
+  @media (max-width: 640px) {
+    .mondai-cards, .approach-cards { grid-template-columns: 1fr; }
+    .shimon-colors { grid-template-columns: repeat(2, 1fr); }
+    .anno-dot { width: 24px; height: 24px; font-size: 0.6rem; }
+    .anno-tip { width: 160px; }
+  }
 </style>
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="きづきくみたて">
@@ -1304,8 +1378,8 @@
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#mondai">Vision</a></li>
     <li><a href="#workshop">Workshop</a></li>
-    <li><a href="#themes">Themes</a></li>
     <li><a href="#note-section">Note</a></li>
     <li><a href="#podcast">Podcast</a></li>
     <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
@@ -1377,23 +1451,143 @@
 </section>
 
 <!-- LOGO STORY -->
-<section id="logo-story">
-  <div class="logo-images fade-up">
-    <img src="./logo.png" alt="きづきくみたて工房 ロゴ">
+
+<!-- 問題意識 -->
+<section id="mondai">
+  <div class="mondai-inner">
+    <div class="section-label">問題意識</div>
+    <h2>なぜ、今これに<br>取り組むのか</h2>
+    <p class="mondai-intro">日本社会・組織の構造的な課題と向き合い続けることが、きづきくみたての活動の出発点です。</p>
+    <div class="mondai-cards">
+      <div class="mondai-card fade-up">
+        <span class="mondai-card-icon">🏢</span>
+        <h3>日本組織の閉塞感打破</h3>
+        <p>日本の組織が抱える構造的な課題を直視し、組織効力感を高めるための方法論を探究しています。</p>
+      </div>
+      <div class="mondai-card fade-up">
+        <span class="mondai-card-icon">🌱</span>
+        <h3>少しでも自己犠牲が<br>減らせる社会へ</h3>
+        <p>日本社会の「呪縛」から自由になり、自分らしく納得感を持って生きられる場をつくっています。</p>
+      </div>
+    </div>
   </div>
-  <div class="logo-story-text fade-up">
-    <div class="section-label">Logo</div>
-    <h2>ロゴへの想い</h2>
-    <p>
-      独立を決意した際、最初に取り組んだのがロゴの制作でした。
-      自分の中にあったイメージを形にするため、素敵なデザイナーさんと出会い、
-      約5ヶ月・14稿を経てついに完成。
-    </p>
-    <p>
-      「きづきくみたて工房」に込めた意味を、ロゴとシンボルマークが見事に表現してくれました。
-      このロゴには、これからの活動への想いがすべて詰まっています。
-    </p>
-    <a href="https://note.com/kizukikumitate/n/ndbeb5988cc6f" target="_blank" class="btn-secondary">ロゴ誕生のストーリーを読む →</a>
+</section>
+
+<!-- 志紋 -->
+<section id="shimon">
+  <div class="shimon-inner">
+    <div class="section-label">志紋</div>
+    <h2>きづきくみたての志</h2>
+    <p class="shimon-sub">この問いへの答えとして、ロゴにすべての想いを込めました。</p>
+    <div class="shimon-quote">
+      <p>「このプロジェクトが起点となり、<br>人の想いが共鳴され、<br>そこから希望が生まれていく」</p>
+    </div>
+    <div class="logotype-section-label">ロゴタイプに込めたストーリー ── 各要素をクリックしてみてください</div>
+    <div class="logotype-wrap" id="logotype-wrap">
+      <img src="./logotype.png" alt="きづきくみたて工房 ロゴタイプ">
+      <div class="anno" style="left:6%; top:72%; --c:#cf0029" data-step="1">
+        <div class="anno-dot" style="background:#cf0029">①</div>
+        <div class="anno-tip" style="--c:#cf0029">
+          <div class="anno-tip-num">STEP 01</div>
+          <div class="anno-tip-title">自らの意思で<br>変革へ踏み出す</div>
+          <div class="anno-tip-desc">傷を抱えながらも、自らの意思を持って変革のプロセスに入っていく</div>
+        </div>
+      </div>
+      <div class="anno" style="left:20%; top:52%; --c:#e5588a" data-step="2">
+        <div class="anno-dot" style="background:#e5588a">②</div>
+        <div class="anno-tip" style="--c:#e5588a">
+          <div class="anno-tip-num">STEP 02</div>
+          <div class="anno-tip-title">痛みを抱え、<br>意味を探る</div>
+          <div class="anno-tip-desc">過去の自分が経験してきた痛みや人生の意味を探究しながら、変革への歩みを進めていく</div>
+        </div>
+      </div>
+      <div class="anno" style="left:33%; top:24%; --c:#0062b1" data-step="3">
+        <div class="anno-dot" style="background:#0062b1">③</div>
+        <div class="anno-tip" style="--c:#0062b1">
+          <div class="anno-tip-num">STEP 03</div>
+          <div class="anno-tip-title">対話・傾聴</div>
+          <div class="anno-tip-desc">いろいろな人の意見を聞いていく中で、気づきが生まれる</div>
+        </div>
+      </div>
+      <div class="anno" style="left:46%; top:40%; --c:#009944" data-step="4">
+        <div class="anno-dot" style="background:#009944">④</div>
+        <div class="anno-tip" style="--c:#009944">
+          <div class="anno-tip-num">STEP 04</div>
+          <div class="anno-tip-title">自分の想いと<br>強みを発見</div>
+          <div class="anno-tip-desc">自分自身の存在・将来が良いものになるように物の見方を整える。「見立てる」ことで新しい自分が見えてくる</div>
+        </div>
+      </div>
+      <div class="anno" style="left:60%; top:22%; --c:#37bef0" data-step="5">
+        <div class="anno-dot" style="background:#37bef0">⑤</div>
+        <div class="anno-tip" style="--c:#37bef0; left:auto; right:0; transform:none;">
+          <div class="anno-tip-num">STEP 05</div>
+          <div class="anno-tip-title">希望へと変わる</div>
+          <div class="anno-tip-desc">希望の光が見えてくる。変革のプロセスが実を結ぶ瞬間。</div>
+        </div>
+      </div>
+      <div class="anno" style="left:97%; top:14%; --c:#ffde00" data-step="6">
+        <div class="anno-dot" style="background:#ffde00; color:#333; border-color:rgba(0,0,0,0.1)">⑥</div>
+        <div class="anno-tip" style="--c:#ffde00; left:auto; right:0; transform:none; width:180px;">
+          <div class="anno-tip-num">STEP 06</div>
+          <div class="anno-tip-title">北極星・道標となる</div>
+          <div class="anno-tip-desc">常に自分の目指す道を示す道標として、周りを照らし続ける存在へ</div>
+        </div>
+      </div>
+    </div>
+    <div class="step-panel" id="step-panel">
+      <div class="step-panel-inner">
+        <div class="step-panel-num" id="panel-num">①</div>
+        <div>
+          <div class="step-panel-title" id="panel-title"></div>
+          <div class="step-panel-desc" id="panel-desc"></div>
+        </div>
+      </div>
+    </div>
+    <div class="step-nav">
+      <button class="step-nav-btn" style="--c:#cf0029" data-step="1">①</button>
+      <button class="step-nav-btn" style="--c:#e5588a" data-step="2">②</button>
+      <button class="step-nav-btn" style="--c:#0062b1" data-step="3">③</button>
+      <button class="step-nav-btn" style="--c:#009944" data-step="4">④</button>
+      <button class="step-nav-btn" style="--c:#37bef0" data-step="5">⑤</button>
+      <button class="step-nav-btn" style="--c:#ffde00; color:#333" data-step="6">⑥</button>
+    </div>
+    <div style="margin-top:4rem;">
+      <div class="shimon-colors-label">8色にこめた、大切にしていきたいありかた</div>
+      <div class="shimon-colors">
+        <div class="shimon-color-card" style="--c:#7f4f21"><div class="shimon-color-dot"></div><span class="shimon-color-name">貢献欲</span></div>
+        <div class="shimon-color-card" style="--c:#cf0029"><div class="shimon-color-dot"></div><span class="shimon-color-name">冒険心</span></div>
+        <div class="shimon-color-card" style="--c:#e5588a"><div class="shimon-color-dot"></div><span class="shimon-color-name">感謝</span></div>
+        <div class="shimon-color-card" style="--c:#ffde00"><div class="shimon-color-dot"></div><span class="shimon-color-name">好奇心</span></div>
+        <div class="shimon-color-card" style="--c:#009944"><div class="shimon-color-dot"></div><span class="shimon-color-name">ご機嫌</span></div>
+        <div class="shimon-color-card" style="--c:#0062b1"><div class="shimon-color-dot"></div><span class="shimon-color-name">メタ認知</span></div>
+        <div class="shimon-color-card" style="--c:#37bef0"><div class="shimon-color-dot"></div><span class="shimon-color-name">自由</span></div>
+        <div class="shimon-color-card" style="--c:#6a7582"><div class="shimon-color-dot"></div><span class="shimon-color-name">断る力</span></div>
+      </div>
+    </div>
+    <div class="shimon-cta">
+      <a href="https://note.com/kizukikumitate/n/ndbeb5988cc6f" target="_blank" rel="noopener">ロゴ誕生のストーリーを読む →</a>
+    </div>
+  </div>
+</section>
+
+<!-- アプローチ -->
+<section id="approach">
+  <div class="approach-inner">
+    <div class="section-label">アプローチ</div>
+    <h2>変えるために、<br>何を学び・実践するか</h2>
+    <p class="approach-intro">問題の解決策として、世界の優れた実践知とファシリテーションの技法を探究しています。</p>
+    <div class="approach-cards">
+      <div class="approach-card fade-up">
+        <span class="approach-card-icon">🌿</span>
+        <h3>ワークショップ & ファシリテーション</h3>
+        <p>参加者の内発的動機を引き出す場のデザインと、対話を深めるファシリテーションの実践知。</p>
+      </div>
+      <div class="approach-card fade-up">
+        <span class="approach-card-icon">🌍</span>
+        <h3>北欧・海外の先進的教育実践</h3>
+        <p>デンマーク、フィンランドなど北欧諸国の民主主義教育・well-being教育から学ぶ視点。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1428,6 +1622,50 @@
       <div class="card-title">スパイラルアップ</div>
       <p class="card-desc">個人と組織の成長が互いを高め合う良い循環を生み出すためのフォローアップ。継続的な変化をサポートします。</p>
     </div>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="programs-header fade-up">
+    <div class="section-label">Programs</div>
+    <h2>プログラム紹介</h2>
+  </div>
+  <div class="programs-grid">
+
+    <a href="./democracy-fitness.html" class="program-card fade-up">
+      <div class="program-card-header df">
+        <div class="program-card-tag">Democracy Fitness</div>
+        <h3>デモクラシー<br>フィットネス</h3>
+        <p>民主主義の「筋肉」を鍛える、<br>30分ワーク × 10の体験型プログラム</p>
+      </div>
+      <div class="program-card-body">
+        <ul class="program-card-points">
+          <li>「対話・合意・意思決定」など10の筋肉を鍛える</li>
+          <li>ゲームやワークで楽しく、本質的に</li>
+          <li>2日間合宿型の集中プログラムも</li>
+          <li>診断サーベイで自分の傾向を可視化</li>
+        </ul>
+        <span class="program-card-cta df">詳しく見る</span>
+      </div>
+    </a>
+
+    <a href="./lsp.html" class="program-card fade-up">
+      <div class="program-card-header lsp">
+        <div class="program-card-tag">LEGO® SERIOUS PLAY®</div>
+        <h3>レゴ®<br>シリアスプレイ®</h3>
+        <p>レゴブロックで「思考を手で語る」<br>本格ファシリテーション手法</p>
+      </div>
+      <div class="program-card-body">
+        <ul class="program-card-points">
+          <li>全員が手を動かし、全員が語る場をつくる</li>
+          <li>チームビルディング・ビジョン策定に</li>
+          <li>認定ファシリテーターによる本格実施</li>
+          <li>組織開発・研修プログラムとの組み合わせも可</li>
+        </ul>
+        <span class="program-card-cta lsp">詳しく見る</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
@@ -1467,35 +1705,6 @@
 
 
 <!-- THEMES -->
-<section id="themes">
-  <div class="themes-inner">
-    <div class="section-label">Themes</div>
-    <h2>森本康仁の探究のテーマ</h2>
-    <div class="theme-list">
-      <div class="theme-item fade-up">
-        <span class="theme-icon">🌿</span>
-        <h3>ワークショップ & ファシリテーション</h3>
-        <p>参加者の内発的動機を引き出す場のデザインと、対話を深めるファシリテーションの実践知。</p>
-      </div>
-      <div class="theme-item fade-up">
-        <span class="theme-icon">🌍</span>
-        <h3>北欧・海外の先進的教育実践</h3>
-        <p>デンマーク、フィンランドなど北欧諸国の民主主義教育・well-being教育から学ぶ視点。</p>
-      </div>
-      <div class="theme-item fade-up">
-        <span class="theme-icon">🏢</span>
-        <h3>日本組織の閉塞感打破</h3>
-        <p>日本の組織が抱える構造的な課題を直視し、組織効力感を高めるための方法論の探究。</p>
-      </div>
-      <div class="theme-item fade-up">
-        <span class="theme-icon">🌱</span>
-        <h3>少しでも自己犠牲が減らせる社会へ</h3>
-        <p>日本社会の「呪縛」から自由になり、自分らしく納得感を持って生きるためのヒント。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- NOTE -->
 <section id="note-section">
   <div class="note-inner">
@@ -1642,49 +1851,6 @@
 
 
 <!-- PROGRAM PREVIEWS -->
-<section id="programs">
-  <div class="programs-header fade-up">
-    <div class="section-label">Programs</div>
-    <h2>プログラム紹介</h2>
-  </div>
-  <div class="programs-grid">
-
-    <a href="./democracy-fitness.html" class="program-card fade-up">
-      <div class="program-card-header df">
-        <div class="program-card-tag">Democracy Fitness</div>
-        <h3>デモクラシー<br>フィットネス</h3>
-        <p>民主主義の「筋肉」を鍛える、<br>30分ワーク × 10の体験型プログラム</p>
-      </div>
-      <div class="program-card-body">
-        <ul class="program-card-points">
-          <li>「対話・合意・意思決定」など10の筋肉を鍛える</li>
-          <li>ゲームやワークで楽しく、本質的に</li>
-          <li>2日間合宿型の集中プログラムも</li>
-          <li>診断サーベイで自分の傾向を可視化</li>
-        </ul>
-        <span class="program-card-cta df">詳しく見る</span>
-      </div>
-    </a>
-
-    <a href="./lsp.html" class="program-card fade-up">
-      <div class="program-card-header lsp">
-        <div class="program-card-tag">LEGO® SERIOUS PLAY®</div>
-        <h3>レゴ®<br>シリアスプレイ®</h3>
-        <p>レゴブロックで「思考を手で語る」<br>本格ファシリテーション手法</p>
-      </div>
-      <div class="program-card-body">
-        <ul class="program-card-points">
-          <li>全員が手を動かし、全員が語る場をつくる</li>
-          <li>チームビルディング・ビジョン策定に</li>
-          <li>認定ファシリテーターによる本格実施</li>
-          <li>組織開発・研修プログラムとの組み合わせも可</li>
-        </ul>
-        <span class="program-card-cta lsp">詳しく見る</span>
-      </div>
-    </a>
-
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section id="contact">
