@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>構成案 叩き台 — きづきくみたて</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown:  #7f4f21;
+    --red:    #cf0029;
+    --pink:   #e5588a;
+    --yellow: #ffde00;
+    --green:  #009944;
+    --navy:   #0062b1;
+    --sky:    #37bef0;
+    --gray:   #6a7582;
+    --charcoal: #1e1e1e;
+    --mid-gray: #5a6a7a;
+    --off-white: #fafafa;
+    --light-border: #dde4ea;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; background: var(--off-white); color: var(--charcoal); }
+
+  /* ── ページ上部バナー ── */
+  .site-banner {
+    background: #1e1e1e; color: white;
+    padding: 0.9rem 2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem;
+    letter-spacing: 0.12em; text-align: center;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .site-banner span { color: #f0be00; }
+
+  /* ── 共通 ── */
+  .section-label {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    margin-bottom: 0.6rem; font-weight: 500;
+  }
+  h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 600; line-height: 1.4; }
+  p { line-height: 1.9; }
+
+  /* ── 区切り ── */
+  .flow-arrow {
+    text-align: center; padding: 1rem 0;
+    color: #bbb; font-size: 1.5rem;
+  }
+
+  /* ════════════════════════════════
+     問題意識セクション
+  ════════════════════════════════ */
+  #mondai {
+    background: #111820;
+    padding: 7rem 2rem;
+  }
+  .mondai-inner {
+    max-width: 900px; margin: 0 auto;
+  }
+  #mondai .section-label { color: #cf0029; }
+  #mondai h2 { color: white; margin-bottom: 1rem; }
+  .mondai-intro {
+    color: rgba(255,255,255,0.6); font-size: 1rem;
+    line-height: 1.9; margin-bottom: 3.5rem; max-width: 560px;
+  }
+  .mondai-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .mondai-card {
+    padding: 2.5rem 2rem;
+    border: 1px solid rgba(207,0,41,0.3);
+    border-top: 3px solid #cf0029;
+    background: rgba(207,0,41,0.06);
+    border-radius: 4px;
+  }
+  .mondai-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .mondai-card h3 { color: white; font-size: 1.05rem; margin-bottom: 0.7rem; line-height: 1.5; }
+  .mondai-card p { color: rgba(255,255,255,0.55); font-size: 0.87rem; line-height: 1.8; }
+
+  /* ════════════════════════════════
+     志紋セクション
+  ════════════════════════════════ */
+  #shimon {
+    background: #fafafa;
+    padding: 7rem 2rem;
+    border-top: 1px solid var(--light-border);
+    border-bottom: 1px solid var(--light-border);
+  }
+  .shimon-inner { max-width: 900px; margin: 0 auto; }
+  #shimon .section-label { color: var(--navy); }
+  #shimon h2 { margin-bottom: 0.5rem; }
+  .shimon-tagline {
+    font-size: 0.95rem; color: var(--mid-gray); margin-bottom: 3rem;
+  }
+
+  /* 引用フレーズ */
+  .shimon-quote {
+    text-align: center;
+    margin: 0 auto 3.5rem;
+    max-width: 640px;
+    padding: 2.5rem 3rem;
+    border-left: 4px solid var(--yellow);
+    border-right: 4px solid var(--yellow);
+    background: #fffde8;
+  }
+  .shimon-quote p {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 2;
+    color: #2a2000;
+    letter-spacing: 0.05em;
+  }
+
+  /* ロゴ */
+  .shimon-logo {
+    text-align: center; margin-bottom: 3.5rem;
+  }
+  .shimon-logo img {
+    width: 220px; height: auto;
+  }
+  .shimon-logo-placeholder {
+    display: inline-block;
+    width: 200px; height: 200px;
+    background: url('./logo.png') center/contain no-repeat;
+  }
+
+  /* 8色グリッド */
+  .shimon-colors-label {
+    text-align: center;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mid-gray); margin-bottom: 1.5rem;
+  }
+  .shimon-colors {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .color-card {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 1rem 1.2rem;
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 8px;
+    border-left: 4px solid var(--c);
+  }
+  .color-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--c); flex-shrink: 0;
+  }
+  .color-name { font-size: 0.88rem; font-weight: 600; }
+
+  /* 6ステップ */
+  .shimon-steps-label {
+    text-align: center;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--mid-gray); margin-bottom: 1.5rem;
+  }
+  .shimon-steps {
+    display: flex; align-items: flex-start;
+    gap: 0; justify-content: center;
+    flex-wrap: wrap;
+  }
+  .shimon-step {
+    text-align: center; padding: 0 0.5rem;
+    width: calc(100% / 6);
+    min-width: 110px;
+    position: relative;
+  }
+  .shimon-step:not(:last-child)::after {
+    content: '→';
+    position: absolute; right: -0.6rem; top: 1.2rem;
+    color: var(--mid-gray); font-size: 0.9rem;
+  }
+  .step-num {
+    width: 36px; height: 36px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 500;
+    color: white; margin: 0 auto 0.6rem;
+  }
+  .step-text { font-size: 0.78rem; color: var(--mid-gray); line-height: 1.5; }
+
+  .shimon-note-link {
+    display: block; text-align: center; margin-top: 3rem;
+  }
+  .shimon-note-link a {
+    font-family: 'Jost', sans-serif; font-size: 0.85rem;
+    letter-spacing: 0.1em; color: var(--navy);
+    text-decoration: none; border-bottom: 1px solid var(--navy);
+    padding-bottom: 2px;
+  }
+
+  /* ════════════════════════════════
+     アプローチセクション
+  ════════════════════════════════ */
+  #approach {
+    background: #edf4ff;
+    padding: 7rem 2rem;
+  }
+  .approach-inner { max-width: 900px; margin: 0 auto; }
+  #approach .section-label { color: var(--navy); }
+  #approach h2 { margin-bottom: 1rem; }
+  .approach-intro {
+    font-size: 1rem; color: var(--mid-gray);
+    line-height: 1.9; margin-bottom: 3.5rem; max-width: 560px;
+  }
+  .approach-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+  }
+  .approach-card {
+    padding: 2.5rem 2rem;
+    background: white;
+    border: 1px solid rgba(0,98,177,0.15);
+    border-top: 3px solid var(--navy);
+    border-radius: 4px;
+  }
+  .approach-card-icon { font-size: 2rem; margin-bottom: 1rem; display: block; }
+  .approach-card h3 { font-size: 1.05rem; margin-bottom: 0.7rem; line-height: 1.5; }
+  .approach-card p { font-size: 0.87rem; color: var(--mid-gray); line-height: 1.8; }
+
+  /* ════════════════════════════════
+     残りセクション（参考）
+  ════════════════════════════════ */
+  .other-section {
+    padding: 5rem 2rem;
+    border-top: 1px solid var(--light-border);
+  }
+  .other-section-inner { max-width: 900px; margin: 0 auto; }
+  .other-section .section-label { color: var(--mid-gray); }
+  .other-section h2 { color: var(--mid-gray); font-size: 1.4rem; margin-bottom: 0.5rem; }
+  .other-section p { color: #aaa; font-size: 0.87rem; }
+  .section-order { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: #ccc; margin-bottom: 0.3rem; }
+
+  @media (max-width: 640px) {
+    .mondai-cards, .approach-cards { grid-template-columns: 1fr; }
+    .shimon-colors { grid-template-columns: repeat(2, 1fr); }
+    .shimon-step { width: 45%; }
+    .shimon-step:not(:last-child)::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="site-banner">
+  構成案 叩き台 ── <span>新規追加・変更箇所のみ</span>を確認用に並べています
+</div>
+
+<!-- ════════ 問題意識 ════════ -->
+<section id="mondai">
+  <div class="mondai-inner">
+    <div class="section-label">問題意識</div>
+    <h2>なぜ、今これに<br>取り組むのか</h2>
+    <p class="mondai-intro">
+      日本社会・組織の構造的な課題と向き合い続けることが、きづきくみたての活動の出発点です。
+    </p>
+    <div class="mondai-cards">
+      <div class="mondai-card">
+        <span class="mondai-card-icon">🏢</span>
+        <h3>日本組織の閉塞感打破</h3>
+        <p>日本の組織が抱える構造的な課題を直視し、組織効力感を高めるための方法論を探究しています。</p>
+      </div>
+      <div class="mondai-card">
+        <span class="mondai-card-icon">🌱</span>
+        <h3>少しでも自己犠牲が<br>減らせる社会へ</h3>
+        <p>日本社会の「呪縛」から自由になり、自分らしく納得感を持って生きられる場をつくっています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 志紋 ════════ -->
+<section id="shimon">
+  <div class="shimon-inner">
+
+    <div class="section-label">志紋</div>
+    <h2>きづきくみたての志</h2>
+    <p class="shimon-tagline">この問いへの答えとして、ロゴにすべての想いを込めました。</p>
+
+    <!-- 引用フレーズ -->
+    <div class="shimon-quote">
+      <p>「この基地が起点となり、<br>人の想いが共鳴され、<br>そこから希望が生まれていく」</p>
+    </div>
+
+    <!-- ロゴ -->
+    <div class="shimon-logo">
+      <div class="shimon-logo-placeholder"></div>
+    </div>
+
+    <!-- 8色 -->
+    <div class="shimon-colors-label">8色にこめた、大切にしていきたいありかた</div>
+    <div class="shimon-colors">
+      <div class="color-card" style="--c: #7f4f21">
+        <div class="color-dot"></div>
+        <span class="color-name">貢献欲</span>
+      </div>
+      <div class="color-card" style="--c: #cf0029">
+        <div class="color-dot"></div>
+        <span class="color-name">冒険心</span>
+      </div>
+      <div class="color-card" style="--c: #e5588a">
+        <div class="color-dot"></div>
+        <span class="color-name">感謝</span>
+      </div>
+      <div class="color-card" style="--c: #ffde00">
+        <div class="color-dot"></div>
+        <span class="color-name">好奇心</span>
+      </div>
+      <div class="color-card" style="--c: #009944">
+        <div class="color-dot"></div>
+        <span class="color-name">ご機嫌</span>
+      </div>
+      <div class="color-card" style="--c: #0062b1">
+        <div class="color-dot"></div>
+        <span class="color-name">メタ認知</span>
+      </div>
+      <div class="color-card" style="--c: #37bef0">
+        <div class="color-dot"></div>
+        <span class="color-name">自由</span>
+      </div>
+      <div class="color-card" style="--c: #6a7582">
+        <div class="color-dot"></div>
+        <span class="color-name">断る力</span>
+      </div>
+    </div>
+
+    <!-- 6ステップ -->
+    <div class="shimon-steps-label">ロゴタイプに込めたストーリー</div>
+    <div class="shimon-steps">
+      <div class="shimon-step">
+        <div class="step-num" style="background:#cf0029">①</div>
+        <div class="step-text">自らの意思で<br>変革へ踏み出す</div>
+      </div>
+      <div class="shimon-step">
+        <div class="step-num" style="background:#0062b1">②</div>
+        <div class="step-text">対話・傾聴<br>いろんな声を聴く</div>
+      </div>
+      <div class="shimon-step">
+        <div class="step-num" style="background:#e5588a">③</div>
+        <div class="step-text">自分の想いと<br>強みを発見</div>
+      </div>
+      <div class="shimon-step">
+        <div class="step-num" style="background:#009944">④</div>
+        <div class="step-text">要素を適切に<br>組み立てる</div>
+      </div>
+      <div class="shimon-step">
+        <div class="step-num" style="background:#ffde00; color:#555">⑤</div>
+        <div class="step-text">希望へと<br>変わっていく</div>
+      </div>
+      <div class="shimon-step">
+        <div class="step-num" style="background:#37bef0">⑥</div>
+        <div class="step-text">北極星のように<br>道標となる</div>
+      </div>
+    </div>
+
+    <div class="shimon-note-link">
+      <a href="https://note.com/kizukikumitate/n/ndbeb5988cc6f" target="_blank" rel="noopener">
+        ロゴ誕生のストーリーを読む →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ════════ アプローチ ════════ -->
+<section id="approach">
+  <div class="approach-inner">
+    <div class="section-label">アプローチ</div>
+    <h2>変えるために、<br>何を学び・実践するか</h2>
+    <p class="approach-intro">
+      問題の解決策として、世界の優れた実践知とファシリテーションの技法を探究しています。
+    </p>
+    <div class="approach-cards">
+      <div class="approach-card">
+        <span class="approach-card-icon">🌿</span>
+        <h3>ワークショップ & ファシリテーション</h3>
+        <p>参加者の内発的動機を引き出す場のデザインと、対話を深めるファシリテーションの実践知。</p>
+      </div>
+      <div class="approach-card">
+        <span class="approach-card-icon">🌍</span>
+        <h3>北欧・海外の先進的教育実践</h3>
+        <p>デンマーク、フィンランドなど北欧諸国の民主主義教育・well-being教育から学ぶ視点。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ 以降のセクション（参考表示） ════════ -->
+<div class="other-section">
+  <div class="other-section-inner">
+    <div class="section-order">続く順番</div>
+    <div class="section-label">Workshop</div>
+    <h2>グッドスパイラルワークショップ</h2>
+    <p>（既存コンテンツをそのまま配置）</p>
+  </div>
+</div>
+<div class="other-section">
+  <div class="other-section-inner">
+    <div class="section-label">Programs</div>
+    <h2>プログラム紹介</h2>
+    <p>（既存コンテンツをそのまま配置）</p>
+  </div>
+</div>
+<div class="other-section">
+  <div class="other-section-inner">
+    <div class="section-label">Comic</div>
+    <h2>好循環の探究者たち</h2>
+    <p>（既存コンテンツをそのまま配置）</p>
+  </div>
+</div>
+<div class="other-section">
+  <div class="other-section-inner">
+    <div class="section-label">Note</div>
+    <h2>考察と冒険の記録</h2>
+    <p>（既存コンテンツをそのまま配置）</p>
+  </div>
+</div>
+<div class="other-section">
+  <div class="other-section-inner">
+    <div class="section-label">Podcast</div>
+    <h2>ポッドキャスト出演</h2>
+    <p>（既存コンテンツをそのまま配置）</p>
+  </div>
+</div>
+<div class="other-section">
+  <div class="other-section-inner">
+    <div class="section-label">Contact</div>
+    <h2>ともに、学びをつくろう。</h2>
+    <p>（既存コンテンツをそのまま配置）</p>
+  </div>
+</div>
+
+</body>
+</html>
