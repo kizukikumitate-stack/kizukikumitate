@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Themes 案A / 案B 比較</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #e03a2f; --blue: #1a5fad; --yellow: #f0be00;
+    --green: #3aa64c; --pink: #e0538a; --gray: #7b8fa0;
+    --charcoal: #1e1e1e; --off-white: #fafafa; --light-border: #dde4ea;
+    --mid-gray: #5a6a7a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Serif JP', serif; background: #f0f2f5; color: var(--charcoal); }
+
+  .page-label {
+    background: #1e1e1e; color: white;
+    padding: 1.2rem 2rem; font-family: 'Jost', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.15em;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .divider {
+    text-align: center; padding: 3rem 2rem 1rem;
+    font-family: 'Jost', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.2em; color: #999; text-transform: uppercase;
+  }
+  .divider strong { color: #1e1e1e; font-size: 1.1rem; display: block; margin-top: 0.3rem; letter-spacing: 0.05em; font-family: 'Noto Serif JP', serif; }
+
+  /* ======== 共通スタイル ======== */
+  section { max-width: 960px; margin: 0 auto 0; padding: 5rem 2rem; }
+  .section-label {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    margin-bottom: 0.6rem; font-weight: 500;
+  }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; line-height: 1.4; margin-bottom: 2.5rem; }
+  p { line-height: 1.9; font-size: 0.95rem; color: var(--mid-gray); }
+
+  /* ======== 案A ======== */
+  #a-themes { background: #1a2a3a; border-radius: 16px; max-width: 960px; margin: 0 auto; }
+  #a-themes .section-label { color: #f0be00; }
+  #a-themes h2 { color: white; }
+
+  .a-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .a-col { padding: 2.5rem; }
+  .a-col-problem { background: rgba(224,58,47,0.12); border-right: 1px solid rgba(255,255,255,0.08); }
+  .a-col-approach { background: rgba(26,95,173,0.12); }
+
+  .a-col-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    margin-bottom: 1.5rem; padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+  .a-col-problem .a-col-label { color: #ff7b72; }
+  .a-col-approach .a-col-label { color: #79b8ff; }
+
+  .a-theme-item { margin-bottom: 1.8rem; }
+  .a-theme-item:last-child { margin-bottom: 0; }
+  .a-theme-icon { font-size: 1.4rem; margin-bottom: 0.5rem; display: block; }
+  .a-theme-item h3 { color: white; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; line-height: 1.5; }
+  .a-theme-item p { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.75; }
+
+  /* ======== 案B ======== */
+  .b-wrap { max-width: 960px; margin: 0 auto; }
+
+  #b-problem {
+    background: var(--off-white);
+    border-left: 5px solid var(--red);
+    padding: 4rem 3rem;
+    margin-bottom: 2px;
+  }
+  #b-problem .section-label { color: var(--red); }
+
+  #b-approach {
+    background: var(--off-white);
+    border-left: 5px solid var(--blue);
+    padding: 4rem 3rem;
+  }
+  #b-approach .section-label { color: var(--blue); }
+
+  .b-intro {
+    font-size: 1rem; color: var(--mid-gray); line-height: 1.9;
+    margin-bottom: 2.5rem; max-width: 560px;
+  }
+
+  .b-theme-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .b-theme-card {
+    padding: 1.8rem;
+    border: 1px solid var(--light-border);
+    border-radius: 10px;
+    background: white;
+  }
+  #b-approach .b-theme-card { border-top: 3px solid var(--blue); }
+  #b-problem .b-theme-card { border-top: 3px solid var(--red); }
+
+  .b-theme-icon { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+  .b-theme-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; line-height: 1.5; }
+  .b-theme-card p { font-size: 0.83rem; color: var(--mid-gray); line-height: 1.75; }
+
+  /* wrapper */
+  .wrapper { padding: 2rem; }
+  .case-block { margin-bottom: 1rem; }
+</style>
+</head>
+<body>
+
+<div class="page-label">Themes セクション 比較案 ── 上: 案A（1セクション・左右分割） ／ 下: 案B（2セクション・独立）</div>
+
+<!-- ===================== 案A ===================== -->
+<div class="divider">案 A<strong>1つのセクション内で左右に分ける</strong></div>
+<div class="wrapper">
+<section id="a-themes">
+  <div class="section-label">Themes</div>
+  <h2>森本康仁の探究のテーマ</h2>
+
+  <div class="a-split">
+    <!-- 問題意識 -->
+    <div class="a-col a-col-problem">
+      <div class="a-col-label">問題意識 — Why</div>
+      <div class="a-theme-item">
+        <span class="a-theme-icon">🏢</span>
+        <h3>日本組織の閉塞感打破</h3>
+        <p>日本の組織が抱える構造的な課題を直視し、組織効力感を高めるための方法論の探究。</p>
+      </div>
+      <div class="a-theme-item">
+        <span class="a-theme-icon">🌱</span>
+        <h3>少しでも自己犠牲が減らせる社会へ</h3>
+        <p>日本社会の「呪縛」から自由になり、自分らしく納得感を持って生きるためのヒント。</p>
+      </div>
+    </div>
+    <!-- アプローチ -->
+    <div class="a-col a-col-approach">
+      <div class="a-col-label">解決のアプローチ — How</div>
+      <div class="a-theme-item">
+        <span class="a-theme-icon">🌿</span>
+        <h3>ワークショップ & ファシリテーション</h3>
+        <p>参加者の内発的動機を引き出す場のデザインと、対話を深めるファシリテーションの実践知。</p>
+      </div>
+      <div class="a-theme-item">
+        <span class="a-theme-icon">🌍</span>
+        <h3>北欧・海外の先進的教育実践</h3>
+        <p>デンマーク、フィンランドなど北欧諸国の民主主義教育・well-being教育から学ぶ視点。</p>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- ===================== 案B ===================== -->
+<div class="divider">案 B<strong>「問題意識」と「アプローチ」を別セクションに独立させる</strong></div>
+<div class="wrapper">
+<div class="b-wrap">
+
+  <section id="b-problem">
+    <div class="section-label">問題意識</div>
+    <h2>なぜ、今これに<br>取り組むのか</h2>
+    <p class="b-intro">日本社会・組織の構造的な課題と向き合い続けることが、森本康仁の活動の出発点です。</p>
+    <div class="b-theme-grid">
+      <div class="b-theme-card">
+        <span class="b-theme-icon">🏢</span>
+        <h3>日本組織の閉塞感打破</h3>
+        <p>日本の組織が抱える構造的な課題を直視し、組織効力感を高めるための方法論の探究。</p>
+      </div>
+      <div class="b-theme-card">
+        <span class="b-theme-icon">🌱</span>
+        <h3>少しでも自己犠牲が減らせる社会へ</h3>
+        <p>日本社会の「呪縛」から自由になり、自分らしく納得感を持って生きるためのヒント。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="b-approach">
+    <div class="section-label">アプローチ</div>
+    <h2>変えるために、<br>何を学び・実践するか</h2>
+    <p class="b-intro">問題の解決策として、世界の優れた実践知とファシリテーションの技法を探究しています。</p>
+    <div class="b-theme-grid">
+      <div class="b-theme-card">
+        <span class="b-theme-icon">🌿</span>
+        <h3>ワークショップ & ファシリテーション</h3>
+        <p>参加者の内発的動機を引き出す場のデザインと、対話を深めるファシリテーションの実践知。</p>
+      </div>
+      <div class="b-theme-card">
+        <span class="b-theme-icon">🌍</span>
+        <h3>北欧・海外の先進的教育実践</h3>
+        <p>デンマーク、フィンランドなど北欧諸国の民主主義教育・well-being教育から学ぶ視点。</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+
+</body>
+</html>
