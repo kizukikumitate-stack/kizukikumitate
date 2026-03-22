@@ -851,8 +851,15 @@
   @media (max-width: 900px) {
     section { padding: 4rem 1.5rem; }
     .hero-body { padding: 3rem 1.5rem; }
-    .hero-nav { padding: 1.5rem; }
-    .hero-info-bar { grid-template-columns: 1fr; }
+    .hero-nav {
+      padding: 1.2rem 1.5rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.3rem;
+    }
+    .nav-date { font-size: 0.7rem; }
+    .hero-title { font-size: clamp(1.6rem, 7vw, 3rem) !important; white-space: normal !important; }
+    .hero-info-bar { grid-template-columns: 1fr 1fr; }
     .hero-info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
     .what-section, .speaker-section { grid-template-columns: 1fr; gap: 2rem; }
     .muscles-grid { grid-template-columns: repeat(2, 1fr); }
@@ -860,6 +867,45 @@
     .timetable-row { grid-template-columns: 90px 1fr; }
     .timetable-desc { display: none; }
     .speaker-card { position: static; }
+  }
+
+  /* ── 特定商取引法 ── */
+  .tokusho-section {
+    background: #f0f0f0;
+    padding: 4rem 3rem;
+  }
+  .tokusho-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .tokusho-section .section-label { color: var(--slate); }
+  .tokusho-section .section-label::before { background: var(--slate); }
+  .tokusho-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+  }
+  .tokusho-table th {
+    width: 30%;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-weight: 700;
+    color: var(--slate);
+    background: #e4e4e8;
+    border-bottom: 1px solid #d0d0d8;
+    vertical-align: top;
+  }
+  .tokusho-table td {
+    padding: 0.9rem 1rem;
+    line-height: 1.8;
+    border-bottom: 1px solid #d0d0d8;
+    color: var(--text-secondary);
+  }
+  @media (max-width: 600px) {
+    .tokusho-section { padding: 3rem 1.5rem; }
+    .tokusho-table th { width: 40%; font-size: 0.8rem; }
+    .tokusho-table td { font-size: 0.82rem; }
   }
 </style>
 </head>
@@ -1105,6 +1151,60 @@
   </div>
   <a href="https://kizukikumitate.kit.com/8db376b6a3" class="register-btn" target="_blank">申し込みフォームへ →</a>
   <p class="register-note">終了後、外部会場にて懇親会を予定しています。</p>
+</section>
+
+<!-- ── 特定商取引法に基づく表記 ── -->
+<section class="tokusho-section">
+  <div class="tokusho-inner">
+    <div class="section-label">LEGAL</div>
+    <h2 class="section-heading" style="font-size: 1.4rem; color: var(--slate);">特定商取引法に基づく表記</h2>
+    <table class="tokusho-table">
+      <tr>
+        <th>販売事業者</th>
+        <td>きづきくみたて工房</td>
+      </tr>
+      <tr>
+        <th>代表者</th>
+        <td>森本 康仁</td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td>〒389-0102 長野県北佐久郡軽井沢町大字軽井沢1012-35</td>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <td>070-2810-2677</td>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <td>y.morimoto@kizukikumitate.com</td>
+      </tr>
+      <tr>
+        <th>サービス内容</th>
+        <td>デモクラシーフィットネス体験会（対話・合意形成トレーニング）</td>
+      </tr>
+      <tr>
+        <th>参加費</th>
+        <td>¥1,100（税込）</td>
+      </tr>
+      <tr>
+        <th>支払方法</th>
+        <td>当日受付にて現金またはPayPayにてお支払い</td>
+      </tr>
+      <tr>
+        <th>支払時期</th>
+        <td>当日受付時</td>
+      </tr>
+      <tr>
+        <th>サービス提供時期</th>
+        <td>2025年4月27日（月）18:00〜20:00</td>
+      </tr>
+      <tr>
+        <th>キャンセルポリシー</th>
+        <td>開催3日前までのキャンセルは全額返金いたします。それ以降のキャンセルはご返金できかねますので、ご了承ください。</td>
+      </tr>
+    </table>
+  </div>
 </section>
 
 <footer>
