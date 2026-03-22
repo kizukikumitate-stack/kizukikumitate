@@ -652,14 +652,18 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0,0,0,0.88);
     z-index: 9999;
     align-items: center;
     justify-content: center;
     padding: 1.5rem;
+    pointer-events: none;
   }
 
   .lightbox.open { display: flex; }
+
+  /* タッチ端末（スマホ）ではクリックで閉じられるよう操作を有効に */
+  .lightbox.pinned { pointer-events: auto; }
 
   .lightbox img {
     max-width: 100%;
@@ -1094,25 +1098,42 @@
 <script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
+  const isTouchDevice = () => window.matchMedia('(hover: none)').matches;
 
-  document.querySelectorAll('.gallery-slide img').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('open');
+  function openLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add('open');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    lightbox.classList.remove('pinned');
+  }
+
+  document.querySelectorAll('.gallery-slide').forEach(slide => {
+    const img = slide.querySelector('img');
+
+    // PC: ホバーで表示・離れたら非表示
+    slide.addEventListener('mouseenter', () => {
+      if (!isTouchDevice()) openLightbox(img.src);
+    });
+    slide.addEventListener('mouseleave', () => {
+      if (!isTouchDevice()) closeLightbox();
+    });
+
+    // スマホ: タップで表示（pinned＝操作有効化）
+    slide.addEventListener('click', () => {
+      if (isTouchDevice()) {
+        openLightbox(img.src);
+        lightbox.classList.add('pinned');
+      }
     });
   });
 
-  document.getElementById('lightboxClose').addEventListener('click', () => {
-    lightbox.classList.remove('open');
-  });
-
-  lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) lightbox.classList.remove('open');
-  });
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') lightbox.classList.remove('open');
-  });
+  // スマホ用: ✕ボタン・背景タップ・Escで閉じる
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 </script>
 
 </body>
