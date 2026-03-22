@@ -1960,3 +1960,47 @@
   }
 
   fetchNoteArticles();
+  // ===== MOBILE TOUCH: Anno dots =====
+  document.querySelectorAll('.anno').forEach(function(anno) {
+    anno.addEventListener('click', function(e) {
+      var isActive = anno.classList.contains('active');
+      document.querySelectorAll('.anno').forEach(function(a) { a.classList.remove('active'); });
+      document.querySelectorAll('.step-nav-btn').forEach(function(b) { b.classList.remove('active'); });
+      if (!isActive) {
+        anno.classList.add('active');
+        var step = anno.getAttribute('data-step');
+        var btn = document.querySelector('.step-nav-btn[data-step="' + step + '"]');
+        if (btn) btn.classList.add('active');
+      }
+      e.stopPropagation();
+    });
+  });
+  document.querySelectorAll('.step-nav-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var step = btn.getAttribute('data-step');
+      var isActive = btn.classList.contains('active');
+      document.querySelectorAll('.anno').forEach(function(a) { a.classList.remove('active'); });
+      document.querySelectorAll('.step-nav-btn').forEach(function(b) { b.classList.remove('active'); });
+      if (!isActive) {
+        btn.classList.add('active');
+        var anno = document.querySelector('.anno[data-step="' + step + '"]');
+        if (anno) anno.classList.add('active');
+      }
+    });
+  });
+  document.addEventListener('click', function() {
+    document.querySelectorAll('.anno').forEach(function(a) { a.classList.remove('active'); });
+    document.querySelectorAll('.step-nav-btn').forEach(function(b) { b.classList.remove('active'); });
+  });
+
+</script>
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav">
+  <a href="#about"><span class="icon">👤</span>About</a>
+  <a href="#workshop"><span class="icon">🛠</span>Workshop</a>
+  <a href="./lsp.html"><span class="icon">🧱</span>LSP</a>
+  <a href="./democracy-fitness.html"><span class="icon">💪</span>民主主義</a>
+  <a href="#note-section"><span class="icon">📝</span>Note</a>
+  <a href="#contact"><span class="icon">✉️</span>Contact</a>
+</nav>
