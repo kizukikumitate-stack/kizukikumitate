@@ -424,6 +424,62 @@
     color: rgba(255,255,255,0.4);
   }
 
+  /* ===== VOICES ===== */
+  .voices-bg { background: white; }
+  .voices-bg .section-label { color: var(--red); }
+  .voices-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .voices-card {
+    border: 1px solid var(--light-border);
+    border-top: 3px solid var(--red);
+    border-radius: 4px;
+    padding: 1.8rem 1.6rem 1.4rem;
+    position: relative;
+    background: var(--off-white);
+  }
+  .voices-card::before {
+    content: '\201C';
+    font-family: 'Shippori Mincho', serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--red);
+    opacity: 0.2;
+    position: absolute;
+    top: 0.4rem;
+    left: 1rem;
+  }
+  .voices-card.span2 { grid-column: span 2; }
+  .voices-text {
+    font-size: 0.93rem;
+    line-height: 1.9;
+    color: var(--charcoal);
+    padding-top: 1rem;
+  }
+  .voices-attr {
+    margin-top: 1.2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    color: var(--red);
+    letter-spacing: 0.08em;
+    opacity: 0.8;
+  }
+  .voices-note {
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--gray);
+  }
+  @media (max-width: 900px) {
+    .voices-cards { grid-template-columns: 1fr 1fr; }
+    .voices-card.span2 { grid-column: span 1; }
+  }
+  @media (max-width: 600px) {
+    .voices-cards { grid-template-columns: 1fr; }
+  }
+
   /* ===== SECTION 6: EVENTS ===== */
   .events-bg { background: var(--off-white); }
   .events-bg .section-label { color: var(--blue); }
@@ -861,6 +917,48 @@
         まずはサーベイのテストから
       </a>
       <p class="cta-note">kizukikumitate@gmail.com へメールが開きます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VOICES ===== -->
+<section class="voices-bg">
+  <div class="section-wrap wide fade-up">
+    <div class="section-label">Voices</div>
+    <h2 class="section-h2">参加者の声</h2>
+    <p class="voices-note">2026年1月 軽井沢合宿（2日間・10の筋肉一挙体験）参加者アンケートより</p>
+    <div class="voices-cards">
+
+      <div class="voices-card span2">
+        <p class="voices-text">知の筋トレ。フィットネスというネーミングも納得でした。真の民主主義とは何なのか——多数決ではない民主主義を、身体を伴う形で理解することができました。</p>
+        <div class="voices-attr">軽井沢合宿 参加者</div>
+      </div>
+
+      <div class="voices-card">
+        <p class="voices-text">良質なコミュニケーションをするためのトレーニングジム。その構成要素が、10個の筋肉でした。</p>
+        <div class="voices-attr">軽井沢合宿 参加者</div>
+      </div>
+
+      <div class="voices-card">
+        <p class="voices-text">意見をぶつけ合うのは、怒っていることとは違う。違う意見がある場面では「面白い」とニヤッとする感覚がある。ここからが筋肉の使いどころ。</p>
+        <div class="voices-attr">軽井沢合宿 参加者</div>
+      </div>
+
+      <div class="voices-card">
+        <p class="voices-text">今回のプログラムを通じて、自分の振る舞いによって民主主義が身近になるのだと思いました。会社や家族との対話しながら、各筋肉を意識するようになりました。</p>
+        <div class="voices-attr">軽井沢合宿 参加者</div>
+      </div>
+
+      <div class="voices-card">
+        <p class="voices-text">ライトに参加できてたくさんの学びがあり、価値観の根底をくすぐられる。ただの直観でしたが、ほんとにいってよかった！</p>
+        <div class="voices-attr">軽井沢合宿 参加者</div>
+      </div>
+
+      <div class="voices-card">
+        <p class="voices-text">1期生として、この活動に参加できたことをうれしく思います。今後も活動を続けていただき、一緒に広めていきたいと思います。</p>
+        <div class="voices-attr">軽井沢合宿 参加者</div>
+      </div>
+
     </div>
   </div>
 </section>
