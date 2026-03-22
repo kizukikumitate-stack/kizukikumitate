@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デモクラシーフィットネス体験会 | 2025.4.27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --paper: #f8f6ff;
+    --accent: #e85d26;
+    --gold: #f0b429;
+    --slate: #3a4a5c;
+    --mist: #eef0ff;
+    --text-secondary: #5a5880;
+    --nordic: #2d4a7a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--nordic);
+    color: var(--paper);
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.03) 59px,
+        rgba(255,255,255,0.03) 60px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 59px,
+        rgba(255,255,255,0.03) 59px,
+        rgba(255,255,255,0.03) 60px
+      );
+    pointer-events: none;
+  }
+
+  .hero-nav {
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .logo-mark {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+  }
+
+  .nav-date {
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+  }
+
+  .hero-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 0.85rem;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: clamp(2.8rem, 7vw, 6rem);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title .accent-line {
+    color: var(--accent);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.9;
+    opacity: 0.75;
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--accent);
+    color: white;
+    padding: 1rem 2.5rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: transform 0.2s, background 0.2s;
+    width: fit-content;
+  }
+
+  .hero-cta:hover { background: #a03508; transform: translateX(4px); }
+
+  .hero-cta-arrow { font-size: 1.2rem; }
+
+  .hero-info-bar {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0;
+  }
+
+  .hero-info-item {
+    padding: 1.5rem 2.5rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .hero-info-item:last-child { border-right: none; }
+
+  .hero-info-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    margin-bottom: 0.4rem;
+    font-family: 'Bebas Neue', sans-serif;
+  }
+
+  .hero-info-value {
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 3rem; }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .section-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── WHAT ── */
+  .what-section {
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .what-body p {
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .what-visual {
+    background: var(--nordic);
+    color: var(--paper);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .what-visual::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--accent);
+    z-index: -1;
+  }
+
+  .what-visual-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 1.6rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    color: var(--paper);
+  }
+
+  .what-visual-quote span { color: var(--gold); }
+
+  .what-visual-sub {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    opacity: 0.65;
+  }
+
+  /* ── MUSCLES ── */
+  .muscles-section {
+    background: var(--nordic);
+    color: var(--paper);
+  }
+
+  .muscles-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .muscles-section .section-label { color: var(--gold); }
+  .muscles-section .section-label::before { background: var(--gold); }
+
+  .muscles-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.1);
+    margin-top: 3rem;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .muscle-item {
+    background: var(--nordic);
+    padding: 2rem 1.5rem;
+    transition: background 0.2s;
+    position: relative;
+  }
+
+  .muscle-item:hover { background: #263c52; }
+
+  .muscle-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .muscle-name {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  /* ── TARGET ── */
+  .target-section {
+    background: var(--mist);
+  }
+
+  .target-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .target-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .target-card {
+    background: white;
+    padding: 2.5rem;
+    border-top: 3px solid var(--accent);
+    position: relative;
+  }
+
+  .target-card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .target-card h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+  }
+
+  .target-card p {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+  }
+
+  /* ── BENEFITS ── */
+  .benefits-section {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .benefits-list {
+    margin-top: 3rem;
+    display: grid;
+    gap: 2rem;
+  }
+
+  .benefit-item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 2rem;
+    align-items: start;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .benefit-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.6;
+  }
+
+  .benefit-content h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .benefit-content p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+  }
+
+  /* ── TIMETABLE ── */
+  .timetable-section {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .timetable-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .timetable-section .section-label { color: var(--gold); }
+  .timetable-section .section-label::before { background: var(--gold); }
+  .timetable-section .section-heading { color: var(--paper); }
+
+  .timetable {
+    margin-top: 3rem;
+    display: grid;
+    gap: 0;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .timetable-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    transition: background 0.2s;
+  }
+
+  .timetable-row:last-child { border-bottom: none; }
+  .timetable-row:hover { background: rgba(255,255,255,0.04); }
+
+  .timetable-time {
+    padding: 1.5rem;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    border-right: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+  }
+
+  .timetable-item {
+    padding: 1.5rem;
+    font-weight: 700;
+    font-family: 'Noto Serif JP', serif;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+  }
+
+  .timetable-desc {
+    padding: 1.5rem;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: rgba(245,240,232,0.55);
+    display: flex;
+    align-items: center;
+  }
+
+  /* ── FLOW ── */
+  .flow-section {
+    background: var(--mist);
+  }
+
+  .flow-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .flow-steps {
+    display: grid;
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .flow-steps::before {
+    content: '';
+    position: absolute;
+    left: 25px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--accent);
+    opacity: 0.3;
+  }
+
+  .flow-step {
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    align-items: start;
+  }
+
+  .flow-step-num {
+    width: 50px;
+    height: 50px;
+    background: var(--accent);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .flow-step-content h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.05rem;
+    padding-top: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* ── SPEAKER ── */
+  .speaker-section {
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .speaker-card {
+    background: var(--nordic);
+    color: var(--paper);
+    padding: 3rem;
+    position: sticky;
+    top: 2rem;
+  }
+
+  .speaker-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .speaker-name-ja {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .speaker-name-en {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.15em;
+    opacity: 0.4;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .speaker-title {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 1.5rem;
+  }
+
+  .speaker-bio h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--mist);
+  }
+
+  .speaker-bio p {
+    font-size: 0.9rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  /* ── REGISTER ── */
+  .register-section {
+    background: var(--accent);
+    color: white;
+    text-align: center;
+    padding: 6rem 3rem;
+  }
+
+  .register-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .register-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .register-sub {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+  }
+
+  .register-details {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .register-detail {
+    text-align: center;
+  }
+
+  .register-detail-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.7rem;
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+  }
+
+  .register-detail-value {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+
+  .register-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    color: var(--accent);
+    padding: 1.2rem 3rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+
+  .register-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+
+  .register-note {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    opacity: 0.65;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    opacity: 0.35;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-label { animation: fadeUp 0.6s ease both 0.1s; }
+  .hero-title { animation: fadeUp 0.7s ease both 0.25s; }
+  .hero-subtitle { animation: fadeUp 0.7s ease both 0.4s; }
+  .hero-cta { animation: fadeUp 0.7s ease both 0.55s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    section { padding: 4rem 1.5rem; }
+    .hero-body { padding: 3rem 1.5rem; }
+    .hero-nav { padding: 1.5rem; }
+    .hero-info-bar { grid-template-columns: 1fr; }
+    .hero-info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .what-section, .speaker-section { grid-template-columns: 1fr; gap: 2rem; }
+    .muscles-grid { grid-template-columns: repeat(2, 1fr); }
+    .target-cards { grid-template-columns: 1fr; }
+    .timetable-row { grid-template-columns: 90px 1fr; }
+    .timetable-desc { display: none; }
+    .speaker-card { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <nav class="hero-nav">
+    <div class="logo-mark">DEMOCRACY FITNESS</div>
+    <div class="nav-date">2025.04.27 MON — TOKYO</div>
+  </nav>
+
+  <div class="hero-body">
+    <div class="hero-label">体験会＆トレーナー養成講座 現地レポート</div>
+    <h1 class="hero-title" style="font-size: 4.15vw; white-space: nowrap; letter-spacing: 0.02em;">
+      対話力を鍛え、組織と社会をアップデートする。
+    </h1>
+    <p class="hero-subtitle">
+      知識として「知っている」だけでは、何も変わらない。<br>
+      デモクラシーフィットネスは、対話・合意形成・傾聴という<br>
+      日常のスキルを、スポーツのように身体で習得するメソッドです。
+    </p>
+    <a href="https://kizukikumitate.kit.com/8db376b6a3" class="hero-cta" target="_blank">
+      参加申し込みへ <span class="hero-cta-arrow">→</span>
+    </a>
+  </div>
+
+  <div class="hero-info-bar">
+    <div class="hero-info-item">
+      <div class="hero-info-label">Date & Time</div>
+      <div class="hero-info-value">4月27日（月）<br>18:00 – 20:00</div>
+    </div>
+    <div class="hero-info-item">
+      <div class="hero-info-label">Venue</div>
+      <div class="hero-info-value">国立オリンピック記念<br>青少年総合センター</div>
+    </div>
+    <div class="hero-info-item">
+      <div class="hero-info-label">Fee</div>
+      <div class="hero-info-value">¥1,100（税込）</div>
+    </div>
+    <div class="hero-info-item">
+      <div class="hero-info-label">Capacity</div>
+      <div class="hero-info-value">定員 30名</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT IS ── -->
+<section style="padding: 6rem 3rem; background: var(--paper);">
+  <div class="what-section">
+    <div class="what-body">
+      <div class="section-label">ABOUT</div>
+      <h2 class="section-heading">デモクラシーフィットネスとは</h2>
+      <p>「デモクラシーフィットネス」は、デンマーク発の革新的なコンセプトです。民主主義を「制度」として学ぶのではなく、スポーツのように日常の中で鍛えていく考え方です。</p>
+      <p>単なる政治の議論ではありません。組織・チーム・コミュニティにおける「対話の基礎体力」をつくるトレーニングです。</p>
+      <p>民主主義は、使わなければ衰え、放置すれば硬直してしまう"心の筋肉"です。だからこそ、意識的に鍛え続けることが必要なのです。</p>
+    </div>
+
+    <div class="what-visual">
+      <div class="what-visual-quote">
+        民主主義は知識ではなく、<span>「日常の筋肉」</span>である。
+      </div>
+      <p class="what-visual-sub">
+        SNSによるエコーチェンバー、職場の多様化（DE&I）が進む今、「違う意見を持つ人と、どうやって同じテーブルに座り続けるか」というスキルが、公私ともに欠かせないものになっています。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── 10 MUSCLES ── -->
+<section class="muscles-section">
+  <div class="muscles-inner">
+    <div class="section-label">10 MUSCLES</div>
+    <h2 class="section-heading" style="color: var(--paper);">鍛えるべき<br>「10の筋肉」</h2>
+    <div class="muscles-grid">
+      <div class="muscle-item"><div class="muscle-num">01</div><div class="muscle-name">共感筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">02</div><div class="muscle-name">意見筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">03</div><div class="muscle-name">勇気筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">04</div><div class="muscle-name">反対意見<br>表明筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">05</div><div class="muscle-name">好奇心筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">06</div><div class="muscle-name">妥協筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">07</div><div class="muscle-name">活動家筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">08</div><div class="muscle-name">動員筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">09</div><div class="muscle-name">言葉への<br>自信筋</div></div>
+      <div class="muscle-item"><div class="muscle-num">10</div><div class="muscle-name">傾聴筋</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TARGET ── -->
+<section style="background: var(--mist); padding: 6rem 3rem;">
+  <div class="target-inner">
+    <div class="section-label">WHO IS THIS FOR</div>
+    <h2 class="section-heading">こんな方へ</h2>
+    <div class="target-cards">
+      <div class="target-card">
+        <div class="target-card-icon">🏛️</div>
+        <h3>日本の民主主義に危機感・違和感を持っている人</h3>
+        <p>現状を「制度」として嘆くのではなく、日常のコミュニケーションから変えていきたいと感じている方に。</p>
+      </div>
+      <div class="target-card">
+        <div class="target-card-icon">🎓</div>
+        <h3>学校・組織で教育・人材育成に取り組んでいる人</h3>
+        <p>心理的安全性、対話型授業、リーダーシップ育成に取り組む教育者・人事担当・ファシリテーターに。</p>
+      </div>
+      <div class="target-card">
+        <div class="target-card-icon">🤝</div>
+        <h3>多様な主体との連携に悩むNPO・自治体職員・企業人</h3>
+        <p>利害の違う相手と建設的に話し合い、共に動くための実践的スキルを探している方に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BENEFITS ── -->
+<section style="padding: 6rem 3rem;">
+  <div class="benefits-section">
+    <div class="section-label">WHAT YOU GAIN</div>
+    <h2 class="section-heading">参加で得られること</h2>
+    <div class="benefits-list">
+      <div class="benefit-item">
+        <div class="benefit-num">01</div>
+        <div class="benefit-content">
+          <h3>「反対意見」を歓迎できる組織文化の醸成</h3>
+          <p>反対意見を「攻撃」ではなく「検討すべき材料」として扱う筋力を養うことで、組織内の隠れたリスクや新しいアイデアが表に出やすくなります。</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">02</div>
+        <div class="benefit-content">
+          <h3>「納得感」のある意思決定プロセスの習得</h3>
+          <p>単なる多数決ではなく、異なる主張の背景にある「大切にしたい価値観」をすくい上げ、全員が当事者意識を持てる合意形成のコツを学べます。</p>
+        </div>
+      </div>
+      <div class="benefit-item">
+        <div class="benefit-num">03</div>
+        <div class="benefit-content">
+          <h3>「聞き上手」が育つ環境づくり</h3>
+          <p>リーダー自らが「問いを立てる力」や「共感力」を実践して見せることで、メンバー間のコミュニケーションの質が連鎖的に向上します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRAM FLOW ── -->
+<section class="flow-section" style="padding: 6rem 3rem;">
+  <div class="flow-inner">
+    <div class="section-label">PROGRAM FLOW</div>
+    <h2 class="section-heading">当日の流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step-num">1</div>
+        <div class="flow-step-content"><h3>スピーカー自己紹介（経歴と問題意識）</h3></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">2</div>
+        <div class="flow-step-content"><h3>デモクラシーフィットネスについて</h3></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">3</div>
+        <div class="flow-step-content"><h3>コペンハーゲンでのトレーニングの様子</h3></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">4</div>
+        <div class="flow-step-content"><h3>デモクラシーフィットネス体験</h3></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">5</div>
+        <div class="flow-step-content"><h3>質疑応答</h3></div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num" style="background: var(--gold);">+</div>
+        <div class="flow-step-content"><h3>終了後：懇親会（外部会場にて）</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPEAKER ── -->
+<section style="padding: 6rem 3rem; background: var(--paper);">
+  <div class="speaker-section">
+    <div>
+      <div class="section-label">SPEAKER</div>
+      <div class="speaker-card">
+        <div class="speaker-tag">DEMOCRACY FITNESS TRAINER</div>
+        <div class="speaker-name-ja">森本 康仁</div>
+        <div class="speaker-name-en">YASUHITO MORIMOTO</div>
+        <div class="speaker-title">
+          きづきくみたて工房 代表<br>
+          ラーニングエクスペリエンスデザイナー<br>
+          ラーニングファシリテーター
+        </div>
+      </div>
+    </div>
+
+    <div class="speaker-bio">
+      <h3>プロフィール</h3>
+      <p>「時代が必要とする学びの機会を作り、届ける」をテーマに、日本を中心に人材開発・組織開発に従事。</p>
+      <p>9年ほど東京都で小学校教員として勤めた後、単身セブ島に移住し、複数の教育事業の立ち上げに従事。2015年に帰国後、日本の教育系企業にて多くの企業に研修やワークショップを提供。以降、合計数百にわたる企業の人事戦略・組織戦略の立案や教育施策の実施を支援。</p>
+      <p>2022年末に独立後、国内外の先進的な教育実践や働き方のリサーチをしながら、日本の伝統的な組織の働き方・学び方のアップデートに挑戦中。</p>
+      <p>2013年にシンガポールにてLSP（レゴシリアスプレイ）のトレーニングを受講。以降、企業を中心に500以上の現場にLSPを提供するなど、日本でも有数の実践を重ねている。</p>
+      <p>2022年末に軽井沢に移住。森の中で人間社会と自然との共存の仕方について考え中。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── REGISTER ── -->
+<section id="register" class="register-section">
+  <div class="register-label">APPLY NOW</div>
+  <h2 class="register-heading">参加申し込み</h2>
+  <p class="register-sub">定員に達し次第、受付を締め切ります。お早めにどうぞ。</p>
+  <div class="register-details">
+    <div class="register-detail">
+      <div class="register-detail-label">日時</div>
+      <div class="register-detail-value">4月27日（月）18:00–20:00</div>
+    </div>
+    <div class="register-detail">
+      <div class="register-detail-label">会場</div>
+      <div class="register-detail-value">国立オリンピック記念青少年総合センター<br><small style="font-weight:300; font-size:0.85rem;">東京都渋谷区代々木神園町3-1</small></div>
+    </div>
+    <div class="register-detail">
+      <div class="register-detail-label">参加費</div>
+      <div class="register-detail-value">¥1,100（税込）</div>
+    </div>
+  </div>
+  <a href="https://kizukikumitate.kit.com/8db376b6a3" class="register-btn" target="_blank">申し込みフォームへ →</a>
+  <p class="register-note">終了後、外部会場にて懇親会を予定しています。</p>
+</section>
+
+<footer>
+  <div class="footer-logo">DEMOCRACY FITNESS TOKYO 2025</div>
+  <div class="footer-copy">© きづきくみたて工房 / 森本康仁</div>
+</footer>
+
+</body>
+</html>
