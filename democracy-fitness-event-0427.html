@@ -599,6 +599,75 @@
     margin-bottom: 1rem;
   }
 
+  /* ── PHOTO GALLERY ── */
+  .gallery-section {
+    padding: 6rem 3rem;
+    background: var(--paper);
+  }
+
+  .gallery-magazine {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto auto;
+    gap: 8px;
+    margin-top: 2rem;
+  }
+
+  .gallery-main {
+    grid-row: span 2;
+    overflow: hidden;
+  }
+
+  .gallery-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .gallery-sub {
+    overflow: hidden;
+  }
+
+  .gallery-sub img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .gallery-sub:hover img,
+  .gallery-main:hover img {
+    transform: scale(1.03);
+  }
+
+  .gallery-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .gallery-bottom .gallery-sub {
+    height: 180px;
+  }
+
+  .gallery-main { height: 480px; }
+  .gallery-magazine .gallery-sub { height: 236px; }
+
+  @media (max-width: 700px) {
+    .gallery-section { padding: 4rem 1.5rem; }
+    .gallery-magazine {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
+    .gallery-main { height: 260px; grid-row: span 1; }
+    .gallery-magazine .gallery-sub { height: 200px; }
+    .gallery-bottom { grid-template-columns: 1fr 1fr; }
+    .gallery-bottom .gallery-sub { height: 140px; }
+  }
+
   /* ── REGISTER ── */
   .register-section {
     background: var(--accent);
@@ -905,6 +974,35 @@
         <div class="flow-step-num" style="background: var(--gold);">+</div>
         <div class="flow-step-content"><h3>終了後：懇親会（外部会場にて）</h3></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PHOTO GALLERY ── -->
+<section class="gallery-section">
+  <div class="section-label">FROM THE FIELD</div>
+  <h2 class="section-heading">デンマークでの実践風景</h2>
+
+  <div class="gallery-magazine">
+    <div class="gallery-main">
+      <img src="./ws-photo-4.jpg" alt="ワークショップ風景">
+    </div>
+    <div class="gallery-sub">
+      <img src="./ws-photo-2.jpg" alt="講師の様子">
+    </div>
+    <div class="gallery-sub">
+      <img src="./ws-photo-5.jpg" alt="ワークショップ風景">
+    </div>
+  </div>
+  <div class="gallery-bottom">
+    <div class="gallery-sub">
+      <img src="./ws-photo-1.jpg" alt="ワークショップ風景">
+    </div>
+    <div class="gallery-sub">
+      <img src="./ws-photo-3.jpg" alt="ワークショップ風景">
+    </div>
+    <div class="gallery-sub">
+      <img src="./ws-photo-6.jpg" alt="ハートの壁">
     </div>
   </div>
 </section>
