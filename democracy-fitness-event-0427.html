@@ -642,14 +642,14 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.6s ease;
   }
 
   .gallery-slide:hover img { transform: scale(1.05); }
 
   /* ── LIGHTBOX ── */
   .lightbox {
-    display: none;
+    display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.88);
@@ -658,9 +658,15 @@
     justify-content: center;
     padding: 1.5rem;
     pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
   }
 
-  .lightbox.open { display: flex; }
+  .lightbox.open {
+    opacity: 1;
+    visibility: visible;
+  }
 
   /* タッチ端末（スマホ）ではクリックで閉じられるよう操作を有効に */
   .lightbox.pinned { pointer-events: auto; }
