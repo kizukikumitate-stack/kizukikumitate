@@ -386,6 +386,98 @@
     color: rgba(255,255,255,0.4);
   }
 
+  /* ===== SECTION 6: EVENTS ===== */
+  .events-bg { background: var(--off-white); }
+  .events-bg .section-label { color: var(--blue); }
+  .events-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  .event-card {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-left: 4px solid var(--blue);
+    padding: 2rem 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .event-card:hover {
+    box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+  }
+  .event-card-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .event-card-tag {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    font-weight: 500;
+  }
+  .event-card-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--charcoal);
+    line-height: 1.4;
+  }
+  .event-card-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.4rem;
+  }
+  .event-card-detail {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .event-card-detail span { font-weight: 500; color: var(--charcoal); }
+  .event-card-btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--blue);
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .event-card-btn:hover {
+    background: #0d3f7a;
+    transform: translateY(-1px);
+  }
+  .events-empty {
+    text-align: center;
+    padding: 3rem;
+    color: var(--mid-gray);
+    font-size: 0.95rem;
+    border: 1px dashed var(--light-border);
+  }
+  @media (max-width: 640px) {
+    .event-card {
+      grid-template-columns: 1fr;
+    }
+    .event-card-btn {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
   /* ===== FADE UP ===== */
   .fade-up {
     opacity: 0; transform: translateY(24px);
@@ -721,6 +813,36 @@
         まずはサーベイのテストから
       </a>
       <p class="cta-note">kizukikumitate@gmail.com へメールが開きます</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: EVENTS ===== -->
+<section class="events-bg">
+  <div class="section-wrap wide">
+    <div class="fade-up">
+      <div class="section-label">Upcoming Events</div>
+      <h2 class="section-h2">今後のイベント予定</h2>
+    </div>
+    <div class="events-grid fade-up">
+
+      <!-- イベントカード -->
+      <div class="event-card">
+        <div class="event-card-meta">
+          <div class="event-card-tag">体験会 &amp; トレーナー養成講座</div>
+          <div class="event-card-title">デモクラシーフィットネス体験会<br>— 対話力を鍛え、組織と社会をアップデートする</div>
+          <div class="event-card-details">
+            <div class="event-card-detail">📅 <span>2025年4月27日（月）18:00〜20:00</span></div>
+            <div class="event-card-detail">📍 <span>国立オリンピック記念青少年総合センター（東京・代々木）</span></div>
+            <div class="event-card-detail">💴 <span>¥1,000</span></div>
+            <div class="event-card-detail">👥 <span>定員 30名</span></div>
+          </div>
+        </div>
+        <a href="https://kizukikumitate.kit.com/8db376b6a3" class="event-card-btn" target="_blank">
+          申し込む →
+        </a>
+      </div>
+
     </div>
   </div>
 </section>
