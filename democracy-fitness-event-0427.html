@@ -911,6 +911,85 @@
     .speaker-card { position: static; }
   }
 
+  /* ── FAQ ── */
+  .faq-section {
+    background: var(--mist);
+    padding: 6rem 3rem;
+  }
+  .faq-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq-list {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(45, 74, 122, 0.15);
+  }
+  .faq-item:first-child {
+    border-top: 1px solid rgba(45, 74, 122, 0.15);
+  }
+  .faq-question {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.4rem 0;
+    text-align: left;
+    cursor: pointer;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.6;
+    transition: color 0.2s;
+  }
+  .faq-question:hover { color: var(--accent); }
+  .faq-q-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .faq-q-text { flex: 1; }
+  .faq-chevron {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+    color: var(--slate);
+  }
+  .faq-item.open .faq-chevron { transform: rotate(180deg); }
+  .faq-answer {
+    display: none;
+    padding: 0 0 1.4rem 2.1rem;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.9;
+  }
+  .faq-answer-inner { display: flex; gap: 0.8rem; }
+  .faq-a-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem;
+    color: var(--nordic);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+  .faq-item.open .faq-answer { display: block; }
+  @media (max-width: 600px) {
+    .faq-section { padding: 4rem 1.5rem; }
+    .faq-question { font-size: 0.93rem; }
+    .faq-answer { font-size: 0.88rem; }
+  }
+
   /* ── 特定商取引法 ── */
   .tokusho-section {
     background: #f0f0f0;
@@ -1202,6 +1281,157 @@
   </div>
 </section>
 
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading">よくある質問</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">政治的な話し合いをするイベントですか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>いいえ。「デモクラシーフィットネス」は政党や政策の議論をするものではありません。チームや組織、日常の対話に活かせる「対話スキル」のワークショップです。デンマーク発のコンセプトで、誰もが使える実践的なコミュニケーションのトレーニングです。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">一人で参加しても大丈夫ですか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>もちろんです。参加者の多くが一人での申し込みです。グループワーク形式なので、当日自然と交流が生まれます。初対面の方とも安心して取り組めるよう、ファシリテーターがサポートします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">特別な知識や経験は必要ですか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>一切不要です。政治や民主主義についての専門知識も、コミュニケーションの資格も必要ありません。「もっとうまく対話できるようになりたい」という気持ちだけで十分です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">どんな方が参加されていますか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>会社員・管理職・教育関係者・フリーランスなど、職種・年齢ともに多様な方が参加されています。「チームの対話を変えたい」「自分の意見を伝えられるようになりたい」「組織開発に関心がある」という方が多くご参加いただいています。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">服装や持ち物の指定はありますか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>動きやすい服装でお越しください（ワークによっては立って動く場面があります）。筆記用具があると便利ですが、なくても問題ありません。その他の特別な準備は不要です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">遅刻してしまいそうな場合は？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>事前に <a href="mailto:y.morimoto@kizukikumitate.com" style="color: var(--accent);">y.morimoto@kizukikumitate.com</a> までご連絡ください。可能な限り途中からでも参加いただけるよう対応します。ただし、開始時のオリエンテーションを聞き逃すと内容が分かりにくくなる場合がありますので、できる限り時間通りのご参加をお願いします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">支払い方法を教えてください。</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>当日受付にて、現金またはPayPayでお支払いいただきます。参加費は ¥1,100（税込）です。事前のお振り込み等は不要です。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">キャンセルしたい場合はどうすればいいですか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>前日までに <a href="mailto:y.morimoto@kizukikumitate.com" style="color: var(--accent);">y.morimoto@kizukikumitate.com</a> までご連絡ください。キャンセル料は発生しません。当日の急な体調不良等はご連絡のみで問題ありません。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">次回以降のイベント情報はどこで確認できますか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>申し込みフォームからご登録いただいた方には、メールで優先的にお知らせします。また、<a href="https://kizukikumitate-stack.github.io/kizukikumitate/democracy-fitness.html" style="color: var(--accent);" target="_blank">公式ウェブサイト</a>の「今後のイベント予定」にも随時更新していきます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span class="faq-q-label">Q</span>
+          <span class="faq-q-text">トレーナーとして活動したい場合はどうすればいいですか？</span>
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <span class="faq-a-label">A</span>
+            <p>デモクラシーフィットネスのトレーナー養成講座を今後開催予定です。ご興味のある方は、申し込みフォームからメール登録をしていただくか、 <a href="mailto:y.morimoto@kizukikumitate.com" style="color: var(--accent);">y.morimoto@kizukikumitate.com</a> まで直接ご連絡ください。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ── REGISTER ── -->
 <section id="register" class="register-section">
   <div class="register-label">APPLY NOW</div>
@@ -1329,6 +1559,15 @@
   document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    // Close all open items
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    // Toggle clicked item
+    if (!isOpen) item.classList.add('open');
+  }
 </script>
 
 </body>
