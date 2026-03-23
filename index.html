@@ -1391,6 +1391,84 @@
     }
     .mobile-bottom-nav a:active { color: var(--blue); }
   }
+
+  /* ===== EVENTS ===== */
+  #events { background: #fafafa; padding: 5rem 2rem; }
+  #events .section-label { color: var(--green); }
+  #events h2 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+  }
+  .events-intro { font-size: 0.95rem; color: var(--mid-gray); margin-bottom: 3rem; line-height: 1.8; }
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .event-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+  }
+  .event-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .event-card-header {
+    background: linear-gradient(135deg, var(--green) 0%, #00b84a 100%);
+    padding: 1.5rem;
+    color: white;
+  }
+  .event-date { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+  .event-location { font-size: 0.9rem; opacity: 0.9; }
+  .event-card-body {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .event-type {
+    display: inline-block;
+    background: rgba(0,184,74,0.1);
+    color: var(--green);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    margin-bottom: 0.8rem;
+    width: fit-content;
+  }
+  .event-card-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 0.6rem;
+  }
+  .event-card-desc { font-size: 0.9rem; color: var(--mid-gray); line-height: 1.6; margin-bottom: 1rem; flex-grow: 1; }
+  .event-card-link {
+    align-self: flex-start;
+    color: var(--green);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 2px;
+    transition: opacity 0.2s;
+  }
+  .event-card-link:hover { opacity: 0.7; }
+  
+  @media (max-width: 900px) {
+    #events { padding: 4rem 2rem; }
+    #events h2 { font-size: 1.8rem; }
+    .events-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
 </style>
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="きづきくみたて">
@@ -1898,6 +1976,33 @@
 
 
 <!-- PROGRAM PREVIEWS -->
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="fade-up">
+    <div class="section-label">Events</div>
+    <h2>今後のイベント・<br>ワークショップ</h2>
+    <p class="events-intro">
+      様々な場所、様々な手法でのワークショップやイベントを開催予定です。<br>
+      参加者との対話の中で、新しい気づきや学びを共に創り出します。
+    </p>
+  </div>
+  <div class="events-grid fade-up">
+    <div class="event-card">
+      <div class="event-card-header">
+        <div class="event-date">2025.04.27</div>
+        <div class="event-location">東京</div>
+      </div>
+      <div class="event-card-body">
+        <span class="event-type">デモクラシーフィットネス</span>
+        <div class="event-card-title">民主主義フィットネス ― 東京開催</div>
+        <div class="event-card-desc">組織や個人の中に民主主義の土壌を耕すワークショップ。対話と創発を通じて、新しい時代の組織づくりを探究します。</div>
+        <a href="#contact" class="event-card-link">詳細・参加申込 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- CONTACT -->
 <section id="contact">
