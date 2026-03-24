@@ -414,26 +414,17 @@ nav {
 .day-title { font-size: 16px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; font-family: 'Noto Sans JP', sans-serif; }
 .day-desc { font-size: 14px; color: var(--text-secondary); line-height: 1.65; }
 .interim-card {
-  border: 1px dashed var(--teal-400);
-  background: var(--teal-50);
-  border-radius: 10px;
-  padding: 14px 18px;
-  margin: 8px 0;
+  padding: 8px 16px 8px 18px;
+  margin: 2px 0 2px 20px;
+  border-left: 2px solid var(--gray-200);
   display: flex;
-  gap: 14px;
+  gap: 10px;
   align-items: flex-start;
 }
-.interim-dot {
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  background: var(--teal-50);
-  border: 1.5px dashed var(--teal-400);
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.interim-icon { width: 12px; height: 12px; border-radius: 50%; background: var(--teal-400); }
-.interim-title { font-size: 15px; font-weight: 500; color: var(--teal-800); margin-bottom: 3px; font-family: 'Noto Sans JP', sans-serif; }
-.interim-desc { font-size: 14px; color: var(--teal-600); line-height: 1.65; }
+.interim-dot { display: none; }
+.interim-icon { display: none; }
+.interim-title { font-size: 13px; font-weight: 500; color: var(--text-muted); margin-bottom: 2px; font-family: 'Noto Sans JP', sans-serif; }
+.interim-desc { font-size: 12px; color: var(--text-muted); line-height: 1.6; }
 /* 特徴 */
 .features-section { background: var(--gray-50); }
 .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
@@ -775,14 +766,12 @@ footer {
       </div>
     </div>
     <div class="interim-card">
-      <div class="interim-dot"><div class="interim-icon"></div></div>
       <div class="day-content">
         <p class="interim-title">中間課題①：現場ヒアリング（1〜2週間）</p>
         <p class="interim-desc">設計した問いをもとに現場・管理職から生の声を収集。「思い込みのズレ」を体験する。</p>
       </div>
     </div>
     <div class="interim-card">
-      <div class="interim-dot"><div class="interim-icon"></div></div>
       <div class="day-content">
         <p class="interim-title">中間課題②：仮説立案と追加ヒアリング（1〜2週間）</p>
         <p class="interim-desc">BEMで原因仮説を2〜3個立て、検証のための追加ヒアリングを実施。HPIの思考サイクルを実践する。</p>
@@ -795,11 +784,23 @@ footer {
         <p class="day-desc">中間課題のデータを持ち寄り分析を統合。BEM根本原因分析→介入策選択→カークパトリック逆算による研修設計書を完成させる。</p>
       </div>
     </div>
+    <div class="interim-card">
+      <div class="day-content">
+        <p class="interim-title">中間課題③：適応課題の観察記録（1〜2週間）</p>
+        <p class="interim-desc">自組織の「何年やっても変わらない問題」を一つ選び、関係者の言動・感情・信念を観察・記録する。</p>
+      </div>
+    </div>
     <div class="day-card">
       <div class="day-dot" style="background:var(--coral-50);color:var(--coral-600);">3</div>
       <div class="day-content">
         <p class="day-title">3日目：適応課題の取り扱い</p>
         <p class="day-desc">技術的問題 vs 適応課題の見極め方を学び、「何年やっても変わらない課題」に対する対話設計と変革の場づくりを実践する。</p>
+      </div>
+    </div>
+    <div class="interim-card">
+      <div class="day-content">
+        <p class="interim-title">中間課題④：対話設計の試行（1〜2週間）</p>
+        <p class="interim-desc">適応課題に対する対話アプローチを小規模で試み、反応と変化を記録する。</p>
       </div>
     </div>
     <div class="day-card">
@@ -809,11 +810,23 @@ footer {
         <p class="day-desc">教育担当者の役割変容を理解した上で、ニーズ分析・教材開発・効果測定へのAI活用をハンズオンで設計。AIを「使う」ではなく「組み込む」設計力を身につける。</p>
       </div>
     </div>
+    <div class="interim-card">
+      <div class="day-content">
+        <p class="interim-title">中間課題⑤：AI活用の実務試行（1〜2週間）</p>
+        <p class="interim-desc">設計したAI活用フローを実務に組み込み、効果と課題を記録する。</p>
+      </div>
+    </div>
     <div class="day-card">
       <div class="day-dot" style="background:var(--blue-50);color:var(--blue-600);">5</div>
       <div class="day-content">
         <p class="day-title">5日目：組織全体の人材育成計画</p>
         <p class="day-desc">戦略人材マップ・階層別育成ロードマップ・KPI設計・経営への接続。単発研修の企画者から組織の戦略パートナーへ。</p>
+      </div>
+    </div>
+    <div class="interim-card">
+      <div class="day-content">
+        <p class="interim-title">中間課題⑥：育成計画書の草案作成（1〜2週間）</p>
+        <p class="interim-desc">5日目までの成果を統合し、6日目の発表に向けて育成計画書の全体像を仕上げる。</p>
       </div>
     </div>
     <div class="day-card">
