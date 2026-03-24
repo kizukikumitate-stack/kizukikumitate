@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教育担当者向けプログラム｜きづきくみたて工房</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-50: #EEEDFE;
+  --purple-100: #CECBF6;
+  --purple-200: #AFA9EC;
+  --purple-400: #7F77DD;
+  --purple-600: #534AB7;
+  --purple-800: #3C3489;
+  --purple-900: #26215C;
+  --teal-50: #E1F5EE;
+  --teal-100: #9FE1CB;
+  --teal-400: #1D9E75;
+  --teal-600: #0F6E56;
+  --teal-800: #085041;
+  --coral-50: #FAECE7;
+  --coral-100: #F5C4B3;
+  --coral-400: #D85A30;
+  --coral-600: #993C1D;
+  --coral-800: #712B13;
+  --amber-50: #FAEEDA;
+  --amber-400: #BA7517;
+  --amber-600: #854F0B;
+  --amber-800: #633806;
+  --blue-50: #E6F1FB;
+  --blue-400: #378ADD;
+  --blue-600: #185FA5;
+  --blue-800: #0C447C;
+  --green-50: #EAF3DE;
+  --green-400: #639922;
+  --green-600: #3B6D11;
+  --green-800: #27500A;
+  --gray-50: #F8F7F4;
+  --gray-100: #EFEDE8;
+  --gray-200: #D3D1C7;
+  --gray-400: #888780;
+  --gray-700: #4a4945;
+  --gray-900: #1e1e1c;
+  --text-primary: #1e1e1c;
+  --text-secondary: #5a5956;
+  --text-muted: #8a8885;
+  --border: rgba(0,0,0,0.08);
+  --border-strong: rgba(0,0,0,0.14);
+  --bg: #ffffff;
+  --bg-soft: #F8F7F4;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-size: 15px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 72px 0; }
+.section-sm { padding: 48px 0; }
+.label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 12px;
+}
+.divider { height: 1px; background: var(--border); margin: 0; }
+/* ナビ */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--purple-900);
+  letter-spacing: 0.02em;
+}
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.btn-primary {
+  background: var(--purple-600);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: var(--purple-800); }
+/* ヒーロー */
+.hero {
+  background: var(--purple-900);
+  padding: 80px 0 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -120px; right: -120px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: var(--purple-800);
+  opacity: 0.4;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: var(--purple-600);
+  opacity: 0.2;
+}
+.hero-inner { position: relative; z-index: 1; }
+.hero-badge {
+  display: inline-block;
+  background: var(--purple-600);
+  color: var(--purple-100);
+  font-size: 10px;
+  font-weight: 500;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.06em;
+}
+.hero h1 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--purple-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: var(--purple-400);
+}
+.hero-sub {
+  font-size: 13px;
+  color: var(--purple-200);
+  line-height: 1.8;
+  margin-bottom: 32px;
+  max-width: 480px;
+}
+.pain-list { margin-bottom: 32px; }
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pain-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.pain-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--coral-400);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.pain-text { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7; }
+.hero-cta {
+  background: #fff;
+  color: var(--purple-800);
+  border: none;
+  border-radius: 8px;
+  padding: 15px 32px;
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-block;
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+.hero-cta-sub {
+  font-size: 11px;
+  color: var(--purple-300, #AFA9EC);
+  margin-top: 10px;
+}
+/* なぜうまくいかないか */
+.fail-section { background: var(--bg); }
+.fail-intro {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 24px;
+}
+.emphasis-box {
+  border-left: 3px solid var(--purple-600);
+  padding: 14px 20px;
+  background: var(--purple-50);
+  border-radius: 0 8px 8px 0;
+  margin-bottom: 32px;
+}
+.emphasis-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 15px;
+  color: var(--purple-900);
+  line-height: 1.7;
+  font-weight: 600;
+}
+.fail-card {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  border: 1px solid;
+}
+.fail-card-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+}
+.fail-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500;
+  flex-shrink: 0;
+}
+.fail-card-title { font-size: 13px; font-weight: 500; line-height: 1.5; }
+.fail-card-body { padding: 0 18px 16px; }
+.fail-scene {
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.fail-scene-label { font-size: 10px; font-weight: 500; margin-bottom: 6px; letter-spacing: 0.05em; }
+.arrow-row { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 4px; }
+.arrow-bullet { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.arrow-text { font-size: 12px; line-height: 1.6; color: var(--text-primary); }
+.fail-why { font-size: 12px; line-height: 1.7; }
+.fail-red { border-color: #F09595; background: #FEF3F2; }
+.fail-red .fail-card-head { background: #FEF3F2; }
+.fail-red .fail-num { background: #F7C1C1; color: #A32D2D; }
+.fail-red .fail-card-title { color: #791F1F; }
+.fail-red .fail-why { color: #791F1F; }
+.fail-red .fail-scene-label { color: #A32D2D; }
+.fail-red .arrow-bullet { background: #E24B4A; }
+.fail-amber { border-color: #FAC775; background: #FFFAF0; }
+.fail-amber .fail-card-head { background: #FFFAF0; }
+.fail-amber .fail-num { background: #FAC775; color: #633806; }
+.fail-amber .fail-card-title { color: #412402; }
+.fail-amber .fail-why { color: #633806; }
+.fail-amber .fail-scene-label { color: #854F0B; }
+.fail-amber .arrow-bullet { background: #BA7517; }
+.fail-teal { border-color: #5DCAA5; background: #F0FDF8; }
+.fail-teal .fail-card-head { background: #F0FDF8; }
+.fail-teal .fail-num { background: #9FE1CB; color: #085041; }
+.fail-teal .fail-card-title { color: #04342C; }
+.fail-teal .fail-why { color: #085041; }
+.fail-teal .fail-scene-label { color: #0F6E56; }
+.fail-teal .arrow-bullet { background: #1D9E75; }
+.fail-close {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+/* 変化の構造 */
+.shift-section { background: var(--gray-50); }
+.shift-intro { font-size: 13px; color: var(--text-secondary); line-height: 1.85; margin-bottom: 28px; }
+.old-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.on-card { border-radius: 10px; padding: 16px; }
+.on-old { background: #EFEDE8; border: 1px solid var(--gray-200); }
+.on-new { background: var(--purple-50); border: 1px solid var(--purple-200); }
+.on-label { font-size: 10px; font-weight: 500; margin-bottom: 12px; letter-spacing: 0.06em; }
+.on-old .on-label { color: var(--gray-400); }
+.on-new .on-label { color: var(--purple-600); }
+.on-item { display: flex; gap: 7px; align-items: flex-start; margin-bottom: 7px; font-size: 12px; line-height: 1.55; }
+.on-old .on-item { color: #6b6a66; }
+.on-new .on-item { color: var(--purple-800); }
+.on-mark { flex-shrink: 0; font-size: 12px; margin-top: 1px; }
+.gap-title { font-size: 12px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
+.gap-visual {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.gap-row { display: flex; align-items: center; }
+.gap-row:first-child { border-bottom: 1px solid var(--border); }
+.gap-label-col {
+  width: 90px;
+  padding: 12px 12px 12px 14px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+}
+.gap-label-text { font-size: 11px; color: var(--text-secondary); line-height: 1.4; }
+.gap-bar-col { flex: 1; padding: 12px 16px; display: flex; align-items: center; gap: 10px; background: #fff; }
+.gap-bar { height: 8px; border-radius: 4px; transition: width 1s ease; }
+.gap-bar-val { font-size: 11px; font-weight: 500; white-space: nowrap; }
+.gap-note { font-size: 11px; color: var(--text-muted); text-align: right; margin-top: 4px; }
+/* 3つの核心技法 */
+.methods-section { background: var(--purple-900); padding: 72px 0; }
+.methods-label { color: var(--purple-400); }
+.methods-title { color: #fff; font-size: 24px; margin-bottom: 10px; }
+.methods-sub { font-size: 13px; color: var(--purple-200); line-height: 1.8; margin-bottom: 36px; }
+.method-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 22px;
+  margin-bottom: 14px;
+}
+.method-head { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+.method-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 2px;
+  letter-spacing: 0.04em;
+}
+.method-title { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 4px; font-family: 'Noto Sans JP', sans-serif; }
+.method-desc { font-size: 12px; color: var(--purple-200); line-height: 1.7; }
+.method-insight {
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.method-insight-label { font-size: 10px; font-weight: 500; margin-bottom: 4px; letter-spacing: 0.05em; }
+.method-insight-text { font-size: 12px; line-height: 1.65; }
+.m1 .method-badge { background: var(--purple-600); color: var(--purple-100); }
+.m1 .method-insight { background: rgba(83,74,183,0.25); }
+.m1 .method-insight-label { color: var(--purple-100); }
+.m1 .method-insight-text { color: var(--purple-50); }
+.m2 .method-badge { background: var(--coral-400); color: var(--coral-100); }
+.m2 .method-insight { background: rgba(216,90,48,0.2); }
+.m2 .method-insight-label { color: var(--coral-100); }
+.m2 .method-insight-text { color: var(--coral-50); }
+.m3 .method-badge { background: var(--teal-400); color: var(--teal-50); }
+.m3 .method-insight { background: rgba(29,158,117,0.2); }
+.m3 .method-insight-label { color: var(--teal-100); }
+.m3 .method-insight-text { color: var(--teal-50); }
+.m4 .method-badge { background: var(--amber-400); color: var(--amber-50); }
+.m4 .method-insight { background: rgba(186,117,23,0.2); }
+.m4 .method-insight-label { color: var(--amber-50); }
+.m4 .method-insight-text { color: var(--amber-50); }
+.methods-closer {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-top: 6px;
+}
+.methods-closer-text { font-size: 12px; color: var(--purple-100); line-height: 1.7; }
+.methods-closer-text strong { color: #fff; font-weight: 500; }
+/* プログラム構成 */
+.program-section { background: var(--bg); }
+.day-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.15s;
+}
+.day-card:hover { border-color: var(--border-strong); }
+.day-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 500;
+  flex-shrink: 0;
+}
+.day-content { flex: 1; }
+.day-title { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 4px; font-family: 'Noto Sans JP', sans-serif; }
+.day-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.65; }
+.interim-card {
+  border: 1px dashed var(--teal-400);
+  background: var(--teal-50);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 8px 0;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.interim-dot {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--teal-50);
+  border: 1.5px dashed var(--teal-400);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.interim-icon { width: 12px; height: 12px; border-radius: 50%; background: var(--teal-400); }
+.interim-title { font-size: 13px; font-weight: 500; color: var(--teal-800); margin-bottom: 3px; font-family: 'Noto Sans JP', sans-serif; }
+.interim-desc { font-size: 12px; color: var(--teal-600); line-height: 1.65; }
+/* 特徴 */
+.features-section { background: var(--gray-50); }
+.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.feature-card { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
+.feature-accent { width: 32px; height: 4px; border-radius: 2px; margin-bottom: 12px; }
+.feature-title { font-size: 13px; font-weight: 500; color: var(--text-primary); margin-bottom: 6px; font-family: 'Noto Sans JP', sans-serif; }
+.feature-text { font-size: 12px; color: var(--text-secondary); line-height: 1.7; }
+/* 成果物チェックリスト */
+.deliverables-section { background: var(--gray-50); }
+.check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.check-item { display: flex; gap: 10px; align-items: flex-start; }
+.check-box {
+  width: 16px; height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid var(--teal-400);
+  background: #fff;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex; align-items: center; justify-content: center;
+}
+.check-mark {
+  width: 8px; height: 5px;
+  border-left: 1.5px solid var(--teal-600);
+  border-bottom: 1.5px solid var(--teal-600);
+  transform: rotate(-45deg) translateY(-1px);
+}
+.check-text { font-size: 12px; color: var(--text-primary); line-height: 1.6; }
+/* お問い合わせ */
+.contact-section { background: var(--bg); }
+.contact-box {
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 36px;
+  text-align: center;
+}
+.contact-title {
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+.contact-text { font-size: 13px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 24px; }
+.btn-contact {
+  background: var(--purple-600);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 40px;
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  transition: background 0.15s;
+}
+.btn-contact:hover { background: var(--purple-800); }
+/* フッター */
+footer {
+  background: var(--gray-50);
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+.footer-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 14px; font-weight: 600; color: var(--purple-900); }
+.footer-copy { font-size: 11px; color: var(--text-muted); }
+/* セクション見出し共通 */
+.section-header { margin-bottom: 36px; }
+.section-title { font-size: 22px; color: var(--text-primary); margin-bottom: 0; }
+/* アニメーション */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-inner > * {
+  animation: fadeUp 0.6s ease both;
+}
+.hero-badge { animation-delay: 0.05s; }
+.hero h1 { animation-delay: 0.12s; }
+.hero-sub { animation-delay: 0.2s; }
+.pain-list { animation-delay: 0.28s; }
+.hero-cta { animation-delay: 0.36s; }
+@media (max-width: 540px) {
+  .old-new { grid-template-columns: 1fr; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .check-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 22px; }
+  .methods-title { font-size: 20px; }
+  .section { padding: 52px 0; }
+}
+</style>
+</head>
+<body>
+<!-- ナビゲーション -->
+<nav>
+  <div class="nav-inner">
+    <span class="nav-logo">きづきくみたて工房</span>
+    <div class="nav-links">
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">お問い合わせ</button>
+    </div>
+  </div>
+</nav>
+<!-- ヒーロー -->
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="hero-badge">教育担当者向けプログラム　全6日間</span>
+    <h1>「とりあえず研修を作る」から<br><em>組織課題を解決する設計者</em>へ</h1>
+    <p class="hero-sub">HPI・適応課題・生成AIという3つの核心的な技法を軸に、課題診断から育成計画まで一気通貫で設計できる思考の型を身につける研修設計プログラムです。</p>
+    <p style="font-size:11px;font-weight:500;color:var(--purple-300,#AFA9EC);margin-bottom:10px;letter-spacing:0.05em;">こんな状況に心あたりはありませんか？</p>
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-dot"></div>
+        <p class="pain-text">研修を実施したのに、現場の行動がまったく変わらない</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-dot"></div>
+        <p class="pain-text">「何の研修が必要か」を聞かれると、根拠を持って答えられない</p>
+      </div>
+      <div class="pain-item">
+        <div class="pain-dot"></div>
+        <p class="pain-text">組織課題と育成計画がバラバラで、経営と対話できない</p>
+      </div>
+      <div class="pain-item" style="border-bottom:none;">
+        <div class="pain-dot"></div>
+        <p class="pain-text">何年も同じような研修を繰り返しているが、何も変わっていない気がする</p>
+      </div>
+    </div>
+    <button class="hero-cta" onclick="document.getElementById('program').scrollIntoView({behavior:'smooth'})">プログラム詳細を見る →</button>
+    <p class="hero-cta-sub">まずはその理由から確認する ↓</p>
+  </div>
+</section>
+<!-- なぜうまくいかないか -->
+<section class="section fail-section" id="why">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">WHY IT FAILS</p>
+      <h2 class="section-title">なぜ「正しくやった研修」がうまくいかないのか</h2>
+    </div>
+    <p class="fail-intro">努力不足でも、コンテンツの質が低いわけでもありません。問題は「課題の見方」そのものが、時代の変化に追いついていないことにあります。多くの教育担当者が体系的に学ぶ機会のなかった「ある盲点」が、この状況を生み出しています。</p>
+    <div class="emphasis-box">
+      <p class="emphasis-text">「研修が効かない」のではなく、<br>「研修が必要でない課題に、研修を当てている」<br>——これが本当の原因です。</p>
+    </div>
+    <p class="fail-intro" style="margin-bottom:20px;">なぜそうなるのか。教育担当者に与えられた道具が「研修」しかないからです。ハンマーしか持っていなければ、すべての問題が釘に見えます。以下は典型的な3つのパターンです。</p>
+    <div class="fail-card fail-red">
+      <div class="fail-card-head">
+        <div class="fail-num">1</div>
+        <p class="fail-card-title">「スキル不足」だと思っていたら、実は仕組みの問題だった</p>
+      </div>
+      <div class="fail-card-body">
+        <div class="fail-scene">
+          <p class="fail-scene-label">よくある状況</p>
+          <div class="arrow-row">
+            <div class="arrow-bullet"></div>
+            <p class="arrow-text">若手の提案力が低い → コミュニケーション研修を実施</p>
+          </div>
+          <div class="arrow-row">
+            <div class="arrow-bullet"></div>
+            <p class="arrow-text">翌年も同じ研修を実施 → 数字はまったく変わらない</p>
+          </div>
+        </div>
+        <p class="fail-why">本当の原因：提案書を出しても承認されない仕組みがあり、若手が「出しても無駄」と学習していた。スキルではなく、プロセスとインセンティブの問題だった。</p>
+      </div>
+    </div>
+    <div class="fail-card fail-amber">
+      <div class="fail-card-head">
+        <div class="fail-num">2</div>
+        <p class="fail-card-title">「研修すれば変わる」と思っていたら、価値観の問題だった</p>
+      </div>
+      <div class="fail-card-body">
+        <div class="fail-scene">
+          <p class="fail-scene-label">よくある状況</p>
+          <div class="arrow-row">
+            <div class="arrow-bullet"></div>
+            <p class="arrow-text">管理職が部下育成に時間をかけない → マネジメント研修を実施</p>
+          </div>
+          <div class="arrow-row">
+            <div class="arrow-bullet"></div>
+            <p class="arrow-text">研修後も現場での育成行動が増えない → また来年も同じ研修</p>
+          </div>
+        </div>
+        <p class="fail-why">本当の原因：管理職は「自分が成果を出すことが評価される」と信じており、育成は「余裕があればやること」と認識していた。知識ではなく、信念と評価制度の問題だった。</p>
+      </div>
+    </div>
+    <div class="fail-card fail-teal">
+      <div class="fail-card-head">
+        <div class="fail-num">3</div>
+        <p class="fail-card-title">「何を学ぶべきか」を決めずに設計し、的外れになった</p>
+      </div>
+      <div class="fail-card-body">
+        <div class="fail-scene">
+          <p class="fail-scene-label">よくある状況</p>
+          <div class="arrow-row">
+            <div class="arrow-bullet"></div>
+            <p class="arrow-text">「DX推進人材が必要」→ データ分析研修を企画・実施</p>
+          </div>
+          <div class="arrow-row">
+            <div class="arrow-bullet"></div>
+            <p class="arrow-text">受講後「現場では使う機会がない」という声が続出</p>
+          </div>
+        </div>
+        <p class="fail-why">本当の原因：「DX推進」と聞いてスキル研修を連想したが、本当のギャップは「推進する権限・判断基準・経営との対話の場がないこと」だった。</p>
+      </div>
+    </div>
+    <p class="fail-close">これら3つに共通するのは、<strong>「症状を課題と取り違えた」</strong>という一点です。そしてこのミスを防ぐ思考の型を、多くの教育担当者は体系的に学ぶ機会がありませんでした——それは個人の問題ではなく、従来の研修設計の教育が「コンテンツを作る」ことに特化していたからです。</p>
+  </div>
+</section>
+<div class="divider"></div>
+<!-- 変化の構造 -->
+<section class="section shift-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">THE SHIFT</p>
+      <h2 class="section-title">従来のアプローチが通用しなくなった理由</h2>
+    </div>
+    <p class="shift-intro">10年前と比べて、組織の課題は複雑化しています。「研修を企画・実施できる人」から「組織課題を診断して最適な解を設計できる人」への転換が、今まさに求められています。しかし多くの教育担当者は、まだ前者のままです。</p>
+    <div class="old-new">
+      <div class="on-card on-old">
+        <p class="on-label">従来の教育担当者の役割</p>
+        <div class="on-item"><span class="on-mark">›</span><span>「どんな研修が必要か」を聞いて実施する</span></div>
+        <div class="on-item"><span class="on-mark">›</span><span>コンテンツの質と参加率で評価される</span></div>
+        <div class="on-item"><span class="on-mark">›</span><span>研修が唯一の解決手段</span></div>
+        <div class="on-item"><span class="on-mark">›</span><span>年間計画を粛々と実行する</span></div>
+      </div>
+      <div class="on-card on-new">
+        <p class="on-label">これからの教育担当者の役割</p>
+        <div class="on-item"><span class="on-mark" style="color:var(--purple-600);">◎</span><span>課題を診断して最適解を提案する</span></div>
+        <div class="on-item"><span class="on-mark" style="color:var(--purple-600);">◎</span><span>パフォーマンスへの貢献で評価される</span></div>
+        <div class="on-item"><span class="on-mark" style="color:var(--purple-600);">◎</span><span>研修・環境・制度・対話を組み合わせる</span></div>
+        <div class="on-item"><span class="on-mark" style="color:var(--purple-600);">◎</span><span>経営の戦略パートナーとして動く</span></div>
+      </div>
+    </div>
+    <p class="gap-title">組織課題の複雑さ vs 教育担当者の診断力のギャップ</p>
+    <div class="gap-visual">
+      <div class="gap-row">
+        <div class="gap-label-col" style="background:var(--gray-50);">
+          <p class="gap-label-text">組織課題の複雑さ</p>
+        </div>
+        <div class="gap-bar-col">
+          <div class="gap-bar" style="width:82%;background:var(--purple-600);"></div>
+          <span class="gap-bar-val" style="color:var(--purple-600);">急上昇中</span>
+        </div>
+      </div>
+      <div class="gap-row">
+        <div class="gap-label-col" style="background:var(--gray-50);">
+          <p class="gap-label-text">教育担当者の診断力</p>
+        </div>
+        <div class="gap-bar-col">
+          <div class="gap-bar" style="width:30%;background:var(--gray-200);"></div>
+          <span class="gap-bar-val" style="color:var(--gray-400);">横ばい</span>
+        </div>
+      </div>
+    </div>
+    <p class="gap-note">このギャップが拡大し続けることで「研修は意味がない」という誤解が生まれる</p>
+  </div>
+</section>
+<!-- 3つの核心技法 -->
+<section class="methods-section" id="methods">
+  <div class="container">
+    <p class="label methods-label">THE KEY METHODS</p>
+    <h2 class="methods-title">うまくいかない壁を破る、<br>3つの核心的な技法</h2>
+    <p class="methods-sub">このプログラムが軸に置く技法はそれぞれ「従来の限界を超えるための発想の転換」を持っています。どれか一つを知っているだけでは不十分です。3つが組み合わさって初めて、複雑な組織課題に対応できます。</p>
+    <div class="method-card m1">
+      <div class="method-head">
+        <span class="method-badge">技法 01</span>
+        <div>
+          <p class="method-title">HPI（ヒューマンパフォーマンスインプルーブメント）</p>
+          <p class="method-desc">課題を「スキルの問題」だけで見ていたアプローチを解体する。パフォーマンスに影響する環境・情報・インセンティブ・個人要因を体系的に診断し、研修以外の介入策も含めた最適解を設計する。</p>
+        </div>
+      </div>
+      <div class="method-insight">
+        <p class="method-insight-label">なぜこれが必要か</p>
+        <p class="method-insight-text">「研修で解決できる問題」は実は全体の1/6程度。残り5/6は環境・プロセス・制度・動機の問題です。HPIなしでは、毎回同じ失敗を繰り返します。</p>
+      </div>
+    </div>
+    <div class="method-card m2">
+      <div class="method-head">
+        <span class="method-badge">技法 02</span>
+        <div>
+          <p class="method-title">適応課題アプローチ（ハイフェッツ理論）</p>
+          <p class="method-desc">「仕組みを変えれば解決する（技術的問題）」と「人の信念・価値観が変わらないと解決しない（適応課題）」を見分け、後者に対して対話と場づくりで向き合う技法。</p>
+        </div>
+      </div>
+      <div class="method-insight">
+        <p class="method-insight-label">なぜこれが必要か</p>
+        <p class="method-insight-text">管理職育成・組織風土・エンゲージメントなど「何年やっても変わらない課題」のほとんどは適応課題です。HPI単独では診断できても、動かすことができません。</p>
+      </div>
+    </div>
+    <div class="method-card m3">
+      <div class="method-head">
+        <span class="method-badge">技法 03</span>
+        <div>
+          <p class="method-title">生成AI統合設計</p>
+          <p class="method-desc">「AIで研修資料を作る」ではなく、ニーズ分析・仮説検証・学習目標設計・効果測定のどのステップにAIを組み込むかを設計する。教育担当者の役割を「作る人」から「設計する人」へシフトさせる。</p>
+        </div>
+      </div>
+      <div class="method-insight">
+        <p class="method-insight-label">なぜこれが必要か</p>
+        <p class="method-insight-text">AI活用の手前で「何をAIに任せるか」を設計できなければ、ツールを持っているだけで業務は変わりません。設計力がなければAIは宝の持ち腐れです。</p>
+      </div>
+    </div>
+    <div class="method-card m4">
+      <div class="method-head">
+        <span class="method-badge">技法 04</span>
+        <div>
+          <p class="method-title">成人発達理論・IDGs</p>
+          <p class="method-desc">人は「何を知っているか」だけでなく「どのような認知の器で世界を見ているか」によって、同じ研修でも得られるものが根本的に異なる。成人発達理論で発達段階を把握し、IDGs（Inner Development Goals）で内面的成長の方向性を設計に組み込む。</p>
+        </div>
+      </div>
+      <div class="method-insight">
+        <p class="method-insight-label">なぜこれが必要か</p>
+        <p class="method-insight-text">「知識を詰め込んでも行動が変わらない」のは、発達段階と介入の設計がずれているからです。複雑な時代に求められるリーダーや人材を育てるには、スキルの前に「内面の発達」を理解した設計が必要です。</p>
+      </div>
+    </div>
+    <div class="methods-closer">
+      <p class="methods-closer-text">この4つを「知識として知る」のではなく、<strong>自分の組織の実際の課題に当てて使えるようになること</strong>が、このプログラムの到達目標です。中間課題で現場に出て仮説を検証し、6日間で思考の型として体得します。</p>
+    </div>
+  </div>
+</section>
+<!-- プログラム構成 -->
+<section class="section program-section" id="program">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">PROGRAM STRUCTURE</p>
+      <h2 class="section-title">6日間で思考の型を体得する</h2>
+    </div>
+    <div class="day-card">
+      <div class="day-dot" style="background:var(--purple-50);color:var(--purple-600);">1</div>
+      <div class="day-content">
+        <p class="day-title">1日目：人間理解・成人発達理論・HPI入門</p>
+        <p class="day-desc">「人はなぜ変わるのか・変われないのか」という根本的な問いから始め、成人発達理論で発達段階と認知の器の違いを理解する。その上でHPIの世界観・BEM分析・As-Is/To-Be構造化を学ぶ。1日目の最後に中間課題のインタビューガイドを完成させて持ち帰る。</p>
+      </div>
+    </div>
+    <div class="interim-card">
+      <div class="interim-dot"><div class="interim-icon"></div></div>
+      <div class="day-content">
+        <p class="interim-title">中間課題①：現場ヒアリング（1〜2週間）</p>
+        <p class="interim-desc">設計した問いをもとに現場・管理職から生の声を収集。「思い込みのズレ」を体験する。</p>
+      </div>
+    </div>
+    <div class="interim-card">
+      <div class="interim-dot"><div class="interim-icon"></div></div>
+      <div class="day-content">
+        <p class="interim-title">中間課題②：仮説立案と追加ヒアリング（1〜2週間）</p>
+        <p class="interim-desc">BEMで原因仮説を2〜3個立て、検証のための追加ヒアリングを実施。HPIの思考サイクルを実践する。</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-dot" style="background:var(--purple-50);color:var(--purple-600);">2</div>
+      <div class="day-content">
+        <p class="day-title">2日目：HPI実践・研修設計</p>
+        <p class="day-desc">中間課題のデータを持ち寄り分析を統合。BEM根本原因分析→介入策選択→カークパトリック逆算による研修設計書を完成させる。</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-dot" style="background:var(--coral-50);color:var(--coral-600);">3</div>
+      <div class="day-content">
+        <p class="day-title">3日目：適応課題の取り扱い</p>
+        <p class="day-desc">技術的問題 vs 適応課題の見極め方を学び、「何年やっても変わらない課題」に対する対話設計と変革の場づくりを実践する。</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-dot" style="background:var(--amber-50);color:var(--amber-600);">4</div>
+      <div class="day-content">
+        <p class="day-title">4日目：生成AIの活用法</p>
+        <p class="day-desc">教育担当者の役割変容を理解した上で、ニーズ分析・教材開発・効果測定へのAI活用をハンズオンで設計。AIを「使う」ではなく「組み込む」設計力を身につける。</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-dot" style="background:var(--blue-50);color:var(--blue-600);">5</div>
+      <div class="day-content">
+        <p class="day-title">5日目：組織全体の人材育成計画</p>
+        <p class="day-desc">戦略人材マップ・階層別育成ロードマップ・KPI設計・経営への接続。単発研修の企画者から組織の戦略パートナーへ。</p>
+      </div>
+    </div>
+    <div class="day-card">
+      <div class="day-dot" style="background:var(--green-50);color:var(--green-600);">6</div>
+      <div class="day-content">
+        <p class="day-title">6日目：総合演習と発表</p>
+        <p class="day-desc">すべての分析を統合した育成計画書を完成させ、プレゼンテーション・ピアレビューを実施。90日アクションプランで「翌月曜日から動ける」状態で帰る。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<!-- 特徴 -->
+<section class="section features-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">WHY THIS PROGRAM</p>
+      <h2 class="section-title">このプログラムだけの設計</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="feature-accent" style="background:var(--purple-600);"></div>
+        <p class="feature-title">現場ヒアリングが課題</p>
+        <p class="feature-text">研修室の中で終わらず、中間課題で実際に現場へ出て仮説を検証する。フレームワークと現実の「摩擦」が学びを深める。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent" style="background:var(--coral-400);"></div>
+        <p class="feature-title">自社の課題が素材</p>
+        <p class="feature-text">架空の事例ではなく、受講者自身の組織課題を全演習に持ち込む。そのまま翌日から使える成果物として完成する。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent" style="background:var(--teal-400);"></div>
+        <p class="feature-title">生成AI実装込み</p>
+        <p class="feature-text">HPIの各ステップにAIを組み込む設計をハンズオンで体験。「AIで何かを作る」ではなく「AIをどこに使うかを決める」設計力を育てる。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent" style="background:var(--blue-400);"></div>
+        <p class="feature-title">成果物を持ち帰る</p>
+        <p class="feature-text">最終日に育成計画書・BEM分析シート・研修設計書・90日アクションプランが完成した状態で帰る。「学んだ」ではなく「作った」で終わる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 成果物 -->
+<section class="section-sm deliverables-section">
+  <div class="container">
+    <p class="label" style="margin-bottom:12px;">DELIVERABLES</p>
+    <h3 style="font-size:17px;color:var(--text-primary);margin-bottom:16px;font-family:'Shippori Mincho',serif;">受講後に手元に残る成果物</h3>
+    <div class="check-grid">
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">パフォーマンスギャップ分析シート（BEM形式）</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">現場ヒアリング・仮説検証記録</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">研修設計書（カークパトリック逆算形式）</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">適応課題への対話設計ワークシート</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">生成AI活用設計図</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">組織全体の育成計画書（12か月）</p>
+      </div>
+      <div class="check-item">
+        <div class="check-box"><div class="check-mark"></div></div>
+        <p class="check-text">90日アクションプラン</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- お問い合わせ -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <h2 class="contact-title">まずはご相談から</h2>
+      <p class="contact-text">貴社の状況をお聞きした上で、プログラムのカスタマイズや<br>最適な実施方法をご提案します。お気軽にご連絡ください。</p>
+      <button class="btn-contact">お問い合わせ・お見積りはこちら →</button>
+      <p style="font-size:11px;color:var(--text-muted);margin-top:16px;">通常3営業日以内にご返信いたします</p>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">きづきくみたて工房</span>
+    <span class="footer-copy">© 2025 きづきくみたて工房. All rights reserved.</span>
+  </div>
+</footer>
+</body>
+</html>
