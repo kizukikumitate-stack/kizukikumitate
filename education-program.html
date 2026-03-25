@@ -646,14 +646,46 @@ footer {
 @media (max-width: 768px) {
   .hero { padding: 7rem 1.5rem 4rem; min-height: auto; }
   .hero h1 { font-size: 1.8rem; white-space: normal; }
+  .container { padding: 0 1.5rem; }
+  .section { padding: 4rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .contact-box { padding: 2.5rem 1.5rem; }
+  .methods-section { padding: 4rem 0; }
+  .footer-inner { padding: 0 1.5rem; }
 }
 @media (max-width: 540px) {
+  .container { padding: 0 1.2rem; }
+  .section { padding: 3rem 0; }
+  .section-title { font-size: 1.3rem; }
+  .contact-title { font-size: 1.3rem; }
+  .methods-title { font-size: 1.3rem; }
   .old-new { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
   .check-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 1.5rem; white-space: normal; }
-  .methods-title { font-size: 22px; }
-  .section { padding: 52px 0; }
+  .hero h1 { font-size: 1.4rem; white-space: normal; }
+  /* BEMテーブルをモバイルで縦積みに */
+  .bem-header { display: none; }
+  .bem-table { border: none; border-radius: 0; }
+  .bem-row {
+    grid-template-columns: 1fr;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 0.6rem;
+    overflow: hidden;
+  }
+  .bem-row-label {
+    background: var(--gray-100);
+    border-bottom: 1px solid var(--border);
+    font-weight: 700;
+    padding: 0.5rem 0.9rem;
+  }
+  .bem-cell {
+    border-left: none;
+    border-top: 1px solid var(--border);
+    padding: 0.5rem 0.9rem;
+    font-size: 0.82rem;
+  }
+  .bem-cell:first-of-type { border-top: none; }
 }
 </style>
 </head>
