@@ -514,6 +514,85 @@ nav {
 .m4 .method-insight { background: rgba(186,117,23,0.2); }
 .m4 .method-insight-label { color: var(--amber-50); }
 .m4 .method-insight-text { color: var(--amber-50); }
+/* HPI Flow Chart */
+.hpi-flow {
+  margin: 1.4rem 0 0.4rem;
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+}
+.hpi-flow-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--purple-400);
+  margin-bottom: 1rem;
+}
+.hpi-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+}
+.hpi-step {
+  flex: 1;
+  background: var(--gray-50, #f9f8ff);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.hpi-step-highlight {
+  background: var(--purple-50);
+  border-color: var(--purple-300);
+}
+.hpi-step-num {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--purple-300);
+  letter-spacing: 0.08em;
+}
+.hpi-step-highlight .hpi-step-num {
+  color: var(--purple-600);
+}
+.hpi-step-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.hpi-step-highlight .hpi-step-label {
+  color: var(--purple-800);
+}
+.hpi-step-note {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.hpi-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 0.45rem;
+  color: var(--purple-300);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  align-self: center;
+}
+@media (max-width: 680px) {
+  .hpi-steps {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  .hpi-arrow {
+    transform: rotate(90deg);
+    align-self: center;
+    padding: 0.1rem 0;
+  }
+}
+
 .bem-box {
   margin-top: 1.2rem;
   background: rgba(255,255,255,0.96);
@@ -970,6 +1049,40 @@ footer {
         <div>
           <p class="method-title">HPI（ヒューマンパフォーマンスインプルーブメント）</p>
           <p class="method-desc">課題を「スキルの問題」だけで見ていたアプローチを解体する。パフォーマンスに影響する環境・情報・インセンティブ・個人要因を体系的に診断し、研修以外の介入策も含めた最適解を設計する。</p>
+        </div>
+      </div>
+      <div class="hpi-flow">
+        <p class="hpi-flow-title">HPIの問題解決プロセス</p>
+        <div class="hpi-steps">
+          <div class="hpi-step">
+            <span class="hpi-step-num">01</span>
+            <p class="hpi-step-label">現状把握</p>
+            <p class="hpi-step-note">As-Is / To-Be の明確化</p>
+          </div>
+          <div class="hpi-arrow">›</div>
+          <div class="hpi-step">
+            <span class="hpi-step-num">02</span>
+            <p class="hpi-step-label">ギャップ分析</p>
+            <p class="hpi-step-note">理想と現実の差を特定</p>
+          </div>
+          <div class="hpi-arrow">›</div>
+          <div class="hpi-step hpi-step-highlight">
+            <span class="hpi-step-num">03</span>
+            <p class="hpi-step-label">原因診断</p>
+            <p class="hpi-step-note">BEMで6要因を分析</p>
+          </div>
+          <div class="hpi-arrow">›</div>
+          <div class="hpi-step">
+            <span class="hpi-step-num">04</span>
+            <p class="hpi-step-label">介入策設計</p>
+            <p class="hpi-step-note">研修・非研修の組み合わせ</p>
+          </div>
+          <div class="hpi-arrow">›</div>
+          <div class="hpi-step">
+            <span class="hpi-step-num">05</span>
+            <p class="hpi-step-label">効果測定</p>
+            <p class="hpi-step-note">カークパトリックで評価</p>
+          </div>
         </div>
       </div>
       <div class="method-insight">
