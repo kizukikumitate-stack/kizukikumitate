@@ -1091,15 +1091,19 @@
   .program-card-header { padding: 2.2rem 2rem 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; }
   .program-card-header.df { background: linear-gradient(135deg, #1a5fad 0%, #0d3f7a 100%); }
   .program-card-header.lsp { background: linear-gradient(135deg, #F5C400 0%, #ff9500 60%, #e03a2f 100%); }
+  .program-card-header.edu { background: linear-gradient(135deg, #6b3fa0 0%, #3d1a6e 100%); }
   .program-card-tag { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; }
   .program-card-header.df .program-card-tag { color: rgba(255,255,255,0.65); }
   .program-card-header.lsp .program-card-tag { color: rgba(0,0,0,0.55); }
+  .program-card-header.edu .program-card-tag { color: rgba(255,255,255,0.65); }
   .program-card-header h3 { font-family: 'Shippori Mincho', serif; font-size: 1.45rem; font-weight: 800; line-height: 1.3; }
   .program-card-header.df h3 { color: white; }
   .program-card-header.lsp h3 { color: #1a1a1a; }
+  .program-card-header.edu h3 { color: white; }
   .program-card-header p { font-size: 0.88rem; line-height: 1.8; }
   .program-card-header.df p { color: rgba(255,255,255,0.75); }
   .program-card-header.lsp p { color: rgba(0,0,0,0.65); }
+  .program-card-header.edu p { color: rgba(255,255,255,0.75); }
   .program-card-body { padding: 1.6rem 2rem; background: white; flex: 1; display: flex; flex-direction: column; gap: 1rem; }
   .program-card-points { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
   .program-card-points li { font-size: 0.88rem; color: var(--mid-gray); line-height: 1.6; padding-left: 1.2em; position: relative; }
@@ -1107,6 +1111,7 @@
   .program-card-cta { margin-top: auto; display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Jost', sans-serif; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; }
   .program-card-cta.df { color: var(--blue); }
   .program-card-cta.lsp { color: #d01f1f; }
+  .program-card-cta.edu { color: #6b3fa0; }
   .program-card-cta::after { content: ' \2192'; }
   @media (max-width: 900px) {
     #programs { padding: 4rem 2rem; }
@@ -1754,7 +1759,7 @@
   <div class="programs-header fade-up">
     <div class="section-label">Programs</div>
     <h2>プログラム紹介</h2>
-    <p style="color:var(--mid-gray); font-size:0.95rem; margin-top:0.8rem; line-height:1.8;">チームビルディング・組織開発・リーダーシップ研修など、様々なオーダーメイドプログラムをご提供しています。<br>以下は代表的な２つのプログラムです。</p>
+    <p style="color:var(--mid-gray); font-size:0.95rem; margin-top:0.8rem; line-height:1.8;">チームビルディング・組織開発・リーダーシップ研修など、様々なオーダーメイドプログラムをご提供しています。<br>以下は代表的な３つのプログラムです。</p>
   </div>
   <div class="programs-grid">
 
@@ -1789,6 +1794,24 @@
           <li>組織開発・研修プログラムとの組み合わせも可</li>
         </ul>
         <span class="program-card-cta lsp">詳しく見る</span>
+      </div>
+    </a>
+
+
+    <a href="./education-program.html" class="program-card fade-up">
+      <div class="program-card-header edu">
+        <div class="program-card-tag">Education Program</div>
+        <h3>教育担当者向け<br>プログラム</h3>
+        <p>「研修をつくる力」を根本から鍛える、<br>６日間の実践型育成プログラム</p>
+      </div>
+      <div class="program-card-body">
+        <ul class="program-card-points">
+          <li>成人発達理論・IDGsで人間理解を深める</li>
+          <li>HPI・適応課題・生成AIを組み合わせた設計力</li>
+          <li>現場で使える「思考の型」を体得する</li>
+          <li>少人数制・対話中心の濃密な６日間</li>
+        </ul>
+        <span class="program-card-cta edu">詳しく見る</span>
       </div>
     </a>
 
