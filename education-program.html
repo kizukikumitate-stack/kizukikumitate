@@ -85,55 +85,61 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.95);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--border);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--purple-800);
 }
 .nav-inner {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
-  height: 56px;
+  padding: 0 3rem;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
 }
 .nav-logo {
-  font-family: 'Shippori Mincho', serif;
-  font-size: 15px;
-  font-weight: 600;
-  color: var(--purple-900);
-  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
   text-decoration: none;
   flex-shrink: 0;
 }
+.nav-logo img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+.nav-logo-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--purple-900);
+  letter-spacing: 0.06em;
+}
 .nav-links {
   display: flex;
-  gap: 4px;
+  gap: 2rem;
+  list-style: none;
   align-items: center;
 }
-.nav-page-links {
-  display: flex;
-  gap: 0;
-  align-items: center;
-  margin-right: 8px;
-}
-.nav-page-link {
+.nav-links a {
   font-family: 'Noto Sans JP', sans-serif;
-  font-size: 12px;
+  font-size: 0.72rem;
   font-weight: 400;
-  color: var(--text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6a7a;
   text-decoration: none;
-  padding: 6px 10px;
-  border-radius: 6px;
-  transition: color 0.15s, background 0.15s;
+  transition: color 0.2s;
   white-space: nowrap;
 }
-.nav-page-link:hover { color: var(--purple-600); background: var(--purple-50); }
-.nav-page-link.active { color: var(--purple-600); font-weight: 500; }
-@media (max-width: 640px) {
-  .nav-page-links { display: none; }
+.nav-links a:hover { color: var(--purple-600); }
+.nav-links a.active { color: var(--purple-600); font-weight: 500; }
+@media (max-width: 768px) {
+  .nav-inner { padding: 0 1.5rem; }
+  .nav-links { gap: 1rem; }
+  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
 }
 .btn-primary {
   background: var(--purple-600);
@@ -186,20 +192,20 @@ nav {
   letter-spacing: 0.06em;
 }
 .hero h1 {
-  font-size: clamp(36px, 5.5vw, 54px);
+  font-size: clamp(26px, 3vw, 34px);
   color: #fff;
   margin-bottom: 20px;
-  line-height: 1.35;
+  line-height: 1.5;
   letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 .hero h1 em {
   font-style: normal;
   color: var(--purple-100);
-  display: block;
-  font-size: 1.08em;
-  border-bottom: 3px solid var(--purple-400);
-  padding-bottom: 4px;
-  margin-top: 6px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  text-decoration-color: var(--purple-400);
+  text-decoration-thickness: 2px;
 }
 .hero-sub {
   font-size: 15px;
@@ -574,7 +580,7 @@ footer {
   .old-new { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
   .check-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 28px; }
+  .hero h1 { font-size: 20px; white-space: normal; }
   .methods-title { font-size: 22px; }
   .section { padding: 52px 0; }
 }
@@ -584,16 +590,19 @@ footer {
 <!-- ナビゲーション -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="./index.html">きづきくみたて工房</a>
-    <div class="nav-links">
-      <div class="nav-page-links">
-        <a class="nav-page-link" href="./index.html">ホーム</a>
-        <a class="nav-page-link" href="./democracy-fitness.html">Democracy Fitness</a>
-        <a class="nav-page-link" href="./lsp.html">LSP</a>
-        <a class="nav-page-link active" href="./education-program.html">教育担当者向け</a>
-      </div>
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">お問い合わせ</button>
-    </div>
+    <a class="nav-logo" href="./index.html">
+      <img src="./logo.png" alt="きづきくみたて工房 ロゴ">
+      <span class="nav-logo-text">きづきくみたて工房</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html#about">About</a></li>
+      <li><a href="./index.html#mondai">Vision</a></li>
+      <li><a href="./index.html#workshop">Workshop</a></li>
+      <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+      <li><a href="./lsp.html">LSP</a></li>
+      <li><a href="./education-program.html" class="active">教育担当者向けプログラム</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </div>
 </nav>
 <!-- ヒーロー -->
