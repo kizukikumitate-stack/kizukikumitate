@@ -85,27 +85,56 @@ nav {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.92);
+  background: rgba(255,255,255,0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
-  max-width: 720px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 24px;
   height: 56px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 .nav-logo {
   font-family: 'Shippori Mincho', serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--purple-900);
   letter-spacing: 0.02em;
+  text-decoration: none;
+  flex-shrink: 0;
 }
-.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.nav-page-links {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  margin-right: 8px;
+}
+.nav-page-link {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+  white-space: nowrap;
+}
+.nav-page-link:hover { color: var(--purple-600); background: var(--purple-50); }
+.nav-page-link.active { color: var(--purple-600); font-weight: 500; }
+@media (max-width: 640px) {
+  .nav-page-links { display: none; }
+}
 .btn-primary {
   background: var(--purple-600);
   border: none;
@@ -157,17 +186,20 @@ nav {
   letter-spacing: 0.06em;
 }
 .hero h1 {
-  font-size: 30px;
+  font-size: clamp(36px, 5.5vw, 54px);
   color: #fff;
-  margin-bottom: 16px;
-  line-height: 1.5;
+  margin-bottom: 20px;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 .hero h1 em {
   font-style: normal;
   color: var(--purple-100);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--purple-400);
+  display: block;
+  font-size: 1.08em;
+  border-bottom: 3px solid var(--purple-400);
+  padding-bottom: 4px;
+  margin-top: 6px;
 }
 .hero-sub {
   font-size: 15px;
@@ -314,6 +346,29 @@ nav {
 .on-old .on-item { color: #6b6a66; }
 .on-new .on-item { color: var(--purple-800); }
 .on-mark { flex-shrink: 0; font-size: 14px; margin-top: 1px; }
+.ai-era-box {
+  background: var(--purple-900);
+  border-radius: 12px;
+  padding: 22px 24px;
+  margin-bottom: 28px;
+}
+.ai-era-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--purple-400);
+  margin-bottom: 10px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.ai-era-text {
+  font-size: 15px;
+  color: var(--purple-100);
+  line-height: 1.8;
+}
+.ai-era-text strong {
+  color: #fff;
+  font-weight: 500;
+}
 .gap-title { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 10px; }
 .gap-visual {
   border: 1px solid var(--border);
@@ -519,7 +574,7 @@ footer {
   .old-new { grid-template-columns: 1fr; }
   .feature-grid { grid-template-columns: 1fr; }
   .check-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 24px; }
+  .hero h1 { font-size: 28px; }
   .methods-title { font-size: 22px; }
   .section { padding: 52px 0; }
 }
@@ -529,8 +584,14 @@ footer {
 <!-- ナビゲーション -->
 <nav>
   <div class="nav-inner">
-    <span class="nav-logo">きづきくみたて工房</span>
+    <a class="nav-logo" href="./index.html">きづきくみたて工房</a>
     <div class="nav-links">
+      <div class="nav-page-links">
+        <a class="nav-page-link" href="./index.html">ホーム</a>
+        <a class="nav-page-link" href="./democracy-fitness.html">Democracy Fitness</a>
+        <a class="nav-page-link" href="./lsp.html">LSP</a>
+        <a class="nav-page-link active" href="./education-program.html">教育担当者向け</a>
+      </div>
       <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">お問い合わせ</button>
     </div>
   </div>
@@ -663,6 +724,10 @@ footer {
         <div class="on-item"><span class="on-mark" style="color:var(--purple-600);">◎</span><span>研修・環境・制度・対話を組み合わせる</span></div>
         <div class="on-item"><span class="on-mark" style="color:var(--purple-600);">◎</span><span>経営の戦略パートナーとして動く</span></div>
       </div>
+    </div>
+    <div class="ai-era-box">
+      <p class="ai-era-label">AI時代の本質的な転換</p>
+      <p class="ai-era-text">AIが「問題を解く」ことを代替し始めた今、人間に求められるのは<strong>「何が問題か」を設定する力</strong>です。教育担当者も同様——研修を"こなす"役割はAIに委ねられ、<strong>何を学ぶべき課題と定義するか</strong>が、これからの核心的な仕事になります。</p>
     </div>
     <p class="gap-title">組織課題の複雑さ vs 教育担当者の診断力のギャップ</p>
     <div class="gap-visual">
