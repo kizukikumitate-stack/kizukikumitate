@@ -220,13 +220,11 @@ nav {
 .hero {
   background: linear-gradient(135deg, var(--purple-900) 0%, #1a1550 60%, #0d0d2e 100%);
   min-height: 100vh;
-  padding: 5rem 4rem 5rem 6rem;
+  padding: 5rem 0;
   position: relative;
   overflow: hidden;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 48px;
 }
 .hero::before {
   content: '';
@@ -246,11 +244,7 @@ nav {
   border: 1px solid rgba(255,255,255,0.04);
   pointer-events: none;
 }
-.hero .container {
-  max-width: none;
-  padding: 0;
-}
-.hero-inner { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+.hero-inner { position: relative; z-index: 1; width: 100%; }
 .hero-badge {
   display: inline-block;
   background: var(--purple-600);
@@ -322,17 +316,18 @@ nav {
   color: var(--purple-300, #AFA9EC);
   margin-top: 10px;
 }
-/* ── Diagram Panel (ヒーロー左パネル) ── */
+/* ── Diagram Panel (ヒーロー左パネル・絶対配置) ── */
 .diag-panel {
-  flex-shrink: 0;
+  position: absolute;
+  left: max(1.5rem, calc((100vw - 960px) / 2 - 242px));
+  top: 50%;
+  transform: translateY(-50%);
   width: 210px;
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 14px;
   padding: 20px 16px;
-  position: relative;
   z-index: 1;
-  align-self: center;
 }
 .diag-title {
   font-size: 9px;
@@ -400,7 +395,7 @@ nav {
   text-align: center;
 }
 .diag-lv1-name { font-size: 12px; color: rgba(255,255,255,0.5); }
-@media (max-width: 768px) { .diag-panel { display: none; } }
+@media (max-width: 1366px) { .diag-panel { display: none; } }
 /* なぜうまくいかないか */
 .fail-section { background: var(--bg); }
 .fail-intro {
@@ -949,7 +944,7 @@ footer {
   <div class="diag-panel" aria-label="このプログラムの位置づけ">
     <div class="diag-title">人材・組織開発の全体像</div>
     <div class="diag-lv3">
-      <div class="diag-lv3-label">③ この先の専門領域</div>
+      <div class="diag-lv3-label">この先の専門領域</div>
       <div class="diag-lv3-tags">
         <div class="diag-lv3-tag">
           <span class="tag-en">HRD</span>
