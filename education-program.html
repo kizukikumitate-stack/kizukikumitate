@@ -760,20 +760,15 @@ nav {
 .btn-contact:hover { background: var(--purple-800); }
 /* フッター */
 footer {
-  background: var(--gray-50);
-  border-top: 1px solid var(--border);
-  padding: 2rem 0;
-}
-.footer-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 3rem;
+  background: var(--purple-900);
+  border-top: 3px solid var(--purple-800);
+  padding: 3rem 6rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
-.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 600; color: var(--purple-900); white-space: nowrap; }
-.footer-copy { font-size: 0.78rem; color: var(--text-muted); }
+.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); white-space: nowrap; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; }
 /* セクション見出し共通 */
 .section-header { margin-bottom: 3rem; }
 .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); color: var(--text-primary); margin-bottom: 0; font-weight: 700; }
@@ -798,7 +793,7 @@ footer {
   .section-sm { padding: 2.5rem 0; }
   .contact-box { padding: 2.5rem 1.5rem; }
   .methods-section { padding: 4rem 0; }
-  .footer-inner { padding: 0 1.5rem; }
+  footer { padding: 2rem; flex-direction: column; gap: 1.8rem; text-align: center; }
 }
 @media (max-width: 540px) {
   .container { padding: 0 1.2rem; }
@@ -1315,10 +1310,8 @@ footer {
   </div>
 </section>
 <footer>
-  <div class="footer-inner">
-    <span class="footer-logo">きづきくみたて工房</span>
-    <span class="footer-copy">© 2025 きづきくみたて工房. All rights reserved.</span>
-  </div>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2025 きづきくみたて工房. All rights reserved.</div>
 </footer>
 <script>
   const hamburger = document.getElementById('hamburger');
