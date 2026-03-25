@@ -446,6 +446,68 @@ nav {
 .m4 .method-insight { background: rgba(186,117,23,0.2); }
 .m4 .method-insight-label { color: var(--amber-50); }
 .m4 .method-insight-text { color: var(--amber-50); }
+.bem-box {
+  margin-top: 1.2rem;
+  background: rgba(255,255,255,0.96);
+  border-radius: 12px;
+  padding: 1.6rem 2rem;
+}
+.bem-box-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.bem-box-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 1.2rem;
+}
+.bem-table {
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 0.85rem;
+}
+.bem-header {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  background: var(--gray-100);
+  border-bottom: 1px solid var(--border-strong);
+}
+.bem-col-head {
+  padding: 0.7rem 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-left: 1px solid var(--border-strong);
+  font-size: 0.82rem;
+}
+.bem-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  border-bottom: 1px solid var(--border);
+}
+.bem-row:last-child { border-bottom: none; }
+.bem-row-label {
+  padding: 0.8rem 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: var(--gray-50);
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.bem-cell {
+  padding: 0.8rem 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  border-left: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
 .methods-closer {
   background: rgba(255,255,255,0.06);
   border: 1px solid rgba(255,255,255,0.12);
@@ -798,7 +860,33 @@ footer {
       </div>
       <div class="method-insight">
         <p class="method-insight-label">なぜこれが必要か</p>
-        <p class="method-insight-text">「研修で解決できる問題」は実は全体の1/6程度。残り5/6は環境・プロセス・制度・動機の問題です。HPIなしでは、毎回同じ失敗を繰り返します。</p>
+        <p class="method-insight-text">パフォーマンスがあがらない6つの要因のうち、研修で対処できるのは「知識・スキル不足」の1つだけ。残り5つは環境・プロセス・制度・適性・動機の問題とされています。</p>
+      </div>
+      <div class="bem-box">
+        <p class="bem-box-title">BEM（Behavior Engineering Model）とは</p>
+        <p class="bem-box-desc">HPIの創始者の一人、トーマス・ギルバートが提唱した、パフォーマンス不足の原因を6つのセルに分類するフレームワークです。</p>
+        <div class="bem-table">
+          <div class="bem-header">
+            <div class="bem-row-label"></div>
+            <div class="bem-col-head">環境要因（外側）</div>
+            <div class="bem-col-head">個人要因（内側）</div>
+          </div>
+          <div class="bem-row">
+            <div class="bem-row-label">情報</div>
+            <div class="bem-cell">期待・指示・フィードバックが不明確</div>
+            <div class="bem-cell">知識・スキルが不足している</div>
+          </div>
+          <div class="bem-row">
+            <div class="bem-row-label">リソース</div>
+            <div class="bem-cell">ツール・時間・プロセスが整っていない</div>
+            <div class="bem-cell">能力・体力・認知の限界</div>
+          </div>
+          <div class="bem-row">
+            <div class="bem-row-label">インセンティブ</div>
+            <div class="bem-cell">評価・報酬制度がミスマッチ</div>
+            <div class="bem-cell">意欲・動機・コミットメントが低い</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="method-card m3">
