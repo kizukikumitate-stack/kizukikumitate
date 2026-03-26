@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>組織開発プログラム｜きづきくみたて工房</title>
+<meta name="description" content="「なぜ組織が動かないのか」を診断・分析し、変革を起こせるODの専門家へ。システム思考・ファシリテーション・変革理論・組織文化デザインを軸に、自社のフィールドワークを通じて実践力を養う組織開発プログラムです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-50: #EEEDFE;
+  --purple-100: #CECBF6;
+  --purple-200: #AFA9EC;
+  --purple-400: #7F77DD;
+  --purple-600: #534AB7;
+  --purple-800: #3C3489;
+  --purple-900: #26215C;
+  --teal-50: #E1F5EE;
+  --teal-100: #9FE1CB;
+  --teal-400: #1D9E75;
+  --teal-600: #0F6E56;
+  --teal-800: #085041;
+  --coral-50: #FAECE7;
+  --coral-400: #D85A30;
+  --amber-50: #FAEEDA;
+  --amber-400: #BA7517;
+  --amber-600: #854F0B;
+  --blue-50: #E6F1FB;
+  --blue-400: #378ADD;
+  --blue-600: #185FA5;
+  --gray-50: #F8F7F4;
+  --gray-100: #EFEDE8;
+  --gray-200: #D3D1C7;
+  --gray-400: #888780;
+  --gray-700: #4a4945;
+  --gray-900: #1e1e1c;
+  --text-primary: #1e1e1c;
+  --text-secondary: #5a5956;
+  --text-muted: #8a8885;
+  --border: rgba(0,0,0,0.08);
+  --bg: #ffffff;
+  --bg-soft: #F8F7F4;
+  /* OD accent = teal */
+  --accent: var(--teal-400);
+  --accent-dark: var(--teal-600);
+  --accent-light: var(--teal-50);
+  --accent-100: var(--teal-100);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.container { max-width: 960px; margin: 0 auto; padding: 0 3rem; }
+.section { padding: 6rem 0; }
+.section-sm { padding: 4rem 0; }
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 1rem;
+}
+.divider { height: 1px; background: var(--border); margin: 0; }
+
+/* ナビ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--teal-600);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo img { height: 44px; width: auto; object-fit: contain; }
+.nav-logo-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: var(--purple-900);
+  letter-spacing: 0.06em;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6a7a;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--teal-600); }
+.nav-links a.active { color: var(--teal-600); font-weight: 500; }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none;
+  cursor: pointer; padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.nav-hamburger:hover { background: var(--gray-100); }
+.nav-hamburger span {
+  display: block; height: 2px; border-radius: 2px;
+  background: var(--text-primary);
+  transition: transform 0.25s, opacity 0.25s;
+}
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+}
+
+/* ヒーロー */
+.hero {
+  background: linear-gradient(135deg, #0d2b26 0%, #0a1f2e 55%, #0d0d2e 100%);
+  min-height: 100vh;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 65vw; height: 65vw;
+  border-radius: 50%;
+  border: 1px solid rgba(29,158,117,0.08);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -8%;
+  width: 50vw; height: 50vw;
+  border-radius: 50%;
+  border: 1px solid rgba(29,158,117,0.05);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; width: 100%; }
+.hero-badge {
+  display: inline-block;
+  background: var(--teal-600);
+  color: var(--teal-100);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.8rem, 3.6vw, 4.4rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--teal-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  margin-bottom: 2.5rem;
+  max-width: 580px;
+}
+.section-lead, .why-desc, .retreat-desc, .module-desc,
+.method-desc, .field-intro, .field-ex-desc, .prereq-desc,
+.final-desc, .cta-sub, .field-note {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.prereq-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(29,158,117,0.15);
+  border: 1px solid rgba(29,158,117,0.35);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  color: var(--teal-100);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+.prereq-tag span { opacity: 0.65; font-size: 0.75rem; }
+.pain-list { margin-bottom: 32px; width: 100%; max-width: 560px; }
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pain-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.pain-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal-400);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.pain-text { font-size: clamp(0.88rem, 1.1vw, 1rem); color: rgba(255,255,255,0.75); line-height: 1.7; }
+.hero-cta {
+  background: #fff;
+  color: var(--teal-800);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-block;
+  text-decoration: none;
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+.hero-cta-sub { font-size: 13px; color: var(--teal-100); margin-top: 10px; opacity: 0.8; }
+
+/* ── Diagram Panel ── */
+.diag-panel {
+  position: absolute;
+  left: max(1.5rem, calc((100vw - 960px) / 4 - 105px));
+  top: 50%;
+  transform: translateY(-50%);
+  width: 210px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 20px 16px;
+  z-index: 1;
+}
+.diag-title {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  text-align: center;
+}
+.diag-lv3 { margin-bottom: 10px; }
+.diag-lv3-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.08em;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.diag-lv3-tags {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.diag-lv3-tag {
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 5px;
+  padding: 5px 8px;
+  text-align: center;
+  white-space: nowrap;
+}
+.diag-lv3-tag.active {
+  border-color: rgba(29,158,117,0.7);
+  background: rgba(29,158,117,0.18);
+}
+.diag-lv3-tag .tag-en {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+}
+.diag-lv3-tag.active .tag-en { color: var(--teal-100); font-size: 10px; }
+.diag-lv3-tag .tag-ja {
+  display: block;
+  font-size: 9px;
+  color: rgba(255,255,255,0.4);
+  margin-top: 2px;
+}
+.diag-lv3-tag.active .tag-ja { color: rgba(159,225,203,0.7); }
+.diag-arrow {
+  text-align: center;
+  font-size: 18px;
+  margin: 4px 0;
+  color: rgba(255,255,255,0.25);
+  line-height: 1.1;
+}
+.diag-arrow.bright { color: var(--teal-400); font-size: 22px; }
+.diag-lv2 {
+  background: rgba(15,110,86,0.35);
+  border: 1.5px solid rgba(29,158,117,0.65);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 4px;
+  text-align: center;
+}
+.diag-lv2-name { font-size: 13px; font-weight: 700; color: white; }
+.diag-lv2-badge { font-size: 9px; color: var(--teal-100); margin-top: 4px; letter-spacing: 0.05em; }
+.diag-lv1 {
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  padding: 9px 12px;
+  text-align: center;
+}
+.diag-lv1-name { font-size: 12px; color: rgba(255,255,255,0.5); }
+.diag-lv0 {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  padding: 7px 12px;
+  text-align: center;
+  margin-top: 0;
+}
+.diag-lv0-name { font-size: 11px; color: rgba(255,255,255,0.3); }
+@media (max-width: 1366px) { .diag-panel { display: none; } }
+
+/* セクション共通 */
+.section-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+.section-lead {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+/* なぜ変わらないか */
+.why-section { background: var(--bg); }
+.emphasis-box {
+  border-left: 4px solid var(--teal-400);
+  padding: 1.4rem 2rem;
+  background: var(--teal-50);
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 2.5rem;
+}
+.emphasis-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--teal-800);
+  line-height: 1.75;
+  font-weight: 700;
+}
+.why-card {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+.why-card-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+}
+.why-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 600;
+  flex-shrink: 0;
+}
+.why-card-title { font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.why-card-body { padding: 0 1.5rem 1.4rem; }
+.why-desc { font-size: 0.9rem; line-height: 1.8; }
+.why-key {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.why-red { border-color: #F09595; background: #FEF3F2; }
+.why-red .why-card-head { background: #FEF3F2; }
+.why-red .why-num { background: #F7C1C1; color: #A32D2D; }
+.why-red .why-card-title { color: #791F1F; }
+.why-red .why-desc { color: #791F1F; }
+.why-red .why-key { background: #fde8e8; color: #791F1F; }
+
+.why-amber { border-color: #FAC775; background: #FFFAF0; }
+.why-amber .why-card-head { background: #FFFAF0; }
+.why-amber .why-num { background: #FAC775; color: #633806; }
+.why-amber .why-card-title { color: #412402; }
+.why-amber .why-desc { color: #633806; }
+.why-amber .why-key { background: #fef0d0; color: #633806; }
+
+.why-teal { border-color: #5DCAA5; background: #F0FDF8; }
+.why-teal .why-card-head { background: #F0FDF8; }
+.why-teal .why-num { background: #9FE1CB; color: #085041; }
+.why-teal .why-card-title { color: #04342C; }
+.why-teal .why-desc { color: #085041; }
+.why-teal .why-key { background: #d1faea; color: #085041; }
+
+/* 合宿・プログラム構成 */
+.structure-section { background: var(--gray-50); }
+.structure-title { font-size: clamp(1.6rem, 2.8vw, 2.4rem); font-weight: 800; margin-bottom: 0.8rem; }
+.structure-lead { font-size: 1rem; color: var(--text-secondary); line-height: 1.9; margin-bottom: 2.5rem; }
+
+.retreat-block {
+  background: linear-gradient(135deg, #0d2b26 0%, #0a1f2e 100%);
+  border-radius: 20px;
+  padding: 2.4rem 2.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.retreat-block::before {
+  content: '';
+  position: absolute;
+  top: -40%; right: -10%;
+  width: 50%; height: 200%;
+  border-radius: 50%;
+  border: 1px solid rgba(29,158,117,0.1);
+  pointer-events: none;
+}
+.retreat-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal-400);
+  margin-bottom: 0.6rem;
+}
+.retreat-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+.retreat-desc { font-size: 0.95rem; color: rgba(255,255,255,0.7); line-height: 1.85; margin-bottom: 1.2rem; }
+.retreat-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.retreat-tag {
+  background: rgba(29,158,117,0.2);
+  border: 1px solid rgba(29,158,117,0.4);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--teal-100);
+  white-space: nowrap;
+}
+
+.module-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 640px) { .module-grid { grid-template-columns: 1fr; } }
+
+.module-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  position: relative;
+}
+.module-num {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-600);
+  margin-bottom: 0.5rem;
+}
+.module-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+.module-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; margin-bottom: 0.8rem; }
+.module-tools { display: flex; gap: 6px; flex-wrap: wrap; }
+.module-tool {
+  background: var(--teal-50);
+  border: 1px solid rgba(29,158,117,0.25);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  color: var(--teal-800);
+  white-space: nowrap;
+}
+.fieldwork-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--amber-50);
+  border: 1px solid rgba(186,117,23,0.3);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  color: var(--amber-600);
+}
+
+.final-card {
+  background: var(--purple-50);
+  border: 1px solid var(--purple-200);
+  border-radius: 16px;
+  padding: 1.6rem 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.final-icon {
+  width: 48px; height: 48px;
+  background: var(--purple-600);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+.final-title { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 700; color: var(--purple-900); margin-bottom: 0.3rem; }
+.final-desc { font-size: 0.88rem; color: var(--purple-800); line-height: 1.7; }
+
+/* 4つの技法 */
+.methods-section { background: #0a2420; padding: 6rem 0; }
+.methods-label { color: var(--teal-400); }
+.methods-title { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 0.8rem; }
+.methods-sub { font-size: 1rem; color: rgba(159,225,203,0.8); line-height: 1.9; margin-bottom: 2.5rem; }
+.method-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 1.2rem;
+}
+.method-head { display: flex; align-items: flex-start; gap: 1.2rem; margin-bottom: 1.2rem; }
+.method-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 3px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-teal { background: rgba(29,158,117,0.25); color: var(--teal-100); }
+.badge-blue { background: rgba(55,138,221,0.25); color: #a8d4f7; }
+.badge-amber { background: rgba(186,117,23,0.25); color: #fcd99a; }
+.badge-purple { background: rgba(127,119,221,0.25); color: var(--purple-100); }
+.method-title { font-size: 1.05rem; font-weight: 600; color: #fff; margin-bottom: 0.4rem; font-family: 'Noto Sans JP', sans-serif; }
+.method-desc { font-size: 0.9rem; color: rgba(159,225,203,0.7); line-height: 1.8; }
+.method-insight {
+  border-radius: 10px;
+  padding: 1rem 1.3rem;
+}
+.method-insight-label { font-size: 0.72rem; font-weight: 600; margin-bottom: 0.4rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.insight-teal { background: rgba(29,158,117,0.12); }
+.insight-teal .method-insight-label { color: var(--teal-400); }
+.insight-teal p { font-size: 0.88rem; color: rgba(159,225,203,0.8); line-height: 1.75; }
+.insight-blue { background: rgba(55,138,221,0.1); }
+.insight-blue .method-insight-label { color: #60b4f0; }
+.insight-blue p { font-size: 0.88rem; color: rgba(168,212,247,0.8); line-height: 1.75; }
+.insight-amber { background: rgba(186,117,23,0.1); }
+.insight-amber .method-insight-label { color: #e8b94a; }
+.insight-amber p { font-size: 0.88rem; color: rgba(252,217,154,0.8); line-height: 1.75; }
+.insight-purple { background: rgba(127,119,221,0.1); }
+.insight-purple .method-insight-label { color: var(--purple-400); }
+.insight-purple p { font-size: 0.88rem; color: rgba(206,203,246,0.8); line-height: 1.75; }
+
+/* フィールドワーク */
+.field-section { background: var(--bg); }
+.field-intro { font-size: 1rem; color: var(--text-secondary); line-height: 1.9; margin-bottom: 2rem; }
+.field-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  background: var(--teal-50);
+  border: 1px solid rgba(29,158,117,0.2);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  flex-wrap: wrap;
+  gap: 0;
+}
+.flow-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  padding: 0.4rem;
+}
+.flow-step-icon {
+  width: 40px; height: 40px;
+  background: var(--teal-600);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+.flow-step-label { font-size: 0.82rem; font-weight: 600; color: var(--teal-800); line-height: 1.4; }
+.flow-step-sub { font-size: 0.75rem; color: var(--teal-600); margin-top: 2px; }
+.flow-arrow { font-size: 1.4rem; color: var(--teal-400); padding: 0 0.4rem; flex-shrink: 0; align-self: center; }
+
+.field-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+@media (max-width: 640px) { .field-examples { grid-template-columns: 1fr; } }
+.field-example {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  background: var(--bg-soft);
+}
+.field-ex-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-600);
+  margin-bottom: 0.6rem;
+}
+.field-ex-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.field-ex-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; }
+.field-ex-tag {
+  display: inline-block;
+  background: var(--teal-50);
+  border: 1px solid rgba(29,158,117,0.25);
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 0.75rem;
+  color: var(--teal-600);
+  margin-top: 0.7rem;
+}
+
+.field-note {
+  background: var(--gray-50);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.2rem 1.6rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.field-note strong { color: var(--text-primary); }
+
+/* 受講対象 */
+.target-section { background: var(--gray-50); }
+.target-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+@media (max-width: 640px) { .target-grid { grid-template-columns: 1fr; } }
+.target-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+}
+.target-card-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.8rem; }
+.target-card.ok .target-card-label { color: var(--teal-600); }
+.target-card.ng .target-card-label { color: var(--gray-400); }
+.target-item { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 0.5rem; font-size: 0.9rem; line-height: 1.6; }
+.target-item .mark { flex-shrink: 0; font-size: 0.9rem; margin-top: 2px; }
+.target-card.ok .target-item { color: var(--teal-800); }
+.target-card.ng .target-item { color: var(--gray-400); }
+
+.prereq-box {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #0d2b26 0%, #0a1f2e 100%);
+  border-radius: 14px;
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.prereq-icon { font-size: 2rem; flex-shrink: 0; }
+.prereq-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-400); margin-bottom: 0.4rem; }
+.prereq-title { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.prereq-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; }
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #0d2b26 0%, #0a1f2e 60%, #0d0d2e 100%);
+  padding: 6rem 0;
+}
+.cta-label { color: var(--teal-400); }
+.cta-title { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 0.8rem; }
+.cta-sub { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 2.5rem; max-width: 560px; }
+.cta-btn {
+  display: inline-block;
+  background: var(--teal-400);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 44px;
+  font-size: 1rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  letter-spacing: 0.04em;
+}
+.cta-btn:hover { background: var(--teal-600); transform: translateY(-1px); }
+.cta-note { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 1rem; }
+
+/* フッター */
+footer {
+  background: var(--gray-900);
+  padding: 2.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+.footer-logo img { height: 32px; opacity: 0.7; }
+.footer-logo-text { font-family: 'Shippori Mincho', serif; font-size: 0.9rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; }
+.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+
+/* scroll hint */
+.scroll-hint {
+  margin-top: 2rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logotype.png" alt="きづきくみたて工房">
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="./lsp.html">LSP</a></li>
+    <li><a href="./education-program.html">研修設計プログラム</a></li>
+    <li><a href="./od-program.html" class="active">ODプログラム</a></li>
+    <li><a href="./index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ヒーローセクション -->
+<section class="hero">
+
+  <!-- 左：位置づけ図 -->
+  <div class="diag-panel" aria-label="このプログラムの位置づけ">
+    <div class="diag-title">人材・組織開発の全体像</div>
+    <div class="diag-lv3">
+      <div class="diag-lv3-label">このプログラムの到達点</div>
+      <div class="diag-lv3-tags">
+        <div class="diag-lv3-tag">
+          <span class="tag-en">HRD</span><span class="tag-ja">人材開発</span>
+        </div>
+        <div class="diag-lv3-tag active">
+          <span class="tag-en">ODのプロ</span><span class="tag-ja">組織開発</span>
+        </div>
+        <div class="diag-lv3-tag">
+          <span class="tag-en">HRBP</span><span class="tag-ja">戦略人事</span>
+        </div>
+      </div>
+    </div>
+    <div class="diag-arrow bright">↑</div>
+    <div class="diag-lv1">
+      <div class="diag-lv1-name">研修のプロ（前提）</div>
+    </div>
+    <div class="diag-arrow">↑<br>↑</div>
+    <div class="diag-lv0">
+      <div class="diag-lv0-name">研修担当者</div>
+    </div>
+  </div>
+
+  <!-- 右：コンテンツ -->
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-badge">組織開発プログラム</div>
+      <div class="prereq-tag">
+        <span>前提：</span>研修設計プログラム修了者、または同等のスキル・経験をお持ちの方
+      </div>
+      <h1>「なぜ組織が動かないのか」を診断・分析し、<br><em>変革を起こせるODの専門家</em>へ</h1>
+      <p class="hero-sub">システム思考・ファシリテーション・変革理論・組織文化デザインという4つの技法を軸に、自社のフィールドワークを通じて実践力を養う組織開発プログラムです。</p>
+
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem;">こんな状況に心あたりはありませんか？</p>
+      <div class="pain-list">
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">研修・1on1・サーベイを繰り返しても、組織の空気が変わらない</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">問題を起こしているのは「個人」ではなく「構造」だと感じているが、手が出せない</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">エンゲージメントサーベイの結果を共有するだけで、何も変わらない</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">経営から「組織風土を変えてほしい」と言われたが、どこから手をつければいいかわからない</p></div>
+      </div>
+
+      <a href="#structure" class="hero-cta">プログラム詳細を見る →</a>
+      <p class="hero-cta-sub">まずはその理由から確認する ↓</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- なぜ組織は変わらないのか -->
+<section class="why-section section">
+  <div class="container">
+    <p class="label">Why Organizations Don't Change</p>
+    <h2 class="section-title">なぜ「施策を打ったはずの組織」が変わらないのか</h2>
+    <p class="section-lead">研修・サーベイ・1on1——施策の数は増えた。それでも組織が変わらないのには、構造的な理由がある。</p>
+
+    <div class="emphasis-box">
+      <p class="emphasis-text">組織の問題の多くは「個人の能力不足」ではなく、<br>「関係性・文化・構造」の問題である。<br>しかし、ほとんどの介入は個人に向いている。</p>
+    </div>
+
+    <div class="why-card why-red">
+      <div class="why-card-head">
+        <div class="why-num">1</div>
+        <div class="why-card-title">施策が「点」で終わり、システムに働きかけていない</div>
+      </div>
+      <div class="why-card-body">
+        <p class="why-desc">個別の研修・制度・ツールは効果を上げても、それらがバラバラに存在しているとき、組織全体のダイナミクスは変わらない。個人を変えようとするアプローチは、システムの問題を個人に押し付けている。</p>
+        <div class="why-key">→ 組織をシステムとして見る視点と、全体に働きかける介入設計が必要</div>
+      </div>
+    </div>
+
+    <div class="why-card why-amber">
+      <div class="why-card-head">
+        <div class="why-num">2</div>
+        <div class="why-card-title">「話せないこと」が組織を止めている（防衛ルーティン）</div>
+      </div>
+      <div class="why-card-body">
+        <p class="why-desc">アージリス（クリス・アージリス／ハーバード大学教授。組織学習と行動科学の第一人者）が提唱した「防衛ルーティン」によれば、組織には「重要だが話せないこと」が生まれる。そしてそれを話せないこと自体も話せない。この構造が変革を阻む最大の壁になっている。</p>
+        <div class="why-key">→ 本音が言える対話の場を設計し、防衛ルーティンを崩す技術が必要</div>
+      </div>
+    </div>
+
+    <div class="why-card why-teal">
+      <div class="why-card-head">
+        <div class="why-num">3</div>
+        <div class="why-card-title">変革の「抵抗」を乗り越える方法を知らない</div>
+      </div>
+      <div class="why-card-body">
+        <p class="why-desc">組織変革には必ず抵抗が伴う。この抵抗を「障害」ではなく「組織が何を大切にしているかのシグナル」として読み解き、対話を通じて仲間を増やしていくことが、変革を動かす鍵になる。</p>
+        <div class="why-key">→ 抵抗のメカニズムを理解し、対話で突破できる変革マネジメントの技術が必要</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- プログラム構成 -->
+<section class="structure-section section" id="structure">
+  <div class="container">
+    <p class="label">Program Structure</p>
+    <h2 class="structure-title">プログラム構成</h2>
+    <p class="structure-lead">冒頭2日間の合宿で対話の基礎を身につけ、その後は自社フィールドワークとモジュール学習を往復しながら、ODの実践力を積み上げていきます。</p>
+
+    <!-- 合宿 -->
+    <div class="retreat-block">
+      <div class="retreat-eyebrow">Day 1–2 ／ 合宿</div>
+      <div class="retreat-title">デモクラシーフィットネス基礎合宿</div>
+      <p class="retreat-desc">ODのすべての介入は「対話」から始まります。冒頭の合宿では、組織変革においてなぜ対話が核心なのかを理解した上で、デモクラシーフィットネストレーニングを実施。フィールドワークで直面する抵抗を、対話で突破していくための基礎を身につけます。</p>
+      <div class="retreat-tags">
+        <span class="retreat-tag">なぜ対話がODの核心か（講義1時間）</span>
+        <span class="retreat-tag">防衛ルーティンと対話</span>
+        <span class="retreat-tag">抵抗と向き合う</span>
+        <span class="retreat-tag">仲間を増やす対話</span>
+        <span class="retreat-tag">デモクラシーフィットネス実践</span>
+      </div>
+    </div>
+
+    <!-- 4モジュール -->
+    <div class="module-grid">
+      <div class="module-card">
+        <div class="module-num">Module 01</div>
+        <div class="module-title">組織診断</div>
+        <p class="module-desc">フィールドワークで収集したデータをODの診断フレームワークで読み解く。「何が起きているか」を名付け、介入の起点を定める。</p>
+        <div class="module-tools">
+          <span class="module-tool">診断フレームワーク</span>
+          <span class="module-tool">インタビュー設計</span>
+          <span class="fieldwork-tag">★ フィールドワーク①</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">Module 02</div>
+        <div class="module-title">システム思考</div>
+        <p class="module-desc">組織の問題を「個人の行動」ではなく「構造とループ」として見る。ループ図・氷山モデルを使って問題の根本構造を可視化する。</p>
+        <div class="module-tools">
+          <span class="module-tool">ループ図</span>
+          <span class="module-tool">氷山モデル</span>
+          <span class="fieldwork-tag">★ フィールドワーク②</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">Module 03</div>
+        <div class="module-title">変革理論</div>
+        <p class="module-desc">なぜ変革に抵抗が生まれるのかを理論で理解し、対話を通じて組織を動かす変革マネジメントの実践を身につける。研修プログラムの「適応課題」とも接続。</p>
+        <div class="module-tools">
+          <span class="module-tool">コッターの変革8段階</span>
+          <span class="module-tool">適応課題</span>
+          <span class="module-tool">抵抗の解析</span>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-num">Module 04</div>
+        <div class="module-title">組織文化デザイン</div>
+        <p class="module-desc">文化を「見えないもの」ではなく、診断・介入・定着ができる対象として扱う。フィールドワークデータをもとに、自社の文化変容計画を設計する。</p>
+        <div class="module-tools">
+          <span class="module-tool">文化診断</span>
+          <span class="module-tool">介入設計</span>
+          <span class="module-tool">定着プロセス</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 最終発表 -->
+    <div class="final-card">
+      <div class="final-icon">🎯</div>
+      <div>
+        <div class="final-title">最終発表：自社の診断結果と介入計画</div>
+        <p class="final-desc">プログラムを通じて行ったフィールドワークと分析をまとめ、「自社のOD課題と介入計画」としてプレゼンテーション。ODの実践者として機能できる状態を確認します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 4つの技法 -->
+<section class="methods-section">
+  <div class="container">
+    <p class="label methods-label">Core Frameworks</p>
+    <h2 class="methods-title">4つのコア技法</h2>
+    <p class="methods-sub">ODの実践を支える4つの技法。理論を学ぶだけでなく、自社の課題に適用することで、はじめて「使える知識」になります。</p>
+
+    <div class="method-card">
+      <div class="method-head">
+        <span class="method-badge badge-teal">Systems Thinking</span>
+        <div>
+          <div class="method-title">システム思考</div>
+          <p class="method-desc">組織の問題を「個人の問題」ではなく「構造とフィードバックループ」として見る思考法。問題の根本原因を個人に帰属させず、変えるべき「構造」を特定できるようになる。</p>
+        </div>
+      </div>
+      <div class="method-insight insight-teal">
+        <div class="method-insight-label">なぜこの技法が必要か</div>
+        <p>同じ問題が繰り返される組織には、繰り返しを生み出す「構造」がある。その構造が見えていなければ、いくら施策を打っても根本は変わらない。</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <div class="method-head">
+        <span class="method-badge badge-blue">Whole System Facilitation</span>
+        <div>
+          <div class="method-title">ファシリテーション（ホールシステム・アプローチ）</div>
+          <p class="method-desc">World Café・Open Space Technology・フューチャーサーチなど、組織全体を巻き込む大規模対話の設計と実践。「部分」ではなく「全体」を動かすファシリテーション技術。</p>
+        </div>
+      </div>
+      <div class="method-insight insight-blue">
+        <div class="method-insight-label">なぜこの技法が必要か</div>
+        <p>個別の対話だけでは動かない組織課題がある。全体が「同じ場」で考える経験が、文化変容の起点になる。</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <div class="method-head">
+        <span class="method-badge badge-amber">Change Management</span>
+        <div>
+          <div class="method-title">変革理論</div>
+          <p class="method-desc">コッター（ジョン・コッター／ハーバード・ビジネス・スクール教授。変革マネジメント研究の権威）が提唱した「変革の8段階」を軸に、抵抗が生まれるメカニズムを理解し、対話を通じて仲間を増やしながら組織を動かす技術を身につける。研修プログラムで学んだ「適応課題」との接続も扱う。</p>
+        </div>
+      </div>
+      <div class="method-insight insight-amber">
+        <div class="method-insight-label">なぜこの技法が必要か</div>
+        <p>変革への抵抗は「妨害」ではなく、組織が大切にしているものの現れ。それを読み解かずに変革を進めると、必ず壁にぶつかる。</p>
+      </div>
+    </div>
+
+    <div class="method-card">
+      <div class="method-head">
+        <span class="method-badge badge-purple">Culture Design</span>
+        <div>
+          <div class="method-title">組織文化デザイン</div>
+          <p class="method-desc">「見えない文化」を診断・介入・定着のサイクルで扱えるようにする技術。シャイン（エドガー・シャイン／MIT教授。組織文化論の第一人者）の「文化の3層モデル」と、アージリスの「公式の言葉と実際の行動のギャップ」を実務に落とし込む。</p>
+        </div>
+      </div>
+      <div class="method-insight insight-purple">
+        <div class="method-insight-label">なぜこの技法が必要か</div>
+        <p>MVVを掲げても文化が変わらない組織では、公式の言葉と現場の行動の間に大きなギャップがある。そのギャップを可視化し、介入できることがOD専門家の証明になる。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- フィールドワーク -->
+<section class="field-section section">
+  <div class="container">
+    <p class="label">Fieldwork Design</p>
+    <h2 class="section-title">「ハッと」気づかせるフィールドワーク設計</h2>
+    <p class="field-intro">このプログラムの核心は、自分の組織で実際に調査・対話することにあります。講師が「こういう問題がある」と言うのではなく、受講者自身が自組織でギャップを発見することで、腹落ちの深さがまったく違います。</p>
+
+    <!-- 現場→抵抗→対話→仲間フロー -->
+    <div class="field-flow">
+      <div class="flow-step">
+        <div class="flow-step-icon">📋</div>
+        <div class="flow-step-label">現場に<br>依頼する</div>
+        <div class="flow-step-sub">インタビュー・<br>調査の依頼</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">⚡</div>
+        <div class="flow-step-label">抵抗を<br>示される</div>
+        <div class="flow-step-sub">「なぜ人事が？」<br>「忙しい」</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">💬</div>
+        <div class="flow-step-label">対話を通じて<br>理解を得る</div>
+        <div class="flow-step-sub">合宿で学んだ<br>対話スキルを使う</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🤝</div>
+        <div class="flow-step-label">仲間が<br>生まれる</div>
+        <div class="flow-step-sub">変革の起点が<br>できる</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="flow-step-icon">🔍</div>
+        <div class="flow-step-label">診断データが<br>集まる</div>
+        <div class="flow-step-sub">学習の材料に<br>なる</div>
+      </div>
+    </div>
+
+    <!-- 事前事後課題の例 -->
+    <div class="field-examples">
+      <div class="field-example">
+        <div class="field-ex-label">フィールドワーク① ／ Module 01</div>
+        <div class="field-ex-title">MVV・パーパスの浸透度インタビュー</div>
+        <p class="field-ex-desc">自社のMVVやパーパスについて、現場の方に実際にインタビューをしてくる。公式の言葉と、現場の体感のギャップを可視化する。</p>
+        <span class="field-ex-tag">定性調査</span>
+      </div>
+      <div class="field-example">
+        <div class="field-ex-label">フィールドワーク② ／ Module 02</div>
+        <div class="field-ex-title">エンゲージメントサーベイの活用実態調査</div>
+        <p class="field-ex-desc">エンゲージメントサーベイの内容と活用の実態を、定量・定性の両面から調査する。「サーベイはあるが何も変わらない」構造を診断する。</p>
+        <span class="field-ex-tag">定性＋定量</span>
+      </div>
+    </div>
+
+    <div class="field-note">
+      <strong>対象組織について：</strong>このプログラムでは、現場へのフィールドワーク実践がカリキュラムの中核です。社内で調査・インタビューが実施できる環境にある方を対象としています。フィールドワーク自体を乗り越えることが、ODの実践訓練になります。
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 受講対象 -->
+<section class="target-section section">
+  <div class="container">
+    <p class="label">For Whom</p>
+    <h2 class="section-title">受講対象</h2>
+
+    <div class="target-grid">
+      <div class="target-card ok">
+        <div class="target-card-label">こんな方に</div>
+        <div class="target-item"><span class="mark">✓</span><span>研修や施策を打ち続けても組織が変わらないと感じているHR担当者</span></div>
+        <div class="target-item"><span class="mark">✓</span><span>組織の問題を「構造」として見たいが、方法がわからない方</span></div>
+        <div class="target-item"><span class="mark">✓</span><span>経営から組織変革を任され、ODのアプローチを学びたい方</span></div>
+        <div class="target-item"><span class="mark">✓</span><span>フィールドワークや現場との対話に挑戦できる環境にある方</span></div>
+      </div>
+      <div class="target-card ng">
+        <div class="target-card-label">このプログラムが向かない方</div>
+        <div class="target-item"><span class="mark">—</span><span>研修設計の基礎経験がなく、個人の学習設計から学びたい方（→ 研修設計プログラムへ）</span></div>
+        <div class="target-item"><span class="mark">—</span><span>社内でのフィールドワーク実践が難しい環境にある方</span></div>
+        <div class="target-item"><span class="mark">—</span><span>知識のインプットのみを求めている方</span></div>
+      </div>
+    </div>
+
+    <div class="prereq-box">
+      <div class="prereq-icon">📌</div>
+      <div>
+        <div class="prereq-label">前提スキルについて</div>
+        <div class="prereq-title">研修設計プログラム修了者、または同等のスキル・経験をお持ちの方</div>
+        <p class="prereq-desc">ODの介入には、研修設計・ファシリテーション・学習設計の知識が土台として必要です。きづきくみたて工房の研修設計プログラム修了者、またはHRD領域で同等の実務経験をお持ちの方を対象としています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <p class="label cta-label">Next Step</p>
+    <h2 class="cta-title">組織変革の専門家への<br>第一歩を踏み出す</h2>
+    <p class="cta-sub">「なぜ組織が動かないのか」を診断・分析し、変革を起こせるODの専門家へ。次期プログラムの詳細・募集開始をいち早くお知らせします。</p>
+    <a href="#" class="cta-btn">説明会・募集情報を受け取る →</a>
+    <p class="cta-note">※ 現在プログラム設計中です。募集開始時にご連絡いたします。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="logotype.png" alt="きづきくみたて工房">
+    <span class="footer-logo-text">きづきくみたて工房</span>
+  </a>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+if (hamburger) {
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>
