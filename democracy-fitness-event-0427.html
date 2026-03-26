@@ -30,7 +30,7 @@
 <meta name="twitter:description" content="2025年4月27日（月）18:00〜20:00｜国立オリンピック記念青少年総合センター（東京・代々木）｜参加費 ¥1,100（税込）｜定員30名">
 <meta name="twitter:image" content="https://kizukikumitate.com/ws-photo-2.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700;900&family=Noto+Sans+JP:wght@300;400;700&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #1a1a2e;
@@ -874,16 +874,54 @@
     gap: 1rem;
   }
 
-  .footer-logo {
-    font-family: 'Bebas Neue', sans-serif;
-    letter-spacing: 0.2em;
-    font-size: 1rem;
-    color: var(--gold);
+  .global-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    padding: 1rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
   }
+  .global-nav .nav-logo {
+    display: flex; align-items: center; gap: 0.7rem; text-decoration: none;
+  }
+  .global-nav .nav-logo img { height: 40px; width: auto; object-fit: contain; }
+  .global-nav .nav-logo-text {
+    font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800;
+    white-space: nowrap; color: #26215C; letter-spacing: 0.06em;
+  }
+  .global-nav .nav-links {
+    display: flex; gap: 1.8rem; list-style: none; align-items: center;
+  }
+  .global-nav .nav-links a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: #5a6a7a; text-decoration: none; transition: color 0.2s; white-space: nowrap;
+  }
+  .global-nav .nav-links a:hover { color: #534AB7; }
+  .global-nav .nav-links a.active { color: #534AB7; font-weight: 500; }
+  @media (max-width: 768px) { .global-nav .nav-links { display: none; } }
 
+  footer {
+    background: #26215C;
+    border-top: 3px solid #3C3489;
+    padding: 3rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-logo {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1rem; font-weight: 800;
+    color: rgba(255,255,255,0.9); white-space: nowrap;
+  }
   .footer-copy {
-    font-size: 0.75rem;
-    opacity: 0.35;
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
   }
 
   /* ── ANIMATIONS ── */
@@ -1095,6 +1133,22 @@
 </style>
 </head>
 <body>
+
+<!-- グローバルナビ -->
+<nav class="global-nav">
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="./lsp.html">LSP</a></li>
+    <li><a href="./education-program.html">研修設計プログラム</a></li>
+    <li><a href="./od-program.html">ODプログラム</a></li>
+    <li><a href="./index.html#contact">Contact</a></li>
+  </ul>
+</nav>
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -1611,7 +1665,7 @@
 </section>
 
 <footer>
-  <div class="footer-logo">DEMOCRACY FITNESS TOKYO 2025</div>
+  <div class="footer-logo">きづきくみたて工房</div>
   <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
 </footer>
 
