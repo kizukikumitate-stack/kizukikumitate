@@ -404,10 +404,25 @@
   /* ===== TRADEMARK ===== */
   .tm { font-size: 0.6em; vertical-align: super; }
 
+  /* ===== MOBILE MENU ===== */
+  .nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 6px; transition: background 0.15s; }
+  .nav-hamburger:hover { background: rgba(0,0,0,0.06); }
+  .nav-hamburger span { display: block; height: 2px; border-radius: 2px; background: #26215C; transition: transform 0.25s, opacity 0.25s; }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: center; align-items: center; gap: 0; padding: 5rem 2rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.9rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     .lsp-hero { padding: 7rem 1.5rem 3.5rem; }
     .section-wrap { padding: 4.5rem 1.5rem; }
     .build-flow { grid-template-columns: 1fr; gap: 2rem; }
@@ -447,7 +462,19 @@
     <li><a href="./od-program.html">組織開発プログラム</a></li>
     <li><a href="./index.html#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <a href="./democracy-fitness.html">Democracy Fitness</a>
+  <a href="./lsp.html" class="active">LSP</a>
+  <a href="./education-program.html">研修設計プログラム</a>
+  <a href="./od-program.html">組織開発プログラム</a>
+  <a href="./index.html#contact">Contact</a>
+</div>
 
 <!-- ===== HERO ===== -->
 <section class="lsp-hero">
@@ -748,6 +775,18 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+}
 </script>
 </body>
 </html>

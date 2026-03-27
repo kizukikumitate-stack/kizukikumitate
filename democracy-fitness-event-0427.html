@@ -923,6 +923,19 @@
   .global-nav .nav-links a:hover { color: #534AB7; }
   .global-nav .nav-links a.active { color: #534AB7; font-weight: 500; }
   @media (max-width: 768px) { .global-nav .nav-links { display: none; } }
+  .global-nav-hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 36px; height: 36px; background: none; border: none; cursor: pointer; padding: 4px; border-radius: 6px; transition: background 0.15s; }
+  .global-nav-hamburger:hover { background: rgba(0,0,0,0.06); }
+  .global-nav-hamburger span { display: block; height: 2px; border-radius: 2px; background: #26215C; transition: transform 0.25s, opacity 0.25s; }
+  .global-nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .global-nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .global-nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .global-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 299; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: center; align-items: center; gap: 0; padding: 5rem 2rem 3rem; }
+  .global-mobile-menu.open { display: flex; }
+  .global-mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.9rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .global-mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .global-mobile-menu a:hover, .global-mobile-menu a.active { color: #3C3489; }
+  .global-mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  @media (max-width: 768px) { .global-nav-hamburger { display: flex; } }
 
   footer {
     background: #26215C;
@@ -1166,7 +1179,19 @@
     <li><a href="./od-program.html">組織開発プログラム</a></li>
     <li><a href="./index.html#contact">Contact</a></li>
   </ul>
+  <button class="global-nav-hamburger" id="globalHamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="global-mobile-menu" id="globalMobileMenu">
+  <button class="global-mobile-menu-close" id="globalMobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <a href="./democracy-fitness.html">Democracy Fitness</a>
+  <a href="./lsp.html">LSP</a>
+  <a href="./education-program.html">研修設計プログラム</a>
+  <a href="./od-program.html">組織開発プログラム</a>
+  <a href="./index.html#contact">Contact</a>
+</div>
 
 <!-- ── HERO ── -->
 <section class="hero">
@@ -1756,6 +1781,18 @@
     // Toggle clicked item
     if (!isOpen) item.classList.add('open');
   }
+</script>
+<script>
+const globalHamburger = document.getElementById('globalHamburger');
+const globalMobileMenu = document.getElementById('globalMobileMenu');
+const globalMobileClose = document.getElementById('globalMobileClose');
+if (globalHamburger && globalMobileMenu) {
+  function openGlobalMenu() { globalHamburger.classList.add('open'); globalMobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeGlobalMenu() { globalHamburger.classList.remove('open'); globalMobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  globalHamburger.addEventListener('click', () => { globalMobileMenu.classList.contains('open') ? closeGlobalMenu() : openGlobalMenu(); });
+  if (globalMobileClose) globalMobileClose.addEventListener('click', closeGlobalMenu);
+  globalMobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeGlobalMenu));
+}
 </script>
 
 </body>
