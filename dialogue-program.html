@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>対話力向上プログラム｜きづきくみたて工房</title>
+<meta name="description" content="対話力の向上を通じて心理的安全性を高め、組織的負債を返済し、業績と組織効力感の好循環をつくる。3ヶ月に1回・年4回・5日間の組織向け対話力向上プログラムです。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple-50: #EEEDFE;
+  --purple-100: #CECBF6;
+  --purple-200: #AFA9EC;
+  --purple-400: #7F77DD;
+  --purple-600: #534AB7;
+  --purple-800: #3C3489;
+  --purple-900: #26215C;
+  --coral-50: #FFF5EE;
+  --coral-100: #FFE0CC;
+  --coral-400: #D85A30;
+  --coral-600: #B04520;
+  --coral-800: #7A3015;
+  --amber-50: #FAEEDA;
+  --amber-400: #BA7517;
+  --amber-600: #854F0B;
+  --teal-50: #E1F5EE;
+  --teal-100: #9FE1CB;
+  --teal-400: #1D9E75;
+  --teal-600: #0F6E56;
+  --blue-50: #E6F1FB;
+  --blue-400: #378ADD;
+  --blue-600: #185FA5;
+  --gray-50: #F8F7F4;
+  --gray-100: #EFEDE8;
+  --gray-200: #D3D1C7;
+  --gray-400: #888780;
+  --gray-700: #4a4945;
+  --gray-900: #1e1e1c;
+  --text-primary: #1e1e1c;
+  --text-secondary: #5a5956;
+  --text-muted: #8a8885;
+  --border: rgba(0,0,0,0.08);
+  --bg: #ffffff;
+  --bg-soft: #F8F7F4;
+  /* Dialogue accent = coral/warm */
+  --accent: var(--coral-400);
+  --accent-dark: var(--coral-600);
+  --accent-light: var(--coral-50);
+  --accent-100: var(--coral-100);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+.section { padding: 6rem 0; }
+.section-sm { padding: 4rem 0; }
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 1rem;
+}
+.divider { height: 1px; background: var(--border); margin: 0; }
+
+/* ナビ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0.7rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid #3C3489;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo img { height: 36px; width: auto; object-fit: contain; }
+.nav-logo-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: #1a5fad;
+  letter-spacing: 0.06em;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6a7a;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--coral-600); }
+.nav-links a.active { color: var(--coral-600); font-weight: 500; }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none;
+  cursor: pointer; padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.nav-hamburger:hover { background: var(--gray-100); }
+.nav-hamburger span {
+  display: block; height: 2px; border-radius: 2px;
+  background: var(--text-primary);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: center; align-items: center; gap: 0; padding: 5rem 2rem 3rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.9rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+.mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+.mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+
+/* ヒーロー */
+.hero {
+  background: linear-gradient(135deg, #2a1508 0%, #1a0e06 55%, #0d0d2e 100%);
+  min-height: 100vh;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 65vw; height: 65vw;
+  border-radius: 50%;
+  border: 1px solid rgba(216,90,48,0.08);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -8%;
+  width: 50vw; height: 50vw;
+  border-radius: 50%;
+  border: 1px solid rgba(216,90,48,0.05);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; width: 100%; }
+.hero-badge {
+  display: inline-block;
+  background: var(--coral-600);
+  color: var(--coral-100);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.6rem, 3.0vw, 3.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--coral-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  margin-bottom: 2.5rem;
+  max-width: 620px;
+}
+.section-lead, .why-desc, .cycle-desc, .program-lead,
+.interval-desc, .monitor-desc, .scale-desc, .cta-sub {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.pain-list { margin-bottom: 32px; width: 100%; }
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pain-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.pain-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--coral-400);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.pain-text { font-size: clamp(0.88rem, 1.1vw, 1rem); color: rgba(255,255,255,0.75); line-height: 1.7; }
+.hero-cta {
+  background: #fff;
+  color: var(--coral-800);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-block;
+  text-decoration: none;
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+.hero-cta-sub { font-size: 13px; color: var(--coral-100); margin-top: 10px; opacity: 0.8; }
+.scroll-hint {
+  margin-top: 2rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.1em;
+}
+
+/* セクション共通 */
+.section-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+.section-lead {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+/* なぜ変えられなかったか */
+.why-section { background: var(--bg); }
+.emphasis-box {
+  border-left: 4px solid var(--coral-400);
+  padding: 1.4rem 2rem;
+  background: var(--coral-50);
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 2.5rem;
+}
+.emphasis-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--coral-800);
+  line-height: 1.75;
+  font-weight: 700;
+}
+.why-card {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border: 1px solid;
+}
+.why-card-head {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+}
+.why-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 600;
+  flex-shrink: 0;
+}
+.why-card-title { font-size: 1rem; font-weight: 600; line-height: 1.5; }
+.why-card-body { padding: 0 1.5rem 1.4rem; }
+.why-desc { font-size: 0.9rem; line-height: 1.8; }
+.why-key {
+  margin-top: 0.8rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.why-red { border-color: #F09595; background: #FEF3F2; }
+.why-red .why-card-head { background: #FEF3F2; }
+.why-red .why-num { background: #F7C1C1; color: #A32D2D; }
+.why-red .why-card-title { color: #791F1F; }
+.why-red .why-desc { color: #791F1F; }
+.why-red .why-key { background: #fde8e8; color: #791F1F; }
+
+.why-amber { border-color: #FAC775; background: #FFFAF0; }
+.why-amber .why-card-head { background: #FFFAF0; }
+.why-amber .why-num { background: #FAC775; color: #633806; }
+.why-amber .why-card-title { color: #412402; }
+.why-amber .why-desc { color: #633806; }
+.why-amber .why-key { background: #fef0d0; color: #633806; }
+
+.why-coral { border-color: #F0A080; background: #FFF8F5; }
+.why-coral .why-card-head { background: #FFF8F5; }
+.why-coral .why-num { background: #FFD4BE; color: #7A3015; }
+.why-coral .why-card-title { color: #5A2010; }
+.why-coral .why-desc { color: #7A3015; }
+.why-coral .why-key { background: #FFEEE4; color: #7A3015; }
+
+/* エビデンス */
+.evidence-section { background: var(--gray-50); }
+.evidence-intro {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+}
+.evidence-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.evidence-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  position: relative;
+}
+.evidence-card.wide { grid-column: 1 / -1; }
+.evidence-source {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.source-google { color: #4285F4; }
+.source-gallup { color: #00843D; }
+.source-mckinsey { color: #0066CC; }
+.source-research { color: var(--coral-600); }
+.evidence-stat {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+  margin-bottom: 0.4rem;
+}
+.evidence-stat-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+.evidence-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.evidence-highlight {
+  background: var(--coral-50);
+  border-left: 4px solid var(--coral-400);
+  border-radius: 0 12px 12px 0;
+  padding: 1.4rem 2rem;
+  margin-bottom: 2rem;
+}
+.evidence-highlight-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: var(--coral-800);
+  line-height: 1.75;
+  font-weight: 700;
+}
+.evidence-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+/* 好循環モデル */
+.cycle-section { background: #1a0e06; padding: 6rem 0; }
+.cycle-label { color: var(--coral-400); }
+.cycle-title { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 0.8rem; }
+.cycle-sub { font-size: 1rem; color: rgba(255,224,204,0.8); line-height: 1.9; margin-bottom: 3rem; }
+
+/* スパイラルアップ図 */
+.spiral-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+}
+.spiral-chart {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 800 / 700;
+}
+.spiral-chart svg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+.spiral-node {
+  position: absolute;
+  text-align: center;
+  width: 200px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.spiral-node-num {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--coral-600);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  margin: 0 auto 0.5rem;
+  box-shadow: 0 2px 8px rgba(216,90,48,0.3);
+}
+.spiral-node-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+.spiral-node-desc {
+  font-size: 0.85rem;
+  color: rgba(255,224,204,0.75);
+  line-height: 1.6;
+}
+/* ノード配置: 楕円ループ型スパイラル（左下→右上） */
+.spiral-node.n1 { left: 19%; top: 79%; }
+.spiral-node.n2 { left: 43%; top: 87%; }
+.spiral-node.n3 { left: 24%; top: 54%; }
+.spiral-node.n4 { left: 63%; top: 66%; }
+.spiral-node.n5 { left: 31%; top: 26%; }
+.spiral-node.n6 { left: 84%; top: 42%; }
+
+/* モバイル用フロー表示 */
+.spiral-mobile-flow { display: none; }
+.spiral-mobile-step {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  text-align: center;
+}
+.spiral-mobile-arrow-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.2rem 0;
+}
+.spiral-mobile-arrow-text {
+  font-size: 1.4rem;
+  color: var(--coral-400);
+}
+.spiral-mobile-arrow-label {
+  font-size: 0.7rem;
+  color: rgba(216,90,48,0.5);
+  letter-spacing: 0.08em;
+}
+
+.cycle-loop-note {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 1.2rem 2rem;
+  background: rgba(216,90,48,0.12);
+  border: 1px solid rgba(216,90,48,0.3);
+  border-radius: 12px;
+  display: inline-block;
+}
+.cycle-loop-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--coral-100);
+  line-height: 1.6;
+}
+
+/* プログラム構成 */
+.program-section { background: var(--bg); }
+.program-lead { font-size: 1rem; color: var(--text-secondary); line-height: 1.9; margin-bottom: 2.5rem; }
+
+.quarter-block {
+  margin-bottom: 1.5rem;
+}
+.quarter-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--coral-600);
+  margin-bottom: 0.6rem;
+}
+.day-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.4rem 1.6rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s;
+}
+.day-dot {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  flex-shrink: 0;
+}
+.day-content { flex: 1; }
+.day-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; font-family: 'Noto Sans JP', sans-serif; }
+.day-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; }
+.day-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 0.7rem; }
+.day-tag {
+  background: var(--coral-50);
+  border: 1px solid rgba(216,90,48,0.25);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  color: var(--coral-800);
+  white-space: nowrap;
+}
+.day-tag.teal {
+  background: var(--teal-50);
+  border-color: rgba(29,158,117,0.25);
+  color: var(--teal-600);
+}
+.day-tag.purple {
+  background: var(--purple-50);
+  border-color: rgba(127,119,221,0.25);
+  color: var(--purple-800);
+}
+
+.interval-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1rem 1.4rem;
+  background: var(--coral-50);
+  border: 1px dashed rgba(216,90,48,0.4);
+  border-radius: 10px;
+  margin: 0.4rem 0 0.4rem 2.5rem;
+}
+.interval-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+.interval-title { font-size: 0.88rem; font-weight: 600; color: var(--coral-800); margin-bottom: 0.2rem; }
+.interval-desc { font-size: 0.82rem; color: var(--coral-600); line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
+
+/* セルフモニタリング */
+.monitor-section { background: var(--gray-50); }
+.monitor-flow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+  background: var(--coral-50);
+  border: 1px solid rgba(216,90,48,0.2);
+  border-radius: 14px;
+  padding: 1.4rem 1.8rem;
+  flex-wrap: wrap;
+}
+.monitor-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  padding: 0.4rem;
+}
+.monitor-step-icon {
+  width: 40px; height: 40px;
+  background: var(--coral-600);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  flex-shrink: 0;
+}
+.monitor-step-label { font-size: 0.82rem; font-weight: 600; color: var(--coral-800); line-height: 1.4; }
+.monitor-step-sub { font-size: 0.75rem; color: var(--coral-600); margin-top: 2px; }
+.monitor-arrow { font-size: 1.4rem; color: var(--coral-400); padding: 0 0.4rem; flex-shrink: 0; align-self: center; }
+
+.monitor-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1rem;
+}
+.monitor-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.monitor-card-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* 規模別対応 */
+.scale-section { background: var(--bg); }
+.scale-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.scale-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+}
+.scale-card-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.scale-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--coral-600);
+  margin-bottom: 0.5rem;
+}
+.scale-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+.scale-card-desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; }
+.scale-card-features { margin-top: 0.8rem; }
+.scale-feature {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.scale-feature .mark { flex-shrink: 0; color: var(--coral-400); font-size: 0.85rem; margin-top: 2px; }
+
+.scale-note {
+  background: linear-gradient(135deg, #1a0e06 0%, #0d0d2e 100%);
+  border-radius: 14px;
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.scale-note-icon { font-size: 2rem; flex-shrink: 0; }
+.scale-note-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-400); margin-bottom: 0.4rem; }
+.scale-note-title { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.scale-note-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; }
+
+/* 3カ年ロードマップ */
+.roadmap-section { background: #1a0e06; padding: 6rem 0; }
+.roadmap-label { color: var(--coral-400); }
+.roadmap-title { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 0.8rem; }
+.roadmap-sub { font-size: 1rem; color: rgba(255,224,204,0.8); line-height: 1.9; margin-bottom: 3rem; }
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.roadmap-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem 1.6rem;
+  position: relative;
+  transition: border-color 0.2s;
+}
+.roadmap-card.active {
+  border-color: rgba(216,90,48,0.6);
+  background: rgba(216,90,48,0.08);
+}
+.roadmap-year-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+.roadmap-card.active .roadmap-year-badge {
+  background: rgba(216,90,48,0.25);
+  color: var(--coral-100);
+}
+.roadmap-card:not(.active) .roadmap-year-badge {
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.5);
+}
+.roadmap-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+.roadmap-card-desc {
+  font-size: 0.88rem;
+  color: rgba(255,224,204,0.7);
+  line-height: 1.8;
+  margin-bottom: 1rem;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.roadmap-features { list-style: none; }
+.roadmap-feature {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+.roadmap-card.active .roadmap-feature { color: rgba(255,224,204,0.8); }
+.roadmap-card:not(.active) .roadmap-feature { color: rgba(255,255,255,0.5); }
+.roadmap-feature .mark { flex-shrink: 0; margin-top: 1px; }
+.roadmap-card.active .roadmap-feature .mark { color: var(--coral-400); }
+.roadmap-card:not(.active) .roadmap-feature .mark { color: rgba(255,255,255,0.3); }
+.roadmap-arrow-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+.roadmap-arrow-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(216,90,48,0.5), rgba(216,90,48,0.15));
+}
+.roadmap-arrow-tip {
+  font-size: 1.2rem;
+  color: var(--coral-400);
+}
+.roadmap-goal {
+  text-align: center;
+  padding: 1.4rem 2rem;
+  background: rgba(216,90,48,0.12);
+  border: 1px solid rgba(216,90,48,0.3);
+  border-radius: 12px;
+  display: inline-block;
+}
+.roadmap-goal-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--coral-100);
+  line-height: 1.6;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #2a1508 0%, #1a0e06 60%, #0d0d2e 100%);
+  padding: 6rem 0;
+}
+.cta-label { color: var(--coral-400); }
+.cta-title { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 0.8rem; }
+.cta-sub { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 2.5rem; }
+.cta-btn {
+  display: inline-block;
+  background: var(--coral-400);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 44px;
+  font-size: 1rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  letter-spacing: 0.04em;
+}
+.cta-btn:hover { background: var(--coral-600); transform: translateY(-1px); }
+.cta-note { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 1rem; }
+
+/* フッター */
+footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); white-space: nowrap; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; }
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero h1 { font-size: 1.8rem; white-space: normal; }
+  .container { padding: 0 1.5rem; }
+  .hero-badge { white-space: normal; text-align: center; }
+  .section { padding: 3.5rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .cta-section { padding: 3.5rem 0; }
+  .cycle-section { padding: 3.5rem 0; }
+  .spiral-node { width: 130px; }
+  .spiral-node-title { font-size: 0.95rem; }
+  .spiral-node-desc { font-size: 0.78rem; }
+  .spiral-node-num { width: 28px; height: 28px; font-size: 0.75rem; }
+  .scale-grid { grid-template-columns: 1fr; }
+  .monitor-flow { flex-direction: column; }
+  .monitor-arrow { transform: rotate(90deg); padding: 0.3rem 0; }
+  .monitor-step { min-width: 0; }
+  .interval-card { margin-left: 0.8rem; padding: 0.8rem 1rem; }
+  .day-card { padding: 1.2rem 1.2rem; }
+  .day-title, .day-desc { overflow-wrap: break-word; word-break: break-word; }
+  .interval-title, .interval-desc { overflow-wrap: break-word; word-break: break-word; }
+  .emphasis-box { padding: 1.2rem 1.4rem; }
+  .emphasis-text { overflow-wrap: break-word; word-break: break-word; }
+  .evidence-grid { grid-template-columns: 1fr; }
+  .evidence-card { padding: 1.4rem 1.2rem; }
+  .evidence-highlight { padding: 1.2rem 1.4rem; }
+  .evidence-highlight-text { overflow-wrap: break-word; word-break: break-word; }
+  .roadmap-grid { grid-template-columns: 1fr; }
+  .roadmap-section { padding: 3.5rem 0; }
+  .scale-note { padding: 1.4rem 1.2rem; gap: 1rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .hero h1 { font-size: 1.4rem; white-space: normal; }
+}
+@media (max-width: 480px) {
+  .hero .container { padding: 0 1rem; }
+  .container { padding: 0 1rem; }
+  .spiral-chart { display: none; }
+  .spiral-mobile-flow { display: block !important; }
+  .day-card { padding: 1rem; gap: 0.8rem; }
+  .scale-note { padding: 1.2rem 1rem; flex-direction: column; }
+  .interval-card { margin-left: 0.5rem; padding: 0.8rem 0.8rem; }
+  footer { padding: 1.5rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="./lsp.html">LSP</a></li>
+    <li><a href="./education-program.html">研修設計プログラム</a></li>
+    <li><a href="./od-program.html">組織開発プログラム</a></li>
+    <li><a href="./dialogue-program.html" class="active">対話力向上プログラム</a></li>
+    <li><a href="./index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <a href="./democracy-fitness.html">Democracy Fitness</a>
+  <a href="./lsp.html">LSP</a>
+  <a href="./education-program.html">研修設計プログラム</a>
+  <a href="./od-program.html">組織開発プログラム</a>
+  <a href="./dialogue-program.html" class="active">対話力向上プログラム</a>
+  <a href="./index.html#contact">Contact</a>
+</div>
+
+<!-- ヒーローセクション -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-badge">組織向け　対話力向上プログラム</div>
+      <h1>なぜ「話し合い」を重ねても<br><em>組織は変われなかったのか</em></h1>
+      <p class="hero-sub">対話力の向上を通じて心理的安全性を高め、これまで手をつけられなかった重要な問題に取り組み、組織的負債を返済していく。3ヶ月に1回・年4回・5日間で、対話を武器に「自分たちで変えていける組織」をつくるプログラムです。</p>
+
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem;">こんな状況に心あたりはありませんか？</p>
+      <div class="pain-list">
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">会議はあるが本音が出ない。何を言っても変わらないという諦めが漂っている</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">重要な問題ほど先送りされ、組織に「負債」として蓄積されている</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">心理的安全性が大切だとわかっていても、つくり方がわからない</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">研修やサーベイを実施しても、日常の対話が変わらない</p></div>
+      </div>
+
+      <a href="#program" class="hero-cta">プログラム詳細を見る →</a>
+      <p class="hero-cta-sub">まずはその理由から確認する ↓</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- なぜこれまでのアプローチでは変えられなかったのか -->
+<section class="why-section section">
+  <div class="container">
+    <p class="label">Why Traditional Approaches Fail</p>
+    <h2 class="section-title">なぜこれまでのアプローチでは変えられなかったのか</h2>
+    <p class="section-lead">1on1、エンゲージメントサーベイ、コミュニケーション研修——施策の数は増えました。それでも組織の対話の質が変わらないのは、「知識を渡すこと」と「対話する力を鍛えること」がまったく別のものだからです。対話力は知識ではなく、筋肉です。使わなければ衰え、鍛えなければ強くなりません。</p>
+
+    <div class="emphasis-box">
+      <p class="emphasis-text">「心理的安全性」は、掲げるだけでは生まれません。<br>対話の「筋肉」を鍛えることで、はじめてつくられます。</p>
+    </div>
+
+    <div class="why-card why-red">
+      <div class="why-card-head">
+        <div class="why-num">1</div>
+        <div class="why-card-title">「心理的安全性」を掲げるだけでは対話力は育たない</div>
+      </div>
+      <div class="why-card-body">
+        <p class="why-desc">エドモンドソン（エイミー・エドモンドソン／ハーバード・ビジネス・スクール教授。心理的安全性研究の第一人者）が提唱した「心理的安全性」は、チームの学習と成果に不可欠です。しかし多くの組織では「心理的安全性を大切にしましょう」というスローガンで終わっています。心理的安全性は「宣言」ではなく、日々の対話の積み重ねによってしかつくられません。</p>
+        <div class="why-key">→ 対話の質を変える具体的なトレーニングが必要</div>
+      </div>
+    </div>
+
+    <div class="why-card why-amber">
+      <div class="why-card-head">
+        <div class="why-num">2</div>
+        <div class="why-card-title">研修は「知識」を渡すが、「筋肉」を鍛えていない</div>
+      </div>
+      <div class="why-card-body">
+        <p class="why-desc">コミュニケーション研修やファシリテーション研修は「やり方」を教えます。しかし、異なる意見に向き合う力、本音を伝える勇気、合意を形成する粘り強さは、知識ではなく反復練習でしか身につきません。スポーツと同じように、対話も「筋トレ」が必要です。</p>
+        <div class="why-key">→ 反復練習を通じて「対話の筋肉」を鍛えるトレーニングが必要</div>
+      </div>
+    </div>
+
+    <div class="why-card why-coral">
+      <div class="why-card-head">
+        <div class="why-num">3</div>
+        <div class="why-card-title">対話の場が「点」で終わり、日常に接続されていない</div>
+      </div>
+      <div class="why-card-body">
+        <p class="why-desc">年に1回のオフサイト、月に1度の全体会議。そこでは良い対話が生まれても、翌日からの日常は何も変わりません。対話力を組織に根づかせるには、「特別な場」ではなく「日常の仕組み」として設計する必要があります。</p>
+        <div class="why-key">→ 研修日だけでなく、インターバル期間も含めた年間設計が必要</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- エビデンス -->
+<section class="evidence-section section">
+  <div class="container">
+    <p class="label">Evidence</p>
+    <h2 class="section-title">心理的安全性と業績の関係は、データが証明している</h2>
+    <p class="evidence-intro">心理的安全性とは、エドモンドソン（エイミー・エドモンドソン／ハーバード・ビジネス・スクール教授。心理的安全性研究の第一人者）が提唱した概念で、「チームの中で対人関係のリスクをとっても安全だ、という共有された信念」を指します。つまり、質問する、失敗を認める、異なる意見を述べる——こうした行動をとっても罰せられたり恥をかかされたりしないと、メンバー全員が信じられている状態です。</p>
+    <p class="evidence-intro">「心理的安全性が大切」という主張は、もはや感覚論ではありません。Google、Gallup、McKinseyをはじめとする大規模調査と学術研究が、心理的安全性とチームの業績の間に明確な相関があることを示しています。</p>
+
+    <div class="evidence-grid">
+
+      <div class="evidence-card">
+        <div class="evidence-source source-google">Google — Project Aristotle</div>
+        <div class="evidence-stat-label">心理的安全性が、チーム成果の最大の予測因子</div>
+        <p class="evidence-desc">Googleが社内180以上のチームを対象に実施した大規模調査「プロジェクト・アリストテレス」（2012年）。チームの成功を左右する要因を分析した結果、メンバーの能力や経歴よりも、心理的安全性がチームの効果性を最も強く予測する因子であることが判明しました。成功するチームに共通していたのは「誰がいるか」ではなく「どう協働するか」でした。</p>
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-source source-gallup">Gallup — Global Workplace Report</div>
+        <div class="evidence-stat">+23<span style="font-size:0.5em;">%</span></div>
+        <div class="evidence-stat-label">エンゲージメントが高いチームの利益率</div>
+        <p class="evidence-desc">Gallupが世界183,806のビジネスユニットを対象に行ったメタ分析によると、エンゲージメントが上位25%のチームは、下位25%と比較して利益率が23%高く、生産性は14%高く、欠勤率は81%低いという結果が出ています。心理的安全性はエンゲージメントの核となる基盤です。</p>
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-source source-mckinsey">McKinsey & Company</div>
+        <div class="evidence-stat">89<span style="font-size:0.5em;">%</span></div>
+        <div class="evidence-stat-label">「心理的安全性は不可欠」と回答した従業員の割合</div>
+        <p class="evidence-desc">McKinseyのグローバル調査では、89%の従業員が職場における心理的安全性を不可欠だと回答。一方で、心理的安全性を実際につくれているリーダーはわずか26%にとどまっています。多くの組織で「必要性の認識」と「実践」の間に大きなギャップが存在しています。</p>
+      </div>
+
+      <div class="evidence-card">
+        <div class="evidence-source source-research">離職・バーンアウトへの影響</div>
+        <div class="evidence-stat">4<span style="font-size:0.5em;">倍</span></div>
+        <div class="evidence-stat-label">心理的安全性が低い組織での離職意向</div>
+        <p class="evidence-desc">心理的安全性が低い環境では、離職意向が4倍に跳ね上がるというデータがあります（Microsoft調べ）。また、心理的安全性が高い場合は離職意向がわずか3%であるのに対し、低い場合は12%に上昇します。心理的安全性が低くレジリエンスも低い従業員の60%がバーンアウトを感じているという調査結果もあります。</p>
+      </div>
+
+      <div class="evidence-card wide">
+        <div class="evidence-source source-research">Amy Edmondson（エイミー・エドモンドソン／ハーバード・ビジネス・スクール教授。心理的安全性研究の第一人者）</div>
+        <div class="evidence-stat-label">心理的安全性 → 学習行動 → チーム業績</div>
+        <p class="evidence-desc">エドモンドソンの1999年の研究では、製造業の51チームを対象に、心理的安全性がチームの学習行動を促進し、学習行動がチーム業績に結びつくことを実証しました。その後の60年分の研究を統合したレビューでも、心理的安全性が創造性、リスクテイク、探索的学習を促し、チームパフォーマンスを向上させることが繰り返し確認されています。被引用数98,000件超の研究蓄積が、この因果関係を裏付けています。</p>
+      </div>
+
+    </div>
+
+    <div class="evidence-highlight">
+      <p class="evidence-highlight-text">これらのデータが示しているのは明確です。<br>心理的安全性は「あればいいもの」ではなく、業績を左右する経営課題です。<br>そして心理的安全性は、対話の質を変えることでしかつくられません。</p>
+    </div>
+
+    <p class="evidence-note">※ 出典：Google re:Work "Guide: Understand team effectiveness"／Gallup "Q12 Meta-Analysis"／McKinsey "Psychological safety and the critical role of leadership development"／Edmondson, A.C. (1999) "Psychological Safety and Learning Behavior in Work Teams"／Microsoft Viva People Science</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 好循環モデル -->
+<section class="cycle-section">
+  <div class="container">
+    <p class="label cycle-label">Virtuous Cycle</p>
+    <h2 class="cycle-title">対話力が組織を変える6つの好循環</h2>
+    <p class="cycle-sub">中央の「対話力の強化」を軸に、6つのステップが螺旋状に上昇しながら循環します。一周するたびに組織の対話力が高まり、より深い課題に取り組めるようになります。</p>
+
+    <div class="spiral-wrapper">
+      <!-- デスクトップ: 柱型スパイラル -->
+      <div class="spiral-chart">
+        <svg viewBox="0 0 800 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- 中央軸テキスト（控えめ） -->
+          <text fill="rgba(216,90,48,0.10)" font-size="14" font-weight="700"
+                font-family="'Shippori Mincho', serif"
+                text-anchor="middle" letter-spacing="0.5em"
+                transform="translate(405,360) rotate(-55)">対話力の強化</text>
+
+          <!-- ===== Layer 1: 全背面リボン（暗い色・奥側） ===== -->
+          <!-- 始点の尾（小さなカール） -->
+          <path d="M 205 645 C 170 620, 148 580, 153 554"
+                stroke="#7A2E14" stroke-width="12" fill="none" stroke-linecap="round"/>
+          <!-- Back 1: Ring1右端 → Ring2左端 -->
+          <path d="M 347 606 C 280 510, 160 390, 195 379"
+                stroke="#7A2E14" stroke-width="19" fill="none" stroke-linecap="round"/>
+          <!-- Back 2: Ring2右端 → Ring3左端 -->
+          <path d="M 505 461 C 400 340, 220 200, 248 183"
+                stroke="#7A2E14" stroke-width="25" fill="none" stroke-linecap="round"/>
+          <!-- Back 3: Ring3右端 → Arrow始点 -->
+          <path d="M 673 297 C 540 190, 380 95, 397 86"
+                stroke="#7A2E14" stroke-width="30" fill="none" stroke-linecap="round"/>
+
+          <!-- ===== Layer 2: 前面リボン影（奥行き感） ===== -->
+          <path d="M -100 0 C -100 47, 100 47, 100 0"
+                transform="translate(250,580) rotate(15)"
+                stroke="rgba(0,0,0,0.10)" stroke-width="22" fill="none" stroke-linecap="round"/>
+          <path d="M -160 0 C -160 73, 160 73, 160 0"
+                transform="translate(350,420) rotate(15)"
+                stroke="rgba(0,0,0,0.10)" stroke-width="28" fill="none" stroke-linecap="round"/>
+          <path d="M -220 0 C -220 100, 220 100, 220 0"
+                transform="translate(460,240) rotate(15)"
+                stroke="rgba(0,0,0,0.10)" stroke-width="34" fill="none" stroke-linecap="round"/>
+          <path d="M 397 86 C 400 185, 650 175, 710 120"
+                stroke="rgba(0,0,0,0.08)" stroke-width="38" fill="none" stroke-linecap="round"/>
+
+          <!-- ===== Layer 3: 全前面リボン（明るい色・手前） ===== -->
+          <!-- Front 1: 楕円半弧 (rx=100, ry=35) -->
+          <path d="M -100 0 C -100 47, 100 47, 100 0"
+                transform="translate(250,580) rotate(15)"
+                stroke="#D85A30" stroke-width="16" fill="none" stroke-linecap="round"/>
+          <!-- Front 2: 楕円半弧 (rx=160, ry=55) -->
+          <path d="M -160 0 C -160 73, 160 73, 160 0"
+                transform="translate(350,420) rotate(15)"
+                stroke="#D85A30" stroke-width="22" fill="none" stroke-linecap="round"/>
+          <!-- Front 3: 楕円半弧 (rx=220, ry=75) -->
+          <path d="M -220 0 C -220 100, 220 100, 220 0"
+                transform="translate(460,240) rotate(15)"
+                stroke="#D85A30" stroke-width="28" fill="none" stroke-linecap="round"/>
+          <!-- Front 4: 矢印部分 -->
+          <path d="M 397 86 C 400 185, 650 175, 710 120"
+                stroke="#D85A30" stroke-width="32" fill="none" stroke-linecap="round"/>
+          <!-- 矢印ヘッド -->
+          <polygon points="765,68 680,148 720,165" fill="#D85A30"/>
+
+          <!-- SPIRAL UP ラベル -->
+          <text x="790" y="58" fill="rgba(216,90,48,0.4)" font-size="10" font-weight="600"
+                letter-spacing="0.08em" text-anchor="end">SPIRAL UP ↗</text>
+        </svg>
+
+        <!-- ノード（6つ） -->
+        <div class="spiral-node n1">
+          <div class="spiral-node-num">1</div>
+          <div class="spiral-node-title">心理的安全性の向上</div>
+          <div class="spiral-node-desc">本音が言える関係性と場をつくる</div>
+        </div>
+        <div class="spiral-node n2">
+          <div class="spiral-node-num">2</div>
+          <div class="spiral-node-title">議論の質の向上</div>
+          <div class="spiral-node-desc">多様な視点で深く話し合える</div>
+        </div>
+        <div class="spiral-node n3">
+          <div class="spiral-node-num">3</div>
+          <div class="spiral-node-title">意思決定の質の向上</div>
+          <div class="spiral-node-desc">先送りせず合意に基づいて決められる</div>
+        </div>
+        <div class="spiral-node n4">
+          <div class="spiral-node-num">4</div>
+          <div class="spiral-node-title">業績の向上と組織的負債の返済</div>
+          <div class="spiral-node-desc">重要課題に取り組み成果を出す</div>
+        </div>
+        <div class="spiral-node n5">
+          <div class="spiral-node-num">5</div>
+          <div class="spiral-node-title">組織効力感の向上</div>
+          <div class="spiral-node-desc">「自分たちで変えられる」と実感する</div>
+        </div>
+        <div class="spiral-node n6">
+          <div class="spiral-node-num">6</div>
+          <div class="spiral-node-title">心理的安全性の向上</div>
+          <div class="spiral-node-desc">さらに深い対話ができる状態へ</div>
+        </div>
+      </div>
+
+      <!-- モバイル: 縦並びフロー（6ステップ） -->
+      <div class="spiral-mobile-flow" style="display:none;">
+        <div style="text-align:center;margin-bottom:1.2rem;padding:0.8rem;background:rgba(216,90,48,0.15);border:1px solid rgba(216,90,48,0.3);border-radius:10px;">
+          <div style="font-size:0.7rem;color:rgba(216,90,48,0.6);letter-spacing:0.1em;margin-bottom:0.3rem;">中央の軸</div>
+          <div style="font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:700;color:var(--coral-400);">▲ 対話力の強化 ▲</div>
+        </div>
+        <div class="spiral-mobile-step">
+          <div class="spiral-node-num" style="margin:0 auto 0.5rem;">1</div>
+          <div class="spiral-node-title" style="color:#fff;">心理的安全性の向上</div>
+          <div class="spiral-node-desc">本音が言える関係性と場をつくる</div>
+        </div>
+        <div class="spiral-mobile-arrow" style="display:block;">↓</div>
+        <div class="spiral-mobile-step">
+          <div class="spiral-node-num" style="margin:0 auto 0.5rem;">2</div>
+          <div class="spiral-node-title" style="color:#fff;">議論の質の向上</div>
+          <div class="spiral-node-desc">多様な視点で深く話し合える</div>
+        </div>
+        <div class="spiral-mobile-arrow" style="display:block;">↓</div>
+        <div class="spiral-mobile-step">
+          <div class="spiral-node-num" style="margin:0 auto 0.5rem;">3</div>
+          <div class="spiral-node-title" style="color:#fff;">意思決定の質の向上</div>
+          <div class="spiral-node-desc">先送りせず合意に基づいて決められる</div>
+        </div>
+        <div class="spiral-mobile-arrow" style="display:block;">↓</div>
+        <div class="spiral-mobile-step">
+          <div class="spiral-node-num" style="margin:0 auto 0.5rem;">4</div>
+          <div class="spiral-node-title" style="color:#fff;">業績の向上と組織的負債の返済</div>
+          <div class="spiral-node-desc">重要課題に取り組み成果を出す</div>
+        </div>
+        <div class="spiral-mobile-arrow" style="display:block;">↓</div>
+        <div class="spiral-mobile-step">
+          <div class="spiral-node-num" style="margin:0 auto 0.5rem;">5</div>
+          <div class="spiral-node-title" style="color:#fff;">組織効力感の向上</div>
+          <div class="spiral-node-desc">「自分たちで変えられる」と実感する</div>
+        </div>
+        <div class="spiral-mobile-arrow" style="display:block;">↓</div>
+        <div class="spiral-mobile-step">
+          <div class="spiral-node-num" style="margin:0 auto 0.5rem;">6</div>
+          <div class="spiral-node-title" style="color:#fff;">心理的安全性の向上</div>
+          <div class="spiral-node-desc">さらに深い対話ができる状態へ</div>
+        </div>
+        <div class="spiral-mobile-arrow" style="display:block;">⟳</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="cycle-loop-note">
+        <div class="cycle-loop-text">一周するたびにレベルが上がり<br>対話力と成果が無限に螺旋上昇していく</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- プログラム構成 -->
+<section class="program-section section" id="program">
+  <div class="container">
+    <p class="label">Program Structure</p>
+    <h2 class="section-title">年間5日間で対話力を組織に根づかせる</h2>
+    <p class="program-lead">3ヶ月に1回、年4回の集合研修と、その間の毎週30分のチェックイン・対話ワークシートを組み合わせた年間プログラムです。「研修の日だけ対話する」のではなく、日常に対話を埋め込む設計によって、学びの揮発を防ぎ、組織に対話力を定着させます。</p>
+
+    <!-- Q1 -->
+    <div class="quarter-block">
+      <div class="quarter-label">Q1 — 5月</div>
+      <div class="day-card">
+        <div class="day-dot" style="background:var(--coral-50);color:var(--coral-600);">1</div>
+        <div class="day-content">
+          <p class="day-title">Day 1：価値観の探究とチーム・組織ビジョンの共有</p>
+          <p class="day-desc">LEGO SERIOUS PLAY（LSP）メソッドを通じて、メンバー一人ひとりの価値観を手と目を使って可視化します。お互いの「大切にしているもの」を聴き合うことで関係性の土台をつくり、チームや組織のビジョンを共同で探究します。ここで生まれた対話が、1年間のプログラムの出発点になります。</p>
+          <div class="day-tags">
+            <span class="day-tag">LEGO SERIOUS PLAY</span>
+            <span class="day-tag">価値観の可視化</span>
+            <span class="day-tag">ビジョン探究</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="interval-card">
+        <div class="interval-icon">🔄</div>
+        <div class="day-content">
+          <p class="interval-title">インターバル（5月〜8月）：毎週30分のチェックイン＋対話ワークシート</p>
+          <p class="interval-desc">Day 1で見つけた価値観やビジョンをもとに、毎週30分の対話を実施。対話ワークシートを用いて、小さなテーマから少しずつ本音で話す練習を積み重ねます。チーム内の組織課題についても、小刻みに話し始めます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q2 -->
+    <div class="quarter-block">
+      <div class="quarter-label">Q2 — 8月</div>
+      <div class="day-card">
+        <div class="day-dot" style="background:var(--coral-50);color:var(--coral-600);">2</div>
+        <div class="day-content">
+          <p class="day-title">Day 2–3：デモクラシーフィットネス 2日間集中トレーニング</p>
+          <p class="day-desc">民主主義の根幹である「対話・熟議・合意形成」の力を、筋トレのように反復練習で鍛える2日間。30分ワーク×10種目のトレーニングを通じて、異なる意見に向き合う力、少数意見を尊重する姿勢、全員が納得できる合意をつくる技術を身につけます。Q1のインターバルで感じた組織の課題も、対話の題材として扱います。</p>
+          <div class="day-tags">
+            <span class="day-tag">デモクラシーフィットネス</span>
+            <span class="day-tag">10の筋肉</span>
+            <span class="day-tag">2日間合宿</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="interval-card">
+        <div class="interval-icon">🔄</div>
+        <div class="day-content">
+          <p class="interval-title">インターバル（8月〜11月）：毎週30分のチェックイン＋実践課題</p>
+          <p class="interval-desc">Day 2–3で鍛えた対話の筋肉を、日常の業務で使う実践期間。チェックインでは、対話がうまくいった場面・うまくいかなかった場面を振り返り、チームとして改善サイクルを回します。組織課題についての対話も深めていきます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q3 -->
+    <div class="quarter-block">
+      <div class="quarter-label">Q3 — 11月</div>
+      <div class="day-card">
+        <div class="day-dot" style="background:var(--coral-50);color:var(--coral-600);">4</div>
+        <div class="day-content">
+          <p class="day-title">Day 4：チームの憲法・バリューの策定</p>
+          <p class="day-desc">半年間の対話を通じて育まれた関係性と共通理解をもとに、チーム独自の「憲法」やバリューを全員で策定します。これは壁に貼るスローガンではなく、日々の意思決定や行動の判断基準として機能するものです。2月の最終回までの3ヶ月間、このバリューに基づいて判断できた場面・できなかった場面を記録していきます。</p>
+          <div class="day-tags">
+            <span class="day-tag purple">チーム憲法</span>
+            <span class="day-tag purple">バリュー策定</span>
+            <span class="day-tag purple">意思決定基準</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="interval-card">
+        <div class="interval-icon">🔄</div>
+        <div class="day-content">
+          <p class="interval-title">インターバル（11月〜2月）：バリューに基づく意思決定の実践</p>
+          <p class="interval-desc">策定したバリューを実際の業務判断に適用する期間。毎週のチェックインでは「バリューに基づいて判断できた場面」「迷った場面」を共有し、バリューの解釈をすり合わせます。同時に、組織的負債の返済に向けた対話を本格化させます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Q4 -->
+    <div class="quarter-block">
+      <div class="quarter-label">Q4 — 2月</div>
+      <div class="day-card">
+        <div class="day-dot" style="background:#3C3489;color:#fff;">5</div>
+        <div class="day-content">
+          <p class="day-title">Day 5：業務プロセスのアップデートと1年間の振り返り</p>
+          <p class="day-desc">1年間のトレーニングと対話の蓄積をもとに、チームの業務内容や業務プロセスを対話を通じてアップデートします。先送りしてきた組織的負債に正面から取り組み、具体的な改善策を全員で合意形成します。最後に1年間の変化を振り返り、次年度の方向性を共有します。</p>
+          <div class="day-tags">
+            <span class="day-tag teal">業務プロセス改善</span>
+            <span class="day-tag teal">組織的負債の返済</span>
+            <span class="day-tag teal">振り返りと展望</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- セルフモニタリング -->
+<section class="monitor-section section">
+  <div class="container">
+    <p class="label">Self-Monitoring</p>
+    <h2 class="section-title">デモクラ筋診断で変化を可視化する</h2>
+    <p class="section-lead">プログラムの効果を「感覚」ではなく「データ」で捉えるために、デモクラシーフィットネス診断（デモクラ筋診断）をビフォーアフターで実施します。個人とチームの対話力の変化を可視化し、セルフモニタリングと改善サイクルを回していきます。</p>
+
+    <div class="monitor-flow">
+      <div class="monitor-step">
+        <div class="monitor-step-icon">📊</div>
+        <div class="monitor-step-label">Before 診断</div>
+        <div class="monitor-step-sub">プログラム開始前</div>
+      </div>
+      <div class="monitor-arrow">→</div>
+      <div class="monitor-step">
+        <div class="monitor-step-icon">💪</div>
+        <div class="monitor-step-label">トレーニング</div>
+        <div class="monitor-step-sub">年間5日間＋インターバル</div>
+      </div>
+      <div class="monitor-arrow">→</div>
+      <div class="monitor-step">
+        <div class="monitor-step-icon">📊</div>
+        <div class="monitor-step-label">After 診断</div>
+        <div class="monitor-step-sub">プログラム終了後</div>
+      </div>
+      <div class="monitor-arrow">→</div>
+      <div class="monitor-step">
+        <div class="monitor-step-icon">🔄</div>
+        <div class="monitor-step-label">改善サイクル</div>
+        <div class="monitor-step-sub">次年度の計画へ</div>
+      </div>
+    </div>
+
+    <div class="monitor-card">
+      <div class="monitor-card-title">10の筋肉を数値で把握する</div>
+      <p class="monitor-card-desc">デモクラ筋診断では、「傾聴力」「異見対応力」「合意形成力」「自己開示力」など、対話に必要な10の筋肉を数値で測定します。個人ごとのスコアだけでなく、チーム全体の傾向も可視化されるため、チームとしてどの筋肉を重点的に鍛えるべきかが明確になります。</p>
+    </div>
+    <div class="monitor-card">
+      <div class="monitor-card-title">変化を実感し、次のアクションにつなげる</div>
+      <p class="monitor-card-desc">ビフォーアフターの比較により、1年間でどの筋肉が成長し、どこに伸びしろがあるかを具体的に把握できます。この結果は次年度のプログラム設計にも反映され、チームの状態に合わせた継続的な成長を可能にします。</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 規模別対応 -->
+<section class="scale-section section">
+  <div class="container">
+    <p class="label">Scalable Design</p>
+    <h2 class="section-title">数十人から数百人まで、組織の規模に合わせた設計</h2>
+    <p class="section-lead">大企業の一部門から中小企業の全社員まで、数十人〜数百人規模に対応。組織のスタート段階の対話力やチームの人数に応じてプログラムをカスタマイズし、複数のファシリテーターが連携しながら進めていきます。</p>
+
+    <div class="scale-grid">
+      <div class="scale-card">
+        <div class="scale-card-icon">👥</div>
+        <div class="scale-card-label">Small Scale</div>
+        <div class="scale-card-title">数十人規模</div>
+        <p class="scale-card-desc">全員が一つの場で対話できるサイズ。全体の一体感が生まれやすく、対話の深さを追求しやすい環境です。</p>
+        <div class="scale-card-features">
+          <div class="scale-feature"><span class="mark">●</span><span>全員参加型のワークショップ設計</span></div>
+          <div class="scale-feature"><span class="mark">●</span><span>ファシリテーター1〜2名体制</span></div>
+          <div class="scale-feature"><span class="mark">●</span><span>チーム全体の変化を直接観察可能</span></div>
+        </div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-card-icon">🏢</div>
+        <div class="scale-card-label">Large Scale</div>
+        <div class="scale-card-title">数百人規模</div>
+        <p class="scale-card-desc">チーム単位での実施と全体統合を組み合わせた設計。チーム間の学びの共有と、組織全体での合意形成を両立させます。</p>
+        <div class="scale-card-features">
+          <div class="scale-feature"><span class="mark">●</span><span>チーム単位での並行実施＋全体セッション</span></div>
+          <div class="scale-feature"><span class="mark">●</span><span>複数ファシリテーターによる連携体制</span></div>
+          <div class="scale-feature"><span class="mark">●</span><span>チーム間の学びを共有する仕組みを設計</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scale-note">
+      <div class="scale-note-icon">🎯</div>
+      <div>
+        <div class="scale-note-label">カスタマイズについて</div>
+        <div class="scale-note-title">組織の状態に合わせて設計します</div>
+        <p class="scale-note-desc">対話力のスタート地点は組織によって異なります。プログラム開始前にデモクラ筋診断を実施し、現状のチーム状態を把握した上で、各回の内容やインターバルの設計をカスタマイズします。「型にはめる研修」ではなく、「組織の現在地から出発するプログラム」です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3カ年ロードマップ -->
+<section class="roadmap-section">
+  <div class="container">
+    <p class="label roadmap-label">3-Year Roadmap</p>
+    <h2 class="roadmap-title">3カ年で「自走する組織」をつくる</h2>
+    <p class="roadmap-sub">対話力の定着は1年では完結しません。基盤づくりから実践、そして自走化まで、3年間のロードマップで組織の変革を支えます。</p>
+
+    <div class="roadmap-grid">
+      <div class="roadmap-card active">
+        <div class="roadmap-year-badge">Year 1</div>
+        <div class="roadmap-card-title">対話の基盤づくり</div>
+        <p class="roadmap-card-desc">対話の筋肉を鍛え、心理的安全性を構築する。チームのバリューを策定し、対話を日常に根づかせる1年間。</p>
+        <ul class="roadmap-features">
+          <li class="roadmap-feature"><span class="mark">●</span><span>LSPによる価値観の探究とビジョン共有</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>デモクラシーフィットネスで10の筋肉を鍛える</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>チーム憲法・バリューの策定</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>毎週30分のチェックインの習慣化</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>デモクラ筋診断によるビフォーアフター測定</span></li>
+        </ul>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="roadmap-year-badge">Year 2</div>
+        <div class="roadmap-card-title">対話を活かした課題解決の実践</div>
+        <p class="roadmap-card-desc">1年目で培った対話力を武器に、組織の本質的な課題に取り組む。組織的負債の返済を本格化させる実践の年。</p>
+        <ul class="roadmap-features">
+          <li class="roadmap-feature"><span class="mark">●</span><span>組織的負債の特定と優先順位づけ</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>部門横断・経営層を巻き込んだ対話の実践</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>業務プロセスの抜本的な見直し</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>対話を通じた意思決定の高度化</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>組織効力感の醸成と好循環の加速</span></li>
+        </ul>
+      </div>
+
+      <div class="roadmap-card">
+        <div class="roadmap-year-badge">Year 3</div>
+        <div class="roadmap-card-title">社内ファシリテーターの育成と自走化</div>
+        <p class="roadmap-card-desc">外部の支援がなくても対話の文化を維持・発展させられる状態をつくる。社内ファシリテーターを育成し、組織の自走力を完成させる。</p>
+        <ul class="roadmap-features">
+          <li class="roadmap-feature"><span class="mark">●</span><span>社内ファシリテーターの選抜と育成</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>対話プログラムの社内運営への移管</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>新メンバーへの対話文化のオンボーディング</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>継続的な改善サイクルの自律運営</span></li>
+          <li class="roadmap-feature"><span class="mark">●</span><span>他部門・他チームへの展開</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <div class="roadmap-goal">
+        <div class="roadmap-goal-text">3年後の姿：外部支援がなくても<br>「自分たちで対話し、自分たちで変えていける組織」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <p class="label cta-label">Next Step</p>
+    <h2 class="cta-title">対話で組織を変える第一歩を踏み出す</h2>
+    <p class="cta-sub">対話力の向上を通じて、心理的安全性の高い組織をつくり、先送りしてきた問題に取り組む。まずはお気軽にご相談ください。</p>
+    <a href="mailto:kizukikumitate@gmail.com?subject=対話力向上プログラムについて" class="cta-btn">お問い合わせ →</a>
+    <p class="cta-note">※ 現在プログラム設計中です。詳細はお問い合わせください。</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+}
+</script>
+</body>
+</html>
