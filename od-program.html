@@ -171,8 +171,16 @@ nav {
   .retreat-block { padding: 1.8rem 1.5rem; }
   .prereq-box { padding: 1.4rem 1.2rem; gap: 1rem; }
   .method-card { padding: 1.4rem 1.2rem; }
-  .method-head { gap: 0.8rem; }
+  .method-head { flex-direction: column; gap: 0.5rem; }
+  .method-badge { white-space: normal; }
+  .method-desc, .method-title { overflow-wrap: break-word; word-break: break-word; }
+  .methods-sub { overflow-wrap: break-word; word-break: break-word; }
+  .day-card { padding: 1.2rem 1.2rem; }
+  .day-desc, .day-title { overflow-wrap: break-word; word-break: break-word; }
+  .interim-card { margin-left: 0.8rem; padding: 0.8rem 1rem; }
+  .interim-desc, .interim-title { overflow-wrap: break-word; word-break: break-word; }
   .emphasis-box { padding: 1.2rem 1.4rem; }
+  .emphasis-text { overflow-wrap: break-word; word-break: break-word; }
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
 }
 @media (max-width: 540px) {
@@ -843,14 +851,13 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
 
 /* ===== モバイル最終override（CSS特異度対策） ===== */
 @media (max-width: 768px) {
-  /* hero .container のpadding-left特異度問題を解消 */
   .hero .container { padding: 0 1.5rem; }
-  /* prereq-tag のテキストを折り返し可能に */
   .prereq-tag { display: flex; flex-wrap: wrap; width: 100%; box-sizing: border-box; }
-  /* day-card のindent調整 */
-  .interim-card { margin-left: 0.8rem; }
-  /* 横スクロール防止 */
   .hero-inner { overflow-x: hidden; }
+  .methods-section { overflow-x: hidden; }
+  .program-section { overflow-x: hidden; }
+  .method-insight { padding: 0.8rem 1rem; }
+  .method-insight p { overflow-wrap: break-word; word-break: break-word; }
 }
 @media (max-width: 480px) {
   /* 極小画面での追加調整 */
