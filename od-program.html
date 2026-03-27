@@ -153,10 +153,27 @@ nav {
 .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
 .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
 @media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
   .hero h1 { font-size: 1.8rem; white-space: normal; }
+  .container { padding: 0 1.5rem; }
+  .hero-badge { white-space: normal; text-align: center; }
+  .prereq-tag { flex-wrap: wrap; max-width: 100%; }
+  .hero-sub { max-width: 100%; }
+  .flow-step { min-width: 80px; }
+  .field-flow { padding: 1rem; }
+  .section { padding: 3.5rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .methods-section { padding: 3.5rem 0; }
+  .cta-section { padding: 3.5rem 0; }
+  .retreat-block { padding: 1.8rem 1.5rem; }
+  .prereq-box { padding: 1.4rem 1.2rem; gap: 1rem; }
+  .method-card { padding: 1.4rem 1.2rem; }
+  .method-head { gap: 0.8rem; }
+  .emphasis-box { padding: 1.2rem 1.4rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
 }
 @media (max-width: 540px) {
   .hero h1 { font-size: 1.4rem; white-space: normal; }
@@ -823,6 +840,29 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
 }
 .interim-title { font-size: 0.88rem; font-weight: 600; color: var(--teal-800); margin-bottom: 0.2rem; }
 .interim-desc { font-size: 0.82rem; color: var(--teal-600); line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
+
+/* ===== モバイル最終override（CSS特異度対策） ===== */
+@media (max-width: 768px) {
+  /* hero .container のpadding-left特異度問題を解消 */
+  .hero .container { padding: 0 1.5rem; }
+  /* prereq-tag のテキストを折り返し可能に */
+  .prereq-tag { display: flex; flex-wrap: wrap; width: 100%; box-sizing: border-box; }
+  /* day-card のindent調整 */
+  .interim-card { margin-left: 0.8rem; }
+  /* 横スクロール防止 */
+  .hero-inner { overflow-x: hidden; }
+}
+@media (max-width: 480px) {
+  /* 極小画面での追加調整 */
+  .hero .container { padding: 0 1rem; }
+  .container { padding: 0 1rem; }
+  .day-card { padding: 1rem; gap: 0.8rem; }
+  .retreat-block { padding: 1.4rem 1rem; }
+  .prereq-box { padding: 1.2rem 1rem; flex-direction: column; }
+  .method-card { padding: 1.2rem 1rem; }
+  .method-head { flex-direction: column; gap: 0.5rem; }
+  footer { padding: 1.5rem 1rem; }
+}
 </style>
 </head>
 <body>
@@ -895,7 +935,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
         <span>前提：</span>研修設計プログラム修了者、または同等のスキル・経験をお持ちの方
       </div>
       <h1>「なぜ組織が動かないのか」を診断・分析し<br><em>変革を起こせる組織開発の専門家</em>へ</h1>
-      <p class="hero-sub"><span style="white-space:nowrap">システム思考・ファシリテーション・変革理論・組織文化デザイン・対話力向上</span><br>という5つの技法を軸に、自社のフィールドワークを通じて実践力を養う組織開発プログラムです。</p>
+      <p class="hero-sub">システム思考・ファシリテーション・変革理論・組織文化デザイン・対話力向上<br>という5つの技法を軸に、自社のフィールドワークを通じて実践力を養う組織開発プログラムです。</p>
 
       <p style="font-size:0.82rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem;">こんな状況に心あたりはありませんか？</p>
       <div class="pain-list">
