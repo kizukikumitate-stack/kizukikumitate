@@ -370,6 +370,8 @@ nav {
 }
 .diag-lv0-name { font-size: 11px; color: rgba(255,255,255,0.3); }
 @media (max-width: 1366px) { .diag-panel { display: none; } }
+.hero .container { padding-left: calc(3rem + 60px); }
+@media (max-width: 1366px) { .hero .container { padding-left: 3rem; } }
 
 /* セクション共通 */
 .section-title {
@@ -745,7 +747,7 @@ nav {
 }
 .cta-label { color: var(--teal-400); }
 .cta-title { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 0.8rem; }
-.cta-sub { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 2.5rem; max-width: 560px; }
+.cta-sub { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 2.5rem; }
 .cta-btn {
   display: inline-block;
   background: var(--teal-400);
@@ -765,19 +767,9 @@ nav {
 .cta-note { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 1rem; }
 
 /* フッター */
-footer {
-  background: var(--gray-900);
-  padding: 2.5rem 3rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-.footer-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.footer-logo img { height: 32px; opacity: 0.7; }
-.footer-logo-text { font-family: 'Shippori Mincho', serif; font-size: 0.9rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; }
-.footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); letter-spacing: 0.05em; }
+footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); white-space: nowrap; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; }
 
 /* scroll hint */
 .scroll-hint {
@@ -830,6 +822,7 @@ footer {
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
   </a>
   <ul class="nav-links">
     <li><a href="./index.html">Home</a></li>
@@ -879,7 +872,7 @@ footer {
   <!-- 右：コンテンツ -->
   <div class="hero-inner">
     <div class="container">
-      <div class="hero-badge">組織開発プログラム</div>
+      <div class="hero-badge">教育担当者向け　組織開発プログラム</div>
       <div class="prereq-tag">
         <span>前提：</span>研修設計プログラム修了者、または同等のスキル・経験をお持ちの方
       </div>
@@ -1142,7 +1135,7 @@ footer {
 <section class="cta-section">
   <div class="container">
     <p class="label cta-label">Next Step</p>
-    <h2 class="cta-title">組織変革の専門家への<br>第一歩を踏み出す</h2>
+    <h2 class="cta-title">組織変革の専門家への第一歩を踏み出す</h2>
     <p class="cta-sub">「なぜ組織が動かないのか」を診断・分析し、変革を起こせるODの専門家へ。次期プログラムの詳細・募集開始をいち早くお知らせします。</p>
     <a href="#" class="cta-btn">説明会・募集情報を受け取る →</a>
     <p class="cta-note">※ 現在プログラム設計中です。募集開始時にご連絡いたします。</p>
@@ -1151,10 +1144,7 @@ footer {
 
 <!-- フッター -->
 <footer>
-  <a href="index.html" class="footer-logo">
-    <img src="logotype.png" alt="きづきくみたて工房">
-    <span class="footer-logo-text">きづきくみたて工房</span>
-  </a>
+  <div class="footer-logo">きづきくみたて工房</div>
   <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
 </footer>
 
