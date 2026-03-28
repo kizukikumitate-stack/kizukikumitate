@@ -64,11 +64,10 @@
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    padding: 1.2rem 3rem;
+    padding: 0.7rem 3rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: rgba(255,255,255,0.95);
+    background: rgba(255,255,255,0.97);
     backdrop-filter: blur(12px);
     border-bottom: 3px solid #3C3489;
   }
@@ -78,10 +77,12 @@
     align-items: center;
     gap: 0.7rem;
     text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 4rem;
   }
 
   .nav-logo img {
-    height: 44px;
+    height: 36px;
     width: auto;
     object-fit: contain;
   }
@@ -90,18 +91,21 @@
     font-family: 'Shippori Mincho', serif;
     font-size: 1.1rem;
     font-weight: 800;
+    white-space: nowrap;
     color: var(--forest);
     letter-spacing: 0.06em;
   }
 
   .nav-links {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     list-style: none;
+    align-items: center;
+    margin-left: auto;
   }
 
   .nav-links a {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Noto Sans JP', 'Jost', sans-serif;
     font-size: 0.82rem;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -109,6 +113,7 @@
     color: var(--mid-gray);
     text-decoration: none;
     transition: color 0.3s;
+    white-space: nowrap;
   }
 
   .nav-links a:hover { color: var(--blue); }
@@ -1526,6 +1531,7 @@
     <li><a href="./education-program.html">研修設計プログラム</a></li>
     <li><a href="./od-program.html">組織開発プログラム</a></li>
     <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
+    <li><a href="./social-leader-coaching.html">リーダー向けコーチング</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
@@ -1540,6 +1546,7 @@
   <a href="./education-program.html">研修設計プログラム</a>
   <a href="./od-program.html">組織開発プログラム</a>
   <a href="./dialogue-program.html">対話力向上プログラム</a>
+  <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
   <a href="#contact">Contact</a>
 </div>
 

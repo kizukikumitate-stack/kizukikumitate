@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ソーシャルリーダー向けコーチング｜きづきくみたて工房</title>
+<meta name="description" content="社会課題に挑むソーシャルリーダーへのコーチング。思考と感情の整理、組織課題の構造化、生成AI活用、戦略立案支援を通じて、リーダーのブレイクスルーを生み出します。">
+<meta property="og:title" content="ソーシャルリーダー向けコーチング｜きづきくみたて工房">
+<meta property="og:description" content="社会課題に挑むソーシャルリーダーへのコーチング。思考と感情の整理から組織課題の構造化、戦略立案支援まで。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/social-leader-coaching.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<style>
+:root {
+  --teal-50: #E6F7F2;
+  --teal-100: #B3E8D4;
+  --teal-200: #80D9B6;
+  --teal-400: #2BAF7E;
+  --teal-600: #1D8A60;
+  --teal-800: #0F5C3E;
+  --teal-900: #073D28;
+  --green-50: #F0F7E6;
+  --green-100: #D4EABC;
+  --green-400: #5DA832;
+  --green-600: #3D7A1C;
+  --amber-50: #FFF8E1;
+  --amber-400: #BA7517;
+  --amber-600: #854F0B;
+  --purple-50: #EEEDFE;
+  --purple-400: #7F77DD;
+  --purple-600: #534AB7;
+  --purple-800: #3C3489;
+  --coral-50: #FFF5EE;
+  --coral-400: #D85A30;
+  --coral-600: #B04520;
+  --blue-50: #E6F1FB;
+  --blue-400: #378ADD;
+  --blue-600: #185FA5;
+  --gray-50: #F8F7F4;
+  --gray-100: #EFEDE8;
+  --gray-200: #D3D1C7;
+  --gray-400: #888780;
+  --gray-700: #4a4945;
+  --gray-900: #1e1e1c;
+  --text-primary: #1e1e1c;
+  --text-secondary: #5a5956;
+  --text-muted: #8a8885;
+  --border: rgba(0,0,0,0.08);
+  --bg: #ffffff;
+  --bg-soft: #F8F7F4;
+  --accent: var(--teal-400);
+  --accent-dark: var(--teal-600);
+  --accent-light: var(--teal-50);
+  --accent-100: var(--teal-100);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-size: clamp(16px, 1.2vw, 18px);
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: 'Shippori Mincho', serif;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+.section { padding: 6rem 0; }
+.section-sm { padding: 4rem 0; }
+.label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 1rem;
+}
+.divider { height: 1px; background: var(--border); margin: 0; }
+
+/* ナビ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0.7rem 3rem;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid #3C3489;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 4rem;
+}
+.nav-logo img { height: 36px; width: auto; object-fit: contain; }
+.nav-logo-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: #1a5fad;
+  letter-spacing: 0.06em;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  align-items: center;
+  margin-left: auto;
+}
+.nav-links a {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6a7a;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--teal-600); }
+.nav-links a.active { color: var(--teal-600); font-weight: 500; }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none;
+  cursor: pointer; padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.nav-hamburger:hover { background: var(--gray-100); }
+.nav-hamburger span {
+  display: block; height: 2px; border-radius: 2px;
+  background: var(--text-primary);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: center; align-items: center; gap: 0; padding: 5rem 2rem 3rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.9rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+.mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+.mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+
+/* ヒーロー */
+.hero {
+  background: linear-gradient(135deg, #073D28 0%, #0a2e1e 55%, #0d1a2e 100%);
+  min-height: 100vh;
+  padding: 5rem 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 65vw; height: 65vw;
+  border-radius: 50%;
+  border: 1px solid rgba(43,175,126,0.08);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -20%; left: -8%;
+  width: 50vw; height: 50vw;
+  border-radius: 50%;
+  border: 1px solid rgba(43,175,126,0.05);
+  pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; width: 100%; }
+.hero-badge {
+  display: inline-block;
+  background: var(--teal-600);
+  color: var(--teal-100);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1.6rem, 3.0vw, 3.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.6rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--teal-100);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+}
+.hero-sub {
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  color: rgba(255,255,255,0.75);
+  line-height: 1.9;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  margin-bottom: 2.5rem;
+  max-width: 680px;
+}
+.section-lead, .pain-text, .approach-desc,
+.service-desc, .format-desc, .cta-sub {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.pain-list { margin-bottom: 32px; width: 100%; }
+.pain-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.pain-item:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.pain-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--teal-400);
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+.pain-text { font-size: clamp(0.88rem, 1.1vw, 1rem); color: rgba(255,255,255,0.75); line-height: 1.7; }
+.hero-cta {
+  background: #fff;
+  color: var(--teal-800);
+  border: none;
+  border-radius: 8px;
+  padding: 16px 36px;
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-block;
+  text-decoration: none;
+}
+.hero-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+.hero-cta-sub { font-size: 13px; color: var(--teal-100); margin-top: 10px; opacity: 0.8; }
+
+/* セクション共通 */
+.section-title {
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.8rem;
+}
+.section-lead {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+}
+
+/* 問題意識セクション */
+.why-section { background: var(--bg); }
+.emphasis-box {
+  border-left: 4px solid var(--teal-400);
+  padding: 1.4rem 2rem;
+  background: var(--teal-50);
+  border-radius: 0 12px 12px 0;
+  margin-bottom: 2.5rem;
+}
+.emphasis-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--teal-800);
+  line-height: 1.75;
+  font-weight: 700;
+}
+
+/* 課題カード */
+.issue-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.issue-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid;
+  padding: 1.6rem 1.5rem;
+}
+.issue-num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 600;
+  flex-shrink: 0;
+  margin-bottom: 0.8rem;
+}
+.issue-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+.issue-desc { font-size: 0.88rem; line-height: 1.8; }
+
+.issue-teal { border-color: #80D9B6; background: #F0FBF6; }
+.issue-teal .issue-num { background: #B3E8D4; color: #0F5C3E; }
+.issue-teal .issue-card-title { color: #0F5C3E; }
+.issue-teal .issue-desc { color: #1D8A60; }
+
+.issue-green { border-color: #A8D88A; background: #F5FAF0; }
+.issue-green .issue-num { background: #D4EABC; color: #3D7A1C; }
+.issue-green .issue-card-title { color: #2A5A10; }
+.issue-green .issue-desc { color: #3D7A1C; }
+
+.issue-blue { border-color: #8ABDE0; background: #F0F7FC; }
+.issue-blue .issue-num { background: #B8D8F0; color: #185FA5; }
+.issue-blue .issue-card-title { color: #134880; }
+.issue-blue .issue-desc { color: #185FA5; }
+
+/* アプローチセクション */
+.approach-section { background: #073D28; padding: 6rem 0; }
+.approach-label { color: var(--teal-400); }
+.approach-title { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800; margin-bottom: 0.8rem; }
+.approach-sub { font-size: 1rem; color: rgba(179,232,212,0.8); line-height: 1.9; margin-bottom: 3rem; }
+.approach-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+.approach-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.6rem 1.8rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  transition: border-color 0.2s;
+}
+.approach-card:hover { border-color: rgba(43,175,126,0.4); }
+.approach-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(43,175,126,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.approach-content { flex: 1; }
+.approach-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-400);
+  margin-bottom: 0.3rem;
+}
+.approach-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.4rem;
+  line-height: 1.4;
+}
+.approach-desc {
+  font-size: 0.88rem;
+  color: rgba(179,232,212,0.75);
+  line-height: 1.8;
+}
+
+/* サービス内容 */
+.service-section { background: var(--bg); }
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.service-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  transition: border-color 0.2s;
+}
+.service-card:hover { border-color: rgba(43,175,126,0.3); }
+.service-card.wide { grid-column: 1 / -1; }
+.service-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--teal-50);
+  color: var(--teal-600);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.service-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+.service-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+.service-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 0.8rem; }
+.service-tag {
+  background: var(--teal-50);
+  border: 1px solid rgba(43,175,126,0.25);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 0.75rem;
+  color: var(--teal-800);
+  white-space: nowrap;
+}
+
+/* 実施形態セクション */
+.format-section { background: var(--gray-50); }
+.format-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.format-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+}
+.format-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.format-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-600);
+  margin-bottom: 0.5rem;
+}
+.format-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.6rem;
+}
+.format-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.format-features { margin-top: 0.8rem; }
+.format-feature {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin-bottom: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.format-feature .mark { flex-shrink: 0; color: var(--teal-400); font-size: 0.85rem; margin-top: 2px; }
+
+.format-note {
+  background: linear-gradient(135deg, #073D28 0%, #0d1a2e 100%);
+  border-radius: 14px;
+  padding: 1.8rem 2.2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+.format-note-icon { font-size: 2rem; flex-shrink: 0; }
+.format-note-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-400); margin-bottom: 0.4rem; }
+.format-note-title { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; }
+.format-note-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.75; word-break: keep-all; overflow-wrap: break-word; }
+
+/* フローセクション */
+.flow-section { background: var(--bg); }
+.flow-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+.flow-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.8rem;
+  text-align: center;
+  position: relative;
+}
+.flow-step-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--teal-600);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.85rem; font-weight: 700;
+  margin: 0 auto 0.8rem;
+}
+.flow-card-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.4rem;
+}
+.flow-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* CTA */
+.cta-section {
+  background: linear-gradient(135deg, #073D28 0%, #0a2e1e 60%, #0d1a2e 100%);
+  padding: 6rem 0;
+}
+.cta-label { color: var(--teal-400); }
+.cta-title { font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 800; color: #fff; margin-bottom: 0.8rem; }
+.cta-sub { font-size: 1rem; color: rgba(255,255,255,0.7); line-height: 1.9; margin-bottom: 2.5rem; max-width: 640px; }
+.cta-btn {
+  display: inline-block;
+  background: var(--teal-400);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 18px 44px;
+  font-size: 1rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+  letter-spacing: 0.04em;
+}
+.cta-btn:hover { background: var(--teal-600); transform: translateY(-1px); }
+.cta-note { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 1rem; }
+
+/* フッター */
+footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); white-space: nowrap; }
+.footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; }
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .hero h1 { font-size: 1.8rem; white-space: normal; }
+  .container { padding: 0 1.5rem; }
+  .hero-badge { white-space: normal; text-align: center; }
+  .section { padding: 3.5rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .cta-section { padding: 3.5rem 0; }
+  .approach-section { padding: 3.5rem 0; }
+  .issue-grid { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: 1fr; }
+  .format-grid { grid-template-columns: 1fr; }
+  .flow-steps { grid-template-columns: 1fr; }
+  .format-note { padding: 1.4rem 1.2rem; gap: 1rem; }
+  .emphasis-box { padding: 1.2rem 1.4rem; }
+  .emphasis-text { overflow-wrap: break-word; word-break: break-word; }
+  .approach-card { padding: 1.2rem 1.2rem; }
+  .service-card { padding: 1.4rem 1.2rem; }
+  .format-card { padding: 1.4rem 1.2rem; }
+  .flow-card { padding: 1.4rem 1.2rem; }
+  .cta-btn { padding: 16px 28px; font-size: 0.9rem; white-space: normal; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+}
+@media (max-width: 540px) {
+  .hero h1 { font-size: 1.4rem; white-space: normal; }
+}
+@media (max-width: 480px) {
+  .hero .container { padding: 0 1rem; }
+  .container { padding: 0 1rem; }
+  .format-note { padding: 1.2rem 1rem; flex-direction: column; }
+  .approach-card { padding: 1rem; gap: 0.8rem; }
+  .service-card { padding: 1.2rem 1rem; }
+  .format-card { padding: 1.2rem 1rem; }
+  .flow-card { padding: 1.2rem 1rem; }
+  .issue-card { padding: 1.2rem 1rem; }
+  .cta-btn { padding: 14px 20px; }
+  footer { padding: 1.5rem 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="./lsp.html">LSP</a></li>
+    <li><a href="./education-program.html">研修設計プログラム</a></li>
+    <li><a href="./od-program.html">組織開発プログラム</a></li>
+    <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
+    <li><a href="./social-leader-coaching.html" class="active">リーダー向けコーチング</a></li>
+    <li><a href="./index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <a href="./democracy-fitness.html">Democracy Fitness</a>
+  <a href="./lsp.html">LSP</a>
+  <a href="./education-program.html">研修設計プログラム</a>
+  <a href="./od-program.html">組織開発プログラム</a>
+  <a href="./dialogue-program.html">対話力向上プログラム</a>
+  <a href="./social-leader-coaching.html" class="active">リーダー向けコーチング</a>
+  <a href="./index.html#contact">Contact</a>
+</div>
+
+<!-- ヒーローセクション -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="container">
+      <div class="hero-badge">Social Leader Coaching</div>
+      <h1>なぜソーシャルリーダーへの<br>コーチングが、<em>社会課題の解決に<br>大きなインパクトを生むのか</em></h1>
+      <p style="font-size:0.88rem; color:rgba(179,232,212,0.7); line-height:1.7; margin-bottom:1.8rem; max-width:620px;">※ ここでのソーシャルリーダーとは、ソーシャルグッドなことをしていこうと企業やNPOの中でリーダーとして奮闘している方々を指します。</p>
+      <p class="hero-sub">社会課題に挑むリーダーは、想いが強いからこそ一人で抱えがちです。組織の問題、戦略の迷い、自分自身の感情——それらを「整理する時間」を持つだけで、驚くほど大きなブレイクスルーが生まれます。ソーシャルリーダーへのコーチングは、一人のリーダーの変化を通じて、組織を変え、社会課題の解決を加速させます。</p>
+
+      <p style="font-size:0.82rem; color:rgba(255,255,255,0.5); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:0.8rem;">こんな状況に心あたりはありませんか？</p>
+      <div class="pain-list">
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">想いはあるのに、日々の業務に追われて「考える時間」が取れない</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">チームに相談したいが、リーダーとして弱みを見せづらい</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">やるべきことが多すぎて、何から手をつければいいかわからない</p></div>
+        <div class="pain-item"><div class="pain-dot"></div><p class="pain-text">社会を変えたいという原点の想いと、目の前の現実のギャップに苦しんでいる</p></div>
+      </div>
+
+      <a href="#service" class="hero-cta">サービス詳細を見る</a>
+      <p class="hero-cta-sub">まずは背景から確認する</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- なぜソーシャルリーダーへのコーチングが必要か -->
+<section class="why-section section">
+  <div class="container">
+    <p class="label">Why Social Leader Coaching</p>
+    <h2 class="section-title">ソーシャルリーダーが抱える3つの構造的課題</h2>
+    <p class="section-lead">企業やNPOの中でソーシャルグッドな活動を推進するリーダーたち。彼らは志が高く、周囲を巻き込む力を持っています。しかし、その「人の良さ」ゆえに問題を抱え込み、思考や感情を整理する時間を失っています。ソーシャルリーダーへのコーチングは、リーダー個人の変化を起点に、組織と社会にレバレッジの効いたインパクトをもたらします。</p>
+
+    <div class="emphasis-box">
+      <p class="emphasis-text">リーダーが1時間の対話で思考を整理できれば、<br>その先にいる何十人、何百人の活動が変わります。<br>ソーシャルリーダーへのコーチングは、社会課題解決の「レバレッジポイント」です。</p>
+    </div>
+
+    <div class="issue-grid">
+      <div class="issue-card issue-teal">
+        <div class="issue-num">1</div>
+        <div class="issue-card-title">リソース不足ゆえに、リーダーが一人で抱えている</div>
+        <p class="issue-desc">ソーシャルセクターは慢性的な人手不足。限られた予算と人員の中で、経営・事業・組織・広報・採用のすべてをリーダーが担っていることも珍しくありません。「立ち止まって考える余裕がない」のが最大の課題です。</p>
+      </div>
+      <div class="issue-card issue-green">
+        <div class="issue-num">2</div>
+        <div class="issue-card-title">人の良さが、問題の先送りにつながりやすい</div>
+        <p class="issue-desc">社会課題に向き合う人は、他者への配慮が強い傾向があります。それゆえにメンバーへのフィードバックや組織の構造的な問題の指摘を避けがちになり、課題が蓄積していきます。</p>
+      </div>
+      <div class="issue-card issue-blue">
+        <div class="issue-num">3</div>
+        <div class="issue-card-title">ちょっとした整理が、大きなブレイクスルーを生む</div>
+        <p class="issue-desc">思考と感情が整理されないまま走り続けているからこそ、わずか1〜2時間の対話で視界が開けることがあります。リーダーが明確になれば、組織全体が動き出します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- アプローチ -->
+<section class="approach-section">
+  <div class="container">
+    <p class="label approach-label">Approach</p>
+    <h2 class="approach-title">コーチングで生まれる3つの変化</h2>
+    <p class="approach-sub">単なるアドバイスではなく、リーダーの中にある答えを引き出し、整理し、次のアクションにつなげる。コーチングを通じて、リーダー・組織・社会の3つのレベルで変化が連鎖します。</p>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-icon">🧭</div>
+        <div class="approach-content">
+          <div class="approach-card-label">Level 1 — Leader</div>
+          <div class="approach-card-title">リーダー自身の思考と感情が整理される</div>
+          <p class="approach-desc">抱えている問題を言語化し、優先順位をつけ、次に何をすべきかが明確になる。一人で悩んでいた時間が、前に進むエネルギーに変わります。原点の想いと現在地を結び直すことで、迷いが確信に変わります。</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon">🏛</div>
+        <div class="approach-content">
+          <div class="approach-card-label">Level 2 — Organization</div>
+          <div class="approach-card-title">組織の課題が構造化され、チームが動き出す</div>
+          <p class="approach-desc">リーダーの頭の中にあった漠然とした課題が、構造的に整理されることで、チームに共有できるようになる。メンバーが主体的に動ける環境が整い、リーダー一人に依存しない組織へと変化します。</p>
+        </div>
+      </div>
+      <div class="approach-card">
+        <div class="approach-icon">🌍</div>
+        <div class="approach-content">
+          <div class="approach-card-label">Level 3 — Society</div>
+          <div class="approach-card-title">社会課題の解決が加速する</div>
+          <p class="approach-desc">リーダーが明確になり、組織が効果的に動き始めれば、社会課題への取り組みのスピードと質が上がる。一人のリーダーへのコーチングが、その先にいる受益者や地域社会に波及していきます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- サービス内容 -->
+<section class="service-section section" id="service">
+  <div class="container">
+    <p class="label">Service</p>
+    <h2 class="section-title">提供するコーチングサービス</h2>
+    <p class="section-lead">ソーシャルリーダーが直面するさまざまな課題に対応するため、5つの領域でコーチングを提供します。それぞれの領域は独立しているのではなく、コーチングの対話の中で自然につながり、リーダーの全体像を捉えながら進めていきます。</p>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-num">1</div>
+        <div class="service-card-title">組織の問題の整理</div>
+        <p class="service-desc">リーダーの頭の中にある組織の課題を、対話を通じて構造化します。「何が問題なのか」「何から手をつけるべきか」が明確になることで、行動の優先順位が定まり、チームへの共有もスムーズになります。</p>
+        <div class="service-tags">
+          <span class="service-tag">課題の構造化</span>
+          <span class="service-tag">優先順位づけ</span>
+          <span class="service-tag">チーム共有</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">2</div>
+        <div class="service-card-title">生成AIを活用した業務負荷の軽減</div>
+        <p class="service-desc">ChatGPTやClaudeなどの生成AIを業務に取り入れ、リーダーやチームの作業負荷を軽減するアドバイスを行います。限られたリソースの中で、テクノロジーの力を借りてインパクトを最大化する方法を一緒に探ります。</p>
+        <div class="service-tags">
+          <span class="service-tag">生成AI活用</span>
+          <span class="service-tag">業務効率化</span>
+          <span class="service-tag">ツール導入支援</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">3</div>
+        <div class="service-card-title">未来に向けた戦略立案の支援</div>
+        <p class="service-desc">日々の業務に追われていると、中長期の戦略を考える余裕がなくなります。コーチングの中で「本当に実現したい未来」から逆算し、具体的な戦略とアクションプランを一緒につくっていきます。</p>
+        <div class="service-tags">
+          <span class="service-tag">ビジョン策定</span>
+          <span class="service-tag">中長期戦略</span>
+          <span class="service-tag">アクションプラン</span>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">4</div>
+        <div class="service-card-title">経営合宿でのチームビルディング伴走</div>
+        <p class="service-desc">チーム全体で方向性を揃え、関係性を深めるための経営合宿をファシリテーターとして支援します。リーダーが安心してメンバーと向き合い、本音で語り合える場をつくります。</p>
+        <div class="service-tags">
+          <span class="service-tag">経営合宿</span>
+          <span class="service-tag">チームビルディング</span>
+          <span class="service-tag">ファシリテーション</span>
+        </div>
+      </div>
+
+      <div class="service-card wide">
+        <div class="service-num">5</div>
+        <div class="service-card-title">リーダーの想いの深掘りと、活動の意味の結び直し</div>
+        <p class="service-desc">「なぜこの活動をしているのか」「自分は何を大切にしているのか」。忙しさの中で見失いがちな原点の想いを、対話を通じて丁寧に掘り起こします。現在の状況と活動の意味を結び直すことで、リーダーの中に揺るぎない軸が生まれ、困難な場面でも折れない判断力と発信力が育まれます。</p>
+        <div class="service-tags">
+          <span class="service-tag">原点の深掘り</span>
+          <span class="service-tag">意味の再構築</span>
+          <span class="service-tag">リーダーの軸づくり</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 実施形態 -->
+<section class="format-section section">
+  <div class="container">
+    <p class="label">Format</p>
+    <h2 class="section-title">実施形態</h2>
+    <p class="section-lead">ソーシャルリーダーの負荷にならないよう、基本はオンラインでの実施。必要に応じて対面でのセッションや合宿への伴走も行います。</p>
+
+    <div class="format-grid">
+      <div class="format-card">
+        <div class="format-icon">💻</div>
+        <div class="format-card-label">Regular Session</div>
+        <div class="format-card-title">定期オンラインコーチング</div>
+        <p class="format-desc">月1回〜3ヶ月に1回のペースで、毎回1〜2時間のオンラインセッションを実施します。年に4〜12回、リーダーの状況とニーズに合わせて柔軟に設計します。</p>
+        <div class="format-features">
+          <div class="format-feature"><span class="mark">●</span><span>1回あたり1〜2時間</span></div>
+          <div class="format-feature"><span class="mark">●</span><span>年4回〜12回（月1〜3ヶ月に1回）</span></div>
+          <div class="format-feature"><span class="mark">●</span><span>Zoomなどのオンラインツールで実施</span></div>
+        </div>
+      </div>
+      <div class="format-card">
+        <div class="format-icon">🤝</div>
+        <div class="format-card-label">Face to Face</div>
+        <div class="format-card-title">対面セッション・合宿伴走</div>
+        <p class="format-desc">初回の関係構築や、経営合宿でのチームビルディングなど、対面でこそ深まる場面もあります。必要に応じて訪問し、リーダーやチームと直接向き合います。</p>
+        <div class="format-features">
+          <div class="format-feature"><span class="mark">●</span><span>初回は対面での実施を推奨</span></div>
+          <div class="format-feature"><span class="mark">●</span><span>経営合宿のファシリテーション</span></div>
+          <div class="format-feature"><span class="mark">●</span><span>チーム全体との対話セッション</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="format-note">
+      <div class="format-note-icon">🎯</div>
+      <div>
+        <div class="format-note-label">カスタマイズについて</div>
+        <div class="format-note-title">リーダーの状況に合わせて柔軟に設計します</div>
+        <p class="format-note-desc">コーチングの頻度、時間、テーマは固定ではありません。リーダーが今もっとも必要としていることに合わせて、毎回のセッション内容を柔軟に調整します。「今日は組織の問題を整理したい」「今日は自分の想いを言語化したい」——そのときどきのニーズに応じて対話を設計します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ご利用の流れ -->
+<section class="flow-section section">
+  <div class="container">
+    <p class="label">Flow</p>
+    <h2 class="section-title">ご利用の流れ</h2>
+    <p class="section-lead">まずはお気軽にお問い合わせください。初回の対話で相互理解を深めた上で、コーチングの方向性を一緒に決めていきます。</p>
+
+    <div class="flow-steps">
+      <div class="flow-card">
+        <div class="flow-step-num">1</div>
+        <div class="flow-card-title">お問い合わせ</div>
+        <p class="flow-card-desc">メールまたはフォームでお気軽にご連絡ください。現在のお悩みや状況を簡単にお聞かせください。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-step-num">2</div>
+        <div class="flow-card-title">初回セッション</div>
+        <p class="flow-card-desc">60〜90分の初回セッションで、現在の状況と課題を共有。コーチングの方向性と頻度を一緒に決めます。</p>
+      </div>
+      <div class="flow-card">
+        <div class="flow-step-num">3</div>
+        <div class="flow-card-title">定期コーチング開始</div>
+        <p class="flow-card-desc">合意した頻度でコーチングを開始。毎回のセッション後に、次のアクションを明確にして進めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <p class="label cta-label">Next Step</p>
+    <h2 class="cta-title">まずは一度、お話しませんか</h2>
+    <p class="cta-sub">ソーシャルリーダーとしての想いや悩みを、気軽に話せる場をつくります。お問い合わせいただいたからといって、必ずコーチングをお申し込みいただく必要はありません。まずはお気軽にご連絡ください。</p>
+    <a href="mailto:kizukikumitate@gmail.com?subject=ソーシャルリーダー向けコーチングについて" class="cta-btn">お問い合わせ</a>
+    <p class="cta-note">※ 初回のご相談は無料です</p>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+}
+</script>
+</body>
+</html>
