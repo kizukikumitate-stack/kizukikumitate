@@ -433,6 +433,56 @@
     .why-cards { grid-template-columns: 1fr; }
     .lsp-cta { padding: 4.5rem 1.5rem; }
   }
+
+  /* ===== 768px RESPONSIVE OVERRIDE (additional rules) ===== */
+  @media (max-width: 768px) {
+    .lsp-hero h1 {
+      font-size: 1.8rem;
+      white-space: normal;
+    }
+    footer {
+      flex-direction: column;
+      padding: 2.5rem 1.5rem;
+      gap: 1rem;
+      text-align: center;
+    }
+    .lsp-hero-sub,
+    .lsp-hero-eyebrow,
+    .lsp-hero-tagline,
+    .body-text p,
+    .section-h2,
+    .section-label,
+    .why-card p,
+    .why-card h3,
+    .build-step p,
+    .build-step h3,
+    .scene-card p,
+    .scene-card h3,
+    .record-stat-label,
+    .record-stat-num,
+    .record-text-block p,
+    .combo-card-body p,
+    .combo-title,
+    .combo-catch,
+    .combo-flow-item,
+    .combo-label,
+    .spiral-caption,
+    .cta-note,
+    .lsp-cta p,
+    .footer-logo,
+    .footer-copy {
+      overflow-wrap: break-word;
+      word-break: keep-all;
+    }
+  }
+
+  /* ===== 540px RESPONSIVE ===== */
+  @media (max-width: 540px) {
+    .lsp-hero h1 {
+      font-size: 1.4rem;
+      white-space: normal;
+    }
+  }
 </style>
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="きづきくみたて">

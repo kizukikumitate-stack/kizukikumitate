@@ -217,7 +217,7 @@ nav {
 }
 .hero h1 {
   font-family: 'Shippori Mincho', serif;
-  font-size: clamp(1.6rem, 3.0vw, 3.6rem);
+  font-size: clamp(2rem, 4vw, 4.8rem);
   font-weight: 800;
   color: #fff;
   margin-bottom: 1.6rem;
@@ -865,6 +865,37 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .emphasis-box { padding: 1.2rem 1.4rem; }
   .emphasis-text { overflow-wrap: break-word; word-break: break-word; }
   footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+
+  /* テキスト overflow-wrap 一括指定 */
+  .section-title,
+  .section-lead,
+  .hero-sub,
+  .pain-text,
+  .hero-cta-sub,
+  .why-card-title,
+  .why-desc,
+  .why-key,
+  .structure-title,
+  .structure-lead,
+  .retreat-title,
+  .retreat-desc,
+  .module-title,
+  .module-desc,
+  .final-title,
+  .final-desc,
+  .field-intro,
+  .field-ex-title,
+  .field-ex-desc,
+  .field-note,
+  .target-item,
+  .prereq-title,
+  .prereq-desc,
+  .cta-title,
+  .cta-sub,
+  .cta-note {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
 }
 @media (max-width: 480px) {
   .hero .container { padding: 0 1rem; }

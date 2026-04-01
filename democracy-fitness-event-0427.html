@@ -906,6 +906,7 @@
   }
   .global-nav .nav-logo {
     display: flex; align-items: center; gap: 0.7rem; text-decoration: none;
+    flex-shrink: 0; margin-right: 4rem;
   }
   .global-nav .nav-logo img { height: 40px; width: auto; object-fit: contain; }
   .global-nav .nav-logo-text {
@@ -913,7 +914,8 @@
     white-space: nowrap; color: #1a5fad; letter-spacing: 0.06em;
   }
   .global-nav .nav-links {
-    display: flex; gap: 1.8rem; list-style: none; align-items: center;
+    display: flex; gap: 1.4rem; list-style: none; align-items: center;
+    margin-left: auto;
   }
   .global-nav .nav-links a {
     font-family: 'Noto Sans JP', sans-serif; font-size: 0.82rem; font-weight: 400;
@@ -1161,6 +1163,78 @@
     .tokusho-table th { width: 40%; font-size: 0.8rem; }
     .tokusho-table td { font-size: 0.82rem; }
   }
+
+  /* ── COMPREHENSIVE MOBILE OVERRIDES ── */
+  @media (max-width: 768px) {
+    html, body { overflow-x: hidden; }
+    .hero-title,
+    h1 {
+      font-size: 1.8rem !important;
+      white-space: normal !important;
+    }
+    footer {
+      padding: 2rem 1.5rem;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .hero-title,
+    .hero-subtitle,
+    .hero-label,
+    .hero-info-value,
+    .hero-info-label,
+    .section-heading,
+    .section-label,
+    .what-body p,
+    .what-visual-quote,
+    .what-visual-sub,
+    .muscle-name,
+    .muscle-tooltip,
+    .target-card h3,
+    .target-card p,
+    .benefit-content h3,
+    .benefit-content p,
+    .timetable-item,
+    .timetable-desc,
+    .timetable-time,
+    .flow-step-content h3,
+    .speaker-name-ja,
+    .speaker-name-en,
+    .speaker-title,
+    .speaker-tag,
+    .speaker-bio h3,
+    .speaker-bio p,
+    .register-heading,
+    .register-sub,
+    .register-detail-label,
+    .register-detail-value,
+    .register-note,
+    .register-card h3,
+    .register-label,
+    .voice-text,
+    .voice-meta,
+    .faq-question,
+    .faq-q-text,
+    .faq-answer,
+    .faq-a-label,
+    .tokusho-table th,
+    .tokusho-table td,
+    .footer-logo,
+    .footer-copy,
+    .gallery-hint,
+    .nav-logo-text,
+    .logo-mark,
+    .nav-date {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .hero-title,
+    h1 {
+      font-size: 1.4rem !important;
+    }
+  }
 </style>
 </head>
 <body>
@@ -1199,7 +1273,7 @@
 <section class="hero">
   <nav class="hero-nav">
     <div class="logo-mark">DEMOCRACY FITNESS</div>
-    <div class="nav-date">2025.04.27 MON — TOKYO</div>
+    <div class="nav-date">2026.04.27 MON — TOKYO</div>
   </nav>
 
   <div class="hero-body">

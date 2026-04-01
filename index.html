@@ -1502,6 +1502,207 @@
     .events-grid { grid-template-columns: 1fr; gap: 1.5rem; }
   }
 
+  /* ============================================================
+     モバイル最終override（768px / 540px）
+     ── 既存CSSの後に配置し、確実に上書きする
+     ============================================================ */
+
+  /* ---- 768px ブレークポイント ---- */
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+    }
+
+    /* ナビゲーション */
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+    nav { padding: 0.7rem 1.2rem; }
+
+    /* ヒーロー */
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-tagline { padding: 2rem 1.5rem; }
+    .hero-tagline p { font-size: 1.1rem; white-space: normal; }
+    .hero-left { padding: 5rem 1.5rem 3rem; }
+    .hero-title {
+      font-size: 1.8rem;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+    .hero-right { min-height: 240px; }
+    .hero-right-content { padding: 2rem 1.5rem 3rem; }
+    .hero-purpose {
+      font-size: 1.3rem;
+      overflow-wrap: break-word;
+    }
+    .hero-eyebrow { font-size: 0.7rem; }
+
+    /* About */
+    #about {
+      padding: 4rem 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .about-left h2 {
+      font-size: 2.2rem;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* Workshop */
+    #workshop { padding: 4rem 1.5rem; }
+    .workshop-header { grid-template-columns: 1fr; gap: 1.5rem; }
+    .workshop-header h2 { font-size: 1.8rem; overflow-wrap: break-word; }
+    .workshop-header p { overflow-wrap: break-word; }
+    .workshop-cards { grid-template-columns: 1fr; }
+    .workshop-card { padding: 2rem 1.5rem; }
+    .card-title { overflow-wrap: break-word; }
+    .card-desc { overflow-wrap: break-word; }
+    .card-number { font-size: 3rem; }
+
+    /* Logo Story */
+    #logo-story { padding: 4rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
+
+    /* Manga */
+    #manga { padding: 4rem 1.5rem; }
+    .manga-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .manga-preview { width: 100%; height: 360px; }
+    .manga-text h2 { overflow-wrap: break-word; }
+    .manga-text p { overflow-wrap: break-word; }
+
+    /* Themes */
+    #themes { padding: 4rem 1.5rem; }
+    .themes-inner h2 { font-size: 1.8rem; overflow-wrap: break-word; }
+    .theme-list { grid-template-columns: 1fr; }
+    .theme-item { border-right: none; }
+    .theme-item h3 { overflow-wrap: break-word; }
+    .theme-item p { overflow-wrap: break-word; }
+
+    /* Note */
+    #note-section { padding: 4rem 1.5rem; }
+    .note-inner { grid-template-columns: 1fr; gap: 2rem; }
+    .note-text h2 { overflow-wrap: break-word; }
+    .note-text p { overflow-wrap: break-word; }
+    .note-article-title { overflow-wrap: break-word; }
+
+    /* 問題意識 */
+    #mondai { padding: 4rem 1.5rem; }
+    #mondai h2 { overflow-wrap: break-word; }
+    .mondai-intro { overflow-wrap: break-word; }
+    .mondai-cards { grid-template-columns: 1fr; }
+    .mondai-card h3 { overflow-wrap: break-word; }
+    .mondai-card p { overflow-wrap: break-word; }
+
+    /* 志紋 */
+    #shimon { padding: 4rem 1.5rem; }
+    #shimon h2 { overflow-wrap: break-word; }
+    .shimon-sub { overflow-wrap: break-word; }
+    .shimon-quote p { overflow-wrap: break-word; }
+    .shimon-colors { grid-template-columns: repeat(2, 1fr); }
+
+    /* アプローチ */
+    #approach { padding: 4rem 1.5rem; }
+    .approach-intro { overflow-wrap: break-word; }
+    .approach-cards { grid-template-columns: 1fr; }
+    .approach-card h3 { overflow-wrap: break-word; }
+    .approach-card p { overflow-wrap: break-word; }
+
+    /* Programs */
+    #programs { padding: 4rem 1.5rem; }
+    .programs-grid { grid-template-columns: 1fr; }
+    .program-card-tag { overflow-wrap: break-word; }
+
+    /* Podcast */
+    #podcast { padding: 4rem 1.5rem; }
+    #podcast h2 { overflow-wrap: break-word; }
+    .podcast-intro { overflow-wrap: break-word; }
+    .podcast-grid { grid-template-columns: 1fr; }
+    .podcast-title { overflow-wrap: break-word; }
+    .podcast-desc { overflow-wrap: break-word; }
+
+    /* Events */
+    #events { padding: 4rem 1.5rem; }
+    .events-intro { overflow-wrap: break-word; }
+    .event-card-title { overflow-wrap: break-word; }
+    .event-card-desc { overflow-wrap: break-word; }
+
+    /* Contact */
+    #contact {
+      padding: 4rem 1.5rem;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    #contact h2 {
+      font-size: 2rem;
+      overflow-wrap: break-word;
+    }
+    #contact p { overflow-wrap: break-word; }
+
+    /* フッター */
+    footer {
+      padding: 2rem 1.5rem;
+      flex-direction: column;
+      gap: 0.8rem;
+      text-align: center;
+    }
+
+    /* 共通テキスト */
+    .section-label { overflow-wrap: break-word; }
+    .btn-primary { overflow-wrap: break-word; }
+    .btn-secondary { overflow-wrap: break-word; }
+    .tag { overflow-wrap: break-word; }
+    .step-panel-title { overflow-wrap: break-word; }
+    .step-panel-desc { overflow-wrap: break-word; }
+    .logotype-section-label { overflow-wrap: break-word; }
+    .shimon-colors-label { overflow-wrap: break-word; }
+  }
+
+  /* ---- 540px ブレークポイント ---- */
+  @media (max-width: 540px) {
+    .hero-title {
+      font-size: 1.4rem;
+      white-space: normal;
+      overflow-wrap: break-word;
+    }
+    .hero-tagline p { font-size: 0.95rem; }
+    .hero-purpose { font-size: 1.1rem; }
+    .hero-left { padding: 4rem 1rem 2.5rem; }
+    .hero-right-content { padding: 1.5rem 1rem 2rem; }
+
+    #about { padding: 3rem 1rem; }
+    .about-left h2 { font-size: 1.8rem; }
+
+    #workshop { padding: 3rem 1rem; }
+    .workshop-header h2 { font-size: 1.4rem; }
+    .workshop-card { padding: 1.5rem 1rem; }
+
+    #logo-story { padding: 3rem 1rem; }
+    #manga { padding: 3rem 1rem; }
+    .manga-preview { height: 300px; }
+
+    #themes { padding: 3rem 1rem; }
+    .themes-inner h2 { font-size: 1.4rem; }
+    .theme-item { padding: 2rem 1.2rem; }
+
+    #note-section { padding: 3rem 1rem; }
+    #mondai { padding: 3rem 1rem; }
+    #shimon { padding: 3rem 1rem; }
+    #approach { padding: 3rem 1rem; }
+    #programs { padding: 3rem 1rem; }
+    #podcast { padding: 3rem 1rem; }
+    #events { padding: 3rem 1rem; }
+
+    #contact { padding: 3rem 1rem; }
+    #contact h2 { font-size: 1.6rem; }
+    .contact-btn { font-size: 0.85rem; padding: 0.9rem 1.5rem; }
+
+    footer { padding: 1.5rem 1rem; }
+
+    .anno-dot { width: 22px; height: 22px; font-size: 0.55rem; }
+    .anno-tip { width: 150px; padding: 0.8rem 1rem; }
+    .shimon-colors { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+    .shimon-color-card { padding: 0.7rem 0.8rem; }
+  }
+
 </style>
 <meta property="og:type"        content="website">
 <meta property="og:site_name"   content="きづきくみたて">

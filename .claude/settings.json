@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "statusMessage": "改行チェック中...",
+            "command": "FILE=$(jq -r '.tool_input.file_path // empty' 2>/dev/null); if echo \"$FILE\" | grep -qE '\\.(html|css)$'; then python3 -c \"\nimport re, sys\nwith open('$FILE', encoding='utf-8') as f:\n    content = f.read()\nwarnings = []\n# ロゴ・フッター・short labels に white-space:nowrap がないか\nfor m in re.finditer(r'\\.(footer-logo|nav-logo-text|hero-badge)[^}]*}', content, re.DOTALL):\n    if 'nowrap' not in m.group():\n        warnings.append(f'⚠ {m.group(0)[:50].strip()}... に white-space:nowrap がない可能性')\n# clampなしのpx固定タイトルを検出\nfor m in re.finditer(r'(section-title|contact-title|methods-title)[^}]*font-size:\\s*(\\d+)px', content):\n    warnings.append(f'⚠ {m.group(1)} に clamp なしの固定 {m.group(2)}px フォントサイズ')\n# モバイル用containerのpadding確認\nif 'max-width: 960px' in content or 'max-width:960px' in content:\n    if 'max-width: 540px' not in content and '@media (max-width: 540px)' not in content:\n        warnings.append('⚠ 540px以下のモバイルブレークポイントがない')\nif warnings:\n    print(chr(10).join(warnings))\n    sys.exit(2)\n\" 2>/dev/null; fi; exit 0",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
