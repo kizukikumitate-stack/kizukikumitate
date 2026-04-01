@@ -79,6 +79,7 @@ GitHub Pages で公開中の静的HTMLサイト。
 | `page-creator` | デザインルール遵守で新規HTMLページを作成 |
 | `seo-content` | SEO最適化とコンテンツ改善の分析・提案 |
 | `design-unifier` | 全ページのCSS/デザインの一貫性確認・統一 |
+| `note-writer` | note記事の企画・執筆・下書き保存（公開は手動） |
 
 ### スキル（`.claude/skills/`）
 
@@ -92,6 +93,8 @@ GitHub Pages で公開中の静的HTMLサイト。
 | `check-responsive` | 全ブレークポイントでのレスポンシブチェック手順 |
 | `check-seo` | SEOチェック項目（title/meta/h1/OGP） |
 | `check-design-consistency` | 全ページのデザイン一貫性チェック手順 |
+| `propose-article-theme` | note記事テーマの提案手順 |
+| `post-to-note` | Chrome MCPでnoteに下書き保存する手順 |
 
 ## Git 運用
 
