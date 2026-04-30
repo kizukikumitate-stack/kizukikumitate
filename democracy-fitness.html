@@ -11,8 +11,9 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>デモクラシーフィットネス｜きづきくみたて工房</title>
-<meta name="description" content="民主主義の「筋肉」を鍛える体験型プログラム。30分ワーク×10個で対話・合意形成・意思決定の力を育む。学校・企業・地域で導入可能。">
+<title>デモクラシーフィットネスとは｜対話力を鍛える10の筋肉ワーク｜きづきくみたて工房</title>
+<meta name="description" content="デモクラシーフィットネスは、対話・合意形成・意思決定を支える10の筋肉を鍛える体験型プログラム。30分ワーク×10個で組織と社会の対話力を育てます。体験会・合宿・サーベイ・研修導入のご相談はお問い合わせフォームから。">
+<meta name="keywords" content="デモクラシーフィットネス,対話 研修,合意形成 ワークショップ,組織開発,対話力,意思決定,民主主義 教育,きづきくみたて,対話 ファシリテーション">
 <link rel="canonical" href="https://kizukikumitate.com/democracy-fitness.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
@@ -616,6 +617,255 @@
     }
   }
 
+  /* ===== INLINE CTA (small) ===== */
+  .inline-cta-wrap {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+  .inline-cta-btn {
+    display: inline-block;
+    padding: 0.95rem 2.6rem;
+    background: var(--blue);
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(26, 95, 173, 0.25);
+  }
+  .inline-cta-btn:hover {
+    background: #0d3f7a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(26, 95, 173, 0.32);
+  }
+  .inline-cta-note {
+    margin-top: 0.8rem;
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+  }
+  .df-hero-cta-row {
+    margin-top: 2rem;
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+  .df-hero-cta-primary {
+    display: inline-block;
+    padding: 0.95rem 2.2rem;
+    background: var(--amber-light);
+    color: var(--charcoal);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+  }
+  .df-hero-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(0,0,0,0.32);
+  }
+  .df-hero-cta-secondary {
+    display: inline-block;
+    padding: 0.95rem 2.2rem;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  .df-hero-cta-secondary:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  /* ===== FAQ ===== */
+  .faq-bg { background: white; }
+  .faq-bg .section-label { color: var(--blue); }
+  .faq-list {
+    margin-top: 2.5rem;
+    border-top: 1px solid var(--light-border);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--light-border);
+  }
+  .faq-q {
+    width: 100%;
+    background: none;
+    border: 0;
+    padding: 1.4rem 2.6rem 1.4rem 0;
+    text-align: left;
+    cursor: pointer;
+    position: relative;
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .faq-q::after {
+    content: '+';
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 1.6rem;
+    color: var(--blue);
+    transition: transform 0.25s;
+    line-height: 1;
+  }
+  .faq-item.open .faq-q::after {
+    content: '−';
+    transform: translateY(-50%);
+  }
+  .faq-q:hover { color: var(--blue); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .faq-a-inner {
+    padding: 0 2.6rem 1.6rem 0;
+    font-size: 0.95rem;
+    line-height: 2;
+    color: var(--mid-gray);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .faq-item.open .faq-a {
+    max-height: 600px;
+  }
+
+  /* ===== CONTACT FORM ===== */
+  .contact-bg {
+    background: linear-gradient(135deg, #2a2055 0%, #1a1539 100%);
+  }
+  .contact-bg .section-label { color: rgba(255,255,255,0.5); }
+  .contact-bg .section-h2 { color: white; }
+  .contact-lead {
+    font-size: 0.98rem;
+    line-height: 2;
+    color: rgba(255,255,255,0.78);
+    max-width: 640px;
+    margin-bottom: 2.5rem;
+  }
+  .contact-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2.8rem;
+    box-shadow: 0 12px 50px rgba(0,0,0,0.25);
+  }
+  .contact-form {
+    display: grid;
+    gap: 1.4rem;
+  }
+  .contact-row {
+    display: grid;
+    gap: 0.45rem;
+  }
+  .contact-row label {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+  .contact-row label .required {
+    color: var(--red);
+    font-size: 0.75rem;
+    margin-left: 0.4rem;
+    font-weight: 500;
+  }
+  .contact-row input[type="text"],
+  .contact-row input[type="email"],
+  .contact-row textarea,
+  .contact-row select {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--light-border);
+    border-radius: 4px;
+    background: #fbfcfd;
+    transition: border-color 0.2s, background 0.2s;
+    width: 100%;
+  }
+  .contact-row input[type="text"]:focus,
+  .contact-row input[type="email"]:focus,
+  .contact-row textarea:focus,
+  .contact-row select:focus {
+    outline: none;
+    border-color: var(--blue);
+    background: white;
+  }
+  .contact-row textarea {
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.8;
+  }
+  .contact-radio-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1rem;
+    margin-top: 0.2rem;
+  }
+  .contact-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    cursor: pointer;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--light-border);
+    border-radius: 30px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-radio input { accent-color: var(--blue); }
+  .contact-radio:hover { border-color: var(--blue); }
+  .contact-radio input:checked + span { color: var(--blue); font-weight: 600; }
+  .contact-submit {
+    margin-top: 0.5rem;
+    padding: 1.1rem 3rem;
+    background: var(--blue);
+    color: white;
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    border: 0;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px rgba(26, 95, 173, 0.3);
+    justify-self: start;
+  }
+  .contact-submit:hover {
+    background: #0d3f7a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 26px rgba(26, 95, 173, 0.38);
+  }
+  .contact-privacy {
+    font-size: 0.78rem;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
+  @media (max-width: 768px) {
+    .contact-card { padding: 2rem 1.4rem; }
+    .contact-submit { width: 100%; text-align: center; justify-self: stretch; }
+  }
+
   /* ===== FADE UP ===== */
   .fade-up {
     opacity: 0; transform: translateY(24px);
@@ -690,6 +940,138 @@
 <meta name="twitter:title"       content="デモクラシーフィットネス | きづきくみたて">
 <meta name="twitter:description" content="民主主義の「筋肉」を鍛える体験型プログラム。30分ワーク×10個、10の筋肉で対話・合意・意思決定の力を育む。">
 <meta name="twitter:image"       content="https://kizukikumitate.com/ogp.png">
+
+<!-- ===== JSON-LD: Organization ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "きづきくみたて工房",
+  "alternateName": "Kizukikumitate Koubou",
+  "url": "https://kizukikumitate.com/",
+  "logo": "https://kizukikumitate.com/logo.png",
+  "email": "kizukikumitate@gmail.com",
+  "founder": {
+    "@type": "Person",
+    "name": "森本 康仁"
+  },
+  "description": "デモクラシーフィットネスをはじめ、対話・合意形成・組織開発を支援するワークショップとプログラムを提供。",
+  "sameAs": [
+    "https://note.com/kizukikumitate"
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD: Service (Democracy Fitness) ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "対話力研修・組織開発プログラム",
+  "name": "デモクラシーフィットネス",
+  "alternateName": "Democracy Fitness",
+  "url": "https://kizukikumitate.com/democracy-fitness.html",
+  "description": "民主的な対話を支える10の筋肉（好奇心・傾聴・共感・勇気・意見・反対意見・言葉への自信・妥協・活動家・動員）を、30分ワーク×10個で鍛える体験型プログラム。体験会、2日間合宿、企業研修、診断サーベイの形態で提供。",
+  "provider": {
+    "@type": "Organization",
+    "name": "きづきくみたて工房",
+    "url": "https://kizukikumitate.com/"
+  },
+  "areaServed": "JP",
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "企業・教育機関・自治体・NPO・地域コミュニティ"
+  }
+}
+</script>
+
+<!-- ===== JSON-LD: BreadcrumbList ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "ホーム",
+      "item": "https://kizukikumitate.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "デモクラシーフィットネス",
+      "item": "https://kizukikumitate.com/democracy-fitness.html"
+    }
+  ]
+}
+</script>
+
+<!-- ===== JSON-LD: FAQPage ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "デモクラシーフィットネスとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "民主的な対話を支える10の能力（筋肉）を、30分のワーク×10個で鍛える体験型プログラムです。デンマーク発祥の対話文化を日本の組織・教育・地域の文脈に合わせて再構成しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "「10の筋肉」とは具体的に何を指しますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "好奇心・傾聴・共感・勇気・意見・反対意見・言葉への自信・妥協・活動家・動員の10種類です。それぞれが日常の対話・会議・意思決定の場面で必要となる能力を表しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どのような組織・団体に向いていますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "企業の経営チーム、人事・組織開発部門、教育機関、自治体、NPO、地域コミュニティなど、対話の質・合意形成・意思決定の力を高めたいあらゆる組織に導入いただけます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "単発のワークだけでも体験できますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "はい。各ワークは30分・独立した設計のため、1〜2時間の体験会から、半日・1日研修、2日間合宿型まで、目的と時間に応じて柔軟に組み合わせられます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "合宿型プログラムの所要日数と人数の目安は？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "標準は2日間・10〜20名前後を想定しています。ご要望に応じて1日凝縮型・3日深堀り型などにカスタマイズも可能です。長野・軽井沢などでの開催実績があります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "研修費用はどのくらいかかりますか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "体験会は1名あたり1,100円〜、企業向け研修・合宿型プログラムは内容と日数に応じて個別お見積もりとなります。お問い合わせフォームからお気軽にご相談ください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "デモクラシーフィットネス診断サーベイとは何ですか？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "個人と組織の対話の筋肉バランスを合計60問で可視化する診断ツールです。レーダーチャートと4象限マトリクスで強み・課題が一目で分かり、ワークショップ前後の変化測定や研修設計の起点として活用できます。"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -733,6 +1115,10 @@
     民主主義は、筋肉でできている。<br>
     対話の力を鍛えることで、組織は変わり、社会は変わる。
   </p>
+  <div class="df-hero-cta-row">
+    <a href="#contact" class="df-hero-cta-primary">プログラムを相談する</a>
+    <a href="#what" class="df-hero-cta-secondary">10の筋肉を見る</a>
+  </div>
   <div class="df-hero-scroll">Scroll ↓</div>
 </section>
 
@@ -780,7 +1166,7 @@
 </section>
 
 <!-- ===== SECTION 2: WHAT ===== -->
-<section class="what-bg">
+<section class="what-bg" id="what">
   <div class="section-wrap wide">
     <div class="fade-up">
       <div class="section-label" style="color:var(--blue);">What is it</div>
@@ -997,10 +1383,10 @@
       </div>
     </div>
     <div class="survey-cta-wrap fade-up">
-      <a href="mailto:kizukikumitate@gmail.com" class="cta-btn">
-        まずはサーベイのテストから
+      <a href="#contact" class="cta-btn">
+        サーベイを試してみる
       </a>
-      <p class="cta-note">kizukikumitate@gmail.com へメールが開きます</p>
+      <p class="cta-note">下のお問い合わせフォームから「サーベイ」を選択してご連絡ください</p>
     </div>
   </div>
 </section>
@@ -1063,6 +1449,10 @@
       </div>
 
     </div>
+    <div class="inline-cta-wrap fade-up">
+      <a href="#contact" class="inline-cta-btn">体験会・合宿・研修導入を相談する</a>
+      <p class="inline-cta-note">対話力を組織に取り入れたい方は、お気軽にお問い合わせください。</p>
+    </div>
   </div>
 </section>
 
@@ -1096,6 +1486,111 @@
   </div>
 </section>
 
+<!-- ===== FAQ ===== -->
+<section class="faq-bg" id="faq">
+  <div class="section-wrap fade-up">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-h2">よくあるご質問</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" type="button">デモクラシーフィットネスとは何ですか？</button>
+        <div class="faq-a"><div class="faq-a-inner">民主的な対話を支える10の能力（筋肉）を、30分のワーク×10個で鍛える体験型プログラムです。デンマーク発祥の対話文化を、日本の組織・教育・地域の文脈に合わせて再構成しています。</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">「10の筋肉」とは具体的に何を指しますか？</button>
+        <div class="faq-a"><div class="faq-a-inner">好奇心・傾聴・共感・勇気・意見・反対意見・言葉への自信・妥協・活動家・動員の10種類です。それぞれが日常の対話・会議・意思決定の場面で必要となる能力を表しており、各筋肉に対応した30分のワークで鍛えていきます。</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">どのような組織・団体に向いていますか？</button>
+        <div class="faq-a"><div class="faq-a-inner">企業の経営チーム、人事・組織開発部門、教育機関、自治体、NPO、地域コミュニティなど、対話の質・合意形成・意思決定の力を高めたいあらゆる組織に導入いただけます。</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">単発のワークだけでも体験できますか？</button>
+        <div class="faq-a"><div class="faq-a-inner">はい。各ワークは30分・独立した設計のため、1〜2時間の体験会から、半日・1日研修、2日間合宿型まで、目的と時間に応じて柔軟に組み合わせていただけます。</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">合宿型プログラムの所要日数と人数の目安は？</button>
+        <div class="faq-a"><div class="faq-a-inner">標準は2日間・10〜20名前後を想定しています。ご要望に応じて1日凝縮型・3日深堀り型などにカスタマイズも可能です。長野・軽井沢などでの開催実績があります。</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">研修費用はどのくらいかかりますか？</button>
+        <div class="faq-a"><div class="faq-a-inner">体験会は1名あたり1,100円〜、企業向け研修・合宿型プログラムは内容と日数に応じて個別お見積もりとなります。お問い合わせフォームからお気軽にご相談ください。</div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" type="button">デモクラシーフィットネス診断サーベイとは何ですか？</button>
+        <div class="faq-a"><div class="faq-a-inner">個人と組織の対話の筋肉バランスを合計60問で可視化する診断ツールです。レーダーチャートと4象限マトリクスで強み・課題が一目で分かり、ワークショップ前後の変化測定や研修設計の起点として活用できます。</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact-bg" id="contact">
+  <div class="section-wrap fade-up">
+    <div class="section-label">Contact</div>
+    <h2 class="section-h2">お問い合わせ</h2>
+    <p class="contact-lead">
+      デモクラシーフィットネスの体験会・合宿・企業研修・サーベイ導入など、お気軽にご相談ください。<br>
+      通常2〜3営業日以内に森本よりご返信いたします。
+    </p>
+    <div class="contact-card">
+      <form class="contact-form" action="https://formsubmit.co/kizukikumitate@gmail.com" method="POST">
+        <!-- FormSubmit settings -->
+        <input type="hidden" name="_subject" value="【kizukikumitate.com】デモクラシーフィットネスへのお問い合わせ">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_next" value="https://kizukikumitate.com/democracy-fitness.html#contact-thanks">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="contact-row">
+          <label for="contact-name">お名前<span class="required">必須</span></label>
+          <input type="text" id="contact-name" name="お名前" required autocomplete="name">
+        </div>
+
+        <div class="contact-row">
+          <label for="contact-email">メールアドレス<span class="required">必須</span></label>
+          <input type="email" id="contact-email" name="メールアドレス" required autocomplete="email">
+        </div>
+
+        <div class="contact-row">
+          <label for="contact-org">所属組織・会社名</label>
+          <input type="text" id="contact-org" name="所属組織" autocomplete="organization">
+        </div>
+
+        <div class="contact-row">
+          <label>お問い合わせ種別<span class="required">必須</span></label>
+          <div class="contact-radio-group">
+            <label class="contact-radio"><input type="radio" name="お問い合わせ種別" value="体験会への参加" required><span>体験会への参加</span></label>
+            <label class="contact-radio"><input type="radio" name="お問い合わせ種別" value="合宿型プログラム"><span>合宿型プログラム</span></label>
+            <label class="contact-radio"><input type="radio" name="お問い合わせ種別" value="企業・団体研修の導入"><span>企業・団体研修の導入</span></label>
+            <label class="contact-radio"><input type="radio" name="お問い合わせ種別" value="サーベイ"><span>サーベイ</span></label>
+            <label class="contact-radio"><input type="radio" name="お問い合わせ種別" value="トレーナー養成"><span>トレーナー養成</span></label>
+            <label class="contact-radio"><input type="radio" name="お問い合わせ種別" value="その他"><span>その他</span></label>
+          </div>
+        </div>
+
+        <div class="contact-row">
+          <label for="contact-message">ご相談内容<span class="required">必須</span></label>
+          <textarea id="contact-message" name="ご相談内容" required placeholder="ご質問・ご相談内容、想定人数、希望時期などをご記入ください。"></textarea>
+        </div>
+
+        <p class="contact-privacy">
+          ご入力いただいた情報は、お問い合わせへのご返信および関連するご案内のみに利用し、第三者へ提供することはありません。
+        </p>
+
+        <button type="submit" class="contact-submit">送信する</button>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">きづきくみたて工房</div>
@@ -1110,6 +1605,20 @@
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      item.classList.toggle('open');
+    });
+  });
+
+  if (window.location.hash === '#contact-thanks') {
+    const card = document.querySelector('.contact-card');
+    if (card) {
+      card.innerHTML = '<div style="text-align:center; padding:2rem 1rem;"><div style="font-family:\'Shippori Mincho\',serif; font-size:1.4rem; font-weight:700; color:#1a5fad; margin-bottom:1rem;">お問い合わせありがとうございました。</div><p style="font-size:0.95rem; line-height:1.9; color:#5a6a7a;">内容を確認のうえ、通常2〜3営業日以内に森本よりご返信いたします。<br>万一返信が届かない場合は、迷惑メールフォルダもご確認ください。</p></div>';
+    }
+  }
 </script>
 <script>
 const hamburger = document.getElementById('hamburger');
