@@ -688,6 +688,126 @@
     border-color: rgba(255,255,255,0.5);
   }
 
+  /* ===== INSIGHTS (note magazine) ===== */
+  .insights-bg { background: var(--off-white); }
+  .insights-bg .section-label { color: var(--pink); }
+  .insights-lead {
+    font-size: 0.98rem;
+    line-height: 2;
+    color: var(--mid-gray);
+    max-width: 720px;
+    margin-bottom: 0.5rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .insights-magazine-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.82rem;
+    color: var(--pink);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .insights-magazine-link:hover {
+    color: var(--charcoal);
+  }
+  .insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-top: 2.8rem;
+  }
+  .insight-card {
+    background: white;
+    border: 1px solid var(--light-border);
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .insight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+    border-color: var(--pink);
+  }
+  .insight-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+    background: var(--gray-light);
+  }
+  .insight-body {
+    padding: 1.1rem 1.2rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    flex: 1;
+  }
+  .insight-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.55;
+    color: var(--charcoal);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .insight-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-top: auto;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.75rem;
+    color: var(--mid-gray);
+  }
+  .insight-meta-likes {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .insights-footer-cta {
+    margin-top: 2.5rem;
+    text-align: center;
+  }
+  .insights-footer-cta a {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: white;
+    color: var(--pink);
+    border: 1px solid var(--pink);
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .insights-footer-cta a:hover {
+    background: var(--pink);
+    color: white;
+  }
+  @media (max-width: 900px) {
+    .insights-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  }
+  @media (max-width: 540px) {
+    .insights-grid { grid-template-columns: 1fr; }
+  }
+
   /* ===== FAQ ===== */
   .faq-bg { background: white; }
   .faq-bg .section-label { color: var(--blue); }
@@ -1482,6 +1602,120 @@
         </a>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSIGHTS (note magazine) ===== -->
+<section class="insights-bg" id="insights">
+  <div class="section-wrap wide fade-up">
+    <div class="section-label">Insights</div>
+    <h2 class="section-h2" style="word-break: keep-all; overflow-wrap: break-word;">デモクラシーフィットネスを、もっと深く知る。</h2>
+    <p class="insights-lead">
+      noteマガジン「デモクラシーフィットネス」では、プログラムの背景や実施レポート、デンマーク発祥の対話文化、日本の組織が抱える課題への向き合い方などを発信しています。
+    </p>
+    <a class="insights-magazine-link" href="https://note.com/kizukikumitate/m/mb92fbf5e08b1" target="_blank" rel="noopener">noteマガジンを見る →</a>
+
+    <div class="insights-grid">
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n602f074cfc82" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/271816924/rectangle_large_type_2_f4c32231c2387f1c4f549e0457d69024.jpeg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デモクラシーフィットネストレーナーとしてのデビューしましたよ！</div>
+          <div class="insight-meta"><span>2026.04.30</span><span class="insight-meta-likes">♡ 0</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n89c89029ef66" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/258802944/rectangle_large_type_2_d72d2b85aff6981c5fe1c0d4093bedfa.jpg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デモクラシーフィットネス トレーニングレポート① 1日目終了 [海外での日本人＝オタサーの姫説]</div>
+          <div class="insight-meta"><span>2026.03.13</span><span class="insight-meta-likes">♡ 4</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n8dc9e10e0f68" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/258794672/rectangle_large_type_2_c7e760b415eae8d0e7222154c1fad621.jpeg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デモクラシーフィットネストレーニングレポート③ 民主主義の土台はセーフティスペース作りにあり！？</div>
+          <div class="insight-meta"><span>2026.03.13</span><span class="insight-meta-likes">♡ 11</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n53665fd0a1d8" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/258792435/rectangle_large_type_2_d3b4d9e05e36dd5dd8c41b647e03d291.jpeg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デモクラシーフィットネストレーニングレポート② 無事、私もデモクラシーフィットネスのトレーナーになれました！</div>
+          <div class="insight-meta"><span>2026.03.13</span><span class="insight-meta-likes">♡ 4</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n068b7ed0ae75" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/258789764/rectangle_large_type_2_a2001c9a11f0d372b6df008b777eae36.jpg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">民主主義の歴史と今を辿る旅</div>
+          <div class="insight-meta"><span>2026.03.13</span><span class="insight-meta-likes">♡ 3</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/na3802a096962" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/248097370/rectangle_large_type_2_bb4669d87d348391f346a65b138f131f.jpeg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デモクラシーフィットネス in 軽井沢、無事終了しました！</div>
+          <div class="insight-meta"><span>2026.01.31</span><span class="insight-meta-likes">♡ 6</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n3299a98a5617" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/239647702/rectangle_large_type_2_042f34ab9c3a144428e649e0d41e0c26.png" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">日本の多くの組織が抱える閉塞感を突破ためのデモクラシーフィットネス展開戦略</div>
+          <div class="insight-meta"><span>2025.12.29</span><span class="insight-meta-likes">♡ 0</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n4cf49197aaad" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/238107710/rectangle_large_type_2_2c7a5d4e16070c57c9add25b9c0275bc.png" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">民主主義国家であるはずの日本の民主主義教育はなぜこんなに未成熟なのか？</div>
+          <div class="insight-meta"><span>2025.12.22</span><span class="insight-meta-likes">♡ 10</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/nc082aecb6eb7" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/229375970/rectangle_large_type_2_0f73d51ed4c87eb82fa8002d99dc1bb9.png" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">職場の心理的安全性を妨げる要素をデモクラシーフィットネスがどう解決しうるのか？ AIに聞いたら予想を遥かに超えた回答が来て鳥肌が立っています。。。</div>
+          <div class="insight-meta"><span>2025.11.14</span><span class="insight-meta-likes">♡ 22</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n95acf4dbdfbc" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/228074311/rectangle_large_type_2_3a0396ede85781412c8596670f82627b.png" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">私がデモクラフィーフィットネスに触れ「今の日本に必要な教育はこれだ！」と思った３つの理由</div>
+          <div class="insight-meta"><span>2025.11.09</span><span class="insight-meta-likes">♡ 13</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n5641e24a2c1f" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/227956761/rectangle_large_type_2_5a1eb4205db77c2b24f151f76e8fcf2f.png" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デモクラシーフィットネス in 軽井沢のウェブを作りました</div>
+          <div class="insight-meta"><span>2025.11.08</span><span class="insight-meta-likes">♡ 15</span></div>
+        </div>
+      </a>
+
+      <a class="insight-card" href="https://note.com/kizukikumitate/n/n50b3c42ae169" target="_blank" rel="noopener">
+        <img class="insight-thumb" src="https://assets.st-note.com/production/uploads/images/224862996/rectangle_large_type_2_d505e787cf8d0968676c952bc6fa86b8.jpg" alt="" loading="lazy">
+        <div class="insight-body">
+          <div class="insight-title">デンマークの民主主義を体感するデモクラシーフィットネスを体感してみませんか</div>
+          <div class="insight-meta"><span>2025.10.26</span><span class="insight-meta-likes">♡ 33</span></div>
+        </div>
+      </a>
+    </div>
+
+    <div class="insights-footer-cta">
+      <a href="https://note.com/kizukikumitate/m/mb92fbf5e08b1" target="_blank" rel="noopener">noteマガジンで全記事を読む →</a>
     </div>
   </div>
 </section>
