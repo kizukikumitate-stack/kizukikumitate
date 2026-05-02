@@ -162,7 +162,7 @@
   --accent-100: var(--coral-100);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 body {
   font-family: 'Noto Sans JP', sans-serif;
   font-weight: 300;
@@ -171,6 +171,9 @@ body {
   font-size: clamp(16px, 1.2vw, 18px);
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 h1, h2, h3, h4 {
   font-family: 'Shippori Mincho', serif;
@@ -470,9 +473,9 @@ nav {
 /* Research / Single-shot training limitation */
 .research-section { background: #fff; padding: 5rem 0; }
 .research-intro { font-size: 1rem; line-height: 1.95; color: var(--text-secondary); max-width: 820px; margin-bottom: 2.5rem; }
-.research-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
-.research-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem 1.6rem; display: flex; flex-direction: column; gap: 0.6rem; }
-.research-card-source { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--coral-600); font-weight: 500; }
+.research-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+.research-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.8rem 1.6rem; display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+.research-card-source { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--coral-600); font-weight: 500; word-break: break-word; overflow-wrap: anywhere; line-height: 1.5; }
 .research-card-stat { font-family: 'Shippori Mincho', serif; font-size: 2.6rem; font-weight: 800; color: var(--text-primary); line-height: 1.05; }
 .research-card-stat-unit { font-size: 0.5em; font-weight: 600; color: var(--text-muted); margin-left: 0.2em; }
 .research-card-stat-label { font-size: 0.92rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; }
@@ -573,7 +576,7 @@ nav {
 
 /* Hofstede bars */
 .hofstede-grid { display: grid; gap: 0.9rem; margin-top: 1rem; }
-.hofstede-row { display: grid; grid-template-columns: 200px 1fr 50px; gap: 1rem; align-items: center; }
+.hofstede-row { display: grid; grid-template-columns: 200px minmax(0, 1fr) 50px; gap: 1rem; align-items: center; }
 .hofstede-label { font-size: 0.85rem; color: var(--text-primary); font-weight: 500; word-break: keep-all; overflow-wrap: break-word; }
 .hofstede-bar-track { height: 26px; background: var(--gray-100); border-radius: 999px; position: relative; overflow: hidden; }
 .hofstede-bar-fill { height: 100%; background: linear-gradient(90deg, var(--coral-400), var(--coral-600)); border-radius: 999px; display: flex; align-items: center; justify-content: flex-end; padding-right: 0.7rem; font-size: 0.72rem; font-weight: 600; color: #fff; }
@@ -584,7 +587,7 @@ nav {
 .culturemap-grid { display: grid; gap: 1.2rem; margin-top: 1rem; }
 .culturemap-row { display: grid; grid-template-columns: 1fr; gap: 0.4rem; }
 .culturemap-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.04em; }
-.culturemap-scale { display: grid; grid-template-columns: 1fr 50px 1fr; gap: 0.6rem; align-items: center; font-size: 0.8rem; }
+.culturemap-scale { display: grid; grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr); gap: 0.6rem; align-items: center; font-size: 0.8rem; }
 .culturemap-end-left { text-align: right; color: var(--text-secondary); }
 .culturemap-end-right { text-align: left; color: var(--text-secondary); }
 .culturemap-track { position: relative; height: 24px; background: linear-gradient(90deg, var(--gray-100), var(--coral-50)); border-radius: 999px; }
@@ -607,7 +610,7 @@ nav {
 /* Comparison Table */
 .compare-section { background: var(--bg); padding: 5rem 0; }
 .compare-intro { font-size: 1rem; line-height: 1.95; color: var(--text-secondary); max-width: 820px; margin-bottom: 2.5rem; }
-.compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.compare-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
 .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 720px; font-size: 0.92rem; }
 .compare-table th, .compare-table td { padding: 1rem 1.2rem; text-align: left; vertical-align: top; line-height: 1.7; word-break: keep-all; overflow-wrap: break-word; }
 .compare-table thead th { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.95rem; border-bottom: 2px solid var(--border); }
@@ -1996,7 +1999,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
 
 <div class="divider"></div>
 
-<!-- お客様の声・導入事例 -->
+<!-- お客様の声・導入事例（事例蓄積後に公開予定。Phase 2 で uncomment）
 <section class="voices-section">
   <div class="container">
     <p class="label">Voices &amp; Cases</p>
@@ -2032,6 +2035,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
 </section>
 
 <div class="divider"></div>
+-->
 
 <!-- 講師プロフィール -->
 <section class="facilitator-section">
