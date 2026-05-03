@@ -1060,6 +1060,29 @@ nav {
 details[open] .faq-q::after { transform: rotate(45deg); }
 .faq-a { padding: 0 1.5rem 1.4rem 3.4rem; font-size: 0.92rem; line-height: 1.9; color: var(--text-secondary); word-break: keep-all; overflow-wrap: break-word; }
 
+/* おすすめ本 */
+.books-section { background: var(--bg); padding: 5rem 0; }
+.books-intro { font-size: 0.95rem; line-height: 1.95; color: var(--text-secondary); max-width: 760px; margin-bottom: 2.5rem; word-break: keep-all; overflow-wrap: break-word; }
+.books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+.book-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem 1.6rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+.book-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-color: var(--coral-100); }
+.book-card-theme { display: inline-block; align-self: flex-start; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-600); background: var(--coral-50); padding: 0.25rem 0.7rem; border-radius: 999px; font-weight: 500; margin-bottom: 0.2rem; }
+.book-card-title { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 800; line-height: 1.55; color: var(--text-primary); word-break: keep-all; overflow-wrap: break-word; }
+.book-card-subtitle { font-family: 'Shippori Mincho', serif; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); line-height: 1.6; word-break: keep-all; overflow-wrap: break-word; }
+.book-card-author { font-size: 0.82rem; color: var(--text-muted); margin-top: 0.1rem; word-break: keep-all; overflow-wrap: break-word; }
+.book-card-desc { font-size: 0.85rem; line-height: 1.85; color: var(--text-secondary); flex: 1; word-break: keep-all; overflow-wrap: break-word; margin-top: 0.3rem; }
+.book-card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; padding-top: 0.8rem; border-top: 1px solid var(--border); }
+.book-card-link { font-size: 0.76rem; padding: 0.4rem 0.8rem; border-radius: 6px; text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s; letter-spacing: 0.02em; }
+.book-card-link-amazon { background: transparent; color: var(--coral-600); border: 1px solid var(--coral-100); }
+.book-card-link-amazon:hover { background: var(--coral-400); color: #fff; border-color: var(--coral-400); }
+.book-card-link-note-pending { background: transparent; color: var(--text-muted); border: 1px dashed var(--gray-200); cursor: default; }
+
+@media (max-width: 768px) {
+  .books-section { padding: 3.5rem 0; }
+  .books-grid { grid-template-columns: 1fr; }
+  .book-card { padding: 1.4rem 1.3rem 1.2rem; }
+}
+
 /* 体験会導線 */
 .trial-section { background: linear-gradient(135deg, var(--coral-50) 0%, #fff 100%); padding: 4rem 0; }
 .trial-card { background: #fff; border: 2px solid var(--coral-100); border-radius: 14px; padding: 2.5rem; text-align: center; box-shadow: 0 4px 20px rgba(216,90,48,0.08); }
@@ -2105,6 +2128,107 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
     </div>
   </div>
 </section>
+
+<div class="divider"></div>
+
+<!-- おすすめ本（このページの内容を深く理解するために） -->
+<section class="books-section">
+  <div class="container">
+    <p class="label">Reading List</p>
+    <h2 class="section-title">このページの内容を深く理解するためのおすすめ本</h2>
+    <p class="books-intro">本ページで引用した研究や、対話力・心理的安全性・組織文化を深く理解するための7冊を厳選しました。各書籍の詳しい紹介・実践への活かし方は、今後note記事で順次公開していきます。</p>
+
+    <div class="books-grid">
+      <article class="book-card">
+        <span class="book-card-theme">心理的安全性</span>
+        <h3 class="book-card-title">恐れのない組織</h3>
+        <div class="book-card-subtitle">「心理的安全性」が学習・イノベーション・成長をもたらす</div>
+        <div class="book-card-author">エイミー・C・エドモンドソン 著／野津智子 訳（英治出版, 2021）</div>
+        <p class="book-card-desc">本ページで引用した心理的安全性研究の決定版。Googleの調査が裏付けたこの概念を、ハーバード大学教授であるエドモンドソンが20年以上の研究をもとに体系化。組織で本音の対話を実現するための土台を理解するための必読書。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862762883/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <span class="book-card-theme">対話の哲学</span>
+        <h3 class="book-card-title">ダイアローグ</h3>
+        <div class="book-card-subtitle">対立から共生へ、議論から対話へ</div>
+        <div class="book-card-author">デヴィッド・ボーム 著／金井真弓 訳（英治出版, 2007）</div>
+        <p class="book-card-desc">「対話（dialogue）」と「議論（discussion）」を哲学的に区別した古典。物理学者ボームによる本書は、対話の本質を「意味が流れる場」と捉え、現代の対話実践のすべての源流となっている思想書。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862760171/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <span class="book-card-theme">対話設計の実践</span>
+        <h3 class="book-card-title">問いのデザイン</h3>
+        <div class="book-card-subtitle">創造的対話のファシリテーション</div>
+        <div class="book-card-author">安斎勇樹・塩瀬隆之 著（学芸出版社, 2020）</div>
+        <p class="book-card-desc">日本の組織で対話を立ち上げるための、最も実践的な手引書。問題の本質を捉え、解くべき課題を設定し、関係者を巻き込み、ワークショップとして対話を設計する手順が体系化されている。本研修のインターバル設計とも親和性が高い。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4761527439/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <span class="book-card-theme">適応課題と対話</span>
+        <h3 class="book-card-title">他者と働く</h3>
+        <div class="book-card-subtitle">「わかりあえなさ」から始める組織論</div>
+        <div class="book-card-author">宇田川元一 著（NewsPicksパブリッシング, 2019）</div>
+        <p class="book-card-desc">ハイフェッツの「適応課題」理論を、日本の組織の現実に翻案した名著。「わかりあえなさ」を前提に、ナラティヴ・アプローチで他者との関係を編みなおす。本ページの「日本では本音対話が特に難しい」という主張に直結する一冊。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4910063013/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <span class="book-card-theme">カルチャーマップ</span>
+        <h3 class="book-card-title">異文化理解力</h3>
+        <div class="book-card-subtitle">相手と自分の真意がわかる ビジネスパーソン必須の教養</div>
+        <div class="book-card-author">エリン・メイヤー 著／田岡恵 監訳（英治出版, 2015）</div>
+        <p class="book-card-desc">本ページで引用したカルチャーマップ8軸モデルの本書。INSEADのMeyer教授が膨大なインタビュー研究をもとに、コミュニケーション・フィードバック・対立の表明など、対話に決定的な影響を与える文化次元を整理した、グローバル時代の必読書。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862762085/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <span class="book-card-theme">文化6次元モデル</span>
+        <h3 class="book-card-title">多文化世界（原書第3版）</h3>
+        <div class="book-card-subtitle">違いを学び未来への道を探る</div>
+        <div class="book-card-author">G・ホフステード ほか 著（有斐閣, 2013）</div>
+        <p class="book-card-desc">本ページで引用した文化6次元モデルの原典。Hofstede が IBM の70ヶ国調査を出発点に半世紀かけて構築した文化次元論を、自ら解説した決定版。日本の不確実性回避や男性性が世界最高クラスである理由を学術的に理解できる。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4641173893/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <span class="book-card-theme">組織学習・システム思考</span>
+        <h3 class="book-card-title">学習する組織</h3>
+        <div class="book-card-subtitle">システム思考で未来を創造する</div>
+        <div class="book-card-author">ピーター・M・センゲ 著／枝廣淳子・小田理一郎・中小路佳代子 訳（英治出版, 2011）</div>
+        <p class="book-card-desc">組織開発の現代的古典。システム思考、メンタルモデル、共有ビジョン、チーム学習、自己マスタリーの「5つのディシプリン」を提示。対話を組織の継続的な変容のエンジンとして位置づけた、研修「単発 vs 年間設計」の議論の原点となる本。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862761011/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="research-note" style="margin-top:2rem;">※ 本セクションの「Amazonで見る」リンクは Amazon アソシエイトのアフィリエイトリンクを含みます（tag=kizukikumitate-22）。リンク経由でご購入いただいた場合、当工房に紹介料が支払われる仕組みです。書籍の選定は内容と本ページの主張との整合性に基づくもので、報酬の有無に影響されていません。</p>
+  </div>
+</section>
+
+<div class="divider"></div>
 
 <!-- 体験会導線 -->
 <section class="trial-section">
