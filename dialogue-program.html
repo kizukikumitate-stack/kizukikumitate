@@ -1066,6 +1066,9 @@ details[open] .faq-q::after { transform: rotate(45deg); }
 .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
 .book-card { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 12px; padding: 1.6rem 1.6rem 1.4rem; display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
 .book-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); border-color: var(--coral-100); }
+.book-card-cover-wrap { display: flex; align-items: flex-end; justify-content: center; height: 180px; margin: -0.2rem 0 0.6rem; }
+.book-card-cover { max-height: 180px; max-width: 130px; width: auto; height: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.18), 0 2px 4px rgba(0,0,0,0.08); border-radius: 2px; transition: transform 0.25s; }
+.book-card:hover .book-card-cover { transform: translateY(-2px) scale(1.02); }
 .book-card-theme { display: inline-block; align-self: flex-start; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-600); background: var(--coral-50); padding: 0.25rem 0.7rem; border-radius: 999px; font-weight: 500; margin-bottom: 0.2rem; }
 .book-card-title { font-family: 'Shippori Mincho', serif; font-size: 1.15rem; font-weight: 800; line-height: 1.55; color: var(--text-primary); word-break: keep-all; overflow-wrap: break-word; }
 .book-card-subtitle { font-family: 'Shippori Mincho', serif; font-size: 0.85rem; font-weight: 500; color: var(--text-secondary); line-height: 1.6; word-break: keep-all; overflow-wrap: break-word; }
@@ -2140,6 +2143,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
 
     <div class="books-grid">
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4862762883.jpg" alt="恐れのない組織 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">心理的安全性</span>
         <h3 class="book-card-title">恐れのない組織</h3>
         <div class="book-card-subtitle">「心理的安全性」が学習・イノベーション・成長をもたらす</div>
@@ -2152,6 +2158,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
       </article>
 
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4862760171.jpg" alt="ダイアローグ 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">対話の哲学</span>
         <h3 class="book-card-title">ダイアローグ</h3>
         <div class="book-card-subtitle">対立から共生へ、議論から対話へ</div>
@@ -2164,6 +2173,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
       </article>
 
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4761527439.jpg" alt="問いのデザイン 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">対話設計の実践</span>
         <h3 class="book-card-title">問いのデザイン</h3>
         <div class="book-card-subtitle">創造的対話のファシリテーション</div>
@@ -2176,6 +2188,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
       </article>
 
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4910063013.jpg" alt="他者と働く 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">適応課題と対話</span>
         <h3 class="book-card-title">他者と働く</h3>
         <div class="book-card-subtitle">「わかりあえなさ」から始める組織論</div>
@@ -2188,6 +2203,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
       </article>
 
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4862762085.jpg" alt="異文化理解力 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">カルチャーマップ</span>
         <h3 class="book-card-title">異文化理解力</h3>
         <div class="book-card-subtitle">相手と自分の真意がわかる ビジネスパーソン必須の教養</div>
@@ -2200,6 +2218,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
       </article>
 
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4641173893.jpg" alt="多文化世界 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">文化6次元モデル</span>
         <h3 class="book-card-title">多文化世界（原書第3版）</h3>
         <div class="book-card-subtitle">違いを学び未来への道を探る</div>
@@ -2212,6 +2233,9 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
       </article>
 
       <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="book-covers/4862761011.jpg" alt="学習する組織 表紙" class="book-card-cover" loading="lazy">
+        </div>
         <span class="book-card-theme">組織学習・システム思考</span>
         <h3 class="book-card-title">学習する組織</h3>
         <div class="book-card-subtitle">システム思考で未来を創造する</div>
