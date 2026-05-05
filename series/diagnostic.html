@@ -710,14 +710,11 @@ body {
 
 <script>
 // ============================================================
-// ▼▼▼ Make.com 連携を有効化するには ▼▼▼
-// 1. Make.com で「Webhooks > Custom webhook」を作成し、URL をコピー
-// 2. 下の WEBHOOK_URL = "" の二重引用符の中に貼り付け
-//    例: const WEBHOOK_URL = "https://hook.eu2.make.com/abc123...";
-// 3. 設定ガイドの詳細は _reference/BEM-diagnostic-implementation-guide.md 参照
-// 空のままだと送信は webhook をスキップ（ログのみ・テスト用）
+// 診断結果メール送信エンドポイント
+// democracy-fitness-survey (Vercel) の /api/diagnostic 経由で
+// Resend を使って送信する。空のままだと送信をスキップ（テスト用）
 // ============================================================
-const WEBHOOK_URL = "https://hook.us2.make.com/udfj46x33psg67718loxnyaelvhjzery";
+const WEBHOOK_URL = "https://democracy-fitness-survey.vercel.app/api/diagnostic";
 const CTA_LINKS = {
   series:     "/series/#latest",     // 連載LP の最新記事セクション
   consult:    "/series/#consult",    // 連載LP の30分相談セクション
