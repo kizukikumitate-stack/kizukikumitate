@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BEM診断シート ─ あなたの組織のボトルネックは? | きづきくみたて工房</title>
+<meta name="description" content="8問のチェックリストで、自社の問題が BEM (Behavior Engineering Model) のどの構造領域に偏っているかを診断します。回答時間: 約5分・無料・PDFレポートをメールでお送りします。">
+
+<!-- ============================================================
+     設定セクション ─ Yasuhito さんがデプロイ時に編集する箇所
+     ============================================================
+     1. WEBHOOK_URL: Make.com のWebhook URL を貼り付け
+        空のままにすると、フォーム送信時に webhook 連携をスキップ(テスト用)
+     2. CTA_LINKS: 各CTAリンクの遷移先
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --slate-900: #0f172a;
+  --slate-800: #1e293b;
+  --slate-700: #334155;
+  --slate-600: #475569;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --slate-300: #cbd5e1;
+  --slate-200: #e2e8f0;
+  --slate-100: #f1f5f9;
+  --slate-50: #f8fafc;
+
+  --type-a: #2563eb;
+  --type-b: #0891b2;
+  --type-c: #d97706;
+  --type-d: #475569;
+  --type-e: #059669;
+
+  --type-a-light: #dbeafe;
+  --type-b-light: #cffafe;
+  --type-c-light: #fed7aa;
+  --type-d-light: #e2e8f0;
+  --type-e-light: #d1fae5;
+
+  --accent: var(--slate-700); /* 結果画面で type 別の色に上書き */
+  --accent-light: var(--slate-200);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--slate-800);
+  background: var(--slate-50);
+  line-height: 1.7;
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* ========== ヘッダー ========== */
+.site-header {
+  background: var(--slate-900);
+  padding: 22px 24px 18px;
+  border-bottom: 5px solid var(--accent);
+  transition: border-color 0.4s;
+}
+.logo {
+  height: 38px;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ========== コンテナ ========== */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ========== プログレスバー ========== */
+.progress-shell {
+  background: white;
+  border-bottom: 1px solid var(--slate-200);
+  padding: 14px 0;
+}
+.progress-bar-wrap {
+  background: var(--slate-200);
+  height: 3px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 11px;
+  color: var(--slate-500);
+  letter-spacing: 0.05em;
+}
+.progress-step {
+  font-weight: 700;
+  color: var(--slate-700);
+}
+
+/* ========== ページ共通 ========== */
+.page {
+  display: none;
+  padding: 36px 0 80px;
+  animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.page.active { display: block; }
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== ウェルカム ========== */
+.welcome-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.welcome-title {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.4;
+  color: var(--slate-900);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+}
+.welcome-lead {
+  font-size: 15px;
+  color: var(--slate-600);
+  line-height: 1.85;
+  margin-bottom: 32px;
+}
+.welcome-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+.meta-pill {
+  background: white;
+  border: 1px solid var(--slate-200);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 12.5px;
+  color: var(--slate-700);
+  font-weight: 500;
+}
+.meta-pill strong {
+  color: var(--slate-900);
+  font-weight: 700;
+}
+.welcome-note {
+  font-size: 13px;
+  color: var(--slate-500);
+  background: white;
+  border-left: 3px solid var(--slate-300);
+  padding: 14px 16px;
+  margin-bottom: 32px;
+  line-height: 1.75;
+}
+
+/* ========== 質問カード ========== */
+.question-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.question-title {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--slate-900);
+  margin-bottom: 14px;
+  letter-spacing: -0.005em;
+}
+.question-body {
+  font-size: 15px;
+  color: var(--slate-700);
+  line-height: 1.85;
+  margin-bottom: 28px;
+}
+.options { display: flex; flex-direction: column; gap: 10px; }
+.option {
+  background: white;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 10px;
+  padding: 16px 18px;
+  cursor: pointer;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: all 0.2s;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--slate-800);
+}
+.option:hover {
+  border-color: var(--slate-400);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+.option.selected {
+  border-color: var(--accent);
+  background: white;
+  box-shadow: 0 0 0 3px var(--accent-light);
+}
+.option-letter {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--slate-100);
+  color: var(--slate-700);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  transition: all 0.2s;
+  margin-top: 1px;
+}
+.option.selected .option-letter {
+  background: var(--accent);
+  color: white;
+}
+.option-text { flex: 1; }
+
+/* ========== ナビゲーション ========== */
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 36px;
+  gap: 12px;
+}
+.btn {
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: 8px;
+  padding: 13px 26px;
+  font-size: 14.5px;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12); }
+.btn-primary:disabled {
+  background: var(--slate-300);
+  color: var(--slate-500);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+.btn-secondary {
+  background: transparent;
+  color: var(--slate-600);
+  padding: 12px 18px;
+}
+.btn-secondary:hover { color: var(--slate-900); }
+.btn-large {
+  padding: 16px 36px;
+  font-size: 15px;
+}
+
+/* ========== メール入力 ========== */
+.email-form { display: flex; flex-direction: column; gap: 18px; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-800);
+}
+.field-label .req { color: #dc2626; margin-left: 3px; }
+.field-label .opt { font-size: 11px; color: var(--slate-500); font-weight: 500; margin-left: 6px; }
+.field-input,
+.field-select {
+  background: white;
+  border: 1.5px solid var(--slate-200);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 14.5px;
+  color: var(--slate-900);
+  transition: border-color 0.2s;
+  width: 100%;
+}
+.field-input:focus,
+.field-select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.field-help { font-size: 12px; color: var(--slate-500); }
+.consent-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 13px;
+  color: var(--slate-700);
+  line-height: 1.7;
+  background: white;
+  padding: 14px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--slate-200);
+}
+.consent-row input { margin-top: 4px; flex-shrink: 0; transform: scale(1.15); accent-color: var(--accent); }
+.consent-row a { color: var(--slate-900); text-decoration: underline; }
+
+/* ========== 送信中 ========== */
+.submitting { text-align: center; padding: 60px 20px; }
+.spinner {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--slate-200);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 18px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ========== 結果画面 ========== */
+.result-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.result-type-label {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  margin-bottom: 18px;
+}
+.result-type-name {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.3;
+  color: var(--slate-900);
+  margin-bottom: 18px;
+  letter-spacing: -0.01em;
+}
+.result-headline {
+  font-size: 16px;
+  color: var(--slate-700);
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 16px;
+  margin-bottom: 32px;
+  line-height: 1.85;
+  font-weight: 500;
+}
+
+.score-block {
+  background: white;
+  border: 1px solid var(--slate-200);
+  border-radius: 10px;
+  padding: 22px;
+  margin-bottom: 24px;
+}
+.score-block-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 18px;
+  letter-spacing: 0.02em;
+}
+.score-row {
+  display: grid;
+  grid-template-columns: 180px 1fr 56px;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.score-row:last-child { margin-bottom: 0; }
+.score-cell-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.cell-pill {
+  background: var(--slate-100);
+  color: var(--slate-700);
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.cell-pill.dominant {
+  background: var(--accent);
+  color: white;
+}
+.cell-name-text {
+  font-size: 12px;
+  color: var(--slate-700);
+  white-space: nowrap;
+}
+.score-track {
+  background: var(--slate-200);
+  height: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.score-fill {
+  height: 100%;
+  background: var(--slate-300);
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.score-fill.dominant { background: var(--accent); }
+.score-num {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--slate-700);
+  text-align: right;
+}
+
+.diagnosis-block {
+  background: var(--accent-light);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 22px;
+  margin-bottom: 32px;
+}
+.diagnosis-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.diagnosis-text {
+  font-size: 14.5px;
+  color: var(--slate-800);
+  line-height: 1.85;
+}
+
+.email-confirm {
+  background: var(--slate-900);
+  color: white;
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin-bottom: 28px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.email-confirm-icon {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  margin-top: 1px;
+}
+.email-confirm strong { color: white; }
+.email-confirm code {
+  background: rgba(255,255,255,0.1);
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 12px;
+}
+.email-confirm.warning {
+  background: var(--slate-100);
+  color: var(--slate-700);
+}
+.email-confirm.warning strong { color: var(--slate-900); }
+.email-confirm.warning .email-confirm-icon { background: var(--slate-400); }
+.email-confirm.warning code { background: var(--slate-200); }
+
+.cta-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--slate-900);
+  margin-bottom: 16px;
+  letter-spacing: 0.02em;
+}
+.cta-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.cta-card {
+  background: white;
+  border: 1px solid var(--slate-200);
+  border-radius: 10px;
+  padding: 16px 18px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  text-decoration: none;
+  color: var(--slate-800);
+  transition: all 0.2s;
+}
+.cta-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+}
+.cta-card-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+}
+.cta-card-content { flex: 1; }
+.cta-card-title { font-size: 14.5px; font-weight: 700; color: var(--slate-900); margin-bottom: 2px; }
+.cta-card-desc { font-size: 12.5px; color: var(--slate-500); }
+.cta-card-arrow { color: var(--slate-400); font-size: 20px; }
+
+/* ========== フッター ========== */
+.site-footer {
+  border-top: 1px solid var(--slate-200);
+  padding: 28px 0 40px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--slate-500);
+  line-height: 1.8;
+}
+.site-footer a { color: var(--slate-700); text-decoration: none; border-bottom: 1px dotted var(--slate-400); }
+
+/* ========== モバイル ========== */
+@media (max-width: 600px) {
+  body { font-size: 14.5px; }
+  .container { padding: 0 16px; }
+  .welcome-title { font-size: 23px; }
+  .question-title { font-size: 19px; }
+  .result-type-name { font-size: 24px; }
+  .score-row {
+    grid-template-columns: 60px 1fr 50px;
+    gap: 8px;
+  }
+  .cell-name-text { display: none; }
+  .nav-row { flex-direction: column-reverse; gap: 10px; }
+  .nav-row .btn { width: 100%; }
+  .nav-row .btn-secondary { width: auto; }
+  .logo { height: 32px; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <img class="logo" src="/series/assets/logo.png" alt="きづきくみたて工房">
+</header>
+
+<div class="progress-shell" id="progressShell">
+  <div class="container">
+    <div class="progress-meta">
+      <span class="progress-step" id="progressStep">START</span>
+      <span id="progressPct">0%</span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </div>
+</div>
+
+<main class="container">
+
+<!-- ============= WELCOME ============= -->
+<section class="page active" id="page-welcome">
+  <div class="welcome-eyebrow">BEM 診断シート</div>
+  <h1 class="welcome-title">あなたの組織のボトルネックは、<br>本当に「研修不足」ですか?</h1>
+  <p class="welcome-lead">
+    8問のチェックリストで、自社のパフォーマンス課題が <strong>BEM (Behavior Engineering Model)</strong> のどの構造領域に偏っているかを診断します。<br><br>
+    研修以外の打ち手を社内で提案する出発点として活用できます。
+  </p>
+  <div class="welcome-meta">
+    <div class="meta-pill"><strong>回答時間</strong> 約5分</div>
+    <div class="meta-pill"><strong>結果</strong> 4ページのPDFレポート</div>
+    <div class="meta-pill"><strong>費用</strong> 無料</div>
+  </div>
+  <div class="welcome-note">
+    BEM は Thomas F. Gilbert が1978年に提唱した、組織のパフォーマンスを6セルで診断する古典的な枠組みです。組織のパフォーマンス問題の約75〜85%が環境要因に起因することを示しました。
+  </div>
+  <div class="nav-row">
+    <span></span>
+    <button class="btn btn-primary btn-large" onclick="goNext()">診断をはじめる →</button>
+  </div>
+</section>
+
+<!-- ============= QUESTIONS (動的に生成) ============= -->
+<div id="questionsContainer"></div>
+
+<!-- ============= EMAIL ============= -->
+<section class="page" id="page-email">
+  <div class="question-eyebrow">FINAL STEP</div>
+  <h2 class="question-title">結果PDFのお届け先</h2>
+  <p class="question-body">8問の回答が完了しました。結果をPDFでお届けするメールアドレスをご入力ください。</p>
+
+  <form class="email-form" id="emailForm" onsubmit="event.preventDefault(); submitForm();">
+    <div class="field">
+      <label class="field-label" for="email">メールアドレス<span class="req">*</span></label>
+      <input class="field-input" type="email" id="email" required placeholder="yourname@company.co.jp">
+    </div>
+    <div class="field">
+      <label class="field-label" for="name">お名前<span class="opt">(任意)</span></label>
+      <input class="field-input" type="text" id="name" placeholder="山田太郎">
+    </div>
+    <div class="field">
+      <label class="field-label" for="industry">ご所属の業種<span class="opt">(任意)</span></label>
+      <select class="field-select" id="industry">
+        <option value="">選択してください</option>
+        <option>製造業</option>
+        <option>IT・ソフトウェア</option>
+        <option>金融・保険</option>
+        <option>商社・流通</option>
+        <option>サービス</option>
+        <option>医療・福祉</option>
+        <option>教育</option>
+        <option>公共・行政</option>
+        <option>コンサルティング・人材</option>
+        <option>その他</option>
+      </select>
+    </div>
+    <div class="field">
+      <label class="field-label" for="role">役職<span class="opt">(任意)</span></label>
+      <select class="field-select" id="role">
+        <option value="">選択してください</option>
+        <option>経営層・役員</option>
+        <option>部長クラス</option>
+        <option>課長クラス</option>
+        <option>担当者(HR / HRBP)</option>
+        <option>担当者(人事以外)</option>
+        <option>コンサルタント・実践者</option>
+        <option>その他</option>
+      </select>
+    </div>
+    <label class="consent-row">
+      <input type="checkbox" id="consent" required>
+      <span>結果PDFの送付・関連メールマガジンの配信に同意します(いつでも解除可能)。<br><a href="/privacy" target="_blank">プライバシーポリシー</a> をご確認ください。</span>
+    </label>
+    <div class="nav-row">
+      <button type="button" class="btn btn-secondary" onclick="goBack()">← 戻る</button>
+      <button type="submit" class="btn btn-primary btn-large">診断結果を受け取る →</button>
+    </div>
+  </form>
+</section>
+
+<!-- ============= SUBMITTING ============= -->
+<section class="page" id="page-submitting">
+  <div class="submitting">
+    <div class="spinner"></div>
+    <p style="font-size: 15px; color: var(--slate-600);">診断結果を計算しています...</p>
+  </div>
+</section>
+
+<!-- ============= RESULT (動的に生成) ============= -->
+<section class="page" id="page-result"></section>
+
+</main>
+
+<footer class="site-footer">
+  <p>
+    <strong>きづきくみたて工房</strong> ─ 森本康仁 (ファシリテーター / ワークショップデザイナー / 組織開発コンサルタント)<br>
+    <a href="/">kizukikumitate.com</a> &nbsp;|&nbsp; <a href="mailto:info@kizukikumitate.com">info@kizukikumitate.com</a>
+  </p>
+  <p style="margin-top: 16px;">
+    <a href="/series/" style="color: var(--slate-400); font-size: 13px;">← 連載トップへ戻る</a>
+  </p>
+</footer>
+
+<script>
+// ============================================================
+// ▼▼▼ Make.com 連携を有効化するには ▼▼▼
+// 1. Make.com で「Webhooks > Custom webhook」を作成し、URL をコピー
+// 2. 下の WEBHOOK_URL = "" の二重引用符の中に貼り付け
+//    例: const WEBHOOK_URL = "https://hook.eu2.make.com/abc123...";
+// 3. 設定ガイドの詳細は _reference/BEM-diagnostic-implementation-guide.md 参照
+// 空のままだと送信は webhook をスキップ（ログのみ・テスト用）
+// ============================================================
+const WEBHOOK_URL = ""; // ← ここに Make.com の Webhook URL を貼り付け
+const CTA_LINKS = {
+  series:     "/series/#latest",     // 連載LP の最新記事セクション
+  consult:    "/series/#consult",    // 連載LP の30分相談セクション
+  newsletter: "/series/#newsletter"  // 連載LP のメルマガ登録セクション
+};
+
+// ============================================================
+// 質問データ
+// ============================================================
+const QUESTIONS = [
+  {
+    cell: "E1",
+    eyebrow: "Q1 / 8 ─ 期待水準",
+    title: "「何を、どの水準で」期待されているか、現場に明示されていますか?",
+    body: "自社の現場で、社員一人ひとりに対して「何を、どの水準で、いつまでに」期待しているかは、どの程度明示されていますか?",
+    options: [
+      { label: "全員に明確に言語化・共有されている", score: 1 },
+      { label: "一部のチームでは明確だが、全社で揃ってはいない", score: 2 },
+      { label: "上司の暗黙知に依存していて、本人は自分の期待水準を完全には把握していない", score: 3 },
+      { label: "ほとんど明示されていない、現場任せになっている", score: 4 }
+    ]
+  },
+  {
+    cell: "E1",
+    eyebrow: "Q2 / 8 ─ フィードバック",
+    title: "業務フィードバックは、どの粒度で行われていますか?",
+    body: "上司から部下への業務フィードバックは、どのくらいの頻度・粒度で行われていますか?",
+    options: [
+      { label: "日々または週次で、具体的な行動レベルでフィードバックされている", score: 1 },
+      { label: "月次・四半期で行われ、事実ベースで議論される", score: 2 },
+      { label: "半期/年次評価のタイミングのみ、抽象的なコメントが多い", score: 3 },
+      { label: "ほとんど発生していない、または雑談化している", score: 4 }
+    ]
+  },
+  {
+    cell: "E2",
+    eyebrow: "Q3 / 8 ─ マネジャーの育成時間",
+    title: "マネジャーが部下育成に充てる時間は、業務時間のうちどの程度ですか?",
+    body: "あなたの組織で、マネジャー(管理職)が部下の育成・指導に充てる時間は、業務時間のうちどの程度ですか?",
+    options: [
+      { label: "業務時間の20%以上", score: 1 },
+      { label: "10〜20%程度", score: 2 },
+      { label: "5〜10%程度(プレイングマネジャー化が顕著)", score: 3 },
+      { label: "ほぼゼロ。マネジャー自身がプレイヤー業務に追われている", score: 4 }
+    ]
+  },
+  {
+    cell: "E2",
+    eyebrow: "Q4 / 8 ─ プロセスの妨げ度",
+    title: "システムや手続きが「業務を進める邪魔」になる頻度は?",
+    body: "現場社員が「業務を進めようとして、システムや手続きの遅さで足を引っ張られる」と感じる頻度はどの程度ですか?",
+    options: [
+      { label: "稀。プロセスはスムーズに動いている", score: 1 },
+      { label: "月に数回程度", score: 2 },
+      { label: "週に何度も発生する", score: 3 },
+      { label: "日常的に妨げになっている", score: 4 }
+    ]
+  },
+  {
+    cell: "E3",
+    eyebrow: "Q5 / 8 ─ 評価との整合",
+    title: "「望ましい行動」は、評価・処遇に直結していますか?",
+    body: "自社で「望ましい」とされる行動(リーダーシップ、育成、挑戦、対話など)は、評価・処遇に明確に反映されていますか?",
+    options: [
+      { label: "行動が明示され、評価・昇進・報酬に直結している", score: 1 },
+      { label: "行動は言語化されているが、評価への反映は限定的", score: 2 },
+      { label: "「あるべき姿」としては掲げているが、実際には数字成果のみで評価されている", score: 3 },
+      { label: "望ましい行動と評価がほぼ無関係。または逆向きにインセンティブが働いている", score: 4 }
+    ]
+  },
+  {
+    cell: "E3",
+    eyebrow: "Q6 / 8 ─ 育成 vs 数字",
+    title: "優秀なマネジャーは、「育てる人」と「数字を作る人」のどちらですか?",
+    body: "あなたの組織で、優秀なマネジャーとして評価されているのは「部下を育てる人」と「自分で数字を作る人」、どちらの傾向が強いですか?",
+    options: [
+      { label: "育てる人が明確に評価されている", score: 1 },
+      { label: "どちらも評価されるが、最終的に育成が重視される", score: 2 },
+      { label: "短期数字を出す人が優先的に評価されている", score: 3 },
+      { label: "数字一辺倒で、育成行動はほぼ評価されない", score: 4 }
+    ]
+  },
+  {
+    cell: "E3",
+    eyebrow: "Q7 / 8 ─ モチベーションの原因",
+    title: "モチベーション低下の原因は、個人と組織のどちら寄りだと感じますか?",
+    body: "社員のモチベーション低下に直面したとき、その原因は「個人の意欲の問題」と「組織構造の問題」のどちらが大きいと感じますか?",
+    options: [
+      { label: "主に個人の意欲の問題。マインドセット研修や動機づけが効きそう", score: 1 },
+      { label: "半々ぐらい", score: 2 },
+      { label: "主に組織構造の問題。動機づけ研修だけでは解決しない", score: 3 },
+      { label: "完全に組織構造の問題。個人責任に帰着させると逆効果", score: 4 }
+    ]
+  },
+  {
+    cell: "I1",
+    eyebrow: "Q8 / 8 ─ スキル不足の実感",
+    title: "本当に「知識・スキル不足」が原因と感じますか?",
+    body: "現在パフォーマンスに課題のある社員・組織について、本当に「知識・スキル不足」が原因だと感じますか?",
+    options: [
+      // 逆配点: 「スキル不足」と感じるほど I1 が高くなる
+      { label: "明確にスキル不足。研修やOJTで埋められそう", score: 4 },
+      { label: "スキル不足の側面はあるが、それだけでは説明できない要因がある", score: 3 },
+      { label: "スキル自体は十分。むしろ環境・制度の問題が大きい", score: 2 },
+      { label: "スキル不足は表層で、構造的な問題のほうが本質と感じる", score: 1 }
+    ]
+  }
+];
+
+// ============================================================
+// タイプ別データ
+// ============================================================
+const TYPES = {
+  A: {
+    label: "Type A",
+    name: "情報・フィードバック構造型",
+    subtitle: "E1 優位",
+    color: "var(--type-a)",
+    colorLight: "var(--type-a-light)",
+    headline: "あなたの組織は「期待水準とフィードバックの設計」にボトルネックがあります。",
+    diagnosis: "Gilbert (1978) の BEM では、組織のパフォーマンスを左右する6つの構造のうち、E1 (情報・フィードバック・期待水準) が最初の介入対象とされています。あなたの組織はこの E1 領域に最も大きなギャップがあると診断されました。これは、研修によるスキル付与では解決しません。情報設計とフィードバック構造の再設計が必要です。"
+  },
+  B: {
+    label: "Type B",
+    name: "資源・時間構造型",
+    subtitle: "E2 優位",
+    color: "var(--type-b)",
+    colorLight: "var(--type-b-light)",
+    headline: "あなたの組織は「業務量とプロセスの設計」にボトルネックがあります。",
+    diagnosis: "Gilbert の BEM における E2 (資源・ツール・時間・プロセス) は、「人がやろうとしてもできない」状態を生み出す構造領域です。あなたの組織は、能力の問題ではなく、資源と時間の構造に最大のボトルネックがあります。これは「タイムマネジメント研修」では解決しません。業務量・工数・プロセス設計そのものの再構築が必要です。"
+  },
+  C: {
+    label: "Type C",
+    name: "インセンティブ構造型",
+    subtitle: "E3 優位",
+    color: "var(--type-c)",
+    colorLight: "var(--type-c-light)",
+    headline: "あなたの組織は「評価と望ましい行動の不整合」にボトルネックがあります。",
+    diagnosis: "Gilbert の BEM における E3 (インセンティブ・帰結) は、「人がやらない理由」を生み出す構造領域です。あなたの組織は、能力ではなく、望ましい行動が報われない構造に最大のボトルネックがあります。これはリーダー研修やバリュー策定では解決しません。評価制度・処遇・承認構造そのものの再設計が必要です。BEM の中でも E3 は最も診断されにくく、しかし最も介入効果が大きい領域です。"
+  },
+  D: {
+    label: "Type D",
+    name: "構造複合型",
+    subtitle: "E1 + E2 + E3 すべて高",
+    color: "var(--type-d)",
+    colorLight: "var(--type-d-light)",
+    headline: "あなたの組織は複数の構造領域に同時に課題を抱えています。",
+    diagnosis: "BEM の3つの環境セル (E1・E2・E3) すべてに高いスコアが出ているのは、問題が複合化している組織の典型的なパターンです。この場合、単発の介入では効果が薄く、構造的な順序立てが必要です。推奨される介入順序は E3 → E1 → E2 です。インセンティブ構造を再設計しないと、情報設計や資源配分を変えても元に戻る力が働くためです。30分相談を優先的に検討することを推奨します。"
+  },
+  E: {
+    label: "Type E",
+    name: "スキル特化型",
+    subtitle: "I1 優位 (まれなケース)",
+    color: "var(--type-e)",
+    colorLight: "var(--type-e-light)",
+    headline: "あなたの組織は「環境構造は機能している、純粋なスキル課題」に直面しています。",
+    diagnosis: "BEM 観点で I1 (個人の知識・スキル) のみが顕著で、E1〜E3 が機能している組織は、実は組織開発の現場でも稀なケースです。Gilbert の研究では、組織のパフォーマンス問題の約75〜85%は環境要因に起因するとされており、純粋に I1 が原因となるのは少数派です。そのため、HPI の観点で「真にスキル不足か」を再検証することを推奨します。"
+  }
+};
+
+const CELL_NAMES = {
+  E1: "情報・フィードバック",
+  E2: "資源・時間",
+  E3: "インセンティブ・帰結",
+  I1: "個人能力"
+};
+
+// ============================================================
+// 状態管理
+// ============================================================
+const state = {
+  currentPage: 0, // 0: welcome, 1-8: questions, 9: email, 10: result
+  answers: {} // { 0: 1, 1: 3, ... } キーは問番号 (0始まり)
+};
+
+// 全ページのID順序
+const PAGES = ["page-welcome", "q0", "q1", "q2", "q3", "q4", "q5", "q6", "q7", "page-email", "page-submitting", "page-result"];
+
+// ============================================================
+// 質問ページ生成
+// ============================================================
+function buildQuestions() {
+  const container = document.getElementById("questionsContainer");
+  QUESTIONS.forEach((q, index) => {
+    const section = document.createElement("section");
+    section.className = "page";
+    section.id = "q" + index;
+    section.innerHTML = `
+      <div class="question-eyebrow">${q.eyebrow}</div>
+      <h2 class="question-title">${q.title}</h2>
+      <p class="question-body">${q.body}</p>
+      <div class="options" data-qindex="${index}">
+        ${q.options.map((opt, i) => `
+          <div class="option" data-score="${opt.score}" data-letter="${"ABCD"[i]}" onclick="selectOption(${index}, this)">
+            <div class="option-letter">${"ABCD"[i]}</div>
+            <div class="option-text">${opt.label}</div>
+          </div>
+        `).join("")}
+      </div>
+      <div class="nav-row">
+        <button class="btn btn-secondary" onclick="goBack()">← 戻る</button>
+        <button class="btn btn-primary" id="next-${index}" onclick="goNext()" disabled>次へ →</button>
+      </div>
+    `;
+    container.appendChild(section);
+  });
+}
+
+// ============================================================
+// 選択肢クリック
+// ============================================================
+function selectOption(qIndex, el) {
+  const optionsWrap = el.parentElement;
+  optionsWrap.querySelectorAll(".option").forEach(o => o.classList.remove("selected"));
+  el.classList.add("selected");
+  state.answers[qIndex] = parseInt(el.dataset.score);
+  document.getElementById("next-" + qIndex).disabled = false;
+}
+
+// ============================================================
+// ページ遷移
+// ============================================================
+function showPage(pageIndex) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  const pageId = PAGES[pageIndex];
+  const target = document.getElementById(pageId);
+  if (target) target.classList.add("active");
+  state.currentPage = pageIndex;
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function goNext() {
+  showPage(state.currentPage + 1);
+}
+
+function goBack() {
+  if (state.currentPage > 0) showPage(state.currentPage - 1);
+}
+
+// ============================================================
+// プログレスバー
+// ============================================================
+function updateProgress() {
+  const idx = state.currentPage;
+  const bar = document.getElementById("progressBar");
+  const stepLabel = document.getElementById("progressStep");
+  const pctLabel = document.getElementById("progressPct");
+  const shell = document.getElementById("progressShell");
+
+  if (idx === 0) {
+    bar.style.width = "0%";
+    stepLabel.textContent = "START";
+    pctLabel.textContent = "0%";
+  } else if (idx >= 1 && idx <= 8) {
+    const pct = (idx / 9) * 100;
+    bar.style.width = pct + "%";
+    stepLabel.textContent = "Q" + idx + " / 8";
+    pctLabel.textContent = Math.round(pct) + "%";
+  } else if (idx === 9) {
+    bar.style.width = "95%";
+    stepLabel.textContent = "結果送付先";
+    pctLabel.textContent = "95%";
+  } else {
+    bar.style.width = "100%";
+    stepLabel.textContent = "DONE";
+    pctLabel.textContent = "100%";
+  }
+
+  // 結果画面ではプログレスバーを隠す
+  shell.style.display = idx === 11 ? "none" : "block";
+}
+
+// ============================================================
+// スコア計算
+// ============================================================
+function calculateScores() {
+  const a = state.answers;
+  const e1 = (a[0] || 0) + (a[1] || 0);
+  const e2 = (a[2] || 0) + (a[3] || 0);
+  const e3 = (a[4] || 0) + (a[5] || 0) + (a[6] || 0);
+  const i1 = a[7] || 0;
+  return {
+    e1, e2, e3, i1,
+    e1_pct: e1 / 8,
+    e2_pct: e2 / 8,
+    e3_pct: e3 / 12,
+    i1_pct: i1 / 4
+  };
+}
+
+// ============================================================
+// タイプ判定
+// ============================================================
+function determineType(s) {
+  const maxEnv = Math.max(s.e1_pct, s.e2_pct, s.e3_pct);
+  if (s.i1_pct >= 0.75 && maxEnv < 0.5) return "E";
+
+  let highCount = 0;
+  if (s.e1_pct >= 0.6) highCount++;
+  if (s.e2_pct >= 0.6) highCount++;
+  if (s.e3_pct >= 0.6) highCount++;
+  if (highCount >= 3) return "D";
+
+  if (s.e3_pct >= s.e1_pct && s.e3_pct >= s.e2_pct) return "C";
+  if (s.e1_pct >= s.e2_pct) return "A";
+  return "B";
+}
+
+// ============================================================
+// フォーム送信
+// ============================================================
+async function submitForm() {
+  const email = document.getElementById("email").value;
+  const name = document.getElementById("name").value;
+  const industry = document.getElementById("industry").value;
+  const role = document.getElementById("role").value;
+  const consent = document.getElementById("consent").checked;
+
+  if (!email || !consent) return;
+
+  showPage(10); // submitting
+
+  const scores = calculateScores();
+  const type = determineType(scores);
+
+  const payload = {
+    email,
+    name,
+    industry,
+    role,
+    answers: state.answers,
+    scores,
+    type,
+    timestamp: new Date().toISOString(),
+    source: "diagnostic-form-v1"
+  };
+
+  // Webhookに送信(設定されていれば)
+  if (WEBHOOK_URL) {
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+    } catch (err) {
+      console.error("Webhook送信エラー:", err);
+      // 失敗しても結果は表示する
+    }
+  }
+
+  // 少しディレイを入れて結果を表示(計算してる感)
+  setTimeout(() => renderResult(type, scores, email), 800);
+}
+
+// ============================================================
+// 結果画面レンダリング
+// ============================================================
+function renderResult(typeKey, scores, email) {
+  const t = TYPES[typeKey];
+
+  // CSS 変数を上書きして type 別の色に切り替え
+  const root = document.documentElement;
+  root.style.setProperty("--accent", t.color);
+  root.style.setProperty("--accent-light", t.colorLight);
+
+  // セルの優位判定
+  const cellPcts = {
+    E1: scores.e1_pct,
+    E2: scores.e2_pct,
+    E3: scores.e3_pct,
+    I1: scores.i1_pct
+  };
+  const dominantCells = getDominantCells(typeKey, scores);
+
+  const cellRows = ["E1", "E2", "E3", "I1"].map(cell => {
+    const isDominant = dominantCells.includes(cell);
+    const pct = cellPcts[cell] * 100;
+    const max = cell === "E3" ? 12 : (cell === "I1" ? 4 : 8);
+    const score = cell === "E1" ? scores.e1 : cell === "E2" ? scores.e2 : cell === "E3" ? scores.e3 : scores.i1;
+    return `
+      <div class="score-row">
+        <div class="score-cell-name">
+          <span class="cell-pill ${isDominant ? "dominant" : ""}">${cell}</span>
+          <span class="cell-name-text">${CELL_NAMES[cell]}</span>
+        </div>
+        <div class="score-track">
+          <div class="score-fill ${isDominant ? "dominant" : ""}" style="width: 0%" data-target="${pct}"></div>
+        </div>
+        <div class="score-num">${score} / ${max}</div>
+      </div>
+    `;
+  }).join("");
+
+  const webhookConfigured = !!WEBHOOK_URL;
+  const emailNotice = webhookConfigured
+    ? `
+      <div class="email-confirm">
+        <div class="email-confirm-icon">✓</div>
+        <div>
+          <strong>4ページの詳細PDFレポートを <code>${escapeHtml(email)}</code> 宛にお送りしました。</strong><br>
+          1〜2分以内に届きます。届かない場合は、迷惑メールフォルダもご確認ください。
+        </div>
+      </div>
+    `
+    : `
+      <div class="email-confirm warning">
+        <div class="email-confirm-icon">!</div>
+        <div>
+          <strong>テストモードで動作中:</strong> Webhook URL が設定されていないため、メール送信はスキップされました。<code>${escapeHtml(email)}</code> 宛のPDF送信は、Make.com のセットアップ完了後に有効になります。
+        </div>
+      </div>
+    `;
+
+  document.getElementById("page-result").innerHTML = `
+    <div class="result-eyebrow">DIAGNOSTIC RESULT</div>
+    <div class="result-type-label">${t.label}</div>
+    <h2 class="result-type-name">${t.name}</h2>
+    <p class="result-headline">${t.headline}</p>
+
+    <div class="score-block">
+      <div class="score-block-title">セル別スコア (BEM 4領域)</div>
+      ${cellRows}
+    </div>
+
+    <div class="diagnosis-block">
+      <div class="diagnosis-label">あなたの組織への診断</div>
+      <div class="diagnosis-text">${t.diagnosis}</div>
+    </div>
+
+    ${emailNotice}
+
+    <div class="cta-section-title">推奨される次のアクション</div>
+    <div class="cta-list">
+      <a class="cta-card" href="${CTA_LINKS.series}">
+        <div class="cta-card-icon">1</div>
+        <div class="cta-card-content">
+          <div class="cta-card-title">この型に直結する記事を読む</div>
+          <div class="cta-card-desc">連載「気づきから組み立てる」のうち、${t.label} に関連する記事</div>
+        </div>
+        <div class="cta-card-arrow">→</div>
+      </a>
+      <a class="cta-card" href="${CTA_LINKS.consult}">
+        <div class="cta-card-icon">2</div>
+        <div class="cta-card-content">
+          <div class="cta-card-title">30分相談で構造化を一緒にやる</div>
+          <div class="cta-card-desc">無料・営業目的の押し売りなし</div>
+        </div>
+        <div class="cta-card-arrow">→</div>
+      </a>
+      <a class="cta-card" href="${CTA_LINKS.newsletter}">
+        <div class="cta-card-icon">3</div>
+        <div class="cta-card-content">
+          <div class="cta-card-title">メルマガで継続的にアップデートを受け取る</div>
+          <div class="cta-card-desc">新着記事・実務テンプレートの優先案内</div>
+        </div>
+        <div class="cta-card-arrow">→</div>
+      </a>
+    </div>
+  `;
+
+  showPage(11);
+
+  // バーの数値アニメーション
+  setTimeout(() => {
+    document.querySelectorAll(".score-fill").forEach(fill => {
+      fill.style.width = fill.dataset.target + "%";
+    });
+  }, 100);
+}
+
+function getDominantCells(typeKey, scores) {
+  if (typeKey === "A") return ["E1"];
+  if (typeKey === "B") return ["E2"];
+  if (typeKey === "C") return ["E3"];
+  if (typeKey === "D") {
+    const result = [];
+    if (scores.e1_pct >= 0.6) result.push("E1");
+    if (scores.e2_pct >= 0.6) result.push("E2");
+    if (scores.e3_pct >= 0.6) result.push("E3");
+    return result;
+  }
+  if (typeKey === "E") return ["I1"];
+  return [];
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+
+// ============================================================
+// 初期化
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  buildQuestions();
+  showPage(0);
+});
+</script>
+
+</body>
+</html>
