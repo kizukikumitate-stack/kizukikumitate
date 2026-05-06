@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>BEM診断シート結果 — Type {{TYPE_LETTER}}: {{TYPE_NAME}}</title>
+<style>
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    font-family: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+    color: #1e293b;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .page + .page { break-before: page; }
+  .page-spacer { flex: 1; min-height: 0; }
+
+  /* Header (page 1 only) */
+  .hero {
+    background: #0f172a;
+    padding: 28px 24mm 32px;
+    color: #fff;
+    text-align: center;
+  }
+  .hero-logo {
+    background: #fff;
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 12px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  }
+  .hero-logo img {
+    height: 56px;
+    display: block;
+  }
+
+  /* Content padding */
+  .content {
+    padding: 22mm 22mm 18mm;
+  }
+  .content-tight {
+    padding: 14mm 22mm 18mm;
+  }
+
+  /* Page 1 specific */
+  .eyebrow {
+    font-size: 11pt;
+    color: #64748b;
+    letter-spacing: 0.05em;
+    margin: 0 0 14px;
+  }
+  .type-badge {
+    display: inline-block;
+    background: {{ACCENT_COLOR}};
+    color: #fff;
+    font-weight: 800;
+    font-size: 16pt;
+    padding: 8px 22px;
+    border-radius: 8px;
+    margin: 0 0 14px;
+  }
+  .type-subtitle {
+    font-size: 11pt;
+    color: {{ACCENT_COLOR}};
+    font-weight: 600;
+    margin: 0 0 6px;
+  }
+  .type-title {
+    font-size: 28pt;
+    font-weight: 800;
+    margin: 0 0 22px;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+  }
+  .type-headline {
+    border-left: 4px solid {{ACCENT_COLOR}};
+    padding: 4px 0 4px 18px;
+    font-size: 14pt;
+    font-weight: 600;
+    line-height: 1.7;
+    color: #1e293b;
+    margin: 0 0 28px;
+  }
+
+  .about-section {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 18px;
+    margin-top: 8px;
+  }
+  .about-title {
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 0 0 8px;
+  }
+  .about-body {
+    font-size: 10.2pt;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0;
+  }
+
+  /* Sections (pages 2-4) */
+  .section-label {
+    font-size: 10pt;
+    color: {{ACCENT_COLOR}};
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0 0 6px;
+  }
+  .section-title {
+    font-size: 17pt;
+    font-weight: 800;
+    margin: 0 0 4px;
+    color: #0f172a;
+  }
+  .section-subtitle {
+    font-size: 10.5pt;
+    color: #64748b;
+    margin: 0 0 22px;
+  }
+
+  /* Score table (page 2) */
+  .score-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 26px;
+    font-size: 10.5pt;
+  }
+  .score-row {
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .score-row td {
+    padding: 14px 6px;
+    vertical-align: middle;
+  }
+  .score-cell-pill {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 800;
+    font-size: 13pt;
+    padding: 6px 14px;
+    border-radius: 6px;
+    width: 36px;
+    text-align: center;
+  }
+  .score-cell-pill.dominant {
+    background: {{ACCENT_COLOR}};
+    color: #fff;
+  }
+  .score-cell-name {
+    font-weight: 600;
+    color: #1e293b;
+  }
+  .score-cell-desc {
+    font-size: 9.5pt;
+    color: #64748b;
+    margin-top: 2px;
+  }
+  .score-num {
+    text-align: right;
+    font-weight: 700;
+    font-size: 13pt;
+    color: #0f172a;
+    white-space: nowrap;
+  }
+  .score-num.dominant { color: {{ACCENT_COLOR}}; }
+  .score-note {
+    font-size: 9.5pt;
+    color: #64748b;
+    margin: 0 0 26px;
+    text-align: center;
+  }
+
+  .diagnosis-block {
+    background: {{ACCENT_LIGHT}};
+    border-left: 4px solid {{ACCENT_COLOR}};
+    padding: 18px 22px;
+    border-radius: 4px;
+  }
+  .diagnosis-title {
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: {{ACCENT_COLOR}};
+  }
+  .diagnosis-body {
+    font-size: 10.5pt;
+    line-height: 1.85;
+    margin: 0;
+    color: #1e293b;
+  }
+
+  /* Symptoms (page 3) */
+  .symptom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+  }
+  .symptom-list li {
+    font-size: 11pt;
+    line-height: 1.8;
+    padding: 10px 0 10px 22px;
+    border-bottom: 1px dashed #e2e8f0;
+    position: relative;
+    color: #1e293b;
+  }
+  .symptom-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: {{ACCENT_COLOR}};
+    font-weight: 700;
+  }
+
+  /* Articles (page 3) */
+  .article-list { margin: 0; padding: 0; }
+  .article-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .article-num {
+    background: #f1f5f9;
+    color: {{ACCENT_COLOR}};
+    font-weight: 700;
+    font-size: 11pt;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .article-content { flex: 1; }
+  .article-title {
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #1e293b;
+  }
+  .article-desc {
+    font-size: 9.5pt;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* Actions (page 4) */
+  .action-list { margin: 0 0 30px; padding: 0; }
+  .action-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 14px 0;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .action-num {
+    background: {{ACCENT_COLOR}};
+    color: #fff;
+    font-weight: 700;
+    font-size: 12pt;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .action-content { flex: 1; }
+  .action-title {
+    font-size: 11.5pt;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #1e293b;
+  }
+  .action-desc {
+    font-size: 9.5pt;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* CTA box */
+  .cta-box {
+    background: #0f172a;
+    color: #fff;
+    padding: 22px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 0 26px;
+  }
+  .cta-box h3 {
+    font-size: 13pt;
+    margin: 0 0 8px;
+    font-weight: 700;
+  }
+  .cta-box p {
+    font-size: 10pt;
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin: 0 0 14px;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .cta-button {
+    display: inline-block;
+    background: {{ACCENT_COLOR}};
+    color: #fff;
+    font-weight: 700;
+    font-size: 10.5pt;
+    padding: 10px 22px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+  .cta-button.secondary {
+    background: transparent;
+    border: 1px solid #475569;
+    color: #cbd5e1;
+  }
+
+  /* About + Reference */
+  .about-block {
+    background: #f8fafc;
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin: 0 0 18px;
+  }
+  .about-block h3 {
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: #1e293b;
+  }
+  .about-block .name {
+    font-size: 10.5pt;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #475569;
+  }
+  .about-block p {
+    font-size: 9.5pt;
+    line-height: 1.75;
+    color: #64748b;
+    margin: 0 0 6px;
+  }
+  .about-block .meta {
+    font-size: 8.5pt;
+    color: #94a3b8;
+    margin-top: 8px;
+  }
+
+  .reference-block {
+    border-top: 1px solid #e2e8f0;
+    padding-top: 14px;
+    font-size: 8.5pt;
+    color: #64748b;
+    line-height: 1.7;
+  }
+  .reference-block strong {
+    color: #475569;
+    font-size: 9pt;
+    letter-spacing: 0.1em;
+  }
+
+  /* Footer (in-flow at end of each page's content) */
+  .page-footer {
+    margin: 28px 22mm 14mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8pt;
+    color: #94a3b8;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- Page 1 -->
+<div class="page">
+  <div class="hero">
+    <div class="hero-logo">
+      <img src="{{LOGO_DATA_URL}}" alt="きづきくみたて工房">
+    </div>
+  </div>
+  <div class="content-tight">
+    <p class="eyebrow">BEM 診断シート ─ 結果レポート</p>
+    <div class="type-badge">Type {{TYPE_LETTER}}</div>
+    <p class="type-subtitle">{{TYPE_SUBTITLE}}</p>
+    <h1 class="type-title">{{TYPE_NAME}}</h1>
+    <div class="type-headline">{{TYPE_HEADLINE}}</div>
+
+    <div class="about-section">
+      <h3 class="about-title">このレポートについて</h3>
+      <p class="about-body">
+        Thomas F. Gilbert が 1978 年に提唱した <strong>Behavior Engineering Model (BEM)</strong> をベースに、あなたの組織のパフォーマンス課題がどの構造領域に偏っているかを 8 問のチェックリストで診断したものです。BEM は、組織のパフォーマンス問題の約 75〜85% が環境要因 (E1・E2・E3) に起因することを示した古典的な枠組みで、組織開発の専門コミュニティで長年磨かれてきた「地図」です。
+      </p>
+    </div>
+  </div>
+  <div class="page-spacer"></div>
+  <div class="page-footer">
+    <span>BEM診断シート結果 — Type {{TYPE_LETTER}}: {{TYPE_NAME}}</span>
+    <span>きづきくみたて | page 1</span>
+  </div>
+</div>
+
+<!-- Page 2 -->
+<div class="page">
+  <div class="content">
+    <p class="section-label">SECTION 01</p>
+    <h2 class="section-title">あなたの組織のセル別スコア</h2>
+    <p class="section-subtitle">BEM の 4 領域における、あなたの組織のボトルネック分布</p>
+
+    <table class="score-table">
+      {{SCORE_ROWS}}
+    </table>
+    <p class="score-note">スコアが高いセルほど、その領域に構造的な課題が顕在化している可能性が高いです</p>
+
+    <div class="diagnosis-block">
+      <p class="diagnosis-title">あなたの組織への診断</p>
+      <p class="diagnosis-body">{{DIAGNOSIS_BODY}}</p>
+    </div>
+  </div>
+  <div class="page-spacer"></div>
+  <div class="page-footer">
+    <span>BEM診断シート結果 — Type {{TYPE_LETTER}}: {{TYPE_NAME}}</span>
+    <span>きづきくみたて | page 2</span>
+  </div>
+</div>
+
+<!-- Page 3 -->
+<div class="page">
+  <div class="content">
+    <p class="section-label">SECTION 02</p>
+    <h2 class="section-title">この型でよく起こる症状</h2>
+    <p class="section-subtitle">{{TYPE_NAME}} の組織で典型的に観察される現象</p>
+
+    <ul class="symptom-list">
+      {{SYMPTOM_ITEMS}}
+    </ul>
+
+    <p class="section-label">SECTION 03</p>
+    <h2 class="section-title">この型に直結する記事</h2>
+    <p class="section-subtitle">連載「気づきから組み立てる」の中で、本診断結果と関連性の高い記事</p>
+
+    <div class="article-list">
+      {{ARTICLE_ITEMS}}
+    </div>
+  </div>
+  <div class="page-spacer"></div>
+  <div class="page-footer">
+    <span>BEM診断シート結果 — Type {{TYPE_LETTER}}: {{TYPE_NAME}}</span>
+    <span>きづきくみたて | page 3</span>
+  </div>
+</div>
+
+<!-- Page 4 -->
+<div class="page">
+  <div class="content">
+    <p class="section-label">SECTION 04</p>
+    <h2 class="section-title">推奨される次のアクション</h2>
+    <p class="section-subtitle">この診断結果を、現場での次の一歩につなげるために</p>
+
+    <div class="action-list">
+      {{ACTION_ITEMS}}
+    </div>
+
+    <div class="cta-box">
+      <h3>30分相談 — 自社の課題を構造として整理する</h3>
+      <p>営業目的の押し売りはありません。あなたと同じ立場で組織を構造化したい方のための、無料の壁打ち時間です。</p>
+      <div class="cta-buttons">
+        <span class="cta-button">30分相談を予約する</span>
+        <span class="cta-button secondary">メルマガに登録する</span>
+      </div>
+    </div>
+
+    <div class="about-block">
+      <h3>きづきくみたて について</h3>
+      <p class="name">ファシリテーター / ワークショップデザイナー / 組織開発コンサルタント　森本康仁</p>
+      <p>中堅以上の伝統企業や成長期スタートアップにおける、組織開発・研修設計・対話の場づくりを実践しています。一貫した関心は、「研修ではない問題を、研修で処理しないこと」と「構造を見るレンズを、現場に渡すこと」。</p>
+      <div class="meta">
+        専門枠組み: HPI / BEM / Kirkpatrick / Heifetz / システム思考<br>
+        認定: LEGO® SERIOUS PLAY® ファシリテーター / Democracy Fitness 認定トレーナー(デンマーク発)
+      </div>
+    </div>
+
+    <div class="reference-block">
+      <strong>REFERENCE</strong><br>
+      Gilbert, T. F. (1978). <em>Human Competence: Engineering Worthy Performance</em>. McGraw-Hill.<br>
+      BEM (Behavior Engineering Model) はこの著作で提示された、組織のパフォーマンスを6セルで診断する枠組みです。組織のパフォーマンス問題の大半は能力ではなく環境要因に起因することを示しました。
+    </div>
+  </div>
+  <div class="page-spacer"></div>
+  <div class="page-footer">
+    <span>BEM診断シート結果 — Type {{TYPE_LETTER}}: {{TYPE_NAME}}</span>
+    <span>きづきくみたて | page 4</span>
+  </div>
+</div>
+
+</body>
+</html>
