@@ -565,6 +565,13 @@ body {
 }
 .site-footer a { color: var(--slate-700); text-decoration: none; border-bottom: 1px dotted var(--slate-400); }
 
+/* ========== 埋め込み（iframe）時 ========== */
+body.embedded { background: transparent; min-height: 0; }
+body.embedded .site-header,
+body.embedded .site-footer { display: none; }
+body.embedded .progress-shell { border-top: none; }
+body.embedded .page { padding: 28px 0 40px; }
+
 /* ========== モバイル ========== */
 @media (max-width: 600px) {
   body { font-size: 14.5px; }
@@ -676,7 +683,11 @@ body {
     </div>
     <label class="consent-row">
       <input type="checkbox" id="consent" required>
-      <span>結果PDFの送付・関連メールマガジンの配信に同意します(いつでも解除可能)。<br><a href="/privacy" target="_blank">プライバシーポリシー</a> をご確認ください。</span>
+      <span>結果PDFをメールで受け取ることに同意します。<br><a href="/privacy" target="_blank">プライバシーポリシー</a> をご確認ください。</span>
+    </label>
+    <label class="consent-row">
+      <input type="checkbox" id="newsletter-opt-in" checked>
+      <span>関連メールマガジン(月1〜2通程度・解除自由)を受け取る</span>
     </label>
     <div class="nav-row">
       <button type="button" class="btn btn-secondary" onclick="goBack()">← 戻る</button>
@@ -935,6 +946,19 @@ function selectOption(qIndex, el) {
 }
 
 // ============================================================
+// 埋め込み（iframe）モード
+// ============================================================
+const isEmbedded = window.self !== window.top;
+
+function notifyParentHeight() {
+  if (!isEmbedded) return;
+  // body のみを採るのは、iframe の min-height が documentElement に
+  // 反映されてしまい、本来のコンテンツ高さより大きく見えるため
+  const height = document.body.scrollHeight;
+  window.parent.postMessage({ type: "kk-diagnostic-resize", height }, "*");
+}
+
+// ============================================================
 // ページ遷移
 // ============================================================
 function showPage(pageIndex) {
@@ -944,7 +968,13 @@ function showPage(pageIndex) {
   if (target) target.classList.add("active");
   state.currentPage = pageIndex;
   updateProgress();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (isEmbedded) {
+    // 埋め込み時は親側がスクロールを管理
+    notifyParentHeight();
+    window.parent.postMessage({ type: "kk-diagnostic-pagechange" }, "*");
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 }
 
 function goNext() {
@@ -1033,6 +1063,7 @@ async function submitForm() {
   const industry = document.getElementById("industry").value;
   const role = document.getElementById("role").value;
   const consent = document.getElementById("consent").checked;
+  const newsletterOptIn = document.getElementById("newsletter-opt-in").checked;
 
   if (!email || !consent) return;
 
@@ -1049,6 +1080,7 @@ async function submitForm() {
     answers: state.answers,
     scores,
     type,
+    newsletterOptIn,
     timestamp: new Date().toISOString(),
     source: "diagnostic-form-v1"
   };
@@ -1184,7 +1216,10 @@ function renderResult(typeKey, scores, email) {
     document.querySelectorAll(".score-fill").forEach(fill => {
       fill.style.width = fill.dataset.target + "%";
     });
+    notifyParentHeight();
   }, 100);
+  // アニメーション終了後にもう一度高さを通知
+  setTimeout(notifyParentHeight, 1200);
 }
 
 function getDominantCells(typeKey, scores) {
@@ -1210,8 +1245,14 @@ function escapeHtml(s) {
 // 初期化
 // ============================================================
 document.addEventListener("DOMContentLoaded", () => {
+  if (isEmbedded) document.body.classList.add("embedded");
   buildQuestions();
   showPage(0);
+  if (isEmbedded) {
+    notifyParentHeight();
+    window.addEventListener("load", notifyParentHeight);
+    new ResizeObserver(notifyParentHeight).observe(document.body);
+  }
 });
 </script>
 
