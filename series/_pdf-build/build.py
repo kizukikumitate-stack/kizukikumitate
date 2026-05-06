@@ -186,6 +186,22 @@ def encode_logo() -> str:
     return f"data:image/png;base64,{encoded}"
 
 
+def render_bem_cells(data: dict) -> str:
+    cells = []
+    for cell in ["E1", "E2", "E3", "I1"]:
+        cell_name, cell_desc = CELL_LABELS[cell]
+        is_dominant = cell in data["dominant"]
+        dom_class = " dominant" if is_dominant else ""
+        marker = '<span class="bem-cell-marker">★</span>' if is_dominant else ""
+        cells.append(f"""<div class="bem-cell{dom_class}">
+  {marker}
+  <span class="bem-cell-pill">{cell}</span>
+  <p class="bem-cell-name">{html.escape(cell_name)}</p>
+  <p class="bem-cell-desc">{html.escape(cell_desc)}</p>
+</div>""")
+    return "\n".join(cells)
+
+
 def render_score_rows(data: dict) -> str:
     rows = []
     for cell in ["E1", "E2", "E3", "I1"]:
@@ -247,6 +263,7 @@ def build_html(type_letter: str, logo_data_url: str) -> str:
         "{{ACCENT_COLOR}}": accent,
         "{{ACCENT_LIGHT}}": accent_light,
         "{{LOGO_DATA_URL}}": logo_data_url,
+        "{{BEM_CELLS}}": render_bem_cells(data),
         "{{SCORE_ROWS}}": render_score_rows(data),
         "{{DIAGNOSIS_BODY}}": html.escape(data["diagnosis"]),
         "{{SYMPTOM_ITEMS}}": render_symptoms(data["symptoms"]),

@@ -100,6 +100,92 @@
     padding-top: 18px;
     margin-top: 8px;
   }
+
+  /* BEM 4-cell diagram on page 1 */
+  .bem-map {
+    margin-top: 22px;
+  }
+  .bem-map-title {
+    font-size: 11pt;
+    font-weight: 700;
+    margin: 0 0 4px;
+    color: #1e293b;
+  }
+  .bem-map-subtitle {
+    font-size: 9pt;
+    color: #64748b;
+    margin: 0 0 12px;
+  }
+  .bem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .bem-cell {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px 14px;
+    background: #ffffff;
+    position: relative;
+  }
+  .bem-cell.dominant {
+    background: {{ACCENT_LIGHT}};
+    border: 1.5px solid {{ACCENT_COLOR}};
+  }
+  .bem-cell-pill {
+    display: inline-block;
+    background: #f1f5f9;
+    color: #475569;
+    font-weight: 800;
+    font-size: 10pt;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+  }
+  .bem-cell.dominant .bem-cell-pill {
+    background: {{ACCENT_COLOR}};
+    color: #fff;
+  }
+  .bem-cell-name {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 2px;
+    line-height: 1.3;
+  }
+  .bem-cell-desc {
+    font-size: 8.5pt;
+    color: #64748b;
+    line-height: 1.4;
+    margin: 0;
+  }
+  .bem-cell.dominant .bem-cell-name {
+    color: {{ACCENT_COLOR}};
+  }
+  .bem-cell-marker {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 9pt;
+    font-weight: 700;
+    color: {{ACCENT_COLOR}};
+    letter-spacing: 0.05em;
+  }
+  .bem-legend {
+    margin: 10px 0 0;
+    font-size: 8.5pt;
+    color: #64748b;
+    text-align: right;
+  }
+  .bem-legend-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: {{ACCENT_COLOR}};
+    margin-right: 4px;
+    vertical-align: middle;
+  }
   .about-title {
     font-size: 11pt;
     font-weight: 700;
@@ -417,6 +503,15 @@
       <p class="about-body">
         Thomas F. Gilbert が 1978 年に提唱した <strong>Behavior Engineering Model (BEM)</strong> をベースに、あなたの組織のパフォーマンス課題がどの構造領域に偏っているかを 8 問のチェックリストで診断したものです。BEM は、組織のパフォーマンス問題の約 75〜85% が環境要因 (E1・E2・E3) に起因することを示した古典的な枠組みで、組織開発の専門コミュニティで長年磨かれてきた「地図」です。
       </p>
+    </div>
+
+    <div class="bem-map">
+      <h3 class="bem-map-title">BEM の 4 領域 — あなたの位置</h3>
+      <p class="bem-map-subtitle">この型はどの領域にボトルネックがあるかを示しています</p>
+      <div class="bem-grid">
+        {{BEM_CELLS}}
+      </div>
+      <p class="bem-legend"><span class="bem-legend-dot"></span>あなたの型のボトルネック領域</p>
     </div>
   </div>
   <div class="page-spacer"></div>
