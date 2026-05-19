@@ -452,15 +452,15 @@
     <div class="price-banner-title">FEE</div>
     <div class="price-banner-rows">
       <div class="price-banner-row">
-        定価<strong>¥85,000<small>＋税</small></strong>
+        定価<strong>¥75,000<small>＋税</small></strong>
         <small>7/1以降の単独申込</small>
       </div>
       <div class="price-banner-row">
-        早割 / ペア割（10%OFF）<strong>¥76,500<small>＋税</small></strong>
+        早割 / ペア割（10%OFF）<strong>¥67,500<small>＋税</small></strong>
         <small>6/30まで or 2名同時</small>
       </div>
       <div class="price-banner-row">
-        ペア早割（20%OFF）<strong>¥68,000<small>＋税</small></strong>
+        ペア早割（20%OFF）<strong>¥60,000<small>＋税</small></strong>
         <small>6/30まで かつ 2名同時</small>
       </div>
     </div>
@@ -649,10 +649,10 @@
     const hasPair = pairInput.value.trim().length > 0;
     const isEarly = new Date() <= EARLY_BIRD_DEADLINE;
     let label, amount;
-    if (hasPair && isEarly) { label = 'ペア早割（20%OFF）'; amount = 68000; }
-    else if (isEarly) { label = '早割（10%OFF）'; amount = 76500; }
-    else if (hasPair) { label = 'ペア割（10%OFF）'; amount = 76500; }
-    else { label = '定価'; amount = 85000; }
+    if (hasPair && isEarly) { label = 'ペア早割（20%OFF）'; amount = 60000; }
+    else if (isEarly) { label = '早割（10%OFF）'; amount = 67500; }
+    else if (hasPair) { label = 'ペア割（10%OFF）'; amount = 67500; }
+    else { label = '定価'; amount = 75000; }
     const tax = Math.round(amount * 1.1);
     appliedPriceText.textContent = `${label}：¥${amount.toLocaleString()}＋税（税込 ¥${tax.toLocaleString()}）`;
     appliedPrice.style.display = 'block';
