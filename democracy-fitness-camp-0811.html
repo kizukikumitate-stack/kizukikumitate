@@ -1176,6 +1176,163 @@
     color: var(--text-secondary);
   }
 
+  /* ── GALLERY ── */
+  .gallery-section {
+    padding: 6rem 0 6rem 3rem;
+    overflow: hidden;
+  }
+  .gallery-section.dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .gallery-section.dark .section-label { color: var(--gold); }
+  .gallery-section.dark .section-label::before { background: var(--gold); }
+  .gallery-section.dark .section-heading { color: var(--paper); }
+  .gallery-section.dark .gallery-lead { color: rgba(255,255,255,0.7); }
+
+  .gallery-section .section-label,
+  .gallery-section .section-heading,
+  .gallery-section .gallery-lead {
+    padding-right: 3rem;
+  }
+
+  .gallery-lead {
+    font-size: 0.98rem;
+    line-height: 2;
+    max-width: 720px;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .gallery-slider {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-top: 2rem;
+    padding-right: 3rem;
+    padding-bottom: 4px;
+    cursor: grab;
+  }
+
+  .gallery-slider:active { cursor: grabbing; }
+
+  .gallery-slider::-webkit-scrollbar { height: 3px; }
+  .gallery-slider::-webkit-scrollbar-track { background: rgba(255,255,255,0.08); }
+  .gallery-slider::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+  .gallery-section:not(.dark) .gallery-slider::-webkit-scrollbar-track { background: #e8e2d9; }
+  .gallery-section:not(.dark) .gallery-slider::-webkit-scrollbar-thumb { background: var(--nordic); }
+
+  .gallery-slide {
+    flex: 0 0 380px;
+    height: 480px;
+    scroll-snap-align: start;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+
+  .gallery-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 1.2s ease;
+  }
+
+  .gallery-slide:hover img { transform: scale(1.05); }
+
+  .gallery-hint {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    margin-top: 0.75rem;
+    padding-right: 3rem;
+    text-align: right;
+  }
+  .gallery-section.dark .gallery-hint { color: rgba(255,255,255,0.45); }
+
+  /* ── VIDEO EMBED ── */
+  .video-block {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+  .video-block-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+  }
+  .video-block-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .video-block-caption {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    text-align: center;
+  }
+  .gallery-section.dark .video-block-caption { color: rgba(255,255,255,0.6); }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: flex;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+  .lightbox.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 1.2rem;
+    right: 1.5rem;
+    color: #fff;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.85;
+  }
+  .lightbox-close:hover { opacity: 1; }
+
+  @media (max-width: 700px) {
+    .gallery-section { padding: 4rem 0 4rem 1.5rem; }
+    .gallery-section .section-label,
+    .gallery-section .section-heading,
+    .gallery-section .gallery-lead { padding-right: 1.5rem; }
+    .gallery-slider { padding-right: 1.5rem; }
+    .gallery-slide { flex: 0 0 76vw; height: 340px; }
+    .gallery-hint { padding-right: 1.5rem; }
+    .video-block { padding-left: 1.5rem; padding-right: 1.5rem; }
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -1342,12 +1499,9 @@
       <span class="accent-line">— 2日間で、全10筋肉を鍛えます。</span>
     </h1>
     <p class="hero-subtitle">
-      古いものを壊さず、新しいものを生み出す。<br>
-      民主主義は、社会を適切にアップデートし、<br>
-      新陳代謝を進めていく力です。<br>
-      <br>
-      循環をテーマにしたTAKIVIVAで、<br>
-      その力を一緒に鍛えませんか。
+      デンマーク発、対話の力を「スポーツのように」鍛えるプログラム。<br>
+      普段は2時間ずつでお届けしている全10種類の筋肉ワークを、<br>
+      軽井沢の森の中で2日間、一気に体験します。
     </p>
     <a href="#register" class="hero-cta">
       参加申し込みへ <span class="hero-cta-arrow">→</span>
@@ -1374,120 +1528,58 @@
   </div>
 </section>
 
-<!-- ── OPENING MESSAGE ── -->
-<section class="opening-section">
-  <div class="opening-inner">
-    <div class="section-label" style="justify-content: center;">OPENING MESSAGE</div>
-    <h2 class="section-heading" style="text-align: center;">循環する場所で、<br>民主主義を鍛え直す。</h2>
-
-    <p class="opening-quote">
-      古いものを壊さず、新しいものを生み出す。<br>
-      民主主義は、社会を適切に<span class="em">アップデート</span>し、<br>
-      <span class="em-forest">新陳代謝</span>を進めていく力です。
-    </p>
-
-    <div class="opening-divider"></div>
-
-    <div class="opening-body">
-      <p>
-        日本の社会も、組織も、家族も、地域も——<br>
-        「変わらなければ」と感じながら、いつのまにか同じパターンを繰り返してしまう。
-        その奥にあるのは、対話の不在です。
-      </p>
-      <p>
-        破壊か、現状維持か。賛成か、反対か。
-        私たちは、極端な二項対立に追い込まれがちです。
-        でも本来、民主主義とは「壊さずに変える」ための知恵だったはずです。
-        異なる意見を交わし、削り合い、ふくらませながら、
-        社会が少しずつ次の形へと脱皮していく——その新陳代謝の力。
-      </p>
-      <p>
-        舞台となるTAKIVIVAは、<strong>「循環」をテーマに掲げる宿泊施設</strong>です。
-        食材も、エネルギーも、人も、対話も。
-        ここでは何かを使い切って終わるのではなく、
-        次の場へと巡らせていくことが、設計の根っこに据えられています。
-      </p>
-      <p>
-        2日間、軽井沢の森と循環の場の中で、
-        私たちは10の筋肉——好奇心、傾聴、共感、勇気、反対意見の表明、妥協、意見、活動家、動員、言葉への自信——を
-        体ごと鍛え直します。
-        持ち帰るのは知識ではなく、<strong>明日からの日常で使える「対話の体力」</strong>です。
-      </p>
-    </div>
-  </div>
-</section>
-
 <!-- ── WHAT IS ── -->
 <section style="padding: 6rem 3rem; background: var(--paper);">
   <div class="what-section">
     <div class="what-body">
       <div class="section-label">ABOUT</div>
       <h2 class="section-heading">デモクラシーフィットネスとは</h2>
-      <p>「デモクラシーフィットネス」は、デンマーク発祥のコンセプトです。民主主義を制度や知識として学ぶのではなく、スポーツのように日常の中で鍛えていくという考え方に立っています。</p>
-      <p>単なる政治の話ではありません。組織・チーム・コミュニティ・家族における<strong>「対話の基礎体力」</strong>をつくるためのトレーニングです。</p>
-      <p>民主主義は、使わなければ衰え、放置すれば硬直してしまう"心の筋肉"です。だからこそ、意識的に鍛え続けることが必要なのです。</p>
+      <p><strong>「デモクラシーフィットネス」は、デンマーク発祥の対話トレーニングプログラム</strong>です。民主主義を制度や知識として学ぶのではなく、スポーツのように日常の中で「鍛える」ものとして捉え直しているところに大きな特徴があります。</p>
+      <p>対話を支える10種類の力を「筋肉」と呼び、それぞれに30分前後のワークが用意されています。聴く・問う・伝える・違いを受け止める——いずれも、知っているだけでは使えるようにならない力です。安全な場で繰り返し練習することで、組織・チーム・家族・地域での日常の対話に活きてきます。</p>
+      <p>政党の議論ではなく、誰もが使える実践的なコミュニケーションのトレーニング。それがデモクラシーフィットネスです。</p>
     </div>
 
     <div class="what-visual">
       <div class="what-visual-quote">
-        民主主義は知識ではなく、<span>「日常の筋肉」</span>である。
+        対話の力は<br><span>「鍛える」もの</span>である。
       </div>
       <p class="what-visual-sub">
-        SNSのエコーチェンバー、職場の多様化、地域コミュニティの分断——「違う意見を持つ人と、どうやって同じテーブルに座り続けるか」というスキルが、公私ともに欠かせないものになっています。
+        本場デンマークでは、学校から職場・市民活動まで、対話の力を意識的に育てる文化が根づいています。デモクラシーフィットネスは、その実践を体系化したプログラムです。
       </p>
     </div>
   </div>
 </section>
 
-<!-- ── WHY CAMP ── -->
-<section class="why-camp-section">
-  <div class="why-camp-inner">
-    <div class="section-label">WHY CAMP</div>
-    <h2 class="section-heading">なぜ、合宿なのか。</h2>
-    <p class="why-camp-lead">
-      これまで、デモクラシーフィットネスは2時間の体験会や半日のワークショップという形で各地で開催してきました。
-      ただ、本来このプログラムは <strong>10の筋肉を相互につなげながら鍛えていく</strong>もの。
-      単発の体験では届かない深さに、合宿という形式は連れて行ってくれます。
-    </p>
-    <div class="why-camp-grid">
-      <div class="why-camp-card">
-        <div class="why-camp-card-icon">💪</div>
-        <h3>10の筋肉を、2日間で一気に体験する。</h3>
-        <p>
-          好奇心・傾聴・共感・勇気・反対意見の表明・妥協・意見・活動家・動員・言葉への自信。
-          それぞれの筋肉は単独では十分に働きません。連続して取り組むことで、相互の関係性が体感としてつながり、
-          「自分はどの筋肉が弱いのか」「組織のどこに穴があるのか」が立体的に見えてきます。
-        </p>
-      </div>
-      <div class="why-camp-card">
-        <div class="why-camp-card-icon">🌲</div>
-        <h3>軽井沢の森で、集中する。</h3>
-        <p>
-          日常から物理的に離れることで、いつもの役割や肩書きから一度降りられます。
-          森に囲まれた静かな環境は、対話の質を変えます。
-          昼の集中的なワークも、夜の焚き火を囲む会話も、すべてが学びの場になります。
-        </p>
-      </div>
-      <div class="why-camp-card">
-        <div class="why-camp-card-icon">🔄</div>
-        <h3>循環をテーマにした場で、循環を学ぶ。</h3>
-        <p>
-          TAKIVIVAは「サーキュラーヴィレッジ」を掲げる宿泊施設。
-          食・エネルギー・対話、すべてが次へと巡るよう設計されています。
-          民主主義もまた、対話を通じて社会を循環させていく営みです。場と内容が深く呼応する2日間です。
-        </p>
-      </div>
-      <div class="why-camp-card">
-        <div class="why-camp-card-icon">🤝</div>
-        <h3>2日間ともに過ごす仲間ができる。</h3>
-        <p>
-          1泊2日、寝食をともにすることで、ワークショップを超えた関係が生まれます。
-          組織開発・教育・地域づくり・NPO・経営。立場の違う人たちと深く対話できる場は、
-          現代では希少です。終わった後も続く実践のネットワークが、ここで始まります。
-        </p>
-      </div>
+<!-- ── IN DENMARK (gallery + video) ── -->
+<section class="gallery-section dark">
+  <div class="section-label">IN DENMARK</div>
+  <h2 class="section-heading">本場・デンマークでの様子</h2>
+  <p class="gallery-lead">
+    世界各地から集まった実践者が、コペンハーゲンに会して2日間のデモクラシーフィットネスを行いました。本国の認定トレーナーが進行し、参加者は身体ごと10の筋肉を体験。ワークの空気感をまずは映像と写真でご覧ください。
+  </p>
+
+  <div class="video-block">
+    <div class="video-block-frame">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/TAh050hwmR4?rel=0"
+        title="Democracy Fitness in Denmark"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
+    <div class="video-block-caption">デモクラシーフィットネス紹介ビデオ（YouTube）</div>
   </div>
+
+  <div class="gallery-slider" data-gallery="dk">
+    <div class="gallery-slide"><img src="./df-dk-3.jpg" alt="Welcome to Democracy Fitness — デンマーク本部での開会の様子" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-dk-5.jpg" alt="円になって対話する参加者たち" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-dk-2.jpg" alt="What is democracy to you? — 参加者が書いたハートカードの壁" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-dk-4.jpg" alt="グループワーク中の参加者たち" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-dk-6.jpg" alt="立ち上がって意見を交わす場面" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-dk-1.jpg" alt="プログラム修了時の参加者集合写真" loading="lazy"></div>
+  </div>
+  <p class="gallery-hint">← スワイプで全て見る →</p>
 </section>
 
 <!-- ── 10 MUSCLES ── -->
@@ -1535,6 +1627,76 @@
       <div class="muscle-item">
         <div class="muscle-num">10</div><div class="muscle-name">傾聴筋</div>
         <div class="muscle-tooltip">論理と感情の両方を深く聴き、相手の言葉をまず丸ごと受け取る力</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FROM THE FIELD (Japan workshops) ── -->
+<section class="gallery-section">
+  <div class="section-label">FROM THE FIELD</div>
+  <h2 class="section-heading">日本での体験会の様子</h2>
+  <p class="gallery-lead">
+    国内では、2025年以降に東京・名古屋・軽井沢などで体験会を重ねてきました。短時間のワークでも、参加者の表情がほぐれ、組織や立場を超えた対話が生まれていく——その空気感の一部をお伝えします。
+  </p>
+
+  <div class="gallery-slider" data-gallery="jp">
+    <div class="gallery-slide"><img src="./df-jp-1.jpg" alt="トレーナーが場を導くシーン" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-jp-3.jpg" alt="参加者が自分の言葉で発言する場面" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-jp-4.jpg" alt="他の参加者の話を真剣に聴く" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-jp-2.jpg" alt="プログラムの全体像を紹介する場面" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-jp-6.jpg" alt="自分の意見を組み立てる時間" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-jp-5.jpg" alt="対話が場をほぐしていく瞬間" loading="lazy"></div>
+  </div>
+  <p class="gallery-hint">← スワイプで全て見る →</p>
+</section>
+
+<!-- ── WHY CAMP ── -->
+<section class="why-camp-section">
+  <div class="why-camp-inner">
+    <div class="section-label">WHY CAMP</div>
+    <h2 class="section-heading">なぜ、合宿なのか。</h2>
+    <p class="why-camp-lead">
+      これまで、デモクラシーフィットネスは2時間の体験会や半日のワークショップという形で各地で開催してきました。
+      <strong>10の筋肉をすべて続けて体験できる機会は、国内ではこれが初めて</strong>です。
+      短時間のワークでは届かない深さと、合宿だからこそ生まれる関係性を、軽井沢の2日間に込めました。
+    </p>
+    <div class="why-camp-grid">
+      <div class="why-camp-card">
+        <div class="why-camp-card-icon">💪</div>
+        <h3>10の筋肉を、2日間で一気に体験する。</h3>
+        <p>
+          好奇心・傾聴・共感・勇気・反対意見の表明・妥協・意見・活動家・動員・言葉への自信。
+          それぞれの筋肉は単独でも役に立ちますが、続けて取り組むことで相互の関係性が体感として見えてきます。
+          「自分はどの筋肉が弱いのか」「自分のチームではどこが詰まっているのか」が立体的に分かる2日間です。
+        </p>
+      </div>
+      <div class="why-camp-card">
+        <div class="why-camp-card-icon">🌲</div>
+        <h3>軽井沢の森で、日常から離れて集中する。</h3>
+        <p>
+          いつもの役割・肩書き・スマホ通知から少し距離を置くだけで、対話の質は変わります。
+          森に囲まれた静かな環境、丁寧に手入れされた空間、おいしい食事。
+          昼のワークも、夜のゆるやかな時間も、そのすべてが学びと回復の場になります。
+        </p>
+      </div>
+      <div class="why-camp-card">
+        <div class="why-camp-card-icon">🗣️</div>
+        <h3>多様な意見を、対話の力で活かす練習をする。</h3>
+        <p>
+          多様性が大事だと頭ではわかっていても、実際に違う意見を持つ人と話し合いを進めるのは難しい——
+          多くの組織・地域・家族が抱える共通の悩みです。
+          このプログラムは、多様な意見を排除せず、対話を通じて意思決定に活かすための実践的なスキルを養います。
+        </p>
+      </div>
+      <div class="why-camp-card">
+        <div class="why-camp-card-icon">🤝</div>
+        <h3>2日間ともに過ごす仲間ができる。</h3>
+        <p>
+          1泊2日、寝食をともにすることで、研修の枠を超えた関係が生まれます。
+          組織開発・教育・地域づくり・NPO・経営など、立場の違う人たちと深く対話できる場は希少です。
+          終わった後も続いていく実践のネットワークが、ここから始まります。
+        </p>
       </div>
     </div>
   </div>
@@ -1647,39 +1809,34 @@
 <section class="venue-section">
   <div class="venue-inner">
     <div class="section-label">VENUE</div>
-    <h2 class="section-heading">会場：TAKIVIVA<br>— 循環をテーマにした場で、民主主義を鍛える。</h2>
+    <h2 class="section-heading">会場：TAKIVIVA<br>— 軽井沢の森にある、対話のための施設。</h2>
 
     <p class="venue-lead">
-      軽井沢の森の中にあるTAKIVIVAは、<strong>「サーキュラーヴィレッジ」</strong>を掲げる宿泊・対話施設です。
-      食・エネルギー・素材・人。すべてを使い切るのではなく、巡らせていくことが、この場の設計思想の根本にあります。
+      TAKIVIVAは、軽井沢の森の中にある<strong>サステナビリティを大切にした宿泊・対話施設</strong>です。
+      合宿型の研修やワークショップで多くのチームが利用してきた場で、対話と滞在のために丁寧に設計されています。
     </p>
 
     <div class="venue-body">
       <p>
-        敷地内には、地域の食材を扱うキッチン、薪や自然エネルギーを活用する仕組み、
-        対話のための余白の多い空間、そして森そのもの。
-        建物と森と暮らしが、ひとつの循環の一部として組み上げられています。
+        敷地内には、地域の食材を活かしたキッチン、ゆとりのある宿泊棟、
+        広々としたセッションルーム、そしてそれを取り囲む森。
+        外の喧騒や日常の通知から少し離れて、対話とリセットに集中できる環境です。
       </p>
       <p>
-        この合宿でTAKIVIVAを選んだのには理由があります。
-        <strong>民主主義もまた、循環の営み</strong>だからです。
-        誰かの意見が一方的に押し通されるのではなく、聴かれ、反論され、磨かれ、合意され、行動に変わり、
-        また次の対話に戻ってくる。停滞せず、暴走もせず、絶えず脱皮しながら次へ進む——それが健やかな民主主義の姿です。
+        私たちがTAKIVIVAを選んだのは、シンプルに「集中できる」「美味しい」「気持ちがいい」と感じたからです。
+        加えて、サステナビリティに対するこの場の姿勢——必要なものを大切に扱い、地域とつながりながら運営している姿勢——は、
+        多様な意見と丁寧に向き合うデモクラシーフィットネスの空気と、自然に重なります。
       </p>
       <p>
-        2日間、私たちは森の中で、循環する場の中で、循環する対話を実践します。
-        場が思想を体現し、思想が場をさらに深める。
-        そうした<strong>「場と内容が呼応する」体験</strong>を、この合宿の中核に据えています。
+        2日間、心地よい森と空間の中で、対話に没頭してください。
       </p>
     </div>
 
     <div class="venue-callout">
-      <div class="venue-callout-title">なぜ「循環×民主主義×アップデート」なのか</div>
+      <div class="venue-callout-title">滞在環境について</div>
       <p>
-        日本社会は、何かを変えようとすると「全部壊すか／何も変えないか」の二択に陥りがちです。
-        でも本当に必要なのは、<strong>古い細胞を新しい細胞に静かに置き換えていく、新陳代謝のような変化</strong>。
-        民主主義は、その新陳代謝を可能にする社会のメカニズムです。
-        循環の現場で、循環を学ぶ。この合宿は、そのための2日間です。
+        宿泊棟は同性同士の相部屋（2〜4名）が基本。個室を希望される方は事前にご相談ください（先着順）。
+        食事はTAKIVIVAの厨房から地域食材を活かした料理を提供。アレルギー・食事制限にも柔軟に対応します。
       </p>
     </div>
 
@@ -2084,6 +2241,12 @@
   <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
 </footer>
 
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">✕</button>
+  <img src="" id="lightboxImg" alt="">
+</div>
+
 <script>
   function toggleFaq(btn) {
     const item = btn.closest('.faq-item');
@@ -2091,6 +2254,34 @@
     document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // Gallery lightbox
+  (function() {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    if (!lightbox) return;
+
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || '';
+      lightbox.classList.add('open');
+    }
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightboxImg.src = '';
+    }
+
+    document.querySelectorAll('.gallery-slide').forEach(slide => {
+      slide.addEventListener('click', () => {
+        const img = slide.querySelector('img');
+        if (img) openLightbox(img.src, img.alt);
+      });
+    });
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  })();
 </script>
 <script>
 const globalHamburger = document.getElementById('globalHamburger');
