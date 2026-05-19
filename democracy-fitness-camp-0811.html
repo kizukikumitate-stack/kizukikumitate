@@ -65,15 +65,22 @@
   /* ── HERO ── */
   .hero {
     background:
-      radial-gradient(ellipse at 30% 20%, rgba(184, 196, 168, 0.18), transparent 60%),
-      radial-gradient(ellipse at 80% 80%, rgba(240, 180, 41, 0.10), transparent 55%),
-      linear-gradient(160deg, #1c3329 0%, #2e4a3a 50%, #1f2f3b 100%);
+      linear-gradient(180deg,
+        rgba(15, 30, 25, 0.55) 0%,
+        rgba(15, 30, 25, 0.62) 45%,
+        rgba(15, 30, 25, 0.78) 75%,
+        rgba(20, 40, 30, 0.92) 100%),
+      url('./df-tv-1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--paper);
     min-height: 100vh;
     display: grid;
     grid-template-rows: auto 1fr auto;
     position: relative;
     overflow: hidden;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.3);
   }
 
   .hero::before {
@@ -85,15 +92,15 @@
         0deg,
         transparent,
         transparent 59px,
-        rgba(255,255,255,0.025) 59px,
-        rgba(255,255,255,0.025) 60px
+        rgba(255,255,255,0.015) 59px,
+        rgba(255,255,255,0.015) 60px
       ),
       repeating-linear-gradient(
         90deg,
         transparent,
         transparent 59px,
-        rgba(255,255,255,0.025) 59px,
-        rgba(255,255,255,0.025) 60px
+        rgba(255,255,255,0.015) 59px,
+        rgba(255,255,255,0.015) 60px
       );
     pointer-events: none;
   }
@@ -199,7 +206,10 @@
   .hero-info-bar {
     position: relative;
     z-index: 1;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    background: rgba(8, 18, 14, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 0;
