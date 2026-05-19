@@ -519,8 +519,8 @@
 
   /* ── PROGRAM TIMETABLE ── */
   .program-section {
-    background: var(--ink);
-    color: var(--paper);
+    background: var(--mist);
+    color: var(--ink);
   }
 
   .program-inner {
@@ -528,9 +528,7 @@
     margin: 0 auto;
   }
 
-  .program-section .section-label { color: var(--gold); }
-  .program-section .section-label::before { background: var(--gold); }
-  .program-section .section-heading { color: var(--paper); }
+  .program-section .section-heading { color: var(--ink); }
 
   .program-day {
     margin-top: 3rem;
@@ -540,7 +538,7 @@
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 0.2em;
     font-size: 1rem;
-    color: var(--gold);
+    color: var(--accent);
     margin-bottom: 0.4rem;
   }
 
@@ -548,34 +546,36 @@
     font-family: 'Noto Serif JP', serif;
     font-weight: 700;
     font-size: 1.4rem;
-    color: var(--paper);
+    color: var(--ink);
     margin-bottom: 1.5rem;
   }
 
   .timetable {
     display: grid;
     gap: 0;
-    border: 1px solid rgba(255,255,255,0.1);
+    background: white;
+    border: 1px solid rgba(45, 74, 122, 0.12);
     margin-bottom: 3rem;
+    box-shadow: 0 4px 24px rgba(45, 74, 122, 0.06);
   }
 
   .timetable-row {
     display: grid;
     grid-template-columns: 130px 1fr 1.4fr;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(45, 74, 122, 0.1);
     transition: background 0.2s;
   }
 
   .timetable-row:last-child { border-bottom: none; }
-  .timetable-row:hover { background: rgba(255,255,255,0.04); }
+  .timetable-row:hover { background: rgba(45, 74, 122, 0.04); }
 
   .timetable-time {
     padding: 1.3rem 1.2rem;
     font-family: 'Bebas Neue', sans-serif;
     font-size: 0.88rem;
     letter-spacing: 0.08em;
-    color: var(--gold);
-    border-right: 1px solid rgba(255,255,255,0.08);
+    color: var(--accent);
+    border-right: 1px solid rgba(45, 74, 122, 0.1);
     display: flex;
     align-items: center;
   }
@@ -585,7 +585,8 @@
     font-weight: 700;
     font-family: 'Noto Serif JP', serif;
     font-size: 0.95rem;
-    border-right: 1px solid rgba(255,255,255,0.08);
+    color: var(--ink);
+    border-right: 1px solid rgba(45, 74, 122, 0.1);
     display: flex;
     align-items: center;
     line-height: 1.5;
@@ -595,7 +596,7 @@
     padding: 1.3rem 1.2rem;
     font-size: 0.82rem;
     line-height: 1.8;
-    color: rgba(245,240,232,0.6);
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
   }
@@ -1080,19 +1081,17 @@
 
   /* ── VOICES ── */
   .voices-section {
-    background: var(--ink);
-    color: var(--paper);
+    background: #faf5ec;
+    color: var(--ink);
     padding: 6rem 3rem;
   }
   .voices-inner {
     max-width: 1000px;
     margin: 0 auto;
   }
-  .voices-section .section-label { color: var(--gold); }
-  .voices-section .section-label::before { background: var(--gold); }
-  .voices-section .section-heading { color: var(--paper); margin-bottom: 1rem; }
+  .voices-section .section-heading { color: var(--ink); margin-bottom: 1rem; }
   .voices-note {
-    color: rgba(255,255,255,0.55);
+    color: var(--text-secondary);
     font-size: 0.88rem;
     margin-bottom: 2.5rem;
     line-height: 1.8;
@@ -1103,19 +1102,20 @@
     gap: 1.5rem;
   }
   .voice-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
+    background: white;
+    border: 1px solid rgba(45, 74, 122, 0.1);
     border-radius: 8px;
     padding: 1.8rem 1.8rem 1.4rem;
     position: relative;
+    box-shadow: 0 4px 16px rgba(45, 74, 122, 0.06);
   }
   .voice-card::before {
     content: '\201C';
     font-family: 'DM Serif Display', serif;
     font-size: 4rem;
     line-height: 1;
-    color: var(--gold);
-    opacity: 0.5;
+    color: var(--accent);
+    opacity: 0.55;
     position: absolute;
     top: 0.6rem;
     left: 1.2rem;
@@ -1124,7 +1124,7 @@
   .voice-text {
     font-size: 0.95rem;
     line-height: 1.95;
-    color: rgba(255,255,255,0.88);
+    color: var(--ink);
     padding-top: 1.4rem;
     word-break: keep-all;
     overflow-wrap: break-word;
@@ -1132,8 +1132,8 @@
   .voice-meta {
     margin-top: 1.2rem;
     font-size: 0.78rem;
-    color: var(--gold);
-    opacity: 0.75;
+    color: var(--accent);
+    opacity: 0.85;
     letter-spacing: 0.05em;
   }
   @media (max-width: 700px) {
@@ -1769,7 +1769,7 @@
   <div class="program-inner">
     <div class="section-label">PROGRAM</div>
     <h2 class="section-heading">2日間のプログラム</h2>
-    <p style="color: rgba(255,255,255,0.6); font-size: 0.92rem; line-height: 1.9; max-width: 720px;">
+    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.9; max-width: 720px;">
       朝のチェックインから翌日のクロージングまで、ワーク・対話・休息・食事のリズムを丁寧に設計しています。
       内容は当日の場の流れに応じて一部調整する場合があります。
     </p>
