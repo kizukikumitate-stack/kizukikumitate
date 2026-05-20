@@ -452,16 +452,16 @@
     <div class="price-banner-title">FEE</div>
     <div class="price-banner-rows">
       <div class="price-banner-row">
-        定価<strong>¥75,000<small>＋税</small></strong>
-        <small>7/1以降の単独申込</small>
+        定価<strong>¥82,500<small>（税込）</small></strong>
+        <small>税抜 ¥75,000 ／ 7/1以降の単独申込</small>
       </div>
       <div class="price-banner-row">
-        早割 / ペア割（10%OFF）<strong>¥67,500<small>＋税</small></strong>
-        <small>6/30まで or 2名同時</small>
+        早割 / ペア割（10%OFF）<strong>¥74,250<small>（税込）</small></strong>
+        <small>税抜 ¥67,500 ／ 6/30まで or 2名同時</small>
       </div>
       <div class="price-banner-row">
-        ペア早割（20%OFF）<strong>¥60,000<small>＋税</small></strong>
-        <small>6/30まで かつ 2名同時</small>
+        ペア早割（20%OFF）<strong>¥66,000<small>（税込）</small></strong>
+        <small>税抜 ¥60,000 ／ 6/30まで かつ 2名同時</small>
       </div>
     </div>
   </div>
@@ -657,7 +657,7 @@
     else if (hasPair) { label = 'ペア割（10%OFF）'; amount = 67500; }
     else { label = '定価'; amount = 75000; }
     const tax = Math.round(amount * 1.1);
-    appliedPriceText.textContent = `${label}：¥${amount.toLocaleString()}＋税（税込 ¥${tax.toLocaleString()}）`;
+    appliedPriceText.textContent = `${label}：¥${tax.toLocaleString()}（税込／税抜 ¥${amount.toLocaleString()}）`;
     appliedPrice.style.display = 'block';
   }
 
