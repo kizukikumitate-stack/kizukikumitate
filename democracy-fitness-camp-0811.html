@@ -1071,6 +1071,90 @@
 
   .pricing-note li { margin-bottom: 0.4rem; }
 
+  /* ── APPLY FLOW（お申込みの流れ 3ステップ）── */
+  .flow-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.6rem;
+    margin: 2.5rem auto 3rem;
+    max-width: 900px;
+    position: relative;
+  }
+  .flow-step-card {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 10px;
+    padding: 2.4rem 1.4rem 1.6rem;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .flow-step-num {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: white;
+    color: var(--accent);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+  }
+  .flow-step-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.6rem;
+    line-height: 1;
+  }
+  .flow-step-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.6rem;
+    line-height: 1.5;
+  }
+  .flow-step-desc {
+    font-size: 0.82rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.85);
+    text-align: left;
+  }
+  /* ステップ間の矢印（PC・タブレットのみ） */
+  .flow-step-card::after {
+    content: '→';
+    position: absolute;
+    right: -1.3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,0.55);
+    font-size: 1.4rem;
+    pointer-events: none;
+  }
+  .flow-step-card:last-child::after { display: none; }
+  @media (max-width: 700px) {
+    .flow-steps-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.8rem;
+    }
+    .flow-step-card::after {
+      content: '↓';
+      right: auto;
+      left: 50%;
+      top: auto;
+      bottom: -1.5rem;
+      transform: translateX(-50%);
+    }
+  }
+
   /* ── COUNTDOWN ── */
   .countdown-banner {
     display: inline-flex;
@@ -2441,6 +2525,28 @@
     <div class="register-deadline-item">
       <div class="register-deadline-label">定員</div>
       <div class="register-deadline-value">最少催行10名／25名上限</div>
+    </div>
+  </div>
+
+  <!-- お申込みの流れ 3ステップ -->
+  <div class="flow-steps-grid" aria-label="お申込みの流れ">
+    <div class="flow-step-card">
+      <div class="flow-step-num">1</div>
+      <div class="flow-step-icon">✏️</div>
+      <div class="flow-step-title">フォームに入力・送信</div>
+      <div class="flow-step-desc">必要事項をご記入のうえ、お申込みフォームから送信してください。所要 約3〜5分。</div>
+    </div>
+    <div class="flow-step-card">
+      <div class="flow-step-num">2</div>
+      <div class="flow-step-icon">📧</div>
+      <div class="flow-step-title">受付確認メールが届く</div>
+      <div class="flow-step-desc">送信直後に、適用される参加費を含む受付確認メールが自動でお手元に届きます。</div>
+    </div>
+    <div class="flow-step-card">
+      <div class="flow-step-num">3</div>
+      <div class="flow-step-icon">✅</div>
+      <div class="flow-step-title">振込案内 → 参加確定</div>
+      <div class="flow-step-desc">数日以内に振込先のご案内を別メールでお送りします。お振込み確認後に参加確定となります。</div>
     </div>
   </div>
 
