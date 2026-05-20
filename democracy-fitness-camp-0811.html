@@ -789,13 +789,16 @@
   }
 
   .speaker-photo {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    height: auto;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--gold);
+    border: 4px solid var(--gold);
     display: block;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.3);
   }
 
   .speaker-tag {
@@ -1386,6 +1389,36 @@
   .gallery-section:not(.dark) .gallery-slider::-webkit-scrollbar-track { background: #e8e2d9; }
   .gallery-section:not(.dark) .gallery-slider::-webkit-scrollbar-thumb { background: var(--nordic); }
 
+  /* ── GALLERY GRID（上下二段の一覧型）── */
+  .gallery-grid {
+    display: grid;
+    gap: 12px;
+    margin-top: 2rem;
+    padding-right: 3rem;
+  }
+  .gallery-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .gallery-grid .gallery-slide {
+    aspect-ratio: 4 / 3;
+    height: auto;
+    width: 100%;
+    flex: none;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+  @media (max-width: 1024px) {
+    .gallery-grid.cols-5 { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .gallery-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid.cols-5 { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .gallery-grid.cols-3,
+    .gallery-grid.cols-5 { grid-template-columns: repeat(2, 1fr); }
+  }
+
   .gallery-slide {
     flex: 0 0 380px;
     height: 480px;
@@ -1721,7 +1754,7 @@
     世界各地から集まった実践者が、コペンハーゲンに会して2日間のデモクラシーフィットネスを行いました。本国の認定トレーナーが進行し、参加者は身体ごと10の筋肉を体験。ワークの空気感を写真でご覧ください。
   </p>
 
-  <div class="gallery-slider" data-gallery="dk">
+  <div class="gallery-grid cols-3" data-gallery="dk">
     <div class="gallery-slide"><img src="./df-dk-3.jpg" alt="Welcome to Democracy Fitness — デンマーク本部での開会の様子" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-dk-5.jpg" alt="円になって対話する参加者たち" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-dk-2.jpg" alt="What is democracy to you? — 参加者が書いたハートカードの壁" loading="lazy"></div>
@@ -1729,7 +1762,6 @@
     <div class="gallery-slide"><img src="./df-dk-6.jpg" alt="立ち上がって意見を交わす場面" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-dk-1.jpg" alt="プログラム修了時の参加者集合写真" loading="lazy"></div>
   </div>
-  <p class="gallery-hint">← スワイプで全て見る →</p>
 </section>
 
 <!-- ── 10 MUSCLES ── -->
@@ -2055,7 +2087,7 @@
     森に囲まれた敷地、コンクリートと木が組み合わさったメインホール、ラウンジ、印象的なキッチン、屋内の薪炉、屋外のピザ窯、薪が積まれた円形ドーム、薪を組んだ大型オブジェ、夜の焚き火台——朝のチェックインから翌日のクロージングまで、参加者の動線に沿った場の表情をご覧ください。
   </p>
 
-  <div class="gallery-slider" data-gallery="venue">
+  <div class="gallery-grid cols-5" data-gallery="venue">
     <div class="gallery-slide"><img src="./df-tv-7.jpg" alt="TAKIVIVAメイン棟の正面玄関アプローチ" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-11.jpg" alt="TAKIVIVAメインホール、別アングルからの内観" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-2.jpg" alt="コンクリート天井と長テーブルが伸びるメインホール（ワーク・対話の中心空間）" loading="lazy"></div>
@@ -2067,7 +2099,6 @@
     <div class="gallery-slide"><img src="./df-tv-9.jpg" alt="森の中の、薪を組んだ大型の象モチーフのオブジェ" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-6.jpg" alt="切り株の椅子に囲まれた焚き火台（夜の自由対話の場）" loading="lazy"></div>
   </div>
-  <p class="gallery-hint">← スワイプで全て見る →</p>
 </section>
 
 <!-- ── SPEAKER ── -->
@@ -2091,22 +2122,24 @@
     <div class="speaker-bio">
       <h3>プロフィール</h3>
       <p>「時代が必要とする学びの機会を作り、届ける」をテーマに、日本を中心に人材開発・組織開発に従事。</p>
-      <p>9年ほど東京都で小学校教員として勤めた後、単身セブ島に移住し、複数の教育事業の立ち上げに従事。2015年に帰国後、日本の教育系企業にて多くの企業に研修やワークショップを提供。以降、合計数百にわたる企業の人事戦略・組織戦略の立案や教育施策の実施を支援。</p>
-      <p>2022年末に独立後、国内外の先進的な教育実践や働き方のリサーチをしながら、日本の伝統的な組織の働き方・学び方のアップデートに挑戦中。</p>
-      <p>2013年にシンガポールにてLSP（レゴシリアスプレイ）のトレーニングを受講。以降、企業を中心に500以上の現場にLSPを提供するなど、日本でも有数の実践を重ねている。</p>
-      <p>2022年末に軽井沢に移住。森の中で人間社会と自然との共存の仕方について考え中。</p>
+      <p>9年ほど東京都で小学校教員として勤めた後、単身セブ島に移住し、複数の教育事業の立ち上げに従事。2015年の帰国後は日本の教育系企業にて、多くの企業に研修やワークショップを提供。<strong>製造・金融・IT・サービス・医療・行政・NPO・教育機関など、業界・職種を横断して数百社にわたる組織の人事戦略・組織戦略の立案や教育施策の実施を支援</strong>してきた。</p>
+      <p>2022年末に独立。国内外の先進的な教育実践や働き方のリサーチをしながら、日本の伝統的な組織の働き方・学び方のアップデートに挑戦中。</p>
+      <p>2013年にシンガポールにてLSP（レゴシリアスプレイ）のトレーニングを受講。以降、企業を中心に<strong>500以上の現場にLSPを提供</strong>するなど、日本でも有数の登壇数を誇るLSPファシリテーターの一人。</p>
+      <p>デモクラシーフィットネスにおいては、本国デンマークの組織から直接トレーナー認定を受けるとともに、デンマーク社会の根っこにある対話文化・教育哲学・歴史を継続的にフィールドリサーチしている。</p>
+      <p>2022年末に軽井沢に移住。森の中で、人間社会と自然との共存の仕方について考え中。</p>
 
       <div class="badge-row">
         <div class="badge">
-          <strong>デンマーク本体から直接認定を受けたトレーナー。</strong><br>
-          デモクラシーフィットネスの発祥地であるデンマークの本部組織から、直接トレーナー認定を受けています。
-          日本国内で正規ライセンスを持って実施できる数少ない実践者の一人です。
+          <strong>業界横断の組織開発を、数百社で実践。</strong><br>
+          製造・金融・IT・サービス・医療・行政・NPO・教育機関など、業界と職種を超えて数百社の組織開発に伴走してきました。日本の組織が抱える「沈黙・同調・忖度」といった固有の課題に、その業種・規模・文化に合わせて向き合えるのが強みです。
         </div>
         <div class="badge">
-          <strong>日本の組織への翻訳力が強み。</strong><br>
-          デンマーク発の対話文化を、日本の組織・教育・地域の文脈に合わせて再構成しています。
-          単に北欧のやり方をそのまま持ち込むのではなく、日本の組織が抱える「沈黙・同調・忖度」といった
-          固有の課題に向き合う形で、ワークの設計と進行を行います。
+          <strong>LSP（レゴシリアスプレイ）日本有数の登壇数。</strong><br>
+          同じくデンマーク発祥のLSPメソッドにおいて、企業を中心に<strong>500以上の現場</strong>に登壇。日本国内でも有数の実践数を持つファシリテーターとして、「身体性のある対話」「沈黙していた声をかたちにする」現場経験を蓄積しています。
+        </div>
+        <div class="badge">
+          <strong>デンマーク本場での認定＋現地フィールドリサーチ。</strong><br>
+          デモクラシーフィットネスの発祥地・デンマーク本部から直接トレーナー認定を受けるとともに、現地の教育・歴史・対話文化のフィールドリサーチを継続的に行っています。北欧のやり方をそのまま持ち込むのではなく、本場の文脈を日本の組織に翻訳する設計を心がけています。
         </div>
       </div>
     </div>
