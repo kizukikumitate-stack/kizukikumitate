@@ -747,6 +747,98 @@
     align-items: center;
   }
 
+  /* ── FOLLOW-UP CARD（合宿1ヶ月後オンライン）── */
+  .followup-card {
+    margin-top: 3rem;
+    padding: 2.5rem 2.4rem;
+    background: linear-gradient(135deg, #fff7f1 0%, #fff 100%);
+    border: 2px solid var(--accent);
+    border-radius: 10px;
+    box-shadow: 0 8px 28px rgba(232, 93, 38, 0.12);
+    position: relative;
+  }
+  .followup-label {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+    color: white;
+    background: var(--accent);
+    padding: 0.35rem 0.95rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .followup-title {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: clamp(1.15rem, 2.4vw, 1.5rem);
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .followup-meta {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.6rem;
+    line-height: 1.8;
+  }
+  .followup-meta strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .followup-body {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.2rem;
+    align-items: start;
+  }
+  .followup-purpose {
+    font-size: 0.92rem;
+    line-height: 2;
+    color: var(--ink);
+  }
+  .followup-purpose p { margin-bottom: 1rem; }
+  .followup-purpose p:last-child { margin-bottom: 0; }
+  .followup-agenda {
+    background: rgba(255,255,255,0.7);
+    border-left: 3px solid var(--accent);
+    padding: 1.2rem 1.4rem;
+    border-radius: 0 6px 6px 0;
+  }
+  .followup-agenda-title {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    color: var(--accent);
+    margin-bottom: 0.8rem;
+  }
+  .followup-agenda ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .followup-agenda li {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--ink);
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed rgba(45, 74, 122, 0.15);
+    display: flex;
+    gap: 0.6rem;
+  }
+  .followup-agenda li:last-child { border-bottom: none; }
+  .followup-agenda li::before {
+    content: '▸';
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  @media (max-width: 768px) {
+    .followup-card { padding: 2rem 1.4rem; }
+    .followup-body { grid-template-columns: 1fr; gap: 1.5rem; }
+  }
+
   /* ── VENUE TAKIVIVA ── */
   .venue-section {
     background: var(--paper);
@@ -2272,6 +2364,34 @@
           <div class="timetable-time">16:30–17:00</div>
           <div class="timetable-item">クロージング／<br>チェックアウト</div>
           <div class="timetable-desc">循環する場から、それぞれの現場へ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- + ONE MONTH LATER ── 合宿1ヶ月後のオンライン振り返り -->
+    <div class="followup-card">
+      <span class="followup-label">+ ONE MONTH LATER</span>
+      <div class="followup-title">実践と再点火 — 1ヶ月後のオンラインセッション（2時間）</div>
+      <div class="followup-meta">
+        <strong>日程：</strong>合宿後1ヶ月を目安に、参加者の皆さんと調整して決定します　／　<strong>形式：</strong>Zoom（夜の時間帯を予定）　／　<strong>参加費：</strong>合宿参加費に含まれます
+      </div>
+      <div class="followup-body">
+        <div class="followup-purpose">
+          <p>
+            合宿で得た「対話の体力」は、日常で使い続けなければ衰えます。逆に、意識的に使ってみると、思わぬ気づきや行き詰まりに出会います。
+          </p>
+          <p>
+            1ヶ月後、参加者が再び集まり、<strong>「現場でどう動かしたか／動かなかったか」を持ち寄る場</strong>を用意します。仲間と再会することで、もう一度火を入れ直す——そんな2時間です。
+          </p>
+        </div>
+        <div class="followup-agenda">
+          <div class="followup-agenda-title">CONTENTS</div>
+          <ul>
+            <li>1ヶ月の実践報告（小グループで持ち寄り）</li>
+            <li>続いている筋肉／衰えた筋肉の自己診断</li>
+            <li>困りごと・問いへの応答</li>
+            <li>次の一歩を言語化（持ち帰り宣言の更新）</li>
+          </ul>
         </div>
       </div>
     </div>
