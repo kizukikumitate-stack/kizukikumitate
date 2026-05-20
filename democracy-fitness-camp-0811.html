@@ -430,6 +430,63 @@
     color: rgba(255,255,255,0.78);
   }
 
+  /* ── FOR WHOM（こんな方へ） ── */
+  .for-whom-section {
+    background: var(--mist);
+    padding: 6rem 3rem;
+  }
+  .for-whom-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .for-whom-lead {
+    font-size: 1rem;
+    line-height: 2;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin-bottom: 3rem;
+  }
+  .for-whom-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+  .for-whom-card p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+  .for-whom-card {
+    background: white;
+    padding: 2rem 1.6rem;
+    border-top: 3px solid var(--accent);
+    position: relative;
+    box-shadow: 0 6px 20px rgba(45, 74, 122, 0.06);
+  }
+  .for-whom-icon {
+    font-size: 2.1rem;
+    margin-bottom: 1rem;
+  }
+  .for-whom-card h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .for-whom-card p {
+    font-size: 0.85rem;
+    line-height: 1.95;
+    color: var(--text-secondary);
+  }
+  @media (max-width: 900px) {
+    .for-whom-section { padding: 4rem 1.5rem; }
+    .for-whom-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 540px) {
+    .for-whom-grid { grid-template-columns: minmax(0, 1fr); }
+  }
+
   /* ── EVENING (焚き火セクション) ── */
   .evening-section {
     background: #0a0a14;
@@ -1014,6 +1071,37 @@
 
   .pricing-note li { margin-bottom: 0.4rem; }
 
+  /* ── COUNTDOWN ── */
+  .countdown-banner {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.6rem;
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 999px;
+    margin-bottom: 1.4rem;
+    font-size: 0.92rem;
+    color: white;
+    font-weight: 500;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .countdown-banner .countdown-icon { font-size: 1.05rem; }
+  .countdown-banner .countdown-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+  .countdown-banner.expired {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.65);
+  }
+  .countdown-banner.expired .countdown-num { color: rgba(255,255,255,0.5); }
+
   /* ── REGISTER ── */
   .register-section {
     background: var(--accent);
@@ -1529,6 +1617,57 @@
     .video-block { padding-left: 1.5rem; padding-right: 1.5rem; }
   }
 
+  /* ── STICKY CTA（モバイル） ── */
+  .sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 150;
+    background: rgba(232, 93, 38, 0.97);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 0.8rem 1.2rem;
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 0 -8px 24px rgba(0,0,0,0.18);
+    transform: translateY(120%);
+    transition: transform 0.35s ease;
+  }
+  .sticky-cta.visible {
+    transform: translateY(0);
+  }
+  .sticky-cta-text {
+    color: white;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .sticky-cta-text strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.1rem;
+  }
+  .sticky-cta-btn {
+    background: white;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    font-weight: 700;
+    font-size: 0.88rem;
+    border-radius: 6px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+  }
+  /* モバイル＆タブレットで表示 */
+  @media (max-width: 900px) {
+    .sticky-cta { display: flex; }
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(24px); }
@@ -1833,6 +1972,39 @@
         referrerpolicy="strict-origin-when-cross-origin"></iframe>
     </div>
     <div class="video-block-caption">デモクラシーフィットネス紹介ビデオ（YouTube）</div>
+  </div>
+</section>
+
+<!-- ── FOR WHOM（こんな方へ） ── -->
+<section class="for-whom-section">
+  <div class="for-whom-inner">
+    <div class="section-label">FOR WHOM</div>
+    <h2 class="section-heading">こんな方へ。</h2>
+    <p class="for-whom-lead">
+      組織・チーム・地域・教室——立場は違っても、「対話を通じて何かを動かしていきたい」と感じている方に向けて設計しています。
+    </p>
+    <div class="for-whom-grid">
+      <div class="for-whom-card">
+        <div class="for-whom-icon">🏢</div>
+        <h3>経営者・マネージャー</h3>
+        <p>会議で本音が出ない、意思決定に当事者意識が宿らない。組織の「対話の体力」を上げたい方に。</p>
+      </div>
+      <div class="for-whom-card">
+        <div class="for-whom-icon">👥</div>
+        <h3>人事・組織開発</h3>
+        <p>研修の効果が現場で続かない、対話文化の土台を厚くしたい。組織開発の実践引き出しを増やしたい方に。</p>
+      </div>
+      <div class="for-whom-card">
+        <div class="for-whom-icon">🎓</div>
+        <h3>教育者・ファシリテーター</h3>
+        <p>自分の現場に持ち帰れる実践型の経験が欲しい。対話設計の本場のメソッドを身体ごと体験したい方に。</p>
+      </div>
+      <div class="for-whom-card">
+        <div class="for-whom-icon">🤝</div>
+        <h3>地域・NPO・行政</h3>
+        <p>立場の違う人と合意を作る難しさに向き合っている。利害や思いの異なる人と建設的に話す筋力を養いたい方に。</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -2247,6 +2419,10 @@
 <!-- ── REGISTER ── -->
 <section id="register" class="register-section">
   <div class="register-label">APPLY NOW</div>
+  <div class="countdown-banner" id="earlyCountdown" style="display:none;">
+    <span class="countdown-icon">⏰</span>
+    <span>早割締切まで あと <span class="countdown-num" id="earlyDays">—</span> 日</span>
+  </div>
   <h2 class="register-heading">お申込み</h2>
   <p class="register-sub">
     早割締切：<strong>2026年6月30日（火）</strong>／申込締切：<strong>2026年7月31日（金）</strong><br>
@@ -2516,6 +2692,15 @@
   <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
 </footer>
 
+<!-- Sticky CTA (モバイル中心、ヒーロー通過後に表示) -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <div class="sticky-cta-text">
+    <strong>北軽井沢キャンプ2026</strong>
+    早割 ¥67,500〜（6/30まで）
+  </div>
+  <a href="./democracy-fitness-camp-0811-signup.html" class="sticky-cta-btn">お申込み →</a>
+</div>
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true">
   <button class="lightbox-close" id="lightboxClose" aria-label="閉じる">✕</button>
@@ -2529,6 +2714,53 @@
     document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   }
+
+  // 早割カウントダウン
+  (function() {
+    const banner = document.getElementById('earlyCountdown');
+    const numEl = document.getElementById('earlyDays');
+    if (!banner || !numEl) return;
+    const deadline = new Date('2026-06-30T23:59:59+09:00');
+    const now = new Date();
+    const diffMs = deadline - now;
+    const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+    if (days > 0) {
+      numEl.textContent = days;
+      banner.style.display = 'inline-flex';
+    } else if (days >= -1) {
+      // 当日
+      banner.innerHTML = '<span class="countdown-icon">⏰</span><span>本日が早割締切です</span>';
+      banner.style.display = 'inline-flex';
+    } else {
+      // 締切後：表示しない（または通常価格に切り替え案内）
+      banner.style.display = 'none';
+    }
+  })();
+
+  // Sticky CTA：ヒーロー通過後に表示、フッター手前で非表示
+  (function() {
+    const cta = document.getElementById('stickyCta');
+    const hero = document.querySelector('.hero');
+    const apply = document.getElementById('register');
+    if (!cta || !hero) return;
+    function update() {
+      const heroBottom = hero.getBoundingClientRect().bottom;
+      const applyTop = apply ? apply.getBoundingClientRect().top : Infinity;
+      const winH = window.innerHeight;
+      const passedHero = heroBottom < 0;
+      const nearApply = applyTop < winH * 0.8;
+      if (passedHero && !nearApply) {
+        cta.classList.add('visible');
+        cta.setAttribute('aria-hidden', 'false');
+      } else {
+        cta.classList.remove('visible');
+        cta.setAttribute('aria-hidden', 'true');
+      }
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
 
   // Gallery lightbox
   (function() {
