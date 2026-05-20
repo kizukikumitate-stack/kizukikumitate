@@ -430,6 +430,52 @@
     color: rgba(255,255,255,0.78);
   }
 
+  /* ── COOL ICON（共通） ── */
+  .cool-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(232, 93, 38, 0.08);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
+    transition: transform 0.25s ease, background 0.25s ease;
+    flex-shrink: 0;
+  }
+  .cool-icon svg {
+    width: 30px;
+    height: 30px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  /* ダーク背景上のアイコンは色を反転 */
+  .cool-icon.on-dark {
+    background: rgba(240, 180, 41, 0.15);
+  }
+  .cool-icon.on-dark svg {
+    stroke: var(--gold);
+  }
+  /* APPLY セクション（オレンジ背景上）でのアイコン */
+  .cool-icon.on-accent {
+    background: rgba(255, 255, 255, 0.18);
+  }
+  .cool-icon.on-accent svg {
+    stroke: white;
+    stroke-width: 2;
+  }
+  .for-whom-card:hover .cool-icon,
+  .why-camp-card:hover .cool-icon {
+    transform: scale(1.08);
+    background: rgba(232, 93, 38, 0.14);
+  }
+  .why-camp-card:hover .cool-icon {
+    background: rgba(240, 180, 41, 0.25);
+  }
+
   /* ── FOR WHOM（こんな方へ） ── */
   .for-whom-section {
     background: var(--mist);
@@ -2161,22 +2207,48 @@
     </p>
     <div class="for-whom-grid">
       <div class="for-whom-card">
-        <div class="for-whom-icon">🏢</div>
+        <div class="cool-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/>
+            <path d="M6 12H4a2 2 0 0 0-2 2v8h4"/>
+            <path d="M18 9h2a2 2 0 0 1 2 2v11h-4"/>
+            <path d="M10 6h4M10 10h4M10 14h4M10 18h4"/>
+          </svg>
+        </div>
         <h3>経営者・マネージャー</h3>
         <p>会議で本音が出ない、意思決定に当事者意識が宿らない。組織の「対話の体力」を上げたい方に。</p>
       </div>
       <div class="for-whom-card">
-        <div class="for-whom-icon">👥</div>
+        <div class="cool-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
         <h3>人事・組織開発</h3>
         <p>研修の効果が現場で続かない、対話文化の土台を厚くしたい。組織開発の実践引き出しを増やしたい方に。</p>
       </div>
       <div class="for-whom-card">
-        <div class="for-whom-icon">🎓</div>
+        <div class="cool-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M22 10v6"/>
+            <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>
+            <path d="m22 10-9.7-5a3 3 0 0 0-2.6 0L2 10l9.7 5a3 3 0 0 0 2.6 0z"/>
+          </svg>
+        </div>
         <h3>教育者・ファシリテーター</h3>
         <p>自分の現場に持ち帰れる実践型の経験が欲しい。対話設計の本場のメソッドを身体ごと体験したい方に。</p>
       </div>
       <div class="for-whom-card">
-        <div class="for-whom-icon">🤝</div>
+        <div class="cool-icon">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+            <path d="M2 12h20"/>
+          </svg>
+        </div>
         <h3>地域・NPO・行政</h3>
         <p>立場の違う人と合意を作る難しさに向き合っている。利害や思いの異なる人と建設的に話す筋力を養いたい方に。</p>
       </div>
@@ -2194,7 +2266,15 @@
     </p>
     <div class="why-camp-grid">
       <div class="why-camp-card">
-        <div class="why-camp-card-icon">💪</div>
+        <div class="cool-icon on-dark">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6.5" y="9" width="11" height="6" rx="1"/>
+            <rect x="3" y="11" width="3" height="2" rx="0.5"/>
+            <rect x="18" y="11" width="3" height="2" rx="0.5"/>
+            <rect x="1.5" y="10" width="1.5" height="4" rx="0.5"/>
+            <rect x="21" y="10" width="1.5" height="4" rx="0.5"/>
+          </svg>
+        </div>
         <h3>10の筋肉を、2日間で一気に体験する。</h3>
         <p>
           好奇心・傾聴・共感・勇気・反対意見の表明・妥協・意見・活動家・動員・言葉への自信。
@@ -2203,7 +2283,14 @@
         </p>
       </div>
       <div class="why-camp-card">
-        <div class="why-camp-card-icon">🌲</div>
+        <div class="cool-icon on-dark">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M3.5 21 14 3"/>
+            <path d="M20.5 21 10 3"/>
+            <path d="M15.5 21 12 15l-3.5 6"/>
+            <path d="M2 21h20"/>
+          </svg>
+        </div>
         <h3>北軽井沢の森で、日常から離れて集中する。</h3>
         <p>
           いつもの役割・肩書き・スマホ通知から少し距離を置くだけで、対話の質は変わります。
@@ -2212,7 +2299,12 @@
         </p>
       </div>
       <div class="why-camp-card">
-        <div class="why-camp-card-icon">🗣️</div>
+        <div class="cool-icon on-dark">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z"/>
+            <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/>
+          </svg>
+        </div>
         <h3>多様な意見を、対話の力で活かす練習をする。</h3>
         <p>
           多様性が大事だと頭ではわかっていても、実際に違う意見を持つ人と話し合いを進めるのは難しい——
@@ -2221,7 +2313,11 @@
         </p>
       </div>
       <div class="why-camp-card">
-        <div class="why-camp-card-icon">🤝</div>
+        <div class="cool-icon on-dark">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+        </div>
         <h3>2日間ともに過ごす仲間ができる。</h3>
         <p>
           1泊2日、寝食をともにすることで、研修の枠を超えた関係が生まれます。
@@ -2650,19 +2746,34 @@
   <div class="flow-steps-grid" aria-label="お申込みの流れ">
     <div class="flow-step-card">
       <div class="flow-step-num">1</div>
-      <div class="flow-step-icon">✏️</div>
+      <div class="cool-icon on-accent">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 20h9"/>
+          <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4z"/>
+        </svg>
+      </div>
       <div class="flow-step-title">フォームに入力・送信</div>
       <div class="flow-step-desc">必要事項をご記入のうえ、お申込みフォームから送信してください。所要 約3〜5分。</div>
     </div>
     <div class="flow-step-card">
       <div class="flow-step-num">2</div>
-      <div class="flow-step-icon">📧</div>
+      <div class="cool-icon on-accent">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="20" height="16" x="2" y="4" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </div>
       <div class="flow-step-title">受付確認メールが届く</div>
       <div class="flow-step-desc">送信直後に、適用される参加費を含む受付確認メールが自動でお手元に届きます。</div>
     </div>
     <div class="flow-step-card">
       <div class="flow-step-num">3</div>
-      <div class="flow-step-icon">✅</div>
+      <div class="cool-icon on-accent">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
+      </div>
       <div class="flow-step-title">振込案内 → 参加確定</div>
       <div class="flow-step-desc">数日以内に振込先のご案内を別メールでお送りします。お振込み確認後に参加確定となります。</div>
     </div>
