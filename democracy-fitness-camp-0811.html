@@ -430,6 +430,95 @@
     color: rgba(255,255,255,0.78);
   }
 
+  /* ── EVENING (焚き火セクション) ── */
+  .evening-section {
+    background: #0a0a14;
+    color: var(--paper);
+    padding: 7rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .evening-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .evening-section .section-label {
+    color: var(--gold);
+    margin-bottom: 1.4rem;
+  }
+  .evening-section .section-label::before {
+    background: var(--gold);
+  }
+  .evening-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: clamp(1.8rem, 4.2vw, 3.4rem);
+    line-height: 1.4;
+    margin-bottom: 2.5rem;
+    color: var(--paper);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    letter-spacing: 0.01em;
+  }
+  .evening-heading em {
+    color: #ff7e3a;
+    font-style: normal;
+    font-weight: 900;
+  }
+  .evening-main-img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+    border-radius: 4px;
+  }
+  .evening-main-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .evening-content {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+  .evening-body {
+    font-size: 1rem;
+    line-height: 2.1;
+    color: rgba(248, 246, 255, 0.82);
+  }
+  .evening-body p {
+    margin-bottom: 1.3rem;
+  }
+  .evening-body p:last-child { margin-bottom: 0; }
+  .evening-body strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .evening-sub-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    border-radius: 4px;
+  }
+  .evening-sub-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 900px) {
+    .evening-section { padding: 5rem 1.5rem; }
+    .evening-content { grid-template-columns: 1fr; gap: 2rem; }
+    .evening-main-img { aspect-ratio: 4 / 3; }
+  }
+
   /* ── 10 MUSCLES (compact)── */
   .muscles-section {
     background: var(--nordic);
@@ -1764,6 +1853,40 @@
   </div>
 </section>
 
+<!-- ── THE EVENING ── -->
+<section class="evening-section">
+  <div class="evening-inner">
+    <div class="section-label">THE EVENING</div>
+    <h2 class="evening-heading">夜、<em>焚き火</em>を囲んで、<br>語り合う。</h2>
+
+    <div class="evening-main-img">
+      <img src="./df-tv-fire-main.jpg" alt="北軽井沢TAKIVIVAの夜の焚き火。暗闇に青と橙の炎が浮かび上がる" loading="lazy">
+    </div>
+
+    <div class="evening-content">
+      <div class="evening-body">
+        <p>
+          日中のワークで耕した問いを、<strong>夜の火のまわりで深める</strong>。
+          スマホを置いて、ただ語り合うこの時間が、
+          合宿でしか手に入らない深さへと連れて行ってくれます。
+        </p>
+        <p>
+          自分の社会への違和感、組織での孤独、家族との対話の難しさ——
+          昼のワークではまだ言葉になっていなかったものが、
+          夜の火のゆらぎの前で、ぽつりぽつりと言葉になっていく。
+        </p>
+        <p>
+          翌朝の自分は、来た時とは少し違う場所に立っている——
+          そう信じられる夜です。
+        </p>
+      </div>
+      <div class="evening-sub-img">
+        <img src="./df-tv-fire-sub.jpg" alt="焚き火台を囲んで対話する参加者" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ── PROGRAM ── -->
 <section class="program-section">
   <div class="program-inner">
@@ -1929,14 +2052,16 @@
   <div class="section-label">INSIDE TAKIVIVA</div>
   <h2 class="section-heading">会場の様子</h2>
   <p class="gallery-lead">
-    森に囲まれた敷地、コンクリートと木が組み合わさったメインホール、ラウンジ、印象的なキッチン、屋外のピザ窯、薪が積まれた円形ドーム、薪を組んだ大型オブジェ、夜の焚き火台——朝のチェックインから翌日のクロージングまで、参加者の動線に沿った場の表情をご覧ください。
+    森に囲まれた敷地、コンクリートと木が組み合わさったメインホール、ラウンジ、印象的なキッチン、屋内の薪炉、屋外のピザ窯、薪が積まれた円形ドーム、薪を組んだ大型オブジェ、夜の焚き火台——朝のチェックインから翌日のクロージングまで、参加者の動線に沿った場の表情をご覧ください。
   </p>
 
   <div class="gallery-slider" data-gallery="venue">
     <div class="gallery-slide"><img src="./df-tv-7.jpg" alt="TAKIVIVAメイン棟の正面玄関アプローチ" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-tv-11.jpg" alt="TAKIVIVAメインホール、別アングルからの内観" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-2.jpg" alt="コンクリート天井と長テーブルが伸びるメインホール（ワーク・対話の中心空間）" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-10.jpg" alt="大きな窓から森を望むラウンジ／カフェ空間" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-8.jpg" alt="鮮やかな棚が並ぶコンクリート造のキッチン・食器スペース" loading="lazy"></div>
+    <div class="gallery-slide"><img src="./df-tv-12.jpg" alt="屋内の薪炉とやかん。火を囲む生活道具がしつらえられた空間" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-4.jpg" alt="屋外のピザ窯・キッチンスペース（食を囲む場）" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-3.jpg" alt="薪が山積みになった円形ドームと、奥に広がる湖" loading="lazy"></div>
     <div class="gallery-slide"><img src="./df-tv-9.jpg" alt="森の中の、薪を組んだ大型の象モチーフのオブジェ" loading="lazy"></div>
