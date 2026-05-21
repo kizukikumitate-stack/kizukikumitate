@@ -213,3 +213,183 @@ GitHub Pagesへの反映に1〜2分かかることをユーザーに伝える。
 - ウェブ版を修正したときは**必ずモバイル版も同時に確認・修正する**（ユーザーからのフィードバック）
 - Chrome のウィンドウリサイズではモバイルビューポートを正確に再現できない（最小幅の制限がある）
 - 修正後は実機またはブラウザ開発者ツールのデバイスモードでの確認をユーザーに依頼する
+
+---
+
+## 過去にハマった具体的な落とし穴（2026-05 セッションで判明）
+
+### 落とし穴 1: CSS コメントに `</style>` リテラルを入れてはいけない
+
+最も時間を浪費した事故。HTMLパーサーは `<style>` 要素を "raw text" として扱うため、
+内容内に `</style>` を見つけると即座にstyleブロックを終了する。CSSコメント内であっても同様。
+
+```css
+/* NG: このコメントを書くと、ここで style 要素が早期終了し、以降の CSS が全部 body に流れる */
+/* ===== 末尾の override（必ず </style> 直前に配置） ===== */
+
+/* OK: 「</style>」を別の表現に置き換える */
+/* ===== 末尾の override（必ず style 終端の直前に配置） ===== */
+```
+
+**症状**: モバイル用overrideを追加したのに、`getComputedStyle()` で見ても適用されていない。
+ソースを見ると CSS は確かに書かれている。しかしDevToolsで見ると style が途中で閉じている。
+
+**チェック**: CSSコメント内に `</style>` 文字列が含まれていないか必ず確認する。
+
+### 落とし穴 2: `grid-template-columns: 1fr` の content-min-width 問題
+
+CSSの `1fr` は実は `minmax(auto, 1fr)` であり、`auto` minimum は **コンテンツの最小幅** を取る。
+日本語の `word-break: keep-all` で長文がひとつの「単語」になっていると、
+**grid trackが画面より広く広がってしまう**。
+
+```css
+/* NG: 1fr が content-min-width まで拡張する */
+.voices-grid { grid-template-columns: 1fr; }
+
+/* OK: minmax(0, 1fr) で 0 まで縮小可能に */
+.voices-grid { grid-template-columns: minmax(0, 1fr); }
+.voice-card { min-width: 0; }                    /* grid item 側にも必要 */
+.voice-text { word-break: normal; }              /* もしくは auto-phrase */
+```
+
+**症状**: `1fr` の単一カラムなのに、カードが画面より広く描画される（例: 327px枠に514pxのカード）。
+`getBoundingClientRect()` の `gridTemplateColumns` が `"514px"` のように具体値で出る。
+
+**対策（テンプレート）**: モバイル最終overrideで以下を一括適用:
+
+```css
+@media (max-width: 768px) {
+  .xxx-grid, .yyy-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .xxx-card, .yyy-card { min-width: 0; }
+}
+```
+
+### 落とし穴 3: flex 子要素の `min-width: auto` も同じ問題
+
+`display: flex` の子要素も `min-width: auto`（content min-width）で広がる。
+flex子要素にテキストブロックが入っている場合、画面より広くなることがある。
+
+```css
+/* NG: flex子の text コンテンツが親より広く広がる */
+.pricing-impact { display: flex; flex-direction: column; }
+.pricing-impact-content { flex: 1; }  /* min-width: auto がデフォルト */
+
+/* OK: flex子側で min-width:0 */
+.pricing-impact-content { flex: 1; min-width: 0; }
+```
+
+**症状**: 親 `.pricing-impact` は 327px だが、子の `.pricing-impact-content` が 456px に。
+`section { overflow-x: hidden }` で見えないだけで、テキストは画面外にクリップされている。
+
+### 落とし穴 4: テーブル (`<table>`) は自動レイアウトで content-min-width に伸びる
+
+テーブルは `width: 100%` でも、`table-layout: auto`（デフォルト）だと
+セル内コンテンツの最小幅にしたがって全体が伸びる。長い文字列を含むと viewport を超える。
+
+```css
+/* OK: テーブルレイアウトを固定し、列幅を明示 */
+.tokusho-table {
+  table-layout: fixed;
+  width: 100%;
+}
+.tokusho-table th { width: 38%; }
+.tokusho-table th, .tokusho-table td {
+  word-break: auto-phrase;
+  overflow-wrap: break-word;
+}
+```
+
+### 落とし穴 5: グローバルナビの padding/margin で hamburger が画面外
+
+```css
+/* NG: モバイルでもデスクトップ用 padding 3rem (48px) + margin-right 4rem (64px) のまま */
+.global-nav { padding: 1rem 3rem; }
+.global-nav .nav-logo { margin-right: 4rem; }
+/* 375pxの中で: 48 + (logo) + 64 + (links) + (hamburger 36px) → hamburger が右にはみ出す */
+
+/* OK: モバイルで padding/margin を縮小 */
+@media (max-width: 768px) {
+  .global-nav { padding: 1rem 1.2rem; }
+  .global-nav .nav-logo { margin-right: 1rem; }
+}
+```
+
+---
+
+## 「全grid・全カード安全ネット」テンプレート
+
+新規ページにも、既存ページの修正にも、このブロックを `</style>` 直前に置くだけで
+過去の落とし穴をまとめて防げる:
+
+```css
+/* ===== モバイル最終 overflow override（必ず style 終端の直前に配置） ===== */
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; }
+
+  /* 全gridセクションへの安全ネット */
+  .voices-grid,
+  .muscles-grid,
+  .pricing-grid,
+  .why-camp-grid,
+  .vision-roadmap,
+  .gallery-grid,
+  .what-section,
+  .speaker-section,
+  .hero-info-bar,
+  .venue-meta {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  /* カード/コンテナの min-width:0 + 改行ルール */
+  .voice-card, .why-camp-card, .price-card, .muscle-card,
+  .vision-step, .pricing-impact, .vision-mechanism,
+  .pricing-impact-content, .vision-mechanism-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  /* テーブル */
+  table {
+    table-layout: fixed;
+    width: 100%;
+  }
+  th, td {
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+  }
+
+  /* グローバルナビ */
+  .global-nav { padding: 1rem 1.2rem; }
+  .global-nav .nav-logo { margin-right: 1rem; }
+
+  /* セクション overflow ガード */
+  section { overflow-x: hidden; }
+}
+```
+
+## 診断ワンライナー（プレビューブラウザ内）
+
+```javascript
+// すべての要素の中で、viewport を超えているものをリストアップ
+(function(){
+  var v = document.documentElement.clientWidth;
+  var o = [];
+  document.querySelectorAll('body *').forEach(function(el){
+    var r = el.getBoundingClientRect();
+    if (r.right > v + 1) {
+      o.push({
+        cls: (el.className || '').toString().slice(0, 50),
+        right: Math.round(r.right),
+        w: Math.round(r.width),
+        text: (el.textContent || '').trim().slice(0, 25)
+      });
+    }
+  });
+  return { viewportW: v, bodyW: document.body.scrollWidth, n: o.length, samples: o.slice(0, 10) };
+})()
+```
+
+**期待値**: `n: 0`、`bodyW === viewportW`。
+1つでもオーバーする要素があればそれが原因。クラス名から CSS を特定して上記テンプレートに追加。

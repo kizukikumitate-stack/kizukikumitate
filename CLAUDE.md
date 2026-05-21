@@ -87,7 +87,9 @@ GitHub Pages で公開中の静的HTMLサイト。
 
 | スキル | 内容 |
 |---|---|
-| `fix-mobile-overflow` | モバイル表示のはみ出し予防・診断・修正手順 |
+| `fix-mobile-overflow` | モバイル表示のはみ出し予防・診断・修正手順（grid 1fr/flex min-width/style内コメント等の落とし穴含む） |
+| `fix-japanese-typography` | 日本語の禁則処理・単語内分割・1文字孤立を CSS Text Level 4 (auto-phrase/line-break/text-wrap) で解決 |
+| `optimize-page-images` | ページ内画像の sips リサイズ・再圧縮＋ preload/lazy 戦略でモバイル読み込みを高速化 |
 | `fix-nav-spacing` | ナビスペーシング管理手順 |
 | `create-page` | 新規ページ作成テンプレートと手順 |
 | `check-responsive` | 全ブレークポイントでのレスポンシブチェック手順 |
