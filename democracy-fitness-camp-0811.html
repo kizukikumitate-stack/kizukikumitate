@@ -2622,8 +2622,6 @@
     .pricing-lead,
     .venue-lead,
     .voices-note,
-    .pricing-impact-body,
-    .vision-mechanism-body,
     .vision-lead,
     .vision-closing-body,
     .vision-horizon,
@@ -2633,6 +2631,13 @@
     .what-visual-sub {
       text-align: center;
       text-wrap: balance;
+    }
+
+    /* PAY IT FORWARD / STRUCTURE の本文は 6-8 行の長さで、中央寄せだとダイヤモンド形状に
+       なって読みにくいため左寄せに（タイトル・ラベル・アイコンは中央寄せのまま） */
+    .pricing-impact-body,
+    .vision-mechanism-body {
+      text-align: left;
     }
 
     /* ジャスティファイ系（centered フレックス） */
