@@ -2537,6 +2537,13 @@
       text-align: center;
     }
 
+    /* flex column レイアウトのカードで、アイコンを中央寄せ
+       （pricing-impact / vision-mechanism は flex-direction: column で左寄りになる） */
+    .pricing-impact-icon,
+    .vision-mechanism-icon {
+      align-self: center;
+    }
+
     /* ヒーロー */
     .hero-label,
     .hero-title,
@@ -2557,7 +2564,11 @@
     .followup-title,
     .followup-meta,
     .pricing-impact-title,
+    .pricing-impact-label,
+    .pricing-impact-body,
     .vision-mechanism-title,
+    .vision-mechanism-label,
+    .vision-mechanism-body,
     .vision-bridge,
     .vision-lead,
     .vision-horizon,
