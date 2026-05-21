@@ -2455,8 +2455,13 @@
     .followup-purpose { line-height: 1.85; }
     .followup-purpose p { margin-bottom: 0.9rem; }
 
-    /* セクション自体にも overflow ガード */
-    section { overflow-x: hidden; }
+    /* セクション自体にも overflow ガード + 横パディング縮小（モバイルでは48pxは広すぎる）
+       一部のsectionにインラインstyle="padding: 6rem 3rem"があるため !important が必要 */
+    section {
+      overflow-x: hidden;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+    }
 
     /* FAQ: モバイルでは answer の本文幅を最大化する（A label が左にあると本文225pxしか取れず短すぎる） */
     .faq-answer { padding: 0 0 1rem 0.3rem; }
@@ -2503,13 +2508,16 @@
       line-break: strict !important;
       text-wrap: pretty;
     }
-    /* 見出し系は balance で複数行を均等に */
+    /* 見出し系もモバイルでは pretty を使う
+       （balance は行幅均等を優先するが、狭いviewportでカタカナ語を分割しがち。
+        例: 「デモクラシーフィットネス」を「デモクラシーフィットネ」「ス」と分割してしまう）
+       pretty なら auto-phrase の文節境界を尊重し、孤立を防ぐ */
     h1, h2, h3, h4,
     .hero-title, .section-heading,
     .vision-bridge, .vision-closing-heading,
     .followup-title, .pricing-impact-title, .vision-mechanism-title,
     .evening-heading {
-      text-wrap: balance;
+      text-wrap: pretty;
     }
 
     /* ===== モバイルでのセンタリング（読みやすさ向上） =====
@@ -2520,6 +2528,10 @@
     .section-label {
       justify-content: center;  /* flex container 内の line+text を中央配置 */
       text-align: center;
+    }
+    /* モバイルでは label 左の横棒を非表示（中央寄せで片側だけ線があるのが不自然なため） */
+    .section-label::before {
+      display: none !important;
     }
     .section-heading {
       text-align: center;
