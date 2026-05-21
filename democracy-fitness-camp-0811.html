@@ -2369,13 +2369,46 @@
       overflow-wrap: anywhere;
     }
 
-    /* 他のgridセクションにも同様の安全ネット */
+    /* 全gridセクションへの安全ネット: 1fr の content min幅でカラム拡張するのを防ぐ */
     .muscles-grid,
     .pricing-grid,
     .why-camp-grid,
     .vision-roadmap,
-    .gallery-grid {
+    .gallery-grid,
+    .what-section,
+    .speaker-section,
+    .followup-body,
+    .for-whom-grid,
+    .hero-info-bar,
+    .venue-meta,
+    .voices-grid {
       grid-template-columns: minmax(0, 1fr) !important;
+    }
+    /* grid直下の要素にも min-width:0 を設定（grid trackがcontent min幅で広がるのを防ぐ） */
+    .what-body, .what-visual,
+    .speaker-photo-wrap, .speaker-bio,
+    .followup-purpose, .followup-agenda,
+    .for-whom-card,
+    .hero-info-item,
+    .venue-meta-item {
+      min-width: 0;
+    }
+
+    /* 特定商取引法テーブル: content min-widthでテーブルが伸びる問題への対策 */
+    .tokusho-table {
+      table-layout: fixed;
+      width: 100%;
+    }
+    .tokusho-table th {
+      width: 38%;
+      padding: 0.75rem 0.6rem;
+      font-size: 0.82rem;
+    }
+    .tokusho-table td {
+      padding: 0.75rem 0.6rem;
+      font-size: 0.85rem;
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
     }
 
     /* カード系コンテナのはみ出し防止 */
@@ -2414,23 +2447,56 @@
       overflow-wrap: anywhere;
     }
 
-    /* +ONE MONTH LATER カード: word-break:keep-all による不自然な改行を解消
-       （句読点でしか折り返さず、句読点なしの長句で行末が極端に短くなる問題） */
+    /* +ONE MONTH LATER カード */
     .followup-card { padding: 2rem 1.4rem; }
-    .followup-title,
-    .followup-meta,
-    .followup-purpose,
-    .followup-purpose p,
-    .followup-agenda li {
-      word-break: normal;
-      overflow-wrap: break-word;
-      line-break: strict;
-    }
     .followup-purpose { line-height: 1.85; }
     .followup-purpose p { margin-bottom: 0.9rem; }
 
     /* セクション自体にも overflow ガード */
     section { overflow-x: hidden; }
+
+    /* ===== 日本語の禁則処理・自然な文節改行 =====
+       - word-break: auto-phrase: CJK文節境界で改行（Safari 17.4+ / Chrome 119+）
+         → 「皆さ」「ん」のような単語内1文字分割を解消
+         → 未対応ブラウザは normal にフォールバック
+       - line-break: strict: 、。」）等を行頭にしない（禁則処理）
+       - text-wrap: pretty: paragraph last line の1文字孤立を防止
+       - 見出しには text-wrap: balance で複数行のバランスを揃える */
+    body,
+    p, li, dd, dt, blockquote, figcaption,
+    .section-heading, .section-label,
+    .hero-title, .hero-subtitle, .hero-info-value, .hero-info-label,
+    .what-body, .what-body p, .what-visual-quote, .what-visual-sub,
+    .muscle-name, .muscle-tooltip,
+    .why-camp-card h3, .why-camp-card p,
+    .timetable-item, .timetable-desc,
+    .venue-lead, .venue-body, .venue-body p,
+    .venue-callout-title, .venue-callout p, .venue-callout,
+    .price-card-name, .price-card-cond, .pricing-note,
+    .pricing-impact-title, .pricing-impact-body,
+    .vision-bridge, .vision-lead, .vision-manifesto,
+    .vision-step h3, .vision-step p,
+    .vision-horizon, .vision-closing-heading, .vision-closing-body,
+    .vision-mechanism-title, .vision-mechanism-body,
+    .speaker-name-ja, .speaker-title, .speaker-bio p,
+    .voice-text, .voice-meta,
+    .followup-title, .followup-meta, .followup-purpose, .followup-purpose p, .followup-agenda li,
+    .faq-q-text, .faq-answer p,
+    .tokusho-table th, .tokusho-table td,
+    .register-heading, .register-sub, .register-note {
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    /* 見出し系は balance で複数行を均等に */
+    h1, h2, h3, h4,
+    .hero-title, .section-heading,
+    .vision-bridge, .vision-closing-heading,
+    .followup-title, .pricing-impact-title, .vision-mechanism-title,
+    .evening-heading {
+      text-wrap: balance;
+    }
   }
 </style>
 </head>
