@@ -2014,6 +2014,225 @@
     .price-card-amount { font-size: 1.9rem; }
     .register-deadlines { gap: 1rem; }
   }
+
+  /* ── VISION (この2日間は、はじまり) ── */
+  .vision-section {
+    background: var(--nordic);
+    color: var(--paper);
+  }
+
+  .vision-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .vision-section .section-label { color: var(--gold); }
+  .vision-section .section-label::before { background: var(--gold); }
+
+  .vision-bridge {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: clamp(1.5rem, 3.2vw, 2.4rem);
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
+    color: var(--paper);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .vision-bridge em {
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  .vision-lead {
+    font-size: 1.05rem;
+    line-height: 2;
+    opacity: 0.88;
+    max-width: 780px;
+    margin-bottom: 3.5rem;
+  }
+
+  .vision-manifesto {
+    background: rgba(255,255,255,0.06);
+    border-left: 3px solid var(--gold);
+    padding: 2rem 2.2rem;
+    margin-bottom: 4.5rem;
+    font-size: 1rem;
+    line-height: 2;
+    max-width: 820px;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .vision-manifesto strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .vision-roadmap-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 0.75rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .vision-roadmap-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    color: var(--paper);
+    line-height: 1.6;
+  }
+
+  .vision-roadmap {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);
+    align-items: stretch;
+    gap: 1.2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .vision-step {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-top: 3px solid var(--gold);
+    padding: 1.8rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .vision-step.is-current {
+    background: rgba(240, 180, 41, 0.14);
+  }
+
+  .vision-step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.2em;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .vision-step h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.9rem;
+    line-height: 1.55;
+    color: var(--paper);
+  }
+
+  .vision-step p {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.78);
+  }
+
+  .vision-step-current-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 2px;
+    margin-top: 1rem;
+    letter-spacing: 0.05em;
+    align-self: flex-start;
+  }
+
+  .vision-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.6rem;
+    opacity: 0.7;
+  }
+
+  .vision-horizon {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .vision-closing {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 4rem;
+  }
+
+  .vision-closing-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    color: var(--paper);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .vision-closing-body {
+    font-size: 0.95rem;
+    line-height: 2;
+    opacity: 0.85;
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .vision-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1.1rem 2.6rem;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .vision-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  }
+
+  .vision-cta-sub {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    opacity: 0.78;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .vision-cta-sub a {
+    color: var(--gold);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .vision-section { padding: 5rem 1.5rem; }
+    .vision-roadmap {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .vision-arrow {
+      transform: rotate(90deg);
+      padding: 0.3rem 0;
+    }
+    .vision-manifesto {
+      padding: 1.5rem 1.4rem;
+      font-size: 0.95rem;
+    }
+    .vision-closing { padding-top: 3rem; }
+  }
 </style>
 </head>
 <body>
@@ -3030,6 +3249,71 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ── VISION（この2日間は、はじまり） ── -->
+<section class="vision-section">
+  <div class="vision-inner">
+    <div class="section-label">THE FIRST STEP</div>
+    <h2 class="vision-bridge">
+      この2日間は、<em>ゴール</em>ではなく、<em>はじまり</em>です。
+    </h2>
+    <p class="vision-lead">
+      私たちは、日本に「対話で物事を動かせる人」を、ひとりずつ増やしていきたい。
+      このキャンプは、その仲間が初めて顔を合わせる場所です。
+    </p>
+
+    <div class="vision-manifesto">
+      同調圧力のなかで本音が言えず、違いを前にすると黙るか衝突するかになってしまう——
+      多くの組織やコミュニティで、対話が止まっています。<br><br>
+      一方デンマークでは、子どものうちから「<strong>違う意見を持ったまま、共に進む</strong>」訓練を受けています。
+      その差は才能ではなく、<strong>鍛えられているかどうか</strong>の差です。<br><br>
+      日本でも、対話力を「筋肉」として鍛えれば、組織も、地域も、社会も、少しずつ確実に変わっていく。
+      私たちはそう信じています。
+    </div>
+
+    <div class="vision-roadmap-label">ROADMAP</div>
+    <h3 class="vision-roadmap-title">このキャンプが、その先にどうつながっていくか。</h3>
+
+    <div class="vision-roadmap">
+      <div class="vision-step is-current">
+        <div class="vision-step-num">STEP 1</div>
+        <h3>2日間キャンプ</h3>
+        <p>対話の10の筋肉を、頭ではなく体で覚える。多様な立場の仲間と、合宿の濃い時間を過ごす。</p>
+        <span class="vision-step-current-tag">今ここ</span>
+      </div>
+      <div class="vision-arrow" aria-hidden="true">→</div>
+      <div class="vision-step">
+        <div class="vision-step-num">STEP 2</div>
+        <h3>継続コミュニティ</h3>
+        <p>キャンプ卒業生による、月1のオンライン対話や、年に数回のリユニオン。実践を続け、磨き続ける場。</p>
+      </div>
+      <div class="vision-arrow" aria-hidden="true">→</div>
+      <div class="vision-step">
+        <div class="vision-step-num">STEP 3</div>
+        <h3>組織・地域へ広げる</h3>
+        <p>自分の現場で対話を実践し、次の対話を生む人になる。企業・学校・自治体・NPOへと波紋を広げていく。</p>
+      </div>
+    </div>
+
+    <p class="vision-horizon">— やがて、日本の対話の土壌そのものが、少しずつ変わっていく。</p>
+
+    <div class="vision-closing">
+      <h3 class="vision-closing-heading">
+        この景色に共感してくれる方と、<br>北軽井沢の森でお会いしたい。
+      </h3>
+      <p class="vision-closing-body">
+        対話の力で、組織を、地域を、そして日本社会を少しずつ良くしていく——
+        その第一歩を、一緒に踏み出しませんか。
+      </p>
+      <a href="./democracy-fitness-camp-0811-signup.html" class="vision-cta">
+        キャンプに申し込む →
+      </a>
+      <p class="vision-cta-sub">
+        まずは話を聞いてみたい方は <a href="mailto:y.morimoto@kizukikumitate.com">y.morimoto@kizukikumitate.com</a> までお気軽にどうぞ。
+      </p>
     </div>
   </div>
 </section>
