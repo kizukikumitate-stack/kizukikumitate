@@ -2629,9 +2629,7 @@
       text-align: center;
     }
 
-    /* 多行の説明文は左寄せのまま（中央寄せにすると行末の不揃いがジグザグになり読みにくい）
-       ただし「ブロック自体」は中央に配置するため max-width + margin auto で
-       コンテナを内側に絞り込み、左寄せでも視覚的にバランスを取る */
+    /* ユーザー要望: 説明文も中央寄せに統一 */
     .what-body p,
     .venue-body,
     .venue-body p,
@@ -2642,7 +2640,7 @@
     .followup-purpose,
     .followup-purpose p,
     .faq-answer p {
-      text-align: left;
+      text-align: center;
     }
 
     /* 1-3行で収まる短いリード／参加者の声などは中央寄せのままが映える */
@@ -2661,11 +2659,10 @@
       text-wrap: balance;
     }
 
-    /* PAY IT FORWARD / STRUCTURE の本文は 6-8 行の長さで、中央寄せだとダイヤモンド形状に
-       なって読みにくいため左寄せに（タイトル・ラベル・アイコンは中央寄せのまま） */
+    /* ユーザー要望: PAY IT FORWARD / STRUCTURE の本文も中央寄せに統一 */
     .pricing-impact-body,
     .vision-mechanism-body {
-      text-align: left;
+      text-align: center;
     }
 
     /* ギャラリー（IN DENMARK / INSIDE TAKIVIVA）の写真が左寄りに見える問題:
