@@ -2355,6 +2355,68 @@
       margin-bottom: 3rem;
     }
   }
+
+  /* ===== モバイル最終 overflow override（必ず style 終端の直前に配置） ===== */
+  @media (max-width: 768px) {
+    html, body { overflow-x: hidden; }
+
+    /* VOICES: grid 1fr が content min幅で広がる問題への決定的対策 */
+    .voices-grid { grid-template-columns: minmax(0, 1fr); }
+    .voice-card { min-width: 0; overflow: hidden; }
+    .voice-text,
+    .voice-meta {
+      word-break: normal;
+      overflow-wrap: anywhere;
+    }
+
+    /* 他のgridセクションにも同様の安全ネット */
+    .muscles-grid,
+    .pricing-grid,
+    .why-camp-grid,
+    .vision-roadmap,
+    .gallery-grid {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    /* カード系コンテナのはみ出し防止 */
+    .why-camp-card,
+    .price-card,
+    .muscle-card,
+    .vision-step,
+    .pricing-impact,
+    .vision-mechanism,
+    .pricing-note,
+    .gallery-item {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    /* flex子要素の min-width: auto による横切れ対策（pricing-impact / vision-mechanism のtext部） */
+    .pricing-impact-content,
+    .vision-mechanism-content {
+      min-width: 0;
+    }
+    .pricing-impact-title,
+    .pricing-impact-body,
+    .pricing-impact-label,
+    .vision-mechanism-title,
+    .vision-mechanism-body,
+    .vision-mechanism-label {
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+
+    /* グローバルナビ: 48px padding + 64px logo margin で hamburger が画面外に出る問題 */
+    .global-nav { padding: 1rem 1.2rem; }
+    .global-nav .nav-logo { margin-right: 1rem; }
+    .global-nav .nav-logo-text {
+      font-size: 0.95rem;
+      overflow-wrap: anywhere;
+    }
+
+    /* セクション自体にも overflow ガード */
+    section { overflow-x: hidden; }
+  }
 </style>
 </head>
 <body>
