@@ -238,3 +238,114 @@ description: |
 
 新ページをナビに追加する場合は、**全HTMLファイル**のナビとモバイルメニューを更新する必要がある。
 1ファイルだけ更新して終わりにしない。
+
+---
+
+## モバイル耐性 標準テンプレート（2026-05 セッションで策定）
+
+新規ページは、`</style>` 直前に以下のブロックを **必ず** 含めること。
+今日のセッションで判明した5つの罠（grid 1fr / flex min-width / `</style>` リテラル /
+iOS Dynamic Type / 日本語禁則処理）への防御を網羅。
+
+```css
+  /* ===== モバイル最終 overflow & typography override
+     （必ず style 終端の直前に配置 / コメント内に閉じstyleタグを書かないこと） ===== */
+  @media (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+      /* iOS Safari の text autosizing を無効化（暗背景カードで文字巨大化を防ぐ） */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+
+    /* 全grid: minmax(0, 1fr) で content-min-width による拡張を防ぐ */
+    [class*="-grid"] {
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+
+    /* カード要素: min-width:0 + overflow-wrap で flex/grid 子の暴走を防ぐ */
+    [class*="-card"], [class*="-content"] {
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    /* セクション横padding を縮小（インラインstyleには !important が必要） */
+    section {
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      overflow-x: hidden;
+    }
+
+    /* テーブルは table-layout: fixed で content-min による拡張を防ぐ */
+    table {
+      table-layout: fixed;
+      width: 100%;
+    }
+
+    /* 日本語タイポグラフィ: 禁則処理＋自然な文節改行＋孤立防止 */
+    body, p, li, h1, h2, h3, h4,
+    [class*="-title"], [class*="-heading"], [class*="-body"], [class*="-text"],
+    [class*="-lead"], [class*="-desc"], [class*="-meta"], [class*="-name"] {
+      word-break: auto-phrase !important;
+      overflow-wrap: break-word !important;
+      line-break: strict !important;
+      text-wrap: pretty;
+    }
+
+    /* 暗背景カード内のフォントは px 固定（iOS Dynamic Type の影響を遮断）
+       ※ rem だとアクセシビリティ設定で巨大化することがある */
+    [class*="-body"] { font-size: 15px !important; line-height: 1.95 !important; }
+    [class*="-title"]:not(.hero-title):not(.section-heading) { font-size: 17px !important; }
+    [class*="-label"]:not(.section-label) { font-size: 12px !important; }
+
+    /* グローバルナビ: モバイルでは padding 縮小（hamburger が画面外に出ないように） */
+    .global-nav { padding: 1rem 1.2rem; }
+    .global-nav .nav-logo { margin-right: 1rem; }
+
+    /* ===== モバイルでの文字整列 =====
+       - 見出し・ラベル・短文 → 中央寄せ
+       - 多行の本文 → プロジェクトのデザイン方針に従う
+       - 表・リスト → 左寄せのまま */
+    .section-label, .section-heading,
+    [class*="-title"], [class*="-heading"], [class*="-lead"] {
+      text-align: center;
+    }
+    .section-label::before {
+      display: none !important;  /* 中央寄せ時の片側横棒を非表示 */
+    }
+    .section-label {
+      justify-content: center;  /* flex container の中央配置 */
+    }
+  }
+```
+
+### 開発中の確認方法（dev-preview.sh）
+
+`push` してから GitHub Pages の反映（1-2分）を待たずに、ローカル編集中のページを
+即座にスマホで確認できる：
+
+```bash
+cd /Users/morimotoyasuhito/kizukikumitate
+./dev-preview.sh
+```
+
+公開URLが表示されるので、それをスマホのSafariで開く。
+ファイルを保存→スマホでリロードで即座に反映される（5秒サイクル）。
+
+---
+
+## コミット前チェックリスト（モバイル耐性確認）
+
+新規ページの実装が終わったら、コミット前に以下を必ず確認:
+
+| カテゴリ | チェック項目 |
+|---|---|
+| 構造 | nav, footer, OGP, title, GA タグが入っているか |
+| 構造 | ナビリンクが他ページと一致しているか |
+| 構造 | **CSS コメント内に `</style>` というリテラルが含まれていないか** |
+| モバイル | `dev-preview.sh` でスマホ実機確認した |
+| モバイル | 上記の「モバイル最終 override」ブロックが `</style>` 直前にある |
+| モバイル | 暗背景カード内のフォントが px 固定になっているか |
+| モバイル | 画像が `loading="lazy"` 付きで合計 5MB 以下か |
+| タイポ | 日本語の本文に `word-break: auto-phrase` が効いているか |
+| 寄付 | ※ 課金がある場合、特商法表記がフッターに含まれているか |

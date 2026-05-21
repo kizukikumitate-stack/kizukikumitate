@@ -103,3 +103,34 @@ GitHub Pages で公開中の静的HTMLサイト。
 - リモート: https://github.com/kizukikumitate-stack/kizukikumitate
 - push は https トークン経由
 - コミットメッセージは日本語で簡潔に
+
+## モバイル即時プレビュー（push 前にスマホで確認する）
+
+GitHub Pages のデプロイ（1-2分）を待たずに、ローカル編集中の状態を即座に
+森本さんのスマホで確認できる仕組み。
+
+### 使い方
+
+```bash
+cd /Users/morimotoyasuhito/kizukikumitate
+./dev-preview.sh
+```
+
+実行すると `https://kizuki-preview.loca.lt`（または `https://xxxxx.loca.lt`）
+の公開URLが表示される。スマホのSafariで開くと、ローカルの編集内容が即時反映される。
+
+### 修正→確認サイクル
+
+1. クロード側がファイルを編集して保存
+2. スマホでページをリロード（下に引っ張ってリロード）
+3. 即座に反映される（GitHub Pages 待ち不要）
+4. 問題なければ git commit & push して本番反映
+
+これで修正サイクルが「1-2分」から「5秒」に短縮される。
+
+### 注意
+
+- `dev-preview.sh` 実行中の Mac の電源が入っていて、ネット接続が必要
+- スマホは同じ Wi-Fi でなくてもOK（インターネット経由で繋がる）
+- 初回アクセス時に loca.lt の「Click to Continue」画面が出る場合あり
+- 停止するには Ctrl+C
