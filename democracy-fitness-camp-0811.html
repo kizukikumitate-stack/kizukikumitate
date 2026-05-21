@@ -585,10 +585,7 @@
     display: block;
   }
   .evening-content {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 3.5rem;
-    align-items: center;
+    max-width: 820px;
   }
   .evening-body {
     font-size: 1rem;
@@ -603,22 +600,8 @@
     color: var(--gold);
     font-weight: 700;
   }
-  .evening-sub-img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-    box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-    border-radius: 4px;
-  }
-  .evening-sub-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
   @media (max-width: 900px) {
     .evening-section { padding: 5rem 1.5rem; }
-    .evening-content { grid-template-columns: 1fr; gap: 2rem; }
     .evening-main-img { aspect-ratio: 4 / 3; }
   }
 
@@ -2701,7 +2684,7 @@
     <h2 class="evening-heading">夜、<em>焚き火</em>を囲んで、<br>語り合う。</h2>
 
     <div class="evening-main-img">
-      <img src="./df-tv-fire-main.jpg" alt="北軽井沢TAKIVIVAの夜の焚き火。暗闇に青と橙の炎が浮かび上がる" loading="lazy">
+      <img src="./df-tv-fire-sub.jpg" alt="北軽井沢TAKIVIVAの夜、焚き火台を囲んで対話する参加者" loading="lazy">
     </div>
 
     <div class="evening-content">
@@ -2720,9 +2703,6 @@
           翌朝の自分は、来た時とは少し違う場所に立っている——
           そう信じられる夜です。
         </p>
-      </div>
-      <div class="evening-sub-img">
-        <img src="./df-tv-fire-sub.jpg" alt="焚き火台を囲んで対話する参加者" loading="lazy">
       </div>
     </div>
   </div>
