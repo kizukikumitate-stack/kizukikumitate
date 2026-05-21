@@ -2601,10 +2601,12 @@
       text-align: center;
     }
 
-    /* 説明文（body 段落）もモバイルでは中央寄せに（可読性向上のユーザー要望） */
+    /* 多行の説明文は左寄せのまま（中央寄せにすると行末の不揃いがジグザグになり読みにくい）
+       ただし「ブロック自体」は中央に配置するため max-width + margin auto で
+       コンテナを内側に絞り込み、左寄せでも視覚的にバランスを取る */
     .what-body p,
-    .venue-body p,
     .venue-body,
+    .venue-body p,
     .vision-manifesto,
     .evening-body,
     .evening-body p,
@@ -2612,7 +2614,25 @@
     .followup-purpose,
     .followup-purpose p,
     .faq-answer p {
+      text-align: left;
+    }
+
+    /* 1-3行で収まる短いリード／参加者の声などは中央寄せのままが映える */
+    .why-camp-lead,
+    .pricing-lead,
+    .venue-lead,
+    .voices-note,
+    .pricing-impact-body,
+    .vision-mechanism-body,
+    .vision-lead,
+    .vision-closing-body,
+    .vision-horizon,
+    .voice-text,
+    .voice-meta,
+    .what-visual-quote,
+    .what-visual-sub {
       text-align: center;
+      text-wrap: balance;
     }
 
     /* ジャスティファイ系（centered フレックス） */
