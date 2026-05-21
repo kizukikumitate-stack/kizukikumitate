@@ -2029,9 +2029,7 @@
     .venue-callout-title,
     .venue-callout p,
     .venue-meta-value,
-    .price-card-name,
-    .price-card-cond,
-    .pricing-note,
+    .price-card-name, .price-card-cond, .pricing-note,
     .speaker-name-ja,
     .speaker-name-en,
     .speaker-title,
@@ -2591,8 +2589,16 @@
     .price-card-badge,
     .price-card-amount,
     .price-card-amount-net,
-    .price-card-discount {
+    .price-card-discount,
+    .price-card-cond {
       text-align: center;
+    }
+
+    /* ヒーロー CTA ボタンを中央配置（width:fit-content で左寄りになっていた） */
+    .hero-cta {
+      align-self: center;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* 「参加者の声」等の短い引用本文は中央寄せが映える */
@@ -3863,7 +3869,7 @@
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <div class="sticky-cta-text">
     <strong>北軽井沢キャンプ2026</strong>
-    早割 ¥67,500〜（6/30まで）
+    早割 ¥66,000〜（6/30まで）
   </div>
   <a href="./democracy-fitness-camp-0811-signup.html" class="sticky-cta-btn">お申込み →</a>
 </div>
