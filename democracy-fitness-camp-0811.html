@@ -2376,10 +2376,61 @@
       -webkit-text-size-adjust: 100% !important;
       text-size-adjust: 100% !important;
     }
-    /* 暗背景カード内の本文に明示的に font-size を指定（iOS boosting への二重ガード） */
-    .pricing-impact-body { font-size: 0.95rem !important; line-height: 2 !important; }
-    .vision-mechanism-body { font-size: 0.92rem !important; line-height: 1.95 !important; }
-    .vision-manifesto { font-size: 0.95rem !important; line-height: 2 !important; }
+    /* 暗背景カード内の本文に明示的に font-size を px 固定で指定
+       （rem だと iOS の「画面ごとの拡大率」設定の影響を受けて巨大化することがある。
+        px なら影響を受けず物理ピクセルで確定される） */
+    .pricing-impact-body { font-size: 15px !important; line-height: 1.95 !important; }
+    .pricing-impact-title { font-size: 17px !important; line-height: 1.55 !important; }
+    .pricing-impact-label { font-size: 12px !important; }
+    .vision-mechanism-body { font-size: 14.5px !important; line-height: 1.9 !important; }
+    .vision-mechanism-title { font-size: 16px !important; line-height: 1.55 !important; }
+    .vision-mechanism-label { font-size: 11.5px !important; }
+    .vision-manifesto { font-size: 15px !important; line-height: 1.95 !important; }
+    /* 念のため strong / em もすべて同サイズに */
+    .pricing-impact-body strong,
+    .pricing-impact-body em,
+    .vision-mechanism-body strong,
+    .vision-mechanism-body em,
+    .vision-manifesto strong,
+    .vision-manifesto em {
+      font-size: inherit !important;
+    }
+
+    /* ===== タイムスケジュール: 各活動が1行に収まるよう調整 =====
+       - 時間カラム幅を縮めて活動カラムを広げる
+       - フォントを px 指定で iOS Dynamic Type の影響を回避
+       - padding を縮小して活動カラムの内側幅を確保 */
+    .timetable-row {
+      grid-template-columns: 80px 1fr !important;
+    }
+    .timetable-time {
+      font-size: 12px !important;
+      padding: 1rem 0.7rem !important;
+      letter-spacing: 0.04em !important;
+      line-height: 1.5 !important;
+      word-break: keep-all;
+      overflow-wrap: normal;
+    }
+    .timetable-item {
+      font-size: 14px !important;
+      padding: 1rem 0.9rem !important;
+      line-height: 1.6 !important;
+      /* 文字の途中で改行されないよう、auto-phrase / pretty を解除 */
+      word-break: keep-all !important;
+      overflow-wrap: normal !important;
+      text-wrap: nowrap;
+      white-space: normal;  /* <br> は効くようにする */
+    }
+    .timetable-desc {
+      display: none;
+    }
+    /* タイトル類も px 固定 */
+    .program-day-date {
+      font-size: 15px !important;
+    }
+    .program-day-label {
+      font-size: 11px !important;
+    }
 
     /* VOICES: grid 1fr が content min幅で広がる問題への決定的対策 */
     .voices-grid { grid-template-columns: minmax(0, 1fr); }
