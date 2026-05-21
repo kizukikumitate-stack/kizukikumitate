@@ -2640,6 +2640,23 @@
       text-align: left;
     }
 
+    /* ギャラリー（IN DENMARK / INSIDE TAKIVIVA）の写真が左寄りに見える問題:
+       元々 .gallery-section は左 padding のみで右側に追加 padding-right: 3rem の構造のため、
+       モバイルでは右側に大きな余白が発生して左寄りに見える。
+       モバイルでは左右対称に揃える。 */
+    .gallery-section {
+      padding: 4rem 1.5rem !important;
+    }
+    .gallery-section .section-label,
+    .gallery-section .section-heading,
+    .gallery-section .gallery-lead,
+    .gallery-slider,
+    .gallery-grid,
+    .gallery-hint,
+    .video-block {
+      padding-right: 0 !important;
+    }
+
     /* ジャスティファイ系（centered フレックス） */
     .vision-roadmap-label { justify-content: center; }
 
