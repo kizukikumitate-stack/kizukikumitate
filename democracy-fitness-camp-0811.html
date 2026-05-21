@@ -2498,6 +2498,75 @@
     .evening-heading {
       text-wrap: balance;
     }
+
+    /* ===== モバイルでのセンタリング（読みやすさ向上） =====
+       - 見出し・ラベル・短いリード文・タイトル系を中央寄せに
+       - 本文段落（長文）は左寄せのまま（中央寄せは可読性低下） */
+
+    /* セクション label（小さなキャプション）と見出し */
+    .section-label {
+      justify-content: center;  /* flex container 内の line+text を中央配置 */
+      text-align: center;
+    }
+    .section-heading {
+      text-align: center;
+    }
+
+    /* ヒーロー */
+    .hero-label,
+    .hero-title,
+    .hero-subtitle,
+    .hero-info-label,
+    .hero-info-value {
+      text-align: center;
+    }
+    .hero-body { text-align: center; }
+
+    /* 短いリード／タイトル系 */
+    .voices-note,
+    .why-camp-lead,
+    .pricing-lead,
+    .venue-lead,
+    .what-visual-quote,
+    .what-visual-sub,
+    .followup-title,
+    .followup-meta,
+    .pricing-impact-title,
+    .vision-mechanism-title,
+    .vision-bridge,
+    .vision-lead,
+    .vision-horizon,
+    .vision-roadmap-title,
+    .vision-roadmap-label,
+    .vision-closing-heading,
+    .vision-closing-body,
+    .evening-heading,
+    .register-heading,
+    .register-sub,
+    .register-note,
+    .register-deadline-label,
+    .register-deadline-value,
+    .speaker-name-ja,
+    .speaker-name-en,
+    .speaker-title,
+    .speaker-tag,
+    .price-card-name,
+    .price-card-label,
+    .price-card-badge,
+    .price-card-amount,
+    .price-card-amount-net,
+    .price-card-discount {
+      text-align: center;
+    }
+
+    /* 「参加者の声」等の短い引用本文は中央寄せが映える */
+    .voice-text,
+    .voice-meta {
+      text-align: center;
+    }
+
+    /* ジャスティファイ系（centered フレックス） */
+    .vision-roadmap-label { justify-content: center; }
   }
 </style>
 </head>
