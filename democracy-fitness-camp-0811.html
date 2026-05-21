@@ -2286,6 +2286,70 @@
     text-decoration: underline;
   }
 
+  /* ── VISION MECHANISM（10%寄付の仕組み） ── */
+  .vision-mechanism {
+    background: rgba(240, 180, 41, 0.08);
+    border: 1px solid rgba(240, 180, 41, 0.35);
+    border-top: 3px solid var(--gold);
+    padding: 2.2rem;
+    display: flex;
+    gap: 1.6rem;
+    align-items: flex-start;
+    margin-bottom: 4rem;
+  }
+
+  .vision-mechanism-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(240, 180, 41, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vision-mechanism-icon svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .vision-mechanism-content { flex: 1; }
+
+  .vision-mechanism-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 0.72rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .vision-mechanism-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
+    color: var(--paper);
+    line-height: 1.55;
+  }
+
+  .vision-mechanism-body {
+    font-size: 0.92rem;
+    line-height: 1.95;
+    color: rgba(255,255,255,0.85);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .vision-mechanism-body strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
   @media (max-width: 768px) {
     .vision-section { padding: 5rem 1.5rem; }
     .vision-roadmap {
@@ -2301,6 +2365,12 @@
       font-size: 0.95rem;
     }
     .vision-closing { padding-top: 3rem; }
+    .vision-mechanism {
+      flex-direction: column;
+      padding: 1.6rem 1.5rem;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
   }
 </style>
 </head>
@@ -3386,6 +3456,24 @@
     </div>
 
     <p class="vision-horizon">— やがて、日本の対話の土壌そのものが、少しずつ変わっていく。</p>
+
+    <div class="vision-mechanism">
+      <div class="vision-mechanism-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 12a9 9 0 0 1-15 6.7"/>
+          <path d="M3 12a9 9 0 0 1 15-6.7"/>
+          <polyline points="18 2 18 7 13 7"/>
+          <polyline points="6 22 6 17 11 17"/>
+        </svg>
+      </div>
+      <div class="vision-mechanism-content">
+        <div class="vision-mechanism-label">STRUCTURE</div>
+        <h4 class="vision-mechanism-title">そして、ここに「仕組み」を1つ。</h4>
+        <p class="vision-mechanism-body">
+          参加費（税抜）の<strong>10%</strong>は、日本の民主主義教育・教育格差是正に取り組む団体への寄付・投資にあてられます。<strong>キャンプが大きくなればなるほど、日本の対話の土壌も深く耕されていく</strong>——そんな構造を、ご一緒に育てていきたいと考えています。
+        </p>
+      </div>
+    </div>
 
     <div class="vision-closing">
       <h3 class="vision-closing-heading">
