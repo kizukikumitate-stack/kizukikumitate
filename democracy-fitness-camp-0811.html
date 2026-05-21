@@ -2357,7 +2357,29 @@
 
   /* ===== モバイル最終 overflow override（必ず style 終端の直前に配置） ===== */
   @media (max-width: 768px) {
-    html, body { overflow-x: hidden; }
+    html, body {
+      overflow-x: hidden;
+      /* iOS Safari / Messenger等の WebView が暗背景の本文を勝手に拡大する
+         text autosizing/boosting を無効化（PAY IT FORWARD等で文字が巨大化する問題） */
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    /* iOS の text-boosting を要素レベルでも無効化（暗背景カード内の本文に効く） */
+    .pricing-impact,
+    .pricing-impact-body,
+    .vision-mechanism,
+    .vision-mechanism-body,
+    .vision-manifesto,
+    .vision-section,
+    .evening-section,
+    .why-camp-section {
+      -webkit-text-size-adjust: 100% !important;
+      text-size-adjust: 100% !important;
+    }
+    /* 暗背景カード内の本文に明示的に font-size を指定（iOS boosting への二重ガード） */
+    .pricing-impact-body { font-size: 0.95rem !important; line-height: 2 !important; }
+    .vision-mechanism-body { font-size: 0.92rem !important; line-height: 1.95 !important; }
+    .vision-manifesto { font-size: 0.95rem !important; line-height: 2 !important; }
 
     /* VOICES: grid 1fr が content min幅で広がる問題への決定的対策 */
     .voices-grid { grid-template-columns: minmax(0, 1fr); }
