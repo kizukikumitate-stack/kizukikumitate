@@ -476,6 +476,13 @@
   .why-camp-card:hover .cool-icon {
     background: rgba(240, 180, 41, 0.25);
   }
+  /* for-whom-card / why-camp-card のアイコンを中央寄せ（モバイルでも text-align:center により維持される） */
+  .for-whom-card .cool-icon,
+  .why-camp-card .cool-icon {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   /* ── FOR WHOM（こんな方へ） ── */
   .for-whom-section {
@@ -1353,31 +1360,46 @@
     display: inline-flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.9rem 1.6rem;
-    background: rgba(255,255,255,0.12);
-    border: 1px solid rgba(255,255,255,0.3);
+    padding: 1rem 1.8rem;
+    background: rgba(0,0,0,0.22);
+    border: 1px solid rgba(255,255,255,0.35);
     border-radius: 999px;
     margin-bottom: 1.4rem;
-    font-size: 0.92rem;
+    font-size: 1rem;
     color: white;
-    font-weight: 500;
+    font-weight: 600;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 6px 22px rgba(0,0,0,0.18);
   }
-  .countdown-banner .countdown-icon { font-size: 1.05rem; }
+  .countdown-banner .countdown-icon { font-size: 1.2rem; }
   .countdown-banner .countdown-num {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    color: var(--gold);
-    letter-spacing: 0.05em;
+    font-size: 3.2rem;
+    color: #fff34d;
+    letter-spacing: 0.04em;
     line-height: 1;
+    font-weight: 700;
+    margin: 0 0.15em;
+    padding: 0 0.05em;
+    text-shadow: 0 0 18px rgba(255, 243, 77, 0.65), 0 2px 6px rgba(0,0,0,0.25);
+    vertical-align: -0.18em;
+    display: inline-block;
+  }
+  @media (max-width: 540px) {
+    .countdown-banner { padding: 0.8rem 1.2rem; font-size: 0.9rem; }
+    .countdown-banner .countdown-num { font-size: 2.2rem; }
   }
   .countdown-banner.expired {
     background: rgba(255,255,255,0.06);
     border-color: rgba(255,255,255,0.15);
     color: rgba(255,255,255,0.65);
+    box-shadow: none;
   }
-  .countdown-banner.expired .countdown-num { color: rgba(255,255,255,0.5); }
+  .countdown-banner.expired .countdown-num {
+    color: rgba(255,255,255,0.5);
+    text-shadow: none;
+  }
 
   /* ── REGISTER ── */
   .register-section {
