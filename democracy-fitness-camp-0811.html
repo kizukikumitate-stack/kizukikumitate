@@ -2371,7 +2371,6 @@
     }
 
     /* 全gridセクションへの安全ネット: 1fr の content min幅でカラム拡張するのを防ぐ */
-    .muscles-grid,
     .pricing-grid,
     .why-camp-grid,
     .vision-roadmap,
@@ -2384,6 +2383,10 @@
     .venue-meta,
     .voices-grid {
       grid-template-columns: minmax(0, 1fr) !important;
+    }
+    /* muscles-grid は2カラム維持（minmax(0, 1fr) で content min幅問題は回避） */
+    .muscles-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
     /* grid直下の要素にも min-width:0 を設定（grid trackがcontent min幅で広がるのを防ぐ） */
     .what-body, .what-visual,
@@ -2567,6 +2570,24 @@
 
     /* ジャスティファイ系（centered フレックス） */
     .vision-roadmap-label { justify-content: center; }
+
+    /* ===== カードコンテンツ（アイコン含む）の中央寄せ ===== */
+    /* 1. 10の筋肉グリッド: 番号 + 名前を中央に */
+    .muscle-item { text-align: center; }
+    .muscle-num,
+    .muscle-name { text-align: center; }
+
+    /* 2. こんな方へ（for-whom）: アイコン + 見出し + 本文を中央に */
+    .for-whom-card { text-align: center; }
+    .for-whom-card h3 { text-align: center; }
+    .for-whom-card p { text-align: center; }
+
+    /* 3. なぜ合宿なのか（why-camp）: アイコン + 見出し + 本文を中央に */
+    .why-camp-card { text-align: center; }
+    .why-camp-card h3 { text-align: center; }
+    .why-camp-card p { text-align: center; }
+
+    /* cool-icon（inline-flex）は親の text-align: center で水平中央に配置される */
   }
 </style>
 </head>
