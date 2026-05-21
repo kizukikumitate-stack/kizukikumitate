@@ -2414,6 +2414,21 @@
       overflow-wrap: anywhere;
     }
 
+    /* +ONE MONTH LATER カード: word-break:keep-all による不自然な改行を解消
+       （句読点でしか折り返さず、句読点なしの長句で行末が極端に短くなる問題） */
+    .followup-card { padding: 2rem 1.4rem; }
+    .followup-title,
+    .followup-meta,
+    .followup-purpose,
+    .followup-purpose p,
+    .followup-agenda li {
+      word-break: normal;
+      overflow-wrap: break-word;
+      line-break: strict;
+    }
+    .followup-purpose { line-height: 1.85; }
+    .followup-purpose p { margin-bottom: 0.9rem; }
+
     /* セクション自体にも overflow ガード */
     section { overflow-x: hidden; }
   }
