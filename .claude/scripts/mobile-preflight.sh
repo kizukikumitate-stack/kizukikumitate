@@ -101,43 +101,106 @@ run_check() {
   # --- Pattern C: align-items: flex-start を持つ flex container が ---
   # ---            モバイル column 化された際に align-items override 漏れ ---
   # 今回の実害パターン: PC で `display: flex; align-items: flex-start;` の親が、
-  # モバイルで `flex-direction: column` になると、子要素が intrinsic 幅に縮んで本文がはみ出す。
-  # 検出方法:
-  #   1. 各 selector について全ブロックを走査し、align-items: flex-start を持つか記録
-  #   2. その selector の他ブロックで flex-direction: column があるか
-  #   3. その column ブロック内で align-items: stretch|center の override があるか
-  #   3 が無ければ警告
+  # モバイルの @media 内で `flex-direction: column` になると、子要素が intrinsic 幅に
+  # 縮んで本文がはみ出す。
+  # ※ ベース CSS で最初から column の場合（hero 等）は意図的なので対象外
+  # 検出方法（awk による O(n) スキャン）:
+  #   1. 各 CSS ブロック { ... } を line-by-line で抽出（@media 内かどうかも記録）
+  #   2. selector ごとに「align-items: flex-start + display: flex」を持つかを記録（risky 集合）
+  #   3. **@media 内で** flex-direction: column を含むブロックで risky の selector 該当 かつ
+  #      同ブロック内に align-items: stretch|center が無いものを警告
   echo "▶ C. align-items: flex-start の flex container が mobile column で stretch override 漏れ"
   local pattern_c
-  pattern_c=$(perl -0777 -ne '
-    my $src = $_;
-    # ブロック抽出: selector { body } を非ネスト前提で（@media 内の rule は ok）
-    # 各 rule の selector と body をペアで集める
-    my @rules;
-    while ($src =~ /([\.\#\w][^{}\n]*?)\s*\{([^{}]*)\}/g) {
-      my $sel = $1; my $body = $2;
-      $sel =~ s/^\s+|\s+$//g;
-      next if $sel =~ /^@/;
-      my $pos = $-[0];
-      my $line = (substr($src, 0, $pos) =~ tr/\n//) + 1;
-      push @rules, { sel => $sel, body => $body, line => $line };
+  pattern_c=$(awk '
+    function trim(s) { sub(/^[[:space:]]+/, "", s); sub(/[[:space:]]+$/, "", s); return s }
+    {
+      lines[NR] = $0
+      # 行内の { と } の数を集計（ネスト深さ用）
+      n_open  = gsub(/\{/, "{")
+      n_close = gsub(/\}/, "}")
+      opens[NR] = n_open
+      closes[NR] = n_close
     }
-    # selector -> 各ブロックの集計
-    my %risky;
-    for my $r (@rules) {
-      if ($r->{body} =~ /align-items:\s*flex-start/ && $r->{body} =~ /display:\s*flex/) {
-        $risky{$r->{sel}} = 1;
+    END {
+      # フェーズ1: すべての非@media rule ブロックを抽出
+      # ブロック開始 = 行内に { が現れた地点
+      # スタックで管理し、各ブロックの selector / start_line / end_line / 親が@mediaか を保存
+      stack_n = 0
+      block_n = 0
+      for (i = 1; i <= NR; i++) {
+        for (k = 0; k < opens[i]; k++) {
+          # 新しいブロック開始
+          stack_n++
+          # selector を取得（{ より前のテキスト + 1つ前の非空行を結合）
+          sel = lines[i]
+          sub(/\{.*/, "", sel)
+          sel = trim(sel)
+          if (sel == "") {
+            for (j = i - 1; j >= i - 4 && j >= 1; j--) {
+              if (lines[j] !~ /^[[:space:]]*$/) {
+                sel = lines[j]
+                break
+              }
+            }
+            sel = trim(sel)
+          }
+          stack_sel[stack_n] = sel
+          stack_start[stack_n] = i
+          # 親スタックに @media があるか判定
+          in_media = 0
+          for (s = 1; s < stack_n; s++) {
+            if (stack_sel[s] ~ /^@media/) { in_media = 1; break }
+          }
+          stack_in_media[stack_n] = in_media
+        }
+        for (k = 0; k < closes[i]; k++) {
+          # ブロック終了
+          if (stack_n <= 0) continue
+          sel = stack_sel[stack_n]
+          start = stack_start[stack_n]
+          in_media = stack_in_media[stack_n]
+          stack_n--
+          # @media や @keyframes 等の selector 自体は skip
+          if (sel ~ /^@/) continue
+          block_n++
+          block_sel[block_n] = sel
+          block_start[block_n] = start
+          block_end[block_n] = i
+          block_in_media[block_n] = in_media
+        }
       }
+      # フェーズ2: 各ブロックの body をスキャンして特性を集める
+      for (b = 1; b <= block_n; b++) {
+        has_flex = 0; has_flexstart = 0; has_column = 0; has_stretch = 0
+        for (L = block_start[b]; L <= block_end[b]; L++) {
+          if (lines[L] ~ /display:[[:space:]]*flex/) has_flex = 1
+          if (lines[L] ~ /align-items:[[:space:]]*flex-start/) has_flexstart = 1
+          if (lines[L] ~ /flex-direction:[[:space:]]*column/) has_column = 1
+          if (lines[L] ~ /align-items:[[:space:]]*(stretch|center)/) has_stretch = 1
+        }
+        block_flex[b] = has_flex
+        block_flexstart[b] = has_flexstart
+        block_column[b] = has_column
+        block_stretch[b] = has_stretch
+      }
+      # フェーズ3: selector ごとに「risky = どこかで display:flex + flex-start」を集計
+      for (b = 1; b <= block_n; b++) {
+        if (block_flex[b] && block_flexstart[b]) {
+          risky[block_sel[b]] = 1
+        }
+      }
+      # フェーズ4: 警告対象 = @media 内で flex-direction: column を持ち、
+      #            risky selector で、stretch なし
+      # ※ ベース CSS で column の場合は意図的なので対象外
+      found = 0
+      for (b = 1; b <= block_n; b++) {
+        if (block_column[b] && block_in_media[b] && risky[block_sel[b]] && !block_stretch[b]) {
+          printf "   L%d: %s（PC 側で align-items: flex-start のため override 必要）\n", block_start[b], block_sel[b]
+          found = 1
+        }
+      }
+      if (found) exit 1
     }
-    my $found = 0;
-    for my $r (@rules) {
-      next unless $r->{body} =~ /flex-direction:\s*column/;
-      next unless $risky{$r->{sel}};
-      next if $r->{body} =~ /align-items:\s*(stretch|center)/;
-      print "   L$r->{line}: $r->{sel}（PC 側で align-items: flex-start のため override 必要）\n";
-      $found++;
-    }
-    exit($found > 0 ? 1 : 0);
   ' "$FILE") || true
 
   if [ -n "$pattern_c" ]; then
