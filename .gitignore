@@ -1,1 +1,6 @@
 _img-backup/
+
+# mobile-preflight skill の生成物（コミットしない）
+.claude/screenshots/
+.claude/scripts/node_modules/
+.claude/scripts/package-lock.json

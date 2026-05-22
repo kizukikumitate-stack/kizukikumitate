@@ -1,0 +1,10 @@
+{
+  "name": "kizukikumitate-claude-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Claude スキル用の補助スクリプト（Playwright スクショ等）",
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

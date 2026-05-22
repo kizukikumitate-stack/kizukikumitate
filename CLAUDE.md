@@ -65,6 +65,22 @@ GitHub Pages で公開中の静的HTMLサイト。
 - 画像がはみ出していないか
 - ナビゲーションが正しく表示されているか
 
+### コミット前の必須チェック（mobile-preflight）
+
+HTML/CSS を編集して **コミットする前に必ず** 以下を実行する:
+
+```bash
+./.claude/scripts/mobile-preflight.sh full <編集したファイル>
+```
+
+- 静的 grep 検査で4種のアンチパターン（multi-line `<p>` / 番号+ASCIIスペース /
+  flex column align-items 漏れ / hanging-punctuation 漏れ）を機械的に検出
+- iPhone 14 Pro viewport の full-page スクショを `.claude/screenshots/` に保存
+- 詳細: `.claude/skills/mobile-preflight-check/SKILL.md`
+
+過去、これらは何度も再発して時間を浪費していた。**スキル参照ではなく自動チェックで根絶する**
+方針。新規ページ作成・既存ページ編集・どちらでも適用。
+
 ## エージェント + スキル構成
 
 本プロジェクトでは「何をするか」（エージェント）と「どうやるか」（スキル）を分離して管理している。
@@ -87,6 +103,7 @@ GitHub Pages で公開中の静的HTMLサイト。
 
 | スキル | 内容 |
 |---|---|
+| `mobile-preflight-check` | **HTML/CSS編集後・コミット前に必ず実行**。grep静的検査（multi-line `<p>`/番号+ASCIIスペース/flex column align-items漏れ/hanging-punctuation漏れ）+ iPhone viewport の自動スクショ。`./.claude/scripts/mobile-preflight.sh full <file>` |
 | `fix-mobile-overflow` | モバイル表示のはみ出し予防・診断・修正手順（grid 1fr/flex min-width/style内コメント等の落とし穴含む） |
 | `fix-japanese-typography` | 日本語の禁則処理・単語内分割・1文字孤立を CSS Text Level 4 (auto-phrase/line-break/text-wrap) で解決 |
 | `optimize-page-images` | ページ内画像の sips リサイズ・再圧縮＋ preload/lazy 戦略でモバイル読み込みを高速化 |
