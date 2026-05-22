@@ -33,7 +33,7 @@ await page.waitForTimeout(800);
 // ページ内で実行: 各テキスト要素の rendered lines を Range API で取得し、
 // 行頭句読点 / widow / line-break: strict 抜けを検出
 const issues = await page.evaluate(() => {
-  const RESULTS = { lineHead: [], widows: [], missingStrict: [] };
+  const RESULTS = { lineHead: [], widows: [], missingStrict: [], textWrapBalance: [] };
   const LINE_HEAD_FORBIDDEN = /^[、。」）】］〕｝・]/;
   const JP_RE = /[　-〿぀-ゟ゠-ヿ㐀-䶿一-鿿豈-﫿]/;
 
@@ -68,11 +68,20 @@ const issues = await page.evaluate(() => {
     const cs = getComputedStyle(el);
     const lineBreak = cs.lineBreak;
     const wordBreak = cs.wordBreak;
+    const textWrap = cs.textWrap;
     if (lineBreak !== 'strict' && lineBreak !== 'anywhere') {
       const sel = el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ').join('.') : '');
       RESULTS.missingStrict.push({
         selector: sel.substring(0, 80),
         lineBreak, wordBreak,
+        textPreview: text.substring(0, 40).replace(/\s+/g, ' '),
+      });
+    }
+    // text-wrap: balance は日本語禁則と相性が悪い（句読点が行頭に動く）
+    if (textWrap === 'balance') {
+      const sel = el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ').join('.') : '');
+      RESULTS.textWrapBalance.push({
+        selector: sel.substring(0, 80),
         textPreview: text.substring(0, 40).replace(/\s+/g, ' '),
       });
     }
@@ -198,6 +207,14 @@ if (issues.missingStrict.length > 0) {
     console.log(`      <${i.selector}> (lineBreak=${i.lineBreak}): "${i.textPreview}..."`);
   }
   if (issues.missingStrict.length > 5) console.log(`      ... 他 ${issues.missingStrict.length - 5} 件`);
+  exitCode = 1;
+}
+if (issues.textWrapBalance.length > 0) {
+  console.log(`   ⚠️  text-wrap: balance が日本語テキストに適用: ${issues.textWrapBalance.length} 件（行頭句読点の原因）`);
+  for (const i of issues.textWrapBalance.slice(0, 5)) {
+    console.log(`      <${i.selector}>: "${i.textPreview}..." → pretty に変更推奨`);
+  }
+  if (issues.textWrapBalance.length > 5) console.log(`      ... 他 ${issues.textWrapBalance.length - 5} 件`);
   exitCode = 1;
 }
 if (exitCode === 0) console.log('   ✅ runtime チェック PASS（行頭句読点/widow/strict すべてクリア）');

@@ -2733,6 +2733,8 @@
     }
 
     /* 1-3行で収まる短いリード／参加者の声などは中央寄せのままが映える */
+    /* ※ text-wrap: balance は line-break: strict を無視して句読点を行頭に動かすため
+       pretty に変更（balance は行均等を優先するが、日本語禁則と相性が悪い）*/
     .why-camp-lead,
     .pricing-lead,
     .venue-lead,
@@ -2745,7 +2747,7 @@
     .what-visual-quote,
     .what-visual-sub {
       text-align: center;
-      text-wrap: balance;
+      text-wrap: pretty;
     }
 
     /* 「滞在環境について」callout も中央寄せ */
@@ -3225,9 +3227,11 @@
     <!-- + ONE MONTH LATER ── 合宿1ヶ月後のオンライン振り返り -->
     <div class="followup-card">
       <span class="followup-label">+ ONE MONTH LATER</span>
-      <div class="followup-title">実践と再点火 — 1ヶ月後のオンラインセッション（2時間）</div>
+      <div class="followup-title">実践と再点火 —<br>1ヶ月後のオンラインセッション<span class="jp-nowrap">（2時間）</span></div>
       <div class="followup-meta">
-        <strong>日程：</strong>合宿後1ヶ月を目安に、参加者の皆さんと調整して決定します　／　<strong>形式：</strong>Zoom（夜の時間帯を予定）　／　<strong>参加費：</strong>合宿参加費に含まれます
+        <div><strong>日程：</strong>合宿後1ヶ月を目安に、参加者の皆さんと調整して決定します</div>
+        <div><strong>形式：</strong>Zoom（夜の時間帯を予定）</div>
+        <div><strong>参加費：</strong>合宿参加費に含まれます</div>
       </div>
       <div class="followup-body">
         <div class="followup-purpose">

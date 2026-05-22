@@ -184,6 +184,29 @@ CSS:
 
 **修正:** 該当クラスを `fix-japanese-typography` の typography rule リストに追加する。
 
+**E4. `text-wrap: balance` が日本語テキストに適用 ⚠️**
+
+これは **runtime check が PASS したのに実機で句読点が行頭に出る** という不可解な現象の原因だった。
+
+`text-wrap: balance` は「複数行の行幅を均等にする」CSS で、見出しなど短文の体裁を整えるのに使う。
+しかし日本語に対しては:
+- `line-break: strict` を **無視** して句読点を行頭に動かしてしまう
+- `auto-phrase` の文節境界より「行幅の均等性」を優先する
+
+具体例:「私たちは、日本に「対話で物事を動かせる人」を、ひとりずつ…」が
+「…を / 、ひとりずつ…」のように 「、」 を行頭に押し出す。
+
+**修正:** `text-wrap: balance` を `text-wrap: pretty` に変更する。
+pretty は行均等は犠牲にするが、widow（1文字孤立）防止と禁則を尊重する。
+
+```css
+/* NG */
+.xxx-lead { text-wrap: balance; }
+
+/* OK */
+.xxx-lead { text-wrap: pretty; }
+```
+
 ## スクショ確認のポイント
 
 `.claude/screenshots/mobile_*.png` を Read で表示し、目視で以下を確認:
