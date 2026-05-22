@@ -355,12 +355,13 @@ run_runtime() {
     echo "🔽 Playwright をインストール中（初回のみ）..."
     (cd "$SCRIPT_DIR" && npm install --no-audit --no-fund --silent)
   fi
-  if ! (cd "$SCRIPT_DIR" && npx playwright install chromium --dry-run 2>&1 | grep -q "is already installed"); then
-    echo "🔽 Chromium をインストール中（初回のみ）..."
-    (cd "$SCRIPT_DIR" && npx playwright install chromium 2>&1 | tail -3)
+  # WebKit (Safari エンジン) を使う — Chromium と挙動が違うので必須
+  if ! (cd "$SCRIPT_DIR" && npx playwright install webkit --dry-run 2>&1 | grep -q "is already installed"); then
+    echo "🔽 WebKit をインストール中（初回のみ）..."
+    (cd "$SCRIPT_DIR" && npx playwright install webkit 2>&1 | tail -3)
   fi
 
-  echo "🔬 runtime チェック実行中: $target（iPhone 14 Pro viewport）"
+  echo "🔬 runtime チェック実行中: $target（WebKit + iPhone SE 375px viewport — 実 Safari と同等）"
   URL="http://localhost:$PORT/$target" \
     node "$SCRIPT_DIR/mobile-runtime-check.mjs"
 }

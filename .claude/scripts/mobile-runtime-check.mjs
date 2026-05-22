@@ -12,7 +12,10 @@
 // 実行: URL=... OUTPUT_JSON=... node mobile-runtime-check.mjs
 // ============================================================
 
-import { chromium, devices } from 'playwright';
+// ※ WebKit を使う（実 Safari と同じレンダリングエンジン）
+// Chromium だと strict/auto-phrase が想定通りに動くが、Safari では <strong> 等の inline
+// 境界で句読点が行頭に動く現象がある。実機 iPhone と同じ挙動を再現するため WebKit を使用。
+import { webkit, devices } from 'playwright';
 import fs from 'fs';
 
 const url = process.env.URL;
@@ -23,8 +26,15 @@ if (!url) {
   process.exit(2);
 }
 
-const browser = await chromium.launch();
-const context = await browser.newContext({ ...devices['iPhone 14 Pro'] });
+const browser = await webkit.launch();
+// iPhone SE (375px) — 最も狭い iPhone でテストして strict 違反を再現しやすくする
+const context = await browser.newContext({
+  viewport: { width: 375, height: 667 },
+  deviceScaleFactor: 3,
+  isMobile: true,
+  hasTouch: true,
+  userAgent: 'Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1',
+});
 const page = await context.newPage();
 
 await page.goto(url, { waitUntil: 'networkidle', timeout: 30000 });
@@ -158,11 +168,12 @@ const issues = await page.evaluate(() => {
         }
       }
 
-      // widow チェック: 最終行が日本語1〜2文字だけ
-      // 最終行の文字数を概算（最終行の幅 / 1文字の幅）
+      // widow チェック: 最終行が日本語1文字だけ
+      // ※ 2文字（「す。」「い。」等）は自然な文末で実害少なく、jp-nowrap 化済みなら
+      //   そもそも文末2文字は同一行に必ず収まる構造になる。1文字孤立のみ警告対象。
       const lastLine = lines[lines.length - 1];
       const lastLineCharCount = Math.round((lastLine.x2 - lastLine.x1) / (lastLine.height * 0.6));
-      if (lastLineCharCount > 0 && lastLineCharCount <= 2 && lines.length > 1) {
+      if (lastLineCharCount === 1 && lines.length > 1) {
         const sel = el.tagName.toLowerCase() + (el.className ? '.' + String(el.className).split(' ').join('.') : '');
         RESULTS.widows.push({
           selector: sel.substring(0, 80),
