@@ -31,7 +31,11 @@ mode="${1:-}"
 target="${2:-}"
 
 if [ -z "$mode" ] || [ -z "$target" ]; then
-  echo "usage: $0 {check|shoot|full} <file.html>"
+  echo "usage: $0 {check|runtime|shoot|full} <file.html>"
+  echo "  check   : 静的 grep 検査（Pattern A〜D）"
+  echo "  runtime : Playwright で実機 iPhone レンダリング検査（行頭句読点/widow/strict 未適用）"
+  echo "  shoot   : iPhone viewport スクショ取得"
+  echo "  full    : check → runtime → shoot を順に実行"
   exit 2
 fi
 
@@ -51,24 +55,36 @@ run_check() {
 
   local issues=0
 
-  # --- Pattern A: 中文区切り（、）後に改行がある <p> ブロック ---
-  # 警告の対象を絞る: 「、」が行末にあり、次行も同じ段落内テキストが続くケース。
-  # これが「、孤立」「文中での不自然な改行」を引き起こす実害パターン。
-  echo "▶ A. 中文（、）の後に HTML 改行がある <p>（句読点孤立の原因）"
+  # --- Pattern A: 句読点（、。）後に HTML 改行がある葉ノード段落 ---
+  # 対象タグ（葉ノード）: <p>, <h1>〜<h6>, <li>, <dt>, <dd>, <blockquote>,
+  #                       および見出し的な div: *-bridge / *-heading / *-quote / *-title / *-callout-title
+  # ※ 一般 div は内部に複数の <p> を持つため対象外。葉ノードのみチェックする。
+  # 「、」「。」の後の HTML 改行 + 「実テキスト続行」が実害（句読点孤立 / widow）の原因
+  echo "▶ A. 句読点（、。）の後に HTML 改行があるテキストブロック（句読点孤立・widow の原因）"
   local pattern_a
   pattern_a=$(perl -0777 -ne '
     my $found = 0;
-    while (/<p\b[^>]*>([\s\S]*?)<\/p>/g) {
-      my $content = $1;
-      my $start = $-[0];
-      # 段落内で「、」の直後（任意空白を挟んで）に改行＋次のインデント文字が来るケース
-      if ($content =~ /、\s*\n\s+\S/s) {
-        my $line = (substr($_, 0, $start) =~ tr/\n//) + 1;
-        my $preview = $content;
-        $preview =~ s/\s+/ /gs;
-        $preview = substr($preview, 0, 80);
-        print "   L$line: $preview...\n";
-        $found++;
+    my @patterns = (
+      qr/<(p|h[1-6]|li|dt|dd|blockquote)\b[^>]*>([\s\S]*?)<\/\1>/,
+      # heading 的な div（複数の <p> を含まないことを期待）
+      qr/<(div)\b[^>]*\bclass\s*=\s*"[^"]*\b(?:bridge|heading|quote|callout-title|visual-quote|visual-sub|hero-title|hero-subtitle|hero-label|manifesto)[\w-]*"[^>]*>([\s\S]*?)<\/\1>/,
+    );
+    for my $pat (@patterns) {
+      while (/$pat/g) {
+        my $tag = $1;
+        my $content = $2;
+        my $start = $-[0];
+        # 入れ子の <p> を含む div は除外（その場合は内側の <p> 単体で検査される）
+        next if $tag eq "div" && $content =~ /<p\b/;
+        # 「、」「。」直後に改行+インデント+実テキスト（閉じタグ / 純空白以外）が続くケースを警告
+        if ($content =~ /[、。][ \t]*\n[ \t]+(?=\S)(?!<\/)/s) {
+          my $line = (substr($_, 0, $start) =~ tr/\n//) + 1;
+          my $preview = $content;
+          $preview =~ s/\s+/ /gs;
+          $preview = substr($preview, 0, 80);
+          print "   L$line: $preview...\n";
+          $found++;
+        }
       }
     }
     exit($found > 0 ? 1 : 0);
@@ -321,17 +337,51 @@ run_shoot() {
 }
 
 # ============================================================
+# Playwright + iPhone viewport で runtime CSS チェック
+# ============================================================
+run_runtime() {
+  ensure_server
+  trap stop_server EXIT
+
+  # Node / Playwright のセットアップ（run_shoot と同じ）
+  export NVM_DIR="$HOME/.nvm"
+  if [ -s "$NVM_DIR/nvm.sh" ]; then . "$NVM_DIR/nvm.sh"; fi
+  if ! command -v npx >/dev/null 2>&1; then
+    for node_dir in "$HOME/.nvm/versions/node"/*/bin; do
+      if [ -d "$node_dir" ]; then export PATH="$node_dir:$PATH"; break; fi
+    done
+  fi
+  if [ ! -d "$SCRIPT_DIR/node_modules/playwright" ]; then
+    echo "🔽 Playwright をインストール中（初回のみ）..."
+    (cd "$SCRIPT_DIR" && npm install --no-audit --no-fund --silent)
+  fi
+  if ! (cd "$SCRIPT_DIR" && npx playwright install chromium --dry-run 2>&1 | grep -q "is already installed"); then
+    echo "🔽 Chromium をインストール中（初回のみ）..."
+    (cd "$SCRIPT_DIR" && npx playwright install chromium 2>&1 | tail -3)
+  fi
+
+  echo "🔬 runtime チェック実行中: $target（iPhone 14 Pro viewport）"
+  URL="http://localhost:$PORT/$target" \
+    node "$SCRIPT_DIR/mobile-runtime-check.mjs"
+}
+
+# ============================================================
 # main
 # ============================================================
 case "$mode" in
   check)
     run_check
     ;;
+  runtime)
+    run_runtime
+    ;;
   shoot)
     run_shoot
     ;;
   full)
     if run_check; then
+      echo ""
+      run_runtime || true   # runtime は警告どまり（exit はしない）
       echo ""
       run_shoot
     else
@@ -342,7 +392,7 @@ case "$mode" in
     fi
     ;;
   *)
-    echo "usage: $0 {check|shoot|full} <file.html>"
+    echo "usage: $0 {check|runtime|shoot|full} <file.html>"
     exit 2
     ;;
 esac

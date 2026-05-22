@@ -40,23 +40,30 @@ description: |
 cd /Users/morimotoyasuhito/kizukikumitate
 
 # 1. 静的チェック（数秒で終わる）
-./.claude/scripts/mobile-preflight.sh check democracy-fitness-camp-0811.html
+./.claude/scripts/mobile-preflight.sh check <file.html>
 
-# 2. スクショ取得（初回は Playwright のブラウザ DL に1-2分）
-./.claude/scripts/mobile-preflight.sh shoot democracy-fitness-camp-0811.html
+# 2. runtime チェック（Playwright で iPhone レンダリング検査、~10秒）
+./.claude/scripts/mobile-preflight.sh runtime <file.html>
 
-# または両方まとめて
-./.claude/scripts/mobile-preflight.sh full democracy-fitness-camp-0811.html
+# 3. スクショ取得（目視確認用）
+./.claude/scripts/mobile-preflight.sh shoot <file.html>
+
+# まとめて実行
+./.claude/scripts/mobile-preflight.sh full <file.html>
 ```
 
 スクショは `.claude/screenshots/mobile_<ファイル名>_<タイムスタンプ>.png` に出力される。
 Claude は出力された PNG を Read ツールで表示してチェックする。
 
-## 検出される3つのアンチパターン
+## 検出されるアンチパターン
 
-### Pattern A: Multi-line `<p>` ブロック
+### Pattern A: 句読点（、。）の直後に HTML 改行があるテキストブロック
 
 **症状:** 句読点（、。）が単独行に追い出される。または文章の途中で不自然な改行。
+
+**対象タグ（葉ノード）:**
+- `<p>`, `<h1>`〜`<h6>`, `<li>`, `<dt>`, `<dd>`, `<blockquote>`
+- 見出し的な `<div class="*-bridge|*-heading|*-quote|*-callout-title|*-visual-quote|*-manifesto|hero-title|hero-subtitle|hero-label">` 等
 
 **例（NG）:**
 ```html
@@ -75,6 +82,9 @@ HTML の改行とインデントが空白文字に変換され、それがブラ
 <p>自分の社会への違和感、組織での孤独、家族との対話の難しさ——昼のワークではまだ言葉になっていなかったものが、夜の火のゆらぎの前で、ぽつりぽつりと言葉になっていく。</p>
 ```
 1段落 = 1行で書く。長くなっても改行しない。本当に行替えしたい箇所のみ `<br>` を入れる。
+
+**経験則:** 多くの場合、見出しや段落内の HTML 改行は無意識にエディタの右端で折返されたコピペ由来。
+`<p>` `<h*>` `<div class="*-quote">` 等の中身は **必ず1行に展開** すること。
 
 ### Pattern B: 半角スペース付き「番号+名称」パターン
 
@@ -125,6 +135,54 @@ HTML の改行とインデントが空白文字に変換され、それがブラ
 
 **修正:** モバイルの段落系セレクタに `hanging-punctuation: allow-end` を追加。
 行末の `、` `。` `」` 等をマージン側にぶら下げて、強制的に行内に収める。
+
+### Pattern E: runtime チェック（Playwright で実機相当検査）
+
+静的検査だけでは捕まえられない以下の問題を、iPhone 14 Pro viewport で
+レンダリングして実検出する。
+
+**E1. 行頭句読点（line-break: strict 違反）:**
+CSS の `line-break: strict` 設定があっても、`</strong>` 等の inline 境界や
+`<em>` の挟み込みで Safari が strict を破ってしまうケースがある。
+runtime check は各行の先頭文字を実取得して、`、。」）】 ・` 等が出ていないか確認する。
+
+**E2. 1〜2文字 widow:**
+段落最終行に1〜2文字だけ残るケースを検出。例:
+- 「デモクラシーフィットネスとは」が「とは」「は」のように分割される
+
+**修正例:**
+```html
+<!-- NG: 「フィットネスとは」が分断されうる -->
+<h2>デモクラシーフィットネスとは</h2>
+
+<!-- OK: nowrap span で意味的なまとまりを保つ -->
+<h2>デモクラシー<span class="jp-nowrap">フィットネスとは</span></h2>
+```
+
+CSS:
+```css
+.jp-nowrap {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+```
+
+または、見出しに `<br class="br-mobile-only">` を入れて意図的に改行ポイントを制御する:
+```html
+<h2>この2日間は、ゴールではなく、<br class="br-mobile-only">はじまりです。</h2>
+```
+```css
+.br-mobile-only { display: none; }
+@media (max-width: 768px) {
+  .br-mobile-only { display: initial; }
+}
+```
+
+**E3. `line-break: strict` 未適用要素:**
+日本語テキストを含むのにモバイル typography rule が当たっていない要素を検出。
+セレクタの列挙漏れを発見する。
+
+**修正:** 該当クラスを `fix-japanese-typography` の typography rule リストに追加する。
 
 ## スクショ確認のポイント
 

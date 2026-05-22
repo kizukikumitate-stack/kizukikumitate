@@ -1221,6 +1221,37 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .cta-btn { padding: 14px 20px; }
   footer { padding: 1.5rem 1rem; }
 }
+
+/* ===== モバイル日本語タイポグラフィ（fix-japanese-typography 由来）=====
+   行頭句読点・1文字孤立・単語内分割を CSS Text Module Level 4 で根本解決 */
+@media (max-width: 768px) {
+  body,
+  p, li, dd, dt, blockquote, figcaption,
+  h1, h2, h3, h4, h5, h6,
+  .label, .cta-label, .cta-title, .cta-sub, .cta-note,
+  .trial-tag, .trial-title, .trial-desc,
+  .hero h1, .hero p, .hero-eyebrow, .hero-sub,
+  .section-h2, .section-lead,
+  .why-card-head, .why-card-body p,
+  .day-title, .day-desc,
+  .scale-note, .scale-note-title, .scale-note-desc,
+  .scale-card, .scale-card-title, .scale-card-desc,
+  .interval-card, .interval-title, .interval-desc,
+  .monitor-flow, .monitor-card, .monitor-title, .monitor-desc,
+  .roadmap-card, .roadmap-title, .roadmap-desc, .roadmap-goal,
+  .emphasis-box, .emphasis-text,
+  .research-card, .research-card-title, .research-card-desc,
+  .research-conclusion, .research-conclusion-title, .research-conclusion-text,
+  .culture-block, .culture-block-title, .culture-block-desc,
+  .book-card, .book-card-title, .book-card-author, .book-card-desc,
+  .research-note, .research-source {
+    word-break: auto-phrase !important;
+    overflow-wrap: break-word !important;
+    line-break: strict !important;
+    text-wrap: pretty;
+    hanging-punctuation: allow-end;
+  }
+}
 </style>
 </head>
 <body>
