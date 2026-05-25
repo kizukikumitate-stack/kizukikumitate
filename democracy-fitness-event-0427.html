@@ -882,6 +882,32 @@
     text-align: center;
   }
 
+  /* ── PAST EVENTS ── */
+  .past-events-section {
+    background: var(--slate);
+    color: white;
+    text-align: center;
+    padding: 5rem 3rem;
+  }
+  .past-events-section .register-label { opacity: 0.6; }
+  .past-events-section .register-heading {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin-bottom: 0.5rem;
+  }
+  .past-events-section .register-sub { opacity: 0.7; }
+  .past-events-section .register-card {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.18);
+  }
+  .past-events-section .register-card h3 {
+    font-size: 1.2rem;
+    opacity: 0.95;
+  }
+  .past-events-section .register-btn {
+    background: rgba(255,255,255,0.92);
+    color: var(--slate);
+  }
+
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
@@ -1688,31 +1714,35 @@
   </div>
 </section>
 
-<!-- ── REGISTER ── -->
+<!-- ── UPCOMING EVENTS ── -->
 <section id="register" class="register-section">
-  <div class="register-label">APPLY NOW</div>
-  <h2 class="register-heading">参加申し込み</h2>
-  <p class="register-sub">定員に達し次第、受付を締め切ります。お早めにどうぞ。</p>
+  <div class="register-label">UPCOMING EVENTS</div>
+  <h2 class="register-heading">今後のイベント</h2>
+  <p class="register-sub">大阪・名古屋・北軽井沢で開催します。お早めにどうぞ。</p>
 
-  <!-- 東京開催 -->
+  <!-- 大阪 QUINTBRIDGE -->
   <div class="register-card">
-    <h3>東京開催</h3>
+    <h3>大阪開催（QUINTBRIDGE）</h3>
     <div class="register-details">
       <div class="register-detail">
         <div class="register-detail-label">日時</div>
-        <div class="register-detail-value">4月27日（月）18:00–20:00</div>
+        <div class="register-detail-value">6月12日（金）15:00–17:30</div>
       </div>
       <div class="register-detail">
         <div class="register-detail-label">会場</div>
-        <div class="register-detail-value">国立オリンピック記念青少年総合センター<br><small style="font-weight:300; font-size:0.85rem;">東京都渋谷区代々木神園町3-1</small></div>
+        <div class="register-detail-value">QUINTBRIDGE 1F カフェ前<br><small style="font-weight:300; font-size:0.85rem;">大阪市都島区東野田町4-15-82</small></div>
       </div>
       <div class="register-detail">
         <div class="register-detail-label">参加費</div>
-        <div class="register-detail-value">¥1,100（税込）</div>
+        <div class="register-detail-value">無料</div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">主催</div>
+        <div class="register-detail-value">QUINTBRIDGE</div>
       </div>
     </div>
-    <a href="https://kizukikumitate.kit.com/8db376b6a3" class="register-btn" target="_blank">申し込みフォームへ →</a>
-    <p class="register-note">終了後、外部会場にて懇親会を予定しています。</p>
+    <a href="https://www.quintbridge.jp/event/detail/202605121341.html" class="register-btn" target="_blank" rel="noopener">詳細・申し込みへ →</a>
+    <p class="register-note">THE UPDATER Vol.6 —「忖度せずに意見を言え、反対意見を歓迎できる組織をつくる」</p>
   </div>
 
   <!-- 名古屋開催 -->
@@ -1740,8 +1770,77 @@
         <div class="register-detail-value">どなたでもご参加いただけます</div>
       </div>
     </div>
-    <a href="https://www.facebook.com/events/931178162842294/" class="register-btn" target="_blank">フェイスブックのイベントページに飛びます →</a>
+    <a href="https://www.facebook.com/events/931178162842294/" class="register-btn" target="_blank" rel="noopener">フェイスブックのイベントページへ →</a>
     <p class="register-note">終了後、希望者で懇親会があります。</p>
+  </div>
+
+  <!-- 北軽井沢合宿 -->
+  <div class="register-card">
+    <h3>北軽井沢合宿（1泊2日／全10筋肉）</h3>
+    <div class="register-details">
+      <div class="register-detail">
+        <div class="register-detail-label">日時</div>
+        <div class="register-detail-value">8月11日（火）・12日（水）</div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">会場</div>
+        <div class="register-detail-value">TAKIVIVA<br><small style="font-weight:300; font-size:0.85rem;">群馬県・北軽井沢</small></div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">参加費</div>
+        <div class="register-detail-value">早割 ¥74,250〜（税込）<br><small style="font-weight:300; font-size:0.85rem;">ペア早割 ¥66,000（税込）</small></div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">定員</div>
+        <div class="register-detail-value">25名（最少催行10名）</div>
+      </div>
+    </div>
+    <a href="./democracy-fitness-camp-0811.html" class="register-btn" target="_blank" rel="noopener">合宿の詳細ページへ →</a>
+    <p class="register-note">2日間で10の筋肉すべてを体験する合宿型プログラムです。</p>
+  </div>
+</section>
+
+<!-- ── PAST EVENTS ── -->
+<section class="past-events-section">
+  <div class="register-label">PAST EVENTS</div>
+  <h2 class="register-heading">過去の開催</h2>
+  <p class="register-sub">これまで実施した体験会の記録です。</p>
+
+  <!-- 2026.4.27 東京開催 -->
+  <div class="register-card">
+    <h3>東京開催（終了）</h3>
+    <div class="register-details">
+      <div class="register-detail">
+        <div class="register-detail-label">日時</div>
+        <div class="register-detail-value">2026年4月27日（月）18:00–20:00</div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">会場</div>
+        <div class="register-detail-value">国立オリンピック記念青少年総合センター<br><small style="font-weight:300; font-size:0.85rem;">東京都渋谷区代々木神園町3-1</small></div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">参加費</div>
+        <div class="register-detail-value">¥1,100（税込）</div>
+      </div>
+    </div>
+    <p class="register-note">本イベントは終了しました。ご参加ありがとうございました。</p>
+  </div>
+
+  <!-- 2026.4.24 福岡開催 -->
+  <div class="register-card">
+    <h3>福岡開催（終了）</h3>
+    <div class="register-details">
+      <div class="register-detail">
+        <div class="register-detail-label">日時</div>
+        <div class="register-detail-value">2026年4月24日（木）</div>
+      </div>
+      <div class="register-detail">
+        <div class="register-detail-label">会場</div>
+        <div class="register-detail-value">福岡市内</div>
+      </div>
+    </div>
+    <a href="https://www.youtube.com/watch?v=TAh050hwmR4" class="register-btn" target="_blank" rel="noopener">当日の様子（動画）→</a>
+    <p class="register-note">本イベントは終了しました。ご参加ありがとうございました。</p>
   </div>
 </section>
 
