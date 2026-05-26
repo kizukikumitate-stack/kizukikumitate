@@ -129,6 +129,47 @@ HTML の改行とインデントが空白文字に変換され、それがブラ
 }
 ```
 
+### Pattern H: OGP / Twitter Card の必須タグ漏れ
+
+**症状:** SNS（X / Facebook / Slack / Messenger 等）でページをシェアしたとき、
+カードがちゃんと表示されない、画像が出ない、タイトル/説明が「URL そのまま」になる、
+あるいは別ページの OGP が流用されてしまう。
+
+**必須タグ:**
+- Open Graph: `og:title`, `og:description`, `og:image`, `og:url`, `og:type`
+- Twitter Card: `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`
+- 推奨: `og:image:width`, `og:image:height`, `<link rel="canonical">`
+
+**よくある落とし穴:**
+- 新規ページを作るとき、index.html や democracy-fitness.html などをコピーしたが
+  OGP の `og:url` を新ページの URL に書き換え忘れる → SNS から飛ぶと違うページが
+  開いてしまう
+- 申し込みフォーム等の `noindex` ページに OGP を入れ忘れる → メッセンジャーで
+  共有したときカードが出ない
+- `og:url` と `canonical` の URL が不一致 → SNS のクローラが混乱する
+
+**修正テンプレート:**
+```html
+<title>ページタイトル｜きづきくみたて工房</title>
+<meta name="description" content="120字程度の説明">
+<link rel="canonical" href="https://kizukikumitate.com/path.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="ページタイトル｜きづきくみたて工房">
+<meta property="og:description" content="120字程度の説明">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/path.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ページタイトル｜きづきくみたて工房">
+<meta name="twitter:description" content="120字程度の説明">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+```
+
 ### Pattern D: モバイルタイポグラフィに hanging-punctuation 抜け
 
 **症状:** Pattern A の対策後も、句読点が行末で次行に流れる事故が稀に発生。

@@ -229,6 +229,41 @@ run_check() {
   fi
   echo ""
 
+  # --- Pattern H: OGP / Twitter Card の必須タグ漏れ ---
+  # SNS シェア時のカード表示に必要な以下が揃っているかチェック
+  echo "▶ H. OGP / Twitter Card の必須タグ確認"
+  local pattern_h=""
+  local required_og="og:title og:description og:image og:url og:type"
+  local required_tw="twitter:card twitter:title twitter:description twitter:image"
+  for tag in $required_og; do
+    if ! grep -q "property=\"$tag\"" "$FILE"; then
+      pattern_h="${pattern_h}   ⚠️ <meta property=\"$tag\"> が見つかりません\n"
+    fi
+  done
+  for tag in $required_tw; do
+    if ! grep -q "name=\"$tag\"" "$FILE"; then
+      pattern_h="${pattern_h}   ⚠️ <meta name=\"$tag\"> が見つかりません\n"
+    fi
+  done
+  # canonical URL チェック
+  if ! grep -q 'rel="canonical"' "$FILE"; then
+    pattern_h="${pattern_h}   ⚠️ <link rel=\"canonical\"> が見つかりません\n"
+  fi
+  # og:url が canonical と一致しているかも確認
+  local og_url canonical_url
+  og_url=$(grep -oE 'property="og:url"[^>]*content="[^"]*"' "$FILE" | head -1 | sed -E 's/.*content="([^"]*)".*/\1/')
+  canonical_url=$(grep -oE 'rel="canonical"[^>]*href="[^"]*"' "$FILE" | head -1 | sed -E 's/.*href="([^"]*)".*/\1/')
+  if [ -n "$og_url" ] && [ -n "$canonical_url" ] && [ "$og_url" != "$canonical_url" ]; then
+    pattern_h="${pattern_h}   ⚠️ og:url ($og_url) と canonical ($canonical_url) が不一致\n"
+  fi
+  if [ -n "$pattern_h" ]; then
+    printf '%b' "$pattern_h"
+    issues=$((issues + 1))
+  else
+    echo "   ✅ クリア"
+  fi
+  echo ""
+
   # --- Pattern D: モバイル typography に hanging-punctuation 抜け ---
   echo "▶ D. モバイル typography ブロックに hanging-punctuation: allow-end 漏れ"
   local has_autophrase has_hanging
