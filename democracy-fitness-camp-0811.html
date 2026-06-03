@@ -1183,6 +1183,61 @@
     margin-top: auto;
   }
 
+  .pc-sublabel {
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.45rem;
+  }
+
+  .price-card-breakdown {
+    border-top: 1px dashed rgba(0, 0, 0, 0.16);
+    margin-top: 1.1rem;
+    padding-top: 1rem;
+  }
+
+  .pc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    margin-bottom: 0.7rem;
+  }
+
+  .pc-row .pc-row-val {
+    color: var(--ink);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .pc-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.6rem;
+    border-top: 1px solid var(--mist);
+    padding-top: 0.8rem;
+  }
+
+  .pc-total .pc-total-label {
+    font-size: 0.85rem;
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .pc-total .pc-total-val {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--ink);
+    white-space: nowrap;
+    line-height: 1;
+  }
+
   .pricing-note {
     background: white;
     padding: 2rem 2.5rem;
@@ -2788,6 +2843,7 @@
     .price-card-name,
     .price-card-label,
     .price-card-badge,
+    .pc-sublabel,
     .price-card-amount,
     .price-card-amount-net,
     .price-card-discount,
@@ -3494,10 +3550,15 @@
       <div class="price-card">
         <div class="price-card-label">STANDARD</div>
         <div class="price-card-name">定価</div>
+        <div class="pc-sublabel">プログラム参加費（当社へ）</div>
         <div class="price-card-amount">
           <span class="yen">¥</span>42,900<span class="tax">（税込）</span>
         </div>
         <div class="price-card-amount-net">税抜 ¥39,000</div>
+        <div class="price-card-breakdown">
+          <div class="pc-row"><span>＋ 宿泊費（最大）<br><small style="font-size:0.72rem;">TAKIVIVAへ直接</small></span><span class="pc-row-val">¥39,600</span></div>
+          <div class="pc-total"><span class="pc-total-label">＝ お支払い総額の目安</span><span class="pc-total-val">約¥82,500</span></div>
+        </div>
         <div class="price-card-cond">
           通常価格。7月1日以降のお一人での申込み、または通常お申込みの方。
         </div>
@@ -3508,11 +3569,16 @@
         <div class="price-card-badge">EARLY または PAIR</div>
         <div class="price-card-label">¥7,000 OFF</div>
         <div class="price-card-name">早割 または ペア割</div>
+        <div class="pc-sublabel">プログラム参加費（当社へ）</div>
         <div class="price-card-amount">
           <span class="yen">¥</span>35,200<span class="tax">（税込）</span>
         </div>
         <div class="price-card-amount-net">税抜 ¥32,000</div>
         <div class="price-card-discount">▼ ¥7,000 OFF（税抜比）</div>
+        <div class="price-card-breakdown">
+          <div class="pc-row"><span>＋ 宿泊費（最大）<br><small style="font-size:0.72rem;">TAKIVIVAへ直接</small></span><span class="pc-row-val">¥39,600</span></div>
+          <div class="pc-total"><span class="pc-total-label">＝ お支払い総額の目安</span><span class="pc-total-val">約¥74,800</span></div>
+        </div>
         <div class="price-card-cond">
           <strong>早割：</strong>6月30日（火）までにお申込み<br>
           <strong>ペア割：</strong>2名同時お申込み<br>
@@ -3525,11 +3591,16 @@
         <div class="price-card-badge">BEST VALUE</div>
         <div class="price-card-label">¥15,000 OFF</div>
         <div class="price-card-name">ペア早割</div>
+        <div class="pc-sublabel">プログラム参加費（当社へ）</div>
         <div class="price-card-amount">
           <span class="yen">¥</span>26,400<span class="tax">（税込）</span>
         </div>
         <div class="price-card-amount-net">税抜 ¥24,000</div>
         <div class="price-card-discount">▼ ¥15,000 OFF（税抜比）</div>
+        <div class="price-card-breakdown">
+          <div class="pc-row"><span>＋ 宿泊費（最大）<br><small style="font-size:0.72rem;">TAKIVIVAへ直接</small></span><span class="pc-row-val">¥39,600</span></div>
+          <div class="pc-total"><span class="pc-total-label">＝ お支払い総額の目安</span><span class="pc-total-val">約¥66,000</span></div>
+        </div>
         <div class="price-card-cond">
           <strong>6月30日（火）までに、2名同時でお申込み</strong>の場合に適用される、もっともお得な価格です。<br>
           <span style="color: var(--text-secondary); font-size: 0.8rem;">※同じ職場・家族・友人など、どなたとのペアでも構いません。</span>
@@ -3537,33 +3608,8 @@
       </div>
     </div>
 
-    <!-- ── お支払い総額の目安（プログラム費＋宿泊費） ── -->
-    <div class="pricing-note" style="margin-top: 1.8rem; border-left: 4px solid var(--gold);">
-      <h4>お支払い総額の目安（プログラム参加費 ＋ 宿泊費）</h4>
-      <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.9; margin-bottom:1.3rem;">上の価格カードの金額は<strong style="color:var(--ink);">プログラム参加費のみ</strong>で<span class="jp-nowrap">す。</span>これとは別に宿泊費がかかり、<strong style="color:var(--ink);">お支払い先も異なります</strong>。下記は両方を合算した、ご予算の目安で<span class="jp-nowrap">す。</span></p>
-
-      <div style="background:var(--mist); border-radius:8px; padding:1.1rem 1.2rem; margin-bottom:0.9rem;">
-        <div style="font-weight:700; color:var(--accent); font-size:0.9rem; margin-bottom:0.6rem;">ペア早割（6/30まで・2名同時）</div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; font-size:0.9rem; padding:0.25rem 0;"><span>プログラム参加費 <small style="color:var(--text-secondary);">（当社へ）</small></span><span>¥26,400</span></div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; font-size:0.9rem; padding:0.25rem 0;"><span>＋ 宿泊費・最大 <small style="color:var(--text-secondary);">（TAKIVIVAへ直接）</small></span><span>¥39,600</span></div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; border-top:1px solid rgba(0,0,0,0.12); margin-top:0.5rem; padding-top:0.6rem; font-weight:700; color:var(--ink);"><span>＝ 総額の目安</span><span style="font-size:1.2rem;">約¥66,000</span></div>
-      </div>
-
-      <div style="background:var(--mist); border-radius:8px; padding:1.1rem 1.2rem; margin-bottom:0.9rem;">
-        <div style="font-weight:700; color:var(--accent); font-size:0.9rem; margin-bottom:0.6rem;">早割 または ペア割</div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; font-size:0.9rem; padding:0.25rem 0;"><span>プログラム参加費 <small style="color:var(--text-secondary);">（当社へ）</small></span><span>¥35,200</span></div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; font-size:0.9rem; padding:0.25rem 0;"><span>＋ 宿泊費・最大 <small style="color:var(--text-secondary);">（TAKIVIVAへ直接）</small></span><span>¥39,600</span></div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; border-top:1px solid rgba(0,0,0,0.12); margin-top:0.5rem; padding-top:0.6rem; font-weight:700; color:var(--ink);"><span>＝ 総額の目安</span><span style="font-size:1.2rem;">約¥74,800</span></div>
-      </div>
-
-      <div style="background:var(--mist); border-radius:8px; padding:1.1rem 1.2rem;">
-        <div style="font-weight:700; color:var(--accent); font-size:0.9rem; margin-bottom:0.6rem;">定価</div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; font-size:0.9rem; padding:0.25rem 0;"><span>プログラム参加費 <small style="color:var(--text-secondary);">（当社へ）</small></span><span>¥42,900</span></div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; font-size:0.9rem; padding:0.25rem 0;"><span>＋ 宿泊費・最大 <small style="color:var(--text-secondary);">（TAKIVIVAへ直接）</small></span><span>¥39,600</span></div>
-        <div style="display:flex; justify-content:space-between; gap:0.8rem; border-top:1px solid rgba(0,0,0,0.12); margin-top:0.5rem; padding-top:0.6rem; font-weight:700; color:var(--ink);"><span>＝ 総額の目安</span><span style="font-size:1.2rem;">約¥82,500</span></div>
-      </div>
-
-      <p style="margin-top:1rem; font-size:0.8rem; color:var(--text-secondary);">※宿泊費はTAKIVIVA様の料金体系により数千円程度お安くなる場合があり、総額はこれより下がることがありま<span class="jp-nowrap">す。</span></p>
+    <div class="pricing-note" style="margin-top: 1.6rem;">
+      <p style="font-size:0.86rem; color:var(--text-secondary); line-height:1.95; margin:0;">各カードの<strong style="color:var(--ink);">「プログラム参加費」は当社（株式会社きづきくみたてワンダーラボ）へ</strong>、<strong style="color:var(--ink);">「宿泊費」は会場TAKIVIVA様へ直接</strong>お支払いいただきま<span class="jp-nowrap">す。</span>宿泊費はTAKIVIVA様の料金体系により数千円程度お安くなる場合があり、総額はこれより下がることがありま<span class="jp-nowrap">す。</span></p>
     </div>
 
     <div class="pricing-impact">
