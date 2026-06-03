@@ -12,12 +12,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>合宿版デモクラシーフィットネス2026 in 北軽井沢 | 2026.8.11–12</title>
-<meta name="description" content="2026年8月11日（火）・12日（水）、北軽井沢TAKIVIVAにて開催する1泊2日の合宿。デモクラシーフィットネスの全10筋肉を2日間で一気に体験。税込価格：早割74,250円／ペア早割66,000円／定価82,500円。定員25名。">
+<meta name="description" content="2026年8月11日（火）・12日（水）、北軽井沢TAKIVIVAにて開催する1泊2日の合宿。デモクラシーフィットネスの全10筋肉を2日間で一気に体験。プログラム参加費（税込）：定価42,900円／早割38,500円／ペア早割34,100円（宿泊費・食事代は別途、会場TAKIVIVAへ直接）。定員25名。">
 <link rel="canonical" href="https://kizukikumitate.com/democracy-fitness-camp-0811.html">
 
 <!-- OGP -->
 <meta property="og:title" content="合宿版デモクラシーフィットネス2026 in 北軽井沢 〜2日間で全10筋肉を鍛えます〜">
-<meta property="og:description" content="2026年8月11日（火）・12日（水）｜TAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を一気に体験｜税込価格：早割74,250円／ペア早割66,000円／定価82,500円｜定員25名">
+<meta property="og:description" content="2026年8月11日（火）・12日（水）｜TAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を一気に体験｜プログラム参加費（税込）：定価42,900円／早割38,500円／ペア早割34,100円（宿泊費別途）｜定員25名">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kizukikumitate.com/democracy-fitness-camp-0811.html">
 <meta property="og:image" content="https://kizukikumitate.com/ws-photo-2.jpg">
@@ -29,7 +29,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="合宿版デモクラシーフィットネス2026 in 北軽井沢 〜2日間で全10筋肉を鍛えます〜">
-<meta name="twitter:description" content="2026年8月11日（火）・12日（水）｜TAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を一気に体験｜税込価格：早割74,250円／ペア早割66,000円／定価82,500円｜定員25名">
+<meta name="twitter:description" content="2026年8月11日（火）・12日（水）｜TAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を一気に体験｜プログラム参加費（税込）：定価42,900円／早割38,500円／ペア早割34,100円（宿泊費別途）｜定員25名">
 <meta name="twitter:image" content="https://kizukikumitate.com/ws-photo-2.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1269,6 +1269,96 @@
   .pricing-impact-body strong {
     color: var(--gold);
     font-weight: 700;
+  }
+
+  /* ── PRICING BENEFITS（参加者だけの特典）── */
+  .pricing-benefits {
+    background: white;
+    padding: 2.5rem 2.5rem 2.2rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--accent);
+    box-shadow: 0 6px 22px rgba(45, 74, 122, 0.06);
+  }
+
+  .pricing-benefits-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-size: 0.78rem;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .pricing-benefits-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .pricing-benefits-lead {
+    font-size: 0.92rem;
+    line-height: 1.95;
+    color: var(--text-secondary);
+    margin-bottom: 1.8rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .pricing-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
+  }
+
+  .pricing-benefit-card {
+    background: var(--mist);
+    padding: 1.8rem 1.6rem;
+    border-radius: 6px;
+    border-top: 3px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pricing-benefit-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+
+  .pricing-benefit-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .pricing-benefit-desc {
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: var(--slate);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  .pricing-benefit-desc strong {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .pricing-benefits { padding: 1.8rem 1.5rem; }
+    .pricing-benefits-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+    .pricing-benefit-card { padding: 1.4rem 1.3rem; }
   }
 
   /* ── APPLY FLOW（お申込みの流れ 3ステップ）── */
@@ -2871,7 +2961,7 @@
     </div>
     <div class="hero-info-item">
       <div class="hero-info-label">Fee</div>
-      <div class="hero-info-value">¥66,000〜<br><span style="opacity:0.6; font-size:0.78rem;">税込（税抜¥60,000〜）</span></div>
+      <div class="hero-info-value">¥34,100〜<br><span style="opacity:0.6; font-size:0.78rem;">税込（宿泊費別途）</span></div>
     </div>
     <div class="hero-info-item">
       <div class="hero-info-label">Capacity</div>
@@ -3231,7 +3321,7 @@
       <div class="followup-meta">
         <div><strong>日程：</strong>合宿後1ヶ月を目安に、参加者の皆さんと調整して決定します</div>
         <div><strong>形式：</strong>Zoom（夜の時間帯を予定）</div>
-        <div><strong>参加費：</strong>合宿参加費に含まれます</div>
+        <div><strong>参加費：</strong>プログラム参加費に含まれます</div>
       </div>
       <div class="followup-body">
         <div class="followup-purpose">
@@ -3274,12 +3364,12 @@
     <div class="venue-callout">
       <div class="venue-callout-title">滞在環境について</div>
       <p>
-        宿泊は、個人での内省を深めるために意図的に作られた小さな個人のスペース <strong>ReGo</strong> か、通常の個室での対応になります。希望の部屋をご連絡ください。
+        宿泊は、個人での内省を深めるために意図的に作られた小さな個人のスペース <strong>ReGo</strong> か、通常の個室での対応になります。ご予約・お支払いは会場TAKIVIVAへ直接お手続きいただきます（お申込み時に希望の部屋タイプをうかがいます）。
       </p>
       <p style="margin-top: 1rem;">
         宿泊スペースの詳細は <a href="https://takiviva.net/space05.php" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">TAKIVIVA公式サイトの宿泊ページ →</a> をご覧ください。
       </p>
-      <p style="margin-top: 1rem;">夕食と朝食はTAKIVIVAの厨房で地域食材を活かして調理されます。ランチはお弁当の手配となります。アレルギー・食事制限については事前にご相談いただければ可能な範囲で対応します（厨房を他の参加者と共有するため、完全な分離が難しい場合は別途ご自身で用意いただくこともございます）。</p>
+      <p style="margin-top: 1rem;">食事（1日目 昼・夕、2日目 朝・昼の計4回）はいずれもTAKIVIVA側でご用意し、宿泊費に含まれます。夕食と朝食はTAKIVIVAの厨房で地域食材を活かして調理され、ランチは外部手配のお弁当となります。アレルギー・食事制限については事前にご相談いただければ可能な範囲で対応します（厨房を他の参加者と共有するため、完全な分離が難しい場合は別途ご自身で用意いただくこともございます）。</p>
     </div>
 
     <div class="venue-meta">
@@ -3397,7 +3487,7 @@
   <div class="pricing-inner">
     <div class="section-label">FEE</div>
     <h2 class="section-heading">参加費</h2>
-    <p class="pricing-lead">宿泊（1泊）・全食事・ワーク全プログラムを含みます。<br><strong>早割（6/30まで）</strong>または<strong>ペア割（2名でのお申込み）</strong>で10%オフ、<strong>ペア早割（両方を満たす）</strong>で20%オフになります。</p>
+    <p class="pricing-lead"><strong>ワーク全プログラムの参加費</strong>です（宿泊費・食事代は含みません。詳細は下記をご覧ください）。<br><strong>早割（6/30まで）</strong>または<strong>ペア割（2名でのお申込み）</strong>で¥4,000オフ、<strong>ペア早割（両方を満たす）</strong>で¥8,000オフになります（税抜比）。</p>
 
     <div class="pricing-grid">
       <!-- 定価 -->
@@ -3405,9 +3495,9 @@
         <div class="price-card-label">STANDARD</div>
         <div class="price-card-name">定価</div>
         <div class="price-card-amount">
-          <span class="yen">¥</span>82,500<span class="tax">（税込）</span>
+          <span class="yen">¥</span>42,900<span class="tax">（税込）</span>
         </div>
-        <div class="price-card-amount-net">税抜 ¥75,000</div>
+        <div class="price-card-amount-net">税抜 ¥39,000</div>
         <div class="price-card-cond">
           通常価格。7月1日以降のお一人での申込み、または通常お申込みの方。
         </div>
@@ -3416,13 +3506,13 @@
       <!-- 早割 or ペア割 -->
       <div class="price-card featured">
         <div class="price-card-badge">EARLY または PAIR</div>
-        <div class="price-card-label">10% OFF</div>
+        <div class="price-card-label">¥4,000 OFF</div>
         <div class="price-card-name">早割 または ペア割</div>
         <div class="price-card-amount">
-          <span class="yen">¥</span>74,250<span class="tax">（税込）</span>
+          <span class="yen">¥</span>38,500<span class="tax">（税込）</span>
         </div>
-        <div class="price-card-amount-net">税抜 ¥67,500</div>
-        <div class="price-card-discount">▼ ¥7,500 OFF（税抜比）</div>
+        <div class="price-card-amount-net">税抜 ¥35,000</div>
+        <div class="price-card-discount">▼ ¥4,000 OFF（税抜比）</div>
         <div class="price-card-cond">
           <strong>早割：</strong>6月30日（火）までにお申込み<br>
           <strong>ペア割：</strong>2名同時お申込み<br>
@@ -3433,13 +3523,13 @@
       <!-- ペア早割 -->
       <div class="price-card best">
         <div class="price-card-badge">BEST VALUE</div>
-        <div class="price-card-label">20% OFF</div>
+        <div class="price-card-label">¥8,000 OFF</div>
         <div class="price-card-name">ペア早割</div>
         <div class="price-card-amount">
-          <span class="yen">¥</span>66,000<span class="tax">（税込）</span>
+          <span class="yen">¥</span>34,100<span class="tax">（税込）</span>
         </div>
-        <div class="price-card-amount-net">税抜 ¥60,000</div>
-        <div class="price-card-discount">▼ ¥15,000 OFF（税抜比）</div>
+        <div class="price-card-amount-net">税抜 ¥31,000</div>
+        <div class="price-card-discount">▼ ¥8,000 OFF（税抜比）</div>
         <div class="price-card-cond">
           <strong>6月30日（火）までに、2名同時でお申込み</strong>の場合に適用される、もっともお得な価格です。<br>
           <span style="color: var(--text-secondary); font-size: 0.8rem;">※同じ職場・家族・友人など、どなたとのペアでも構いません。</span>
@@ -3465,15 +3555,60 @@
       </div>
     </div>
 
+    <!-- 参加者だけの特典（2項目）-->
+    <div class="pricing-benefits">
+      <div class="pricing-benefits-label">BENEFITS</div>
+      <h4 class="pricing-benefits-title">参加者だけの特典</h4>
+      <p class="pricing-benefits-lead">合宿で得た「対話の体力」を、その後も使い続け、社会に還元していく——そのための2つの権利を、参加者の皆さんにお渡ししま<span class="jp-nowrap">す。</span></p>
+      <div class="pricing-benefits-grid">
+        <div class="pricing-benefit-card">
+          <div class="pricing-benefit-num">BENEFIT 01</div>
+          <h5 class="pricing-benefit-title">事前・事後の<br>「デモクラ筋診断」受講権</h5>
+          <p class="pricing-benefit-desc">合宿の前と後で、ご自身の10の筋肉の状態を可視化する<strong>「デモクラ筋診断」</strong>を受講できま<span class="jp-nowrap">す。</span>Before / After を比較することで、自分の変化と次に鍛えたい筋肉が明確になりま<span class="jp-nowrap">す。</span></p>
+        </div>
+        <div class="pricing-benefit-card">
+          <div class="pricing-benefit-num">BENEFIT 02</div>
+          <h5 class="pricing-benefit-title">年度末「1年間貯めた資金の<br>投資先決定会議」参加券＆投票権</h5>
+          <p class="pricing-benefit-desc">参加費の<strong>10%</strong>から1年間積み立てた資金の使い道——どの団体・どの活動に寄付・投資するかを、参加者全員で議論し決定する年度末の会議への<strong>参加券と投票権</strong>をお渡ししま<span class="jp-nowrap">す。</span></p>
+        </div>
+      </div>
+    </div>
+
     <div class="pricing-note">
-      <h4>参加費に含まれるもの</h4>
+      <h4>プログラム参加費に含まれるもの</h4>
       <ul>
         <li>2日間の全ワークプログラム</li>
-        <li>TAKIVIVA 1泊宿泊費（ReGo または個室／希望の部屋タイプをお知らせください）</li>
-        <li>全食事（11日昼・夕、12日朝・昼）・ドリンク・休憩時のお茶菓子</li>
+        <li>休憩時のドリンク・お茶菓子</li>
         <li>当日資料、終了後の振り返り素材</li>
+        <li>1ヶ月後のオンライン振り返りセッション</li>
+        <li>事前・事後の「デモクラ筋診断」受講権</li>
+        <li>年度末「1年間貯めた資金の投資先決定会議」への参加券＆投票権</li>
       </ul>
-      <p style="margin-top: 1rem; font-size: 0.85rem;">※軽井沢駅までの交通費は各自負担となります。駅から会場までの送迎は調整いたします（タクシー利用の場合は、利用者同士でのシェアを想定しています）。</p>
+      <p style="margin-top: 1rem; font-size: 0.85rem;">※上記は森本（株式会社きづきくみたてワンダーラボ）が提供するプログラムの参加費で<span class="jp-nowrap">す。</span>宿泊・食事は会場TAKIVIVA様のサービスとなり、別途かかりま<span class="jp-nowrap">す。</span></p>
+    </div>
+
+    <!-- ── 宿泊費（プログラム参加費とは別建て・TAKIVIVAへ直接） ── -->
+    <div class="pricing-note" style="margin-top: 1.5rem;">
+      <h4>宿泊費について（プログラム参加費とは別になります）</h4>
+      <p style="font-size: 0.9rem;">宿泊は、会場であるTAKIVIVA様のサービスで<span class="jp-nowrap">す。</span><strong>宿泊費は上記のプログラム参加費には含まれません。</strong>ご予約・お支払いは、参加者の皆さまからTAKIVIVA様へ直接お手続きいただきま<span class="jp-nowrap">す。</span></p>
+      <ul>
+        <li><strong>宿泊費の目安：</strong>1泊 <strong>¥36,000＋税</strong> を上限に、ご利用人数・お部屋の状況などTAKIVIVA様の料金体系により変動します（数千円程度お安くなる場合があります）</li>
+        <li><strong>含まれるもの：</strong>1泊宿泊（ReGo または個室）／食事4回（1日目 昼・夕、2日目 朝・昼）</li>
+        <li><strong>お支払い：</strong>当日、TAKIVIVA受付にて直接ご精算いただきます（現金・PayPay 等）</li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-secondary);">※確定金額・お支払い方法は、TAKIVIVA様より直接ご案内いたしま<span class="jp-nowrap">す。</span>お部屋数に限りがあるため先着順となりま<span class="jp-nowrap">す。</span></p>
+    </div>
+
+    <!-- ── 集合・解散／軽井沢駅からの移動 ── -->
+    <div class="pricing-note" style="margin-top: 1.5rem;">
+      <h4>集合・解散と、軽井沢駅からの移動について</h4>
+      <p style="font-size: 0.9rem;"><strong>会場（TAKIVIVA）での現地集合・現地解散</strong>とさせていただきま<span class="jp-nowrap">す。</span>東京駅から軽井沢駅までは北陸新幹線で約70分。軽井沢駅から会場までの移動は<strong>各自手配</strong>をお願いしていま<span class="jp-nowrap">す。</span></p>
+      <ul>
+        <li>TAKIVIVA様の送迎をご利用の場合は、到着時間を会場へ直接ご連絡ください</li>
+        <li>お車での来場も可能です（駐車場あり）</li>
+        <li>お車の相乗りやタクシーの乗り合わせを調整しやすいよう、<strong>参加者同士の連絡用チャット</strong>をご用意します</li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--text-secondary);">※軽井沢駅までの交通費、および駅から会場までの移動の手配・費用は、参加者ご自身のご負担・ご手配となりま<span class="jp-nowrap">す。</span></p>
     </div>
   </div>
 </section>
@@ -3597,7 +3732,7 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             <span class="faq-a-label">A</span>
-            <p>はい。同じ職場の同僚、ご夫婦、ご家族、友人、地域活動の仲間など、組み合わせは自由です。2名同時にお申込みいただければ、それぞれ10%オフ（または早割と組み合わせて20%オフ）が適用されます。お申込みフォームで「ペアの相手の氏名」をご記入ください。</p>
+            <p>はい。同じ職場の同僚、ご夫婦、ご家族、友人、地域活動の仲間など、組み合わせは自由です。2名同時にお申込みいただければ、それぞれ¥4,000オフ（または早割と組み合わせて¥8,000オフ）が適用されます。お申込みフォームで「ペアの相手の氏名」をご記入ください。</p>
           </div>
         </div>
       </div>
@@ -3695,7 +3830,7 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             <span class="faq-a-label">A</span>
-            <p>宿泊は、個人での内省を深めるために意図的に設計された小さな個人スペース「<strong>ReGo</strong>」と、通常の個室の2タイプからお選びいただけます。詳細はTAKIVIVA公式サイトの<a href="https://takiviva.net/space05.php" target="_blank" rel="noopener" style="color: var(--accent);">宿泊スペース紹介ページ</a>をご覧ください。お申込みフォームにて希望の部屋タイプをお知らせください（部屋数に限りがあるため先着順）。</p>
+            <p>宿泊は、個人での内省を深めるために意図的に設計された小さな個人スペース「<strong>ReGo</strong>」と、通常の個室の2タイプからお選びいただけます。詳細はTAKIVIVA公式サイトの<a href="https://takiviva.net/space05.php" target="_blank" rel="noopener" style="color: var(--accent);">宿泊スペース紹介ページ</a>をご覧ください。お申込み時に宿泊のご希望（部屋タイプ）をうかがいます。ご予約の確定・お支払いは、会場TAKIVIVAへ直接お手続きいただきます（部屋数に限りがあるため先着順）。</p>
           </div>
         </div>
       </div>
@@ -3737,7 +3872,7 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             <span class="faq-a-label">A</span>
-            <p>東京駅から軽井沢駅まで北陸新幹線で約70分。会場のTAKIVIVAは群馬県の北軽井沢（浅間山の麓）にあり、軽井沢駅からは車で約30分です。<strong>初日10時のオープニングに間に合わせるには、9時15分までに軽井沢駅にご到着いただくことをおすすめします。</strong>参加者の到着時間に合わせて駅から会場までの送迎を調整しますので、軽井沢駅までお越しください。お車での来場も可能です（駐車場あり）。会場までの詳しいアクセス情報は <a href="https://takiviva.net/access.php" target="_blank" rel="noopener" style="color: var(--accent);">TAKIVIVA公式サイトのアクセスページ</a> もご参照ください。</p>
+            <p>東京駅から軽井沢駅まで北陸新幹線で約70分。会場のTAKIVIVAは群馬県の北軽井沢（浅間山の麓）にあり、軽井沢駅からは車で約30分です。<strong>初日10時のオープニングに間に合わせるには、9時15分までに軽井沢駅にご到着いただくことをおすすめします。</strong>会場での現地集合・現地解散とし、軽井沢駅から会場までの移動は各自手配をお願いしています。TAKIVIVAの送迎をご利用の場合は、到着時間を会場へ直接ご連絡ください。お車の相乗りやタクシーの乗り合わせを調整しやすいよう、参加者同士の連絡用チャットをご用意します。お車での来場も可能です（駐車場あり）。会場までの詳しいアクセス情報は <a href="https://takiviva.net/access.php" target="_blank" rel="noopener" style="color: var(--accent);">TAKIVIVA公式サイトのアクセスページ</a> もご参照ください。</p>
           </div>
         </div>
       </div>
@@ -3909,7 +4044,7 @@
       </tr>
       <tr>
         <th>参加費</th>
-        <td>定価 82,500円（税込／税抜75,000円）／ 早割または ペア割 74,250円（税込／税抜67,500円）／ ペア早割 66,000円（税込／税抜60,000円）</td>
+        <td>【プログラム参加費】定価 42,900円（税込／税抜39,000円）／ 早割または ペア割 38,500円（税込／税抜35,000円）／ ペア早割 34,100円（税込／税抜31,000円）。<br>【宿泊費】上記とは別に、宿泊（1泊・食事4回込み）の費用が会場TAKIVIVAより最大39,600円（税込）かかります。宿泊のご契約・お支払いは、参加者から会場TAKIVIVAへ直接お手続きいただきます（当社は宿泊の手配・集金を行いません）。</td>
       </tr>
       <tr>
         <th>支払方法</th>
@@ -3940,7 +4075,7 @@
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <div class="sticky-cta-text">
     <strong>北軽井沢合宿2026</strong>
-    早割 ¥66,000〜（6/30まで）
+    早割 ¥34,100〜（6/30まで・宿泊費別途）
   </div>
   <a href="./democracy-fitness-camp-0811-signup.html" class="sticky-cta-btn">お申込み →</a>
 </div>
