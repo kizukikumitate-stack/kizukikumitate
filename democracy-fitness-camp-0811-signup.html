@@ -464,21 +464,22 @@
 <!-- PRICE BANNER -->
 <section class="price-banner">
   <div class="price-banner-inner">
-    <div class="price-banner-title">FEE</div>
+    <div class="price-banner-title">PROGRAM FEE</div>
     <div class="price-banner-rows">
       <div class="price-banner-row">
-        定価<strong>¥82,500<small>（税込）</small></strong>
-        <small>税抜 ¥75,000 ／ 7/1以降の単独申込</small>
+        定価<strong>¥42,900<small>（税込）</small></strong>
+        <small>税抜 ¥39,000 ／ 7/1以降の単独申込</small>
       </div>
       <div class="price-banner-row">
-        早割 / ペア割（10%OFF）<strong>¥74,250<small>（税込）</small></strong>
-        <small>税抜 ¥67,500 ／ 6/30まで or 2名同時</small>
+        早割 / ペア割<strong>¥38,500<small>（税込）</small></strong>
+        <small>税抜 ¥35,000 ／ 6/30まで or 2名同時</small>
       </div>
       <div class="price-banner-row">
-        ペア早割（20%OFF）<strong>¥66,000<small>（税込）</small></strong>
-        <small>税抜 ¥60,000 ／ 6/30まで かつ 2名同時</small>
+        ペア早割<strong>¥26,400<small>（税込）</small></strong>
+        <small>税抜 ¥24,000 ／ 6/30まで かつ 2名同時</small>
       </div>
     </div>
+    <p style="margin-top: 1rem; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.8;">※上記はワークプログラムの参加費です。<strong style="color: var(--ink);">宿泊費（1泊・全食事込み／最大¥39,600・税込）は別途、会場TAKIVIVAへ直接お支払い</strong>いただきます（当フォームでは宿泊のご希望をうかがいます）。</p>
   </div>
 </section>
 
@@ -531,7 +532,7 @@
             </span>
           </label>
         </div>
-        <p class="hint">TAKIVIVAの宿泊スペース詳細は<a href="https://takiviva.net/space05.php" target="_blank" rel="noopener" style="color: var(--accent);">公式サイト</a>をご覧ください。部屋数に限りがあるため先着順となります。</p>
+        <p class="hint">TAKIVIVAの宿泊スペース詳細は<a href="https://takiviva.net/space05.php" target="_blank" rel="noopener" style="color: var(--accent);">公式サイト</a>をご覧ください。<strong>このフォームは宿泊のご希望をうかがうもので、予約確定ではありません。</strong>ご予約の確定・お支払い（宿泊費）は、会場TAKIVIVAへ直接お手続きいただきます。部屋数に限りがあるため先着順となります。</p>
       </div>
 
       <div class="form-field" style="margin-bottom: 1.1rem;">
@@ -541,7 +542,7 @@
       </div>
 
       <div id="applied-price" class="applied-price" style="display:none;">
-        <div>適用される参加費（送信時の価格判定）</div>
+        <div>適用されるプログラム参加費（送信時の価格判定／宿泊費は別途TAKIVIVAへ）</div>
         <strong id="applied-price-text">—</strong>
       </div>
 
@@ -582,12 +583,12 @@
         </div>
       </div>
 
-      <div class="form-section-label">軽井沢駅からの送迎</div>
+      <div class="form-section-label">軽井沢駅からの移動（相乗り・送迎の調整用）</div>
 
       <div class="form-row">
         <div class="form-field">
           <label for="pickupGo">行き（駅→会場）<span class="opt">任意</span></label>
-          <input type="text" id="pickupGo" name="pickupGo" placeholder="例：8/11 10:30到着予定、駅から送迎希望">
+          <input type="text" id="pickupGo" name="pickupGo" placeholder="例：8/11 10:30 軽井沢駅着予定、相乗り希望">
         </div>
         <div class="form-field">
           <label for="pickupBack">帰り（会場→駅）<span class="opt">任意</span></label>
@@ -595,8 +596,8 @@
         </div>
       </div>
       <p class="hint" style="margin-top: -0.5rem; margin-bottom: 1.2rem;">
-        <strong style="color: var(--accent);">初日10時のオープニングに参加される方は、9時15分までに軽井沢駅にご到着ください</strong>（駅から会場まで車で約30分）。<br>
-        参加者の到着時間に合わせて送迎を調整します。お車での来場をご希望の方はその旨ご記入ください。
+        <strong style="color: var(--accent);">会場での現地集合・現地解散です。初日10時のオープニングに参加される方は、9時15分までに軽井沢駅にご到着ください</strong>（駅から会場まで車で約30分）。<br>
+        軽井沢駅から会場までの移動は各自手配をお願いしています。TAKIVIVAの送迎をご利用の場合は到着時間を会場へ直接ご連絡ください。お車の相乗り・タクシーの乗り合わせを調整しやすいよう、参加者同士の連絡用チャットをご用意します（上記は調整の参考にうかがうものです）。お車での来場をご希望の方はその旨ご記入ください。
       </p>
 
       <div class="form-section-label">その他</div>
@@ -667,10 +668,10 @@
     const hasPair = pairInput.value.trim().length > 0;
     const isEarly = new Date() <= EARLY_BIRD_DEADLINE;
     let label, amount;
-    if (hasPair && isEarly) { label = 'ペア早割（20%OFF）'; amount = 60000; }
-    else if (isEarly) { label = '早割（10%OFF）'; amount = 67500; }
-    else if (hasPair) { label = 'ペア割（10%OFF）'; amount = 67500; }
-    else { label = '定価'; amount = 75000; }
+    if (hasPair && isEarly) { label = 'ペア早割'; amount = 24000; }
+    else if (isEarly) { label = '早割'; amount = 35000; }
+    else if (hasPair) { label = 'ペア割'; amount = 35000; }
+    else { label = '定価'; amount = 39000; }
     const tax = Math.round(amount * 1.1);
     appliedPriceText.textContent = `${label}：¥${tax.toLocaleString()}（税込／税抜 ¥${amount.toLocaleString()}）`;
     appliedPrice.style.display = 'block';
