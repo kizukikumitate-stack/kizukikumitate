@@ -471,8 +471,8 @@
         <small>税抜 ¥39,000 ／ 7/1以降の単独申込</small>
       </div>
       <div class="price-banner-row">
-        早割 / ペア割<strong>¥38,500<small>（税込）</small></strong>
-        <small>税抜 ¥35,000 ／ 6/30まで or 2名同時</small>
+        早割 / ペア割<strong>¥35,200<small>（税込）</small></strong>
+        <small>税抜 ¥32,000 ／ 6/30まで or 2名同時</small>
       </div>
       <div class="price-banner-row">
         ペア早割<strong>¥26,400<small>（税込）</small></strong>
@@ -480,6 +480,12 @@
       </div>
     </div>
     <p style="margin-top: 1rem; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.8;">※上記はワークプログラムの参加費です。<strong style="color: var(--ink);">宿泊費（1泊・全食事込み／最大¥39,600・税込）は別途、会場TAKIVIVAへ直接お支払い</strong>いただきます（当フォームでは宿泊のご希望をうかがいます）。</p>
+    <div style="max-width:520px; margin:1.2rem auto 0; background:#ffffff; border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:1rem 1.2rem; text-align:left; font-size:0.84rem; line-height:2;">
+      <div style="font-weight:700; color:var(--ink); margin-bottom:0.5rem;">お支払い総額の目安（プログラム費 ＋ 宿泊費・最大）</div>
+      <div><strong style="color:var(--ink);">ペア早割</strong>：¥26,400 ＋ ¥39,600 ＝ <strong style="color:var(--ink);">約¥66,000</strong></div>
+      <div><strong style="color:var(--ink);">早割／ペア割</strong>：¥35,200 ＋ ¥39,600 ＝ <strong style="color:var(--ink);">約¥74,800</strong></div>
+      <div><strong style="color:var(--ink);">定価</strong>：¥42,900 ＋ ¥39,600 ＝ <strong style="color:var(--ink);">約¥82,500</strong></div>
+    </div>
   </div>
 </section>
 
@@ -669,8 +675,8 @@
     const isEarly = new Date() <= EARLY_BIRD_DEADLINE;
     let label, amount;
     if (hasPair && isEarly) { label = 'ペア早割'; amount = 24000; }
-    else if (isEarly) { label = '早割'; amount = 35000; }
-    else if (hasPair) { label = 'ペア割'; amount = 35000; }
+    else if (isEarly) { label = '早割'; amount = 32000; }
+    else if (hasPair) { label = 'ペア割'; amount = 32000; }
     else { label = '定価'; amount = 39000; }
     const tax = Math.round(amount * 1.1);
     appliedPriceText.textContent = `${label}：¥${tax.toLocaleString()}（税込／税抜 ¥${amount.toLocaleString()}）`;
