@@ -164,7 +164,7 @@
   .spiral-wrap { margin-top: 3rem; }
   .spiral-grid {
     display: grid;
-    grid-template-columns: 1fr 56px 1fr;
+    grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
     grid-template-rows: auto 56px auto;
     gap: 0;
     max-width: 720px; margin: 0 auto;
@@ -216,7 +216,7 @@
     font-size: 0.82rem; color: #aaa; letter-spacing: 0.05em;
   }
   @media (max-width: 640px) {
-    .spiral-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 1rem; }
+    .spiral-grid { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto; gap: 1rem; }
     .spiral-arrow, .spiral-center { display: none; }
     .build-step { grid-column: 1 !important; grid-row: auto !important; }
   }
@@ -226,7 +226,7 @@
   .record-bg .section-label { color: var(--lsp-red); }
   .record-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 4rem;
     align-items: center;
     margin-top: 3rem;
@@ -268,7 +268,7 @@
     margin-bottom: 1rem;
   }
   @media (max-width: 768px) {
-    .record-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .record-grid { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
     .record-photos img:first-child { aspect-ratio: 4/3; }
   }
 
@@ -276,7 +276,7 @@
   .combo-bg { background: white; }
   .combo-bg .section-label { color: var(--green); }
   .combo-cards {
-    display: grid; grid-template-columns: 1fr 1fr;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2rem; margin-top: 3rem;
   }
   .combo-card {
@@ -428,11 +428,11 @@
     .nav-hamburger { display: flex; }
     .lsp-hero { padding: 7rem 1.5rem 3.5rem; }
     .section-wrap { padding: 4.5rem 1.5rem; }
-    .build-flow { grid-template-columns: 1fr; gap: 2rem; }
+    .build-flow { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
     .build-flow::before { display: none; }
-    .combo-cards { grid-template-columns: 1fr; }
-    .scenes-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-cards { grid-template-columns: 1fr; }
+    .combo-cards { grid-template-columns: minmax(0, 1fr); }
+    .scenes-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .why-cards { grid-template-columns: minmax(0, 1fr); }
     .lsp-cta { padding: 4.5rem 1.5rem; }
   }
 
@@ -484,6 +484,16 @@
       font-size: 1.4rem;
       white-space: normal;
     }
+  }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
   }
 </style>
 <meta property="og:type"        content="website">

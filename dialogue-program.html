@@ -488,7 +488,7 @@ nav {
 .research-note { font-size: 0.78rem; line-height: 1.75; color: var(--text-muted); margin-top: 1.5rem; word-break: keep-all; overflow-wrap: break-word; }
 
 @media (max-width: 768px) {
-  .research-grid { grid-template-columns: 1fr; }
+  .research-grid { grid-template-columns: minmax(0, 1fr); }
   .research-card-stat { font-size: 2.2rem; }
 }
 
@@ -501,7 +501,7 @@ nav {
 }
 .evidence-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -587,7 +587,7 @@ nav {
 
 /* Culture Map scales */
 .culturemap-grid { display: grid; gap: 1.2rem; margin-top: 1rem; }
-.culturemap-row { display: grid; grid-template-columns: 1fr; gap: 0.4rem; }
+.culturemap-row { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
 .culturemap-label { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.04em; }
 .culturemap-scale { display: grid; grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr); gap: 0.6rem; align-items: center; font-size: 0.8rem; }
 .culturemap-end-left { text-align: right; color: var(--text-secondary); }
@@ -602,9 +602,9 @@ nav {
 
 @media (max-width: 768px) {
   .culture-block { padding: 1.6rem 1.4rem; }
-  .hofstede-row { grid-template-columns: 1fr; gap: 0.4rem; }
+  .hofstede-row { grid-template-columns: minmax(0, 1fr); gap: 0.4rem; }
   .hofstede-score { text-align: left; font-size: 0.95rem; }
-  .culturemap-scale { grid-template-columns: 1fr; gap: 0.3rem; text-align: left; }
+  .culturemap-scale { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; text-align: left; }
   .culturemap-end-left, .culturemap-end-right { text-align: left; font-size: 0.78rem; }
   .culturemap-track { order: 2; }
 }
@@ -872,7 +872,7 @@ nav {
 
 /* 規模別対応 */
 .scale-section { background: var(--bg); }
-.scale-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.scale-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
 .scale-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -928,7 +928,7 @@ nav {
 .roadmap-sub { font-size: 1rem; color: rgba(255,224,204,0.8); line-height: 1.9; margin-bottom: 3rem; }
 .roadmap-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -1040,7 +1040,7 @@ nav {
 
 /* 講師プロフィール */
 .facilitator-section { background: var(--bg-soft); padding: 5rem 0; }
-.facilitator-card { display: grid; grid-template-columns: 220px 1fr; gap: 2.5rem; align-items: start; background: #fff; border-radius: 14px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+.facilitator-card { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 2.5rem; align-items: start; background: #fff; border-radius: 14px; padding: 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.06); border: 1px solid var(--border); }
 .facilitator-photo { width: 220px; height: 220px; object-fit: cover; border-radius: 12px; }
 .facilitator-name-block { margin-bottom: 1rem; }
 .facilitator-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.4rem; }
@@ -1084,7 +1084,7 @@ details[open] .faq-q::after { transform: rotate(45deg); }
 
 @media (max-width: 768px) {
   .books-section { padding: 3.5rem 0; }
-  .books-grid { grid-template-columns: 1fr; }
+  .books-grid { grid-template-columns: minmax(0, 1fr); }
   .book-card { padding: 1.4rem 1.3rem 1.2rem; }
 }
 
@@ -1098,7 +1098,7 @@ details[open] .faq-q::after { transform: rotate(45deg); }
 .trial-btn:hover { background: var(--coral-600); transform: translateY(-1px); }
 
 @media (max-width: 768px) {
-  .facilitator-card { grid-template-columns: 1fr; padding: 1.8rem 1.4rem; gap: 1.5rem; }
+  .facilitator-card { grid-template-columns: minmax(0, 1fr); padding: 1.8rem 1.4rem; gap: 1.5rem; }
   .facilitator-photo { width: 160px; height: 160px; margin: 0 auto; }
   .faq-q { padding: 1rem 1.2rem; font-size: 0.92rem; }
   .faq-a { padding: 0 1.2rem 1.2rem 2.8rem; }
@@ -1158,7 +1158,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .spiral-node-title { font-size: 0.95rem; }
   .spiral-node-desc { font-size: 0.78rem; }
   .spiral-node-num { width: 28px; height: 28px; font-size: 0.75rem; }
-  .scale-grid { grid-template-columns: 1fr; }
+  .scale-grid { grid-template-columns: minmax(0, 1fr); }
   .monitor-flow { flex-direction: column; }
   .monitor-arrow { transform: rotate(90deg); padding: 0.3rem 0; }
   .monitor-step { min-width: 0; }
@@ -1168,7 +1168,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .interval-title, .interval-desc { overflow-wrap: break-word; word-break: break-word; }
   .emphasis-box { padding: 1.2rem 1.4rem; }
   .emphasis-text { overflow-wrap: break-word; word-break: break-word; }
-  .evidence-grid { grid-template-columns: 1fr; }
+  .evidence-grid { grid-template-columns: minmax(0, 1fr); }
   .evidence-card { padding: 1.4rem 1.2rem; overflow: hidden; }
   .evidence-desc { overflow-wrap: break-word; word-break: break-word; }
   .evidence-stat-label { overflow-wrap: break-word; word-break: break-word; }
@@ -1181,15 +1181,15 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .evidence-intro { overflow-wrap: break-word; word-break: break-word; }
   .scale-card-desc { overflow-wrap: break-word; word-break: break-word; }
   .scale-note-desc { overflow-wrap: break-word; word-break: break-word; }
-  .roadmap-grid { grid-template-columns: 1fr; }
+  .roadmap-grid { grid-template-columns: minmax(0, 1fr); }
   .roadmap-section { padding: 3.5rem 0; }
-  .roadmap-grid { grid-template-columns: 1fr; }
+  .roadmap-grid { grid-template-columns: minmax(0, 1fr); }
   .roadmap-card { padding: 1.5rem 1.2rem; }
   .roadmap-goal { padding: 1.2rem 1.4rem; }
   .roadmap-card-title { font-size: 1.05rem; }
   .roadmap-card-desc { word-break: break-word; }
   .scale-note { padding: 1.4rem 1.2rem; gap: 1rem; }
-  .scale-grid { grid-template-columns: 1fr; }
+  .scale-grid { grid-template-columns: minmax(0, 1fr); }
   .scale-card { padding: 1.4rem 1.2rem; }
   .monitor-flow { padding: 1.2rem 1rem; }
   .monitor-card { padding: 1.2rem 1rem; }
@@ -1254,6 +1254,16 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
     hanging-punctuation: allow-end;
   }
 }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>

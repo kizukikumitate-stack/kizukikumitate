@@ -185,7 +185,7 @@
   .what-bg .section-label { color: var(--blue); }
   .muscles-intro {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 3rem; align-items: start;
     margin-bottom: 4rem;
   }
@@ -297,7 +297,7 @@
   .gasshuku-bg .section-label { color: var(--green); }
   .gasshuku-layout {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 4rem; align-items: start;
   }
   .gasshuku-schedule {
@@ -335,7 +335,7 @@
   .monitor-bg .section-h2 { color: var(--charcoal); }
   .monitor-flow {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0; margin-top: 3rem;
     position: relative;
   }
@@ -390,7 +390,7 @@
   .survey-bg .section-h2 { color: white; }
   .survey-features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem; margin: 3rem 0;
   }
   .survey-feature {
@@ -474,7 +474,7 @@
   .voices-bg .section-label { color: var(--red); }
   .voices-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     margin-top: 2.5rem;
   }
@@ -518,11 +518,11 @@
     color: var(--gray);
   }
   @media (max-width: 900px) {
-    .voices-cards { grid-template-columns: 1fr 1fr; }
+    .voices-cards { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .voices-card.span2 { grid-column: span 1; }
   }
   @media (max-width: 600px) {
-    .voices-cards { grid-template-columns: 1fr; }
+    .voices-cards { grid-template-columns: minmax(0, 1fr); }
   }
 
   /* ===== SECTION 6: EVENTS ===== */
@@ -539,7 +539,7 @@
     border-left: 4px solid var(--blue);
     padding: 2rem 2.5rem;
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: 1.5rem;
     align-items: center;
     transition: box-shadow 0.2s, transform 0.2s;
@@ -624,7 +624,7 @@
   }
   @media (max-width: 640px) {
     .event-card {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
     .event-card-btn {
       width: 100%;
@@ -734,7 +734,7 @@
   }
   .insights-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.6rem;
     margin-top: 2.8rem;
   }
@@ -817,10 +817,10 @@
     color: white;
   }
   @media (max-width: 900px) {
-    .insights-grid { grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+    .insights-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; }
   }
   @media (max-width: 540px) {
-    .insights-grid { grid-template-columns: 1fr; }
+    .insights-grid { grid-template-columns: minmax(0, 1fr); }
   }
 
   /* ===== FAQ ===== */
@@ -1042,13 +1042,13 @@
     .nav-hamburger { display: flex; }
     .df-hero { padding: 7rem 1.5rem 3.5rem; }
     .section-wrap { padding: 4.5rem 1.5rem; }
-    .muscles-intro { grid-template-columns: 1fr; gap: 2rem; }
-    .gasshuku-layout { grid-template-columns: 1fr; gap: 2.5rem; }
-    .monitor-flow { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .muscles-intro { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .gasshuku-layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
+    .monitor-flow { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
     .monitor-flow::before { display: none; }
-    .survey-features { grid-template-columns: 1fr; }
-    .muscles-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-cards { grid-template-columns: 1fr; }
+    .survey-features { grid-template-columns: minmax(0, 1fr); }
+    .muscles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .why-cards { grid-template-columns: minmax(0, 1fr); }
     .df-hero h1 { font-size: 1.8rem; white-space: normal; }
     footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; text-align: center; }
     .section-h2,
@@ -1061,6 +1061,16 @@
   }
   @media (max-width: 540px) {
     .df-hero h1 { font-size: 1.4rem; }
+  }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
   }
 </style>
 <meta property="og:type"        content="website">

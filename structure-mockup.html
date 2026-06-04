@@ -68,7 +68,7 @@
   }
   .mondai-cards {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
   }
   .mondai-card {
@@ -138,7 +138,7 @@
   }
   .shimon-colors {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
     margin-bottom: 3.5rem;
   }
@@ -212,7 +212,7 @@
     line-height: 1.9; margin-bottom: 3.5rem; max-width: 560px;
   }
   .approach-cards {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem;
   }
   .approach-card {
     padding: 2.5rem 2rem;
@@ -239,8 +239,8 @@
   .section-order { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em; color: #ccc; margin-bottom: 0.3rem; }
 
   @media (max-width: 640px) {
-    .mondai-cards, .approach-cards { grid-template-columns: 1fr; }
-    .shimon-colors { grid-template-columns: repeat(2, 1fr); }
+    .mondai-cards, .approach-cards { grid-template-columns: minmax(0, 1fr); }
+    .shimon-colors { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .shimon-step { width: 45%; }
     .shimon-step:not(:last-child)::after { display: none; }
   }

@@ -9,6 +9,21 @@
   gtag('js', new Date());
   gtag('config', 'G-2ECK6163X4');
 </script>
+<script>
+  // 診断シート（iframe）からの postMessage を早期に受け取れるよう、
+  // 他のスクリプトより前にリスナーを登録する
+  window.addEventListener('message', function(e) {
+    if (!e.data || typeof e.data !== 'object') return;
+    var frame = document.getElementById('diagnosticFrame');
+    if (!frame) return;
+    if (e.data.type === 'kk-diagnostic-resize' && typeof e.data.height === 'number') {
+      frame.style.height = (e.data.height + 8) + 'px';
+    } else if (e.data.type === 'kk-diagnostic-pagechange') {
+      var top = frame.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }
+  });
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>教育担当者向けプログラム｜きづきくみたて工房</title>
@@ -16,6 +31,8 @@
 <meta property="og:title" content="教育担当者向けプログラム｜きづきくみたて工房">
 <meta property="og:description" content="成人発達理論・HPI・適応課題・生成AIという4つの革新的な技法を軸に、課題診断から育成計画まで一気通貫で設計できる思考の型を身につける研修設計プログラムです。">
 <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://kizukikumitate.com/education-program.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
@@ -505,7 +522,7 @@ nav {
 .shift-intro { font-size: 1rem; color: var(--text-secondary); line-height: 1.9; margin-bottom: 2rem; }
 .old-new {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
 }
@@ -717,7 +734,7 @@ nav {
 }
 .bem-header {
   display: grid;
-  grid-template-columns: 100px 1fr 1fr;
+  grid-template-columns: 100px minmax(0, 1fr) minmax(0, 1fr);
   background: var(--gray-100);
   border-bottom: 1px solid var(--border-strong);
 }
@@ -730,7 +747,7 @@ nav {
 }
 .bem-row {
   display: grid;
-  grid-template-columns: 100px 1fr 1fr;
+  grid-template-columns: 100px minmax(0, 1fr) minmax(0, 1fr);
   border-bottom: 1px solid var(--border);
 }
 .bem-row:last-child { border-bottom: none; }
@@ -798,14 +815,14 @@ nav {
 .interim-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; }
 /* 特徴 */
 .features-section { background: var(--gray-50); }
-.feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.feature-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
 .feature-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem 2rem; }
 .feature-accent { width: 36px; height: 5px; border-radius: 3px; margin-bottom: 1.2rem; }
 .feature-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.5rem; font-family: 'Noto Sans JP', sans-serif; }
 .feature-text { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.8; }
 /* 成果物チェックリスト */
 .deliverables-section { background: var(--gray-50); }
-.check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+.check-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0.8rem; }
 .check-item { display: flex; gap: 0.8rem; align-items: flex-start; }
 .check-box {
   width: 20px; height: 20px;
@@ -823,6 +840,39 @@ nav {
   transform: rotate(-45deg) translateY(-1px);
 }
 .check-text { font-size: 0.9rem; color: var(--text-primary); line-height: 1.65; }
+/* 体験診断 */
+.diagnostic-section { background: var(--gray-50); }
+.diagnostic-intro {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin-bottom: 2rem;
+  max-width: 720px;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+.diagnostic-frame-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+.diagnostic-frame-wrap iframe {
+  width: 100%;
+  border: 0;
+  display: block;
+  min-height: 600px;
+  transition: height 0.25s ease;
+}
+.diagnostic-note {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  text-align: right;
+}
+.diagnostic-note a { color: var(--purple-600); text-decoration: none; }
+.diagnostic-note a:hover { text-decoration: underline; }
 /* お問い合わせ */
 .contact-section { background: var(--bg); }
 .contact-box {
@@ -901,15 +951,15 @@ footer {
   .section-title { font-size: 1.3rem; }
   .contact-title { font-size: 1.3rem; }
   .methods-title { font-size: 1.3rem; }
-  .old-new { grid-template-columns: 1fr; }
-  .feature-grid { grid-template-columns: 1fr; }
-  .check-grid { grid-template-columns: 1fr; }
+  .old-new { grid-template-columns: minmax(0, 1fr); }
+  .feature-grid { grid-template-columns: minmax(0, 1fr); }
+  .check-grid { grid-template-columns: minmax(0, 1fr); }
   .hero h1 { font-size: 1.4rem; white-space: normal; }
   /* BEMテーブルをモバイルで縦積みに */
   .bem-header { display: none; }
   .bem-table { border: none; border-radius: 0; }
   .bem-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     border: 1px solid var(--border);
     border-radius: 8px;
     margin-bottom: 0.6rem;
@@ -929,6 +979,16 @@ footer {
   }
   .bem-cell:first-of-type { border-top: none; }
 }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -1273,6 +1333,26 @@ footer {
     <div class="methods-closer">
       <p class="methods-closer-text">この4つを「知識として知る」のではなく、<strong>自分の組織の実際の課題に当てて使えるようになること</strong>が、このプログラムの到達目標です。中間課題で現場に出て仮説を検証し、6日間で思考の型として体得します。</p>
     </div>
+  </div>
+</section>
+<!-- 体験診断 -->
+<section class="section diagnostic-section" id="diagnostic">
+  <div class="container">
+    <div class="section-header">
+      <p class="label">TRY THE DIAGNOSTIC</p>
+      <h2 class="section-title">あなたの組織を診断してみる</h2>
+    </div>
+    <p class="diagnostic-intro">プログラムで習得するBEM分析の入口を、8問・約5分の診断シートで体験できます。「研修以外の打ち手」を考える出発点として、まずは自社の課題がどの構造領域に偏っているかを見てみてください。</p>
+    <div class="diagnostic-frame-wrap">
+      <iframe
+        id="diagnosticFrame"
+        src="./series/diagnostic.html"
+        title="BEM診断シート"
+        loading="lazy"
+        scrolling="no"
+      ></iframe>
+    </div>
+    <p class="diagnostic-note">フルスクリーンで開く: <a href="./series/diagnostic.html" target="_blank" rel="noopener">/series/diagnostic.html →</a></p>
   </div>
 </section>
 <!-- プログラム構成 -->

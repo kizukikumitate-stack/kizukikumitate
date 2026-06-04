@@ -193,7 +193,7 @@
     z-index: 1;
     border-top: 1px solid rgba(255,255,255,0.1);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     padding: 0;
   }
 
@@ -255,7 +255,7 @@
   .what-section {
     background: var(--paper);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 5rem;
     align-items: center;
     max-width: 1200px;
@@ -327,7 +327,7 @@
   }
   .sessions-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.6rem;
     margin-top: 2.5rem;
   }
@@ -443,7 +443,7 @@
 
   .muscles-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1px;
     background: rgba(255,255,255,0.1);
     margin-top: 2rem;
@@ -547,7 +547,7 @@
 
   .target-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
     margin-top: 3rem;
   }
@@ -595,7 +595,7 @@
 
   .benefit-item {
     display: grid;
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 60px minmax(0, 1fr);
     gap: 2rem;
     align-items: start;
     padding-bottom: 2rem;
@@ -663,7 +663,7 @@
 
   .flow-step {
     display: grid;
-    grid-template-columns: 50px 1fr;
+    grid-template-columns: 50px minmax(0, 1fr);
     gap: 2rem;
     padding: 1.5rem 0;
     align-items: start;
@@ -699,7 +699,7 @@
   .speaker-section {
     background: var(--paper);
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
     gap: 5rem;
     align-items: start;
     max-width: 1200px;
@@ -940,7 +940,7 @@
   }
   .register-session-row {
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 1rem;
     align-items: center;
     padding: 1rem 0.4rem;
@@ -1017,7 +1017,7 @@
   .voices-section .section-heading { color: var(--paper); margin-bottom: 3rem; }
   .voices-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
   }
   .voice-card {
@@ -1054,7 +1054,7 @@
   }
   @media (max-width: 640px) {
     .voices-section { padding: 4rem 1.5rem; }
-    .voices-grid { grid-template-columns: 1fr; }
+    .voices-grid { grid-template-columns: minmax(0, 1fr); }
     .voice-card.wide { grid-column: span 1; }
   }
 
@@ -1266,12 +1266,12 @@
       gap: 0.3rem;
     }
     .nav-date { font-size: 0.7rem; }
-    .hero-info-bar { grid-template-columns: 1fr 1fr; }
+    .hero-info-bar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .hero-info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .what-section, .speaker-section { grid-template-columns: 1fr; gap: 2rem; }
-    .sessions-grid { grid-template-columns: 1fr; }
-    .muscles-grid { grid-template-columns: repeat(2, 1fr); }
-    .target-cards { grid-template-columns: 1fr; }
+    .what-section, .speaker-section { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .sessions-grid { grid-template-columns: minmax(0, 1fr); }
+    .muscles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .target-cards { grid-template-columns: minmax(0, 1fr); }
     .speaker-card { position: static; }
   }
 
@@ -1288,7 +1288,7 @@
       flex-direction: column;
       gap: 0.8rem;
     }
-    .register-session-row { grid-template-columns: 1fr; gap: 0.3rem; }
+    .register-session-row { grid-template-columns: minmax(0, 1fr); gap: 0.3rem; }
     .register-session-cap { justify-self: start; }
     .hero-title,
     .hero-subtitle,
@@ -1351,6 +1351,16 @@
     h1 {
       font-size: 1.4rem !important;
     }
+  }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    .global-nav { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .global-nav .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .global-nav .nav-links { display: none; }
+    .global-nav-hamburger { display: flex; }
   }
 </style>
 </head>

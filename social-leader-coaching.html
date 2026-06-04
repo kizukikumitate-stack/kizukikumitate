@@ -321,7 +321,7 @@ nav {
 /* 課題カード */
 .issue-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -370,7 +370,7 @@ nav {
 .approach-sub { font-size: 1rem; color: rgba(179,232,212,0.8); line-height: 1.9; margin-bottom: 3rem; }
 .approach-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
 .approach-card {
@@ -419,7 +419,7 @@ nav {
 .service-section { background: var(--bg); }
 .service-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.2rem;
   margin-bottom: 1.5rem;
 }
@@ -472,7 +472,7 @@ nav {
 .format-section { background: var(--gray-50); }
 .format-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -532,7 +532,7 @@ nav {
 .flow-section { background: var(--bg); }
 .flow-steps {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   gap: 1.2rem;
   margin-bottom: 2rem;
 }
@@ -610,10 +610,10 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .section-sm { padding: 2.5rem 0; }
   .cta-section { padding: 3.5rem 0; }
   .approach-section { padding: 3.5rem 0; }
-  .issue-grid { grid-template-columns: 1fr; }
-  .service-grid { grid-template-columns: 1fr; }
-  .format-grid { grid-template-columns: 1fr; }
-  .flow-steps { grid-template-columns: 1fr; }
+  .issue-grid { grid-template-columns: minmax(0, 1fr); }
+  .service-grid { grid-template-columns: minmax(0, 1fr); }
+  .format-grid { grid-template-columns: minmax(0, 1fr); }
+  .flow-steps { grid-template-columns: minmax(0, 1fr); }
   .format-note { padding: 1.4rem 1.2rem; gap: 1rem; }
   .emphasis-box { padding: 1.2rem 1.4rem; }
   .emphasis-text { overflow-wrap: break-word; word-break: break-word; }
@@ -655,6 +655,16 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .cta-btn { padding: 14px 20px; }
   footer { padding: 1.5rem 1rem; }
 }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>

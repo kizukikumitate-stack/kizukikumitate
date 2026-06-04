@@ -45,7 +45,7 @@
 
   .a-split {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 2px;
     background: rgba(255,255,255,0.08);
     border-radius: 12px;
@@ -96,7 +96,7 @@
 
   .b-theme-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
   }
 

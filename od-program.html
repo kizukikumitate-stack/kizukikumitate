@@ -542,11 +542,11 @@ nav {
 
 .module-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
-@media (max-width: 640px) { .module-grid { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .module-grid { grid-template-columns: minmax(0, 1fr); } }
 
 .module-card {
   background: #fff;
@@ -698,8 +698,8 @@ nav {
 .flow-step-sub { font-size: 0.75rem; color: var(--teal-600); margin-top: 2px; }
 .flow-arrow { font-size: 1.4rem; color: var(--teal-400); padding: 0 0.4rem; flex-shrink: 0; align-self: center; }
 
-.field-examples { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
-@media (max-width: 640px) { .field-examples { grid-template-columns: 1fr; } }
+.field-examples { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-bottom: 2rem; }
+@media (max-width: 640px) { .field-examples { grid-template-columns: minmax(0, 1fr); } }
 .field-example {
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -746,8 +746,8 @@ nav {
 
 /* 受講対象 */
 .target-section { background: var(--gray-50); }
-.target-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-@media (max-width: 640px) { .target-grid { grid-template-columns: 1fr; } }
+.target-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+@media (max-width: 640px) { .target-grid { grid-template-columns: minmax(0, 1fr); } }
 .target-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -923,6 +923,16 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   .interim-card { margin-left: 0.5rem; padding: 0.8rem 0.8rem; }
   footer { padding: 1.5rem 1rem; }
 }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>

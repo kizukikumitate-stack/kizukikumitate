@@ -18,6 +18,8 @@
 #   B) 番号+ASCII半角スペース+名称（「筋肉① 好奇心筋」の分断の原因）
 #   C) flex-direction: column ブロックで align-items: stretch が抜けている
 #   D) モバイル typography ブロックに hanging-punctuation: allow-end が無い
+#   F) grid-template-columns の fr が minmax(0, …) で囲まれていない
+#      （Safari で日本語が min-content 幅に広がり右にはみ出す原因）
 # ============================================================
 
 set -e
@@ -32,7 +34,7 @@ target="${2:-}"
 
 if [ -z "$mode" ] || [ -z "$target" ]; then
   echo "usage: $0 {check|runtime|shoot|full} <file.html>"
-  echo "  check   : 静的 grep 検査（Pattern A〜D）"
+  echo "  check   : 静的 grep 検査（Pattern A〜D, F）"
   echo "  runtime : Playwright で実機 iPhone レンダリング検査（行頭句読点/widow/strict 未適用）"
   echo "  shoot   : iPhone viewport スクショ取得"
   echo "  full    : check → runtime → shoot を順に実行"
@@ -278,9 +280,45 @@ run_check() {
   fi
   echo ""
 
+  # --- Pattern F: minmax(0, ...) で囲まれていない fr グリッドトラック ---
+  # CSS Grid の `1fr` は `minmax(auto, 1fr)` の略。auto 最小値 = コンテンツの
+  # min-content 幅。日本語 + word-break: keep-all だと min-content が文章全体の
+  # 幅になり、トラックが親要素を超えて広がる。
+  # Chrome は overflow-wrap: break-word で min-content を縮めるが、**Safari は縮めない**
+  # ため、Safari でだけ右にはみ出して body{overflow-x:hidden} に切られる。
+  # → すべての fr トラックを minmax(0, 1fr) で囲めば全ブラウザで再発しない。
+  echo "▶ F. grid-template-columns の fr トラックが minmax(0, …) で囲まれているか（Safari はみ出し対策）"
+  local pattern_g
+  pattern_g=$(perl -0777 -ne '
+    my $found = 0;
+    while (/grid-template-columns\s*:\s*([^;{}]+)/g) {
+      my $val = $1;
+      my $start = $-[0];
+      my $stripped = $val;
+      $stripped =~ s/minmax\([^)]*\)//g;   # minmax(...) を除去
+      if ($stripped =~ /\d*\.?\d*fr/) {     # 残った fr = 裸の fr トラック
+        my $line = (substr($_, 0, $start) =~ tr/\n//) + 1;
+        my $v = $val; $v =~ s/\s+/ /g; $v =~ s/\s+$//;
+        print "   L$line: grid-template-columns: $v\n";
+        $found++;
+      }
+    }
+    exit($found > 0 ? 1 : 0);
+  ' "$FILE") || true
+
+  if [ -n "$pattern_g" ]; then
+    echo "$pattern_g"
+    echo "   ⚠️  → fr トラックを minmax(0, 1fr) で囲んでください"
+    echo "       例: repeat(2, 1fr) → repeat(2, minmax(0, 1fr)) / 1fr 1.3fr → minmax(0, 1fr) minmax(0, 1.3fr)"
+    issues=$((issues + 1))
+  else
+    echo "   ✅ クリア"
+  fi
+  echo ""
+
   echo "────────────────────────────────────────"
   if [ "$issues" -eq 0 ]; then
-    echo "✅ 静的チェック PASS（4項目すべてクリア）"
+    echo "✅ 静的チェック PASS（5項目すべてクリア）"
     return 0
   else
     echo "❌ $issues 件の改善ポイントが見つかりました"

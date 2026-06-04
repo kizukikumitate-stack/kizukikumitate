@@ -155,7 +155,7 @@
   }
   .price-banner-rows {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1rem;
     font-size: 0.88rem;
   }
@@ -168,7 +168,7 @@
   .price-banner-row strong { font-family: 'Noto Serif JP', serif; font-weight: 700; display: block; margin-top: 0.2rem; color: var(--ink); }
   .price-banner-row small { font-size: 0.72rem; color: var(--text-secondary); }
   @media (max-width: 540px) {
-    .price-banner-rows { grid-template-columns: 1fr; }
+    .price-banner-rows { grid-template-columns: minmax(0, 1fr); }
   }
 
   /* ── FORM ── */
@@ -188,13 +188,13 @@
 
   .form-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1rem;
     margin-bottom: 1.1rem;
   }
-  .form-row.single { grid-template-columns: 1fr; }
+  .form-row.single { grid-template-columns: minmax(0, 1fr); }
   @media (max-width: 600px) {
-    .form-row { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: minmax(0, 1fr); }
   }
 
   .form-field {
@@ -252,7 +252,7 @@
 
   .radio-group {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 0.6rem;
     margin-top: 0.3rem;
   }

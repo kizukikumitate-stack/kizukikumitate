@@ -212,7 +212,7 @@
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     padding: 0;
   }
 
@@ -326,7 +326,7 @@
   .what-section {
     background: var(--paper);
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 5rem;
     align-items: center;
     max-width: 1200px;
@@ -400,7 +400,7 @@
 
   .why-camp-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 2rem;
   }
 
@@ -630,7 +630,7 @@
 
   .muscles-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 1px;
     background: rgba(255,255,255,0.1);
     margin-top: 3rem;
@@ -744,7 +744,7 @@
 
   .timetable-row {
     display: grid;
-    grid-template-columns: 130px 1fr 1.4fr;
+    grid-template-columns: 130px minmax(0, 1fr) minmax(0, 1.4fr);
     border-bottom: 1px solid rgba(45, 74, 122, 0.1);
     transition: background 0.2s;
   }
@@ -827,7 +827,7 @@
   }
   .followup-body {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 2.2rem;
     align-items: start;
   }
@@ -873,7 +873,7 @@
   }
   @media (max-width: 768px) {
     .followup-card { padding: 2rem 1.4rem; }
-    .followup-body { grid-template-columns: 1fr; gap: 1.5rem; }
+    .followup-body { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
   }
 
   /* ── VENUE TAKIVIVA ── */
@@ -927,7 +927,7 @@
   .venue-meta {
     margin-top: 2.5rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0;
     border: 1px solid #d8d5e8;
   }
@@ -959,7 +959,7 @@
   .speaker-section {
     background: var(--paper);
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
     gap: 5rem;
     align-items: start;
     max-width: 1200px;
@@ -1076,7 +1076,7 @@
 
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     margin-bottom: 3rem;
   }
@@ -1722,7 +1722,7 @@
   }
   .voices-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.5rem;
   }
   .voice-card {
@@ -1762,7 +1762,7 @@
   }
   @media (max-width: 700px) {
     .voices-section { padding: 4rem 1.5rem; }
-    .voices-grid { grid-template-columns: 1fr; }
+    .voices-grid { grid-template-columns: minmax(0, 1fr); }
     .voice-card.wide { grid-column: span 1; }
   }
 
@@ -1928,8 +1928,8 @@
     margin-top: 2rem;
     padding-right: 3rem;
   }
-  .gallery-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
-  .gallery-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+  .gallery-grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .gallery-grid.cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .gallery-grid .gallery-slide {
     aspect-ratio: 4 / 3;
     height: auto;
@@ -1940,15 +1940,15 @@
     cursor: zoom-in;
   }
   @media (max-width: 1024px) {
-    .gallery-grid.cols-5 { grid-template-columns: repeat(4, 1fr); }
+    .gallery-grid.cols-5 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   }
   @media (max-width: 768px) {
-    .gallery-grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
-    .gallery-grid.cols-5 { grid-template-columns: repeat(3, 1fr); }
+    .gallery-grid.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .gallery-grid.cols-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   }
   @media (max-width: 540px) {
     .gallery-grid.cols-3,
-    .gallery-grid.cols-5 { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid.cols-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   .gallery-slide {
@@ -2134,17 +2134,17 @@
       gap: 0.3rem;
     }
     .nav-date { font-size: 0.7rem; }
-    .hero-info-bar { grid-template-columns: 1fr 1fr; }
+    .hero-info-bar { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .hero-info-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding: 1.2rem 1.5rem; }
-    .what-section, .speaker-section { grid-template-columns: 1fr; gap: 2rem; }
-    .muscles-grid { grid-template-columns: repeat(2, 1fr); }
-    .why-camp-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: 1fr; }
+    .what-section, .speaker-section { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+    .muscles-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .why-camp-grid { grid-template-columns: minmax(0, 1fr); }
+    .pricing-grid { grid-template-columns: minmax(0, 1fr); }
     .price-card.featured { transform: none; }
-    .venue-meta { grid-template-columns: 1fr; }
+    .venue-meta { grid-template-columns: minmax(0, 1fr); }
     .venue-meta-item { border-right: none; border-bottom: 1px solid #d8d5e8; }
     .venue-meta-item:last-child { border-bottom: none; }
-    .timetable-row { grid-template-columns: 90px 1fr; }
+    .timetable-row { grid-template-columns: 90px minmax(0, 1fr); }
     .timetable-desc { display: none; }
     .speaker-card { position: static; }
     .opening-section { padding: 5rem 1.5rem; }
@@ -2515,7 +2515,7 @@
   @media (max-width: 768px) {
     .vision-section { padding: 5rem 1.5rem; }
     .vision-roadmap {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 0.8rem;
     }
     .vision-arrow {
@@ -2582,7 +2582,7 @@
        - フォントを px 指定で iOS Dynamic Type の影響を回避
        - padding を縮小して活動カラムの内側幅を確保 */
     .timetable-row {
-      grid-template-columns: 80px 1fr !important;
+      grid-template-columns: 80px minmax(0, 1fr) !important;
     }
     .timetable-time {
       font-size: 12px !important;
@@ -2951,6 +2951,16 @@
     .why-camp-card p { text-align: center; }
 
     /* cool-icon（inline-flex）は親の text-align: center で水平中央に配置される */
+  }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1401px) {
+    .global-nav { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .global-nav .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1400px) {
+    .global-nav .nav-links { display: none; }
+    .global-nav-hamburger { display: flex; }
   }
 </style>
 </head>

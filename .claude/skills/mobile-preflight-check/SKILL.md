@@ -12,7 +12,7 @@ description: |
   - 新規ページを公開する前
 
   3種類のチェックを順に実行:
-  1. 静的 grep 検査（3パターンの既知アンチパターンを検出）
+  1. 静的 grep 検査（既知アンチパターン A〜D, F を検出）
   2. iPhone viewport の自動スクショ取得（Playwright）
   3. スクショを目視確認
 ---
@@ -176,6 +176,31 @@ HTML の改行とインデントが空白文字に変換され、それがブラ
 
 **修正:** モバイルの段落系セレクタに `hanging-punctuation: allow-end` を追加。
 行末の `、` `。` `」` 等をマージン側にぶら下げて、強制的に行内に収める。
+
+### Pattern F: grid-template-columns の fr が minmax(0, …) 未包囲（Safari 右はみ出し）
+
+**症状:** Safari（WebKit）でのみ、グリッド内の日本語カードやテキストが右に広がって
+切れる。Chrome では問題なく表示される。横スクロールは出ず、`body{overflow-x:hidden}`
+で切り落とされるため「右側が折り返されずに表示が切れている」ように見える。
+
+**原因:** CSS Grid の `1fr` は `minmax(auto, 1fr)` の略。この `auto` 最小値は
+トラック内コンテンツの **min-content 幅**。`word-break: keep-all` の日本語は改行点が
+無いため min-content = 文章全体の幅になる。Chrome は `overflow-wrap: break-word` で
+min-content を縮めるが、**Safari は縮めない**ため、トラックが親要素を超えて広がる。
+
+**修正:** すべての fr トラックを `minmax(0, 1fr)` で囲む。`minmax` の最小値を 0 に
+固定することで、コンテンツの min-content に関係なくトラックが縮められるようになり、
+全ブラウザで再発しなくなる（CSS Grid 仕様で保証される挙動）。
+
+```css
+/* NG */ grid-template-columns: repeat(2, 1fr);
+/* OK */ grid-template-columns: repeat(2, minmax(0, 1fr));
+/* NG */ grid-template-columns: 1fr 1.3fr;
+/* OK */ grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+```
+
+一括変換スクリプト: `python3 .claude/scripts/wrap-fr-minmax.py [--dry] <file...>`
+（裸の fr を minmax(0, …) で囲む。既に minmax 済みのものは二重ラップしない）
 
 ### Pattern E: runtime チェック（Playwright で実機相当検査）
 
