@@ -415,6 +415,25 @@
     transition: background 0.2s, transform 0.2s;
   }
   .session-btn:hover { background: #1e3658; transform: translateY(-2px); }
+  .session-btn.is-full {
+    background: #b8bcc6;
+    color: #fff;
+    cursor: default;
+    pointer-events: none;
+  }
+  .session-card.is-full { opacity: 0.85; }
+  .session-full-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #fff;
+    background: var(--slate);
+    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+  }
 
   /* ── MUSCLES ── */
   .muscles-section {
@@ -1497,10 +1516,10 @@
       </div>
 
       <!-- 第2部 -->
-      <div class="session-card">
+      <div class="session-card is-full">
         <div class="session-num">SESSION 02</div>
         <div class="session-time">14:50 — 16:20</div>
-        <div class="session-theme">第2部：立場を持つ・違いを示す</div>
+        <div class="session-theme">第2部：立場を持つ・違いを示す<span class="session-full-badge">満席</span></div>
         <div class="session-muscles">
           <div>
             <div class="session-muscle-name"><span>05</span>意見筋</div>
@@ -1514,7 +1533,7 @@
         <div class="session-for">
           <strong>こんな人に：</strong>自分の意見を言うのが苦手／反対されると黙ってしまう／ゼミやグループワークで言葉に詰まる。
         </div>
-        <a href="#register" class="session-btn">この回に申し込む →</a>
+        <span class="session-btn is-full">満席（受付終了）</span>
       </div>
 
       <!-- 第3部 -->
@@ -1869,7 +1888,7 @@
       <div class="register-session-row">
         <div class="register-session-time">14:50–16:20</div>
         <div class="register-session-theme">第2部：立場を持つ・違いを示す（意見筋＋反対意見表明筋）</div>
-        <div class="register-session-cap">先着25名</div>
+        <div class="register-session-cap">満席</div>
       </div>
       <div class="register-session-row">
         <div class="register-session-time">16:30–18:00</div>
