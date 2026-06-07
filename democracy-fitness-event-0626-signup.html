@@ -186,6 +186,75 @@
   }
   .theme-note strong { color: var(--ink); }
 
+  /* ── GUEST SPEAKER ── */
+  .guest-section {
+    background: #ffffff;
+    padding: 3.5rem 2rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+  .guest-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .guest-label {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .guest-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    line-height: 1.4;
+    color: var(--ink);
+    margin-bottom: 1.6rem;
+  }
+  .guest-photo {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+  .guest-photo-caption {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 1.8rem;
+  }
+  .guest-name {
+    font-family: 'Noto Serif JP', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .guest-name .guest-name-en {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.08em;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-left: 0.6rem;
+    font-weight: 400;
+  }
+  .guest-title {
+    font-size: 0.85rem;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.1rem;
+  }
+  .guest-bio {
+    font-size: 0.92rem;
+    line-height: 1.95;
+    color: var(--text-secondary);
+  }
+  .guest-bio strong { color: var(--ink); font-weight: 700; }
+  @media (max-width: 540px) {
+    .guest-section { padding: 2.8rem 1.5rem; }
+  }
+
   /* ── FORM ── */
   .form-section { padding: 4rem 2rem 5rem; }
   .form-inner { max-width: 720px; margin: 0 auto; }
@@ -441,6 +510,18 @@
       デモクラシーフィットネスでは対話を支える「10の筋肉」を扱います。前回（第1回）は「意見筋」「反対意見表明筋」を鍛えました。第2回となる今回は、相手や未知の世界に興味を持って向き合う<strong>好奇心筋</strong>と、相手の言葉をまず丸ごと受け取る<strong>傾聴筋</strong>を体験します。<br>
       <span style="font-size:0.8rem;">※前回ご参加の方も、初めての方も、どちらも歓迎です。</span>
     </div>
+  </div>
+</section>
+
+<!-- GUEST SPEAKER -->
+<section class="guest-section">
+  <div class="guest-inner">
+    <div class="guest-label">GUEST SPEAKER</div>
+    <h2 class="guest-heading">特別ゲスト 🇫🇮<br>フィンランドから、民主主義の現場の声を</h2>
+    <img class="guest-photo" src="./guest-tommy.jpg" alt="ゲストスピーカーのトミーさん" decoding="async" onerror="this.style.display='none'">
+    <div class="guest-name">トミー<span class="guest-name-en">TOMMY</span></div>
+    <div class="guest-title">TOPAASIA 教育デザイナー</div>
+    <p class="guest-bio">今回の第2回東京会では、特別ゲストをお迎えします。日本語が堪能なフィンランド出身の教育者・トミーさんです。フィンランドでは民主主義がどのように営まれ、学校現場ではどんな<strong>民主主義教育</strong>が行われているのか——制度の解説にとどまらず、現地で暮らし・教える人ならではの実感を、生の声で語っていただきます。北欧の対話文化にじかに触れられる、またとない回です。</p>
   </div>
 </section>
 
