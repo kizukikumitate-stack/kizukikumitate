@@ -545,11 +545,11 @@
               <small>個人での内省を深めるために意図的に作られた小さな個人スペース</small>
             </span>
           </label>
-          <label class="radio-option">
-            <input type="radio" name="roomType" value="private" required>
+          <label class="radio-option" id="roomOptionPrivate">
+            <input type="radio" name="roomType" value="private" id="roomPrivate" required>
             <span class="radio-option-card">
               <strong>個室</strong>
-              <small>通常の個室</small>
+              <small id="roomPrivateNote">通常の個室</small>
             </span>
           </label>
         </div>
@@ -700,6 +700,26 @@
 
   pairInput.addEventListener('input', updateAppliedPrice);
   updateAppliedPrice();
+
+  // 個室の空き状況をチェック（満室なら選択不可にする）
+  (function checkPrivateAvailability() {
+    fetch(API_ENDPOINT, { method: 'GET' })
+      .then((r) => r.json())
+      .then((d) => {
+        if (!d) return;
+        const radio = document.getElementById('roomPrivate');
+        const note = document.getElementById('roomPrivateNote');
+        const opt = document.getElementById('roomOptionPrivate');
+        if (d.privateFull) {
+          if (radio) { radio.disabled = true; radio.checked = false; }
+          if (opt) { opt.style.opacity = '0.5'; opt.style.cursor = 'not-allowed'; opt.style.pointerEvents = 'none'; }
+          if (note) note.innerHTML = '通常の個室（<strong style="color:#c0392b;">満室になりました</strong>）';
+        } else if (note && typeof d.privateRemaining === 'number' && d.privateRemaining <= 2) {
+          note.innerHTML = '通常の個室（残り' + d.privateRemaining + '室）';
+        }
+      })
+      .catch(() => {});
+  })();
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
