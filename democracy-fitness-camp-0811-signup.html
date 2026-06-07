@@ -545,11 +545,11 @@
               <small>個人での内省を深めるために意図的に作られた小さな個人スペース</small>
             </span>
           </label>
-          <label class="radio-option" id="roomOptionPrivate">
-            <input type="radio" name="roomType" value="private" id="roomPrivate" required>
+          <label class="radio-option" id="roomOptionPrivate" style="opacity:0.5; cursor:not-allowed; pointer-events:none;">
+            <input type="radio" name="roomType" value="private" id="roomPrivate" disabled>
             <span class="radio-option-card">
               <strong>個室</strong>
-              <small id="roomPrivateNote">通常の個室</small>
+              <small id="roomPrivateNote">通常の個室（<strong style="color:#c0392b;">満室・受付終了</strong>）</small>
             </span>
           </label>
         </div>
@@ -713,7 +713,7 @@
         if (d.privateFull) {
           if (radio) { radio.disabled = true; radio.checked = false; }
           if (opt) { opt.style.opacity = '0.5'; opt.style.cursor = 'not-allowed'; opt.style.pointerEvents = 'none'; }
-          if (note) note.innerHTML = '通常の個室（<strong style="color:#c0392b;">満室になりました</strong>）';
+          if (note) note.innerHTML = '通常の個室（<strong style="color:#c0392b;">満室・受付終了</strong>）';
         } else if (note && typeof d.privateRemaining === 'number' && d.privateRemaining <= 2) {
           note.innerHTML = '通常の個室（残り' + d.privateRemaining + '室）';
         }
