@@ -16,19 +16,26 @@ description: |
 
 # イベント自動アーカイブ スキル
 
-`democracy-fitness.html` の「今後のイベント予定」に並ぶイベントカードは、
-**終了日時(JST)を過ぎると自動で「過去の開催」へ移動**する。
+終了したイベントを2ページから自動で片付ける:
+
+- **`democracy-fitness.html`（イベント一覧）**: 終了日時(JST)を過ぎたカードを「過去の開催」へ**移動**
+- **`index.html`（トップページの「今後のイベント」プレビュー）**: 開催日が今日(JST)より前のカードを**削除**（過去セクションが無いため）
+
 この自動化を壊さずにイベントを追加・編集・保守するための手順書。
 
-## 仕組みの全体像（3要素）
+## 仕組みの全体像（4要素）
 
 | ファイル | 役割 |
 |---|---|
-| `democracy-fitness.html` | 予定カードにメタデータとマーカーを持たせる（下記の形式契約） |
-| `scripts/archive-events.py` | 終了日時を過ぎたカードを past 形式に整形し「過去の開催」先頭へ移動 |
-| `.github/workflows/archive-events.yml` | 6時間ごと(cron `0 */6 * * *`)＋手動で上記スクリプトを実行し、変更があれば bot がコミット |
+| `democracy-fitness.html` | 一覧の予定カードにメタデータとマーカーを持たせる（下記の形式契約） |
+| `index.html` | トップのプレビューカード。各カードに `<div class="event-date">YYYY.MM.DD</div>` が必須 |
+| `scripts/archive-events.py` | 一覧は past 形式へ移動 / トップは過去日カードを削除（両ファイルを処理） |
+| `.github/workflows/archive-events.yml` | 6時間ごと(cron `0 */6 * * *`)＋手動で実行し、変更があれば bot がコミット |
 
 処理は **該当カードのブロックだけを文字列置換**するので、HTML 全体は再整形されず差分は最小。
+
+> ⚠️ イベントを追加するときは **両ページ**に追加するのが基本。
+> 一覧（democracy-fitness.html）は下の形式契約、トップ（index.html）は `event-date` 付きカードで。
 
 ## ⭐ 新しいイベントを追加するときの形式契約（最重要）
 
@@ -92,6 +99,29 @@ description: |
 
 挿入位置は `<!-- PAST EVENTS INSERT -->` の直後＝過去の開催の先頭。複数同時なら終了日時の**新しい順**。
 
+## トップページ（index.html）のカード形式
+
+トップの「今後のイベント」プレビューには過去セクションが無いため、**開催日を過ぎたカードは削除**される。
+各カードに **`<div class="event-date">YYYY.MM.DD</div>`（ドット区切り）が必須**。これが無いカードは削除対象外。
+
+```html
+    <div class="event-card">
+      <div class="event-card-header">
+        <div class="event-date">2026.09.30</div>
+        <div class="event-location">大阪</div>
+      </div>
+      <div class="event-card-body">
+        <span class="event-type">デモクラシーフィットネス</span>
+        <div class="event-card-title">体験会 in 大阪</div>
+        <div class="event-card-desc">説明文。</div>
+        <a href="申込URL" target="_blank" rel="noopener" class="event-card-link">詳細・参加申込 →</a>
+      </div>
+    </div>
+```
+
+削除の判定は **日付のみ**（時刻は見ない）。開催日が今日(JST)より前になった翌日以降に削除される
+（＝開催当日はトップに残る）。一覧側は終了「時刻」で判定するので、当日の夜は挙動が少しズレ得るが許容。
+
 ## 動作テスト（時刻を注入して確認）
 
 実時刻ではなく任意時刻を「現在」として判定できる。**必ずバックアップを取ってから**実行する。
@@ -123,7 +153,8 @@ echo "START=$(grep -c 'EVENT START' democracy-fitness.html) END=$(grep -c 'EVENT
 
 | 症状 | 原因・対処 |
 |---|---|
-| イベントが過去に移動しない | カードに `EVENT START/END` マーカーか `data-event-end` が無い。上の形式契約で付け直す |
+| 一覧でイベントが過去に移動しない | カードに `EVENT START/END` マーカーか `data-event-end` が無い。上の形式契約で付け直す |
+| トップ(index.html)から消えない | カードに `<div class="event-date">YYYY.MM.DD</div>` が無い／書式が違う。ドット区切りで付ける |
 | 移動はされるがタグが変 | `data-region` 未設定（タグが `終了 / 開催` になる）。地域ラベルを設定 |
 | 隣のカードも巻き込んで消える/残る | マーカーの対応がズレている。整合性チェックで START=END を確認 |
 | 手動で即実行したい | GitHub の Actions タブ →「Archive Past Events」→ Run workflow（workflow_dispatch） |

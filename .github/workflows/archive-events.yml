@@ -14,13 +14,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Move finished events to "過去の開催"
+      - name: Archive finished events (一覧は過去へ移動 / トップは削除)
         run: python3 scripts/archive-events.py
 
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add democracy-fitness.html
-          git diff --cached --quiet || git commit -m "chore: 終了したイベントを過去の開催へ自動移動"
+          git add democracy-fitness.html index.html
+          git diff --cached --quiet || git commit -m "chore: 終了したイベントを自動整理（一覧は過去へ移動・トップは削除）"
           git push
