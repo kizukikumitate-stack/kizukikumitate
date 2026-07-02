@@ -65,7 +65,7 @@
       white-space: nowrap; color: #1a5fad; letter-spacing: 0.06em;
     }
     .nav-links {
-      display: flex; gap: 1.4rem; list-style: none;
+      display: flex; gap: 1.2rem; list-style: none;
       align-items: center; margin-left: auto;
     }
     .nav-links a {
@@ -763,6 +763,16 @@
       .hero-cta-row, .cta-row { flex-direction: column; align-items: stretch; }
       .deck-mini-card { font-size: 0.76rem; padding: 0.45rem 0.55rem; }
     }
+    /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+    @media (min-width: 1561px) {
+      nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+      .nav-links { gap: 1rem; }
+    }
+    @media (max-width: 1560px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .lang-toggle { margin-left: auto; }
+    }
   </style>
 </head>
 <body>
@@ -776,6 +786,7 @@
       <li><a href="./index.html">Home</a></li>
       <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
       <li><a href="./lsp.html">LSP</a></li>
+      <li><a href="./topaasia.html" class="active">対話用カード</a></li>
       <li><a href="./education-program.html">研修設計プログラム</a></li>
       <li><a href="./od-program.html">組織開発プログラム</a></li>
       <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
@@ -794,6 +805,7 @@
     <a href="./index.html">Home</a>
     <a href="./democracy-fitness.html">Democracy Fitness</a>
     <a href="./lsp.html">LSP</a>
+    <a href="./topaasia.html" class="active">対話用カード</a>
     <a href="./education-program.html">研修設計プログラム</a>
     <a href="./od-program.html">組織開発プログラム</a>
     <a href="./dialogue-program.html">対話力向上プログラム</a>
