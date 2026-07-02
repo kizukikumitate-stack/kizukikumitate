@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Topaasia（トパーシア）| カード1枚から、本音の対話が始まる | きづきくみたて工房</title>
+  <meta name="description" content="フィンランド発・カード型対話メソッドTopaasia®の日本向け公式ページ。AIが数分で生成する32枚のカードが、1on1・管理職研修・オンラインチームビルディングの対話を変えます。体験セッションは1時間まで無料。">
+  <meta property="og:title" content="Topaasia（トパーシア）| カード1枚から、本音の対話が始まる">
+  <meta property="og:description" content="フィンランド発・カード型対話メソッド。AIが数分で生成する32枚のカードが、1on1・研修・チームの対話を変える。体験セッションは1時間まで無料。">
+  <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+  <meta property="og:url" content="https://kizukikumitate.com/topaasia.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Topaasia（トパーシア）| カード1枚から、本音の対話が始まる">
+  <meta name="twitter:description" content="フィンランド発・カード型対話メソッド。AIが数分で生成する32枚のカードが、1on1・研修・チームの対話を変える。体験セッションは1時間まで無料。">
+  <meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+  <link rel="canonical" href="https://kizukikumitate.com/topaasia.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🧱</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ECK6163X4');
+  </script>
+  <style>
+    /* ===== リセット・ベース ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --tp-navy: #17324D;
+      --tp-navy-deep: #0F2338;
+      --tp-orange: #E8842C;
+      --tp-orange-soft: #FDEBD7;
+      --tp-orange-deep: #B05E14;
+      --tp-cream: #FAF5EC;
+      --tp-gray: #8A8377;
+      --tp-line: #E5DDCF;
+    }
+    body {
+      font-family: 'Noto Serif JP', serif;
+      color: #1a1a2e;
+      line-height: 1.8;
+      background: #fff;
+    }
+
+    /* ===== ナビゲーション ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0.7rem 2rem;
+      display: flex; align-items: center;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid #17324D;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.7rem;
+      text-decoration: none; flex-shrink: 0; margin-right: 4rem;
+    }
+    .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo-text {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem; font-weight: 800;
+      white-space: nowrap; color: #1a5fad; letter-spacing: 0.06em;
+    }
+    .nav-links {
+      display: flex; gap: 1.4rem; list-style: none;
+      align-items: center; margin-left: auto;
+    }
+    .nav-links a {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem; font-weight: 400;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-decoration: none; white-space: nowrap; transition: color 0.2s;
+      color: #1a1a2e;
+    }
+    .nav-links a:hover { color: var(--tp-orange); }
+    .lang-toggle {
+      margin-left: 1.2rem; flex-shrink: 0;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      border: 1.5px solid var(--tp-navy); border-radius: 999px;
+      background: transparent; color: var(--tp-navy);
+      padding: 0.3rem 0.95rem; cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-toggle:hover { background: var(--tp-navy); color: #fff; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; margin-left: 0.6rem; padding: 10px;
+    }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #1a1a2e; }
+    .mobile-menu {
+      display: none; position: fixed; top: 0; right: 0;
+      width: 280px; height: 100vh; background: #fff;
+      z-index: 200; padding: 2rem; flex-direction: column; gap: 1.2rem;
+      box-shadow: -5px 0 20px rgba(0,0,0,0.15);
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu a {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem; text-decoration: none; color: #1a1a2e;
+      padding: 0.5rem 0; border-bottom: 1px solid #eee;
+    }
+    .mobile-menu-close {
+      align-self: flex-end; background: none; border: none;
+      font-size: 1.5rem; cursor: pointer; padding: 0.5rem;
+    }
+
+    /* ===== 共通パーツ ===== */
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--tp-orange-deep);
+      display: flex; align-items: center; gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .section-label::before {
+      content: ""; display: inline-block; width: 34px; height: 2px;
+      background: var(--tp-orange);
+    }
+    .section-heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      font-weight: 800; color: var(--tp-navy);
+      line-height: 1.5; margin-bottom: 1.2rem;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .section-lead {
+      font-size: 1rem; color: #4a4a5a; max-width: 720px;
+      margin-bottom: 2.5rem;
+    }
+    .suit-mark { display: inline-block; vertical-align: -0.1em; }
+    .btn-primary, .btn-ghost {
+      display: inline-block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 700; text-decoration: none;
+      border-radius: 999px;
+      padding: 1rem 2.4rem;
+      font-size: 1rem;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+    .btn-primary {
+      background: var(--tp-orange); color: #fff;
+      box-shadow: 0 6px 18px rgba(232,132,44,0.35);
+    }
+    .btn-primary:hover { transform: translateY(-2px); background: #d97a24; }
+    .btn-ghost {
+      border: 2px solid var(--tp-navy); color: var(--tp-navy);
+      background: transparent;
+    }
+    .btn-ghost:hover { transform: translateY(-2px); background: rgba(23,50,77,0.05); }
+    .btn-note {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.8rem; color: var(--tp-gray); margin-top: 0.8rem;
+    }
+    .src-note {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem; color: var(--tp-gray);
+    }
+
+    /* ===== ヒーロー ===== */
+    .hero {
+      padding: 9.5rem 3rem 4.5rem;
+      background: var(--tp-cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 2; }
+    .hero-brand {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--tp-orange-deep); margin-bottom: 1.4rem;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .hero h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2rem, 4vw, 3.6rem);
+      font-weight: 800; color: var(--tp-navy);
+      line-height: 1.45;
+      word-break: keep-all; overflow-wrap: break-word;
+      margin-bottom: 1.6rem;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: #4a4a5a; max-width: 640px;
+      margin-bottom: 2.4rem;
+    }
+    .hero-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .hero-deco {
+      position: absolute; left: calc(50% + 160px); top: 170px;
+      opacity: 0.9; z-index: 1;
+      width: min(390px, calc(50vw - 180px));
+    }
+    @media (max-width: 1080px) {
+      .hero-deco { display: none; }
+    }
+    .hero-stats-bar {
+      margin-top: 3rem;
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      border-top: 1px solid var(--tp-line);
+      padding-top: 1.6rem;
+    }
+    .hero-stat { font-family: 'Noto Sans JP', sans-serif; }
+    .hero-stat-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 1.9rem; font-weight: 600; color: var(--tp-navy);
+      line-height: 1.2;
+    }
+    .hero-stat-num em { font-style: normal; color: var(--tp-orange); }
+    .hero-stat-cap { font-size: 0.78rem; color: var(--tp-gray); }
+
+    /* ===== 課題提起 ===== */
+    .problem-section { padding: 5.5rem 3rem; background: #fff; }
+    .problem-open {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800; color: var(--tp-navy);
+      line-height: 1.6; margin-bottom: 1.6rem;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .problem-open em { font-style: normal; color: var(--tp-orange); }
+    .problem-evidence {
+      font-size: 0.98rem; color: #4a4a5a; max-width: 760px; margin-bottom: 0.6rem;
+    }
+    .problem-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem; margin-top: 3rem;
+    }
+    .problem-card {
+      background: var(--tp-cream);
+      border-radius: 16px;
+      padding: 2rem 1.7rem 1.7rem;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--tp-line);
+    }
+    .problem-card-suit { margin-bottom: 1rem; }
+    .problem-card-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.1rem; font-weight: 700; color: var(--tp-navy);
+      margin-bottom: 0.9rem; line-height: 1.6;
+    }
+    .problem-card-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 2.6rem; font-weight: 600; color: var(--tp-orange);
+      line-height: 1.1;
+    }
+    .problem-card-num small { font-size: 1.1rem; color: var(--tp-orange-deep); }
+    .problem-card-desc {
+      font-size: 0.88rem; color: #4a4a5a; margin-top: 0.7rem; margin-bottom: 0.7rem;
+    }
+    .problem-close {
+      margin-top: 3rem;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.25rem; font-weight: 700; color: var(--tp-navy);
+      text-align: center; line-height: 2;
+    }
+    .problem-close strong { color: var(--tp-orange); font-weight: 800; }
+
+    /* ===== Topaasiaとは（循環図） ===== */
+    .about-section { padding: 5.5rem 3rem; background: var(--tp-cream); }
+    .about-flex { display: flex; gap: 3rem; align-items: center; flex-wrap: wrap; }
+    .about-text { flex: 1 1 380px; min-width: 0; }
+    .about-fig { flex: 1 1 380px; min-width: 0; }
+    .about-body { font-size: 0.98rem; color: #333; margin-bottom: 1rem; }
+
+    /* ===== 活用シーン ===== */
+    .scenes-section { padding: 5.5rem 3rem; background: #fff; }
+    .scenes-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.6rem;
+    }
+    .scene-card {
+      border: 1px solid var(--tp-line);
+      border-top: 6px solid var(--tp-orange);
+      border-radius: 16px;
+      padding: 2rem 1.7rem;
+      background: #fff;
+      overflow: hidden;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .scene-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(23,50,77,0.1); }
+    .scene-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.2em; color: var(--tp-orange-deep);
+      margin-bottom: 0.6rem;
+    }
+    .scene-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.15rem; font-weight: 800; color: var(--tp-navy);
+      margin-bottom: 0.9rem; line-height: 1.6;
+    }
+    .scene-desc { font-size: 0.9rem; color: #4a4a5a; }
+
+    /* ===== 進め方4ステップ ===== */
+    .steps-section { padding: 5.5rem 3rem; background: var(--tp-navy); }
+    .steps-section .section-label { color: #F5B15E; }
+    .steps-section .section-label::before { background: #F5B15E; }
+    .steps-section .section-heading { color: #fff; }
+    .steps-section .section-lead { color: rgba(255,255,255,0.75); }
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.3rem;
+    }
+    .step-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 14px;
+      padding: 1.7rem 1.4rem;
+      overflow: hidden;
+    }
+    .step-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 2rem; font-weight: 600; color: var(--tp-orange);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+    .step-title {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 1rem; font-weight: 700; color: #fff;
+      margin-bottom: 0.6rem;
+    }
+    .step-body { font-size: 0.85rem; color: rgba(255,255,255,0.75); }
+
+    /* ===== カードをのぞいてみる ===== */
+    .deck-section { padding: 5.5rem 3rem; background: #fff; }
+    .deck-quote-row {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem; margin: 2.2rem 0;
+    }
+    .deck-quote-card {
+      background: var(--tp-cream);
+      border-radius: 16px;
+      border: 1px solid var(--tp-line);
+      padding: 1.8rem 1.6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .deck-quote-suit { margin-bottom: 0.8rem; }
+    .deck-quote-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.2rem; font-weight: 800; color: var(--tp-orange-deep);
+      border-bottom: 2px solid var(--tp-orange);
+      display: inline-block; padding-bottom: 0.3rem;
+      margin-bottom: 0.9rem;
+    }
+    .deck-quote-body { font-size: 0.95rem; color: var(--tp-navy); }
+    .deck-quote-cap {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.75rem; color: var(--tp-gray); margin-top: 0.9rem;
+    }
+    .deck-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem; margin-top: 2.4rem;
+    }
+    .deck-suit-col { min-width: 0; }
+    .deck-suit-head {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.92rem; font-weight: 700; color: var(--tp-navy);
+      border-top: 4px solid var(--tp-orange);
+      padding-top: 0.6rem; margin-bottom: 0.7rem;
+      display: flex; align-items: center; gap: 0.45rem;
+    }
+    .deck-mini-card {
+      background: #fff;
+      border: 1px solid var(--tp-line);
+      border-radius: 8px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.82rem; color: #333;
+      padding: 0.5rem 0.7rem;
+      margin-bottom: 0.45rem;
+      box-shadow: 0 2px 6px rgba(23,50,77,0.05);
+    }
+    .deck-note {
+      background: var(--tp-orange-soft);
+      border-radius: 12px;
+      padding: 1.3rem 1.6rem;
+      font-size: 0.9rem; color: var(--tp-orange-deep);
+      margin-top: 2rem;
+    }
+    .themes-cloud { margin-top: 2.4rem; display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .theme-chip {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.8rem; color: var(--tp-navy);
+      background: var(--tp-cream);
+      border: 1px solid var(--tp-line);
+      border-radius: 999px;
+      padding: 0.4rem 1rem;
+      white-space: nowrap;
+    }
+    .themes-cap {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.8rem; color: var(--tp-gray); margin-top: 1rem;
+    }
+
+    /* ===== 選ばれる理由 ===== */
+    .why-section { padding: 5.5rem 3rem; background: var(--tp-cream); }
+    .why-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    .why-card {
+      background: #fff; border-radius: 14px;
+      border: 1px solid var(--tp-line);
+      padding: 1.7rem 1.5rem;
+      overflow: hidden;
+    }
+    .why-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.05rem; font-weight: 800; color: var(--tp-navy);
+      margin-bottom: 0.6rem;
+      display: flex; align-items: baseline; gap: 0.5rem;
+    }
+    .why-body { font-size: 0.88rem; color: #4a4a5a; }
+
+    /* ===== 体力づくりプログラム ===== */
+    .program-section { padding: 5.5rem 3rem; background: #fff; }
+    .program-fig-wrap {
+      background: var(--tp-cream);
+      border-radius: 20px;
+      padding: 2.4rem 1.6rem 1.8rem;
+      margin-top: 1rem;
+    }
+    .program-note { font-size: 0.9rem; color: #4a4a5a; margin-top: 1.6rem; max-width: 760px; }
+
+    /* ===== 経営層向け ===== */
+    .exec-section { padding: 5.5rem 3rem; background: var(--tp-navy); }
+    .exec-section .section-label { color: #F5B15E; }
+    .exec-section .section-label::before { background: #F5B15E; }
+    .exec-heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      font-weight: 800; color: #fff; line-height: 1.6;
+      margin-bottom: 2.4rem;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .exec-heading em { font-style: normal; color: var(--tp-orange); }
+    .impact-grid {
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.4rem; margin-bottom: 3rem;
+    }
+    .impact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 14px;
+      padding: 1.7rem 1.5rem;
+      overflow: hidden;
+    }
+    .impact-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 2.4rem; font-weight: 600; color: var(--tp-orange);
+      line-height: 1.15;
+    }
+    .impact-num small { font-size: 1.1rem; }
+    .impact-body { font-size: 0.85rem; color: rgba(255,255,255,0.85); margin-top: 0.5rem; }
+    .impact-src { font-size: 0.7rem; color: rgba(255,255,255,0.45); margin-top: 0.6rem; font-family: 'Noto Sans JP', sans-serif; }
+
+    /* 損失計算機 */
+    .calc-card {
+      background: var(--tp-cream);
+      border-radius: 20px;
+      padding: 2.2rem 2rem;
+    }
+    .calc-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.2rem; font-weight: 800; color: var(--tp-navy);
+      margin-bottom: 1.4rem;
+    }
+    .calc-inputs { display: flex; gap: 1.4rem; flex-wrap: wrap; margin-bottom: 1.6rem; }
+    .calc-field { font-family: 'Noto Sans JP', sans-serif; }
+    .calc-field label { display: block; font-size: 0.78rem; color: var(--tp-gray); margin-bottom: 0.3rem; }
+    .calc-field input {
+      width: 130px; padding: 0.6rem 0.8rem;
+      font-size: 1rem; font-family: 'Jost', sans-serif;
+      border: 1.5px solid var(--tp-line); border-radius: 10px;
+      background: #fff; color: var(--tp-navy);
+    }
+    .calc-field input:focus { outline: 2px solid var(--tp-orange); border-color: transparent; }
+    .calc-rows { display: flex; flex-direction: column; gap: 0.6rem; }
+    .calc-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      background: #fff; border: 1px solid var(--tp-line);
+      border-radius: 10px; padding: 0.8rem 1.2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      gap: 1rem;
+    }
+    .calc-row-name { font-size: 0.85rem; color: #4a4a5a; min-width: 0; }
+    .calc-row-val { font-family: 'Jost', sans-serif; font-size: 1.15rem; font-weight: 600; color: var(--tp-navy); white-space: nowrap; }
+    .calc-row.total {
+      background: var(--tp-navy); border-color: var(--tp-navy);
+    }
+    .calc-row.total .calc-row-name { color: rgba(255,255,255,0.85); font-weight: 700; }
+    .calc-row.total .calc-row-val { color: var(--tp-orange); font-size: 1.6rem; }
+    .calc-assump {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem; color: var(--tp-gray); margin-top: 1.2rem; line-height: 1.7;
+    }
+
+    /* ===== 実績・声 ===== */
+    .voices-section { padding: 5.5rem 3rem; background: #fff; }
+    .voices-stats {
+      display: flex; gap: 2.5rem; flex-wrap: wrap;
+      background: var(--tp-cream);
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2.6rem;
+    }
+    .vstat { font-family: 'Noto Sans JP', sans-serif; }
+    .vstat-num {
+      font-family: 'Jost', sans-serif;
+      font-size: 2rem; font-weight: 600; color: var(--tp-navy); line-height: 1.2;
+    }
+    .vstat-num em { font-style: normal; color: var(--tp-orange); }
+    .vstat-cap { font-size: 0.78rem; color: var(--tp-gray); }
+    .voices-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+    .voice-card {
+      border: 1px solid var(--tp-line);
+      border-left: 5px solid var(--tp-orange);
+      border-radius: 12px;
+      padding: 1.6rem 1.6rem 1.3rem;
+      overflow: hidden;
+      min-width: 0;
+    }
+    .voice-text { font-size: 0.93rem; color: #333; margin-bottom: 0.9rem; }
+    .voice-who { font-family: 'Noto Sans JP', sans-serif; font-size: 0.78rem; color: var(--tp-gray); }
+    .voice-fav {
+      margin-top: 2.4rem;
+      background: var(--tp-navy);
+      border-radius: 16px;
+      padding: 1.8rem 2rem;
+      color: #fff;
+    }
+    .voice-fav-label { font-family: 'Noto Sans JP', sans-serif; font-size: 0.75rem; letter-spacing: 0.15em; color: #F5B15E; margin-bottom: 0.6rem; }
+    .voice-fav-card {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.25rem; font-weight: 800; color: #fff;
+    }
+    .voice-fav-body { font-size: 0.92rem; color: rgba(255,255,255,0.8); margin-top: 0.4rem; }
+
+    /* ===== 料金・導入の流れ ===== */
+    .flow-section { padding: 5.5rem 3rem; background: var(--tp-cream); }
+    .flow-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.2rem; margin-bottom: 2.4rem;
+    }
+    .flow-card {
+      background: #fff; border: 1px solid var(--tp-line);
+      border-radius: 14px; padding: 1.5rem 1.3rem;
+      overflow: hidden;
+    }
+    .flow-step-num {
+      font-family: 'Jost', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em;
+      color: var(--tp-orange-deep); margin-bottom: 0.5rem;
+    }
+    .flow-title { font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--tp-navy); margin-bottom: 0.4rem; }
+    .flow-body { font-size: 0.82rem; color: #4a4a5a; }
+    .flow-card.free { border: 2px solid var(--tp-orange); position: relative; }
+    .free-badge {
+      position: absolute; top: -12px; left: 1.1rem;
+      background: var(--tp-orange); color: #fff;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.72rem; font-weight: 700;
+      border-radius: 999px; padding: 0.15rem 0.8rem;
+    }
+    .price-note {
+      background: #fff; border-radius: 14px; border: 1px solid var(--tp-line);
+      padding: 1.6rem 1.8rem; font-size: 0.92rem; color: #333;
+    }
+    .price-note strong { color: var(--tp-navy); }
+
+    /* ===== パートナー募集 ===== */
+    .partner-section { padding: 5.5rem 3rem; background: #fff; }
+    .partner-box {
+      background: var(--tp-cream);
+      border-radius: 24px;
+      padding: 3.2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .partner-heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+      font-weight: 800; color: var(--tp-navy);
+      margin-bottom: 1.4rem;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .partner-body { font-size: 0.98rem; color: #4a4a5a; max-width: 640px; margin: 0 auto 1.8rem; text-align: left; }
+    .partner-forms {
+      display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap;
+      margin-bottom: 2rem;
+      font-family: 'Noto Sans JP', sans-serif;
+    }
+    .partner-form-chip {
+      background: #fff; border: 1px solid var(--tp-line);
+      border-radius: 999px; padding: 0.5rem 1.3rem;
+      font-size: 0.85rem; color: var(--tp-navy); font-weight: 500;
+    }
+    .partner-form-chip strong { color: var(--tp-orange-deep); }
+
+    /* ===== FAQ ===== */
+    .faq-section { padding: 5.5rem 3rem; background: var(--tp-cream); }
+    .faq-list { max-width: 800px; }
+    .faq-item {
+      background: #fff; border: 1px solid var(--tp-line);
+      border-radius: 12px; margin-bottom: 0.8rem;
+      overflow: hidden;
+    }
+    .faq-item summary {
+      cursor: pointer; list-style: none;
+      padding: 1.1rem 1.5rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.95rem; font-weight: 700; color: var(--tp-navy);
+      display: flex; align-items: baseline; gap: 0.8rem;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-q-mark { color: var(--tp-orange); font-family: 'Jost', sans-serif; font-weight: 600; flex-shrink: 0; }
+    .faq-a {
+      padding: 0 1.5rem 1.2rem 3.1rem;
+      font-size: 0.9rem; color: #4a4a5a;
+    }
+
+    /* ===== 締めCTA ===== */
+    .cta-section {
+      padding: 6rem 3rem;
+      background: var(--tp-navy);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-heading {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.7rem, 3vw, 2.6rem);
+      font-weight: 800; color: #fff;
+      margin-bottom: 1.2rem;
+      word-break: keep-all; overflow-wrap: break-word;
+    }
+    .cta-sub { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 620px; margin: 0 auto 2.4rem; }
+    .cta-row { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .cta-section .btn-ghost { border-color: rgba(255,255,255,0.7); color: #fff; }
+    .cta-section .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+    .cta-free-note {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.85rem; color: #F5B15E; margin-top: 1.2rem;
+    }
+
+    /* ===== フッター ===== */
+    footer {
+      background: #26215C; border-top: 3px solid #3C3489;
+      padding: 3rem 6rem; display: flex;
+      justify-content: space-between; align-items: center;
+    }
+    .footer-logo {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1rem; font-weight: 800;
+      color: rgba(255,255,255,0.9);
+    }
+    .footer-copy { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+    .footer-tm {
+      color: rgba(255,255,255,0.45); font-size: 0.72rem;
+      font-family: 'Noto Sans JP', sans-serif;
+      max-width: 460px; line-height: 1.7;
+    }
+
+    /* ===== モバイル最終 overflow & typography override
+       （必ず style 終端の直前に配置 / コメント内に閉じstyleタグを書かないこと） ===== */
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      .nav-links { display: none; }
+      .hamburger { display: flex; margin-left: 0.3rem; padding: 10px 6px; }
+      .lang-toggle { margin-left: auto; padding: 0.25rem 0.7rem; font-size: 0.72rem; }
+      nav { padding: 1rem 1.2rem; }
+      nav .nav-logo { margin-right: 0.6rem; gap: 0.4rem; }
+      nav .nav-logo img { height: 26px; }
+      nav .nav-logo-text { font-size: 0.85rem; }
+
+      /* 全grid: minmax(0, 1fr) で content-min-width による拡張を防ぐ */
+      [class*="-grid"] {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      /* デッキは2カラム維持（上の一括ルールより後に書いて上書き） */
+      .deck-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+      .deck-quote-row { grid-template-columns: minmax(0, 1fr) !important; }
+
+      /* カード要素: min-width:0 + overflow-wrap で flex/grid 子の暴走を防ぐ */
+      [class*="-card"], [class*="-content"], [class*="-box"] {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      /* セクション横padding を縮小 */
+      section {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+        overflow-x: hidden;
+      }
+      .hero { padding-top: 7rem !important; padding-bottom: 3rem !important; }
+      .hero-deco { display: none; }
+      .hero-stats-bar { gap: 1.4rem; }
+      .partner-box { padding: 2.2rem 1.5rem; }
+      .calc-card { padding: 1.6rem 1.3rem; }
+      .calc-field input { width: 110px; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; text-align: center; }
+
+      /* テーブルは table-layout: fixed */
+      table { table-layout: fixed; width: 100%; }
+
+      /* 日本語タイポグラフィ: 禁則処理＋自然な文節改行＋孤立防止 */
+      body, p, li, h1, h2, h3, h4,
+      [class*="-title"], [class*="-heading"], [class*="-body"], [class*="-text"],
+      [class*="-lead"], [class*="-desc"], [class*="-open"], [class*="-close"],
+      [class*="-sub"], [class*="-note"], [class*="-cap"], [class*="-who"] {
+        word-break: auto-phrase !important;
+        overflow-wrap: break-word !important;
+        line-break: strict !important;
+        hanging-punctuation: allow-end;
+        text-wrap: pretty;
+      }
+      h1, .section-heading, .exec-heading, .cta-heading, .partner-heading {
+        text-wrap: balance;
+      }
+
+      /* 暗背景カード内のフォントは px 固定（iOS Dynamic Type の影響を遮断） */
+      .step-body, .impact-body { font-size: 14px !important; line-height: 1.9 !important; }
+      .step-title { font-size: 16px !important; }
+
+      /* ヒーロー h1 */
+      .hero h1 { font-size: 1.8rem; white-space: normal; }
+
+      /* 見出し・ラベル・短文 → 中央寄せ */
+      .section-label, .section-heading, .exec-heading,
+      .hero-brand, .hero h1, .hero-sub,
+      .scene-title, .scene-num, .why-title,
+      .flow-title, .flow-step-num {
+        text-align: center;
+      }
+      .section-label::before { display: none !important; }
+      .section-label { justify-content: center; }
+      .hero-brand { justify-content: center; }
+      .hero-cta-row { justify-content: center; }
+      .hero-stats-bar { justify-content: center; }
+      .why-title { justify-content: center; }
+      .scene-card, .why-card, .flow-card { text-align: center; }
+      .scene-desc, .why-body, .flow-body { text-align: left; }
+    }
+
+    @media (max-width: 540px) {
+      .hero h1 { font-size: 1.5rem; white-space: normal; }
+      .problem-open { font-size: 1.35rem; }
+      .cta-heading { font-size: 1.5rem; }
+      footer { padding: 1.5rem 1rem; }
+      .btn-primary, .btn-ghost { padding: 0.9rem 1.8rem; font-size: 0.92rem; width: 100%; text-align: center; }
+      .hero-cta-row, .cta-row { flex-direction: column; align-items: stretch; }
+      .deck-mini-card { font-size: 0.76rem; padding: 0.45rem 0.55rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ナビゲーション -->
+  <nav>
+    <a href="./index.html" class="nav-logo">
+      <img src="./logotype.png" alt="きづきくみたて工房ロゴ">
+      <span class="nav-logo-text">きづきくみたて工房</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+      <li><a href="./lsp.html">LSP</a></li>
+      <li><a href="./education-program.html">研修設計プログラム</a></li>
+      <li><a href="./od-program.html">組織開発プログラム</a></li>
+      <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
+      <li><a href="./social-leader-coaching.html">リーダー向けコーチング</a></li>
+      <li><a href="./index.html#contact">Contact</a></li>
+    </ul>
+    <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose">✕</button>
+    <a href="./index.html">Home</a>
+    <a href="./democracy-fitness.html">Democracy Fitness</a>
+    <a href="./lsp.html">LSP</a>
+    <a href="./education-program.html">研修設計プログラム</a>
+    <a href="./od-program.html">組織開発プログラム</a>
+    <a href="./dialogue-program.html">対話力向上プログラム</a>
+    <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    <a href="./index.html#contact">Contact</a>
+  </div>
+
+  <!-- §1 ヒーロー -->
+  <section class="hero">
+    <svg class="hero-deco" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g transform="rotate(8 210 210)">
+        <rect x="60" y="40" width="200" height="290" rx="18" fill="#FFFFFF" stroke="#17324D" stroke-width="1.5"/>
+        <path d="M88 78 l12 -19 l12 19 z" fill="#E8842C"/>
+        <path d="M88 86 l12 19 l12 -19 z" fill="#E8842C" opacity="0.45"/>
+        <text x="160" y="190" text-anchor="middle" font-size="21" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Speak honestly">本音を話す</text>
+        <line x1="110" y1="204" x2="210" y2="204" stroke="#E8842C" stroke-width="2"/>
+      </g>
+      <g transform="rotate(-9 250 260)">
+        <rect x="160" y="110" width="200" height="290" rx="18" fill="#17324D"/>
+        <path d="M188 148 l12 -19 l12 19 z" fill="#F5B15E"/>
+        <path d="M188 156 l12 19 l12 -19 z" fill="#F5B15E" opacity="0.5"/>
+        <text x="260" y="260" text-anchor="middle" font-size="21" font-weight="700" fill="#FFFFFF" font-family="'Noto Sans JP',sans-serif" data-en="Listening">傾聴</text>
+        <line x1="210" y1="274" x2="310" y2="274" stroke="#E8842C" stroke-width="2"/>
+      </g>
+    </svg>
+    <div class="hero-inner">
+      <div class="hero-brand">
+        <svg class="suit-mark" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg>
+        <span data-en="Topaasia&reg; — a card-based dialogue method from Finland">Topaasia&reg;（トパーシア）— フィンランド発・カード型対話メソッド</span>
+      </div>
+      <h1 data-en="A single card can start<br>an honest conversation.">カード1枚から、<br>本音の対話が始まる。</h1>
+      <p class="hero-sub" data-en="A one-hour card game that transforms your 1-on-1s, meetings, and teams. AI generates a dialogue deck tailored to your topic in minutes.">1時間のカードゲームが、1on1を、会議を、チームを変える。AIがあなたのテーマ専用の対話デッキを数分で生成します。</p>
+      <div class="hero-cta-row">
+        <a class="btn-primary" href="mailto:kizukikumitate@gmail.com?subject=Topaasia%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%B3%E8%BE%BC" data-en="Book a free trial session">無料体験セッションに申し込む</a>
+        <a class="btn-ghost" href="mailto:kizukikumitate@gmail.com?subject=Topaasia%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82" data-en="Request materials">資料を請求する</a>
+      </div>
+      <p class="btn-note" data-en="Trial sessions are free for up to one hour.">体験セッションは1時間まで無料です。</p>
+      <div class="hero-stats-bar">
+        <div class="hero-stat"><div class="hero-stat-num"><em>4.8</em>/5.0</div><div class="hero-stat-cap" data-en="Average rating of trial sessions in Japan">日本での体験セッション平均評価</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-en="30+ hrs">30時間+</div><div class="hero-stat-cap" data-en="Dialogue sessions facilitated in Japanese">日本語での対話セッション実績</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" data-en="Minutes">数分</div><div class="hero-stat-cap" data-en="For AI to generate your custom deck">AIによる専用デッキ生成</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §2 課題提起 -->
+  <section class="problem-section">
+    <div class="container">
+      <div class="section-label">Problem</div>
+      <h2 class="problem-open" data-en="Every honest word left unsaid is<br><em>value your organization loses</em>.">言えなかった本音の分だけ、<br>組織は<em>価値を失っている</em>。</h2>
+      <p class="problem-evidence" data-en="More than half of departing employees never tell their company the real reason they quit. The No. 1 reason for staying silent: &quot;I didn't think they would understand even if I told them&quot; (46%). Your people won't speak honestly — even on their way out.">退職者の半数以上は、本当の退職理由を会社に伝えていません。伝えなかった理由の第1位は「話しても理解してもらえないと思ったから」（46%）——部下は、辞める時さえ本音を話してくれないのです。</p>
+      <p class="src-note" data-en="Source: en Japan, &quot;Real Reasons for Leaving&quot; survey 2024 (n = 5,168)">出典: エン・ジャパン「本当の退職理由」調査 2024（回答5,168名）</p>
+
+      <div class="problem-grid">
+        <div class="problem-card">
+          <svg class="problem-card-suit" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg>
+          <div class="problem-card-title" data-en="Listening skills learned in training don't survive the workplace">研修で学んだ傾聴が、現場で使えない</div>
+          <div class="problem-card-num">47.2<small>%</small></div>
+          <p class="problem-card-desc" data-en="The top challenge in 1-on-1 programs is &quot;managers' lack of conversation skills.&quot; What's learned in training is gone by Monday.">1on1施策の課題 第1位は「上司の面談スキル不足」。学んでも、月曜日の職場では元通りに。</p>
+          <p class="src-note" data-en="Recruit Management Solutions, 2022">リクルートマネジメントソリューションズ 2022</p>
+        </div>
+        <div class="problem-card">
+          <svg class="problem-card-suit" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg>
+          <div class="problem-card-title" data-en="1-on-1s end up as small talk or status updates">1on1が、雑談か進捗確認で終わる</div>
+          <div class="problem-card-num" data-en="1 in 3">3人に1人</div>
+          <p class="problem-card-desc" data-en="About 70% of companies have adopted 1-on-1s — yet 29.7% of employees say they feel no benefit.">1on1は約7割の企業に普及。しかし部下の29.7%は「効果を感じない」と答えています。</p>
+          <p class="src-note" data-en="Persol Research Institute, 2025">パーソル総合研究所 2025</p>
+        </div>
+        <div class="problem-card">
+          <svg class="problem-card-suit" width="20" height="20" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg>
+          <div class="problem-card-title" data-en="Remote teams stay distant">オンラインでは、チームの距離が縮まらない</div>
+          <div class="problem-card-num">28.8<small>%</small></div>
+          <p class="problem-card-desc" data-en="Nearly 3 in 10 teleworkers feel isolated. Without small talk, mutual understanding doesn't grow on its own.">テレワーカーの約3割が孤立感を抱えています。雑談が消えた職場で、相互理解は自然には育ちません。</p>
+          <p class="src-note" data-en="Persol Research Institute, 2020">パーソル総合研究所 2020</p>
+        </div>
+      </div>
+
+      <p class="problem-close" data-en="The cause isn't your managers' character.<br>It's that dialogue has <strong>no structure</strong>.">原因は、マネージャーの資質ではありません。<br>対話に<strong>「型」がないこと</strong>です。</p>
+    </div>
+  </section>
+
+  <!-- §3 Topaasiaとは -->
+  <section class="about-section">
+    <div class="container">
+      <div class="section-label">What is Topaasia</div>
+      <h2 class="section-heading" data-en="Give dialogue a structure.">対話に、型を。</h2>
+      <div class="about-flex">
+        <div class="about-text">
+          <p class="about-body" data-en="Topaasia is a card-based dialogue method born in Finland. Draw cards on your topic, take turns speaking and listening, then choose &quot;today's most important card&quot; together and decide the next action — all in one hour.">Topaasiaは、フィンランド生まれのカード型対話メソッドです。テーマに沿ったカードを引き、順番に話し、聴き、最後に「今日いちばん大事な1枚」を全員で選んで、次の行動を決める——ここまで1時間。</p>
+          <p class="about-body" data-en="Dialogue → Exploration → Consensus &amp; decision → Commitment &amp; action. This cycle eliminates both meetings that end as talk and decisions no one owns.">対話→探究→合意形成・意思決定→コミットメント・実践。この循環が、「話しっぱなしで終わる会議」と「やらされ感だけが残る決定」の両方をなくします。</p>
+        </div>
+        <div class="about-fig">
+          <svg width="100%" viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg" role="img">
+            <title>対話・探究・合意形成・実践の循環</title>
+            <g>
+              <rect x="151" y="14" width="158" height="76" rx="12" fill="#FFFFFF" stroke="#17324D" stroke-width="1"/>
+              <path d="M171 38 l8 -13 l8 13 z" fill="#E8842C"/>
+              <text x="230" y="56" text-anchor="middle" font-size="17" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Dialogue">対話</text>
+              <text x="230" y="77" text-anchor="middle" font-size="11" fill="#8A8377" font-family="'Noto Sans JP',sans-serif" data-en="Everyone speaks through cards">全員がカードで話す</text>
+            </g>
+            <g>
+              <rect x="282" y="172" width="170" height="76" rx="12" fill="#FFFFFF" stroke="#17324D" stroke-width="1"/>
+              <path d="M302 196 l8 -13 l8 13 z" fill="#E8842C"/>
+              <text x="367" y="214" text-anchor="middle" font-size="17" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Exploration">探究</text>
+              <text x="367" y="235" text-anchor="middle" font-size="11" fill="#8A8377" font-family="'Noto Sans JP',sans-serif" data-en="Broaden and deepen views">視点を広げ、深める</text>
+            </g>
+            <g>
+              <rect x="151" y="330" width="158" height="76" rx="12" fill="#17324D"/>
+              <path d="M171 354 l8 -13 l8 13 z" fill="#F5B15E"/>
+              <text x="230" y="373" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF" font-family="'Noto Sans JP',sans-serif" data-en="Consensus &amp; decision">合意形成・意思決定</text>
+              <text x="230" y="393" text-anchor="middle" font-size="11" fill="#9FB3C8" font-family="'Noto Sans JP',sans-serif" data-en="Choose the key card together">大事な1枚を全員で選ぶ</text>
+            </g>
+            <g>
+              <rect x="8" y="172" width="170" height="76" rx="12" fill="#FFFFFF" stroke="#17324D" stroke-width="1"/>
+              <path d="M28 196 l8 -13 l8 13 z" fill="#E8842C"/>
+              <text x="93" y="214" text-anchor="middle" font-size="14" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Commitment &amp; action">コミットメント・実践</text>
+              <text x="93" y="235" text-anchor="middle" font-size="11" fill="#8A8377" font-family="'Noto Sans JP',sans-serif" data-en="Act with conviction">納得して行動に移す</text>
+            </g>
+            <path d="M316 84 C 372 100 392 122 398 166" fill="none" stroke="#E8842C" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+            <path d="M393 154 L398 168 L403 154 Z" fill="#E8842C"/>
+            <path d="M398 254 C 392 298 372 320 316 336" fill="none" stroke="#E8842C" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+            <path d="M327 329 L314 337 L329 340 Z" fill="#E8842C"/>
+            <path d="M144 336 C 88 320 68 298 62 254" fill="none" stroke="#E8842C" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+            <path d="M57 266 L62 252 L67 266 Z" fill="#E8842C"/>
+            <path d="M62 166 C 68 122 88 100 144 84" fill="none" stroke="#E8842C" stroke-width="2" stroke-dasharray="4 5" stroke-linecap="round"/>
+            <path d="M133 91 L146 83 L131 80 Z" fill="#E8842C"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §4 活用シーン -->
+  <section class="scenes-section">
+    <div class="container">
+      <div class="section-label">Scenes</div>
+      <h2 class="section-heading" data-en="Three ways to use Topaasia">3つの活用シーン</h2>
+      <div class="scenes-grid">
+        <div class="scene-card">
+          <div class="scene-num">SCENE 01</div>
+          <div class="scene-title" data-en="As a training tool for managers &amp; coaches">管理職研修・コーチングの教材に</div>
+          <p class="scene-desc" data-en="Cards give listening a structure, so trainees can practice on the spot. For training firms and coaches, Topaasia slots right into your existing sessions.">カードが傾聴の「型」を与えるから、受講者はその場で実践できます。研修会社・コーチの方には、既存のセッションに組み込める教材としてご提案します。</p>
+        </div>
+        <div class="scene-card">
+          <div class="scene-num">SCENE 02</div>
+          <div class="scene-title" data-en="To revive 1-on-1s that aren't working">機能していない1on1の立て直しに</div>
+          <p class="scene-desc" data-en="The team member picks the cards; the manager listens. &quot;I don't know what to talk about&quot; becomes a time of reflection and discovery.">部下がカードを選び、上司は聴く側に回る。「何を話せばいいかわからない1on1」が、内省と発見の時間に変わります。</p>
+        </div>
+        <div class="scene-card">
+          <div class="scene-num">SCENE 03</div>
+          <div class="scene-title" data-en="For online team building">オンラインチームビルディングに</div>
+          <p class="scene-desc" data-en="Works in person, online, and hybrid. Bring back the &quot;getting to know each other&quot; time that remote work took away — in one 60-minute session.">対面・オンライン・ハイブリッドで完結。リモートワークで消えた「お互いを知る時間」を、60分のセッションで取り戻します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §5 進め方4ステップ -->
+  <section class="steps-section">
+    <div class="container">
+      <div class="section-label">How it works</div>
+      <h2 class="section-heading" data-en="All you prepare is one sentence.">準備は、テーマ一文だけ。</h2>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-title" data-en="Choose a topic">テーマを決める</div>
+          <p class="step-body" data-en="One sentence is enough. You can also feed in your own documents — strategy papers, survey results.">一文でOK。自社の資料（戦略文書・サーベイ結果）も材料にできます。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-title" data-en="AI generates your deck">AIがデッキを生成</div>
+          <p class="step-body" data-en="A custom 32-card deck in minutes. Edit any card you like.">数分で、テーマ専用の32枚が完成。1枚ずつ編集もできます。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-title" data-en="Talk through the cards">カードで対話する</div>
+          <p class="step-body" data-en="Everyone speaks in turn. The freedom to choose your own card is what draws out honesty.">手番制で全員が話す。カードを選ぶ自由が、本音を引き出します。</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-title" data-en="Pick one card, decide the action">1枚を選び、行動を決める</div>
+          <p class="step-body" data-en="Agree on &quot;today's most important card&quot; and turn it into an action plan. The summary writes itself.">全員で「今日いちばん大事なカード」に合意し、アクションプランへ。サマリーは自動生成。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §5b カードをのぞいてみる -->
+  <section class="deck-section">
+    <div class="container">
+      <div class="section-label">Cards</div>
+      <h2 class="section-heading" data-en="Cards are conversation starters, not interrogations.">カードは「質問」ではなく、話題の切り口。</h2>
+      <p class="section-lead" data-en="Each card carries a short title and a statement of action. It's not a list of probing questions — the speaker picks the card they can speak to. That's the mechanism that draws out honesty.">カードには、短いタイトルと行動宣言文が書かれています。問い詰める質問リストではなく、話し手が「このカードなら話せる」と自分で選べる——それが本音を引き出す仕掛けです。</p>
+
+      <div class="deck-quote-row">
+        <div class="deck-quote-card">
+          <svg class="deck-quote-suit" width="22" height="22" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg>
+          <div class="deck-quote-title" data-en="Facts vs. opinions">事実と意見</div>
+          <p class="deck-quote-body" data-en="We distinguish observed facts from our own opinions when we speak.">私たちは観察した事実と自分の意見を区別して話す。</p>
+          <p class="deck-quote-cap" data-en="From a team deck (We-form)">チーム用デッキ（We形式）のカード例</p>
+        </div>
+        <div class="deck-quote-card">
+          <svg class="deck-quote-suit" width="22" height="22" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg>
+          <div class="deck-quote-title" data-en="Speak honestly">本音を話す</div>
+          <p class="deck-quote-body" data-en="I will share one discomfort or worry frankly in my 1-on-1.">私は1on1で違和感や不安を率直に一つ共有する。</p>
+          <p class="deck-quote-cap" data-en="From a 1-on-1 deck (I-form)">1on1用デッキ（I形式）のカード例</p>
+        </div>
+      </div>
+
+      <h3 class="section-heading" style="font-size: 1.2rem;" data-en="A real AI-generated &quot;Dialogue skills&quot; deck — 4 suits × 8 cards = 32">実際にAIが生成した「対話力向上デッキ」——4つのスート×8枚＝32枚</h3>
+      <div class="deck-grid">
+        <div class="deck-suit-col">
+          <div class="deck-suit-head"><svg class="suit-mark" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg><span data-en="Trust &amp; safety">関係と安全</span></div>
+          <div class="deck-mini-card" data-en="Candor">率直さ</div>
+          <div class="deck-mini-card" data-en="Owning misunderstandings">誤解の認め方</div>
+          <div class="deck-mini-card" data-en="Respecting boundaries">境界尊重</div>
+          <div class="deck-mini-card" data-en="Gratitude">感謝</div>
+          <div class="deck-mini-card" data-en="Empathetic response">共感的応答</div>
+          <div class="deck-mini-card" data-en="Sharing experience">経験共有</div>
+          <div class="deck-mini-card" data-en="Constructive critique">建設的批判</div>
+          <div class="deck-mini-card" data-en="Sharing failures">失敗共有</div>
+        </div>
+        <div class="deck-suit-col">
+          <div class="deck-suit-head"><svg class="suit-mark" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg><span data-en="Listening">聴く力</span></div>
+          <div class="deck-mini-card" data-en="Deep listening">傾聴</div>
+          <div class="deck-mini-card" data-en="Summarizing">要約</div>
+          <div class="deck-mini-card" data-en="Not interrupting">遮りを控える</div>
+          <div class="deck-mini-card" data-en="Reading emotions">感情を読む</div>
+          <div class="deck-mini-card" data-en="Using silence">沈黙の活用</div>
+          <div class="deck-mini-card" data-en="Attentive cues">適切な相槌</div>
+          <div class="deck-mini-card" data-en="Open questions">開かれた質問</div>
+          <div class="deck-mini-card" data-en="Receiving feedback">受容する</div>
+        </div>
+        <div class="deck-suit-col">
+          <div class="deck-suit-head"><svg class="suit-mark" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg><span data-en="Expressing">伝える力</span></div>
+          <div class="deck-mini-card" data-en="Facts vs. opinions">事実と意見</div>
+          <div class="deck-mini-card" data-en="Clarity">明確化</div>
+          <div class="deck-mini-card" data-en="Sharing purpose">目的共有</div>
+          <div class="deck-mini-card" data-en="Concrete examples">具体例</div>
+          <div class="deck-mini-card" data-en="Minding tone">トーン配慮</div>
+          <div class="deck-mini-card" data-en="Nonverbal cues">非言語</div>
+          <div class="deck-mini-card" data-en="Voicing expectations">期待表明</div>
+          <div class="deck-mini-card" data-en="Specific requests">具体的要望</div>
+        </div>
+        <div class="deck-suit-col">
+          <div class="deck-suit-head"><svg class="suit-mark" width="13" height="13" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 7 l6 -6 l6 6 z" fill="#E8842C"/><path d="M2 9 l6 6 l6 -6 z" fill="#E8842C" opacity="0.5"/></svg><span data-en="Agreeing &amp; aligning">合意と調整</span></div>
+          <div class="deck-mini-card" data-en="Confirming goals">ゴール確認</div>
+          <div class="deck-mini-card" data-en="Breaking down problems">課題分解</div>
+          <div class="deck-mini-card" data-en="Offering options">複案提示</div>
+          <div class="deck-mini-card" data-en="Finding middle ground">妥協点探し</div>
+          <div class="deck-mini-card" data-en="Small agreements">小さな合意</div>
+          <div class="deck-mini-card" data-en="Clarifying roles">役割明確化</div>
+          <div class="deck-mini-card" data-en="Confirming agreements">合意の確認</div>
+          <div class="deck-mini-card" data-en="The next move">次の一手</div>
+        </div>
+      </div>
+
+      <div class="deck-note" data-en="Why 32 cards? Four suits light the topic from every angle; eight cards per suit give everyone freedom of choice — there is always a card you can speak to. And it's exactly what one hour of dialogue can digest. Decks can be generated in team form (&quot;we...&quot;) or 1-on-1 form (&quot;I...&quot;), in the tone you need.">
+        なぜ32枚か——4つのスートが視点の網羅（360度で話題を照らす）、各8枚が選択の自由（誰でも話せるカードが必ずある）。1時間のセッションでちょうど消化できる分量です。チーム用（私たちは〜）と1on1用（私は〜）の形式、文体も、テーマに合わせて生成し分けられます。
+      </div>
+
+      <div class="themes-cloud">
+        <span class="theme-chip" data-en="Psychological safety for managers">心理的安全（日本のマネージャー向け）</span>
+        <span class="theme-chip" data-en="Speaking up in 1-on-1s">1on1で話せるカード（部下向け）</span>
+        <span class="theme-chip" data-en="Corporate purpose dialogue">◯◯社パーパス対話</span>
+        <span class="theme-chip" data-en="New-business team dialogue">新規事業推進チームの対話</span>
+        <span class="theme-chip" data-en="Cross-functional understanding">部門横断の理解と共有</span>
+        <span class="theme-chip" data-en="Reducing workplace harassment">パワハラ削減の対話</span>
+        <span class="theme-chip" data-en="Generative AI strategy">生成AI戦略</span>
+        <span class="theme-chip" data-en="Business basics for new hires">新入社員の基礎的ビジネス理解</span>
+        <span class="theme-chip" data-en="NPO annual review">NPOの年間振り返り（総会用）</span>
+        <span class="theme-chip" data-en="Mid-senior career hints">ミドルシニアのキャリア・ヒント</span>
+        <span class="theme-chip" data-en="Project retrospectives">プロジェクトの振り返り</span>
+        <span class="theme-chip" data-en="Aligning teaching policies">教育現場の指導方針あわせ</span>
+      </div>
+      <p class="themes-cap" data-en="Actual themes of AI-generated decks. You can also feed in corporate philosophy documents or survey results.">実際にAIで生成されたデッキのテーマ例。企業の理念文書やサーベイ結果を読み込ませた生成にも対応しています。</p>
+    </div>
+  </section>
+
+  <!-- §6 選ばれる理由 -->
+  <section class="why-section">
+    <div class="container">
+      <div class="section-label">Why Topaasia</div>
+      <h2 class="section-heading" data-en="Why it works">選ばれる理由</h2>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-title" data-en="It's a game, so honesty comes out">ゲームだから、本音が出る</div>
+          <p class="why-body" data-en="The alibi of &quot;play&quot; gives permission to raise topics that are usually hard to say. The freedom to choose your card creates psychological safety.">「遊び」というアリバイが、普段は言いにくい話題を口にする許可を与えます。カードを選ぶ自由が心理的安全性をつくります。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-title" data-en="Minimal prep, done in an hour">準備最小・1時間で完結</div>
+          <p class="why-body" data-en="From topic input to session start in minutes. Summaries and actions are captured automatically.">テーマ入力から数分でセッション開始。終了時にはまとめとアクションが自動で残ります。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-title" data-en="Works anywhere">どこでもできる</div>
+          <p class="why-body" data-en="In person, online, or hybrid. All participants need is a browser on their phone or PC — nothing to install.">対面・オンライン・ハイブリッドに対応。参加者はスマホかPCのブラウザだけ。アプリのインストールは不要です。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-title" data-en="Dialogue becomes data">対話がデータになる</div>
+          <p class="why-body" data-en="Chosen cards and notes accumulate, revealing what your organization cares about and where it struggles.">選ばれたカードと記録が蓄積され、組織がいま何に関心を持ち、どこでつまずいているかが見えてきます。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-title" data-en="Enterprise-grade security">安心のセキュリティ</div>
+          <p class="why-body" data-en="GDPR compliant. Penetration tested by an external authority.">GDPR準拠。第三者機関による侵入テストを受けています。</p>
+        </div>
+        <div class="why-card">
+          <div class="why-title" data-en="Your team becomes self-sufficient">自走できるようになる</div>
+          <p class="why-body" data-en="We facilitate the first session, but after two or three rounds your team leads run it themselves. That's the whole point.">初回は私たちが進行しますが、2〜3回でチームのリーダーが自分で回せるようになります。それがこのツールの狙いです。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- §7 体力づくりプログラム -->
+  <section class="program-section">
+    <div class="container">
+      <div class="section-label">Program</div>
+      <h2 class="section-heading" data-en="One workshop doesn't change an organization.<br>Dialogue is like exercise — habit builds strength.">1回の研修では、組織は変わらない。<br>対話も筋トレと同じ——習慣が体力をつくる。</h2>
+      <p class="section-lead" data-en="Kizukikumitate supports your organization's &quot;dialogue fitness,&quot; with Topaasia at the core.">きづきくみたては、Topaasiaを中核に、組織の「対話の体力」づくりを伴走支援します。</p>
+      <div class="program-fig-wrap">
+        <svg width="100%" viewBox="0 0 680 330" xmlns="http://www.w3.org/2000/svg" role="img">
+          <title>組織の体力づくりプログラム</title>
+          <text x="340" y="26" text-anchor="middle" font-size="16" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Three steps, plus a fitness check">3つのステップ＋体力測定</text>
+          <g>
+            <rect x="48" y="56" width="170" height="190" rx="14" fill="#FFFFFF" stroke="#17324D" stroke-width="1"/>
+            <path d="M70 78 l9 -14 l9 14 z" fill="#E8842C"/>
+            <path d="M70 84 l9 14 l9 -14 z" fill="#E8842C" opacity="0.45"/>
+            <text x="133" y="126" text-anchor="middle" font-size="12" fill="#8A8377" font-family="'Noto Sans JP',sans-serif" data-en="First, picture the vision">まず、ビジョンを描く</text>
+            <text x="133" y="154" text-anchor="middle" font-size="15" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="LEGO&amp;reg;">レゴ&reg;</text>
+            <text x="133" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="SERIOUS PLAY&amp;reg;">シリアスプレイ&reg;</text>
+            <rect x="76" y="192" width="114" height="24" rx="12" fill="#FDEBD7"/>
+            <text x="133" y="208" text-anchor="middle" font-size="11" fill="#B05E14" font-family="'Noto Sans JP',sans-serif" data-en="Give your vision a shape">ビジョンを形にする</text>
+          </g>
+          <line x1="222" y1="146" x2="248" y2="146" stroke="#E8842C" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <path d="M250 146 l-9 -5 l0 10 z" fill="#E8842C"/>
+          <g>
+            <rect x="255" y="56" width="170" height="190" rx="14" fill="#FFFFFF" stroke="#17324D" stroke-width="1"/>
+            <path d="M277 78 l9 -14 l9 14 z" fill="#E8842C"/>
+            <path d="M277 84 l9 14 l9 -14 z" fill="#E8842C" opacity="0.45"/>
+            <text x="340" y="126" text-anchor="middle" font-size="12" fill="#8A8377" font-family="'Noto Sans JP',sans-serif" data-en="Then, build the muscles">つぎに、筋肉をつける</text>
+            <text x="340" y="154" text-anchor="middle" font-size="15" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Democracy">デモクラシー</text>
+            <text x="340" y="173" text-anchor="middle" font-size="15" font-weight="700" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Fitness">フィットネス</text>
+            <rect x="283" y="192" width="114" height="24" rx="12" fill="#FDEBD7"/>
+            <text x="340" y="208" text-anchor="middle" font-size="11" fill="#B05E14" font-family="'Noto Sans JP',sans-serif" data-en="Listening &amp; dissent training">傾聴筋・対立筋のトレ</text>
+          </g>
+          <line x1="429" y1="146" x2="455" y2="146" stroke="#E8842C" stroke-width="2" stroke-dasharray="3 4" stroke-linecap="round"/>
+          <path d="M457 146 l-9 -5 l0 10 z" fill="#E8842C"/>
+          <g>
+            <rect x="462" y="44" width="170" height="202" rx="14" fill="#17324D"/>
+            <path d="M484 66 l9 -14 l9 14 z" fill="#F5B15E"/>
+            <path d="M484 72 l9 14 l9 -14 z" fill="#F5B15E" opacity="0.5"/>
+            <text x="547" y="116" text-anchor="middle" font-size="12" fill="#9FB3C8" font-family="'Noto Sans JP',sans-serif" data-en="Finally, make it a habit">そして、習慣にする</text>
+            <text x="547" y="150" text-anchor="middle" font-size="19" font-weight="700" fill="#FFFFFF" font-family="'Noto Sans JP',sans-serif">Topaasia&reg;</text>
+            <rect x="490" y="172" width="114" height="24" rx="12" fill="#E8842C"/>
+            <text x="547" y="188" text-anchor="middle" font-size="11" fill="#FFFFFF" font-family="'Noto Sans JP',sans-serif" data-en="Monthly dialogue structure">月1回・対話の型</text>
+            <text x="547" y="222" text-anchor="middle" font-size="11" fill="#9FB3C8" font-family="'Noto Sans JP',sans-serif" data-en="One hour, 4 suits × 8 cards">4スート×8枚のカードで1時間</text>
+          </g>
+          <path d="M547 250 L547 292 L133 292 L133 252" fill="none" stroke="#17324D" stroke-width="1.2" stroke-dasharray="2 5" stroke-linecap="round"/>
+          <path d="M133 248 l-5 8 l10 0 z" fill="#17324D"/>
+          <rect x="192" y="278" width="296" height="28" rx="14" fill="#FFFFFF" stroke="#17324D" stroke-width="0.8"/>
+          <text x="340" y="297" text-anchor="middle" font-size="11" fill="#17324D" font-family="'Noto Sans JP',sans-serif" data-en="Dialogue data writes the next prescription">体力測定：対話データが次の処方箋に</text>
+        </svg>
+      </div>
+      <p class="program-note" data-en="Where you start depends on the problem: &quot;build basic fitness&quot; if daily dialogue isn't working, &quot;vision first&quot; if the team is pulling in different directions, or &quot;fitness check first&quot; if you're not sure what the problem is. We'll diagnose the right course together in your trial session.">課題に合わせて、始める場所を変えます——日常の対話が機能していないなら「基礎体力づくり」から、向かう先がバラバラなら「ビジョン先行」で、課題がはっきりしないなら「体力測定」から。どのコースが合うかは、体験セッションで一緒に診断します。</p>
+    </div>
+  </section>
+
+  <!-- §8 経営層向け -->
+  <section class="exec-section">
+    <div class="container">
+      <div class="section-label">For Executives</div>
+      <h2 class="exec-heading" data-en="Dialogue is not a perk.<br>It's a <em>driver of enterprise value</em>.">対話は福利厚生ではない。<br><em>企業価値のドライバー</em>である。</h2>
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-num" data-en="¥86<small>T</small>">86<small>兆円</small></div>
+          <p class="impact-body" data-en="Japan's annual opportunity cost of low engagement. Only 6% of Japanese employees are engaged — among the lowest in the world.">低エンゲージメントによる日本全体の年間機会損失。日本の「熱意ある社員」は6%で世界最低水準。</p>
+          <p class="impact-src">Gallup State of the Global Workplace 2024</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">+0.35<small>%</small></div>
+          <p class="impact-body" data-en="Increase in operating margin per one-point rise in engagement score (empirical study of Japanese firms).">エンゲージメントスコア1ポイント上昇あたりの営業利益率の上昇（日本企業の実証研究）。</p>
+          <p class="impact-src" data-en="Link and Motivation × Iwamoto Lab, Keio University">リンクアンドモチベーション × 慶應義塾大学 岩本研究室</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-num">70<small>%</small></div>
+          <p class="impact-body" data-en="Share of the variance in team engagement explained by the direct manager.">チームのエンゲージメントのばらつきのうち、直属上司（マネジャー）で説明される割合。</p>
+          <p class="impact-src">Gallup</p>
+        </div>
+      </div>
+
+      <div class="calc-card">
+        <div class="calc-title" data-en="Estimate what poor dialogue costs your company">御社の「対話の質」の損失を試算する</div>
+        <div class="calc-inputs">
+          <div class="calc-field"><label for="calcEmp" data-en="Employees">従業員数（名）</label><input type="number" id="calcEmp" value="300" min="10" step="10"></div>
+          <div class="calc-field"><label for="calcSal" data-en="Avg. salary (×¥10,000)">平均年収（万円）</label><input type="number" id="calcSal" value="500" min="200" step="50"></div>
+          <div class="calc-field"><label for="calcTurn" data-en="Annual turnover (%)">年間離職率（%）</label><input type="number" id="calcTurn" value="10" min="1" max="50" step="1"></div>
+        </div>
+        <div class="calc-rows">
+          <div class="calc-row"><span class="calc-row-name" data-en="A. Preventable manager-driven turnover">A. 上司起因の離職（防げたはずの分）</span><span class="calc-row-val" id="calcA">—</span></div>
+          <div class="calc-row"><span class="calc-row-name" data-en="B. Payroll burned by ineffective 1-on-1s">B. 機能していない1on1の人件費（空転分）</span><span class="calc-row-val" id="calcB">—</span></div>
+          <div class="calc-row"><span class="calc-row-name" data-en="C. Recoverable engagement opportunity cost">C. エンゲージメント低下の機会損失（改善余地分）</span><span class="calc-row-val" id="calcC">—</span></div>
+          <div class="calc-row total"><span class="calc-row-name" data-en="Estimated annual loss (A+B+C)">年間損失の目安（A+B+C）</span><span class="calc-row-val" id="calcT">—</span></div>
+        </div>
+        <p class="calc-assump" data-en="Assumptions: 25% of turnover is manager-driven, half of it preventable through better dialogue; cost per departure = 0.9 × annual salary; 1-on-1s run 30 min × 2 people monthly with 30% wasted (based on the 29.7% who feel no benefit, Persol 2025); engagement opportunity cost of ¥1.28M per person per year (Gallup 2024), of which 4% is addressable through managers' dialogue. A rough estimate — every coefficient can be tuned to your reality.">試算の前提: 離職の25%が上司起因・うち半分は対話の質で防止可能、離職1人あたりコスト＝年収×0.9、1on1は月1回30分×2名で3割が空転（パーソル総合研究所2025の「効果を感じない」29.7%に基づく）、エンゲージメント機会損失128万円/人・年（Gallup 2024の86兆円を就業者数で割った値）のうち4%が上司の対話で改善可能、と仮定した概算です。係数は御社の実態に合わせて調整できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- §9 実績・声 -->
+  <section class="voices-section">
+    <div class="container">
+      <div class="section-label">Voices</div>
+      <h2 class="section-heading" data-en="Refined in Finnish organizations.<br>Now proving itself in Japan.">フィンランドの組織開発で磨かれ、<br>日本での実践が始まっています。</h2>
+      <div class="voices-stats">
+        <div class="vstat"><div class="vstat-num" data-en="19 sessions">のべ19回</div><div class="vstat-cap" data-en="Trial sessions held in Japan">日本での体験セッション</div></div>
+        <div class="vstat"><div class="vstat-num" data-en="30+ hrs">30時間+</div><div class="vstat-cap" data-en="Total dialogue in Japanese">日本語での総対話時間</div></div>
+        <div class="vstat"><div class="vstat-num"><em>4.8</em>/5.0</div><div class="vstat-cap" data-en="Average participant rating">参加者評価の平均</div></div>
+      </div>
+      <div class="voices-grid">
+        <div class="voice-card">
+          <p class="voice-text" data-en="&quot;Topaasia is the best tool we have used so far to implement our strategy. An excellent conversation starter.&quot;">「戦略を実装するために使った中で最良のツール。会話の口火を切る力が抜群だ」</p>
+          <p class="voice-who" data-en="Molli Nyman, Marketing Director, Granlund (construction &amp; real estate)">Molli Nyman氏（Granlund社 マーケティングディレクター／建設・不動産）</p>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text" data-en="&quot;Topaasia is a tool that allows us to bring strategy closer to people.&quot;">「Topaasiaは、戦略を人々に近づけてくれるツールだ」</p>
+          <p class="voice-who" data-en="Rami Savila, Strategy Director, City of Turku">Rami Savila氏（トゥルク市 戦略ディレクター）</p>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text" data-en="&quot;Incorporating Topaasia into leadership team coaching unlocks new levels of engagement and meaningful dialogue, fostering psychological safety.&quot;">「リーダーシップチームのコーチングに組み込むと、心理的安全性が育ち、エンゲージメントと意味のある対話を新しいレベルで引き出せる」</p>
+          <p class="voice-who" data-en="Mikko Sorvari, Executive Coach">Mikko Sorvari氏（エグゼクティブコーチ）</p>
+        </div>
+        <div class="voice-card">
+          <p class="voice-text" data-en="&quot;With Topaasia, one-to-one discussions have reached a whole new level.&quot;">「Topaasiaで、1on1がまったく新しいレベルに達した」</p>
+          <p class="voice-who" data-en="Susanna Kalervo, HR Manager, Elis Textile Services">Susanna Kalervo氏（Elis Textile Services社 人事マネージャー）</p>
+        </div>
+      </div>
+      <div class="voice-fav">
+        <div class="voice-fav-label" data-en="THE MOST-PLAYED CARD IN OUR JAPANESE SESSIONS">日本のセッションで最も選ばれたカード</div>
+        <div class="voice-fav-card" data-en="Speak honestly">本音を話す</div>
+        <p class="voice-fav-body" data-en="&quot;I will share one discomfort or worry frankly in my 1-on-1.&quot; — The fact that this card keeps being chosen says everything about where Japanese workplaces stand today.">私は1on1で違和感や不安を率直に一つ共有する。——このカードが選ばれ続けていること自体が、日本の職場の現在地を物語っています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- §10 料金・導入の流れ -->
+  <section class="flow-section">
+    <div class="container">
+      <div class="section-label">Getting Started</div>
+      <h2 class="section-heading" data-en="How to get started">導入の流れ</h2>
+      <div class="flow-grid">
+        <div class="flow-card free">
+          <span class="free-badge" data-en="Free">無料</span>
+          <div class="flow-step-num">STEP 1</div>
+          <div class="flow-title" data-en="Trial session">体験セッション</div>
+          <p class="flow-body" data-en="Free for up to one hour. Draw the cards yourself first.">1時間まで無料。まずはご自身でカードを引いてみてください。</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-step-num">STEP 2</div>
+          <div class="flow-title" data-en="Consultation">個別相談</div>
+          <p class="flow-body" data-en="We listen to your challenges and propose the right course.">課題のヒアリングと、合うコースのご提案。</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-step-num">STEP 3</div>
+          <div class="flow-title" data-en="Pilot">トライアル導入</div>
+          <p class="flow-body" data-en="Start small: one team, one topic.">1チーム・1テーマの小さな実施から始めます。</p>
+        </div>
+        <div class="flow-card">
+          <div class="flow-step-num">STEP 4</div>
+          <div class="flow-title" data-en="Rollout &amp; support">本導入・伴走支援</div>
+          <p class="flow-body" data-en="We stay alongside until your team runs it independently.">自分たちで回せるようになるまで伴走します。</p>
+        </div>
+      </div>
+      <div class="price-note" data-en="<strong>Pricing</strong> — Trial sessions are free for up to one hour. License and program fees are quoted individually, based on your organization's size and course. Feel free to ask.">
+        <strong>料金について</strong>——体験セッションは1時間まで無料です。導入プラン・ライセンスの料金は、組織規模とコースに応じて個別にお見積りします。お気軽にご相談ください。
+      </div>
+    </div>
+  </section>
+
+  <!-- §11 パートナー募集 -->
+  <section class="partner-section">
+    <div class="container">
+      <div class="partner-box">
+        <div class="partner-heading" data-en="Shall we reduce this loss, together?">この損失を、一緒に減らしませんか。</div>
+        <p class="partner-body" data-en="Every honest word left unsaid is value an organization loses — and it piles up quietly in workplaces all over Japan, today too. What one company can prevent is limited. So we're looking for allies. Training firms, facilitators, coaches, OD consultants: let's meet at a trial session first.">言えなかった本音の分だけ、組織は価値を失っている。この損失は、日本中の職場で、今日も静かに積み上がっています。私たち一社が減らせる分には限りがある。だから、仲間を探しています。研修会社・ファシリテーター・コーチ・組織開発コンサルタントの方、まずは体験セッションでお会いしましょう。</p>
+        <div class="partner-forms">
+          <span class="partner-form-chip" data-en="<strong>Use it</strong> — as material in your own sessions"><strong>使う</strong>——自分のセッションの教材に</span>
+          <span class="partner-form-chip" data-en="<strong>Build it in</strong> — integrate into your programs"><strong>組み込む</strong>——研修プログラムに統合</span>
+          <span class="partner-form-chip" data-en="<strong>Refer it</strong> — we deliver, you introduce"><strong>紹介する</strong>——実施はきづきくみたてが担当</span>
+        </div>
+        <a class="btn-ghost" href="mailto:kizukikumitate@gmail.com?subject=Topaasia%E3%83%91%E3%83%BC%E3%83%88%E3%83%8A%E3%83%BC%E5%B8%8C%E6%9C%9B" data-en="Talk to us about partnership">パートナーとして話を聞く</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- §12 FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-heading" data-en="Frequently asked questions">よくある質問</h2>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="Does it work online?">オンラインでもできますか？</span></summary>
+          <p class="faq-a" data-en="Yes — in person, online, and hybrid. Participants join from a browser on their phone or PC; nothing to install.">はい。対面・オンライン・ハイブリッドのすべてに対応しています。参加者はスマホまたはPCのブラウザから参加します（アプリのインストール不要）。</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="Is it available in Japanese?">日本語で使えますか？</span></summary>
+          <p class="faq-a" data-en="Yes. The interface, the cards, and the AI generation all work in Japanese (and English, among other languages). A Japanese version of the standard deck is also available.">はい。画面・カード・AI生成のすべてが日本語で動きます。標準デッキの日本語版もあります。</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="How many people can join?">何人まで参加できますか？</span></summary>
+          <p class="faq-a" data-en="Two to eight people per game is the standard. For larger groups, multiple game masters can run parallel tables — workshops of several dozen people are possible.">1ゲームあたり2〜8名程度が基本です。それ以上の人数でも、複数のゲームマスターを立てて並行実施することで、数十人以上のワークショップにも対応できます。</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="Do we need a facilitator?">ファシリテーターがいないとできませんか？</span></summary>
+          <p class="faq-a" data-en="We facilitate the first session. The format is simple enough that after two or three rounds, your team leads can run it themselves — that's the goal.">初回は私たちが進行します。仕組み自体がシンプルなので、2〜3回の経験でチームのリーダーが自分で回せるようになります（それがこのツールの狙いです）。</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="How much preparation does it take?">準備にどれくらいかかりますか？</span></summary>
+          <p class="faq-a" data-en="Just a one-sentence topic — a few minutes. A custom deck reflecting your own documents also takes AI only minutes to generate.">テーマを一文決めるだけなら数分です。自社の資料を反映したカスタムデッキも、AIが数分で生成します。</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="Is the trial session really free?">体験セッションは本当に無料ですか？</span></summary>
+          <p class="faq-a" data-en="Yes, free for up to one hour. Draw the cards first — then decide.">はい、1時間まで無料です。まずカードを引く体験をしてから、導入を検討してください。</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q-mark">Q</span><span data-en="Will one session make a difference?">1回やれば効果がありますか？</span></summary>
+          <p class="faq-a" data-en="One session will show you how much deeper the conversation goes — but organizational fitness comes from habit. We propose a design for continuity, such as a monthly cadence.">1回でも「話が深まる」体験はできますが、組織の体力は習慣から生まれます。月1回の定例など、続ける設計とセットでご提案します。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- §13 締めCTA -->
+  <section class="cta-section">
+    <div class="cta-heading" data-en="Start with a free session.">まずは、無料で体験を。</div>
+    <p class="cta-sub" data-en="Draw a single card, and everything on this page becomes something you've felt. We'll diagnose the right course together at your trial session.">カードを1枚引けば、このページの説明が全部体感に変わります。どのコースが合うかは、体験セッションで一緒に診断します。</p>
+    <div class="cta-row">
+      <a class="btn-primary" href="mailto:kizukikumitate@gmail.com?subject=Topaasia%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%B3%E8%BE%BC" data-en="Book a free trial session">無料体験セッションに申し込む</a>
+      <a class="btn-ghost" href="mailto:kizukikumitate@gmail.com?subject=Topaasia%E8%B3%87%E6%96%99%E8%AB%8B%E6%B1%82" data-en="Request materials">資料を請求する</a>
+    </div>
+    <p class="cta-free-note" data-en="Trial sessions are free for up to one hour.">体験セッションは1時間まで無料です。</p>
+  </section>
+
+  <!-- フッター -->
+  <footer>
+    <div>
+      <div class="footer-logo">きづきくみたて工房</div>
+      <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+    </div>
+    <div class="footer-tm" data-en="Operated by Kizukikumitate (Yasuhito Morimoto) — certified Democracy Fitness trainer; certified facilitator of the LEGO&reg; SERIOUS PLAY&reg; method and materials. Topaasia&reg; is a registered trademark of Topaasia Oy, Finland.">
+      運営: きづきくみたて（森本康仁）／デモクラシーフィットネス認定トレーナー、LEGO&reg; SERIOUS PLAY&reg;メソッドと教材活用トレーニング修了認定ファシリテータ。Topaasia&reg; はTopaasia Oy（フィンランド）の登録商標です。
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('active');
+    });
+    document.getElementById('mobileClose').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('active');
+    });
+
+    var tpLang = 'ja';
+    var TITLES = {
+      ja: 'Topaasia（トパーシア）| カード1枚から、本音の対話が始まる | きづきくみたて工房',
+      en: 'Topaasia | A single card can start an honest conversation | Kizukikumitate'
+    };
+
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(function(el) {
+        if (!el.getAttribute('data-ja')) {
+          el.setAttribute('data-ja', el.innerHTML);
+        }
+        var next = (lang === 'en') ? el.getAttribute('data-en') : el.getAttribute('data-ja');
+        if (el.innerHTML !== next) { el.innerHTML = next; }
+      });
+      tpLang = lang;
+      document.documentElement.lang = lang;
+      document.title = TITLES[lang];
+      document.getElementById('langToggle').textContent = (lang === 'en') ? '日本語' : 'EN';
+      try { localStorage.setItem('tpLang', lang); } catch (e) {}
+      if (typeof tpCalc === 'function') { tpCalc(); }
+    }
+
+    document.getElementById('langToggle').addEventListener('click', function() {
+      setLang(tpLang === 'ja' ? 'en' : 'ja');
+    });
+
+    var tpCalc;
+    (function() {
+      function fmt(v) {
+        if (tpLang === 'en') {
+          return '¥' + Math.round(v * 10000).toLocaleString('en-US');
+        }
+        if (v >= 10000) { return (v / 10000).toFixed(2).replace(/\.?0+$/, '') + '億円'; }
+        return Math.round(v).toLocaleString() + '万円';
+      }
+      tpCalc = function() {
+        var n = +document.getElementById('calcEmp').value || 0;
+        var s = +document.getElementById('calcSal').value || 0;
+        var t = (+document.getElementById('calcTurn').value || 0) / 100;
+        var a = n * t * 0.25 * 0.5 * (s * 0.9);
+        var b = n * 12 * (s * 10000 / 2000) * 0.3 / 10000;
+        var c = n * 128 * 0.04;
+        document.getElementById('calcA').textContent = fmt(a);
+        document.getElementById('calcB').textContent = fmt(b);
+        document.getElementById('calcC').textContent = fmt(c);
+        document.getElementById('calcT').textContent = fmt(a + b + c);
+      };
+      ['calcEmp', 'calcSal', 'calcTurn'].forEach(function(id) {
+        document.getElementById(id).addEventListener('input', tpCalc);
+      });
+      tpCalc();
+    })();
+
+    try {
+      var saved = localStorage.getItem('tpLang');
+      if (saved === 'en') { setLang('en'); }
+    } catch (e) {}
+  </script>
+</body>
+</html>
