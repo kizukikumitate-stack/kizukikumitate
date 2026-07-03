@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>私たちが引用するデータと理論の限界について | Topaasia | きづきくみたて工房</title>
+  <meta name="description" content="Topaasiaの紹介で引用している調査データと経営理論について、「何に使っているか・どんな限界があるか・それでも引用する理由」を自分から公開します。売り手のデータへの正当な疑いに、開示で応えるページです。">
+  <meta property="og:title" content="私たちが引用するデータと理論の限界について | Topaasia">
+  <meta property="og:description" content="引用データと理論の限界を、批判される前に自分から公開します。判断材料は数字ではなく、無料体験の60分とあなたの組織のデータです。">
+  <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+  <meta property="og:url" content="https://kizukikumitate.com/topaasia-data-notes.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="私たちが引用するデータと理論の限界について | Topaasia">
+  <meta name="twitter:description" content="引用データと理論の限界を、批判される前に自分から公開します。">
+  <meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+  <link rel="canonical" href="https://kizukikumitate.com/topaasia-data-notes.html">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🧱</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700;900&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;500;600;700;800&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2ECK6163X4');
+  </script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --tp-navy: #17324D;
+      --tp-orange: #E8842C;
+      --tp-orange-soft: #FDEBD7;
+      --tp-orange-deep: #B05E14;
+      --tp-cream: #FAF5EC;
+      --tp-gray: #8A8377;
+      --tp-line: #E5DDCF;
+    }
+    body { font-family: 'Noto Serif JP', serif; color: #1a1a2e; line-height: 1.9; background: #fff; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0.7rem 2rem;
+      display: flex; align-items: center;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 3px solid #17324D;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+    .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+    .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: #1a5fad; letter-spacing: 0.06em; }
+    .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; }
+    .nav-links a { font-family: 'Noto Sans JP', sans-serif; font-size: 0.82rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: color 0.2s; color: #1a1a2e; }
+    .nav-links a:hover { color: var(--tp-orange); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; margin-left: auto; padding: 10px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: #1a1a2e; }
+    .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: #fff; z-index: 200; padding: 2rem; flex-direction: column; gap: 1.2rem; box-shadow: -5px 0 20px rgba(0,0,0,0.15); }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu a { font-family: 'Noto Sans JP', sans-serif; font-size: 0.95rem; text-decoration: none; color: #1a1a2e; padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+    .mobile-menu-close { align-self: flex-end; background: none; border: none; font-size: 1.5rem; cursor: pointer; padding: 0.5rem; }
+
+    .article-hero { padding: 8.5rem 3rem 3rem; background: var(--tp-cream); }
+    .article-inner { max-width: 760px; margin: 0 auto; }
+    .article-label { font-family: 'Jost', sans-serif; font-size: 0.8rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tp-orange-deep); margin-bottom: 1rem; }
+    .article-hero h1 { font-family: 'Shippori Mincho', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; color: var(--tp-navy); line-height: 1.6; word-break: keep-all; overflow-wrap: break-word; margin-bottom: 1.2rem; }
+    .article-hero-lead { font-size: 1rem; color: #4a4a5a; }
+    .article-date { font-family: 'Noto Sans JP', sans-serif; font-size: 0.8rem; color: var(--tp-gray); margin-top: 1.2rem; }
+
+    .article-body-section { padding: 3.5rem 3rem; }
+    .article-body-section p { margin-bottom: 1.3rem; font-size: 1rem; color: #333; }
+    .promise-box { background: var(--tp-orange-soft); border-radius: 14px; padding: 1.6rem 1.8rem; margin: 2rem 0; }
+    .promise-box p { color: var(--tp-orange-deep); margin-bottom: 0.4rem; font-size: 0.95rem; }
+    .promise-box strong { color: var(--tp-orange-deep); }
+
+    .notes-h2 { font-family: 'Shippori Mincho', serif; font-size: 1.4rem; font-weight: 800; color: var(--tp-navy); margin: 3rem 0 1.4rem; word-break: keep-all; }
+    .claim-card { background: var(--tp-cream); border: 1px solid var(--tp-line); border-radius: 14px; padding: 1.6rem 1.7rem; margin-bottom: 1.3rem; overflow: hidden; }
+    .claim-title { font-family: 'Noto Sans JP', sans-serif; font-size: 1.02rem; font-weight: 700; color: var(--tp-navy); margin-bottom: 1rem; line-height: 1.7; }
+    .claim-row { margin-bottom: 0.75rem; }
+    .claim-tag { display: inline-block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.72rem; font-weight: 700; color: #fff; background: var(--tp-navy); border-radius: 999px; padding: 0.1rem 0.75rem; margin-bottom: 0.3rem; }
+    .claim-tag.limit { background: var(--tp-orange); }
+    .claim-text { font-size: 0.92rem; color: #333; }
+    .article-cta { padding: 4rem 3rem; background: var(--tp-navy); text-align: center; }
+    .article-cta-heading { font-family: 'Shippori Mincho', serif; font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 1rem; word-break: keep-all; }
+    .article-cta-sub { font-size: 0.95rem; color: rgba(255,255,255,0.8); max-width: 620px; margin: 0 auto 1.8rem; }
+    .btn-primary { display: inline-block; font-family: 'Noto Sans JP', sans-serif; font-weight: 700; text-decoration: none; border-radius: 999px; padding: 0.9rem 2.2rem; font-size: 0.95rem; background: var(--tp-orange); color: #fff; }
+    .btn-back { display: inline-block; font-family: 'Noto Sans JP', sans-serif; font-size: 0.9rem; color: var(--tp-orange-deep); text-decoration: none; margin-top: 1.6rem; }
+
+    footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; }
+    .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
+    .footer-copy { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+
+    /* ===== モバイル最終 overflow & typography override
+       （必ず style 終端の直前に配置 / コメント内に閉じstyleタグを書かないこと） ===== */
+    @media (max-width: 768px) {
+      html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      nav { padding: 1rem 1.2rem; }
+      nav .nav-logo { margin-right: 0.6rem; gap: 0.4rem; }
+      nav .nav-logo img { height: 26px; }
+      nav .nav-logo-text { font-size: 0.85rem; }
+
+      [class*="-grid"] { grid-template-columns: minmax(0, 1fr) !important; }
+      [class*="-card"], [class*="-content"], [class*="-box"] { min-width: 0; overflow-wrap: anywhere; }
+      section { padding-left: 1.5rem !important; padding-right: 1.5rem !important; overflow-x: hidden; }
+      .article-hero { padding: 7rem 1.5rem 2.5rem !important; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 0.8rem; text-align: center; }
+      table { table-layout: fixed; width: 100%; }
+
+      body, p, li, h1, h2, h3, h4,
+      [class*="-title"], [class*="-heading"], [class*="-body"], [class*="-text"],
+      [class*="-lead"], [class*="-desc"], [class*="-sub"], [class*="-note"], [class*="-tag"] {
+        word-break: auto-phrase !important;
+        overflow-wrap: break-word !important;
+        line-break: strict !important;
+        hanging-punctuation: allow-end;
+        text-wrap: pretty;
+      }
+      h1, .notes-h2, .article-cta-heading { text-wrap: balance; }
+    }
+    @media (max-width: 540px) {
+      .article-hero h1 { font-size: 1.35rem; }
+      footer { padding: 1.5rem 1rem; }
+      .btn-primary { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="./index.html" class="nav-logo">
+      <img src="./logotype.png" alt="きづきくみたて工房ロゴ">
+      <span class="nav-logo-text">きづきくみたて工房</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
+      <li><a href="./lsp.html">LSP</a></li>
+      <li><a href="./topaasia.html">対話用カード</a></li>
+      <li><a href="./education-program.html">研修設計プログラム</a></li>
+      <li><a href="./od-program.html">組織開発プログラム</a></li>
+      <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
+      <li><a href="./social-leader-coaching.html">リーダー向けコーチング</a></li>
+      <li><a href="./index.html#contact">Contact</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu-close" id="mobileClose">✕</button>
+    <a href="./index.html">Home</a>
+    <a href="./democracy-fitness.html">Democracy Fitness</a>
+    <a href="./lsp.html">LSP</a>
+    <a href="./topaasia.html">対話用カード</a>
+    <a href="./education-program.html">研修設計プログラム</a>
+    <a href="./od-program.html">組織開発プログラム</a>
+    <a href="./dialogue-program.html">対話力向上プログラム</a>
+    <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    <a href="./index.html#contact">Contact</a>
+  </div>
+
+  <section class="article-hero">
+    <div class="article-inner">
+      <div class="article-label">Integrity Notes</div>
+      <h1>私たちが引用するデータと理論の「限界」について</h1>
+      <p class="article-hero-lead">Topaasiaの紹介ページや資料では、多くの調査データと経営理論を引用しています。そして、売り手が並べるデータには「都合の良い部分だけ切り取っているのでは」という疑いが必ずつきまといます。私たちは、その疑いは正当だと考えます。だからこのページでは、引用している主要なデータと理論のすべてについて、「何に使っているか・どんな限界があるか・それでも引用する理由」を、批判される前に自分から公開します。</p>
+      <p class="article-date">公開: 2026年7月3日（きづきくみたて 森本康仁）</p>
+    </div>
+  </section>
+
+  <section class="article-body-section">
+    <div class="article-inner">
+      <div class="promise-box">
+        <p><strong>このページの約束</strong></p>
+        <p>私たちは批判に対して「認める → 限定する → 検証に誘う」の順で応えます。数字で信じていただくのではなく、無料体験の60分と、導入後にあなたの組織に蓄積される対話データで検証していただくのが方針です。効果を保証しないことは、契約書にも明記しています。</p>
+      </div>
+
+      <h2 class="notes-h2">データ編</h2>
+
+      <div class="claim-card">
+        <div class="claim-title">「話しても理解してもらえないと思った」46%（エン・ジャパン 2024）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">「部下は辞める時さえ本音を話さない」という課題提起の中心データ。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">回答者は退職経験者・転職サービス登録者に偏っており、会社に満足している人は含まれません。全社員の実態を表す数字ではありません。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">主張は「全員がそうだ」ではなく「辞めた人ですら本音を言わない」という限定的な事実です。調査主体と手法の異なるリクルートマネジメントソリューションズの調査（言いたいことを言えなかった理由の上位＝相手の気分を害するから）とも方向が一致します。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">1on1施策の課題 第1位「上司の面談スキル不足」47.2%（リクルートMS 2022）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">「研修で学んだ傾聴が現場で使えない」という課題の裏づけ。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">これは企業の人事・人材開発担当者の認識調査であり、部下や上司本人の評価ではありません。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">だからこそ私たちは、人事側（47.2%）と部下側（次項の29.7%）という立場の異なる2つの調査を並べています。別々の立場からの調査が同じ問題を指すことは、単独の数字より強い根拠だと考えます。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">部下の3人に1人が「1on1の効果を感じない」29.7%（パーソル総合研究所 2025）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">「1on1は普及したが機能していない」という課題提起。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">裏返せば約7割は効果を感じています。ネガティブな面だけを切り取っているという批判は、部分的に正しい。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">私たちの主張は「1on1はダメ」ではありません。むしろ逆で、7割の企業に普及し多くの部下に機能している＝1on1という器は有効です。だからこそ、残り3割の不全は「やめる」のではなく「型を入れて直す」価値がある、というのが私たちの立論です。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">日本の「熱意ある社員」6%・機会損失86兆円（Gallup 2024）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">エンゲージメント低下が経営課題であることの規模感の提示。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">Gallupの測定は米国発の概念で、日本人の回答傾向（熱意を控えめに表明する・中央の選択肢を選びやすい）により国際比較で低く出るという批判があります。86兆円も実際に消えたお金ではなく機会損失の推計です。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">6%を「日本は世界最低」の証拠には使わず、改善余地が大きいことの傍証として使っています。当社の損失試算でも86兆円をそのまま使わず、1人あたり換算値のうちわずか4%だけを、差し替え可能な仮定として置いています。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">エンゲージメントスコア1pt上昇＝営業利益率+0.35%（リンクアンドモチベーション×慶應義塾大学 岩本研究室）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">エンゲージメントと業績の連動を示す日本発の実証データ。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">エンゲージメント商材を販売する企業による研究であり、利益相反の指摘は免れません。また相関関係であり、「業績が良いからエンゲージメントが高い」という逆の因果も否定できません。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">利害関係のないGallupの世界規模メタ分析と方向が一致すること。そして仮に因果が逆でも「エンゲージメントと業績が連動する」事実は変わらず、チームのエンゲージメントのばらつきの約70%を直属上司が説明する（Gallup）以上、上司の対話に働きかける合理性は残ると考えます。因果を断定する表現は使いません。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">当社の損失試算「300名企業で年間約3,500万円」</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">対話の質の低さが生む損失の桁の把握。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">試算に使った係数のうち「離職の25%が上司起因」「うち半分は防止可能」「エンゲージメント機会損失の4%が改善可能」の3つは、私たちの仮置きです。掛け算のため、係数がずれると結果は大きく動きます。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">主張は「3,500万円ぴったり」ではなく「ゼロではなく、この桁である」ことです。だから全仮定を開示し、紹介ページの計算機では係数ごと差し替えられるようにしています。仮に係数をすべて半分にしても、年間1,700万円が残ります。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">テレワーカーの孤立感28.8%（パーソル総合研究所 2020）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">オンラインチームの相互理解が自然には育たないことの裏づけ。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">コロナ初期（2020年）の調査であり、働き方が落ち着いた現在とは環境が異なります。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">2026年7月時点で確認したところ、同研究所の第十回調査（2025年7月実施）でもテレワーク実施率は22.5%で定着し、テレワークの不安の最上位は引き続き「相手の気持ちがわかりにくい」でした。構造は続いていると判断しています。より粒度の高い新しい数値が公表されれば差し替えます。</div></div>
+      </div>
+
+      <h2 class="notes-h2">理論編</h2>
+
+      <div class="claim-card">
+        <div class="claim-title">ホフステードの6次元モデル（不確実性回避92など）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">「型があると話せる」という介入が日本の文化条件で特に効く理由の説明。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">学術的な批判が多い理論です。国の平均値を個人に当てはめる誤り（生態学的誤謬）、元データの古さ、2023年の改訂で日本のスコア自体が動いたこと（個人主義46→62）など。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">国民平均であって個人を説明しないことを前提に、「日本人は〜できない」ではなく「〜しにくい構造がある」という表現規則を敷いています。異なる手法・データによるカルチャーマップと方向が一致することを重視しています。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">カルチャーマップ（エリン・メイヤー）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">日本が「率直な対話のコストが高い」文化圏に位置することの補強。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">学術研究というよりビジネス実務家の観察知であり、各国の相対位置の定量的な根拠は厚くありません。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">学術的証明とは区別したうえで、ホフステードと独立の手法が同じ方向を指すこと（三角測量）に価値があると考えています。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">センスメイキング理論（カール・ワイク）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">対話が組織を動かすメカニズムの説明（腹落ち→コミットメント）。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">組織がどう意味を作るかを説明する記述理論であり、「対話させれば業績が上がる」という処方箋の理論ではありません。ツールの効果の証明として使うのは飛躍です。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">効果の証明ではなく「なぜ効くのか」の仮説の枠組みとして使っています。効果そのものの検証は、セッションの記録が残るTopaasiaの特性を活かし、お客様自身の現場データで行う設計です。</div></div>
+      </div>
+
+      <div class="claim-card">
+        <div class="claim-title">サービス・プロフィット・チェーン（ハーバード・ビジネススクール）</div>
+        <div class="claim-row"><span class="claim-tag">何に使っているか</span><div class="claim-text">対話の質が企業価値につながる経路の全体像。</div></div>
+        <div class="claim-row"><span class="claim-tag limit">限界</span><div class="claim-text">相関ベースの枠組みで、逆の因果もあり得ます。有名な実証例のシアーズ社は、その後2018年に経営破綻しました。</div></div>
+        <div class="claim-row"><span class="claim-tag">それでも引用する理由</span><div class="claim-text">シアーズの破綻は、エンゲージメントが戦略の代替にはならないことの証拠だと受け止めています。従業員がどれだけ熱心でも、業態そのものが敗れれば会社は沈む。だから私たちは対話を万能薬とは言いません。戦略が実行に変わる速度を上げる装置であり、戦略そのものは経営の仕事です。</div></div>
+      </div>
+
+      <h2 class="notes-h2">それでも、なぜ語るのか</h2>
+      <p>完璧なエビデンスが揃うまで黙っているには、日本の職場で毎日積み上がる沈黙のコストは大きすぎる——それが私たちの立場です。限界つきの、しかし現時点で最良の根拠で仮説を立て、現場のデータで検証しながら修正していく。それは科学の進め方でもあり、私たちがお客様と続けたい対話のかたちでもあります。</p>
+      <p>このページは、新しい批判や新しいデータに出会うたびに更新します。「この引用はおかしい」というご指摘は、むしろ歓迎です。</p>
+      <p class="article-date">更新履歴: 2026-07-03 初版公開（テレワーク調査は2025年・第十回調査の確認結果を追記済み）</p>
+    </div>
+  </section>
+
+  <section class="article-cta">
+    <div class="article-cta-heading">判断材料は、数字ではなく60分の体験で。</div>
+    <p class="article-cta-sub">データはここまで正直に開示しました。最後の判断は、無料体験セッションでカードを1枚引いて、ご自身で確かめてください。</p>
+    <a class="btn-primary" href="mailto:kizukikumitate@gmail.com?subject=Topaasia%E7%84%A1%E6%96%99%E4%BD%93%E9%A8%93%E3%82%BB%E3%83%83%E3%82%B7%E3%83%A7%E3%83%B3%E7%94%B3%E8%BE%BC">無料体験セッションに申し込む</a>
+    <div><a class="btn-back" href="./topaasia.html">← Topaasiaのご紹介ページへ戻る</a></div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">きづきくみたて工房</div>
+    <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById('hamburger').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.add('active');
+    });
+    document.getElementById('mobileClose').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.remove('active');
+    });
+  </script>
+</body>
+</html>
