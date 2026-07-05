@@ -46,33 +46,21 @@
   .idx .no{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.72rem}
   .idx .nm{font-size:.74rem;text-align:center;line-height:1.3}
 
-  /* ENTRY */
-  .entry{border-top:1px solid var(--line);padding:44px 0}
-  .e-no{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);letter-spacing:.18em;font-size:.9rem;margin-bottom:10px}
-  .e-yokai{display:flex;gap:18px;align-items:flex-start}
-  @media(max-width:520px){.e-yokai{flex-direction:column;align-items:stretch}}
-  .e-yokai img{width:260px;flex-shrink:0;border-radius:14px;border:1px solid var(--line);aspect-ratio:560/638;object-fit:cover}
-  @media(max-width:520px){.e-yokai img{width:100%;max-width:380px;margin:0 auto}}
-  .e-name{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.55rem;letter-spacing:.06em}
-  .e-yomi{color:var(--sub);font-size:.82rem;margin-bottom:12px}
-  .e-row{margin-bottom:8px;font-size:.92rem}
-  .e-row .k{font-size:.72rem;letter-spacing:.16em;color:var(--tomoshibi);display:block}
-  .e-kuse{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.08rem}
-
-  .arrow{text-align:center;color:var(--kin);font-size:1.4rem;margin:20px 0 4px;letter-spacing:.3em}
-  .arrow-label{text-align:center;font-family:"Shippori Mincho B1",serif;color:var(--kin);letter-spacing:.16em;font-size:.9rem;margin-bottom:18px}
-
-  .e-shiki{display:flex;gap:18px;align-items:flex-start;background:linear-gradient(160deg,#1c2130,#12151d);border:1px solid rgba(201,168,76,.4);border-radius:16px;padding:20px}
-  @media(max-width:520px){.e-shiki{flex-direction:column;align-items:stretch}}
-  .e-shiki img{width:260px;flex-shrink:0;border-radius:12px;aspect-ratio:560/637;object-fit:cover}
-  @media(max-width:520px){.e-shiki img{width:100%;max-width:380px;margin:0 auto}}
-  .e-shiki .slabel{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.78rem;letter-spacing:.14em}
-  .e-shiki .sname{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.4rem;letter-spacing:.06em;margin:2px 0}
-  .e-shiki .kin{font-size:.82rem;color:var(--sub);margin-bottom:12px}
-  .e-shiki .spell .k{font-size:.72rem;letter-spacing:.16em;color:var(--tomoshibi);display:block}
-  .e-shiki .spell .v{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.15rem;color:var(--kin)}
-  .totop{display:inline-block;margin-top:14px;color:var(--sub);font-size:.78rem;text-decoration:none}
+  /* ENTRY — 左：妖怪／右：式神 のカードを大判で対比表示（画像に帯・呪い・稲妻を内包） */
+  .entry{border-top:1px solid var(--line);padding:52px 0;min-height:100vh;display:flex;flex-direction:column;justify-content:center}
+  .e-no{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);letter-spacing:.2em;font-size:.95rem;text-align:center;margin-bottom:22px}
+  .spread{width:100%;max-width:1180px;margin:0 auto;padding:0 22px;display:flex;align-items:flex-start;gap:0;filter:drop-shadow(0 14px 40px rgba(0,0,0,.45))}
+  .spread .card{width:50%;height:auto;display:block}
+  .spread .card.yokai{aspect-ratio:560/638;border-radius:14px 0 0 14px}
+  .spread .card.shiki{aspect-ratio:560/637;border-radius:0 14px 14px 0}
+  .totop{display:block;text-align:center;margin-top:30px;color:var(--sub);font-size:.8rem;text-decoration:none}
   .totop:hover{color:var(--kin)}
+
+  @media(max-width:760px){
+    .entry{min-height:0;padding:40px 0}
+    .spread{flex-direction:column;align-items:stretch;gap:20px;padding:0 16px;filter:none}
+    .spread .card{width:100%;border-radius:14px;filter:drop-shadow(0 10px 28px rgba(0,0,0,.45))}
+  }
 
   /* 棘＋CTA */
   .thorn{background:var(--yoru);border:1px dashed rgba(217,142,99,.5);border-radius:14px;padding:26px 24px;margin:44px 0 0;text-align:center}
@@ -188,8 +176,11 @@
 
 <div class="wrap">
   <div class="index" id="index"></div>
-  <main id="list"></main>
+</div>
 
+<main id="list"></main>
+
+<div class="wrap">
   <div class="thorn">
     <div class="tt">――ただし、式神を召喚しても<br>効かない日が、あります。</div>
     <div class="td">妖怪は、倒しても倒しても戻ってきます。本当は「倒す」のではなく、「共に生きる」やり方があるのかもしれません。</div>
@@ -234,25 +225,9 @@ YK.forEach(y=>{
   const sec=document.createElement('section');sec.className='entry';sec.id='e'+y.id;
   sec.innerHTML=`
     <div class="e-no">妖怪図鑑 No.${pad(y.id)}</div>
-    <div class="e-yokai">
-      <img src="${y.yimg}" alt="${y.name}" loading="lazy" decoding="async">
-      <div>
-        <div class="e-name">${y.name}</div>
-        <div class="e-yomi">${y.yomi}</div>
-        <div class="e-row"><span class="k">呪い</span>${y.noroi}</div>
-        <div class="e-row"><span class="k">口癖</span><span class="e-kuse">「${y.kuse}」</span></div>
-      </div>
-    </div>
-    <div class="arrow">↓</div>
-    <div class="arrow-label">乗り越える力</div>
-    <div class="e-shiki">
-      <img src="${y.simg}" alt="${y.shiki}" loading="lazy" decoding="async">
-      <div>
-        <div class="slabel">Shikigami</div>
-        <div class="sname">${y.shiki}</div>
-        <div class="kin">${y.kin}</div>
-        <div class="spell"><span class="k">召喚の呪文</span><span class="v">「${y.spell}」</span></div>
-      </div>
+    <div class="spread">
+      <img class="card yokai" src="${y.yimg}" alt="妖怪 ${y.name}（${y.yomi}）― ${y.noroi}" loading="lazy" decoding="async">
+      <img class="card shiki" src="${y.simg}" alt="式神 ${y.shiki} ― ${y.kin}" loading="lazy" decoding="async">
     </div>
     <a class="totop" href="#index">↑ 一覧にもどる</a>
   `;
