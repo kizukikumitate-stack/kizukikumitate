@@ -164,7 +164,7 @@
     <p class="eyebrow">YOKAI &amp; SHIKIGAMI ・ OPEN CALL</p>
     <div class="glyph">⟡</div>
     <h1>あなたの職場の<br>妖怪を教えてください</h1>
-    <p class="h-sub">図鑑の10体のほかにも、職場にはまだ見ぬ妖怪がいるはず。集まった投稿から、森本が選んで随時この図鑑に加えていきます。</p>
+    <p class="h-sub">図鑑の10体のほかにも、職場にはまだ見ぬ妖怪がいるはず。集まった投稿から、編集部が随時この図鑑に加えていきます。</p>
   </div>
 </header>
 
@@ -186,7 +186,7 @@
         <label for="f-kuse">口癖<span class="opt">任意</span></label>
         <input type="text" id="f-kuse" maxlength="100" placeholder="例：それ、うちの担当でしたっけ？">
       </div>
-      <p class="note">※ 匿名で投稿されます。個人や企業が特定される内容は避けてください。掲載は森本が選定します。</p>
+      <p class="note">※ 匿名で投稿されます。個人や企業が特定される内容は避けてください。掲載は編集部が随時選定します。</p>
       <p class="err" id="formErr"></p>
       <button type="submit" class="btn" id="submitBtn">この妖怪を投稿する</button>
     </form>
@@ -244,7 +244,7 @@ form.addEventListener('submit',ev=>{
       document.getElementById('formWrap').innerHTML=
         '<div class="form"><div class="thanks">'+
         '<div class="th">投稿ありがとうございます。</div>'+
-        '<div class="td">森本が確認し、選ばれた妖怪はこのギャラリーに加わります。</div>'+
+        '<div class="td">編集部が確認し、選ばれた妖怪はこのギャラリーに随時加わります。</div>'+
         '</div></div>';
       window.scrollTo({top:0,behavior:'smooth'});
     })
