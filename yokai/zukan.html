@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妖怪図鑑 ― すれ違いを生む10の妖怪と、乗り越える10の式神</title>
+<meta property="og:title" content="妖怪と式神 図鑑">
+<meta property="og:description" content="職場のすれ違いを生む10の妖怪と、それを乗り越えるための10の式神。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて">
+<meta property="og:url" content="https://kizukikumitate.com/yokai/zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="妖怪と式神 図鑑">
+<meta name="twitter:description" content="職場のすれ違いを生む10の妖怪と、それを乗り越えるための10の式神。">
+<meta name="twitter:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<link rel="canonical" href="https://kizukikumitate.com/yokai/zukan.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yoru:#12151d; --yoru2:#1a1e2a; --washi:#e9e2d0;
+    --kin:#c9a84c; --tomoshibi:#d98e63; --sub:#9a9aa4; --line:rgba(233,226,208,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--yoru);color:var(--washi);font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;line-break:strict;word-break:normal;overflow-x:hidden}
+  ::selection{background:var(--kin);color:var(--yoru)}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+
+  /* HERO */
+  header{padding:56px 0 30px;text-align:center}
+  .eyebrow{font-family:"EB Garamond",serif;font-style:italic;letter-spacing:.24em;color:var(--kin);font-size:.82rem}
+  .glyph{font-size:2.2rem;color:var(--kin);margin:16px 0 4px}
+  h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:2.1rem;letter-spacing:.14em;margin-bottom:8px}
+  .h-sub{color:var(--sub);font-size:.95rem;max-width:520px;margin:0 auto}
+  .intro-copy{max-width:560px;margin:30px auto 0;background:var(--yoru2);border:1px solid var(--line);border-radius:14px;padding:22px 24px;font-size:.92rem;line-height:2;color:var(--washi)}
+  .intro-copy b{color:var(--kin);font-weight:500}
+
+  /* INDEX */
+  .index{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:34px 0 10px}
+  @media(min-width:560px){.index{grid-template-columns:repeat(5,minmax(0,1fr))}}
+  .idx{display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--yoru2);border:1px solid var(--line);border-radius:12px;padding:12px 8px;text-decoration:none;color:var(--washi);transition:border-color .15s,transform .1s}
+  .idx:hover{border-color:var(--kin);transform:translateY(-2px)}
+  .idx img{width:46px;height:46px;object-fit:cover;border-radius:8px}
+  .idx .no{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.72rem}
+  .idx .nm{font-size:.74rem;text-align:center;line-height:1.3}
+
+  /* ENTRY */
+  .entry{border-top:1px solid var(--line);padding:44px 0}
+  .e-no{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);letter-spacing:.18em;font-size:.9rem;margin-bottom:10px}
+  .e-yokai{display:flex;gap:18px;align-items:flex-start}
+  @media(max-width:520px){.e-yokai{flex-direction:column;align-items:stretch}}
+  .e-yokai img{width:200px;flex-shrink:0;border-radius:14px;border:1px solid var(--line);aspect-ratio:560/638;object-fit:cover}
+  @media(max-width:520px){.e-yokai img{width:100%;max-width:320px;margin:0 auto}}
+  .e-name{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.55rem;letter-spacing:.06em}
+  .e-yomi{color:var(--sub);font-size:.82rem;margin-bottom:12px}
+  .e-row{margin-bottom:8px;font-size:.92rem}
+  .e-row .k{font-size:.72rem;letter-spacing:.16em;color:var(--tomoshibi);display:block}
+  .e-kuse{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.08rem}
+
+  .arrow{text-align:center;color:var(--kin);font-size:1.4rem;margin:20px 0 4px;letter-spacing:.3em}
+  .arrow-label{text-align:center;font-family:"Shippori Mincho B1",serif;color:var(--kin);letter-spacing:.16em;font-size:.9rem;margin-bottom:18px}
+
+  .e-shiki{display:flex;gap:18px;align-items:flex-start;background:linear-gradient(160deg,#1c2130,#12151d);border:1px solid rgba(201,168,76,.4);border-radius:16px;padding:20px}
+  @media(max-width:520px){.e-shiki{flex-direction:column;align-items:stretch}}
+  .e-shiki img{width:200px;flex-shrink:0;border-radius:12px;aspect-ratio:560/637;object-fit:cover}
+  @media(max-width:520px){.e-shiki img{width:100%;max-width:320px;margin:0 auto}}
+  .e-shiki .slabel{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.78rem;letter-spacing:.14em}
+  .e-shiki .sname{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.4rem;letter-spacing:.06em;margin:2px 0}
+  .e-shiki .kin{font-size:.82rem;color:var(--sub);margin-bottom:12px}
+  .e-shiki .spell .k{font-size:.72rem;letter-spacing:.16em;color:var(--tomoshibi);display:block}
+  .e-shiki .spell .v{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.15rem;color:var(--kin)}
+  .totop{display:inline-block;margin-top:14px;color:var(--sub);font-size:.78rem;text-decoration:none}
+  .totop:hover{color:var(--kin)}
+
+  /* 棘＋CTA */
+  .thorn{background:var(--yoru);border:1px dashed rgba(217,142,99,.5);border-radius:14px;padding:26px 24px;margin:44px 0 0;text-align:center}
+  .thorn .tt{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.15rem;line-height:1.7;margin-bottom:10px}
+  .thorn .td{font-size:.9rem;color:var(--sub)}
+  .btn{display:block;width:100%;max-width:360px;margin:14px auto 0;background:var(--kin);color:var(--yoru);border:none;border-radius:40px;padding:16px;font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.05rem;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+  .btn.ghost{background:transparent;color:var(--washi);border:1px solid var(--line)}
+  .links{margin-top:30px;border-top:1px solid var(--line);padding-top:22px}
+  .links a{display:flex;justify-content:space-between;align-items:center;color:var(--washi);text-decoration:none;padding:14px 4px;border-bottom:1px solid var(--line);font-size:.95rem;transition:color .15s}
+  .links a:hover{color:var(--kin)} .links a .arw{color:var(--kin)}
+  .foot{text-align:center;margin:40px 0 60px;color:var(--sub);font-size:.8rem;line-height:1.8}
+  .foot .fin{font-family:"Shippori Mincho B1",serif;letter-spacing:.2em;color:var(--washi)}
+  .editnote{max-width:720px;margin:0 auto;padding:10px 22px 30px;color:#6a6a72;font-size:.7rem;text-align:center}
+
+  /* ===== 既存サイト共通ヘッダー／フッター（B案：ここから下は白基調のまま） ===== */
+  body{padding-top:62px}
+  [id]{scroll-margin-top:74px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+  .nav-logo img{height:36px;width:auto;object-fit:contain}
+  .nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:#1a5fad;letter-spacing:0.06em}
+  .nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto}
+  .nav-links a{font-family:'Noto Sans JP','Jost',sans-serif;font-weight:400;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:#5a6a7a;transition:color 0.2s;white-space:nowrap}
+  .nav-links a:hover,.nav-links a.active{color:#1a5fad}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;border-radius:6px;transition:background 0.15s}
+  .nav-hamburger:hover{background:rgba(0,0,0,0.06)}
+  .nav-hamburger span{display:block;height:2px;border-radius:2px;background:#26215C;transition:transform 0.25s,opacity 0.25s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;align-items:center;gap:0;padding:5rem 2rem 3rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.3rem;font-weight:600;color:#222;text-decoration:none;padding:0.9rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+  .mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+  .mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+  .mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+  footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9);white-space:nowrap}
+  .footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:0.06em}
+  @media (max-width:768px){
+    nav{padding:1rem 1.5rem}
+    /* 狭い画面でハンバーガーがロゴに押し出されて画面外に出る既存サイトの問題への対策（妖怪ページのみ） */
+    .nav-logo{margin-right:0}
+    .nav-hamburger{margin-left:auto;flex-shrink:0}
+    body{padding-top:71px}
+    footer{flex-direction:column;padding:2.5rem 1.5rem;gap:1rem;text-align:center}
+    .footer-logo,.footer-copy{overflow-wrap:break-word;word-break:keep-all}
+  }
+  @media (max-width:400px){
+    .nav-logo-text{font-size:0.95rem}
+  }
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width:1481px){
+    nav{padding-left:1.25rem;padding-right:1.25rem}
+    .nav-links{gap:1rem}
+  }
+  @media (max-width:1480px){
+    .nav-links{display:none}
+    .nav-hamburger{display:flex}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV（既存サイト共通ヘッダー） -->
+<!-- TODO: グローバルナビへの「妖怪と式神」項目追加は森本さん確認後（追加可否・位置） -->
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="../lsp.html">LSP</a></li>
+    <li><a href="../topaasia.html">対話用カード</a></li>
+    <li><a href="../education-program.html">研修設計プログラム</a></li>
+    <li><a href="../od-program.html">組織開発プログラム</a></li>
+    <li><a href="../dialogue-program.html">対話力向上プログラム</a></li>
+    <li><a href="../social-leader-coaching.html">リーダー向けコーチング</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="../index.html">Home</a>
+  <a href="../democracy-fitness.html">Democracy Fitness</a>
+  <a href="../lsp.html">LSP</a>
+  <a href="../topaasia.html">対話用カード</a>
+  <a href="../education-program.html">研修設計プログラム</a>
+  <a href="../od-program.html">組織開発プログラム</a>
+  <a href="../dialogue-program.html">対話力向上プログラム</a>
+  <a href="../social-leader-coaching.html">リーダー向けコーチング</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">YOKAI &amp; SHIKIGAMI ・ FIELD GUIDE</p>
+    <div class="glyph">⟡</div>
+    <h1>妖怪図鑑</h1>
+    <p class="h-sub">すれ違いを生む10の妖怪と、乗り越えるための10の式神</p>
+    <div class="intro-copy">
+      昼間は「組織の構造」を学びます。しかし夜になると、その構造の隙間から、すれ違いの化身「妖怪」たちが現れます。<b>「あの人がわからず屋だ」と思うとき、それは性格のせいではありません。</b>あなたが妖怪（呪い）にかかっているだけなのかもしれません。<br>でも大丈夫。この呪いをほどき、対立を創造に変える10の力があります。私たちはそれを、敬意を込めて<b>「式神」</b>と呼びます。
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="index" id="index"></div>
+  <main id="list"></main>
+
+  <div class="thorn">
+    <div class="tt">――ただし、式神を召喚しても<br>効かない日が、あります。</div>
+    <div class="td">妖怪は、倒しても倒しても戻ってきます。本当は「倒す」のではなく、「共に生きる」やり方があるのかもしれません。</div>
+    <!-- TODO: 三階ページ（「倒さない」共生の思想）完成後に差し替え -->
+    <a class="btn" href="./workshop.html">「倒さない」やり方を知る ▶</a>
+  </div>
+
+  <div class="links">
+    <a href="./index.html"><span>あなたの会社の妖怪を診断する</span><span class="arw">→</span></a>
+    <a href="./workshop.html"><span>妖怪と式神ワークショップ</span><span class="arw">→</span></a>
+    <!-- TODO: SNS実URL確定後に復活（森本さん確認待ち）: <a href="SNS_URL_HERE"><span>SNSで妖怪シリーズをフォロー</span><span class="arw">→</span></a> -->
+  </div>
+
+  <div class="foot">
+    <p class="fin">負けたまま、生きていく。</p>
+    <p>Still here, still living. — Yokai Peace Lab</p>
+  </div>
+</div>
+
+
+<!-- FOOTER（既存サイト共通フッター） -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+const YK = [{"id": 1, "name": "一ツ目正論", "yomi": "ひとつめせいろん", "kuse": "普通、こうでしょ？", "noroi": "「自分の正解」以外が見えなくなる。", "shiki": "多眼フクロウ", "kin": "原理感知筋", "spell": "他の見え方はないかな？", "yimg": "assets/img/yokai-01-hitotsume.jpg", "simg": "assets/img/shiki-01-hitotsume.jpg"}, {"id": 2, "name": "座敷固定", "yomi": "ざしきこてい", "kuse": "現場はわかってない！", "noroi": "自分の部署や立場に縛られ、他が敵に見える。", "shiki": "渡りザル", "kin": "視座切替筋", "spell": "もし自分が相手の立場なら？", "yimg": "assets/img/yokai-02-zashiki.jpg", "simg": "assets/img/shiki-02-zashiki.jpg"}, {"id": 3, "name": "言霊直撃", "yomi": "ことだまちょくげき", "kuse": "ちゃんと言いましたよね？", "noroi": "専門用語や自分の理屈をそのままぶつける。", "shiki": "ことばオウム", "kin": "ことば変換筋", "spell": "あなたの言葉で言うと…", "yimg": "assets/img/yokai-03-kotodama.jpg", "simg": "assets/img/shiki-03-kotodama.jpg"}, {"id": 4, "name": "空気喰らい", "yomi": "くうきぐらい", "kuse": "（無言の圧力……）", "noroi": "沈黙を善とし、本音を消し去る。", "shiki": "場守りガメ", "kin": "安心場づくり筋", "spell": "まずは安心して話せる場を作ろう", "yimg": "assets/img/yokai-04-kuuki.jpg", "simg": "assets/img/shiki-04-kuuki.jpg"}, {"id": 5, "name": "白黒鬼", "yomi": "しろくろおに", "kuse": "で、どっちが正しいの！？", "noroi": "モヤモヤに耐えられず、拙速な答えを出す。", "shiki": "まどろみネコ", "kin": "モヤモヤ保持筋", "spell": "今日は決めなくていい。寝かせよう", "yimg": "assets/img/yokai-05-shirokuro.jpg", "simg": "assets/img/shiki-05-shirokuro.jpg"}, {"id": 6, "name": "目先坊", "yomi": "めさきぼう", "kuse": "今、それどころじゃない！", "noroi": "目の前のタスクに追われ、目的を見失う。", "shiki": "北星シカ", "kin": "北極星筋", "spell": "そもそも、何のためだっけ？", "yimg": "assets/img/yokai-06-mesaki.jpg", "simg": "assets/img/shiki-06-mesaki.jpg"}, {"id": 7, "name": "即反応丸", "yomi": "そくはんのうまる", "kuse": "（カチンときて）でもさぁ！", "noroi": "刺激に対して、感情がノータイムで暴発する。", "shiki": "一呼吸イヌ", "kin": "一歩ひく筋", "spell": "一回、呼吸しよう（スゥ……）", "yimg": "assets/img/yokai-07-sokuhan.jpg", "simg": "assets/img/shiki-07-sokuhan.jpg"}, {"id": 8, "name": "今今爺", "yomi": "いまいまじい", "kuse": "今月の数字はどうするんだ", "noroi": "短期的な利益しか見えず、未来を食いつぶす。", "shiki": "時間ゾウ", "kin": "時間視野筋", "spell": "このままだと、3年後はどうなる？", "yimg": "assets/img/yokai-08-imaima.jpg", "simg": "assets/img/shiki-08-imaima.jpg"}, {"id": 9, "name": "犯人探し狐", "yomi": "はんにんさがしぎつね", "kuse": "誰がやったんだ！", "noroi": "構造の欠陥ではなく、個人のミスを責める。", "shiki": "輪読みオオカミ", "kin": "システム読解筋", "spell": "これは、どういう悪循環だろう？", "yimg": "assets/img/yokai-09-hannin.jpg", "simg": "assets/img/shiki-09-hannin.jpg"}, {"id": 10, "name": "前例守", "yomi": "ぜんれいもり", "kuse": "昔はこれで上手くいった", "noroi": "過去の成功体験が絶対化し、変化を拒む。", "shiki": "脱皮ヘビ", "kin": "前提アップデート筋", "spell": "その前提、もう古くない？", "yimg": "assets/img/yokai-10-zenrei.jpg", "simg": "assets/img/shiki-10-zenrei.jpg"}];
+const pad = n => String(n).padStart(3,'0');
+
+// index
+const idx=document.getElementById('index');
+YK.forEach(y=>{
+  const a=document.createElement('a');a.className='idx';a.href='#e'+y.id;
+  a.innerHTML=`<span class="no">No.${pad(y.id)}</span><img src="${y.yimg}" alt="${y.name}"><span class="nm">${y.name}</span>`;
+  idx.appendChild(a);
+});
+
+// list
+const list=document.getElementById('list');
+YK.forEach(y=>{
+  const sec=document.createElement('section');sec.className='entry';sec.id='e'+y.id;
+  sec.innerHTML=`
+    <div class="e-no">妖怪図鑑 No.${pad(y.id)}</div>
+    <div class="e-yokai">
+      <img src="${y.yimg}" alt="${y.name}" loading="lazy" decoding="async">
+      <div>
+        <div class="e-name">${y.name}</div>
+        <div class="e-yomi">${y.yomi}</div>
+        <div class="e-row"><span class="k">呪い</span>${y.noroi}</div>
+        <div class="e-row"><span class="k">口癖</span><span class="e-kuse">「${y.kuse}」</span></div>
+      </div>
+    </div>
+    <div class="arrow">↓</div>
+    <div class="arrow-label">乗り越える力</div>
+    <div class="e-shiki">
+      <img src="${y.simg}" alt="${y.shiki}" loading="lazy" decoding="async">
+      <div>
+        <div class="slabel">Shikigami</div>
+        <div class="sname">${y.shiki}</div>
+        <div class="kin">${y.kin}</div>
+        <div class="spell"><span class="k">召喚の呪文</span><span class="v">「${y.spell}」</span></div>
+      </div>
+    </div>
+    <a class="totop" href="#index">↑ 一覧にもどる</a>
+  `;
+  list.appendChild(sec);
+});
+
+</script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+}
+</script>
+</body>
+</html>

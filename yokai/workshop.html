@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妖怪と式神ワークショップ ― 組織のすれ違いを、対話にほどく</title>
+<meta property="og:title" content="妖怪と式神ワークショップ">
+<meta property="og:description" content="組織のすれ違いを「妖怪」の名を借りて語り合う、オンライン1時間の対話ワークショップ。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて">
+<meta property="og:url" content="https://kizukikumitate.com/yokai/workshop.html">
+<meta property="og:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="妖怪と式神ワークショップ">
+<meta name="twitter:description" content="組織のすれ違いを「妖怪」の名を借りて語り合う、オンライン1時間の対話ワークショップ。">
+<meta name="twitter:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<link rel="canonical" href="https://kizukikumitate.com/yokai/workshop.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yoru:#12151d; --yoru2:#1a1e2a; --washi:#e9e2d0;
+    --kin:#c9a84c; --tomoshibi:#d98e63; --sub:#9a9aa4; --line:rgba(233,226,208,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--yoru);color:var(--washi);font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.95;-webkit-font-smoothing:antialiased;line-break:strict;word-break:normal;overflow-x:hidden}
+  ::selection{background:var(--kin);color:var(--yoru)}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+  header{padding:60px 0 20px;text-align:center}
+  .eyebrow{font-family:"EB Garamond",serif;font-style:italic;letter-spacing:.22em;color:var(--kin);font-size:.82rem}
+  .glyph{font-size:2.2rem;color:var(--kin);margin:16px 0 4px}
+  h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:2rem;letter-spacing:.1em;line-height:1.45;margin-bottom:12px}
+  .lead{color:var(--sub);font-size:1rem;max-width:540px;margin:0 auto}
+  .hero-cards{display:flex;justify-content:center;gap:8px;margin:28px 0 8px;flex-wrap:wrap}
+  .hero-cards img{width:60px;height:60px;object-fit:cover;border-radius:10px;border:1px solid var(--line);opacity:.9}
+
+  section.blk{padding:40px 0;border-top:1px solid var(--line)}
+  h2{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.35rem;letter-spacing:.08em;margin-bottom:16px}
+  h2 .en{display:block;font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.8rem;letter-spacing:.14em;margin-bottom:4px}
+  p.body{font-size:.98rem;margin-bottom:14px}
+  .em{color:var(--kin)}
+
+  .why{background:var(--yoru2);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .why p{font-size:.95rem;margin-bottom:12px}
+  .why p:last-child{margin-bottom:0}
+
+  .flow{list-style:none;counter-reset:step}
+  .flow li{position:relative;padding:16px 0 16px 56px;border-bottom:1px solid var(--line)}
+  .flow li:last-child{border-bottom:none}
+  .flow li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:16px;width:38px;height:38px;border:1px solid var(--kin);color:var(--kin);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:"EB Garamond",serif;font-size:1.1rem}
+  .flow .t{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.05rem}
+  .flow .d{font-size:.88rem;color:var(--sub)}
+
+  .facts{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+  @media(min-width:520px){.facts{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+  .fact{background:var(--yoru2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+  .fact .k{font-size:.72rem;letter-spacing:.16em;color:var(--tomoshibi);margin-bottom:2px}
+  .fact .v{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.05rem}
+  .fact .n{font-size:.8rem;color:var(--sub)}
+
+  /* 次のステップ */
+  .next{background:linear-gradient(160deg,#1c2130,#12151d);border:1px solid rgba(201,168,76,.4);border-radius:16px;padding:26px 24px}
+  .next .thorn-line{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.08rem;line-height:1.7;text-align:center;margin-bottom:8px}
+  .next .thorn-sub{text-align:center;color:var(--sub);font-size:.88rem;margin-bottom:22px}
+  .step2{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--line)}
+  .step2 .badge{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.78rem;flex-shrink:0;width:70px;padding-top:2px}
+  .step2 .s-name{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.05rem}
+  .step2 .s-desc{font-size:.86rem;color:var(--sub)}
+  a.step2{text-decoration:none;color:inherit;transition:background .15s;border-radius:8px}
+  a.step2:hover .s-name{color:var(--kin)}
+  .step2 .s-more{font-size:.8rem;color:var(--kin);margin-top:4px}
+
+  .btn{display:block;width:100%;max-width:380px;margin:0 auto;background:var(--kin);color:var(--yoru);border:none;border-radius:40px;padding:17px;font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.1rem;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+  .cta-wrap{text-align:center}
+  .cta-note{color:var(--sub);font-size:.82rem;margin-top:12px}
+
+  .links{margin-top:20px;border-top:1px solid var(--line);padding-top:22px}
+  .links a{display:flex;justify-content:space-between;align-items:center;color:var(--washi);text-decoration:none;padding:14px 4px;border-bottom:1px solid var(--line);font-size:.95rem;transition:color .15s}
+  .links a:hover{color:var(--kin)} .links a .arw{color:var(--kin)}
+  .foot{text-align:center;margin:40px 0 60px;color:var(--sub);font-size:.8rem;line-height:1.8}
+  .foot .fin{font-family:"Shippori Mincho B1",serif;letter-spacing:.2em;color:var(--washi)}
+  .editnote{max-width:680px;margin:0 auto;padding:10px 22px 30px;color:#6a6a72;font-size:.7rem;text-align:center}
+
+  /* ===== 既存サイト共通ヘッダー／フッター（B案：ここから下は白基調のまま） ===== */
+  body{padding-top:62px}
+  [id]{scroll-margin-top:74px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+  .nav-logo img{height:36px;width:auto;object-fit:contain}
+  .nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:#1a5fad;letter-spacing:0.06em}
+  .nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto}
+  .nav-links a{font-family:'Noto Sans JP','Jost',sans-serif;font-weight:400;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:#5a6a7a;transition:color 0.2s;white-space:nowrap}
+  .nav-links a:hover,.nav-links a.active{color:#1a5fad}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;border-radius:6px;transition:background 0.15s}
+  .nav-hamburger:hover{background:rgba(0,0,0,0.06)}
+  .nav-hamburger span{display:block;height:2px;border-radius:2px;background:#26215C;transition:transform 0.25s,opacity 0.25s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;align-items:center;gap:0;padding:5rem 2rem 3rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.3rem;font-weight:600;color:#222;text-decoration:none;padding:0.9rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+  .mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+  .mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+  .mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+  footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9);white-space:nowrap}
+  .footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:0.06em}
+  @media (max-width:768px){
+    nav{padding:1rem 1.5rem}
+    /* 狭い画面でハンバーガーがロゴに押し出されて画面外に出る既存サイトの問題への対策（妖怪ページのみ） */
+    .nav-logo{margin-right:0}
+    .nav-hamburger{margin-left:auto;flex-shrink:0}
+    body{padding-top:71px}
+    footer{flex-direction:column;padding:2.5rem 1.5rem;gap:1rem;text-align:center}
+    .footer-logo,.footer-copy{overflow-wrap:break-word;word-break:keep-all}
+  }
+  @media (max-width:400px){
+    .nav-logo-text{font-size:0.95rem}
+  }
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width:1481px){
+    nav{padding-left:1.25rem;padding-right:1.25rem}
+    .nav-links{gap:1rem}
+  }
+  @media (max-width:1480px){
+    .nav-links{display:none}
+    .nav-hamburger{display:flex}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV（既存サイト共通ヘッダー） -->
+<!-- TODO: グローバルナビへの「妖怪と式神」項目追加は森本さん確認後（追加可否・位置） -->
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="../lsp.html">LSP</a></li>
+    <li><a href="../topaasia.html">対話用カード</a></li>
+    <li><a href="../education-program.html">研修設計プログラム</a></li>
+    <li><a href="../od-program.html">組織開発プログラム</a></li>
+    <li><a href="../dialogue-program.html">対話力向上プログラム</a></li>
+    <li><a href="../social-leader-coaching.html">リーダー向けコーチング</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="../index.html">Home</a>
+  <a href="../democracy-fitness.html">Democracy Fitness</a>
+  <a href="../lsp.html">LSP</a>
+  <a href="../topaasia.html">対話用カード</a>
+  <a href="../education-program.html">研修設計プログラム</a>
+  <a href="../od-program.html">組織開発プログラム</a>
+  <a href="../dialogue-program.html">対話力向上プログラム</a>
+  <a href="../social-leader-coaching.html">リーダー向けコーチング</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">YOKAI &amp; SHIKIGAMI ・ WORKSHOP</p>
+    <div class="glyph">⟡</div>
+    <h1>組織のすれ違いを、<br>対話にほどく。</h1>
+    <p class="lead">「あの人がわからず屋だ」——そう思ったとき、犯人を探す代わりに、そこにいる「妖怪」を一緒に眺めてみる。オンライン1時間の、対話のワークショップです。</p>
+    <div class="hero-cards" id="heroCards"></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="blk">
+    <h2><span class="en">Why it works</span>なぜ「妖怪」の力を借りるのか</h2>
+    <div class="why">
+      <p>組織のすれ違いを正面から話すのは、こわいものです。「あなたのここが問題だ」は、どうしても人を責める形になり、本音が引っ込みます。</p>
+      <p>そこで、<span class="em">妖怪という名前を借ります。</span>「あなたがダメ」ではなく「うちには"一ツ目正論"が棲んでいるよね」と言えるようになる。人と問題が切り離され、はじめて安心して本音が出せる場になります。</p>
+      <p>これは、心理療法でいう<span class="em">外在化</span>——問題を自分の外に出して眺める技法と、同じ構造です。妖怪は、責めずに問題を語るための、やさしい道具なのです。</p>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="en">Flow ・ 60 min</span>当日の流れ</h2>
+    <ul class="flow">
+      <li><div class="t">場をひらく</div><div class="d">妖怪と式神の世界観を共有し、安心して話せる約束ごとを置きます。</div></li>
+      <li><div class="t">妖怪を見つける</div><div class="d">オンラインの対話カードを使い、「うちの組織に棲んでいる妖怪」を、メンバーで挙げていきます。実在のテーマに沿って。</div></li>
+      <li><div class="t">妖怪に名前をつける</div><div class="d">誰かを責めるのではなく、「この妖怪がいるよね」と共有する。ここで場の空気がゆるみます。</div></li>
+      <li><div class="t">式神を呼ぶ</div><div class="d">その妖怪と、どう関わっていくか。対応する式神（乗り越える力）を手がかりに、具体的な一歩を対話します。</div></li>
+      <li><div class="t">持ち帰る</div><div class="d">明日から試せる、小さな関わりの変化をひとつ決めて、場を閉じます。</div></li>
+    </ul>
+  </section>
+
+  <section class="blk">
+    <h2><span class="en">Details</span>開催のかたち</h2>
+    <div class="facts">
+      <div class="fact"><div class="k">形式</div><div class="v">オンライン対話</div><div class="n">ビデオ会議＋対話カードを画面で共有</div></div>
+      <div class="fact"><div class="k">時間</div><div class="v">約60分</div><div class="n">組織の実情テーマに沿って対話</div></div>
+      <div class="fact"><div class="k">対象</div><div class="v">組織・チーム単位</div><div class="n">同じ組織のメンバーで参加</div></div>
+      <div class="fact"><div class="k">道具</div><div class="v">妖怪と式神カード</div><div class="n">言語で登録した対話カードを使用</div></div>
+    </div>
+  </section>
+
+  <section class="blk">
+    <h2><span class="en">The next step</span>一度で、解けなくていい</h2>
+    <div class="next">
+      <p class="thorn-line">――ただし、妖怪は<br>一度名付けても、また戻ってきます。</p>
+      <p class="thorn-sub">対話で見えた妖怪と、本当に関わり続けるには、続きの道があります。</p>
+
+      <a class="step2" href="../democracy-fitness.html">
+        <div class="badge">NEXT 01</div>
+        <div>
+          <div class="s-name">デモクラシーフィットネス</div>
+          <div class="s-desc">対話する力そのものを鍛える、デンマーク発のトレーニング。妖怪と向き合い続ける「筋力」を組織につけます。</div>
+          <div class="s-more">プログラムを見る →</div>
+        </div>
+      </a>
+      <a class="step2" href="../lsp.html">
+        <div class="badge">NEXT 02</div>
+        <div>
+          <div class="s-name">レゴ<sup>®</sup>シリアスプレイ<sup>®</sup></div>
+          <div class="s-desc">手を動かし、組織の課題を立体で外在化するワークショップ。言葉にならない妖怪を、かたちにして深く扱います。</div>
+          <div class="s-more">プログラムを見る →</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="blk">
+    <div class="cta-wrap">
+      <h2 style="text-align:center"><span class="en">Contact</span>まずは、話してみませんか</h2>
+      <p class="body" style="text-align:center;color:var(--sub)">開催のご相談・お見積り・日程調整など、お気軽にどうぞ。<br>あなたの組織の妖怪について、うかがうところから始めます。</p>
+      <a class="btn" href="../index.html#contact">問い合わせはこちら ▶</a>
+      <p class="cta-note">組織の実情に合わせて、内容を設計します。</p>
+    </div>
+
+    <div class="links">
+      <a href="./index.html"><span>まずは会社の妖怪を診断してみる</span><span class="arw">→</span></a>
+      <a href="./zukan.html"><span>10体すべての妖怪図鑑を見る</span><span class="arw">→</span></a>
+      <!-- TODO: SNS実URL確定後に復活（森本さん確認待ち）: <a href="SNS_URL_HERE"><span>SNSで妖怪シリーズをフォロー</span><span class="arw">→</span></a> -->
+    </div>
+  </section>
+
+  <div class="foot">
+    <p class="fin">負けたまま、生きていく。</p>
+    <p>Still here, still living. — Yokai Peace Lab</p>
+  </div>
+</div>
+
+
+<!-- FOOTER（既存サイト共通フッター） -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+const MINI = [{"name": "一ツ目正論", "img": "assets/img/yokai-01-hitotsume.jpg"}, {"name": "座敷固定", "img": "assets/img/yokai-02-zashiki.jpg"}, {"name": "空気喰らい", "img": "assets/img/yokai-04-kuuki.jpg"}, {"name": "目先坊", "img": "assets/img/yokai-06-mesaki.jpg"}, {"name": "即反応丸", "img": "assets/img/yokai-07-sokuhan.jpg"}, {"name": "犯人探し狐", "img": "assets/img/yokai-09-hannin.jpg"}];
+const hc=document.getElementById('heroCards');
+MINI.forEach(m=>{const im=document.createElement('img');im.src=m.img;im.alt=m.name;hc.appendChild(im);});
+</script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+}
+</script>
+</body>
+</html>
