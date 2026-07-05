@@ -292,8 +292,22 @@ function finish(){
   showResult(hit);
 }
 
+// 診断結果を匿名で記録（集計用・個人情報なし）。失敗しても診断表示には影響させない。
+const YOKAI_RECORD_API='https://democracy-fitness-survey.vercel.app/api/yokai-response';
+function recordResult(hit){
+  try{
+    const payload={
+      mainId: hit.length ? hit[0].y.id : null,
+      hits: hit.map(o=>({id:o.y.id, count:o.s})),
+      source:'yokai-diagnosis-v1'
+    };
+    fetch(YOKAI_RECORD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).catch(()=>{});
+  }catch(e){}
+}
+
 function showResult(hit){
   const el=document.getElementById('resultInner');
+  recordResult(hit);
   if(hit.length===0){
     const shrine=DATA.yokai.map(y=>`
         <div class="ocard" style="border-color:rgba(201,168,76,.35)">
@@ -316,6 +330,7 @@ function showResult(hit){
       <div class="actions">
         <button class="btn ghost" onclick="start()">もう一度診断する</button>
         <a class="btn" href="./zukan.html">10体の妖怪と式神を見る ▶</a>
+        <a class="btn ghost" href="./ranking.html">日本の組織の妖怪ランキングを見る</a>
       </div>`;
     show('result');return;
   }
@@ -399,6 +414,7 @@ function showResult(hit){
     </div>
 
     <div class="links">
+      <a href="./ranking.html"><span>この妖怪、日本の組織に多い？ランキングを見る</span><span class="arw">→</span></a>
       <a href="./zukan.html"><span>10体すべての妖怪図鑑を見る</span><span class="arw">→</span></a>
       <a href="./workshop.html"><span>妖怪と式神ワークショップ</span><span class="arw">→</span></a>
       <!-- TODO: SNS実URL確定後に復活（森本さん確認待ち）: <a href="SNS_URL_HERE"><span>SNSで妖怪シリーズをフォロー</span><span class="arw">→</span></a> -->

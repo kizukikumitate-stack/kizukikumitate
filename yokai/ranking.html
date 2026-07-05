@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>日本の組織の妖怪ランキング ― 妖怪と式神</title>
+<meta property="og:title" content="日本の組織の妖怪ランキング">
+<meta property="og:description" content="会社の妖怪診断の集計結果。日本の組織に、どの妖怪が多く棲んでいるのか。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて">
+<meta property="og:url" content="https://kizukikumitate.com/yokai/ranking.html">
+<meta property="og:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="日本の組織の妖怪ランキング">
+<meta name="twitter:description" content="会社の妖怪診断の集計結果。日本の組織に、どの妖怪が多く棲んでいるのか。">
+<meta name="twitter:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<link rel="canonical" href="https://kizukikumitate.com/yokai/ranking.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --yoru:#12151d; --yoru2:#1a1e2a; --washi:#e9e2d0;
+    --kin:#c9a84c; --tomoshibi:#d98e63; --sub:#9a9aa4; --line:rgba(233,226,208,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--yoru);color:var(--washi);font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;line-break:strict;word-break:normal;overflow-x:hidden}
+  ::selection{background:var(--kin);color:var(--yoru)}
+  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+
+  header{padding:56px 0 24px;text-align:center}
+  .eyebrow{font-family:"EB Garamond",serif;font-style:italic;letter-spacing:.24em;color:var(--kin);font-size:.82rem}
+  .glyph{font-size:2.2rem;color:var(--kin);margin:16px 0 4px}
+  h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:2rem;letter-spacing:.1em;line-height:1.4;margin-bottom:10px}
+  .h-sub{color:var(--sub);font-size:.95rem;max-width:540px;margin:0 auto}
+
+  .total{max-width:560px;margin:26px auto 0;background:var(--yoru2);border:1px solid var(--line);border-radius:14px;padding:18px 22px;text-align:center}
+  .total .num{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:2.1rem;line-height:1.1}
+  .total .lbl{color:var(--sub);font-size:.85rem;margin-top:2px}
+  .total .no-yokai{color:var(--sub);font-size:.8rem;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+
+  section.blk{padding:34px 0;border-top:1px solid var(--line)}
+  h2{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.3rem;letter-spacing:.06em;margin-bottom:4px}
+  h2 .en{display:block;font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.78rem;letter-spacing:.14em;margin-bottom:4px}
+  .blk .note{color:var(--sub);font-size:.85rem;margin-bottom:20px}
+
+  .rank-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+  .rank-no{font-family:"EB Garamond",serif;font-style:italic;color:var(--sub);width:1.8em;text-align:center;font-size:1.15rem;flex-shrink:0}
+  .rank-row.top .rank-no{color:var(--kin)}
+  .rank-img{width:54px;height:54px;object-fit:cover;border-radius:10px;border:1px solid var(--line);flex-shrink:0}
+  .rank-body{flex:1;min-width:0}
+  .rank-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
+  .rank-name{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1rem;letter-spacing:.02em}
+  .rank-n{color:var(--sub);font-size:.8rem;white-space:nowrap;flex-shrink:0}
+  .rank-n b{color:var(--kin);font-family:"EB Garamond",serif;font-style:italic;font-size:1.05rem;margin-right:2px}
+  .rank-bar{height:9px;background:var(--yoru2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+  .rank-bar i{display:block;height:100%;background:linear-gradient(90deg,#8a6c22,#e6c766);border-radius:6px;width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
+  .rank-row.top .rank-bar i{background:linear-gradient(90deg,#b8912f,#f0d783)}
+
+  .state{text-align:center;color:var(--sub);font-size:.95rem;padding:30px 0}
+  .state.err{color:var(--tomoshibi)}
+
+  .btn{display:block;width:100%;max-width:360px;margin:8px auto 0;background:var(--kin);color:var(--yoru);border:none;border-radius:40px;padding:15px;font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.02rem;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+  .links{margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+  .links a{display:flex;justify-content:space-between;align-items:center;color:var(--washi);text-decoration:none;padding:14px 4px;border-bottom:1px solid var(--line);font-size:.95rem;transition:color .15s}
+  .links a:hover{color:var(--kin)} .links a .arw{color:var(--kin)}
+  .foot{text-align:center;margin:40px 0 60px;color:var(--sub);font-size:.8rem;line-height:1.8}
+  .foot .fin{font-family:"Shippori Mincho B1",serif;letter-spacing:.2em;color:var(--washi)}
+
+  /* ===== 既存サイト共通ヘッダー／フッター（B案：ここから下は白基調のまま） ===== */
+  body{padding-top:62px}
+  [id]{scroll-margin-top:74px}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+  .nav-logo img{height:36px;width:auto;object-fit:contain}
+  .nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:#1a5fad;letter-spacing:0.06em}
+  .nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto}
+  .nav-links a{font-family:'Noto Sans JP','Jost',sans-serif;font-weight:400;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:#5a6a7a;transition:color 0.2s;white-space:nowrap}
+  .nav-links a:hover,.nav-links a.active{color:#1a5fad}
+  .nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;background:none;border:none;cursor:pointer;padding:4px;border-radius:6px;transition:background 0.15s}
+  .nav-hamburger:hover{background:rgba(0,0,0,0.06)}
+  .nav-hamburger span{display:block;height:2px;border-radius:2px;background:#26215C;transition:transform 0.25s,opacity 0.25s}
+  .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .nav-hamburger.open span:nth-child(2){opacity:0}
+  .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;align-items:center;gap:0;padding:5rem 2rem 3rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.3rem;font-weight:600;color:#222;text-decoration:none;padding:0.9rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+  .mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+  .mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+  .mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+  footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center}
+  .footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9);white-space:nowrap}
+  .footer-copy{font-size:0.72rem;color:rgba(255,255,255,0.6);letter-spacing:0.06em}
+  @media (max-width:768px){
+    nav{padding:1rem 1.5rem}
+    .nav-logo{margin-right:0}
+    .nav-hamburger{margin-left:auto;flex-shrink:0}
+    body{padding-top:71px}
+    footer{flex-direction:column;padding:2.5rem 1.5rem;gap:1rem;text-align:center}
+    .footer-logo,.footer-copy{overflow-wrap:break-word;word-break:keep-all}
+  }
+  @media (max-width:400px){
+    .nav-logo-text{font-size:0.95rem}
+  }
+  @media (min-width:1481px){
+    nav{padding-left:1.25rem;padding-right:1.25rem}
+    .nav-links{gap:1rem}
+  }
+  @media (max-width:1480px){
+    .nav-links{display:none}
+    .nav-hamburger{display:flex}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV（既存サイト共通ヘッダー） -->
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <img src="../logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../democracy-fitness.html">Democracy Fitness</a></li>
+    <li><a href="../lsp.html">LSP</a></li>
+    <li><a href="../topaasia.html">対話用カード</a></li>
+    <li><a href="../education-program.html">研修設計プログラム</a></li>
+    <li><a href="../od-program.html">組織開発プログラム</a></li>
+    <li><a href="../dialogue-program.html">対話力向上プログラム</a></li>
+    <li><a href="../social-leader-coaching.html">リーダー向けコーチング</a></li>
+    <li><a href="../index.html#contact">Contact</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="../index.html">Home</a>
+  <a href="../democracy-fitness.html">Democracy Fitness</a>
+  <a href="../lsp.html">LSP</a>
+  <a href="../topaasia.html">対話用カード</a>
+  <a href="../education-program.html">研修設計プログラム</a>
+  <a href="../od-program.html">組織開発プログラム</a>
+  <a href="../dialogue-program.html">対話力向上プログラム</a>
+  <a href="../social-leader-coaching.html">リーダー向けコーチング</a>
+  <a href="./workshop.html">妖怪と式神ワークショップ</a>
+  <a href="../index.html#contact">Contact</a>
+</div>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">YOKAI &amp; SHIKIGAMI ・ RANKING</p>
+    <div class="glyph">⟡</div>
+    <h1>日本の組織の<br>妖怪ランキング</h1>
+    <p class="h-sub">会社の妖怪診断の集計結果です。あなたの組織に棲んでいたあの妖怪は、日本ではどれくらい多いのでしょう。</p>
+    <div class="total" id="total" style="display:none">
+      <div class="num" id="totalNum">–</div>
+      <div class="lbl">これまでの診断回数</div>
+      <div class="no-yokai" id="noYokai"></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div id="content">
+    <div class="state" id="loading">集計を読み込んでいます…</div>
+  </div>
+
+  <div class="links" id="links" style="display:none">
+    <a href="./index.html"><span>あなたの会社の妖怪を診断する</span><span class="arw">→</span></a>
+    <a href="./zukan.html"><span>10体すべての妖怪図鑑を見る</span><span class="arw">→</span></a>
+    <a href="./workshop.html"><span>妖怪と式神ワークショップ</span><span class="arw">→</span></a>
+  </div>
+
+  <div class="foot">
+    <p class="fin">負けたまま、生きていく。</p>
+    <p>Still here, still living. — Yokai Peace Lab</p>
+  </div>
+</div>
+
+<!-- FOOTER（既存サイト共通フッター） -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+const YOKAI = {
+  1:{name:"一ツ目正論", img:"assets/img/yokai-01-hitotsume.jpg"},
+  2:{name:"座敷固定", img:"assets/img/yokai-02-zashiki.jpg"},
+  3:{name:"言霊直撃", img:"assets/img/yokai-03-kotodama.jpg"},
+  4:{name:"空気喰らい", img:"assets/img/yokai-04-kuuki.jpg"},
+  5:{name:"白黒鬼", img:"assets/img/yokai-05-shirokuro.jpg"},
+  6:{name:"目先坊", img:"assets/img/yokai-06-mesaki.jpg"},
+  7:{name:"即反応丸", img:"assets/img/yokai-07-sokuhan.jpg"},
+  8:{name:"今今爺", img:"assets/img/yokai-08-imaima.jpg"},
+  9:{name:"犯人探し狐", img:"assets/img/yokai-09-hannin.jpg"},
+  10:{name:"前例守", img:"assets/img/yokai-10-zenrei.jpg"}
+};
+const STATS_API='https://democracy-fitness-survey.vercel.app/api/yokai-stats';
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+
+function rankRows(list, denom){
+  if(!list.length) return '<div class="state">まだデータがありません。</div>';
+  const max=Math.max.apply(null, list.map(r=>r.n));
+  return list.map((r,i)=>{
+    const y=YOKAI[r.yokai_id]; if(!y) return '';
+    const pct = denom>0 ? Math.round(r.n/denom*100) : 0;
+    const barW = max>0 ? Math.round(r.n/max*100) : 0;
+    return `
+      <div class="rank-row${i===0?' top':''}">
+        <div class="rank-no">${i+1}</div>
+        <img class="rank-img" src="${y.img}" alt="${esc(y.name)}" loading="lazy" decoding="async">
+        <div class="rank-body">
+          <div class="rank-head">
+            <span class="rank-name">${esc(y.name)}</span>
+            <span class="rank-n"><b>${r.n}</b>件 ・ ${pct}%</span>
+          </div>
+          <div class="rank-bar"><i style="width:${barW}%"></i></div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function render(data){
+  const total=data.total||0;
+  const mainSum=(data.main||[]).reduce((a,r)=>a+r.n,0);
+  document.getElementById('total').style.display='';
+  document.getElementById('totalNum').textContent=total.toLocaleString('ja-JP')+' 回';
+  if(data.noYokai>0){
+    document.getElementById('noYokai').textContent='うち、妖怪が出なかった（式神が機能していた）診断：'+data.noYokai.toLocaleString('ja-JP')+' 回';
+  }
+
+  if(total===0){
+    document.getElementById('content').innerHTML=
+      '<div class="state">まだ集計データがありません。<br>あなたの会社の妖怪を診断すると、この集計に加わります。</div>'+
+      '<a class="btn" href="./index.html">会社の妖怪を診断する ▶</a>';
+    document.getElementById('links').style.display='';
+    return;
+  }
+
+  const html=`
+    <section class="blk">
+      <h2><span class="en">Most common #1</span>一番強く棲んでいた妖怪</h2>
+      <p class="note">診断で「1位」になった妖怪の割合（妖怪が出た${mainSum.toLocaleString('ja-JP')}回のうち）。</p>
+      ${rankRows(data.main||[], mainSum)}
+    </section>
+    <section class="blk">
+      <h2><span class="en">Appearance rate</span>よく現れる妖怪（全体傾向）</h2>
+      <p class="note">1位に限らず、診断で「気配があった」割合（全${total.toLocaleString('ja-JP')}回のうち）。</p>
+      ${rankRows(data.appearance||[], total)}
+    </section>`;
+  document.getElementById('content').innerHTML=html;
+  document.getElementById('links').style.display='';
+  // バーのアニメーション（初期0→実値）
+  requestAnimationFrame(()=>{ document.querySelectorAll('.rank-bar i').forEach(el=>{const w=el.style.width;el.style.width='0';requestAnimationFrame(()=>{el.style.width=w;});}); });
+}
+
+fetch(STATS_API,{cache:'no-store'})
+  .then(r=>{ if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+  .then(render)
+  .catch(()=>{
+    document.getElementById('content').innerHTML=
+      '<div class="state err">集計の取得に失敗しました。<br>時間をおいて、もう一度お試しください。</div>'+
+      '<a class="btn" href="./index.html">会社の妖怪を診断する ▶</a>';
+    document.getElementById('links').style.display='';
+  });
+</script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+}
+</script>
+</body>
+</html>
