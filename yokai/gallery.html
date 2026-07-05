@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>日本の組織の妖怪ランキング ― 妖怪と式神</title>
-<meta property="og:title" content="日本の組織の妖怪ランキング">
-<meta property="og:description" content="会社の妖怪診断の集計結果。日本の組織に、どの妖怪が多く棲んでいるのか。">
+<title>職場の妖怪、募集中 ― みんなの妖怪図鑑</title>
+<meta property="og:title" content="あなたの職場の妖怪を教えてください">
+<meta property="og:description" content="図鑑の10体のほかにも、職場にはまだ見ぬ妖怪がいるはず。集まった投稿から、随時この図鑑に加えていきます。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて">
-<meta property="og:url" content="https://kizukikumitate.com/yokai/ranking.html">
+<meta property="og:url" content="https://kizukikumitate.com/yokai/gallery.html">
 <meta property="og:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="日本の組織の妖怪ランキング">
-<meta name="twitter:description" content="会社の妖怪診断の集計結果。日本の組織に、どの妖怪が多く棲んでいるのか。">
+<meta name="twitter:title" content="あなたの職場の妖怪を教えてください">
+<meta name="twitter:description" content="図鑑の10体のほかにも、職場にはまだ見ぬ妖怪がいるはず。集まった投稿から、随時この図鑑に加えていきます。">
 <meta name="twitter:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
-<link rel="canonical" href="https://kizukikumitate.com/yokai/ranking.html">
+<link rel="canonical" href="https://kizukikumitate.com/yokai/gallery.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 <style>
@@ -26,43 +26,51 @@
   html{scroll-behavior:smooth}
   body{background:var(--yoru);color:var(--washi);font-family:"Zen Kaku Gothic New",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased;line-break:strict;word-break:normal;overflow-x:hidden}
   ::selection{background:var(--kin);color:var(--yoru)}
-  .wrap{max-width:720px;margin:0 auto;padding:0 22px}
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
 
-  header{padding:56px 0 24px;text-align:center}
+  header{padding:56px 0 20px;text-align:center}
   .eyebrow{font-family:"EB Garamond",serif;font-style:italic;letter-spacing:.24em;color:var(--kin);font-size:.82rem}
   .glyph{font-size:2.2rem;color:var(--kin);margin:16px 0 4px}
-  h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:2rem;letter-spacing:.1em;line-height:1.4;margin-bottom:10px}
+  h1{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.9rem;letter-spacing:.08em;line-height:1.45;margin-bottom:12px}
   .h-sub{color:var(--sub);font-size:.95rem;max-width:540px;margin:0 auto}
 
-  .total{max-width:560px;margin:26px auto 0;background:var(--yoru2);border:1px solid var(--line);border-radius:14px;padding:18px 22px;text-align:center}
-  .total .num{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:2.1rem;line-height:1.1}
-  .total .lbl{color:var(--sub);font-size:.85rem;margin-top:2px}
-  .total .no-yokai{color:var(--sub);font-size:.8rem;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+  /* 投稿フォーム */
+  .form{background:var(--yoru2);border:1px solid var(--line);border-radius:16px;padding:24px 22px;margin-top:28px}
+  .form-h{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.15rem;letter-spacing:.04em;margin-bottom:4px}
+  .form-lead{color:var(--sub);font-size:.86rem;margin-bottom:18px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.86rem;color:var(--kin);margin-bottom:6px;letter-spacing:.04em}
+  .field .req{color:var(--tomoshibi);font-size:.72rem;margin-left:6px}
+  .field .opt{color:var(--sub);font-size:.72rem;margin-left:6px}
+  .field input,.field textarea{width:100%;background:var(--yoru);border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--washi);font-family:inherit;font-size:.95rem;line-height:1.75}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--kin)}
+  .field textarea{min-height:98px;resize:vertical}
+  .form .note{font-size:.78rem;color:var(--sub);margin:2px 0 16px;line-height:1.7}
+  .form .err{color:var(--tomoshibi);font-size:.85rem;margin-bottom:12px;display:none}
+  .btn{display:block;width:100%;max-width:360px;margin:0 auto;background:var(--kin);color:var(--yoru);border:none;border-radius:40px;padding:15px;font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.02rem;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+  .thanks{text-align:center;padding:14px 0}
+  .thanks .th{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.2rem;color:var(--kin);margin-bottom:8px}
+  .thanks .td{color:var(--sub);font-size:.9rem}
 
-  section.blk{padding:34px 0;border-top:1px solid var(--line)}
+  /* ギャラリー */
+  section.blk{padding:36px 0 0}
   h2{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.3rem;letter-spacing:.06em;margin-bottom:4px}
   h2 .en{display:block;font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:.78rem;letter-spacing:.14em;margin-bottom:4px}
   .blk .note{color:var(--sub);font-size:.85rem;margin-bottom:20px}
-
-  .rank-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-  .rank-no{font-family:"EB Garamond",serif;font-style:italic;color:var(--sub);width:1.8em;text-align:center;font-size:1.15rem;flex-shrink:0}
-  .rank-row.top .rank-no{color:var(--kin)}
-  .rank-img{width:54px;height:54px;object-fit:cover;border-radius:10px;border:1px solid var(--line);flex-shrink:0}
-  .rank-body{flex:1;min-width:0}
-  .rank-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:6px}
-  .rank-name{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1rem;letter-spacing:.02em}
-  .rank-n{color:var(--sub);font-size:.8rem;white-space:nowrap;flex-shrink:0}
-  .rank-n b{color:var(--kin);font-family:"EB Garamond",serif;font-style:italic;font-size:1.05rem;margin-right:2px}
-  .rank-bar{height:9px;background:var(--yoru2);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-  .rank-bar i{display:block;height:100%;background:linear-gradient(90deg,#8a6c22,#e6c766);border-radius:6px;width:0;transition:width .9s cubic-bezier(.2,.7,.2,1)}
-  .rank-row.top .rank-bar i{background:linear-gradient(90deg,#b8912f,#f0d783)}
-
-  .state{text-align:center;color:var(--sub);font-size:.95rem;padding:30px 0}
+  .g-card{background:var(--yoru2);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin-bottom:14px}
+  .g-card.seed{border-color:rgba(201,168,76,.45);background:linear-gradient(160deg,#1c2130,#12151d)}
+  .g-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .g-name{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.12rem;letter-spacing:.03em;color:var(--washi)}
+  .g-tag{font-family:"EB Garamond",serif;font-style:italic;font-size:.7rem;letter-spacing:.12em;color:var(--kin);border:1px solid rgba(201,168,76,.4);border-radius:20px;padding:1px 9px}
+  .g-tag.post{color:var(--sub);border-color:var(--line)}
+  .g-desc{font-size:.95rem;color:var(--washi);margin-top:9px;line-height:1.85}
+  .g-kuse{margin-top:9px;font-family:"Shippori Mincho B1",serif;color:var(--tomoshibi);font-size:.95rem}
+  .state{text-align:center;color:var(--sub);font-size:.92rem;padding:24px 0}
   .state.err{color:var(--tomoshibi)}
 
-  .btn{display:block;width:100%;max-width:360px;margin:8px auto 0;background:var(--kin);color:var(--yoru);border:none;border-radius:40px;padding:15px;font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.02rem;letter-spacing:.08em;cursor:pointer;text-decoration:none;text-align:center;transition:transform .15s,box-shadow .15s}
-  .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,168,76,.3)}
-  .links{margin-top:26px;border-top:1px solid var(--line);padding-top:22px}
+  .links{margin-top:30px;border-top:1px solid var(--line);padding-top:22px}
   .links a{display:flex;justify-content:space-between;align-items:center;color:var(--washi);text-decoration:none;padding:14px 4px;border-bottom:1px solid var(--line);font-size:.95rem;transition:color .15s}
   .links a:hover{color:var(--kin)} .links a .arw{color:var(--kin)}
   .foot{text-align:center;margin:40px 0 60px;color:var(--sub);font-size:.8rem;line-height:1.8}
@@ -153,28 +161,47 @@
 
 <header>
   <div class="wrap">
-    <p class="eyebrow">YOKAI &amp; SHIKIGAMI ・ RANKING</p>
+    <p class="eyebrow">YOKAI &amp; SHIKIGAMI ・ OPEN CALL</p>
     <div class="glyph">⟡</div>
-    <h1>日本の組織の<br>妖怪ランキング</h1>
-    <p class="h-sub">会社の妖怪診断の集計結果です。あなたの組織に棲んでいたあの妖怪は、日本ではどれくらい多いのでしょう。</p>
-    <div class="total" id="total" style="display:none">
-      <div class="num" id="totalNum">–</div>
-      <div class="lbl">これまでの診断回数</div>
-      <div class="no-yokai" id="noYokai"></div>
-    </div>
+    <h1>あなたの職場の<br>妖怪を教えてください</h1>
+    <p class="h-sub">図鑑の10体のほかにも、職場にはまだ見ぬ妖怪がいるはず。集まった投稿から、森本が選んで随時この図鑑に加えていきます。</p>
   </div>
 </header>
 
 <div class="wrap">
-  <div id="content">
-    <div class="state" id="loading">集計を読み込んでいます…</div>
+
+  <div id="formWrap">
+    <form class="form" id="submitForm" novalidate>
+      <div class="form-h">妖怪を投稿する</div>
+      <p class="form-lead">あなたの職場に棲む「すれ違いの化身」を教えてください。</p>
+      <div class="field">
+        <label for="f-name">妖怪の名前案<span class="opt">任意</span></label>
+        <input type="text" id="f-name" maxlength="40" placeholder="例：他人事のっぺら">
+      </div>
+      <div class="field">
+        <label for="f-desc">どんな妖怪？職場でどう現れる？<span class="req">必須</span></label>
+        <textarea id="f-desc" maxlength="500" placeholder="例：問題が起きても『自分の担当ではない』と皆が一歩引き、誰も引き受けないまま放置される……"></textarea>
+      </div>
+      <div class="field">
+        <label for="f-kuse">口癖<span class="opt">任意</span></label>
+        <input type="text" id="f-kuse" maxlength="100" placeholder="例：それ、うちの担当でしたっけ？">
+      </div>
+      <p class="note">※ 匿名で投稿されます。個人や企業が特定される内容は避けてください。掲載は森本が選定します。</p>
+      <p class="err" id="formErr"></p>
+      <button type="submit" class="btn" id="submitBtn">この妖怪を投稿する</button>
+    </form>
   </div>
 
-  <div class="links" id="links" style="display:none">
+  <section class="blk">
+    <h2><span class="en">Field notes</span>いま集まっている妖怪</h2>
+    <p class="note">職場で見つかった、図鑑にまだいない妖怪たち。</p>
+    <div id="gallery"><div class="state">読み込んでいます…</div></div>
+  </section>
+
+  <div class="links">
     <a href="./index.html"><span>あなたの会社の妖怪を診断する</span><span class="arw">→</span></a>
-    <a href="./gallery.html"><span>まだ図鑑にない、職場の妖怪を教える</span><span class="arw">→</span></a>
     <a href="./zukan.html"><span>10体すべての妖怪図鑑を見る</span><span class="arw">→</span></a>
-    <a href="./workshop.html"><span>妖怪と式神ワークショップ</span><span class="arw">→</span></a>
+    <a href="./ranking.html"><span>日本の組織の妖怪ランキングを見る</span><span class="arw">→</span></a>
   </div>
 
   <div class="foot">
@@ -190,87 +217,60 @@
 </footer>
 
 <script>
-const YOKAI = {
-  1:{name:"一ツ目正論", img:"assets/img/yokai-01-hitotsume.jpg"},
-  2:{name:"座敷固定", img:"assets/img/yokai-02-zashiki.jpg"},
-  3:{name:"言霊直撃", img:"assets/img/yokai-03-kotodama.jpg"},
-  4:{name:"空気喰らい", img:"assets/img/yokai-04-kuuki.jpg"},
-  5:{name:"白黒鬼", img:"assets/img/yokai-05-shirokuro.jpg"},
-  6:{name:"目先坊", img:"assets/img/yokai-06-mesaki.jpg"},
-  7:{name:"即反応丸", img:"assets/img/yokai-07-sokuhan.jpg"},
-  8:{name:"今今爺", img:"assets/img/yokai-08-imaima.jpg"},
-  9:{name:"犯人探し狐", img:"assets/img/yokai-09-hannin.jpg"},
-  10:{name:"前例守", img:"assets/img/yokai-10-zenrei.jpg"}
-};
-const STATS_API='https://democracy-fitness-survey.vercel.app/api/yokai-stats';
+const SUBMIT_API='https://democracy-fitness-survey.vercel.app/api/yokai-submission';
+const GALLERY_API='https://democracy-fitness-survey.vercel.app/api/yokai-gallery';
 
-function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
 
-function rankRows(list, denom){
-  if(!list.length) return '<div class="state">まだデータがありません。</div>';
-  const max=Math.max.apply(null, list.map(r=>r.n));
-  return list.map((r,i)=>{
-    const y=YOKAI[r.yokai_id]; if(!y) return '';
-    const pct = denom>0 ? Math.round(r.n/denom*100) : 0;
-    const barW = max>0 ? Math.round(r.n/max*100) : 0;
-    return `
-      <div class="rank-row${i===0?' top':''}">
-        <div class="rank-no">${i+1}</div>
-        <img class="rank-img" src="${y.img}" alt="${esc(y.name)}" loading="lazy" decoding="async">
-        <div class="rank-body">
-          <div class="rank-head">
-            <span class="rank-name">${esc(y.name)}</span>
-            <span class="rank-n"><b>${r.n}</b>件 ・ ${pct}%</span>
-          </div>
-          <div class="rank-bar"><i style="width:${barW}%"></i></div>
-        </div>
-      </div>`;
+// --- 投稿フォーム ---
+const form=document.getElementById('submitForm');
+const btn=document.getElementById('submitBtn');
+const errEl=document.getElementById('formErr');
+function showErr(m){ errEl.textContent=m; errEl.style.display='block'; }
+form.addEventListener('submit',ev=>{
+  ev.preventDefault();
+  errEl.style.display='none';
+  const description=document.getElementById('f-desc').value.trim();
+  if(description.length<4){ showErr('どんな妖怪か、もう少しだけ教えてください。'); return; }
+  const payload={
+    name: document.getElementById('f-name').value.trim()||null,
+    description,
+    kuse: document.getElementById('f-kuse').value.trim()||null
+  };
+  btn.disabled=true; btn.textContent='送信中…';
+  fetch(SUBMIT_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(r=>{ if(!r.ok) throw new Error('http '+r.status); return r.json(); })
+    .then(()=>{
+      document.getElementById('formWrap').innerHTML=
+        '<div class="form"><div class="thanks">'+
+        '<div class="th">投稿ありがとうございます。</div>'+
+        '<div class="td">森本が確認し、選ばれた妖怪はこのギャラリーに加わります。</div>'+
+        '</div></div>';
+      window.scrollTo({top:0,behavior:'smooth'});
+    })
+    .catch(()=>{ showErr('送信に失敗しました。時間をおいて、もう一度お試しください。'); btn.disabled=false; btn.textContent='この妖怪を投稿する'; });
+});
+
+// --- ギャラリー ---
+function renderGallery(items){
+  const el=document.getElementById('gallery');
+  if(!items.length){ el.innerHTML='<div class="state">まだ掲載された妖怪はいません。<br>あなたの職場の妖怪が、最初の一体になるかもしれません。</div>'; return; }
+  el.innerHTML=items.map(it=>{
+    const seed=it.source==='official-seed';
+    const name=esc(it.name)|| '名もなき妖怪';
+    const tag=seed?'<span class="g-tag">編集部</span>':'<span class="g-tag post">投稿</span>';
+    const kuse=it.kuse?`<div class="g-kuse">口癖：「${esc(it.kuse)}」</div>`:'';
+    return `<div class="g-card${seed?' seed':''}">
+      <div class="g-head"><span class="g-name">${name}</span>${tag}</div>
+      <div class="g-desc">${esc(it.description)}</div>
+      ${kuse}
+    </div>`;
   }).join('');
 }
-
-function render(data){
-  const total=data.total||0;
-  const mainSum=(data.main||[]).reduce((a,r)=>a+r.n,0);
-  document.getElementById('total').style.display='';
-  document.getElementById('totalNum').textContent=total.toLocaleString('ja-JP')+' 回';
-  if(data.noYokai>0){
-    document.getElementById('noYokai').textContent='うち、妖怪が出なかった（式神が機能していた）診断：'+data.noYokai.toLocaleString('ja-JP')+' 回';
-  }
-
-  if(total===0){
-    document.getElementById('content').innerHTML=
-      '<div class="state">まだ集計データがありません。<br>あなたの会社の妖怪を診断すると、この集計に加わります。</div>'+
-      '<a class="btn" href="./index.html">会社の妖怪を診断する ▶</a>';
-    document.getElementById('links').style.display='';
-    return;
-  }
-
-  const html=`
-    <section class="blk">
-      <h2><span class="en">Most common #1</span>一番強く棲んでいた妖怪</h2>
-      <p class="note">診断で「1位」になった妖怪の割合（妖怪が出た${mainSum.toLocaleString('ja-JP')}回のうち）。</p>
-      ${rankRows(data.main||[], mainSum)}
-    </section>
-    <section class="blk">
-      <h2><span class="en">Appearance rate</span>よく現れる妖怪（全体傾向）</h2>
-      <p class="note">1位に限らず、診断で「気配があった」割合（全${total.toLocaleString('ja-JP')}回のうち）。</p>
-      ${rankRows(data.appearance||[], total)}
-    </section>`;
-  document.getElementById('content').innerHTML=html;
-  document.getElementById('links').style.display='';
-  // バーのアニメーション（初期0→実値）
-  requestAnimationFrame(()=>{ document.querySelectorAll('.rank-bar i').forEach(el=>{const w=el.style.width;el.style.width='0';requestAnimationFrame(()=>{el.style.width=w;});}); });
-}
-
-fetch(STATS_API,{cache:'no-store'})
+fetch(GALLERY_API,{cache:'no-store'})
   .then(r=>{ if(!r.ok) throw new Error('http '+r.status); return r.json(); })
-  .then(render)
-  .catch(()=>{
-    document.getElementById('content').innerHTML=
-      '<div class="state err">集計の取得に失敗しました。<br>時間をおいて、もう一度お試しください。</div>'+
-      '<a class="btn" href="./index.html">会社の妖怪を診断する ▶</a>';
-    document.getElementById('links').style.display='';
-  });
+  .then(d=>renderGallery(d.items||[]))
+  .catch(()=>{ document.getElementById('gallery').innerHTML='<div class="state err">ギャラリーの取得に失敗しました。時間をおいてお試しください。</div>'; });
 </script>
 <script>
 const hamburger = document.getElementById('hamburger');

@@ -85,6 +85,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://kizukikumitate.com/yokai/gallery.html</loc>
+    <lastmod>2026-07-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kizukikumitate.com/yokai/workshop.html</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
