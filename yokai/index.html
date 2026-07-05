@@ -195,6 +195,7 @@
   <a href="../od-program.html">組織開発プログラム</a>
   <a href="../dialogue-program.html">対話力向上プログラム</a>
   <a href="../social-leader-coaching.html">リーダー向けコーチング</a>
+  <a href="./workshop.html">妖怪と式神ワークショップ</a>
   <a href="../index.html#contact">Contact</a>
 </div>
 
@@ -246,7 +247,7 @@ let qi=0, scores={}, picked=[]; // picked[qi] = Set of yids
 
 function reset(){qi=0;scores={};picked=DATA.questions.map(()=>new Set());DATA.yokai.forEach(y=>scores[y.id]=0);}
 function start(){reset();show('quiz');render();}
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo(0,0);}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo({top:0,left:0,behavior:'instant'});}
 
 function render(){
   const q=DATA.questions[qi];
