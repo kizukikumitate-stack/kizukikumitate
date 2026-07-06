@@ -179,6 +179,53 @@
   .zukan-link:hover { background: rgba(217,164,65,0.12); }
 
   /* ===== 私たちの持ち場 ===== */
+  /* ===== 現実の目盛り（実証と数字） ===== */
+  #evidence { padding: 7rem 2rem; background: var(--paper); }
+  .ev-inner { max-width: 860px; margin: 0 auto; }
+  .ev-head { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+  .ev-head .eyebrow { color: var(--dawn); margin-bottom: 1.2rem; }
+  .ev-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); letter-spacing: 0.05em; line-height: 1.8; }
+  .ev-head p { margin-top: 1.4rem; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: #4a4652; }
+  .ev-fact { background: #fff; border: 1px solid #e7e2d4; border-radius: 14px; padding: 2.4rem 2.2rem; margin-bottom: 2.2rem; }
+  .ev-fact-label { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dawn); margin-bottom: 0.9rem; }
+  .ev-fact h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.06em; line-height: 1.8; margin-bottom: 1.2rem; }
+  .ev-fact p { font-size: 0.95rem; line-height: 2.25; font-weight: 300; color: #33323a; }
+  .ev-fact p strong { font-weight: 600; }
+  .ev-fact p + p { margin-top: 1.1rem; }
+  .ev-bignum { text-align: center; margin: 1.8rem 0 2rem; }
+  .ev-bignum .num { font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(2.6rem, 7vw, 4rem); color: var(--dawn); letter-spacing: 0.02em; line-height: 1; }
+  .ev-bignum .num-note { font-family: 'Shippori Mincho', serif; font-size: 0.88rem; color: var(--mid-gray); margin-top: 0.7rem; letter-spacing: 0.08em; }
+  .ev-bars { margin: 2rem 0 0.6rem; display: flex; flex-direction: column; gap: 1rem; }
+  .ev-bar-row { display: grid; grid-template-columns: 11.5em 1fr 3.4em; align-items: center; gap: 0.9rem; }
+  .ev-bar-name { font-size: 0.85rem; letter-spacing: 0.04em; color: #4a4652; }
+  .ev-bar-track { height: 14px; background: #f0ece0; border-radius: 999px; overflow: hidden; }
+  .ev-bar-fill { height: 100%; border-radius: 999px; width: 0; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .ev-bar-fill.alc { background: #b9b2a3; }
+  .ev-bar-fill.cos { background: #d9c48f; }
+  .ev-bar-fill.pov { background: var(--dawn); }
+  .ev-bar-val { font-family: 'Jost', sans-serif; font-size: 0.85rem; color: #4a4652; text-align: right; }
+  .ev-bar-caption { font-size: 0.78rem; color: var(--mid-gray); margin-top: 0.9rem; line-height: 1.9; font-weight: 300; }
+  .ev-note { background: var(--teal-light); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 1.3rem 1.5rem; margin-top: 1.6rem; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #2c4a41; }
+  .ev-sources { margin-top: 2.4rem; padding-top: 1.6rem; border-top: 1px solid #e7e2d4; }
+  .ev-sources .src-label { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 0.8rem; }
+  .ev-sources ul { list-style: none; }
+  .ev-sources li { font-size: 0.8rem; line-height: 2; font-weight: 300; color: #4a4652; }
+  .ev-sources a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.3); }
+  .ev-sources a:hover { border-bottom-color: var(--forest); }
+  .ev-fact-label.est { color: var(--purple); }
+  .ev-res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin: 1.8rem 0 1.6rem; }
+  .ev-res-cell { background: #faf8f2; border: 1px solid #e7e2d4; border-radius: 12px; padding: 1.5rem 1.3rem; text-align: center; }
+  .ev-res-cell .rc-kind { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.7rem; }
+  .ev-res-cell .rc-num { font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.8rem); color: var(--charcoal); line-height: 1.3; }
+  .ev-res-cell .rc-unit { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; color: var(--mid-gray); margin-top: 0.5rem; letter-spacing: 0.06em; line-height: 1.8; }
+  .ev-res-cell .rc-desc { font-size: 0.8rem; line-height: 2; font-weight: 300; color: #4a4652; margin-top: 0.9rem; text-align: left; }
+  @media (max-width: 760px) { .ev-res-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) {
+    .ev-fact { padding: 1.8rem 1.4rem; }
+    .ev-bar-row { grid-template-columns: 1fr; gap: 0.35rem; }
+    .ev-bar-val { text-align: left; }
+  }
+
   #merge { padding: 4.5rem 2rem 5rem; background: #f1ede2; text-align: center; }
   .merge-mark { width: 1px; height: 64px; margin: 0 auto 1.6rem; background: linear-gradient(to bottom, transparent, var(--dawn)); }
   #merge h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.08em; }
@@ -972,6 +1019,134 @@
   </div>
 </section>
 
+<section id="evidence">
+  <div class="ev-inner">
+    <div class="ev-head fade-up">
+      <div class="eyebrow">Reality Check</div>
+      <h2>果てしない道に、<br>現実の目盛りを打つ。</h2>
+      <p>
+        「世界平和」は、夢物語に聞こえます。でも研究の世界では、現実的に目指しうるラインはかなり具体的に見えています。ここに、二つの事実を置いておきます。
+      </p>
+    </div>
+
+    <div class="ev-fact fade-up">
+      <div class="ev-fact-label">Fact 1 / 平和は実証済み</div>
+      <h3>戦争のない関係は、すでに実在する。</h3>
+      <p>
+        北欧諸国のあいだ。EU域内。かつて何度も戦争をした国同士が、いまでは<strong>「戦争という選択肢そのものが思考の外にある」</strong>関係を築いています。政治学ではこれを安全保障共同体と呼びます。つまり、地域単位の恒久的な平和はユートピアではなく、実証済みの現実です。
+      </p>
+      <p>
+        だからこのロードマップが目指すのは「対立のない世界」ではありません。対立はこれからも生まれる。それは多様性の裏面だからです。目指すのは、<strong>対立を殺し合いに転化させない社会的なインフラが、世界の標準装備になること</strong>。そして、鍛えるのをやめれば衰える筋肉と同じように、このインフラを維持し続ける意思を持つ社会を増やすことです。
+      </p>
+    </div>
+
+    <div class="ev-fact fade-up">
+      <div class="ev-fact-label">Fact 2 / 貧困の値札</div>
+      <h3>貧困の撲滅には、すでに値札が付いている。</h3>
+      <div class="ev-bignum">
+        <div class="num">0.3<span style="font-size:0.5em">%</span></div>
+        <div class="num-note">極度の貧困をほぼ撲滅するのに必要な、世界GDPに対する割合</div>
+      </div>
+      <p>
+        2025年末に発表された研究（UCバークレー・スタンフォード・UCサンディエゴ）によれば、極度の貧困——1日2.15ドル未満で暮らす状態——をほぼ撲滅するのに必要な資金は<strong>年間約3,180億ドル、世界GDPのわずか0.3%</strong>と試算されています。85カ国・約5億3,300万人が対象です。
+      </p>
+      <div class="ev-bars" id="evBars" aria-label="世界の年間支出の比較（世界GDP比）">
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">アルコール飲料への世界の支出</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill alc" data-w="100%"></div></div>
+          <span class="ev-bar-val">2.2%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">化粧品への世界の支出</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill cos" data-w="27.3%"></div></div>
+          <span class="ev-bar-val">0.6%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">極度の貧困の撲滅</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill pov" data-w="13.6%"></div></div>
+          <span class="ev-bar-val">0.3%</span>
+        </div>
+      </div>
+      <p class="ev-bar-caption">世界GDPに対する年間支出の割合。極度の貧困の撲滅コストは、世界がアルコール飲料に使う金額の約7分の1です。</p>
+      <p>
+        つまり、<strong>お金の総量は、もう問題ではない</strong>。足りていないのは、資金を届けきるガバナンスと、拠出する側の政治的な意思です。分解すれば——遠くの貧困を自分ごとにできない共感の射程。「自分だけが払えば損をする」という集合行為のジレンマ。そして、合意をつくり、制度に翻訳し、維持し続ける社会の筋力。これは個人が一人で賢くなれば解ける問題ではなく、<strong>利害の違う人々が共通の事実を確かめ、合意をつくり、制度として維持する「集合的な能力」</strong>の問題です。それこそが、このページで「筋肉」と呼んできたものです。
+      </p>
+      <div class="ev-note">
+        念のため。これは「貧困は個人の認知のせい」という意味ではありません。因果はむしろ逆で、貧困が人の認知資源を消耗させることが研究で示されています。鍛える必要があるのは貧困の中にいる人ではなく、資金と制度を動かせる側——つまり、私たちの方です。
+      </div>
+      <div class="ev-sources">
+        <div class="src-label">Sources</div>
+        <ul>
+          <li>Sahoo, Blumenstock, Niehaus, Selker &amp; Wager (2025) “What Would It Cost to End Extreme Poverty?” <a href="https://www.nber.org/papers/w34583" target="_blank" rel="noopener">NBER Working Paper 34583</a> ／ <a href="https://cega.berkeley.edu/end-of-poverty/" target="_blank" rel="noopener">CEGA解説ページ</a></li>
+          <li>UNU-WIDER（国連大学世界開発経済研究所）<a href="https://www.wider.unu.edu/publication/new-estimates-cost-ending-poverty" target="_blank" rel="noopener">“New estimates of the cost of ending poverty”</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ev-fact fade-up">
+      <div class="ev-fact-label est">Estimate / 必要なリソース</div>
+      <h3>では、世界として本気で挑むなら、<br>何がどれだけ要るのか。</h3>
+      <p>
+        上の二つの現実ライン——極度の貧困のほぼ撲滅と、対立を暴力に転化させない社会インフラの標準装備化——に世界として挑む場合のリソースを、桁の把握として試算してみます（精密な積算ではなく、オーダー感です）。
+      </p>
+
+      <div class="ev-res-grid">
+        <div class="ev-res-cell">
+          <div class="rc-kind">Money</div>
+          <div class="rc-num">4,000〜5,000<span style="font-size:0.55em">億ドル/年</span></div>
+          <div class="rc-unit">世界GDPの約0.4〜0.5%</div>
+          <p class="rc-desc">貧困側に約3,500〜4,000億ドル（現金移転＋自立成長への投資）、平和インフラ側——紛争予防・熟議制度・市民教育——に約1,000〜1,500億ドル。</p>
+        </div>
+        <div class="ev-res-cell">
+          <div class="rc-kind">People</div>
+          <div class="rc-num">150〜200<span style="font-size:0.55em">万人</span></div>
+          <div class="rc-unit">新規のフルタイム人材</div>
+          <p class="rc-desc">5.3億人への移転を運用する行政・フィールド人材に50〜100万人。人口1万人あたり1人の対話トレーナーで約80万人——弁護士や消防士の人口比と同水準です。加えて、世界の教員約9,000万人への対話教育の組み込み。</p>
+        </div>
+        <div class="ev-res-cell">
+          <div class="rc-kind">Time</div>
+          <div class="rc-num">1〜2<span style="font-size:0.55em">世代</span></div>
+          <div class="rc-unit">貧困に約30年、平和に約50年</div>
+          <p class="rc-desc">資金が流れれば貧困の統計上の解消は数年。ただし移転なしで戻らない状態までは1世代。「戦争が思考の外にある」認知の世代交代には、EUが約40年かけたように、2世代を見るべきです。</p>
+        </div>
+      </div>
+
+      <p>
+        この規模感を、世界がいま実際に使っているお金と並べてみます。
+      </p>
+      <div class="ev-bars" aria-label="世界GDP比の支出比較">
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">世界の軍事費（2025年）</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill alc" data-w="100%"></div></div>
+          <span class="ev-bar-val">2.5%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">このチャレンジの総コスト（試算）</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill pov" data-w="20%"></div></div>
+          <span class="ev-bar-val">0.5%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">現在の平和構築・平和維持への支出</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill cos" data-w="2%"></div></div>
+          <span class="ev-bar-val">0.05%</span>
+        </div>
+      </div>
+      <p class="ev-bar-caption">世界GDPに対する年間支出の割合。世界の軍事費は2025年に2兆8,870億ドル（GDP比2.5%）に達した一方、平和構築・平和維持への支出は492億ドル——軍事費のわずか0.5%です。このチャレンジの総コストは、軍事費の約5分の1に収まります。</p>
+      <p>
+        もう一つ、比較すべき数字があります。暴力と紛争が世界経済に与えている損失は、<strong>年間21.8兆ドル（購買力平価）、世界GDPの10.5%</strong>と推計されています。つまりこのチャレンジは、その損失の20分の1程度のコストで、損失そのものを削りにいく投資です。人材の規模も、世界の人道支援セクター（約60万人）を3倍にする程度——「人類には到底無理な規模」ではなく、<strong>政治的意思さえ束ねられれば手が届く規模</strong>。ボトルネックがお金でも人手でもなく、合意をつくる集合的な能力にあることが、ここからも見えてきます。
+      </p>
+      <div class="ev-sources">
+        <div class="src-label">Sources &amp; Note</div>
+        <ul>
+          <li>軍事費：SIPRI <a href="https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025" target="_blank" rel="noopener">“Trends in World Military Expenditure, 2025”</a>（2026年4月）</li>
+          <li>暴力の経済損失・平和構築支出：Institute for Economics &amp; Peace <a href="https://www.economicsandpeace.org/wp-content/uploads/2026/06/Global-Peace-Index-2026-Report.pdf" target="_blank" rel="noopener">“Global Peace Index 2026”</a></li>
+          <li>注：お金・人・時間の見積もり自体は、上記の公表データと貧困研究（Fact 2）を足場にした当工房の試算です。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="merge">
   <div class="merge-mark" aria-hidden="true"></div>
   <h2 class="fade-up">この地図の中の、私たちの持ち場。</h2>
@@ -1086,6 +1261,28 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // コスト比較バーのアニメーション（全グループ対応）
+  const barGroups = document.querySelectorAll('.ev-bars');
+  if (barGroups.length) {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    barGroups.forEach(group => {
+      const fills = group.querySelectorAll('.ev-bar-fill');
+      if (prefersReduced) {
+        fills.forEach(f => { f.style.width = f.dataset.w; });
+      } else {
+        const barIo = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) {
+              fills.forEach((f, i) => setTimeout(() => { f.style.width = f.dataset.w; }, i * 180));
+              barIo.disconnect();
+            }
+          });
+        }, { threshold: 0.4 });
+        barIo.observe(group);
+      }
+    });
+  }
 
   const fill = document.getElementById('lineFill');
   const track = document.querySelector('.rm-track');
