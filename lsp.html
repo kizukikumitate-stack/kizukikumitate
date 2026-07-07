@@ -71,6 +71,39 @@
   }
   .nav-links a:hover, .nav-links a.active { color: var(--lsp-red); }
 
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Noto Sans JP', 'Jost', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--lsp-red); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--lsp-red); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
   /* ===== HERO ===== */
   .lsp-hero {
     min-height: 100vh;
@@ -419,8 +452,18 @@
   .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
   .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
   .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
-  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
   .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  /* mobile accordion */
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
+  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -495,7 +538,7 @@
     nav { padding-left: 1.25rem; padding-right: 1.25rem; }
     .nav-links { gap: 1rem; }
   }
-  @media (max-width: 1480px) {
+  @media (max-width: 900px) {
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
   }
@@ -523,14 +566,33 @@
   </a>
   <ul class="nav-links">
     <li><a href="./index.html">Home</a></li>
-    <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
-    <li><a href="./lsp.html" class="active">LSP</a></li>
-      <li><a href="./topaasia.html">対話用カード</a></li>
-    <li><a href="./education-program.html">研修設計プログラム</a></li>
-    <li><a href="./od-program.html">組織開発プログラム</a></li>
-    <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
-    <li><a href="./social-leader-coaching.html">リーダー向けコーチング</a></li>
-    <li><a href="./index.html#contact">Contact</a></li>
+    <li><a href="./roadmap.html">目指す未来</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html" class="active">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">補助情報 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="./index.html#contact">Contact</a>
+      </div>
+    </li>
   </ul>
   <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
     <span></span><span></span><span></span>
@@ -539,22 +601,33 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="mobileClose">✕</button>
   <a href="./index.html">Home</a>
-  <div class="mobile-menu-label">ソリューション</div>
-  <a href="./education-program.html">研修設計プログラム</a>
-  <a href="./od-program.html">組織開発プログラム</a>
-  <a href="./dialogue-program.html">対話力向上プログラム</a>
-  <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
-  <div class="mobile-menu-label">手法・ワークショップ</div>
-  <a href="./democracy-fitness.html">Democracy Fitness</a>
-  <a href="./lsp.html" class="active">LSP</a>
-  <a href="./topaasia.html">対話用カード</a>
-  <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
-  <div class="mobile-menu-label">目指す未来</div>
-  <a href="./roadmap.html">世界平和へのロードマップ</a>
-  <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
-  <div class="mobile-menu-label">補助情報</div>
-  <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-  <a href="./index.html#contact">Contact</a>
+  <a href="./roadmap.html" class="mobile-cat-link">目指す未来</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html" class="active">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">補助情報 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="./index.html#contact">Contact</a>
+    </div>
+  </div>
 </div>
 
 <!-- ===== HERO ===== -->
@@ -856,6 +929,7 @@ if (hamburger && mobileMenu) {
   hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
   if (mobileClose) mobileClose.addEventListener('click', closeMenu);
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
 }
 </script>
 </body>
