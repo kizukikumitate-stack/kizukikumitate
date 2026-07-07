@@ -84,11 +84,12 @@
   .nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-hamburger.open span:nth-child(2){opacity:0}
   .nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:center;align-items:center;gap:0;padding:5rem 2rem 3rem}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem}
   .mobile-menu.open{display:flex}
-  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.3rem;font-weight:600;color:#222;text-decoration:none;padding:0.9rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
   .mobile-menu a:first-child{border-top:1px solid #e8e8e8}
   .mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+  .mobile-menu-label{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:0.72rem;font-weight:500;letter-spacing:0.25em;color:#8a97a5;width:100%;text-align:center;margin:1.6rem 0 0.3rem}
   .mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
   footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center}
   .footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9);white-space:nowrap}
@@ -140,16 +141,21 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="mobileClose">✕</button>
   <a href="../index.html">Home</a>
-  <a href="../democracy-fitness.html">Democracy Fitness</a>
-  <a href="../lsp.html">LSP</a>
-  <a href="../topaasia.html">対話用カード</a>
+  <div class="mobile-menu-label">ソリューション</div>
   <a href="../education-program.html">研修設計プログラム</a>
   <a href="../od-program.html">組織開発プログラム</a>
   <a href="../dialogue-program.html">対話力向上プログラム</a>
   <a href="../social-leader-coaching.html">リーダー向けコーチング</a>
+  <div class="mobile-menu-label">手法・ワークショップ</div>
+  <a href="../democracy-fitness.html">Democracy Fitness</a>
+  <a href="../lsp.html">LSP</a>
+  <a href="../topaasia.html">対話用カード</a>
   <a href="./workshop.html">妖怪と式神ワークショップ</a>
+  <div class="mobile-menu-label">目指す未来</div>
   <a href="../roadmap.html">世界平和へのロードマップ</a>
   <a href="../dialogue-zukan.html">世界の対話の技法図鑑</a>
+  <div class="mobile-menu-label">補助情報</div>
+  <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
   <a href="../index.html#contact">Contact</a>
 </div>
 
