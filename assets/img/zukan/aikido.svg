@@ -1,0 +1,34 @@
+<svg viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="合気道：二人が手をつなぎ大きな円を描いて調和する">
+  <rect width="1000" height="800" fill="#faf8f2"/>
+  <ellipse cx="500" cy="690" rx="290" ry="30" fill="#efe6d4"/>
+
+  <!-- 動きの弧（調和の回転） -->
+  <path d="M270 500 A 250 250 0 1 1 470 735" fill="none" stroke="#d9a441" stroke-width="12" stroke-linecap="round" opacity="0.5"/>
+  <path d="M470 735 l -24 -10 l 6 -25 z" fill="#d9a441" opacity="0.65"/>
+
+  <!-- 人物A（ティール） -->
+  <g transform="rotate(9 400 480)">
+    <path d="M430 430 Q 470 405 505 415" fill="none" stroke="#0f6e56" stroke-width="30" stroke-linecap="round"/>
+    <rect x="330" y="360" width="150" height="270" rx="70" fill="#0f6e56"/>
+    <circle cx="405" cy="330" r="55" fill="#243a63"/>
+    <circle cx="366" cy="300" r="15" fill="#243a63"/>
+  </g>
+
+  <!-- 人物B（朱） -->
+  <g transform="rotate(-9 600 480)">
+    <path d="M570 430 Q 530 405 495 415" fill="none" stroke="#d85a30" stroke-width="30" stroke-linecap="round"/>
+    <rect x="520" y="360" width="150" height="270" rx="70" fill="#d85a30"/>
+    <circle cx="595" cy="330" r="55" fill="#243a63"/>
+    <circle cx="634" cy="300" r="15" fill="#243a63"/>
+  </g>
+
+  <!-- つないだ手（金） -->
+  <circle cx="500" cy="415" r="22" fill="#d9a441"/>
+
+  <!-- きらめき -->
+  <g fill="#d9a441" opacity="0.85">
+    <circle cx="500" cy="175" r="5"/>
+    <circle cx="255" cy="300" r="4"/>
+    <circle cx="745" cy="300" r="4"/>
+  </g>
+</svg>
