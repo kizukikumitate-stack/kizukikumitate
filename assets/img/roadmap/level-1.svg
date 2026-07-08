@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="個人：自分の認知を観察する一人">
+  <circle cx="100" cy="100" r="92" fill="#f4ead2"/>
+  <path d="M70,142 Q70,106 100,106 Q130,106 130,142 Z" fill="#243a63"/>
+  <circle cx="100" cy="84" r="18" fill="#243a63"/>
+  <circle cx="132" cy="70" r="4" fill="#d9a441"/>
+  <circle cx="143" cy="58" r="6" fill="#d9a441"/>
+  <circle cx="158" cy="45" r="15" fill="#d9a441"/>
+  <g stroke="#0f6e56" stroke-width="3" stroke-linecap="round">
+    <line x1="158" y1="38" x2="158" y2="52"/>
+    <line x1="151" y1="45" x2="165" y2="45"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="国家と世界：地球を囲む人々">
+  <circle cx="100" cy="100" r="92" fill="#e6e4f2"/>
+  <circle cx="100" cy="84" r="40" fill="#0f6e56"/>
+  <path d="M74,70 q12,-8 24,-2 q-4,10 -17,10 q-9,0 -7,-8Z" fill="#7fbfa8"/>
+  <path d="M110,90 q13,-3 15,9 q-9,9 -18,3 q-5,-8 3,-12Z" fill="#7fbfa8"/>
+  <path d="M100,44 A40,40 0 0,1 100,124" fill="none" stroke="#0c5946" stroke-width="2" opacity="0.55"/>
+  <line x1="60" y1="84" x2="140" y2="84" stroke="#0c5946" stroke-width="2" opacity="0.55"/>
+  <circle cx="60" cy="126" r="11" fill="#d85a30"/>
+  <path d="M45,152 Q45,136 60,136 Q75,136 75,152 Z" fill="#d85a30"/>
+  <circle cx="140" cy="126" r="11" fill="#1a5fad"/>
+  <path d="M125,152 Q125,136 140,136 Q155,136 155,152 Z" fill="#1a5fad"/>
+  <circle cx="84" cy="134" r="12" fill="#d9a441"/>
+  <path d="M67,163 Q67,146 84,146 Q101,146 101,163 Z" fill="#d9a441"/>
+  <circle cx="116" cy="134" r="12" fill="#243a63"/>
+  <path d="M99,163 Q99,146 116,146 Q133,146 133,163 Z" fill="#243a63"/>
+</svg>

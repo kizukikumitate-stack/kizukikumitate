@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="地域：ひとつの町とご近所">
+  <circle cx="100" cy="100" r="92" fill="#f7e3d8"/>
+  <rect x="44" y="98" width="36" height="36" rx="3" fill="#fbf7ee" stroke="#243a63" stroke-width="2.5"/>
+  <polygon points="41,99 62,76 83,99" fill="#0f6e56"/>
+  <rect x="56" y="114" width="12" height="20" fill="#243a63"/>
+  <rect x="82" y="80" width="42" height="54" rx="3" fill="#fbf7ee" stroke="#243a63" stroke-width="2.5"/>
+  <polygon points="79,81 103,54 127,81" fill="#d85a30"/>
+  <rect x="96" y="108" width="15" height="26" fill="#243a63"/>
+  <rect x="88" y="90" width="11" height="11" fill="#cfe0d8" stroke="#243a63" stroke-width="1.5"/>
+  <rect x="108" y="90" width="11" height="11" fill="#cfe0d8" stroke="#243a63" stroke-width="1.5"/>
+  <rect x="126" y="100" width="34" height="34" rx="3" fill="#fbf7ee" stroke="#243a63" stroke-width="2.5"/>
+  <polygon points="123,101 143,80 163,101" fill="#d9a441"/>
+  <rect x="137" y="116" width="12" height="18" fill="#243a63"/>
+  <circle cx="80" cy="132" r="10" fill="#3c3489"/>
+  <path d="M66,154 Q66,138 80,138 Q94,138 94,154 Z" fill="#3c3489"/>
+  <circle cx="122" cy="132" r="10" fill="#1a5fad"/>
+  <path d="M108,154 Q108,138 122,138 Q136,138 136,154 Z" fill="#1a5fad"/>
+</svg>

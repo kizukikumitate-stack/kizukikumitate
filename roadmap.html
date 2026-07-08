@@ -166,9 +166,12 @@
   .tf-head p { margin-top: 1.4rem; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: #4a4652; }
   .level-block { max-width: 1020px; margin: 0 auto 3.2rem; }
   .level-block:last-of-type { margin-bottom: 0; }
-  .level-name { display: flex; align-items: baseline; gap: 0.8rem; margin-bottom: 1.1rem; }
+  .level-name { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.3rem; }
+  .level-art { width: 84px; height: 84px; flex-shrink: 0; display: block; }
+  .level-label { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
   .level-name .ln-num { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.28em; color: var(--dawn); text-transform: uppercase; }
   .level-name h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; }
+  @media (max-width: 540px) { .level-art { width: 64px; height: 64px; } .level-name { gap: 0.8rem; } }
   .ba-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0.9rem; }
   @media (max-width: 860px) { .ba-grid { grid-template-columns: minmax(0, 1fr); } }
   .ba-card { border-radius: 12px; padding: 1.3rem 1.4rem 1.5rem; }
@@ -595,7 +598,7 @@
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><span class="ln-num">Level 1</span><h3>個人</h3></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-1.svg" alt="個人：自分の認知を観察する一人のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 1</span><h3>個人</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
@@ -613,7 +616,7 @@
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><span class="ln-num">Level 2</span><h3>職場</h3></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-2.svg" alt="職場：対話するチームのイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 2</span><h3>職場</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
@@ -631,7 +634,7 @@
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><span class="ln-num">Level 3</span><h3>地域</h3></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-3.svg" alt="地域：ひとつの町とご近所のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 3</span><h3>地域</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
@@ -649,7 +652,7 @@
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><span class="ln-num">Level 4</span><h3>国家</h3></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-4.svg" alt="国家と世界：地球を囲む人々のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 4</span><h3>国家</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
