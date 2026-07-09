@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ノーベル平和賞 ― 125年の系譜 | きづきくみたて工房</title>
+<meta name="description" content="ノーベル平和賞が125年（1901–2025）で照らしてきた対象は、条約や停戦から、教育・証言・和解・民主主義へと広がってきた。先人たちの声と歴代受賞者の全リストを、時代ごとにまとめた資料集。">
+<link rel="canonical" href="https://kizukikumitate.com/nobel-peace.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ノーベル平和賞 ― 125年の系譜｜先人たちの声と全受賞者リスト">
+<meta property="og:description" content="平和に「何が必要だ」と先人たちは言ってきたか。8人の声と受賞講演の言葉、そして1901–2025の歴代受賞者を時代ごとに。世界平和へのロードマップの資料編。">
+<meta property="og:url" content="https://kizukikumitate.com/nobel-peace.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --gold:       #d9a441;
+    --gold-soft:  #f0d9a8;
+    --teal:       #0f6e56;
+    --teal-light: #e1f5ee;
+    --dawn:       #d85a30;
+    --dawn-soft:  #f6e3d8;
+    --paper:      #faf8f2;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; }
+
+  /* ===== NAV（サイト共通） ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  /* mobile accordion */
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
+  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+      .nav-logo { margin-right: 0; }
+  }
+
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* ===== HERO：夜 ===== */
+  #hero {
+    min-height: 92vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 9rem 2rem 6rem;
+    background:
+      radial-gradient(ellipse 70% 45% at 50% 118%, rgba(216,90,48,0.28), transparent 65%),
+      radial-gradient(ellipse 55% 40% at 18% 8%, rgba(60,52,137,0.5), transparent 70%),
+      var(--ink-deep);
+    color: var(--paper); position: relative;
+  }
+  #hero .eyebrow { color: var(--gold); margin-bottom: 1.6rem; }
+  #hero h1 {
+    font-family: 'Shippori Mincho', serif; font-weight: 800;
+    font-size: clamp(1.9rem, 5.2vw, 3.6rem); line-height: 1.55; letter-spacing: 0.05em;
+  }
+  #hero h1 .gold { color: var(--gold); }
+  #hero .hero-sub {
+    max-width: 640px; margin-top: 2.2rem; font-size: 0.98rem; line-height: 2.2;
+    font-weight: 300; color: rgba(250,248,242,0.82);
+  }
+  .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .stars i { position: absolute; width: 2px; height: 2px; border-radius: 50%; background: rgba(240,217,168,0.8); animation: twinkle 3.4s ease-in-out infinite; }
+  @keyframes twinkle { 0%,100% { opacity: 0.15; } 50% { opacity: 0.9; } }
+  @media (prefers-reduced-motion: reduce) { .stars i { animation: none; opacity: 0.5; } }
+  .hero-scroll { margin-top: 4rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; color: rgba(250,248,242,0.55); }
+  .hero-scroll::after { content: ""; display: block; width: 1px; height: 52px; margin: 0.9rem auto 0; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+  /* ===== 理屈：戦争の最小単位 ===== */
+  #logic { padding: 7rem 2rem; background: var(--paper); }
+  .logic-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  #logic .eyebrow { color: var(--dawn); margin-bottom: 1.4rem; }
+  #logic h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); line-height: 1.8; letter-spacing: 0.04em; }
+  #logic .logic-body { margin-top: 2.4rem; font-size: 0.98rem; line-height: 2.3; text-align: left; color: #33323a; font-weight: 300; }
+  #logic .logic-body strong { font-weight: 600; }
+  .scale-chain { display: flex; justify-content: center; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-top: 3rem; font-family: 'Shippori Mincho', serif; }
+  .scale-chain span.node { background: #fff; border: 1px solid #e3ded2; border-radius: 999px; padding: 0.5rem 1.3rem; font-size: 0.9rem; letter-spacing: 0.08em; }
+  .scale-chain span.link { color: var(--dawn); font-family: 'Jost', sans-serif; font-size: 0.8rem; }
+
+  /* ===== 鍛えると何が変わるか ===== */
+  #transform { padding: 7rem 2rem; background: #f3efe4; }
+  .tf-head { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+  .tf-head .eyebrow { color: var(--purple); margin-bottom: 1.2rem; }
+  .tf-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); letter-spacing: 0.05em; line-height: 1.7; }
+  .tf-head p { margin-top: 1.4rem; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: #4a4652; }
+  .level-block { max-width: 1020px; margin: 0 auto 3.2rem; }
+  .level-block:last-of-type { margin-bottom: 0; }
+  .level-name { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.3rem; }
+  .level-art { width: 84px; height: 84px; flex-shrink: 0; display: block; }
+  .level-label { display: flex; align-items: baseline; gap: 0.7rem; flex-wrap: wrap; }
+  .level-name .ln-num { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.28em; color: var(--dawn); text-transform: uppercase; }
+  .level-name h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.1em; }
+  @media (max-width: 540px) { .level-art { width: 64px; height: 64px; } .level-name { gap: 0.8rem; } }
+  .ba-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 0.9rem; }
+  @media (max-width: 860px) { .ba-grid { grid-template-columns: minmax(0, 1fr); } }
+  .ba-card { border-radius: 12px; padding: 1.3rem 1.4rem 1.5rem; }
+  .ba-card .ba-tag { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.66rem; letter-spacing: 0.2em; border-radius: 999px; padding: 0.24rem 0.8rem; margin-bottom: 0.8rem; }
+  .ba-card p { font-size: 0.84rem; line-height: 2.05; font-weight: 300; }
+  .ba-before { background: #ebe8f0; border: 1px solid #d4cfe2; }
+  .ba-before .ba-tag { background: #d9d3e8; color: #3c3489; }
+  .ba-before p { color: #46425c; }
+  .ba-after { background: #fdf6e1; border: 1px solid #ecd9a8; }
+  .ba-after .ba-tag { background: #f0dfae; color: #6e4e12; }
+  .ba-after p { color: #514023; }
+  .ba-peace { background: var(--dawn-soft); border: 1px solid #ecc9b6; }
+  .ba-peace .ba-tag { background: #f0cfb9; color: #7a2f16; }
+  .ba-peace p { color: #5a3626; }
+
+  /* ===== 世界の実践：地球儀 ===== */
+  #world { padding: 7rem 2rem 6rem; background: radial-gradient(ellipse 80% 60% at 50% 0%, #221d42, var(--ink-deep) 70%); color: var(--paper); }
+  .world-head { text-align: center; max-width: 740px; margin: 0 auto 3rem; }
+  .world-head .eyebrow { color: var(--gold); margin-bottom: 1.2rem; }
+  .world-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.6vw, 2.2rem); letter-spacing: 0.05em; line-height: 1.7; }
+  .world-head p { margin-top: 1.6rem; font-size: 0.94rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.8); }
+  #globeHolder { display: flex; justify-content: center; margin: 2.5rem auto 1rem; }
+  #globe { max-width: 100%; }
+  .globe-caption { text-align: center; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.74rem; letter-spacing: 0.12em; color: rgba(250,248,242,0.5); margin-bottom: 3.5rem; }
+  .globe-caption .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); vertical-align: -1px; margin: 0 0.35rem 0 0.9rem; }
+  .globe-caption .line { display: inline-block; width: 22px; height: 2px; background: var(--dawn); vertical-align: 3px; margin: 0 0.35rem 0 0.9rem; }
+
+  .practice-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; max-width: 1060px; margin: 0 auto; }
+  @media (max-width: 980px) { .practice-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 640px) { .practice-grid { grid-template-columns: minmax(0, 1fr); } }
+  .practice { background: rgba(255,255,255,0.04); border: 1px solid rgba(240,217,168,0.18); border-radius: 12px; padding: 1.4rem 1.4rem 1.5rem; position: relative; }
+  .practice .p-art { border-radius: 10px; overflow: hidden; aspect-ratio: 5 / 4; margin-bottom: 1rem; background: #f8f2e4; border: 1px solid rgba(240,217,168,0.22); }
+  .practice .p-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+  .practice .p-country { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--gold); }
+  .practice h3 { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1rem; margin: 0.55rem 0 0.45rem; letter-spacing: 0.04em; }
+  .practice p { font-size: 0.8rem; line-height: 1.95; font-weight: 300; color: rgba(250,248,242,0.75); }
+  .practice.ours { border-color: var(--gold); background: rgba(217,164,65,0.08); }
+  .practice.ours::after { content: "いま、つないでいる"; position: absolute; top: -0.7rem; right: 0.9rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; background: var(--gold); color: var(--ink-deep); border-radius: 999px; padding: 0.22rem 0.7rem; }
+  .respect { max-width: 700px; margin: 3.5rem auto 0; border: 1px solid rgba(240,217,168,0.35); border-radius: 14px; padding: 2.2rem 2.2rem 2.4rem; background: rgba(255,255,255,0.03); }
+  .respect .respect-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); text-align: center; margin-bottom: 1.2rem; }
+  .respect p { font-size: 0.9rem; line-height: 2.3; font-weight: 300; color: rgba(250,248,242,0.85); }
+  .respect p strong { font-weight: 600; color: var(--gold-soft); }
+  .voices { max-width: 1020px; margin: 3.5rem auto 0; }
+  .voices-head { text-align: center; margin-bottom: 2rem; }
+  .voices-head .voices-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.9rem; }
+  .voices-head h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.15rem, 2.6vw, 1.5rem); letter-spacing: 0.06em; color: var(--paper); }
+  .voice-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; }
+  @media (max-width: 820px) { .voice-grid { grid-template-columns: minmax(0, 1fr); } }
+  .voice { background: rgba(255,255,255,0.04); border: 1px solid rgba(240,217,168,0.18); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; padding: 1.4rem 1.5rem 1.5rem; }
+  .voice .v-who { display: flex; align-items: baseline; justify-content: space-between; gap: 0.8rem; flex-wrap: wrap; }
+  .voice .v-who h4 { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1rem; letter-spacing: 0.05em; color: var(--paper); }
+  .voice .v-year { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: rgba(250,248,242,0.55); white-space: nowrap; }
+  .voice .v-need { font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--gold); margin: 0.55rem 0 0.6rem; }
+  .voice p { font-size: 0.82rem; line-height: 2.05; font-weight: 300; color: rgba(250,248,242,0.78); }
+  .voices-close { max-width: 700px; margin: 2.4rem auto 0; text-align: center; font-size: 0.9rem; line-height: 2.25; font-weight: 300; color: rgba(250,248,242,0.85); }
+  .voices-close strong { font-weight: 600; color: var(--gold-soft); }
+  .world-note { text-align: center; max-width: 620px; margin: 3rem auto 0; font-size: 0.88rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.72); }
+  .p-more { display: inline-block; margin-top: 0.75rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.72rem; letter-spacing: 0.14em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(217,164,65,0.45); padding-bottom: 1px; }
+  .p-more:hover { border-bottom-color: var(--gold); }
+  .zukan-link { display: inline-block; margin-top: 1rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; border: 1px solid rgba(217,164,65,0.5); border-radius: 999px; padding: 0.55rem 1.4rem; transition: background 0.25s ease; }
+  .zukan-link:hover { background: rgba(217,164,65,0.12); }
+
+  /* ===== 私たちの持ち場 ===== */
+  /* ===== 現実の目盛り（実証と数字） ===== */
+  #evidence { padding: 7rem 2rem; background: var(--paper); }
+  .ev-inner { max-width: 860px; margin: 0 auto; }
+  .ev-head { text-align: center; max-width: 720px; margin: 0 auto 4rem; }
+  .ev-head .eyebrow { color: var(--dawn); margin-bottom: 1.2rem; }
+  .ev-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); letter-spacing: 0.05em; line-height: 1.8; }
+  .ev-head p { margin-top: 1.4rem; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: #4a4652; }
+  .ev-fact { background: #fff; border: 1px solid #e7e2d4; border-radius: 14px; padding: 2.4rem 2.2rem; margin-bottom: 2.2rem; }
+  .ev-fact-label { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dawn); margin-bottom: 0.9rem; }
+  .ev-fact h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.06em; line-height: 1.8; margin-bottom: 1.2rem; }
+  .ev-fact p { font-size: 0.95rem; line-height: 2.25; font-weight: 300; color: #33323a; }
+  .ev-fact p strong { font-weight: 600; }
+  .ev-fact p + p { margin-top: 1.1rem; }
+  .ev-bignum { text-align: center; margin: 1.8rem 0 2rem; }
+  .ev-bignum .num { font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(2.6rem, 7vw, 4rem); color: var(--dawn); letter-spacing: 0.02em; line-height: 1; }
+  .ev-bignum .num-note { font-family: 'Shippori Mincho', serif; font-size: 0.88rem; color: var(--mid-gray); margin-top: 0.7rem; letter-spacing: 0.08em; }
+  .ev-bars { margin: 2rem 0 0.6rem; display: flex; flex-direction: column; gap: 1rem; }
+  .ev-bar-row { display: grid; grid-template-columns: 11.5em minmax(0, 1fr) 3.4em; align-items: center; gap: 0.9rem; }
+  .ev-bar-name { font-size: 0.85rem; letter-spacing: 0.04em; color: #4a4652; }
+  .ev-bar-track { height: 14px; background: #f0ece0; border-radius: 999px; overflow: hidden; }
+  .ev-bar-fill { height: 100%; border-radius: 999px; width: 0; transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+  .ev-bar-fill.alc { background: #b9b2a3; }
+  .ev-bar-fill.cos { background: #d9c48f; }
+  .ev-bar-fill.pov { background: var(--dawn); }
+  .ev-bar-val { font-family: 'Jost', sans-serif; font-size: 0.85rem; color: #4a4652; text-align: right; }
+  .ev-bar-caption { font-size: 0.78rem; color: var(--mid-gray); margin-top: 0.9rem; line-height: 1.9; font-weight: 300; }
+  .ev-note { background: var(--teal-light); border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 1.3rem 1.5rem; margin-top: 1.6rem; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #2c4a41; }
+  .ev-sources { margin-top: 2.4rem; padding-top: 1.6rem; border-top: 1px solid #e7e2d4; }
+  .ev-sources .src-label { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 0.8rem; }
+  .ev-sources ul { list-style: none; }
+  .ev-sources li { font-size: 0.8rem; line-height: 2; font-weight: 300; color: #4a4652; }
+  .ev-sources a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.3); }
+  .ev-sources a:hover { border-bottom-color: var(--forest); }
+  .ev-fact-label.est { color: var(--purple); }
+  .ev-res-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin: 1.8rem 0 1.6rem; }
+  .ev-res-cell { background: #faf8f2; border: 1px solid #e7e2d4; border-radius: 12px; padding: 1.5rem 1.3rem; text-align: center; }
+  .ev-res-cell .rc-kind { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.7rem; }
+  .ev-res-cell .rc-num { font-family: 'Jost', sans-serif; font-weight: 500; font-size: clamp(1.35rem, 3vw, 1.8rem); color: var(--charcoal); line-height: 1.3; }
+  .ev-res-cell .rc-unit { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; color: var(--mid-gray); margin-top: 0.5rem; letter-spacing: 0.06em; line-height: 1.8; }
+  .ev-res-cell .rc-desc { font-size: 0.8rem; line-height: 2; font-weight: 300; color: #4a4652; margin-top: 0.9rem; text-align: left; }
+  @media (max-width: 760px) { .ev-res-grid { grid-template-columns: minmax(0, 1fr); } }
+  @media (max-width: 640px) {
+    .ev-fact { padding: 1.8rem 1.4rem; }
+    .ev-bar-row { grid-template-columns: minmax(0, 1fr); gap: 0.35rem; }
+    .ev-bar-val { text-align: left; }
+  }
+
+  #merge { padding: 4.5rem 2rem 5rem; background: #f1ede2; text-align: center; }
+  .merge-mark { width: 1px; height: 64px; margin: 0 auto 1.6rem; background: linear-gradient(to bottom, transparent, var(--dawn)); }
+  #merge h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.08em; }
+  #merge .merge-formula { font-family: 'Jost', 'Shippori Mincho', sans-serif; margin-top: 1.2rem; font-size: 0.95rem; letter-spacing: 0.18em; color: var(--dawn); }
+  #merge p.merge-note { max-width: 640px; margin: 1.8rem auto 0; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: #4a4652; }
+
+  /* ===== ロードマップ本体：夜から夜明けへ ===== */
+  #roadmap {
+    padding: 7rem 2rem 6rem; position: relative;
+    background: linear-gradient(to bottom, var(--ink-deep) 0%, var(--ink) 42%, #4a2b46 78%, #a04a36 96%, var(--dawn) 100%);
+    color: var(--paper);
+  }
+  .rm-head { text-align: center; max-width: 700px; margin: 0 auto 4.5rem; }
+  .rm-head .eyebrow { color: var(--gold); margin-bottom: 1.2rem; }
+  .rm-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.5rem, 3.6vw, 2.3rem); letter-spacing: 0.06em; }
+  .rm-track { position: relative; max-width: 780px; margin: 0 auto; padding-left: 2.4rem; }
+  .rm-line { position: absolute; left: 0.65rem; top: 0; bottom: 0; width: 2px; background: rgba(240,217,168,0.18); }
+  .rm-line-fill { position: absolute; left: 0; top: 0; width: 100%; height: 0; background: linear-gradient(to bottom, var(--gold), var(--dawn)); transition: height 0.2s linear; }
+  .stage { position: relative; margin-bottom: 4.2rem; }
+  .stage:last-of-type { margin-bottom: 0; }
+  .stage::before { content: ""; position: absolute; left: -2.15rem; top: 0.45rem; width: 14px; height: 14px; border-radius: 50%; background: var(--ink-deep); border: 2px solid var(--gold); }
+  .stage-phase { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; color: var(--gold); text-transform: uppercase; }
+  .stage h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.25rem, 3vw, 1.7rem); margin: 0.6rem 0 0.2rem; letter-spacing: 0.06em; }
+  .stage .stage-period { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.16em; color: rgba(250,248,242,0.6); }
+  .stage p.stage-body { margin-top: 1.1rem; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.85); max-width: 620px; }
+  .stage-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.1rem; }
+  .stage-meta span { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; border: 1px solid rgba(240,217,168,0.4); color: var(--gold-soft); border-radius: 999px; padding: 0.32rem 0.85rem; }
+  .stage-meta span.kpi { border-style: dashed; color: rgba(250,248,242,0.7); }
+
+  /* ===== 終点：卒業のないジム ===== */
+  #forever { padding: 7rem 2rem; background: linear-gradient(to bottom, var(--dawn) 0%, var(--dawn-soft) 55%, var(--paper) 100%); text-align: center; }
+  #forever .infinity { font-family: 'Jost', serif; font-size: 3.2rem; line-height: 1; color: #fff; }
+  #forever h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.2rem); letter-spacing: 0.05em; margin-top: 1.4rem; color: #fff; text-shadow: 0 1px 12px rgba(160,60,30,0.35); }
+  #forever p { max-width: 640px; margin: 2rem auto 0; font-size: 0.96rem; line-height: 2.3; font-weight: 300; color: #4a3a33; }
+  #forever p strong { font-weight: 600; color: #7a2f16; }
+
+  /* ===== CTA ===== */
+  #join { padding: 5rem 2rem 7rem; background: var(--paper); }
+  .join-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .join-inner .eyebrow { color: var(--dawn); margin-bottom: 1.2rem; }
+  .join-inner h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.06em; margin-bottom: 3rem; }
+  .join-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  @media (max-width: 820px) { .join-grid { grid-template-columns: minmax(0, 1fr); } }
+  .join-card { display: block; text-decoration: none; border-radius: 14px; padding: 1.9rem 1.5rem 2.1rem; text-align: left; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+  .join-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(30,25,60,0.14); }
+  .join-card .jc-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; }
+  .join-card h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.08rem; margin: 0.6rem 0 0.5rem; letter-spacing: 0.05em; }
+  .join-card p { font-size: 0.82rem; line-height: 1.95; font-weight: 300; }
+  .join-card.night { background: var(--ink); color: var(--paper); }
+  .join-card.night .jc-eyebrow { color: var(--gold); }
+  .join-card.night p { color: rgba(250,248,242,0.78); }
+  .join-card.day { background: var(--teal-light); color: #1d3b32; border: 1px solid #bfe4d5; }
+  .join-card.day .jc-eyebrow { color: var(--teal); }
+  .join-card.dawn { background: var(--dawn-soft); color: #5a2a16; border: 1px solid #ecc9b6; }
+  .join-card.dawn .jc-eyebrow { color: var(--dawn); }
+
+  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
+  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+
+  /* ===== NOBEL PEACE PRIZE SECTION ===== */
+  #nobel {
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+    color: var(--paper);
+    padding: 6rem 2rem 7rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #nobel::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 40% at 50% 0%, rgba(217,164,65,0.10), transparent 70%);
+    pointer-events: none;
+  }
+  .nobel-inner { max-width: 1080px; margin: 0 auto; position: relative; }
+  .nobel-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); text-align: center; margin-bottom: 1.2rem;
+  }
+  .nobel-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800;
+    text-align: center; line-height: 1.8; margin-bottom: 1.6rem; letter-spacing: 0.04em;
+  }
+  .nobel-title .gold { color: var(--gold); }
+  .nobel-lead {
+    max-width: 660px; margin: 0 auto 4rem; text-align: center;
+    font-size: 0.92rem; font-weight: 300; line-height: 2.4;
+    color: rgba(250,248,242,0.82);
+  }
+  .nobel-quotes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 4.5rem;
+  }
+  .nobel-quote {
+    background: rgba(250,248,242,0.045);
+    border: 1px solid rgba(217,164,65,0.22);
+    border-radius: 4px;
+    padding: 1.8rem 1.6rem 1.5rem;
+    display: flex; flex-direction: column;
+    transition: border-color 0.3s;
+  }
+  .nobel-quote:hover { border-color: rgba(217,164,65,0.55); }
+  .nobel-quote-year {
+    font-family: 'Jost', sans-serif; font-size: 0.72rem;
+    letter-spacing: 0.25em; color: var(--gold);
+    margin-bottom: 0.9rem;
+  }
+  .nobel-quote-text {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.0rem; font-weight: 600; line-height: 2.05;
+    flex: 1; margin-bottom: 1.1rem;
+  }
+  .nobel-quote-name {
+    font-size: 0.84rem; font-weight: 400; color: rgba(250,248,242,0.88);
+    border-top: 1px solid rgba(250,248,242,0.14); padding-top: 0.8rem;
+  }
+  .nobel-quote-role {
+    font-size: 0.75rem; font-weight: 300; color: rgba(250,248,242,0.55);
+    margin-top: 0.25rem; line-height: 1.9;
+  }
+  .nobel-list-head {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.25rem; font-weight: 800; text-align: center;
+    margin-bottom: 0.8rem; letter-spacing: 0.05em;
+  }
+  .nobel-list-note {
+    text-align: center; font-size: 0.82rem; font-weight: 300;
+    color: rgba(250,248,242,0.6); margin-bottom: 2.2rem; line-height: 2.1;
+  }
+  .nobel-era { border-top: 1px solid rgba(217,164,65,0.25); }
+  .nobel-era:last-of-type { border-bottom: 1px solid rgba(217,164,65,0.25); }
+  .nobel-era summary {
+    list-style: none; cursor: pointer;
+    display: flex; align-items: baseline; gap: 1rem;
+    padding: 1.3rem 0.4rem;
+    font-family: 'Shippori Mincho', serif;
+  }
+  .nobel-era summary::-webkit-details-marker { display: none; }
+  .nobel-era summary:hover .nobel-era-title { color: var(--gold-soft); }
+  .nobel-era-range {
+    font-family: 'Jost', sans-serif; font-size: 0.82rem;
+    letter-spacing: 0.15em; color: var(--gold); min-width: 7.5em;
+  }
+  .nobel-era-title { font-size: 1.0rem; font-weight: 600; flex: 1; transition: color 0.3s; }
+  .nobel-era-toggle {
+    font-family: 'Jost', sans-serif; font-size: 1.1rem; color: var(--gold);
+    transition: transform 0.3s;
+  }
+  .nobel-era[open] .nobel-era-toggle { transform: rotate(45deg); }
+  .nobel-era-body { padding: 0 0.4rem 1.8rem; }
+  .nobel-row {
+    display: grid; grid-template-columns: 4.6em minmax(0, 1fr);
+    gap: 0.4rem 1.2rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px dashed rgba(250,248,242,0.08);
+    font-size: 0.86rem; line-height: 1.9;
+  }
+  .nobel-row:last-child { border-bottom: none; }
+  .nobel-row-year { font-family: 'Jost', sans-serif; color: rgba(217,164,65,0.85); font-size: 0.8rem; padding-top: 0.15em; }
+  .nobel-row-name { font-weight: 400; color: rgba(250,248,242,0.92); }
+  .nobel-row-desc { font-weight: 300; color: rgba(250,248,242,0.55); font-size: 0.78rem; display: block; }
+  .nobel-row--none .nobel-row-name { color: rgba(250,248,242,0.35); font-weight: 300; }
+  .nobel-outro {
+    max-width: 640px; margin: 3.5rem auto 0; text-align: center;
+    font-size: 0.9rem; font-weight: 300; line-height: 2.4;
+    color: rgba(250,248,242,0.8);
+  }
+  .nobel-outro strong { font-weight: 600; color: var(--gold-soft); }
+  .nobel-src {
+    text-align: center; margin-top: 2rem;
+    font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.1em;
+    color: rgba(250,248,242,0.45);
+  }
+  .nobel-src a { color: rgba(217,164,65,0.75); text-decoration: none; border-bottom: 1px solid rgba(217,164,65,0.35); }
+  .nobel-src a:hover { color: var(--gold-soft); }
+  @media (max-width: 640px) {
+    #nobel { padding: 4rem 1.2rem 5rem; }
+    .nobel-era summary { flex-wrap: wrap; gap: 0.3rem 1rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nobel-quote, .nobel-era-toggle { transition: none; }
+  }
+
+  /* ===== Diagnosis（現状診断） ===== */
+  #diagnosis { padding: 7rem 2rem; background: linear-gradient(180deg, var(--ink-deep), var(--ink)); color: var(--paper); }
+  #diagnosis .diag-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  #diagnosis .eyebrow { color: var(--gold); margin-bottom: 1.4rem; }
+  #diagnosis h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); line-height: 1.8; letter-spacing: 0.04em; }
+  #diagnosis .diag-lead, #diagnosis .diag-close { margin-top: 2.2rem; font-size: 0.96rem; line-height: 2.3; text-align: left; font-weight: 300; color: rgba(250,248,242,0.88); }
+  #diagnosis .diag-lead strong, #diagnosis .diag-close strong { font-weight: 600; color: var(--gold-soft); }
+  #diagnosis .diag-credit { margin-top: 0.9rem; text-align: right; font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(250,248,242,0.5); }
+  .diag-cards { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1rem; margin-top: 2.6rem; text-align: left; }
+  @media (max-width: 720px) { .diag-cards { grid-template-columns: minmax(0,1fr); } }
+  .diag-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(240,217,168,0.18); border-top: 3px solid var(--gold); border-radius: 0 0 12px 12px; padding: 1.5rem 1.6rem 1.6rem; }
+  .diag-card h3 { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.06em; color: var(--paper); }
+  .diag-card .dc-tag { font-family: 'Jost', sans-serif; font-size: 0.66rem; letter-spacing: 0.24em; color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .diag-card p { margin-top: 0.7rem; font-size: 0.84rem; line-height: 2.1; font-weight: 300; color: rgba(250,248,242,0.78); }
+  .diag-gap-flow { display: flex; align-items: stretch; justify-content: center; gap: 0.7rem; flex-wrap: wrap; margin-top: 2.8rem; font-family: 'Shippori Mincho', serif; }
+  .diag-gap-flow .dg-node { background: rgba(255,255,255,0.05); border: 1px solid rgba(250,248,242,0.25); border-radius: 12px; padding: 1rem 1.2rem; font-size: 0.84rem; letter-spacing: 0.06em; line-height: 1.9; flex: 1 1 200px; max-width: 280px; }
+  .diag-gap-flow .dg-node small { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.24em; color: rgba(250,248,242,0.5); margin-bottom: 0.4rem; }
+  .diag-gap-flow .dg-node .dg-sub { display: block; margin-top: 0.3rem; font-size: 0.72rem; color: rgba(250,248,242,0.55); }
+  .diag-gap-flow .dg-gap { border: 1.5px dashed var(--gold); background: rgba(217,164,65,0.08); color: var(--gold-soft); }
+  .diag-gap-flow .dg-gap small { color: var(--gold); }
+  .diag-gap-flow .dg-gap .dg-sub { color: rgba(240,217,168,0.75); }
+  /* ===== Voices compact link / Nobel appendix ===== */
+  .vc-link { display: inline-block; margin-top: 1.8rem; font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; color: var(--gold-soft); border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none; transition: color 0.25s; }
+  .vc-link:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html" class="active">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html" class="active">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<section id="nobel">
+  <div class="nobel-inner">
+
+    <p class="nobel-label fade-up">Nobel Peace Prize 1901–2025 ／ 世界の知恵</p>
+    <h2 class="nobel-title fade-up">この道を、<span class="gold">125年</span>歩いてきた人たちがいる。</h2>
+    <p class="nobel-lead fade-up">
+      <a href="./roadmap.html" style="color: var(--gold); border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">世界平和へのロードマップ</a>が引く125年の系譜を、原典で確かめるための資料集です。<br>
+      ノーベル平和賞は125年にわたり、平和のために最大・最善の貢献をした人と団体に贈られてきました。<br>
+      先人たちの声と、その全受賞者を、時代ごとに開いてご覧ください。
+    </p>
+
+    
+    <div class="fade-up">
+    <details class="nobel-era">
+      <summary>
+        <span class="nobel-era-range">Voices</span>
+        <span class="nobel-era-title">先人たちは、平和に「何が必要だ」と言ってきたか（8人の声）</span>
+        <span class="nobel-era-toggle">＋</span>
+      </summary>
+      <div class="nobel-era-body" style="padding-top:1.4rem;">
+        <div class="voice-grid">
+      <div class="voice fade-up">
+        <div class="v-who"><h4>アルフレッド・ノーベル</h4><span class="v-year">ノーベル平和賞の原点</span></div>
+        <div class="v-need">必要なもの：国家間の友愛</div>
+        <p>遺言でこの賞に託された条件は、国家間の友愛と、軍備の削減、そして平和会議の開催への貢献。ダイナマイトの発明者が最後に賭けたのは、武力ではなく、関係と対話でした。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>ダライ・ラマ14世</h4><span class="v-year">1989 受賞</span></div>
+        <div class="v-need">必要なもの：内なる平和</div>
+        <p>世界の平和は、一人ひとりの内なる平和からしか育たない、と語り続けています。外側の軍縮の前に、内側の武装解除を。認知から始めるこのロードマップにとって、最も直接的な先達です。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>ネルソン・マンデラ</h4><span class="v-year">1993 受賞</span></div>
+        <div class="v-need">必要なもの：敵と共に働くこと</div>
+        <p>敵と平和を築きたいなら、敵と共に働くこと。そうすれば敵はパートナーになる——27年の獄中の後、報復ではなく対話で国をつくり直した人の確信です。教育を「世界を変えるための最も強力な武器」とも呼びました。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>デズモンド・ツツ</h4><span class="v-year">1984 受賞</span></div>
+        <div class="v-need">必要なもの：赦し</div>
+        <p><a href="./dialogue-zukan.html#trc" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">真実和解委員会</a>を率いた大主教は、著書の題のとおり「赦しなくして未来なし」と説きました。赦しは弱さではなく、未来を可能にするための現実的な技術である。土台には、人は他者を通じて人になるというウブントゥの思想があります。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>ワンガリ・マータイ</h4><span class="v-year">2004 受賞</span></div>
+        <div class="v-need">必要なもの：公正な資源と民主主義</div>
+        <p>植林運動から平和賞に至った彼女は、資源の枯渇と不公正な分配こそが紛争の火種であり、持続可能な環境と民主的なガバナンスが平和の条件だと訴えました。平和と環境と民主主義は、切り離せない一枚の布です。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>マララ・ユスフザイ</h4><span class="v-year">2014 受賞</span></div>
+        <div class="v-need">必要なもの：教育</div>
+        <p>「一人の子ども、一人の教師、一冊の本、一本のペンが、世界を変えられる」。銃撃されてなお、武器ではなく教育を選び続けている彼女の人生そのものが、この言葉の証明になっています。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>日本被団協</h4><span class="v-year">2024 受賞</span></div>
+        <div class="v-need">必要なもの：証言と記憶</div>
+        <p>広島・長崎の被爆者たちは、自らの痛みを語り続けることで「核兵器は二度と使われてはならない」という規範を世界に育ててきました。証言という対話の力が、最大級の暴力への抑止になっています。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-who"><h4>リーマ・ボウイー</h4><span class="v-year">2011 受賞</span></div>
+        <div class="v-need">必要なもの：対話のテーブルに全員を</div>
+        <p>リベリアの内戦を終わらせた<a href="./dialogue-zukan.html#liberia-women" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">女性たちの運動</a>を率いた彼女は、和平の席から排除されてきた人々——とりわけ女性——が対話のテーブルにつくことこそ、持続する平和の条件だと示しました。</p>
+      </div>
+    </div>
+        <p class="voices-close">
+      分野は違えど、先人たちが口を揃えて指しているのは、兵器や条約という「外側」だけではありません。<strong>友愛、内なる平和、赦し、教育、証言、対話のテーブル</strong>——つまり人の内面と関係の側です。この宿題を市民の日常で引き受けようとするのが、このロードマップの試みです。
+    </p>
+      </div>
+    </details>
+    </div>
+
+    <div class="nobel-quotes fade-up">
+
+      <div class="nobel-quote">
+        <p class="nobel-quote-year">1964</p>
+        <p class="nobel-quote-text">「非武装の真実と、無条件の愛が、最後には勝つ」</p>
+        <p class="nobel-quote-name">マーティン・ルーサー・キング・ジュニア</p>
+        <p class="nobel-quote-role">米国 ── 非暴力による公民権運動（受賞講演より）</p>
+      </div>
+
+      <div class="nobel-quote">
+        <p class="nobel-quote-year">1974</p>
+        <p class="nobel-quote-text">核兵器を「持たず、作らず、持ち込ませず」──非核三原則を国是として掲げた。</p>
+        <p class="nobel-quote-name">佐藤栄作</p>
+        <p class="nobel-quote-role">日本 ── アジア初のノーベル平和賞受賞政治家</p>
+      </div>
+
+      <div class="nobel-quote">
+        <p class="nobel-quote-year">1979</p>
+        <p class="nobel-quote-text">「平和は微笑みから始まる」──まず、いちばん身近な人から。</p>
+        <p class="nobel-quote-name">マザー・テレサ</p>
+        <p class="nobel-quote-role">インド ── 最も貧しい人々への奉仕</p>
+      </div>
+
+      <div class="nobel-quote">
+        <p class="nobel-quote-year">2008</p>
+        <p class="nobel-quote-text">「すべての紛争は、解決できる」</p>
+        <p class="nobel-quote-name">マルッティ・アハティサーリ</p>
+        <p class="nobel-quote-role">フィンランド ── 30年にわたる国際紛争の調停</p>
+      </div>
+
+      <div class="nobel-quote">
+        <p class="nobel-quote-year">2021</p>
+        <p class="nobel-quote-text">「事実なくして真実はなく、真実なくして信頼はなく、信頼なくして民主主義はない」</p>
+        <p class="nobel-quote-name">マリア・レッサ</p>
+        <p class="nobel-quote-role">フィリピン ── 事実に基づくジャーナリズムと表現の自由（受賞講演より）</p>
+      </div>
+
+      <div class="nobel-quote">
+        <p class="nobel-quote-year">2025</p>
+        <p class="nobel-quote-text">民主主義は、平和に不可欠である──自由のために闘う覚悟を持って。</p>
+        <p class="nobel-quote-name">マリア・コリーナ・マチャド</p>
+        <p class="nobel-quote-role">ベネズエラ ── 民主的権利の促進への「類いまれな勇気」（受賞演説・要旨）</p>
+      </div>
+
+    </div>
+
+    <h3 class="nobel-list-head fade-up">歴代受賞者 全リスト（1901–2025）</h3>
+    <p class="nobel-list-note fade-up">
+      時代ごとに開いてご覧ください。戦争や政治情勢により、受賞者が選ばれなかった年もあります。<br>
+      その空白もまた、平和への道のりの一部です。
+    </p>
+
+    <div class="fade-up">
+    <details class="nobel-era">
+      <summary>
+        <span class="nobel-era-range">1901 – 1945</span>
+        <span class="nobel-era-title">二つの世界大戦の時代 ── 国際協調の模索</span>
+        <span class="nobel-era-toggle">＋</span>
+      </summary>
+      <div class="nobel-era-body">
+        <div class="nobel-row"><span class="nobel-row-year">1901</span><span class="nobel-row-name">アンリ・デュナン（スイス）／ フレデリック・パシー（フランス）<span class="nobel-row-desc">赤十字の創設／国際平和運動の先駆</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1902</span><span class="nobel-row-name">エリー・デュコマン ／ シャルル・アルベール・ゴバ（スイス）<span class="nobel-row-desc">国際平和ビューローなど平和運動の組織化</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1903</span><span class="nobel-row-name">ウィリアム・ランダル・クリーマー（英）<span class="nobel-row-desc">列国議会同盟による仲裁の推進</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1904</span><span class="nobel-row-name">国際法学会<span class="nobel-row-desc">国際法による紛争解決の基盤づくり</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1905</span><span class="nobel-row-name">ベルタ・フォン・ズットナー（オーストリア）<span class="nobel-row-desc">『武器を捨てよ』── 平和賞創設を促した作家</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1906</span><span class="nobel-row-name">セオドア・ルーズベルト（米）<span class="nobel-row-desc">日露戦争の講和仲介</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1907</span><span class="nobel-row-name">エルネスト・テオドロ・モネータ（伊）／ ルイ・ルノー（仏）<span class="nobel-row-desc">平和運動と国際法</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1908</span><span class="nobel-row-name">クラス・アーノルドソン（スウェーデン）／ フレドリック・バイエル（デンマーク）<span class="nobel-row-desc">北欧における平和・仲裁運動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1909</span><span class="nobel-row-name">オーギュスト・ベールナールト（ベルギー）／ P.デストゥルネル・ド・コンスタン（仏）<span class="nobel-row-desc">国際仲裁と軍縮外交</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1910</span><span class="nobel-row-name">国際平和ビューロー<span class="nobel-row-desc">各国平和団体の連絡組織</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1911</span><span class="nobel-row-name">トビアス・アッセル（オランダ）／ アルフレート・フリート（オーストリア）<span class="nobel-row-desc">国際私法会議／平和ジャーナリズム</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1912</span><span class="nobel-row-name">エリフ・ルート（米）<span class="nobel-row-desc">仲裁条約による紛争予防</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1913</span><span class="nobel-row-name">アンリ・ラ・フォンテーヌ（ベルギー）<span class="nobel-row-desc">国際平和ビューロー会長</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1914–16</span><span class="nobel-row-name">受賞者なし（第一次世界大戦）</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1917</span><span class="nobel-row-name">赤十字国際委員会（ICRC）<span class="nobel-row-desc">大戦下の捕虜・傷病者の保護</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1918</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1919</span><span class="nobel-row-name">ウッドロウ・ウィルソン（米）<span class="nobel-row-desc">国際連盟の創設</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1920</span><span class="nobel-row-name">レオン・ブルジョワ（仏）<span class="nobel-row-desc">国際連盟の理念的立役者</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1921</span><span class="nobel-row-name">ヤルマル・ブランティング（スウェーデン）／ クリスチャン・ランゲ（ノルウェー）<span class="nobel-row-desc">国際連盟と列国議会同盟</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1922</span><span class="nobel-row-name">フリチョフ・ナンセン（ノルウェー）<span class="nobel-row-desc">難民支援 ──「ナンセン・パスポート」</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1923–24</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1925</span><span class="nobel-row-name">オースティン・チェンバレン（英）／ チャールズ・ドーズ（米）<span class="nobel-row-desc">ロカルノ条約／ドーズ案による欧州安定</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1926</span><span class="nobel-row-name">アリスティード・ブリアン（仏）／ グスタフ・シュトレーゼマン（独）<span class="nobel-row-desc">独仏和解（ロカルノ条約）</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1927</span><span class="nobel-row-name">フェルディナン・ビュイソン（仏）／ ルートヴィヒ・クヴィデ（独）<span class="nobel-row-desc">独仏の市民レベルの和解運動</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1928</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1929</span><span class="nobel-row-name">フランク・ケロッグ（米）<span class="nobel-row-desc">パリ不戦条約</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1930</span><span class="nobel-row-name">ナータン・セーデルブロム（スウェーデン）<span class="nobel-row-desc">宗教間対話による平和運動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1931</span><span class="nobel-row-name">ジェーン・アダムズ ／ ニコラス・バトラー（米）<span class="nobel-row-desc">婦人国際平和自由連盟／国際協調の推進</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1932</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1933</span><span class="nobel-row-name">ノーマン・エンジェル（英）<span class="nobel-row-desc">『大いなる幻影』── 戦争の不合理を説く</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1934</span><span class="nobel-row-name">アーサー・ヘンダーソン（英）<span class="nobel-row-desc">世界軍縮会議の議長</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1935</span><span class="nobel-row-name">カール・フォン・オシエツキー（独）<span class="nobel-row-desc">ナチス下で軍備増強を告発したジャーナリスト</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1936</span><span class="nobel-row-name">カルロス・サアベドラ・ラマス（アルゼンチン）<span class="nobel-row-desc">チャコ戦争の和平仲介</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1937</span><span class="nobel-row-name">ロバート・セシル（英）<span class="nobel-row-desc">国際連盟の擁護者</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1938</span><span class="nobel-row-name">ナンセン国際難民事務所<span class="nobel-row-desc">難民保護の国際機関</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1939–43</span><span class="nobel-row-name">受賞者なし（第二次世界大戦）</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1944</span><span class="nobel-row-name">赤十字国際委員会（ICRC）<span class="nobel-row-desc">大戦下の人道活動（2度目）</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1945</span><span class="nobel-row-name">コーデル・ハル（米）<span class="nobel-row-desc">国際連合創設への貢献</span></span></div>
+      </div>
+    </details>
+
+    <details class="nobel-era">
+      <summary>
+        <span class="nobel-era-range">1946 – 1989</span>
+        <span class="nobel-era-title">冷戦の時代 ── 人権・軍縮・和解の担い手たち</span>
+        <span class="nobel-era-toggle">＋</span>
+      </summary>
+      <div class="nobel-era-body">
+        <div class="nobel-row"><span class="nobel-row-year">1946</span><span class="nobel-row-name">エミリー・グリーン・ボルチ ／ ジョン・モット（米）<span class="nobel-row-desc">女性平和運動／YMCAによる国際融和</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1947</span><span class="nobel-row-name">フレンズ奉仕団（英・米）<span class="nobel-row-desc">クエーカーによる戦後救援</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1948</span><span class="nobel-row-name">受賞者なし（ガンディー暗殺の年 ──「ふさわしい存命の候補者がいない」として）</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1949</span><span class="nobel-row-name">ジョン・ボイド・オア（英）<span class="nobel-row-desc">FAO初代事務局長 ── 飢餓と平和</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1950</span><span class="nobel-row-name">ラルフ・バンチ（米）<span class="nobel-row-desc">第一次中東戦争の停戦調停</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1951</span><span class="nobel-row-name">レオン・ジュオー（仏）<span class="nobel-row-desc">労働運動を通じた平和</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1952</span><span class="nobel-row-name">アルベルト・シュヴァイツァー<span class="nobel-row-desc">「生命への畏敬」の哲学と医療実践</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1953</span><span class="nobel-row-name">ジョージ・マーシャル（米）<span class="nobel-row-desc">マーシャル・プランによる欧州復興</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1954</span><span class="nobel-row-name">国連難民高等弁務官事務所（UNHCR）<span class="nobel-row-desc">難民の保護</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1955–56</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1957</span><span class="nobel-row-name">レスター・ピアソン（カナダ）<span class="nobel-row-desc">スエズ危機 ── 国連平和維持軍の発案</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1958</span><span class="nobel-row-name">ジョルジュ・ピール（ベルギー）<span class="nobel-row-desc">難民支援活動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1959</span><span class="nobel-row-name">フィリップ・ノエル＝ベーカー（英）<span class="nobel-row-desc">軍縮への生涯にわたる献身</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1960</span><span class="nobel-row-name">アルバート・ルツーリ（南アフリカ）<span class="nobel-row-desc">アパルトヘイトへの非暴力抵抗</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1961</span><span class="nobel-row-name">ダグ・ハマーショルド（スウェーデン）<span class="nobel-row-desc">国連事務総長 ── 唯一の死後受賞</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1962</span><span class="nobel-row-name">ライナス・ポーリング（米）<span class="nobel-row-desc">核実験反対運動 ── 2つのノーベル賞を単独受賞</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1963</span><span class="nobel-row-name">赤十字国際委員会 ／ 国際赤十字・赤新月社連盟<span class="nobel-row-desc">赤十字100周年</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1964</span><span class="nobel-row-name">マーティン・ルーサー・キング・ジュニア（米）<span class="nobel-row-desc">非暴力による公民権運動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1965</span><span class="nobel-row-name">ユニセフ（国連児童基金）<span class="nobel-row-desc">子どもたちへの支援</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1966–67</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1968</span><span class="nobel-row-name">ルネ・カサン（仏）<span class="nobel-row-desc">世界人権宣言の起草者</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1969</span><span class="nobel-row-name">国際労働機関（ILO）<span class="nobel-row-desc">労働を通じた社会正義</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1970</span><span class="nobel-row-name">ノーマン・ボーローグ（米）<span class="nobel-row-desc">「緑の革命」── 食糧増産と飢餓の克服</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1971</span><span class="nobel-row-name">ヴィリー・ブラント（西独）<span class="nobel-row-desc">東方外交による東西の緊張緩和</span></span></div>
+        <div class="nobel-row nobel-row--none"><span class="nobel-row-year">1972</span><span class="nobel-row-name">受賞者なし</span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1973</span><span class="nobel-row-name">ヘンリー・キッシンジャー（米）／ レ・ドゥク・ト（ベトナム・受賞辞退）<span class="nobel-row-desc">ベトナム和平交渉</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1974</span><span class="nobel-row-name">ショーン・マクブライド（アイルランド）／ 佐藤栄作（日本）<span class="nobel-row-desc">人権擁護／非核三原則</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1975</span><span class="nobel-row-name">アンドレイ・サハロフ（ソ連）<span class="nobel-row-desc">人権と軍縮を訴えた物理学者</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1976</span><span class="nobel-row-name">ベティ・ウィリアムズ ／ マイレッド・コリガン（北アイルランド）<span class="nobel-row-desc">北アイルランド紛争の草の根平和運動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1977</span><span class="nobel-row-name">アムネスティ・インターナショナル<span class="nobel-row-desc">良心の囚人の擁護</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1978</span><span class="nobel-row-name">アンワル・サダト（エジプト）／ メナヘム・ベギン（イスラエル）<span class="nobel-row-desc">キャンプ・デービッド合意</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1979</span><span class="nobel-row-name">マザー・テレサ（インド）<span class="nobel-row-desc">最も貧しい人々への奉仕</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1980</span><span class="nobel-row-name">アドルフォ・ペレス・エスキベル（アルゼンチン）<span class="nobel-row-desc">中南米の人権擁護</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1981</span><span class="nobel-row-name">国連難民高等弁務官事務所（UNHCR）<span class="nobel-row-desc">難民保護（2度目）</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1982</span><span class="nobel-row-name">アルバ・ミュルダール（スウェーデン）／ アルフォンソ・ガルシア・ロブレス（メキシコ）<span class="nobel-row-desc">核軍縮交渉</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1983</span><span class="nobel-row-name">レフ・ワレサ（ポーランド）<span class="nobel-row-desc">「連帯」による非暴力の民主化運動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1984</span><span class="nobel-row-name">デズモンド・ツツ（南アフリカ）<span class="nobel-row-desc">アパルトヘイトへの非暴力抵抗</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1985</span><span class="nobel-row-name">核戦争防止国際医師会議（IPPNW）<span class="nobel-row-desc">核戦争の医学的帰結の啓発</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1986</span><span class="nobel-row-name">エリ・ヴィーゼル（米）<span class="nobel-row-desc">ホロコーストの記憶の証言者</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1987</span><span class="nobel-row-name">オスカル・アリアス・サンチェス（コスタリカ）<span class="nobel-row-desc">中米和平合意</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1988</span><span class="nobel-row-name">国連平和維持軍（PKO）<span class="nobel-row-desc">紛争地域での平和維持活動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1989</span><span class="nobel-row-name">ダライ・ラマ14世（チベット）<span class="nobel-row-desc">非暴力によるチベット問題解決の訴え</span></span></div>
+      </div>
+    </details>
+
+    <details class="nobel-era">
+      <summary>
+        <span class="nobel-era-range">1990 – 2009</span>
+        <span class="nobel-era-title">冷戦後の時代 ── 民主化・和解・地球規模の課題へ</span>
+        <span class="nobel-era-toggle">＋</span>
+      </summary>
+      <div class="nobel-era-body">
+        <div class="nobel-row"><span class="nobel-row-year">1990</span><span class="nobel-row-name">ミハイル・ゴルバチョフ（ソ連）<span class="nobel-row-desc">冷戦終結への貢献</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1991</span><span class="nobel-row-name">アウンサンスーチー（ミャンマー）<span class="nobel-row-desc">民主化への非暴力闘争</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1992</span><span class="nobel-row-name">リゴベルタ・メンチュウ（グアテマラ）<span class="nobel-row-desc">先住民族の権利擁護</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1993</span><span class="nobel-row-name">ネルソン・マンデラ ／ F.W.デクラーク（南アフリカ）<span class="nobel-row-desc">アパルトヘイトの平和的終結</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1994</span><span class="nobel-row-name">ヤーセル・アラファト ／ シモン・ペレス ／ イツハク・ラビン<span class="nobel-row-desc">オスロ合意による中東和平の試み</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1995</span><span class="nobel-row-name">ジョセフ・ロートブラット ／ パグウォッシュ会議<span class="nobel-row-desc">科学者による核廃絶運動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1996</span><span class="nobel-row-name">カルロス・ベロ ／ ジョゼ・ラモス＝ホルタ（東ティモール）<span class="nobel-row-desc">東ティモール紛争の公正な解決</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1997</span><span class="nobel-row-name">地雷禁止国際キャンペーン（ICBL）／ ジョディ・ウィリアムズ<span class="nobel-row-desc">対人地雷禁止条約の実現</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1998</span><span class="nobel-row-name">ジョン・ヒューム ／ デヴィッド・トリンブル（北アイルランド）<span class="nobel-row-desc">ベルファスト合意</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">1999</span><span class="nobel-row-name">国境なき医師団（MSF）<span class="nobel-row-desc">国境を越えた人道医療</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2000</span><span class="nobel-row-name">金大中（韓国）<span class="nobel-row-desc">太陽政策 ── 南北和解への努力</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2001</span><span class="nobel-row-name">国際連合 ／ コフィー・アナン<span class="nobel-row-desc">より組織的で平和な世界への活動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2002</span><span class="nobel-row-name">ジミー・カーター（米）<span class="nobel-row-desc">数十年にわたる紛争調停と人権活動</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2003</span><span class="nobel-row-name">シーリーン・エバーディー（イラン）<span class="nobel-row-desc">女性と子どもの人権擁護</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2004</span><span class="nobel-row-name">ワンガリ・マータイ（ケニア）<span class="nobel-row-desc">持続可能な開発・民主主義・平和 ──「MOTTAINAI」</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2005</span><span class="nobel-row-name">国際原子力機関（IAEA）／ モハメド・エルバラダイ<span class="nobel-row-desc">原子力の軍事転用防止</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2006</span><span class="nobel-row-name">ムハマド・ユヌス ／ グラミン銀行（バングラデシュ）<span class="nobel-row-desc">マイクロクレジットによる貧困からの平和</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2007</span><span class="nobel-row-name">IPCC ／ アル・ゴア<span class="nobel-row-desc">気候変動に関する知識の普及</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2008</span><span class="nobel-row-name">マルッティ・アハティサーリ（フィンランド）<span class="nobel-row-desc">30年にわたる国際紛争調停</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2009</span><span class="nobel-row-name">バラク・オバマ（米）<span class="nobel-row-desc">国際外交と「核なき世界」への呼びかけ</span></span></div>
+      </div>
+    </details>
+
+    <details class="nobel-era">
+      <summary>
+        <span class="nobel-era-range">2010 – 2025</span>
+        <span class="nobel-era-title">いまの時代 ── 民主主義・情報・核なき世界のために</span>
+        <span class="nobel-era-toggle">＋</span>
+      </summary>
+      <div class="nobel-era-body">
+        <div class="nobel-row"><span class="nobel-row-year">2010</span><span class="nobel-row-name">劉暁波（中国）<span class="nobel-row-desc">基本的人権を求める非暴力の闘い</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2011</span><span class="nobel-row-name">エレン・ジョンソン・サーリーフ ／ リーマ・ボウイー（リベリア）／ タワックル・カルマン（イエメン）<span class="nobel-row-desc">女性の安全と平和構築への参画</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2012</span><span class="nobel-row-name">欧州連合（EU）<span class="nobel-row-desc">60年にわたる欧州の平和・和解・民主主義</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2013</span><span class="nobel-row-name">化学兵器禁止機関（OPCW）<span class="nobel-row-desc">化学兵器の廃絶</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2014</span><span class="nobel-row-name">マララ・ユスフザイ（パキスタン）／ カイラシュ・サティーアーティ（インド）<span class="nobel-row-desc">子どもの権利と教育のための闘い</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2015</span><span class="nobel-row-name">チュニジア国民対話カルテット<span class="nobel-row-desc">「アラブの春」後の危機を対話で乗り越えた民主化の立役者</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2016</span><span class="nobel-row-name">フアン・マヌエル・サントス（コロンビア）<span class="nobel-row-desc">52年続いた内戦の和平合意</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2017</span><span class="nobel-row-name">核兵器廃絶国際キャンペーン（ICAN）<span class="nobel-row-desc">核兵器禁止条約の実現</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2018</span><span class="nobel-row-name">デニ・ムクウェゲ（コンゴ民主共和国）／ ナディア・ムラド（イラク）<span class="nobel-row-desc">戦時性暴力の根絶への闘い</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2019</span><span class="nobel-row-name">アビー・アハメド（エチオピア）<span class="nobel-row-desc">エリトリアとの国境紛争の解決</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2020</span><span class="nobel-row-name">国連世界食糧計画（WFP）<span class="nobel-row-desc">飢餓との闘い ── 紛争地の平和の条件づくり</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2021</span><span class="nobel-row-name">マリア・レッサ（フィリピン）／ ドミトリー・ムラトフ（ロシア）<span class="nobel-row-desc">表現の自由を守るジャーナリズム</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2022</span><span class="nobel-row-name">アレシ・ビャリャツキ（ベラルーシ）／ メモリアル（ロシア）／ 市民自由センター（ウクライナ）<span class="nobel-row-desc">市民社会による人権の記録と擁護</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2023</span><span class="nobel-row-name">ナルゲス・モハンマディ（イラン）<span class="nobel-row-desc">女性への抑圧と闘い、人権と自由を求めて</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2024</span><span class="nobel-row-name">日本原水爆被害者団体協議会（日本被団協）<span class="nobel-row-desc">被爆者の証言による「核なき世界」への努力</span></span></div>
+        <div class="nobel-row"><span class="nobel-row-year">2025</span><span class="nobel-row-name">マリア・コリーナ・マチャド（ベネズエラ）<span class="nobel-row-desc">民主的権利の促進 ──「類いまれな勇気」</span></span></div>
+      </div>
+    </details>
+    </div>
+
+    <p class="nobel-outro fade-up">
+      125年の系譜が繰り返し語ってきたのは、<strong>対話、和解、そして他者と共に考える力</strong>でした。<br>
+      受賞者たちが生んだ手法のいくつか——ツツの<a href="./dialogue-zukan.html#trc" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">真実和解委員会</a>、ガンディーの<a href="./dialogue-zukan.html#satyagraha" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">サッティヤーグラハ</a>、ボウイーたちの<a href="./dialogue-zukan.html#liberia-women" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">女性たちの平和運動</a>——は、<br>
+      いまも学べる実践として<a href="./dialogue-zukan.html" style="color: var(--gold-soft); border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">対話技法図鑑</a>に収めています。<br>
+      この長いリストの末尾に、小さな一行を書き加えるつもりで——私たちの持ち場は、この上のロードマップに記したとおりです。
+    </p>
+
+    <p class="nobel-src fade-up">
+      出典・全受賞者の詳細：<a href="https://www.nobelprize.org/prizes/peace/" target="_blank" rel="noopener">NobelPrize.org — Nobel Peace Prize</a>
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
