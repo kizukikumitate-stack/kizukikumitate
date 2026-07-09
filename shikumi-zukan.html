@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>社会の仕組み図鑑 | きづきくみたて工房</title>
+<meta name="description" content="札束資本主義と情弱民主主義——二つのシステム不全に対して世界が発明してきた、お金と民意の回路（サブシステム）を集めた図鑑。エビデンス水準ラベルと引用元リンク付き。随時更新。">
+<link rel="canonical" href="https://kizukikumitate.com/shikumi-zukan.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="社会の仕組み図鑑｜お金と民意の回路をつくり直す、世界の発明">
+<meta property="og:description" content="参加型予算、クアドラティック・ファンディング、市民議会、コモンズの自治——社会の機能不全を直す仕組みを、説明と引用元とともに。随時更新中。">
+<meta property="og:url" content="https://kizukikumitate.com/shikumi-zukan.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  /* mobile accordion */
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
+  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+  }
+
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  #zhero {
+    padding: 10rem 2rem 5rem; text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 0%, rgba(60,52,137,0.12), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 10%, rgba(216,90,48,0.08), transparent 70%),
+      var(--paper);
+  }
+  #zhero .eyebrow { color: var(--dawn); margin-bottom: 1.4rem; }
+  #zhero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.8rem, 4.6vw, 3rem); letter-spacing: 0.08em; }
+  #zhero .zhero-sub { max-width: 660px; margin: 2rem auto 0; font-size: 0.95rem; line-height: 2.3; font-weight: 300; color: #4a4652; }
+  .update-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; color: var(--gold-deep); border: 1px solid rgba(217,164,65,0.6); border-radius: 999px; padding: 0.5rem 1.3rem; background: rgba(217,164,65,0.08); }
+  .update-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dawn); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 0.35; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .update-badge::before { animation: none; } }
+
+  #toc { padding: 0 2rem 3rem; background: var(--paper); }
+  .toc-inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .toc-inner a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none; color: var(--charcoal); border: 1px solid #ded8c8; border-radius: 999px; padding: 0.45rem 1.15rem; background: #fff; transition: border-color 0.2s ease, color 0.2s ease; }
+  .toc-inner a:hover { border-color: var(--dawn); color: var(--dawn); }
+
+  .zcat { padding: 4.5rem 2rem 2rem; }
+  .zcat:nth-of-type(even) { background: #f3efe4; }
+  .zcat-head { max-width: 860px; margin: 0 auto 2.4rem; }
+  .zcat-head .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .zcat-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: 0.06em; }
+  .zcat-head p { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.1; font-weight: 300; color: #4a4652; }
+  .entry-list { max-width: 860px; margin: 0 auto; display: grid; gap: 1.1rem; padding-bottom: 3rem; }
+  .entry { background: #fff; border: 1px solid #e6e0d0; border-radius: 14px; padding: 1.7rem 1.8rem 1.6rem; scroll-margin-top: 90px; }
+    .entry.has-art { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: 1.7rem; align-items: center; }
+    .entry-art { border-radius: 10px; overflow: hidden; background: #f8f2e4; aspect-ratio: 5 / 4; }
+    .entry-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+    @media (max-width: 640px) { .entry.has-art { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; } .entry-art { max-width: 360px; margin: 0 auto; } }
+  .entry-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .entry h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.05em; }
+  .entry .origin { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dawn); white-space: nowrap; }
+  .entry p.desc { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .entry .sources { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; }
+  .entry .sources .src-label { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; color: #8d8877; text-transform: uppercase; margin-right: 0.8rem; }
+  .entry .sources a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1.1rem; letter-spacing: 0.03em; }
+  .entry .sources a:hover { border-bottom-color: var(--forest); }
+  .entry.ours { border-color: var(--gold); background: #fffdf4; }
+  .entry .ours-tag { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; background: var(--gold); color: #fff; border-radius: 999px; padding: 0.2rem 0.7rem; vertical-align: 3px; margin-left: 0.6rem; }
+
+  #contribute { padding: 6rem 2rem; background: var(--ink-deep); text-align: center; color: var(--paper); }
+  #contribute .eyebrow { color: var(--gold); margin-bottom: 1.2rem; }
+  #contribute h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.06em; }
+  #contribute p { max-width: 620px; margin: 1.8rem auto 0; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.82); }
+  .cta-row { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 2.4rem; }
+  .cta-row a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.84rem; letter-spacing: 0.1em; text-decoration: none; border-radius: 999px; padding: 0.75rem 1.8rem; transition: opacity 0.2s ease; }
+  .cta-row a:hover { opacity: 0.85; }
+  .cta-row a.primary { background: var(--gold); color: var(--ink-deep); }
+  .cta-row a.ghost { border: 1px solid rgba(240,217,168,0.5); color: var(--gold); }
+
+  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
+  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+
+  /* ===== 収載基準・エビデンスラベル ===== */
+  #criteria { padding: 0 2rem 3.5rem; background: var(--paper); }
+  .criteria-box { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #ded8c8; border-radius: 14px; padding: 2rem 2rem 1.8rem; }
+  .criteria-box .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .criteria-box h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .criteria-box p { font-size: 0.86rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol { margin: 1rem 0 1.2rem 1.4em; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol li { margin-bottom: 0.3rem; }
+  .criteria-legend { display: flex; flex-wrap: wrap; gap: 0.7rem 1.4rem; margin: 1.1rem 0 1.2rem; padding: 1rem 1.1rem; background: #f7f4ea; border-radius: 10px; font-size: 0.8rem; line-height: 1.9; }
+  .criteria-legend > div { display: flex; align-items: baseline; gap: 0.5rem; }
+  .criteria-db { margin-top: 0.4rem; font-size: 0.78rem; line-height: 2.2; }
+  .criteria-db a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1rem; }
+  .criteria-db a:hover { border-bottom-color: var(--forest); }
+  .criteria-note { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; color: #6b6656; }
+  .ev { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; font-weight: 500; border-radius: 4px; padding: 0.14rem 0.5rem; margin-right: 0.7rem; vertical-align: 1px; letter-spacing: 0.14em; }
+  .ev-a { background: var(--teal, #0f6e56); background: #0f6e56; color: #fff; }
+  .ev-b { background: #1a5fad; color: #fff; }
+  .ev-c { background: #8d8877; color: #fff; }
+  .ev-x { background: var(--gold); color: #fff; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./shikumi-zukan.html" class="active">社会の仕組み図鑑</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./shikumi-zukan.html" class="active">社会の仕組み図鑑</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<section id="zhero">
+  <div class="eyebrow fade-up">Social Systems of the World</div>
+  <h1 class="fade-up">社会の仕組み図鑑</h1>
+  <p class="zhero-sub fade-up">
+    <a href="./roadmap.html" style="color: inherit; border-bottom: 1px solid rgba(216,90,48,0.5); text-decoration: none;">世界平和までのロードマップ</a>の構造編です。ロードマップの診断で示した二つのシステム不全——資本が資本を生む場所にしか流れない<strong>札束資本主義</strong>と、熟慮された民意を汲み上げられない<strong>情弱民主主義</strong>——に対して、世界が発明してきた「お金と民意の回路」＝サブシステムを集めています。一人ひとりの対話のミクロな技法は<a href="./dialogue-zukan.html" style="color: inherit; border-bottom: 1px solid rgba(216,90,48,0.5); text-decoration: none;">対話技法図鑑（実践編）</a>に。この図鑑は、その対話が社会のどんな配管につながるのかを描く地図です。明文化した<a href="#criteria" style="color:inherit;">収載基準</a>に沿って選定し、各項目にエビデンス水準ラベルと出典を添えています。
+  </p>
+  <div class="update-badge fade-up">この図鑑は随時更新していきます</div>
+</section>
+
+<section id="toc">
+  <div class="toc-inner fade-up">
+    <a href="#criteria">収載基準</a>
+    <a href="#cat-money">お金の回路をつくり直す</a>
+    <a href="#cat-voice">民意の回路をつくり直す</a>
+    <a href="#cat-soil">土台を耕す</a>
+  </div>
+</section>
+
+<section id="criteria">
+  <div class="criteria-box fade-up">
+    <div class="eyebrow">Collection Policy</div>
+    <h2>この図鑑の収載基準</h2>
+    <p>「良さそうな制度」を編集者の好みで集めると、図鑑は恣意的なコレクションになってしまいます。そこでこの図鑑では、次の3つをすべて満たす仕組みのみを収載しています。</p>
+    <ol>
+      <li>ロードマップの診断で示した<strong>二つの機能不全（札束資本主義・情弱民主主義）の少なくとも一方に対する、構造レベルの処方</strong>であること</li>
+      <li><strong>実地での導入・運用の実績</strong>があること（構想段階のものは、その旨を明示して収載）</li>
+      <li>国際機関・研究機関の<strong>データベース収載、査読研究、または複数国での導入実績</strong>のいずれかで裏付けが確認できること</li>
+    </ol>
+    <p>あわせて、各項目にエビデンス水準のラベルを付けています。水準が低い＝価値が低い、ではありません。新しい発明は検証がこれからで当然です。ラベルは「どんな種類の裏付けがあるか」を正直に示すためのものです。</p>
+    <div class="criteria-legend">
+      <div><span class="ev ev-a">A</span><span>ランダム化比較試験などの因果検証、または多数事例の系統的比較研究がある</span></div>
+      <div><span class="ev ev-b">B</span><span>複数の国・組織での制度化・運用実績と、研究・公的評価がある</span></div>
+      <div><span class="ev ev-c">C</span><span>有望だが実証は限定的、または構想・実験段階（その旨を本文に明示）</span></div>
+    </div>
+    <p class="criteria-db"><strong>準拠している主なデータベース・評価機関：</strong><br>
+      <a href="https://www.oecd.org/en/topics/sub-issues/open-government-and-citizen-participation/innovative-public-participation.html" target="_blank" rel="noopener">OECD 熟議民主主義データベース</a>
+      <a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a>
+      <a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL（MIT貧困アクションラボ）</a>
+      <a href="https://golab.bsg.ox.ac.uk/" target="_blank" rel="noopener">Government Outcomes Lab（オックスフォード大学）</a>
+    </p>
+    <p class="criteria-note">※三部作の位置づけ——戦略の全体像は<a href="./roadmap.html" style="color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35);">世界平和までのロードマップ</a>（戦略編）、仕組みを動かす人の側の技は<a href="./dialogue-zukan.html" style="color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35);">世界の対話技法図鑑</a>（実践編）をご覧ください。各項目の「対になる実践」から相互に行き来できます。</p>
+  </div>
+</section>
+
+<section class="zcat" id="cat-money">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Rerouting Money</div>
+    <h2>お金の回路をつくり直す</h2>
+    <p>札束資本主義への処方。資本がさらなる資本を生む場所にしか流れないのなら、必要な場所へ流す回路を人の手で敷けばいい——そう考えた人たちの発明です。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="cct">
+      <div class="entry-top"><h3>条件付き現金給付（CCT）</h3><span class="origin"><span class="ev ev-a">A</span>Mexico / 1997</span></div>
+      <p class="desc">子どもの就学や予防接種などを条件に、貧困世帯へ直接現金を給付する仕組み。メキシコのプログレサは導入時からランダム化比較試験による効果検証を組み込んだ設計で知られ、就学率や健康指標の改善が確認されて、いまや数十カ国に広がる標準的な貧困対策になりました。市場が届けないなら条件付きで直接届ける——札束資本主義の外側に引かれた、最初の太い水路の一つです。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.worldbank.org/en/topic/safetynets" target="_blank" rel="noopener">World Bank: Social Safety Nets</a><a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL</a></div>
+    </div>
+
+    <div class="entry fade-up" id="cash-transfer">
+      <div class="entry-top"><h3>無条件の直接給付・UBI実験</h3><span class="origin"><span class="ev ev-a">A</span>Kenya ほか / 2009</span></div>
+      <p class="desc">条件すら付けず、貧困世帯に現金をそのまま送る仕組み。GiveDirectlyはケニアなどで大規模なランダム化比較試験を重ね、消費・資産・栄養の改善を確認するとともに、「現金を渡すと浪費が増える」という通念が概ね裏付けられないことを示してきました。世界最大規模のユニバーサル・ベーシックインカム長期実験も進行中です。「貧しい人はお金の使い方を知らない」という認知こそが妖怪だった、と検証が教えてくれた例です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.givedirectly.org/" target="_blank" rel="noopener">GiveDirectly</a><a href="https://www.givewell.org/" target="_blank" rel="noopener">GiveWell（現金給付の研究レビュー）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="microfinance">
+      <div class="entry-top"><h3>マイクロファイナンス</h3><span class="origin"><span class="ev ev-a">A</span>Bangladesh / 1983</span></div>
+      <p class="desc">担保を持たない貧困層、とりわけ女性に小口の融資を行うグラミン銀行の仕組みで、創設者ユヌスとともに2006年のノーベル平和賞を受賞しました。ただしその後の複数のランダム化比較試験では、貧困脱出の効果は当初の熱狂よりも穏やかであることが分かってきています。この図鑑があえてそれを書くのは、「効果を測り、期待を修正できる」こと自体が仕組みの健全さの証だからです。金融アクセスという回路の価値は、いまも残っています。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.nobelprize.org/prizes/peace/2006/summary/" target="_blank" rel="noopener">Nobel Peace Prize 2006</a><a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL（マイクロクレジット評価）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="quadratic-funding">
+      <div class="entry-top"><h3>クアドラティック・ファンディング</h3><span class="origin"><span class="ev ev-b">B</span>Beyond Borders / 2019</span></div>
+      <p class="desc">「一人の大口」より「多数の小口」を数学的に優遇するマッチング寄付の仕組み。多くの人が少しずつ支持するプロジェクトほど、共有の資金プールからの上乗せが大きくなるよう設計されています。Gitcoinがオープンソースソフトウェアの資金分配で運用を重ね、誰の儲けにもならない公共財へお金を流す回路として注目されています。札束資本主義の「一円＝一票」を、数式のレベルで書き換える試みです。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.radicalxchange.org/" target="_blank" rel="noopener">RadicalxChange</a><a href="https://www.gitcoin.co/" target="_blank" rel="noopener">Gitcoin</a></div>
+    </div>
+
+    <div class="entry fade-up" id="sib">
+      <div class="entry-top"><h3>ソーシャル・インパクト・ボンド</h3><span class="origin"><span class="ev ev-b">B</span>United Kingdom / 2010</span></div>
+      <p class="desc">再犯防止や健康改善などの社会的成果が実際に出たときにだけ、行政が投資家に償還する官民連携の仕組み。「成果」に値札を付けることで、儲からないが社会コストを大きく減らす予防領域に民間資金を呼び込みます。英国ピーターバラ刑務所の再犯防止事業から始まり、日本でも神戸市や八王子市などの自治体が導入してきました。効果は事例によって濃淡があり、成果指標の設計の巧拙が問われる段階です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://golab.bsg.ox.ac.uk/" target="_blank" rel="noopener">Government Outcomes Lab</a><a href="https://en.wikipedia.org/wiki/Social_impact_bond" target="_blank" rel="noopener">Wikipedia: Social impact bond</a></div>
+    </div>
+
+    <div class="entry fade-up" id="worker-coop">
+      <div class="entry-top"><h3>労働者協同組合</h3><span class="origin"><span class="ev ev-b">B</span>Spain / 1956・日本法制化 2020</span></div>
+      <p class="desc">働く人自身が出資し、経営方針を一人一票で決める企業形態。スペインのモンドラゴンは数万人規模で「経営の民主主義」を半世紀以上実証し続けています。日本でも2020年に労働者協同組合法が成立し（2022年施行）、3人から設立できるようになりました。企業という札束資本主義の中心部に、民主主義のサブシステムを埋め込む発明です。組合の合意形成そのものが、毎日の対話のトレーニングにもなります。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.mondragon-corporation.com/" target="_blank" rel="noopener">Mondragon Corporation</a><a href="https://jwcu.coop/" target="_blank" rel="noopener">日本労働者協同組合連合会</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#democracy-fitness">デモクラシーフィットネス（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="solidarity-levy">
+      <div class="entry-top"><h3>国際連帯税</h3><span class="origin"><span class="ev ev-b">B</span>France / 2006</span></div>
+      <p class="desc">国境を越える経済活動——航空券など——にごく薄い税を乗せ、地球規模の課題へ直接流す仕組み。フランス発の航空券連帯税は、途上国への医薬品供給を担う国際機関Unitaidの主要財源になりました。「儲かる流れ」の川岸に小さな取水口を設け、水の届かない土地へ引く灌漑のような発想で、金融取引税などへの拡張も議論が続いています。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://unitaid.org/" target="_blank" rel="noopener">Unitaid</a><a href="https://en.wikipedia.org/wiki/Unitaid" target="_blank" rel="noopener">Wikipedia: Unitaid</a></div>
+    </div>
+
+    <div class="entry fade-up" id="effective-giving">
+      <div class="entry-top"><h3>エビデンスに基づく寄付</h3><span class="origin"><span class="ev ev-b">B</span>United States / 2007</span></div>
+      <p class="desc">「1ドルあたり最も多くの命を救う寄付先はどこか」を公開の調査で比較し、推奨先を絞り込む評価の仕組み。GiveWellに代表され、広告力や感情ではなく費用対効果で寄付の流れを変える回路として、これまでに大規模な資金移動へ影響を与えてきました。善意という貴重な資源の、交通整理にあたる発明です。マイクロファイナンスの項と同じく、「測って直す」文化の産物でもあります。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.givewell.org/" target="_blank" rel="noopener">GiveWell</a><a href="https://www.openphilanthropy.org/" target="_blank" rel="noopener">Open Philanthropy</a></div>
+    </div>
+
+  </div>
+    <p style="max-width:860px;margin:1.8rem auto 0;font-size:0.86rem;line-height:2.1;font-weight:300;color:#4a4652;text-align:center;">
+      「お金の回路」を、世界規模の貧困をなくすという一点に絞って深掘りした姉妹図鑑もあります　→　<a href="./poverty-zukan.html" style="color:#0f6e56;text-decoration:none;border-bottom:1px solid rgba(15,110,86,0.4);">世界の貧困解決アイデア図鑑</a>
+    </p>
+</section>
+
+<section class="zcat" id="cat-voice">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Rerouting Voice</div>
+    <h2>民意の回路をつくり直す</h2>
+    <p>情弱民主主義への処方。数年に一度の選挙と多数決だけに頼らず、「考えた後の民意」「選好の強さ」「分断の向こうの合意」を汲み上げるための発明です。現場の対話の様子は<a href="./dialogue-zukan.html#cat-systems" style="color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35);">対話技法図鑑</a>と対になっています。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="citizens-assembly">
+      <div class="entry-top"><h3>市民議会（くじ引き熟議）</h3><span class="origin"><span class="ev ev-a">A</span>Ireland ほか</span></div>
+      <p class="desc">世論調査が「考える前の意見」を集めるのに対し、くじ引きで選ばれた市民が情報と時間を与えられて出す「考えた後の民意」を制度化する仕組み。アイルランドの憲法改正やフランスの気候市民会議で国政レベルの実績があり、OECDは34カ国733事例を比較して成功条件を整理しています。情弱民主主義の核心——熟慮の機会の不在——への、最も直接的な処方です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://citizensassembly.ie/" target="_blank" rel="noopener">The Citizens' Assembly（アイルランド公式）</a><a href="https://www.oecd.org/en/topics/sub-issues/open-government-and-citizen-participation/innovative-public-participation.html" target="_blank" rel="noopener">OECD 熟議民主主義データベース</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#citizens-assembly">市民議会の対話の現場（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="deliberative-polling">
+      <div class="entry-top"><h3>熟議世論調査（Deliberative Polling®）</h3><span class="origin"><span class="ev ev-a">A</span>United States / 1988</span></div>
+      <p class="desc">無作為抽出された数百人が、バランスの取れた資料と専門家への質疑、小グループ討論を経て、参加前後で意見がどう変わったかまで測定する世論調査。スタンフォード大学のフィシュキンが開発し、世界数十カ国で、日本でもエネルギー政策などを題材に実施されてきました。「国民が十分な情報を得て考えたら、世論はどうなるか」を科学的に可視化する装置です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://deliberation.stanford.edu/" target="_blank" rel="noopener">Stanford Deliberative Democracy Lab</a><a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#deliberative-polling">熟議世論調査（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="participatory-budgeting">
+      <div class="entry-top"><h3>参加型予算</h3><span class="origin"><span class="ev ev-a">A</span>Brazil / 1989</span></div>
+      <p class="desc">公共予算の一部の使い道を、市民の話し合いで直接決める仕組み。ブラジルのポルトアレグレで始まり、世界数千の自治体に広がりました。導入自治体では保健・衛生への支出増と乳幼児死亡率の低下との関連が実証研究で報告されています。「お金の配分」と「民意」を同じテーブルに載せるため、この図鑑の二つのカテゴリを一本でつなぐ、二つの機能不全への同時処方です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a><a href="https://en.wikipedia.org/wiki/Participatory_budgeting" target="_blank" rel="noopener">Wikipedia: Participatory budgeting</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#participatory-budgeting">参加型予算の対話の現場（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="broad-listening">
+      <div class="entry-top"><h3>ブロードリスニング（Polis）</h3><span class="origin"><span class="ev ev-b">B</span>Taiwan / 2015</span></div>
+      <p class="desc">数千〜数万人の意見をアルゴリズムとAIで構造化し、「分断の地図」と「意外な合意点」を可視化する仕組み。台湾のvTaiwanがライドシェア問題などの合意形成で先行し、日本でも2024年以降、東京都の政策づくりやチームみらいの取り組みなどで急速に広がっています。声の大きさではなく、声の分布を見るための——いわば民意の顕微鏡です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://pol.is/" target="_blank" rel="noopener">Polis</a><a href="https://ai.objectives.institute/" target="_blank" rel="noopener">AI Objectives Institute（Talk to the City）</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#vtaiwan">vTaiwan・デジタル民主主義（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="quadratic-voting">
+      <div class="entry-top"><h3>クアドラティック・ボーティング</h3><span class="origin"><span class="ev ev-b">B</span>United States / 2019</span></div>
+      <p class="desc">一人が複数の票を持ち、強く思う論点に多く投じられる——ただし票数の二乗のコストがかかる——投票方式。「どれに賛成か」だけでなく「どれくらい大事か」という選好の強さを測れるのが特徴です。米コロラド州議会が法案の優先順位づけに実際に使い続けているほか、台湾の総統杯ハッカソンなどでも運用され、多数決の解像度を上げる仕組みとして検証が進んでいます。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.radicalxchange.org/" target="_blank" rel="noopener">RadicalxChange</a><a href="https://en.wikipedia.org/wiki/Quadratic_voting" target="_blank" rel="noopener">Wikipedia: Quadratic voting</a></div>
+    </div>
+
+    <div class="entry fade-up" id="liquid-democracy">
+      <div class="entry-top"><h3>液体民主主義</h3><span class="origin"><span class="ev ev-c">C</span>Germany / 2010ごろ</span></div>
+      <p class="desc">論点ごとに「自分で投票する」か「信頼する人に票を委任する」かを選べる、直接制と代議制のハイブリッド。ドイツ海賊党がLiquidFeedbackというソフトウェアで大規模に実験しましたが、少数への委任の集中など運用上の課題も見えてきました。成功例としてではなく、失敗の記録ごと参照できる貴重な社会実験のログとして収載しています。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://en.wikipedia.org/wiki/Liquid_democracy" target="_blank" rel="noopener">Wikipedia: Liquid democracy</a><a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a></div>
+    </div>
+
+    <div class="entry fade-up" id="community-notes">
+      <div class="entry-top"><h3>コミュニティノート（ブリッジング設計）</h3><span class="origin"><span class="ev ev-b">B</span>United States / 2021</span></div>
+      <p class="desc">SNS投稿への補足情報を、「普段は意見が対立している人たち」の双方から支持された場合にだけ表示する仕組み。分断を煽るほど拡散する通常のアルゴリズムとは逆に、対立を橋渡しする内容をコードで優遇する「ブリッジング」という設計思想に基づきます。X（旧Twitter）で運用され、誤情報の拡散抑制に関する研究も出始めました。情報空間そのものを情弱民主主義の増幅装置から解毒する試みの、代表例です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://communitynotes.x.com/" target="_blank" rel="noopener">Community Notes（X公式）</a><a href="https://en.wikipedia.org/wiki/Community_Notes" target="_blank" rel="noopener">Wikipedia: Community Notes</a></div>
+    </div>
+
+    <div class="entry fade-up" id="data-democracy">
+      <div class="entry-top"><h3>無意識データ民主主義</h3><span class="origin"><span class="ev ev-c">C</span>Japan / 2022（構想）</span></div>
+      <p class="desc">選挙だけに頼らず、人々の言葉・行動・反応の膨大なデータから民意を抽出し、アルゴリズムが政策決定を支援するという、経済学者・成田悠輔さんの構想。実装はまだ思考実験の段階ですが、ロードマップの診断（札束資本主義×情弱民主主義）の着想元でもあり、「上からの処方」の到達点の一つとして収載します。私たちの持ち場は、この種の構想と市民の日常の間を埋めるトレーニングとサブシステムの側にあります。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.sbcr.jp/product/4815615604/" target="_blank" rel="noopener">『22世紀の民主主義』（SBクリエイティブ）</a><a href="https://wired.jp/article/commons-democracy-yusukenarita/" target="_blank" rel="noopener">WIRED：成田悠輔と考える「民主主義の再生」</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="zcat" id="cat-soil">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Cultivating the Soil</div>
+    <h2>土台を耕す</h2>
+    <p>どんなに良い回路も、それを使いこなす市民と、共有地を守る規範がなければ動きません。二つの機能不全の土壌そのものを耕す仕組みです。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="folkehojskole">
+      <div class="entry-top"><h3>フォルケホイスコーレ（国民高等学校）</h3><span class="origin"><span class="ev ev-b">B</span>Denmark / 1844</span></div>
+      <p class="desc">試験も成績もなく、対話と共同生活を通じて「社会をつくる市民」を育てるデンマークの成人教育機関。グルントヴィの思想から180年、いまも約70校が稼働し、デンマークが世界最高水準の民主主義指数を保つ土壌の一つとされています。仕組み（制度化された学校）と実践（対話の日常）が一体になった、この図鑑と対話技法図鑑の結び目にあたる存在です。デモクラシーフィットネスも、この伝統の現代版の一つです。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.hojskolerne.dk/" target="_blank" rel="noopener">Højskolerne（デンマーク公式）</a><a href="https://en.wikipedia.org/wiki/Folk_high_school" target="_blank" rel="noopener">Wikipedia: Folk high school</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#folkehojskole">フォルケホイスコーレ（対話技法図鑑）</a><a href="./dialogue-zukan.html#democracy-fitness">デモクラシーフィットネス（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="commons-governance">
+      <div class="entry-top"><h3>コモンズの自治（オストロムの設計原理）</h3><span class="origin"><span class="ev ev-a">A</span>Beyond Borders</span></div>
+      <p class="desc">森・水・漁場のような共有資源は「みんなのものは荒れる」と言われてきました。しかしエリノア・オストロムは、世界中の現地調査から、住民が自主ルールで何百年も共有地を守り続けてきた事例群を発見し、境界の明確さや当事者によるルール設定など8つの設計原理に整理しました（2009年ノーベル経済学賞）。日本の入会地もその代表例です。札束にも国家にも頼らない「第三の統治」の、最も検証された地図です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.nobelprize.org/prizes/economic-sciences/2009/summary/" target="_blank" rel="noopener">Nobel Prize in Economic Sciences 2009</a><a href="https://en.wikipedia.org/wiki/Elinor_Ostrom" target="_blank" rel="noopener">Wikipedia: Elinor Ostrom</a></div>
+      <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#iriai-commons">入会地の自治（対話技法図鑑）</a><a href="./dialogue-zukan.html#yoriai">寄合（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="infrastructures-for-peace">
+      <div class="entry-top"><h3>平和のインフラ（Infrastructures for Peace）</h3><span class="origin"><span class="ev ev-b">B</span>Ghana ほか / 2011</span></div>
+      <p class="desc">紛争が起きてから外部が介入するのではなく、地域ごとの平和委員会や対話の常設窓口を、あらかじめ社会に埋め込んでおくという考え方。ガーナは全国・州・郡の各レベルに平和評議会を法制化し、選挙時の暴力の抑止に貢献したと評価されています。消防署のように「平和の常備施設」を社会に置くという発想は、ロードマップが描く「毎日通える道場」と同じ思想の、国家スケール版です。</p>
+      <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.un.org/peacebuilding/" target="_blank" rel="noopener">UN Peacebuilding</a><a href="https://en.wikipedia.org/wiki/Infrastructure_for_peace" target="_blank" rel="noopener">Wikipedia: Infrastructure for peace</a></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="eyebrow fade-up">Contribute</div>
+  <h2 class="fade-up">この図鑑は、随時更新していきます。</h2>
+  <p class="fade-up">
+    ここに載っているのは、世界の発明のほんの一部です。あなたの知っている「お金や民意の流れを変えている仕組み」を、ぜひ教えてください。制度、テクノロジー、地域の工夫——スケールは問いません。いただいた情報をもとに、この図鑑を一緒に育てていけたら嬉しいです。
+  </p>
+  <div class="cta-row fade-up">
+    <a class="primary" href="./index.html#contact">活動を教える・コラボする</a>
+    <a class="ghost" href="./roadmap.html">戦略編：ロードマップを見る</a>
+    <a class="ghost" href="./dialogue-zukan.html">実践編：対話技法図鑑を見る</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>おすすめTED集｜昔と今 | きづきくみたて工房</title>
+<meta name="description" content="平和と民主主義とお金の流れを学べるおすすめTEDトーク集。8つのテーマごとに「昔の古典」と「今の現在地」を1本ずつ、あわせて16本。ロードマップ・図鑑と対応。随時更新。">
+<link rel="canonical" href="https://kizukikumitate.com/ted-collection.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="おすすめTED集｜昔と今で観る、平和とお金と民意のはなし">
+<meta property="og:description" content="8つのテーマ×「昔の古典↔今の現在地」の16本。貧困、くじ引き民主主義、分断、対話、平和教育——図鑑と往復しながら映像で学ぶ。">
+<meta property="og:url" content="https://kizukikumitate.com/ted-collection.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  /* mobile accordion */
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
+  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+  }
+
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  #zhero {
+    padding: 10rem 2rem 5rem; text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 0%, rgba(60,52,137,0.12), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 10%, rgba(216,90,48,0.08), transparent 70%),
+      var(--paper);
+  }
+  #zhero .eyebrow { color: var(--dawn); margin-bottom: 1.4rem; }
+  #zhero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.8rem, 4.6vw, 3rem); letter-spacing: 0.08em; }
+  #zhero .zhero-sub { max-width: 660px; margin: 2rem auto 0; font-size: 0.95rem; line-height: 2.3; font-weight: 300; color: #4a4652; }
+  .update-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; color: var(--gold-deep); border: 1px solid rgba(217,164,65,0.6); border-radius: 999px; padding: 0.5rem 1.3rem; background: rgba(217,164,65,0.08); }
+  .update-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dawn); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 0.35; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .update-badge::before { animation: none; } }
+
+  #toc { padding: 0 2rem 3rem; background: var(--paper); }
+  .toc-inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .toc-inner a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none; color: var(--charcoal); border: 1px solid #ded8c8; border-radius: 999px; padding: 0.45rem 1.15rem; background: #fff; transition: border-color 0.2s ease, color 0.2s ease; }
+  .toc-inner a:hover { border-color: var(--dawn); color: var(--dawn); }
+
+  .zcat { padding: 4.5rem 2rem 2rem; }
+  .zcat:nth-of-type(even) { background: #f3efe4; }
+  .zcat-head { max-width: 860px; margin: 0 auto 2.4rem; }
+  .zcat-head .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .zcat-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: 0.06em; }
+  .zcat-head p { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.1; font-weight: 300; color: #4a4652; }
+  .entry-list { max-width: 860px; margin: 0 auto; display: grid; gap: 1.1rem; padding-bottom: 3rem; }
+  .entry { background: #fff; border: 1px solid #e6e0d0; border-radius: 14px; padding: 1.7rem 1.8rem 1.6rem; scroll-margin-top: 90px; }
+    .entry.has-art { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: 1.7rem; align-items: center; }
+    .entry-art { border-radius: 10px; overflow: hidden; background: #f8f2e4; aspect-ratio: 5 / 4; }
+    .entry-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+    @media (max-width: 640px) { .entry.has-art { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; } .entry-art { max-width: 360px; margin: 0 auto; } }
+  .entry-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .entry h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.05em; }
+  .entry .origin { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dawn); white-space: nowrap; }
+  .entry p.desc { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .entry .sources { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; }
+  .entry .sources .src-label { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; color: #8d8877; text-transform: uppercase; margin-right: 0.8rem; }
+  .entry .sources a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1.1rem; letter-spacing: 0.03em; }
+  .entry .sources a:hover { border-bottom-color: var(--forest); }
+  .entry.ours { border-color: var(--gold); background: #fffdf4; }
+  .entry .ours-tag { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; background: var(--gold); color: #fff; border-radius: 999px; padding: 0.2rem 0.7rem; vertical-align: 3px; margin-left: 0.6rem; }
+
+  #contribute { padding: 6rem 2rem; background: var(--ink-deep); text-align: center; color: var(--paper); }
+  #contribute .eyebrow { color: var(--gold); margin-bottom: 1.2rem; }
+  #contribute h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.06em; }
+  #contribute p { max-width: 620px; margin: 1.8rem auto 0; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.82); }
+  .cta-row { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 2.4rem; }
+  .cta-row a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.84rem; letter-spacing: 0.1em; text-decoration: none; border-radius: 999px; padding: 0.75rem 1.8rem; transition: opacity 0.2s ease; }
+  .cta-row a:hover { opacity: 0.85; }
+  .cta-row a.primary { background: var(--gold); color: var(--ink-deep); }
+  .cta-row a.ghost { border: 1px solid rgba(240,217,168,0.5); color: var(--gold); }
+
+  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
+  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+
+  /* ===== 収載基準・エビデンスラベル ===== */
+  #criteria { padding: 0 2rem 3.5rem; background: var(--paper); }
+  .criteria-box { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #ded8c8; border-radius: 14px; padding: 2rem 2rem 1.8rem; }
+  .criteria-box .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .criteria-box h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .criteria-box p { font-size: 0.86rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol { margin: 1rem 0 1.2rem 1.4em; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol li { margin-bottom: 0.3rem; }
+  .criteria-legend { display: flex; flex-wrap: wrap; gap: 0.7rem 1.4rem; margin: 1.1rem 0 1.2rem; padding: 1rem 1.1rem; background: #f7f4ea; border-radius: 10px; font-size: 0.8rem; line-height: 1.9; }
+  .criteria-legend > div { display: flex; align-items: baseline; gap: 0.5rem; }
+  .criteria-db { margin-top: 0.4rem; font-size: 0.78rem; line-height: 2.2; }
+  .criteria-db a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1rem; }
+  .criteria-db a:hover { border-bottom-color: var(--forest); }
+  .criteria-note { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; color: #6b6656; }
+  .ev { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; font-weight: 500; border-radius: 4px; padding: 0.14rem 0.5rem; margin-right: 0.7rem; vertical-align: 1px; letter-spacing: 0.14em; }
+  .ev-a { background: var(--teal, #0f6e56); background: #0f6e56; color: #fff; }
+  .ev-b { background: #1a5fad; color: #fff; }
+  .ev-c { background: #8d8877; color: #fff; }
+  .ev-x { background: var(--gold); color: #fff; }
+
+  /* ===== TED集ページ用 ===== */
+  .ted-item { margin-top: 1.1rem; }
+  .ted-tag { display: inline-block; font-family: 'Shippori Mincho', serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; border-radius: 4px; padding: 0.16rem 0.55rem; margin-right: 0.7rem; vertical-align: 1px; color: #fff; }
+  .ted-old { background: #8d8877; }
+  .ted-now { background: var(--teal); }
+  .ted-item a.talk { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.92rem; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); letter-spacing: 0.02em; }
+  .ted-item a.talk:hover { border-bottom-color: var(--forest); }
+  .ted-item p { margin-top: 0.45rem; font-size: 0.84rem; line-height: 2.05; font-weight: 300; color: #3b3a42; }
+  .ted-arc { margin-top: 1.1rem; padding: 0.7rem 1rem; border-left: 3px solid var(--dawn); background: #fdf6ef; font-size: 0.84rem; line-height: 2.05; color: #4a4652; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./ted-collection.html" class="active">おすすめTED集</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./ted-collection.html" class="active">おすすめTED集</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<section id="zhero">
+  <div class="eyebrow fade-up">TED Talks, Then &amp; Now</div>
+  <h1 class="fade-up">おすすめTED集</h1>
+  <p class="zhero-sub fade-up">
+    <a href="./roadmap.html" style="color: inherit; border-bottom: 1px solid rgba(216,90,48,0.5); text-decoration: none;">世界平和までのロードマップ</a>と二つの図鑑（<a href="./shikumi-zukan.html" style="color: inherit; border-bottom: 1px solid rgba(216,90,48,0.5); text-decoration: none;">構造編</a>・<a href="./dialogue-zukan.html" style="color: inherit; border-bottom: 1px solid rgba(216,90,48,0.5); text-decoration: none;">実践編</a>）を、映像で学ぶための入口です。8つのテーマごとに、その分野を切り拓いた<strong>「昔」の古典</strong>と、いまの到達点を示す<strong>「今」の一本</strong>を選びました。二本を続けて観ると、世界がこの10〜15年でどこまで歩いたのかが立体的に見えてきます。リンクはすべてTED公式サイトで、多くは日本語字幕付きです。
+  </p>
+  <div class="update-badge fade-up">このリストは随時更新していきます</div>
+</section>
+
+<section id="toc">
+  <div class="toc-inner fade-up">
+    <a href="#policy">選定方針</a>
+    <a href="#ted-money">お金の回路</a>
+    <a href="#ted-voice">民意の回路</a>
+    <a href="#ted-mind">認知と対話</a>
+    <a href="#ted-soil">土台と平和</a>
+  </div>
+</section>
+
+<section id="criteria">
+  <div class="criteria-box fade-up" id="policy">
+    <div class="eyebrow">Selection Policy</div>
+    <h2>このリストの選定方針</h2>
+    <p>「面白い」だけで集めると、リストは無限に伸びてしまいます。そこでこのTED集では、次の3つをすべて満たすものだけを選びました。</p>
+    <ol>
+      <li>ロードマップの診断（札束資本主義・情弱民主主義）か、図鑑に収載した仕組み・技法に<strong>直接対応するテーマ</strong>であること</li>
+      <li>各テーマにつき<strong>「昔の古典」と「今の現在地」を一本ずつ</strong>——二本の間の変化そのものが学びになる組み合わせであること</li>
+      <li>TED公式（ted.com）で視聴でき、<strong>講演者がそのテーマの当事者・第一人者</strong>であること</li>
+    </ol>
+    <p class="criteria-note">※各テーマ末尾の「あわせて読む」から、対応する図鑑エントリへ飛べます。動画→図鑑→ロードマップ、の順に潜っていくのがおすすめの使い方です。</p>
+  </div>
+</section>
+
+<section class="zcat" id="ted-money">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Rerouting Money</div>
+    <h2>お金の回路</h2>
+    <p>札束資本主義への処方を、測定の革命（昔）と、その結論（今）で。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="t1">
+      <div class="entry-top"><h3>1. 貧困と現金の回路</h3><span class="origin">妖怪：銭寄せ ↔ 式神：みつはこび</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty" target="_blank" rel="noopener">Esther Duflo「Social experiments to fight poverty」（2010）</a>
+      <p>貧困対策を思想ではなくランダム化比較試験で「測る」というRCT革命の宣言。のちのノーベル経済学賞受賞者による原点の一本。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/rory_stewart_to_end_extreme_poverty_give_cash_not_advice" target="_blank" rel="noopener">Rory Stewart「To end extreme poverty, give cash — not advice」（2024）</a>
+      <p>元・英国国際開発大臣が「助言や研修ではなく、現金をそのまま渡すのが最も効く」と自らの過去の政策を覆すまでの告白。</p></div>
+      <p class="ted-arc">この14年で、問いは「援助の効果は測れるか」から「測った結果、現金が最強だった」へ。検証の文化が結論を出した実例です。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#cash-transfer">無条件の直接給付（仕組み図鑑）</a><a href="./shikumi-zukan.html#cct">条件付き現金給付（仕組み図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="t2">
+      <div class="entry-top"><h3>2. 寄付とエビデンス</h3><span class="origin">「値札」を提示する側の系譜</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/dan_pallotta_the_way_we_think_about_charity_is_dead_wrong" target="_blank" rel="noopener">Dan Pallotta「The way we think about charity is dead wrong」（2013）</a>
+      <p>「非営利は質素であるべき」という社会の認知の癖（＝妖怪）が、慈善の規模を縛ってきたことを暴いた告発の古典。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/natalie_cargill_how_to_solve_the_world_s_biggest_problems" target="_blank" rel="noopener">Natalie Cargill「How to solve the world’s biggest problems」（2023）</a>
+      <p>富裕層の上位1%が所得の10%を出せば年3.5兆ドル。極度の貧困の解消に約2,600億ドル——と、世界の課題に具体的な値札を付けていく一本。</p></div>
+      <p class="ted-arc">ロードマップのReality Check（貧困解消の値札）と直接つながる系譜。「お金が足りない」のではなく「回路と意思の問題」だという診断が、10年かけて数字になりました。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#effective-giving">エビデンスに基づく寄付（仕組み図鑑）</a><a href="./roadmap.html">ロードマップのReality Check</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="zcat" id="ted-voice">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Rerouting Voice</div>
+    <h2>民意の回路</h2>
+    <p>情弱民主主義への処方を、哲学（昔）と実装（今）で。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="t3">
+      <div class="entry-top"><h3>3. 民主主義の再発明</h3><span class="origin">妖怪：ぬりかべ ↔ 式神：かりむすび</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/michael_sandel_the_lost_art_of_democratic_debate" target="_blank" rel="noopener">Michael Sandel「The lost art of democratic debate」（2010）</a>
+      <p>民主主義の核心は投票ではなく、共に善さを問う公共の熟議だ——ハーバード白熱教室の哲学者による原点。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/brett_hennig_what_if_we_replaced_politicians_with_randomly_selected_people" target="_blank" rel="noopener">Brett Hennig「What if we replaced politicians with randomly selected people?」（2017）</a>
+      <p>「では、くじ引きで制度化しよう」。古代アテネから現代の市民議会まで、抽選制民主主義の実装を提案する一本。</p></div>
+      <p class="ted-arc">「熟議が大事」という哲学から、「くじで誰もが議席に座りうる」という設計へ。アイルランドやフランスの市民議会は、この二本の間で現実になりました。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#citizens-assembly">市民議会（仕組み図鑑）</a><a href="./dialogue-zukan.html#citizens-assembly">市民議会の対話の現場（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="t4">
+      <div class="entry-top"><h3>4. デジタル民主主義</h3><span class="origin">妖怪：山彦 ↔ 式神：こだまよみ</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/pia_mancini_how_to_upgrade_democracy_for_the_internet_era" target="_blank" rel="noopener">Pia Mancini「How to upgrade democracy for the Internet era」（2014）</a>
+      <p>アルゼンチンの活動家による、ネットで政治参加を再設計する初期の壮大な実験（DemocracyOS）。液体民主主義の項の生きた記録。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/audrey_tang_how_digital_innovation_can_fight_pandemics_and_strengthen_democracy" target="_blank" rel="noopener">Audrey Tang「How digital innovation can fight pandemics and strengthen democracy」（2020）</a>
+      <p>台湾のデジタル担当政務委員（当時）が語る、vTaiwan・ブロードリスニングの実装と「速い公正さ」。</p></div>
+      <p class="ted-arc">「ネットで投票の仕組みを変える」から「ネットで聴き方を変える」への転回。仕組み図鑑の液体民主主義↔ブロードリスニングの対を、当事者の声で辿れます。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#broad-listening">ブロードリスニング（仕組み図鑑）</a><a href="./shikumi-zukan.html#liquid-democracy">液体民主主義（仕組み図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="t5">
+      <div class="entry-top"><h3>5. 情報空間と分断</h3><span class="origin">妖怪：山彦の生態観察</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/eli_pariser_beware_online_filter_bubbles" target="_blank" rel="noopener">Eli Pariser「Beware online filter bubbles」（2011）</a>
+      <p>「フィルターバブル」という言葉を世界に与えた古典。山彦という妖怪の生態を、最初に名指しした一本。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/wael_ghonim_let_s_design_social_media_that_drives_real_change" target="_blank" rel="noopener">Wael Ghonim「Let’s design social media that drives real change」（2015）</a>
+      <p>アラブの春に火をつけた本人が、そのSNSが分断装置に転じた過程を告白し、橋を架ける設計（ブリッジング）を求める。</p></div>
+      <p class="ted-arc">予言（2011）と、当事者による検死報告（2015）。コミュニティノートのブリッジング設計は、この二本への現在進行形の回答として観られます。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#community-notes">コミュニティノート（仕組み図鑑）</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="zcat" id="ted-mind">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Mind &amp; Dialogue</div>
+    <h2>認知と対話</h2>
+    <p>妖怪と式神の理論編。戦争の最小単位である「一つの認知」を扱う技術。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="t6">
+      <div class="entry-top"><h3>6. 認知——「自分は正しい」の正体</h3><span class="origin">妖怪の理論編 ↔ 式神：かたどり（八咫烏）</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/kathryn_schulz_on_being_wrong" target="_blank" rel="noopener">Kathryn Schulz「On being wrong」（2011）</a>
+      <p>「自分が正しい」という感覚は、間違っているときもまったく同じ手触りをしている——妖怪論の哲学的な土台になる一本。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/adam_grant_what_frogs_in_hot_water_can_teach_us_about_thinking_again" target="_blank" rel="noopener">Adam Grant「What frogs in hot water can teach us about thinking again」（2021）</a>
+      <p>組織心理学者による「考え直す力（Think Again）」の鍛え方。再考を弱さではなく、日々磨ける筋力として描き直します。</p></div>
+      <p class="ted-arc">「間違いを認める哲学」から「再考の筋トレ」へ。デモクラ筋・メタ認知トレーニングの思想的裏付けが、この10年で実践論に降りてきました。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./dialogue-zukan.html#democracy-fitness">デモクラシーフィットネス（対話技法図鑑）</a><a href="./dialogue-zukan.html#kyoso-dojo">妖怪と式神（対話技法図鑑）</a></div>
+    </div>
+
+    <div class="entry fade-up" id="t7">
+      <div class="entry-top"><h3>7. 対話——糾弾から招き入れへ</h3><span class="origin">妖怪：ぬりかべ ↔ 式神たちの実践編</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/william_ury_the_walk_from_no_to_yes" target="_blank" rel="noopener">William Ury「The walk from “no” to “yes”」（2010）</a>
+      <p>『ハーバード流交渉術』の共著者による「第三の側（サードサイド）」論。対立の当事者ではなく、周囲が平和の器になるという思想。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/loretta_j_ross_don_t_call_people_out_call_them_in" target="_blank" rel="noopener">Loretta J. Ross「Don’t call people out — call them in」（2021）</a>
+      <p>公民権運動のベテランが説く、コールアウト（糾弾）ではなくコールイン（招き入れ）の文化。SNS時代の日常の作法として。</p></div>
+      <p class="ted-arc">国際交渉のテーブルにあった原理が、20年かけてSNS時代の日常会話の作法に降りてきた系譜。「敵を作らずに変化を求める」技術です。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./dialogue-zukan.html#nvc">NVC（対話技法図鑑）</a><a href="./dialogue-zukan.html#braver-angels">Braver Angels（対話技法図鑑）</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="zcat" id="ted-soil">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Cultivating the Soil</div>
+    <h2>土台と平和</h2>
+    <p>仕組みを使いこなす市民が育つ場所——教室から食卓まで。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry fade-up" id="t8">
+      <div class="entry-top"><h3>8. 平和と民主主義の教育</h3><span class="origin">土台を耕す ↔ 式神：あまだれ（ひとつつき）</span></div>
+      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/john_hunter_teaching_with_the_world_peace_game" target="_blank" rel="noopener">John Hunter「Teaching with the World Peace Game」（2011）</a>
+      <p>小学4年生が世界の危機を「プレイして」解決する伝説の授業。教室が平和の道場になりうることの、最も美しい証明。</p></div>
+      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/hajer_sharief_how_to_use_family_dinner_to_teach_politics" target="_blank" rel="noopener">Hajer Sharief「How to use family dinner to teach politics」（2019）</a>
+      <p>リビア内戦を生きた平和活動家が語る、週に一度の家族会議。民主主義の練習は、家庭の夕食から始められる。</p></div>
+      <p class="ted-arc">学校の教室から、家庭の食卓へ。「毎日通える道場」の最小単位は家だった——ロードマップの結論を、二人の実践者が先に生きていました。</p>
+      <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#folkehojskole">フォルケホイスコーレ（仕組み図鑑）</a><a href="./roadmap.html">世界平和までのロードマップ</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="eyebrow fade-up">Contribute</div>
+  <h2 class="fade-up">この図鑑は、随時更新していきます。</h2>
+  <p class="fade-up">
+    ここに載っているのは、良い映像のほんの一部です。あなたの心を動かした、平和・民主主義・お金の流れにまつわるトークがあれば、ぜひ教えてください。TEDに限りません。いただいた情報をもとに、このリストを一緒に育てていけたら嬉しいです。
+  </p>
+  <div class="cta-row fade-up">
+    <a class="primary" href="./index.html#contact">活動を教える・コラボする</a>
+    <a class="ghost" href="./roadmap.html">戦略編：ロードマップを見る</a>
+    <a class="ghost" href="./dialogue-zukan.html">実践編：対話技法図鑑を見る</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

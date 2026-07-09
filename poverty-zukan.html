@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界の貧困解決アイデア図鑑 | きづきくみたて工房</title>
+<meta name="description" content="世界中で発明されてきた、対話と平和のための技法・仕組み・運動・知恵を集めた図鑑。それぞれの説明と引用元リンク付き。この図鑑は随時更新していきます。">
+<link rel="canonical" href="https://kizukikumitate.com/poverty-zukan.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="世界の貧困解決アイデア図鑑｜「お金は足りている。足りないのは、仕組み」">
+<meta property="og:description" content="極度の貧困の値札は世界GDPの0.3%。経済学者や国際機関が設計してきた、お金の流れを組み替える仕組みを図鑑に。稼働中・提案中の別つき、引用元とともに。">
+<meta property="og:url" content="https://kizukikumitate.com/poverty-zukan.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  /* mobile accordion */
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
+  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+  }
+
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  #zhero {
+    padding: 10rem 2rem 5rem; text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 0%, rgba(60,52,137,0.12), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 10%, rgba(216,90,48,0.08), transparent 70%),
+      var(--paper);
+  }
+  #zhero .eyebrow { color: var(--dawn); margin-bottom: 1.4rem; }
+  #zhero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.8rem, 4.6vw, 3rem); letter-spacing: 0.08em; }
+  #zhero .zhero-sub { max-width: 660px; margin: 2rem auto 0; font-size: 0.95rem; line-height: 2.3; font-weight: 300; color: #4a4652; }
+  .update-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; color: var(--gold-deep); border: 1px solid rgba(217,164,65,0.6); border-radius: 999px; padding: 0.5rem 1.3rem; background: rgba(217,164,65,0.08); }
+  .update-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dawn); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 0.35; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .update-badge::before { animation: none; } }
+
+  #toc { padding: 0 2rem 3rem; background: var(--paper); }
+  .toc-inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .toc-inner a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none; color: var(--charcoal); border: 1px solid #ded8c8; border-radius: 999px; padding: 0.45rem 1.15rem; background: #fff; transition: border-color 0.2s ease, color 0.2s ease; }
+  .toc-inner a:hover { border-color: var(--dawn); color: var(--dawn); }
+
+  .zcat { padding: 4.5rem 2rem 2rem; }
+  .zcat:nth-of-type(even) { background: #f3efe4; }
+  .zcat-head { max-width: 860px; margin: 0 auto 2.4rem; }
+  .zcat-head .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .zcat-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: 0.06em; }
+  .zcat-head p { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.1; font-weight: 300; color: #4a4652; }
+  .entry-list { max-width: 860px; margin: 0 auto; display: grid; gap: 1.1rem; padding-bottom: 3rem; }
+  .entry { background: #fff; border: 1px solid #e6e0d0; border-radius: 14px; padding: 1.7rem 1.8rem 1.6rem; scroll-margin-top: 90px; }
+    .entry.has-art { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: 1.7rem; align-items: center; }
+    .entry-art { border-radius: 10px; overflow: hidden; background: #f8f2e4; aspect-ratio: 5 / 4; }
+    .entry-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+    @media (max-width: 640px) { .entry.has-art { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; } .entry-art { max-width: 360px; margin: 0 auto; } }
+  .entry-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .entry h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.05em; }
+  .entry .origin { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dawn); white-space: nowrap; }
+  .entry p.desc { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .entry .sources { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; }
+  .entry .sources .src-label { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; color: #8d8877; text-transform: uppercase; margin-right: 0.8rem; }
+  .entry .sources a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1.1rem; letter-spacing: 0.03em; }
+  .entry .sources a:hover { border-bottom-color: var(--forest); }
+  .entry.ours { border-color: var(--gold); background: #fffdf4; }
+  .entry .ours-tag { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; background: var(--gold); color: #fff; border-radius: 999px; padding: 0.2rem 0.7rem; vertical-align: 3px; margin-left: 0.6rem; }
+
+  #contribute { padding: 6rem 2rem; background: var(--ink-deep); text-align: center; color: var(--paper); }
+  #contribute .eyebrow { color: var(--gold); margin-bottom: 1.2rem; }
+  #contribute h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.06em; }
+  #contribute p { max-width: 620px; margin: 1.8rem auto 0; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.82); }
+  .cta-row { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 2.4rem; }
+  .cta-row a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.84rem; letter-spacing: 0.1em; text-decoration: none; border-radius: 999px; padding: 0.75rem 1.8rem; transition: opacity 0.2s ease; }
+  .cta-row a:hover { opacity: 0.85; }
+  .cta-row a.primary { background: var(--gold); color: var(--ink-deep); }
+  .cta-row a.ghost { border: 1px solid rgba(240,217,168,0.5); color: var(--gold); }
+
+  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
+  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+
+  /* ===== 収載基準・エビデンスラベル ===== */
+  #criteria { padding: 0 2rem 3.5rem; background: var(--paper); }
+  .criteria-box { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #ded8c8; border-radius: 14px; padding: 2rem 2rem 1.8rem; }
+  .criteria-box .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .criteria-box h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .criteria-box p { font-size: 0.86rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol { margin: 1rem 0 1.2rem 1.4em; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol li { margin-bottom: 0.3rem; }
+  .criteria-legend { display: flex; flex-wrap: wrap; gap: 0.7rem 1.4rem; margin: 1.1rem 0 1.2rem; padding: 1rem 1.1rem; background: #f7f4ea; border-radius: 10px; font-size: 0.8rem; line-height: 1.9; }
+  .criteria-legend > div { display: flex; align-items: baseline; gap: 0.5rem; }
+  .criteria-db { margin-top: 0.4rem; font-size: 0.78rem; line-height: 2.2; }
+  .criteria-db a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1rem; }
+  .criteria-db a:hover { border-bottom-color: var(--forest); }
+  .criteria-note { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; color: #6b6656; }
+  .ev { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; font-weight: 500; border-radius: 4px; padding: 0.14rem 0.5rem; margin-right: 0.7rem; vertical-align: 1px; letter-spacing: 0.14em; }
+  .ev-a { background: var(--teal, #0f6e56); background: #0f6e56; color: #fff; }
+  .ev-b { background: #1a5fad; color: #fff; }
+  .ev-c { background: #8d8877; color: #fff; }
+  .ev-x { background: var(--gold); color: #fff; }
+
+  /* ===== 貧困解決アイデア図鑑：ページ固有 ===== */
+  .pz-intro { padding: 0 2rem 1rem; background: var(--paper); }
+  .pz-intro-box { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #ded8c8; border-radius: 14px; padding: 2rem 2rem 1.8rem; }
+  .pz-intro-box .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .pz-intro-box h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; margin-bottom: 1rem; line-height: 1.7; }
+  .pz-intro-box p { font-size: 0.88rem; line-height: 2.2; font-weight: 300; color: #3b3a42; }
+  .pz-intro-box p + p { margin-top: 0.9rem; }
+  .pz-intro-box strong { font-weight: 600; }
+  .pz-legend { display: flex; flex-wrap: wrap; gap: 0.7rem 1.6rem; margin: 1.3rem 0 0.2rem; padding: 1rem 1.1rem; background: #f7f4ea; border-radius: 10px; }
+  .pz-legend span { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.8rem; letter-spacing: 0.04em; color: #5a5566; display: inline-flex; align-items: center; gap: 0.5em; }
+  .pz-legend i { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+  .pz-legend .lg-on i { background: var(--teal); }
+  .pz-legend .lg-half i { background: linear-gradient(90deg, var(--gold) 50%, #efe6cf 50%); border: 1px solid var(--gold); }
+  .pz-legend .lg-idea i { background: transparent; border: 1.5px solid var(--dawn); }
+
+  .pzcat { padding: 4rem 2rem 2rem; }
+  .pzcat:nth-of-type(even) { background: #f3efe4; }
+  .pzcat-head { max-width: 1000px; margin: 0 auto 2.2rem; scroll-margin-top: 90px; }
+  .pzcat-head .eyebrow { margin-bottom: 0.8rem; }
+  .pzcat-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: 0.06em; }
+  .pzcat-head p { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.1; font-weight: 300; color: #4a4652; max-width: 760px; }
+  .pzcat.c-collect .eyebrow, .pzcat.c-collect h2 { color: #8a6314; }
+  .pzcat.c-deliver .eyebrow, .pzcat.c-deliver h2 { color: var(--teal); }
+  .pzcat.c-flow    .eyebrow, .pzcat.c-flow h2    { color: var(--dawn); }
+
+  .pz-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; padding-bottom: 1rem; }
+  .pz-card { background: #fff; border: 1px solid #e6e0d0; border-radius: 14px; padding: 1.7rem 1.5rem 1.6rem; display: flex; flex-direction: column; position: relative; }
+  .c-collect .pz-card { border-top: 3px solid var(--gold); }
+  .c-deliver .pz-card { border-top: 3px solid var(--teal); }
+  .c-flow    .pz-card { border-top: 3px solid var(--dawn); }
+  .pz-fig { width: 96px; height: 96px; margin: 0.2rem auto 1.1rem; }
+  .pz-fig svg { width: 100%; height: 100%; display: block; }
+  .pz-badge { position: absolute; top: 1rem; right: 1rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.66rem; letter-spacing: 0.08em; padding: 0.28em 0.75em; border-radius: 999px; white-space: nowrap; }
+  .pz-badge.on   { background: #e1f5ee; color: #0d5a47; border: 1px solid #b8e2d3; }
+  .pz-badge.half { background: #faf3e0; color: #8a6314; border: 1px solid #eadaae; }
+  .pz-badge.idea { background: #f6e3d8; color: #a3401f; border: 1px solid #efc9b5; }
+  .pz-card h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.02rem; letter-spacing: 0.04em; line-height: 1.7; text-align: center; }
+  .pz-steward { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.06em; color: var(--mid-gray); text-align: center; margin-top: 0.45rem; line-height: 1.7; }
+  .pz-scale { text-align: center; margin: 1rem 0 0.9rem; padding: 0.7rem 0.4rem; background: #faf8f2; border-radius: 10px; }
+  .pz-scale .ms-num { font-family: 'Jost', sans-serif; font-weight: 500; font-size: 1.05rem; color: var(--charcoal); letter-spacing: 0.02em; line-height: 1.5; }
+  .pz-scale .ms-note { font-family: 'Shippori Mincho', serif; font-size: 0.68rem; color: var(--mid-gray); margin-top: 0.15rem; letter-spacing: 0.05em; line-height: 1.6; }
+  .pz-card p.pz-desc { font-size: 0.83rem; line-height: 2.05; font-weight: 300; color: #33323a; margin-top: 0.1rem; }
+  .pz-card p.pz-desc strong { font-weight: 600; }
+  .pz-card .sources { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.76rem; }
+  .pz-card .sources .src-label { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; color: #8d8877; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+  .pz-card .sources a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); }
+  .pz-card .sources a:hover { border-bottom-color: var(--forest); }
+
+  .pz-close { padding: 4.5rem 2rem 1rem; background: var(--paper); }
+  .pz-close-box { max-width: 860px; margin: 0 auto; }
+  .pz-close-box p { font-size: 0.92rem; line-height: 2.25; font-weight: 300; color: #33323a; }
+  .pz-close-box p strong { font-weight: 600; }
+  .pz-close-box p + p { margin-top: 1.1rem; }
+  .pz-note { background: #e1f5ee; border-left: 3px solid var(--teal); border-radius: 0 10px 10px 0; padding: 1.3rem 1.5rem; margin-top: 1.6rem; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #2c4a41; }
+
+  /* ===== 読むときの注意（caveat）＆ 募集 ===== */
+  #caveat { padding: 4.5rem 2rem 1rem; background: var(--paper); }
+  .caveat-box { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #ded8c8; border-radius: 14px; padding: 2rem 2rem 1.8rem; }
+  .caveat-box .eyebrow { color: var(--dawn); margin-bottom: 0.8rem; }
+  .caveat-box h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; margin-bottom: 1.1rem; line-height: 1.7; }
+  .caveat-box p { font-size: 0.87rem; line-height: 2.2; font-weight: 300; color: #3b3a42; }
+  .caveat-box p + p { margin-top: 0.95rem; }
+  .caveat-box strong { font-weight: 600; }
+  .caveat-box .caveat-lead { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 0.95rem; color: #2c2a33; letter-spacing: 0.02em; }
+  .caveat-note { margin-top: 1.2rem; padding-top: 0.95rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; line-height: 2; color: #6b6656; }
+  .caveat-note a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); }
+  .caveat-note a:hover { border-bottom-color: var(--forest); }
+  #contribute .cta-note { max-width: 620px; margin: 1.3rem auto 0; font-size: 0.8rem; line-height: 2; font-weight: 300; color: rgba(250,248,242,0.6); }
+
+  @media (max-width: 900px) { .pz-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 620px) { .pz-grid { grid-template-columns: minmax(0, 1fr); } .pzcat { padding: 3.2rem 1.2rem 1.5rem; } .pz-card { padding: 1.5rem 1.3rem 1.4rem; } }
+
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<section id="zhero">
+  <div class="eyebrow fade-up">Ideas to End Poverty · An Illustrated Field Guide</div>
+  <h1 class="fade-up">世界の貧困解決アイデア図鑑</h1>
+  <p class="zhero-sub fade-up">
+    極度の貧困を撲滅する値札は、世界GDPのわずか0.3%。ではそのお金は、どこから、どうやって来るのか。経済学者や国際機関がすでに設計してきた「お金の流れを組み替える仕組み」を、図鑑の形で並べます。眺めてほしいのは細部ではなく、<strong>技術的な答えはもう出揃っているという全体の景色</strong>のほうです。
+  </p>
+  <div class="update-badge fade-up">随時更新中 · Living Document</div>
+</section>
+
+<section class="pz-intro">
+  <div class="pz-intro-box fade-up">
+    <div class="eyebrow">Why This Guide</div>
+    <h2>お金は足りている。<br>足りないのは、仕組み。</h2>
+    <p>
+      2025年末に発表された研究（UCバークレー・スタンフォード・UCサンディエゴ）によれば、1日2.15ドル未満で暮らす極度の貧困をほぼ撲滅するのに必要な資金は<strong>年間約3,180億ドル、世界GDPのわずか0.3%</strong>。世界がアルコール飲料に使う金額の約7分の1です。つまり、お金の総量はもう問題ではありません。足りていないのは、資金を届けきる仕組みと、拠出する側の政治的な意思のほうです。
+    </p>
+    <p>
+      幸い、その「仕組み」の候補は、すでにいくつも設計されています。このページでは、<strong>集め方を変える／届け方を変える／流れを直す</strong>の3つの群に分けて、実在する・提案されている仕組みを9つ紹介します。それぞれに、いま世界のどの段階にあるかのステータスを付けました。
+    </p>
+    <div class="pz-legend" aria-label="ステータス凡例">
+      <span class="lg-on"><i></i>稼働中・実証済み</span>
+      <span class="lg-half"><i></i>一部稼働・進行中</span>
+      <span class="lg-idea"><i></i>構想・交渉中</span>
+    </div>
+  </div>
+</section>
+
+<section id="toc">
+  <div class="toc-inner fade-up">
+    <a href="#collect">① 集め方を変える</a>
+    <a href="#deliver">② 届け方を変える</a>
+    <a href="#flow">③ 流れを直す</a>
+    <a href="#closing">最後の部品</a>
+  </div>
+</section>
+
+<!-- ===== 群1：集め方を変える ===== -->
+<section class="pzcat c-collect">
+  <div class="pzcat-head fade-up" id="collect">
+    <div class="eyebrow">① How We Collect</div>
+    <h2>集め方を変える</h2>
+    <p>奪うのではなく、「普通の人と同じ税率を、ようやく払ってもらう」ための仕組み。国際協調で、税の抜け道そのものを塞ぐ発想です。</p>
+  </div>
+  <div class="pz-grid">
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge on">稼働中（2024〜）</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#faf3e0"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round">
+            <rect x="27" y="44" width="17" height="34"/>
+            <rect x="51" y="30" width="18" height="48"/>
+            <rect x="76" y="52" width="17" height="26"/>
+          </g>
+          <g stroke="#16132a" stroke-width="1.6" opacity="0.55">
+            <line x1="31" y1="52" x2="40" y2="52"/><line x1="31" y1="60" x2="40" y2="60"/><line x1="31" y1="68" x2="40" y2="68"/>
+            <line x1="55" y1="38" x2="65" y2="38"/><line x1="55" y1="46" x2="65" y2="46"/><line x1="55" y1="54" x2="65" y2="54"/><line x1="55" y1="62" x2="65" y2="62"/><line x1="55" y1="70" x2="65" y2="70"/>
+            <line x1="80" y1="60" x2="89" y2="60"/><line x1="80" y1="68" x2="89" y2="68"/>
+          </g>
+          <line x1="18" y1="80" x2="102" y2="80" stroke="#d9a441" stroke-width="5" stroke-linecap="round"/>
+          <text x="60" y="98" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" fill="#8a6314">min 15%</text>
+        </svg>
+      </div>
+      <h3>グローバル最低法人税</h3>
+      <div class="pz-steward">OECD／G20・140以上の国と地域</div>
+      <div class="pz-scale">
+        <div class="ms-num">約1,500〜2,000億ドル／年</div>
+        <div class="ms-note">OECDによる追加税収の試算</div>
+      </div>
+      <p class="pz-desc">
+        大企業がどの国に利益を移しても、実効税率が15%を下回る分は追加で課税される「床」の仕組み。2024年に発効し、すでに世界の大企業の大半が対象です。<strong>「タックスヘイブンに逃げれば勝ち」というゲームのルール自体を変えた</strong>、国際協調の実例になりました。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://www.oecd.org/en/topics/global-minimum-tax.html" target="_blank" rel="noopener">OECD “Global Minimum Tax”</a>
+      </div>
+    </div>
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge idea">交渉中</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#faf3e0"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="#fff">
+            <ellipse cx="60" cy="72" rx="22" ry="7"/>
+            <ellipse cx="60" cy="63" rx="22" ry="7"/>
+            <ellipse cx="60" cy="54" rx="22" ry="7"/>
+            <ellipse cx="60" cy="45" rx="22" ry="7"/>
+            <ellipse cx="60" cy="36" rx="22" ry="7"/>
+          </g>
+          <line x1="20" y1="90" x2="100" y2="90" stroke="#d9a441" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"/>
+          <text x="60" y="106" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" fill="#8a6314">min 2%</text>
+        </svg>
+      </div>
+      <h3>超富裕層への最低税</h3>
+      <div class="pz-steward">提案：G.ズックマン（ブラジルG20委嘱・2024）</div>
+      <div class="pz-scale">
+        <div class="ms-num">約2,000〜2,500億ドル／年</div>
+        <div class="ms-note">世界の約3,000人が対象・貧困の値札の約2倍</div>
+      </div>
+      <p class="pz-desc">
+        世界のビリオネア約3,000人に、資産の2%を毎年の最低税として求める構想。現状、ビリオネアの実効税率は資産比0〜0.5%程度と、<strong>看護師や教師より低い水準</strong>にとどまることが示されています。「2%」は富裕層が中間層並みの負担にようやく並ぶだけの、意図的に控えめな設計です。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://gabriel-zucman.eu/files/report-g20.pdf" target="_blank" rel="noopener">Zucman, G20 Blueprint (2024)</a>
+      </div>
+    </div>
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge half">一部の国で稼働</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#faf3e0"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="none" stroke-linecap="round">
+            <path d="M36 44 A 26 26 0 0 1 84 44"/>
+            <path d="M84 60 A 26 26 0 0 1 36 60"/>
+          </g>
+          <g fill="#16132a">
+            <path d="M84 44 l-8 -3 l2 9 z"/>
+            <path d="M36 60 l8 3 l-2 -9 z"/>
+          </g>
+          <circle cx="60" cy="76" r="5.5" fill="#fff" stroke="#d9a441" stroke-width="2.5"/>
+          <path d="M42 96 A 20 9 0 0 0 78 96" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <line x1="60" y1="84" x2="60" y2="90" stroke="#d9a441" stroke-width="2" stroke-dasharray="2 3"/>
+        </svg>
+      </div>
+      <h3>金融取引税</h3>
+      <div class="pz-steward">提唱：J.トービン（1972）ほか</div>
+      <div class="pz-scale">
+        <div class="ms-num">設計次第</div>
+        <div class="ms-note">英国・フランスなどで稼働実績</div>
+      </div>
+      <p class="pz-desc">
+        株式や通貨の取引に0.1%前後のごく薄い税をかける発想。日常の投資にはほぼ影響せず、<strong>投機的な超高速取引だけを狙って減速させながら税収を生む</strong>のが狙いです。英国の印紙税やフランスの金融取引税など、部分的にはすでに半世紀越しで動き始めています。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://www.europarl.europa.eu/legislative-train/theme-an-economy-that-works-for-people/file-financial-transaction-tax" target="_blank" rel="noopener">EU FTT（欧州議会）</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 群2：届け方を変える ===== -->
+<section class="pzcat c-deliver">
+  <div class="pzcat-head fade-up" id="deliver">
+    <div class="eyebrow">② How We Deliver</div>
+    <h2>届け方を変える</h2>
+    <p>集めたお金・すでにあるお金を、中抜きも遠回りもせずに必要な人へ。届け方の発明は、この20年でもっとも研究が進んだ分野です。</p>
+  </div>
+  <div class="pz-grid">
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge on">実証済み・拡大中</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#e1f5ee"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="#fff">
+            <circle cx="30" cy="42" r="8"/>
+            <path d="M18 66 A 12 12 0 0 1 42 66" fill="#fff"/>
+            <circle cx="90" cy="42" r="8"/>
+            <path d="M78 66 A 12 12 0 0 1 102 66" fill="#fff"/>
+          </g>
+          <line x1="40" y1="80" x2="76" y2="80" stroke="#0f6e56" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M84 80 l-10 -5 l0 10 z" fill="#0f6e56"/>
+          <circle cx="58" cy="71" r="7" fill="#fff" stroke="#0f6e56" stroke-width="2.5"/>
+          <circle cx="58" cy="71" r="3" fill="none" stroke="#0f6e56" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <h3>直接現金給付</h3>
+      <div class="pz-steward">GiveDirectly／バナジー&amp;デュフロらのRCT研究</div>
+      <div class="pz-scale">
+        <div class="ms-num">数百件の比較実験</div>
+        <div class="ms-note">貧困支援でもっとも検証された手法のひとつ</div>
+      </div>
+      <p class="pz-desc">
+        物資や研修ではなく、現金をそのまま貧困世帯に渡す方法。大規模なランダム化比較試験の蓄積により「酒や怠惰に消える」という通説は覆され、栄養・就学・収入の改善が確認されています。<strong>何に使うべきかを一番知っているのは本人だ</strong>という意味で、もっとも民主的な届け方でもあります。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://www.givedirectly.org/research-at-give-directly/" target="_blank" rel="noopener">GiveDirectly Research</a>
+      </div>
+    </div>
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge half">一部稼働</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#e1f5ee"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="#fff">
+            <circle cx="60" cy="62" r="26"/>
+            <ellipse cx="60" cy="62" rx="11" ry="26"/>
+            <line x1="34" y1="62" x2="86" y2="62"/>
+          </g>
+          <g stroke="#16132a" stroke-width="2" fill="#fff">
+            <ellipse cx="28" cy="26" rx="9" ry="3.5"/>
+            <ellipse cx="28" cy="21" rx="9" ry="3.5"/>
+          </g>
+          <path d="M40 24 C 66 12, 92 34, 90 58" stroke="#0f6e56" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M90 64 l-5 -9 l9 1 z" fill="#0f6e56"/>
+        </svg>
+      </div>
+      <h3>SDR（特別引出権）の再配分</h3>
+      <div class="pz-steward">IMF／G20</div>
+      <div class="pz-scale">
+        <div class="ms-num">1,000億ドル超</div>
+        <div class="ms-note">再配分の誓約済み額（6,500億ドル発行のうち）</div>
+      </div>
+      <p class="pz-desc">
+        IMFが2021年に発行した6,500億ドル分の準備資産は、制度の性質上その大半が豊かな国に配られました。<strong>使われずに眠っているその一部を低所得国へ回す</strong>枠組みで、G20は1,000億ドル超の再配分を誓約済み。ただし実際の資金化はまだ道半ばです。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://www.imf.org/en/blogs/articles/2023/10/13/how-channeling-sdrs-is-supporting-vulnerable-economies" target="_blank" rel="noopener">IMF “Channeling SDRs”</a>
+      </div>
+    </div>
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge half">公約・未達成</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#e1f5ee"/>
+          <path d="M26 80 A 34 34 0 0 1 94 80" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <g stroke="#16132a" stroke-width="2" opacity="0.5">
+            <line x1="26" y1="80" x2="32" y2="80"/>
+            <line x1="36" y1="57" x2="40" y2="61"/>
+            <line x1="60" y1="46" x2="60" y2="52"/>
+            <line x1="84" y1="57" x2="80" y2="61"/>
+            <line x1="94" y1="80" x2="88" y2="80"/>
+          </g>
+          <line x1="60" y1="80" x2="36" y2="64" stroke="#16132a" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="60" cy="80" r="4" fill="#16132a"/>
+          <circle cx="84" cy="60" r="5" fill="none" stroke="#0f6e56" stroke-width="2.5"/>
+          <text x="30" y="98" font-family="Jost, sans-serif" font-size="12" fill="#5a6a7a">0.3</text>
+          <text x="80" y="46" font-family="Jost, sans-serif" font-size="12" fill="#0f6e56">0.7%</text>
+        </svg>
+      </div>
+      <h3>ODA 0.7%目標</h3>
+      <div class="pz-steward">国連総会決議（1970）</div>
+      <div class="pz-scale">
+        <div class="ms-num">0.3% → 0.7%</div>
+        <div class="ms-note">達成すれば政府開発援助はほぼ倍増</div>
+      </div>
+      <p class="pz-desc">
+        豊かな国が国民総所得の0.7%を援助に充てるという、半世紀以上前の国際公約。2024年の実績は平均0.3%と、<strong>約束の半分以下</strong>にとどまっています。新しい発明ではなく、「すでにした約束を守る」だけで景色が変わる仕組みです。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://unctad.org/publication/external-debt-sustainability-and-development-2025" target="_blank" rel="noopener">UN（ODA実績 0.3%）</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== 群3：流れを直す ===== -->
+<section class="pzcat c-flow">
+  <div class="pzcat-head fade-up" id="flow">
+    <div class="eyebrow">③ Fix the Flow</div>
+    <h2>流れを直す</h2>
+    <p>新しいお金を動かさなくても、いま流れているお金の「向き」と「漏れ」を直すだけで、巨大な原資が現れます。</p>
+  </div>
+  <div class="pz-grid">
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge half">仕組みあり・機能不全</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#f6e3d8"/>
+          <path d="M20 62 C 34 62, 40 46, 52 50 C 66 55, 44 76, 58 74 C 68 72, 66 58, 78 58" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M78 58 L 96 58" stroke="#d85a30" stroke-width="3" stroke-linecap="round"/>
+          <path d="M102 58 l-9 -4.5 l0 9 z" fill="#d85a30"/>
+        </svg>
+      </div>
+      <h3>債務の再編・帳消し</h3>
+      <div class="pz-steward">G20共通枠組み／ジュビリー運動ほか</div>
+      <div class="pz-scale">
+        <div class="ms-num">利払いは年9,210億ドル</div>
+        <div class="ms-note">途上国全体・2024年（前年比+10%）</div>
+      </div>
+      <p class="pz-desc">
+        いま約34億人が、<strong>政府が保健や教育より借金の利払いに多くを使う国</strong>で暮らしています。返済条件の見直しや帳消しは、新しいお金を動かさずに、すでにある国家予算を人に向け直す仕組み。2000年前後の重債務貧困国の救済で実績があります。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://unctad.org/publication/world-of-debt" target="_blank" rel="noopener">UNCTAD “A World of Debt 2025”</a>
+      </div>
+    </div>
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge half">進行中（SDG目標）</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#f6e3d8"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round">
+            <rect x="18" y="70" width="18" height="15"/>
+            <path d="M15 70 L 27 60 L 39 70 z"/>
+            <rect x="84" y="70" width="18" height="15"/>
+            <path d="M81 70 L 93 60 L 105 70 z"/>
+          </g>
+          <path d="M34 58 C 44 30, 76 30, 88 56" stroke="#16132a" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
+          <g stroke="#d85a30" stroke-width="2.5" fill="#fff" stroke-linejoin="round">
+            <rect x="51" y="28" width="19" height="13"/>
+            <path d="M51 28 L 60.5 37 L 70 28"/>
+          </g>
+          <text x="60" y="102" text-anchor="middle" font-family="Jost, sans-serif" font-size="12" fill="#a3401f">6% → 3%</text>
+        </svg>
+      </div>
+      <h3>送金手数料の引き下げ</h3>
+      <div class="pz-steward">SDGターゲット10.c／世界銀行</div>
+      <div class="pz-scale">
+        <div class="ms-num">年200億ドル規模</div>
+        <div class="ms-note">手数料半減で家計に直接残る額</div>
+      </div>
+      <p class="pz-desc">
+        出稼ぎ労働者が母国の家族に送るお金は年6,850億ドルと、<strong>政府援助と外国直接投資の合計を上回る</strong>規模。ところが平均6%超の手数料が途中で消えています。国連目標の3%まで下げるだけで、援助でも税でもないお金が貧しい世帯にそのまま残ります。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://remittanceprices.worldbank.org/" target="_blank" rel="noopener">World Bank Remittance Prices</a>
+      </div>
+    </div>
+
+    <div class="pz-card fade-up">
+      <span class="pz-badge idea">合意済み・停滞中</span>
+      <div class="pz-fig" aria-hidden="true">
+        <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#f6e3d8"/>
+          <g stroke="#16132a" stroke-width="2.5" fill="#fff">
+            <rect x="24" y="40" width="20" height="28" rx="2"/>
+            <line x1="24" y1="49" x2="44" y2="49"/>
+            <line x1="24" y1="59" x2="44" y2="59"/>
+          </g>
+          <path d="M44 54 L 62 54" stroke="#16132a" stroke-width="2.5" fill="none"/>
+          <path d="M62 54 L 78 54" stroke="#16132a" stroke-width="2.5" stroke-dasharray="4 4" fill="none"/>
+          <line x1="82" y1="48" x2="92" y2="60" stroke="#16132a" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="92" y1="48" x2="82" y2="60" stroke="#16132a" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M62 54 C 70 62, 74 68, 76 78" stroke="#d85a30" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M78 86 l-7.5 -6 l8.5 -2 z" fill="#d85a30"/>
+          <g stroke="#0f6e56" stroke-width="2.5" fill="#e1f5ee">
+            <path d="M84 92 C 84 84, 90 80, 96 80 C 96 88, 92 92, 84 92 z"/>
+            <path d="M84 92 C 84 86, 79 83, 74 84 C 75 90, 79 93, 84 92 z"/>
+          </g>
+        </svg>
+      </div>
+      <h3>化石燃料補助金の組み替え</h3>
+      <div class="pz-steward">G20合意（2009）／IMF試算</div>
+      <div class="pz-scale">
+        <div class="ms-num">明示的補助金だけで年約1.3兆ドル</div>
+        <div class="ms-note">外部コストを含む試算では年7兆ドル規模</div>
+      </div>
+      <p class="pz-desc">
+        世界はいまも化石燃料に巨額の補助金を投じ続けています。G20は2009年に段階的な廃止で合意していますが、進んでいません。この流れの<strong>一部を付け替えるだけで、この図鑑のどの仕組みよりも大きな原資</strong>が現れる——そういう規模の話です。
+      </p>
+      <div class="sources">
+        <span class="src-label">Source</span>
+        <a href="https://www.imf.org/en/Topics/climate-change/energy-subsidies" target="_blank" rel="noopener">IMF “Fossil Fuel Subsidies”</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="caveat">
+  <div class="caveat-box fade-up">
+    <div class="eyebrow">How to Read This Guide</div>
+    <h2>この図鑑を読むときに</h2>
+    <p class="caveat-lead">
+      ここに並べたのは、経済学者や国際機関が設計してきた「理論」と「試算」です。完成した処方箋ではありません。
+    </p>
+    <p>
+      「年◯億ドルで足りる」という数字は、あくまで算術上の見積もりであって、実際に世界規模で動かそうとすれば、資金が本当に末端まで届くのか、受け取る国の行政や制度が追いつくのか、課税を逃れる資本の移動をどう防ぐのか、反対する既得権をどう乗り越えるのか——ここに書ききれない不確実性がいくつもついてまわります。理論の上で成り立つことと、現実に拡張して機能させることのあいだには、まだ距離があります。<strong>だからこそ最後に「政治的意思」「社会の筋力」という話になるのだと、私自身は受け止めています。</strong>
+    </p>
+    <p>
+      それぞれの仕組みには、有力な反論も、専門家のあいだで決着していない論点もあります。富裕税は資本逃避を招くのではないか、現金給付は依存やインフレを生むのではないか、債務の帳消しは次の無責任な貸し借りを誘発するのではないか——こうした問いに、まだ世界は一つの答えを持っていません。この図鑑は特定の研究者の提案を多く含んでおり、反対の経済学的立場も当然に存在します。<strong>特定の政策を推すというより、「お金の総量は、もう問題ではないかもしれない」という一点に希望を見出すための入口として、並べているものです。</strong>
+    </p>
+    <p class="caveat-note">
+      きづきくみたて工房は政策シンクタンクではなく、ここは思考の出発点として編んだ図鑑です。より良い仕組みや理論をご存じの方、見落としている論点や記述の誤りに気づかれた方は、ぜひ<a href="./index.html#contact">お知らせください</a>。dialogue-zukan と同じく、これも随時更新していく「未完成の図鑑」です。
+    </p>
+  </div>
+</section>
+
+<section class="pz-close">
+  <div class="pz-close-box fade-up" id="closing">
+    <p>
+      この9つに共通することがあります。どれも、金融工学や税制設計としては<strong>すでに答えが出ている</strong>ということです。ビリオネア課税を設計したズックマン自身が言い切っています——「技術的な問題はすべて解決済み。残っているのは政治的意思だけだ」と。つまり、どの仕組みにも共通する最後の部品は、法律でも数式でもなく、<strong>分配の議論を分断に転化させずにやり抜く、社会の側の筋力</strong>です。
+    </p>
+    <div class="pz-note">
+      もうひとつ、言葉の設計について。各国の世論調査では、「再分配」という言葉そのものが強い拒否反応を生みやすいことが知られています。実際に前へ進んだ仕組みは、「公平な負担」「約束を守る」「漏れを塞ぐ」という言葉で語られてきました。仕組みの設計と同じくらい、言葉の設計が勝敗を分ける——これもまた、対話の技術の話です。
+    </div>
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="eyebrow fade-up">The Bigger Picture</div>
+  <h2 class="fade-up">お金の次は、それを動かす「筋力」の話。</h2>
+  <p class="fade-up">
+    この図鑑が示すのは、貧困の解決が夢物語ではなく設計の問題だということ。ただし、どの仕組みも最後は「合意をつくり、維持する社会の筋力」にかかっています。それをどう鍛えるのかを、世界平和までのロードマップと、世界の対話の技法図鑑にまとめています。
+  </p>
+  <div class="cta-row fade-up">
+    <a href="./roadmap.html" class="primary">世界平和までのロードマップ</a>
+    <a href="./dialogue-zukan.html" class="ghost">世界の対話の技法図鑑</a>
+    <a href="./index.html#contact" class="ghost">アイデア・理論を寄せる</a>
+  </div>
+  <p class="cta-note fade-up">
+    この図鑑はまだ育っている途中です。ベーシックインカム、土地税、ソブリン・ウェルス・ファンド——ここに載せきれていない仕組みや、より確かな理論をご存じでしたら、ぜひ教えてください。
+  </p>
+</section>
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

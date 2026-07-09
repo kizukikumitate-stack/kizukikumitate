@@ -107,7 +107,7 @@
   .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
   a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
   a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
     .nav-links { display: none; }
     .nav-hamburger { display: block; }
   }
@@ -468,6 +468,31 @@
   @media (prefers-reduced-motion: reduce) {
     .nobel-quote, .nobel-era-toggle { transition: none; }
   }
+
+  /* ===== Diagnosis（現状診断） ===== */
+  #diagnosis { padding: 7rem 2rem; background: linear-gradient(180deg, var(--ink-deep), var(--ink)); color: var(--paper); }
+  #diagnosis .diag-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  #diagnosis .eyebrow { color: var(--gold); margin-bottom: 1.4rem; }
+  #diagnosis h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); line-height: 1.8; letter-spacing: 0.04em; }
+  #diagnosis .diag-lead, #diagnosis .diag-close { margin-top: 2.2rem; font-size: 0.96rem; line-height: 2.3; text-align: left; font-weight: 300; color: rgba(250,248,242,0.88); }
+  #diagnosis .diag-lead strong, #diagnosis .diag-close strong { font-weight: 600; color: var(--gold-soft); }
+  #diagnosis .diag-credit { margin-top: 0.9rem; text-align: right; font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(250,248,242,0.5); }
+  .diag-cards { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 1rem; margin-top: 2.6rem; text-align: left; }
+  @media (max-width: 720px) { .diag-cards { grid-template-columns: minmax(0,1fr); } }
+  .diag-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(240,217,168,0.18); border-top: 3px solid var(--gold); border-radius: 0 0 12px 12px; padding: 1.5rem 1.6rem 1.6rem; }
+  .diag-card h3 { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: 1.05rem; letter-spacing: 0.06em; color: var(--paper); }
+  .diag-card .dc-tag { font-family: 'Jost', sans-serif; font-size: 0.66rem; letter-spacing: 0.24em; color: var(--gold); display: block; margin-bottom: 0.5rem; }
+  .diag-card p { margin-top: 0.7rem; font-size: 0.84rem; line-height: 2.1; font-weight: 300; color: rgba(250,248,242,0.78); }
+  .diag-gap-flow { display: flex; align-items: stretch; justify-content: center; gap: 0.7rem; flex-wrap: wrap; margin-top: 2.8rem; font-family: 'Shippori Mincho', serif; }
+  .diag-gap-flow .dg-node { background: rgba(255,255,255,0.05); border: 1px solid rgba(250,248,242,0.25); border-radius: 12px; padding: 1rem 1.2rem; font-size: 0.84rem; letter-spacing: 0.06em; line-height: 1.9; flex: 1 1 200px; max-width: 280px; }
+  .diag-gap-flow .dg-node small { display: block; font-family: 'Jost', sans-serif; font-size: 0.6rem; letter-spacing: 0.24em; color: rgba(250,248,242,0.5); margin-bottom: 0.4rem; }
+  .diag-gap-flow .dg-node .dg-sub { display: block; margin-top: 0.3rem; font-size: 0.72rem; color: rgba(250,248,242,0.55); }
+  .diag-gap-flow .dg-gap { border: 1.5px dashed var(--gold); background: rgba(217,164,65,0.08); color: var(--gold-soft); }
+  .diag-gap-flow .dg-gap small { color: var(--gold); }
+  .diag-gap-flow .dg-gap .dg-sub { color: rgba(240,217,168,0.75); }
+  /* ===== Voices compact link / Nobel appendix ===== */
+  .vc-link { display: inline-block; margin-top: 1.8rem; font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; color: var(--gold-soft); border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none; transition: color 0.25s; }
+  .vc-link:hover { color: var(--gold); }
 </style>
 </head>
 <body>
@@ -479,7 +504,13 @@
   </a>
   <ul class="nav-links">
     <li><a href="./index.html">Home</a></li>
-    <li><a href="./roadmap.html" class="active">目指す未来</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html" class="active">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
@@ -499,12 +530,21 @@
       </div>
     </li>
     <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">補助情報 <span class="nav-caret">▾</span></button>
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
-        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
         <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-        <a href="./index.html#contact">Contact</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </li>
   </ul>
@@ -516,7 +556,13 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="mobileClose">✕</button>
   <a href="./index.html">Home</a>
-  <a href="./roadmap.html" class="mobile-cat-link active">目指す未来</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html" class="active">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
   <div class="mobile-acc">
     <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
@@ -536,12 +582,21 @@
     </div>
   </div>
   <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">補助情報 <span class="mobile-acc-caret">▾</span></button>
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
-      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
       <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-      <a href="./index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
@@ -567,6 +622,40 @@
   <div class="hero-scroll fade-up">Scroll</div>
 </section>
 
+
+<section id="diagnosis">
+  <div class="diag-inner">
+    <div class="eyebrow fade-up">Diagnosis</div>
+    <h2 class="fade-up">平和の手前に、<br>二つのシステム不全がある。</h2>
+    <div class="diag-lead fade-up">
+      <p>いまの社会の行き詰まりは、「<strong>札束資本主義</strong>」と「<strong>情弱民主主義</strong>」という二つの言葉で診断されています。お金の量がそのまま発言力になってしまう経済と、情報や関心の格差がそのまま民意の歪みになってしまう政治。あとで見るように貧困の撲滅に値札まで付いているのに放置されるのも、分断が政治の燃料になってしまうのも、その多くはこの二つの機能不全の症状です。</p>
+      <p class="diag-credit">※「札束資本主義」「情弱民主主義」は、経済学者・成田悠輔さんの『22世紀の民主主義』『22世紀の資本主義』の議論をもとにした呼び名です</p>
+    </div>
+    <div class="diag-cards fade-up">
+      <div class="diag-card">
+        <span class="dc-tag">Malfunction 01</span>
+        <h3>札束資本主義</h3>
+        <p>資本は、さらなる資本を生む場所にだけ流れ込み、そこで増殖していく。だから、緊急なのに「儲からない」課題——極度の貧困、紛争の予防、共有地の維持——には資金が届かない。お金の総量は足りているのに、必要な場所へ流す回路が欠けています。</p>
+      </div>
+      <div class="diag-card">
+        <span class="dc-tag">Malfunction 02</span>
+        <h3>情弱民主主義</h3>
+        <p>複雑になりすぎた社会を前に、数年に一度の選挙と多数決だけでは民意を汲み尽くせない。声の大きさと情報の速さが勝ち、熟慮と対話は置き去りにされ、分断を煽るほど得をする構造ができてしまいました。</p>
+      </div>
+    </div>
+    <div class="diag-gap-flow fade-up" aria-label="上からの処方と市民の日常の間にある空白">
+      <div class="dg-node"><small>ABOVE</small>制度・テクノロジーの再設計<span class="dg-sub">研究者や政治が担う「上からの処方」</span></div>
+      <div class="dg-node dg-gap"><small>THE MISSING LAYER</small>サブシステムと<br>トレーニング<span class="dg-sub">仕組みと人をつなぐ中間層——ここが空白</span></div>
+      <div class="dg-node"><small>BELOW</small>市民の日常の認知と対話<span class="dg-sub">一人ひとりの現場の実践</span></div>
+    </div>
+    <div class="diag-close fade-up">
+      <p>診断そのものは、すでに共有され始めています。処方箋も、制度の再設計やテクノロジーといった「上から」の側では議論が進んでいます。けれど、どんなに良い仕組みも、それを日常で使いこなす市民の筋力と、練習できる場がなければ動きません。<strong>合意をつくる仕組み（サブシステム）の実装と、それを使う筋力を育てるトレーニングの開発が、圧倒的に追いついていない。</strong>これが、このロードマップの見立てです。</p>
+      <p style="margin-top:1.4rem">だからこの地図は、制度が変わるのを待ちません。認知の転換を生む機会——図鑑、診断、トレーニング——を無料で開き、それを使う人たちのムーブメントを育てるところから始めます。では、何をどう鍛えるのか。話は、戦争のいちばん小さな単位から始まります。</p>
+    </div>
+    <div class="fade-up" style="text-align:center;"><a class="vc-link" href="./shikumi-zukan.html">この空白を埋める世界の発明を集めました → 社会の仕組み図鑑（構造編）</a></div>
+  </div>
+</section>
+
 <section id="logic">
   <div class="logic-inner">
     <div class="eyebrow fade-up">Why Training?</div>
@@ -585,6 +674,7 @@
     <div class="scale-chain fade-up" aria-label="認知が広がるスケール">
       <span class="node">ひとりの認知</span><span class="link">→</span>
       <span class="node">ふたりの関係</span><span class="link">→</span>
+      <span class="node">チーム</span><span class="link">→</span>
       <span class="node">組織</span><span class="link">→</span>
       <span class="node">社会</span><span class="link">→</span>
       <span class="node">世界</span>
@@ -618,7 +708,7 @@
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-2.svg" alt="職場：対話するチームのイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 2</span><h3>職場</h3></div></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-2.svg" alt="チーム：対話するチームのイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 2</span><h3>チーム</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
@@ -630,13 +720,31 @@
       </div>
       <div class="ba-card ba-peace">
         <span class="ba-tag">平和へ</span>
-        <p>大人が毎日、対立を対話で代謝する練習を積む場所になる。社会の中に、民主主義の日常のジムが無数に生まれ、そこで鍛えた筋肉が職場の外へ持ち出されます。</p>
+        <p>大人が毎日、対立を対話で代謝する練習を積む場所になる。社会の中に、民主主義の日常のジムが無数に生まれ、そこで鍛えた筋肉がチームの外へ持ち出されます。</p>
       </div>
     </div>
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-3.svg" alt="地域：ひとつの町とご近所のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 3</span><h3>地域</h3></div></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-2b.svg" alt="組織：仕組みを設計し直す人々のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 3</span><h3>組織</h3></div></div>
+    <div class="ba-grid">
+      <div class="ba-card ba-before">
+        <span class="ba-tag">これまで</span>
+        <p>問題が起きるたび「人を替える」「研修で直す」という応急処置。対立を生んでいる評価・目標・情報の流れといった構造は手つかずのまま、「頑張っているのに報われない」現場が再生産される。</p>
+      </div>
+      <div class="ba-card ba-after">
+        <span class="ba-tag">鍛えると</span>
+        <p>人を責める前に、行動を左右している環境——目標、評価、情報、権限——を診断し、設計し直せる。対話の場が偶然の産物ではなく、会議体や制度として組織に埋め込まれていく。</p>
+      </div>
+      <div class="ba-card ba-peace">
+        <span class="ba-tag">平和へ</span>
+        <p>「人ではなく構造で解く」文化を持った組織は、数百人規模で毎日回る合意形成のインフラになる。社会に必要なサブシステムの雛形が、まず組織の中で育ちます。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="level-block fade-up">
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-3.svg" alt="地域：ひとつの町とご近所のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 4</span><h3>地域</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
@@ -654,7 +762,7 @@
   </div>
 
   <div class="level-block fade-up">
-    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-4.svg" alt="国家と世界：地球を囲む人々のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 4</span><h3>国家</h3></div></div>
+    <div class="level-name"><img class="level-art" src="./assets/img/roadmap/level-4.svg" alt="国家と世界：地球を囲む人々のイラスト" loading="lazy"><div class="level-label"><span class="ln-num">Level 5</span><h3>国家</h3></div></div>
     <div class="ba-grid">
       <div class="ba-card ba-before">
         <span class="ba-tag">これまで</span>
@@ -859,9 +967,249 @@
   <div class="voices fade-up">
     <div class="voices-head">
       <div class="voices-eyebrow">Voices of Peace</div>
-      <h3>先人たちは、平和に「何が必要だ」と言ってきたか。</h3>
+      <h3>125年の系譜が、指しているもの。</h3>
     </div>
-    <div class="voice-grid">
+    <p class="voices-close" style="margin-top:2rem;">
+      アルフレッド・ノーベルが遺言でこの賞に託したのは、国家間の友愛と軍備の削減、そして対話の場への貢献でした。以来125年、平和賞が照らす対象は、条約や停戦から、貧困からの自立、教育、証言と記憶、真実和解、民主主義の擁護へと広がり続けています。つまり世界はすでに、平和を「兵器と条約という外側」だけの問題ではなく、<strong>人の内面と関係、そして社会の構造を育てる営み</strong>として捉え直してきた——この宿題を市民の日常サイズで引き受けようとするのが、このロードマップの試みです。
+    </p>
+    <div style="text-align:center;"><a class="vc-link" href="#nobel">補助資料：先人たちの声と歴代受賞者 全リスト（1901–2025）→</a></div>
+  </div>
+  <p class="world-note fade-up">
+    ここに灯した実践は、一つずつ「世界の対話技法図鑑」に収めています。<br>
+    図鑑は明文化した収載基準に沿って選定し、各項目にエビデンス水準と出典を付けた、このロードマップの<strong style="color: var(--gold-soft); font-weight: 600;">実践編</strong>です。<br>
+    この地図は未完成です。あなたの町にも、きっと灯すべき光がある。世界の平和実現に向けての活動を、ぜひ教えてください。<br>
+    <a href="./dialogue-zukan.html" class="zukan-link">実践編：世界の対話技法図鑑を見る →</a>
+    <a href="./ted-collection.html" class="zukan-link">映像で学ぶ：おすすめTED集（昔↔今の16本）→</a>
+  </p>
+</section>
+
+
+
+
+<section id="evidence">
+  <div class="ev-inner">
+    <div class="ev-head fade-up">
+      <div class="eyebrow">Reality Check</div>
+      <h2>果てしない道に、<br>現実の目盛りを打つ。</h2>
+      <p>
+        「世界平和」は、夢物語に聞こえます。でも研究の世界では、現実的に目指しうるラインはかなり具体的に見えています。ここに、二つの事実を置いておきます。
+      </p>
+    </div>
+
+    <div class="ev-fact fade-up">
+      <div class="ev-fact-label">Fact 1 / 平和は実証済み</div>
+      <h3>戦争のない関係は、すでに実在する。</h3>
+      <p>
+        北欧諸国のあいだ。EU域内。かつて何度も戦争をした国同士が、いまでは<strong>「戦争という選択肢そのものが思考の外にある」</strong>関係を築いています。政治学ではこれを安全保障共同体と呼びます。つまり、地域単位の恒久的な平和はユートピアではなく、実証済みの現実です。
+      </p>
+      <p>
+        だからこのロードマップが目指すのは「対立のない世界」ではありません。対立はこれからも生まれる。それは多様性の裏面だからです。目指すのは、<strong>対立を殺し合いに転化させない社会的なインフラが、世界の標準装備になること</strong>。そして、鍛えるのをやめれば衰える筋肉と同じように、このインフラを維持し続ける意思を持つ社会を増やすことです。
+      </p>
+    </div>
+
+    <div class="ev-fact fade-up">
+      <div class="ev-fact-label">Fact 2 / 貧困の値札</div>
+      <h3>貧困の撲滅には、すでに値札が付いている。</h3>
+      <div class="ev-bignum">
+        <div class="num">0.3<span style="font-size:0.5em">%</span></div>
+        <div class="num-note">極度の貧困をほぼ撲滅するのに必要な、世界GDPに対する割合</div>
+      </div>
+      <p>
+        2025年末に発表された研究（UCバークレー・スタンフォード・UCサンディエゴ）によれば、極度の貧困——1日2.15ドル未満で暮らす状態——をほぼ撲滅するのに必要な資金は<strong>年間約3,180億ドル、世界GDPのわずか0.3%</strong>と試算されています。85カ国・約5億3,300万人が対象です。
+      </p>
+      <div class="ev-bars" id="evBars" aria-label="世界の年間支出の比較（世界GDP比）">
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">アルコール飲料への世界の支出</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill alc" data-w="100%"></div></div>
+          <span class="ev-bar-val">2.2%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">化粧品への世界の支出</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill cos" data-w="27.3%"></div></div>
+          <span class="ev-bar-val">0.6%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">極度の貧困の撲滅</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill pov" data-w="13.6%"></div></div>
+          <span class="ev-bar-val">0.3%</span>
+        </div>
+      </div>
+      <p class="ev-bar-caption">世界GDPに対する年間支出の割合。極度の貧困の撲滅コストは、世界がアルコール飲料に使う金額の約7分の1です。</p>
+      <p>
+        つまり、<strong>お金の総量は、もう問題ではない</strong>。足りていないのは、資金を届けきるガバナンスと、拠出する側の政治的な意思です。分解すれば——遠くの貧困を自分ごとにできない共感の射程。「自分だけが払えば損をする」という集合行為のジレンマ。そして、合意をつくり、制度に翻訳し、維持し続ける社会の筋力。これは個人が一人で賢くなれば解ける問題ではなく、<strong>利害の違う人々が共通の事実を確かめ、合意をつくり、制度として維持する「集合的な能力」</strong>の問題です。それこそが、このページで「筋肉」と呼んできたものです。
+      </p>
+      <div class="ev-note">
+        念のため。これは「貧困は個人の認知のせい」という意味ではありません。因果はむしろ逆で、貧困が人の認知資源を消耗させることが研究で示されています。鍛える必要があるのは貧困の中にいる人ではなく、資金と制度を動かせる側——つまり、私たちの方です。
+      </div>
+      <div class="ev-sources">
+        <div class="src-label">Sources</div>
+        <ul>
+          <li>Sahoo, Blumenstock, Niehaus, Selker &amp; Wager (2025) “What Would It Cost to End Extreme Poverty?” <a href="https://www.nber.org/papers/w34583" target="_blank" rel="noopener">NBER Working Paper 34583</a> ／ <a href="https://cega.berkeley.edu/end-of-poverty/" target="_blank" rel="noopener">CEGA解説ページ</a></li>
+          <li>UNU-WIDER（国連大学世界開発経済研究所）<a href="https://www.wider.unu.edu/publication/new-estimates-cost-ending-poverty" target="_blank" rel="noopener">“New estimates of the cost of ending poverty”</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ev-fact fade-up">
+      <div class="ev-fact-label est">Estimate / 必要なリソース</div>
+      <h3>では、世界として本気で挑むなら、<br>何がどれだけ要るのか。</h3>
+      <p>
+        上の二つの現実ライン——極度の貧困のほぼ撲滅と、対立を暴力に転化させない社会インフラの標準装備化——に世界として挑む場合のリソースを、桁の把握として試算してみます（精密な積算ではなく、オーダー感です）。
+      </p>
+
+      <div class="ev-res-grid">
+        <div class="ev-res-cell">
+          <div class="rc-kind">Money</div>
+          <div class="rc-num">4,000〜5,000<span style="font-size:0.55em">億ドル/年</span></div>
+          <div class="rc-unit">世界GDPの約0.4〜0.5%</div>
+          <p class="rc-desc">貧困側に約3,500〜4,000億ドル（現金移転＋自立成長への投資）、平和インフラ側——紛争予防・熟議制度・市民教育——に約1,000〜1,500億ドル。</p>
+        </div>
+        <div class="ev-res-cell">
+          <div class="rc-kind">People</div>
+          <div class="rc-num">150〜200<span style="font-size:0.55em">万人</span></div>
+          <div class="rc-unit">新規のフルタイム人材</div>
+          <p class="rc-desc">5.3億人への移転を運用する行政・フィールド人材に50〜100万人。人口1万人あたり1人の対話トレーナーで約80万人——弁護士や消防士の人口比と同水準です。加えて、世界の教員約9,000万人への対話教育の組み込み。</p>
+        </div>
+        <div class="ev-res-cell">
+          <div class="rc-kind">Time</div>
+          <div class="rc-num">1〜2<span style="font-size:0.55em">世代</span></div>
+          <div class="rc-unit">貧困に約30年、平和に約50年</div>
+          <p class="rc-desc">資金が流れれば貧困の統計上の解消は数年。ただし移転なしで戻らない状態までは1世代。「戦争が思考の外にある」認知の世代交代には、EUが約40年かけたように、2世代を見るべきです。</p>
+        </div>
+      </div>
+
+      <p>
+        この規模感を、世界がいま実際に使っているお金と並べてみます。
+      </p>
+      <div class="ev-bars" aria-label="世界GDP比の支出比較">
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">世界の軍事費（2025年）</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill alc" data-w="100%"></div></div>
+          <span class="ev-bar-val">2.5%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">このチャレンジの総コスト（試算）</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill pov" data-w="20%"></div></div>
+          <span class="ev-bar-val">0.5%</span>
+        </div>
+        <div class="ev-bar-row">
+          <span class="ev-bar-name">現在の平和構築・平和維持への支出</span>
+          <div class="ev-bar-track"><div class="ev-bar-fill cos" data-w="2%"></div></div>
+          <span class="ev-bar-val">0.05%</span>
+        </div>
+      </div>
+      <p class="ev-bar-caption">世界GDPに対する年間支出の割合。世界の軍事費は2025年に2兆8,870億ドル（GDP比2.5%）に達した一方、平和構築・平和維持への支出は492億ドル——軍事費のわずか0.5%です。このチャレンジの総コストは、軍事費の約5分の1に収まります。</p>
+      <p>
+        もう一つ、比較すべき数字があります。暴力と紛争が世界経済に与えている損失は、<strong>年間21.8兆ドル（購買力平価）、世界GDPの10.5%</strong>と推計されています。つまりこのチャレンジは、その損失の20分の1程度のコストで、損失そのものを削りにいく投資です。人材の規模も、世界の人道支援セクター（約60万人）を3倍にする程度——「人類には到底無理な規模」ではなく、<strong>政治的意思さえ束ねられれば手が届く規模</strong>。ボトルネックがお金でも人手でもなく、合意をつくる集合的な能力にあることが、ここからも見えてきます。
+      </p>
+      <div class="ev-sources">
+        <div class="src-label">Sources &amp; Note</div>
+        <ul>
+          <li>軍事費：SIPRI <a href="https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025" target="_blank" rel="noopener">“Trends in World Military Expenditure, 2025”</a>（2026年4月）</li>
+          <li>暴力の経済損失・平和構築支出：Institute for Economics &amp; Peace <a href="https://www.economicsandpeace.org/wp-content/uploads/2026/06/Global-Peace-Index-2026-Report.pdf" target="_blank" rel="noopener">“Global Peace Index 2026”</a></li>
+          <li>注：お金・人・時間の見積もり自体は、上記の公表データと貧困研究（Fact 2）を足場にした当工房の試算です。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="merge">
+  <div class="merge-mark" aria-hidden="true"></div>
+  <h2 class="fade-up">この地図の中の、私たちの持ち場。</h2>
+  <div class="merge-formula fade-up">デモクラ筋 × 共創筋 × メタ認知</div>
+  <p class="merge-note fade-up">
+    世界には、先を歩く巨大な実践と機関がいくつもあります。その後ろを歩く後発の私が、いま手をつないでいるのがデンマークと日本。デンマーク生まれのトレーニングを輸入するだけでなく、日本の知恵を持って訪ね返す。そしてこの往復を、地球儀の上の他の実践たちにも広げていく。小さくても、ここが私の持ち場です。
+  </p>
+</section>
+
+<section id="roadmap">
+  <div class="rm-head fade-up">
+    <div class="eyebrow">The Roadmap</div>
+    <h2>夜から、夜明けへ。</h2>
+  </div>
+  <div class="rm-track">
+    <div class="rm-line" aria-hidden="true"><div class="rm-line-fill" id="lineFill"></div></div>
+
+    <div class="stage fade-up">
+      <div class="stage-phase">Phase 0 / 個人</div>
+      <h3>きづきの言語を、世界に配る。</h3>
+      <div class="stage-period">いま — 2026</div>
+      <p class="stage-body">
+        すべての出発点は「あの人がわからず屋なのではなく、妖怪（構造）に取り憑かれているだけ」というメタ認知。妖怪診断と図鑑を無料で開き、3分でこの認知の書き換えを体験できる装置を世界に置いておきます。
+      </p>
+      <div class="stage-meta">
+        <span>妖怪診断・図鑑</span><span>召喚の呪文</span><span class="kpi">指標：診断数／呪文が使われた報告</span>
+      </div>
+    </div>
+
+    <div class="stage fade-up">
+      <div class="stage-phase">Phase 1 / チーム・組織</div>
+      <h3>毎日通える道場をつくる。</h3>
+      <div class="stage-period">— 2028</div>
+      <p class="stage-body">
+        大人が民主主義を練習できる場所は、実は職場しかありません。会議も1on1も部門間のすれ違いも、毎日負荷がかかる最高のジム。共創道場とデモクラシーフィットネスを企業とチームに入れ、対立を生む構造そのものの設計にも踏み込みながら、サーベイで前後の筋力を測ります。
+      </p>
+      <div class="stage-meta">
+        <span>企業研修・合宿</span><span>60問サーベイ</span><span class="kpi">指標：行動変容／心理的安全性／エンゲージメント</span>
+      </div>
+    </div>
+
+    <div class="stage fade-up">
+      <div class="stage-phase">Phase 2 / 社会</div>
+      <h3>地域と教育へ、広げる。</h3>
+      <div class="stage-period">— 2032</div>
+      <p class="stage-body">
+        職場で鍛えた筋肉を、学校・自治体・地域コミュニティへ。トレーナーの育成と認定を進めながら、市民議会や参加型予算のような、合意をつくるサブシステムの世界の実践からも学び、日本の現場に合う形に翻訳していきます。
+      </p>
+      <div class="stage-meta">
+        <span>トレーナー育成</span><span>世界の実践との交流</span><span class="kpi">指標：トレーナー数／開催自治体数／教育現場導入数</span>
+      </div>
+    </div>
+
+    <div class="stage fade-up">
+      <div class="stage-phase">Phase 3 / 世界</div>
+      <h3>実践同士が、コラボし合う。</h3>
+      <div class="stage-period">— 2040 とその先</div>
+      <p class="stage-body">
+        一方通行の輸出でも輸入でもなく、地球儀の上の実践たちが互いに訪ね合い、混ざり合う段階へ。妖怪はすでに世界語です。「敵を構造として名付け、人を責めない」知恵を持って世界の仲間を訪ね、向こうの発明をこちらに持ち帰る。その往復の線が増えるほど、地図は明るくなります。
+      </p>
+      <div class="stage-meta">
+        <span>共創道場の海外展開</span><span>実践同士の相互訪問</span><span class="kpi">指標：コラボの線の数／展開国数</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="forever">
+  <div class="infinity fade-up" aria-hidden="true">∞</div>
+  <h2 class="fade-up">このロードマップに、完成の日は来ない。</h2>
+  <p class="fade-up">
+    それは挫折ではなく、フィットネスというメタファーの必然です。筋肉は、鍛えるのをやめれば衰える。民主主義も、平和も同じ。だからゴールは「平和が達成された状態」ではなく、<strong>世界中の人が、平和の筋トレを習慣にしている状態</strong>。ジムに卒業がないように、この道に終わりはありません。果てしないのではなく、終わらないことが正解の道です。
+  </p>
+</section>
+
+<section id="nobel">
+  <div class="nobel-inner">
+
+    <p class="nobel-label fade-up">Appendix ／ 補助資料 — Nobel Peace Prize 1901–2025</p>
+    <h2 class="nobel-title fade-up">この道を、<span class="gold">125年</span>歩いてきた人たちがいる。</h2>
+    <p class="nobel-lead fade-up">
+      本編で触れた125年の系譜を、原典で確かめるための資料集です。<br>
+      ノーベル平和賞は125年にわたり、平和のために最大・最善の貢献をした人と団体に贈られてきました。<br>
+      先人たちの声と、その全受賞者を、時代ごとに開いてご覧ください。
+    </p>
+
+    
+    <div class="fade-up">
+    <details class="nobel-era">
+      <summary>
+        <span class="nobel-era-range">Voices</span>
+        <span class="nobel-era-title">先人たちは、平和に「何が必要だ」と言ってきたか（8人の声）</span>
+        <span class="nobel-era-toggle">＋</span>
+      </summary>
+      <div class="nobel-era-body" style="padding-top:1.4rem;">
+        <div class="voice-grid">
       <div class="voice fade-up">
         <div class="v-who"><h4>アルフレッド・ノーベル</h4><span class="v-year">ノーベル平和賞の原点</span></div>
         <div class="v-need">必要なもの：国家間の友愛</div>
@@ -903,29 +1251,12 @@
         <p>リベリアの内戦を終わらせた<a href="./dialogue-zukan.html#liberia-women" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">女性たちの運動</a>を率いた彼女は、和平の席から排除されてきた人々——とりわけ女性——が対話のテーブルにつくことこそ、持続する平和の条件だと示しました。</p>
       </div>
     </div>
-    <p class="voices-close fade-up">
+        <p class="voices-close">
       分野は違えど、先人たちが口を揃えて指しているのは、兵器や条約という「外側」だけではありません。<strong>友愛、内なる平和、赦し、教育、証言、対話のテーブル</strong>——つまり人の内面と関係の側です。この宿題を市民の日常で引き受けようとするのが、このロードマップの試みです。
     </p>
-  </div>
-  <p class="world-note fade-up">
-    ここに灯した実践は、一つずつ「世界の対話技法図鑑」に収めています。<br>
-    図鑑は明文化した収載基準に沿って選定し、各項目にエビデンス水準と出典を付けた、このロードマップの<strong style="color: var(--gold-soft); font-weight: 600;">実践編</strong>です。<br>
-    この地図は未完成です。あなたの町にも、きっと灯すべき光がある。世界の平和実現に向けての活動を、ぜひ教えてください。<br>
-    <a href="./dialogue-zukan.html" class="zukan-link">実践編：世界の対話技法図鑑を見る →</a>
-  </p>
-</section>
-
-
-<section id="nobel">
-  <div class="nobel-inner">
-
-    <p class="nobel-label fade-up">Nobel Peace Prize — 1901–2025</p>
-    <h2 class="nobel-title fade-up">この道を、<span class="gold">125年</span>歩いてきた人たちがいる。</h2>
-    <p class="nobel-lead fade-up">
-      上で耳を傾けた声は、長い系譜のごく一部です。<br>
-      ノーベル平和賞は125年にわたり、平和のために最大・最善の貢献をした人と団体に贈られてきました。<br>
-      ここに、その全受賞者と、いまの持ち場に響く言葉を記します。
-    </p>
+      </div>
+    </details>
+    </div>
 
     <div class="nobel-quotes fade-up">
 
@@ -1110,7 +1441,7 @@
       </div>
     </details>
 
-    <details class="nobel-era" open>
+    <details class="nobel-era">
       <summary>
         <span class="nobel-era-range">2010 – 2025</span>
         <span class="nobel-era-title">いまの時代 ── 民主主義・情報・核なき世界のために</span>
@@ -1141,7 +1472,7 @@
       125年の系譜が繰り返し語ってきたのは、<strong>対話、和解、そして他者と共に考える力</strong>でした。<br>
       受賞者たちが生んだ手法のいくつか——ツツの<a href="./dialogue-zukan.html#trc" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">真実和解委員会</a>、ガンディーの<a href="./dialogue-zukan.html#satyagraha" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">サッティヤーグラハ</a>、ボウイーたちの<a href="./dialogue-zukan.html#liberia-women" style="color: inherit; border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">女性たちの平和運動</a>——は、<br>
       いまも学べる実践として<a href="./dialogue-zukan.html" style="color: var(--gold-soft); border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none;">対話技法図鑑</a>に収めています。<br>
-      この長いリストの末尾に、小さな一行を書き加えるつもりで——次の節では、私たちの持ち場の話をします。
+      この長いリストの末尾に、小さな一行を書き加えるつもりで——私たちの持ち場は、この上のロードマップに記したとおりです。
     </p>
 
     <p class="nobel-src fade-up">
@@ -1149,209 +1480,6 @@
     </p>
 
   </div>
-</section>
-
-<section id="evidence">
-  <div class="ev-inner">
-    <div class="ev-head fade-up">
-      <div class="eyebrow">Reality Check</div>
-      <h2>果てしない道に、<br>現実の目盛りを打つ。</h2>
-      <p>
-        「世界平和」は、夢物語に聞こえます。でも研究の世界では、現実的に目指しうるラインはかなり具体的に見えています。ここに、二つの事実を置いておきます。
-      </p>
-    </div>
-
-    <div class="ev-fact fade-up">
-      <div class="ev-fact-label">Fact 1 / 平和は実証済み</div>
-      <h3>戦争のない関係は、すでに実在する。</h3>
-      <p>
-        北欧諸国のあいだ。EU域内。かつて何度も戦争をした国同士が、いまでは<strong>「戦争という選択肢そのものが思考の外にある」</strong>関係を築いています。政治学ではこれを安全保障共同体と呼びます。つまり、地域単位の恒久的な平和はユートピアではなく、実証済みの現実です。
-      </p>
-      <p>
-        だからこのロードマップが目指すのは「対立のない世界」ではありません。対立はこれからも生まれる。それは多様性の裏面だからです。目指すのは、<strong>対立を殺し合いに転化させない社会的なインフラが、世界の標準装備になること</strong>。そして、鍛えるのをやめれば衰える筋肉と同じように、このインフラを維持し続ける意思を持つ社会を増やすことです。
-      </p>
-    </div>
-
-    <div class="ev-fact fade-up">
-      <div class="ev-fact-label">Fact 2 / 貧困の値札</div>
-      <h3>貧困の撲滅には、すでに値札が付いている。</h3>
-      <div class="ev-bignum">
-        <div class="num">0.3<span style="font-size:0.5em">%</span></div>
-        <div class="num-note">極度の貧困をほぼ撲滅するのに必要な、世界GDPに対する割合</div>
-      </div>
-      <p>
-        2025年末に発表された研究（UCバークレー・スタンフォード・UCサンディエゴ）によれば、極度の貧困——1日2.15ドル未満で暮らす状態——をほぼ撲滅するのに必要な資金は<strong>年間約3,180億ドル、世界GDPのわずか0.3%</strong>と試算されています。85カ国・約5億3,300万人が対象です。
-      </p>
-      <div class="ev-bars" id="evBars" aria-label="世界の年間支出の比較（世界GDP比）">
-        <div class="ev-bar-row">
-          <span class="ev-bar-name">アルコール飲料への世界の支出</span>
-          <div class="ev-bar-track"><div class="ev-bar-fill alc" data-w="100%"></div></div>
-          <span class="ev-bar-val">2.2%</span>
-        </div>
-        <div class="ev-bar-row">
-          <span class="ev-bar-name">化粧品への世界の支出</span>
-          <div class="ev-bar-track"><div class="ev-bar-fill cos" data-w="27.3%"></div></div>
-          <span class="ev-bar-val">0.6%</span>
-        </div>
-        <div class="ev-bar-row">
-          <span class="ev-bar-name">極度の貧困の撲滅</span>
-          <div class="ev-bar-track"><div class="ev-bar-fill pov" data-w="13.6%"></div></div>
-          <span class="ev-bar-val">0.3%</span>
-        </div>
-      </div>
-      <p class="ev-bar-caption">世界GDPに対する年間支出の割合。極度の貧困の撲滅コストは、世界がアルコール飲料に使う金額の約7分の1です。</p>
-      <p>
-        つまり、<strong>お金の総量は、もう問題ではない</strong>。足りていないのは、資金を届けきるガバナンスと、拠出する側の政治的な意思です。分解すれば——遠くの貧困を自分ごとにできない共感の射程。「自分だけが払えば損をする」という集合行為のジレンマ。そして、合意をつくり、制度に翻訳し、維持し続ける社会の筋力。これは個人が一人で賢くなれば解ける問題ではなく、<strong>利害の違う人々が共通の事実を確かめ、合意をつくり、制度として維持する「集合的な能力」</strong>の問題です。それこそが、このページで「筋肉」と呼んできたものです。
-      </p>
-      <div class="ev-note">
-        念のため。これは「貧困は個人の認知のせい」という意味ではありません。因果はむしろ逆で、貧困が人の認知資源を消耗させることが研究で示されています。鍛える必要があるのは貧困の中にいる人ではなく、資金と制度を動かせる側——つまり、私たちの方です。
-      </div>
-      <div class="ev-sources">
-        <div class="src-label">Sources</div>
-        <ul>
-          <li>Sahoo, Blumenstock, Niehaus, Selker &amp; Wager (2025) “What Would It Cost to End Extreme Poverty?” <a href="https://www.nber.org/papers/w34583" target="_blank" rel="noopener">NBER Working Paper 34583</a> ／ <a href="https://cega.berkeley.edu/end-of-poverty/" target="_blank" rel="noopener">CEGA解説ページ</a></li>
-          <li>UNU-WIDER（国連大学世界開発経済研究所）<a href="https://www.wider.unu.edu/publication/new-estimates-cost-ending-poverty" target="_blank" rel="noopener">“New estimates of the cost of ending poverty”</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="ev-fact fade-up">
-      <div class="ev-fact-label est">Estimate / 必要なリソース</div>
-      <h3>では、世界として本気で挑むなら、<br>何がどれだけ要るのか。</h3>
-      <p>
-        上の二つの現実ライン——極度の貧困のほぼ撲滅と、対立を暴力に転化させない社会インフラの標準装備化——に世界として挑む場合のリソースを、桁の把握として試算してみます（精密な積算ではなく、オーダー感です）。
-      </p>
-
-      <div class="ev-res-grid">
-        <div class="ev-res-cell">
-          <div class="rc-kind">Money</div>
-          <div class="rc-num">4,000〜5,000<span style="font-size:0.55em">億ドル/年</span></div>
-          <div class="rc-unit">世界GDPの約0.4〜0.5%</div>
-          <p class="rc-desc">貧困側に約3,500〜4,000億ドル（現金移転＋自立成長への投資）、平和インフラ側——紛争予防・熟議制度・市民教育——に約1,000〜1,500億ドル。</p>
-        </div>
-        <div class="ev-res-cell">
-          <div class="rc-kind">People</div>
-          <div class="rc-num">150〜200<span style="font-size:0.55em">万人</span></div>
-          <div class="rc-unit">新規のフルタイム人材</div>
-          <p class="rc-desc">5.3億人への移転を運用する行政・フィールド人材に50〜100万人。人口1万人あたり1人の対話トレーナーで約80万人——弁護士や消防士の人口比と同水準です。加えて、世界の教員約9,000万人への対話教育の組み込み。</p>
-        </div>
-        <div class="ev-res-cell">
-          <div class="rc-kind">Time</div>
-          <div class="rc-num">1〜2<span style="font-size:0.55em">世代</span></div>
-          <div class="rc-unit">貧困に約30年、平和に約50年</div>
-          <p class="rc-desc">資金が流れれば貧困の統計上の解消は数年。ただし移転なしで戻らない状態までは1世代。「戦争が思考の外にある」認知の世代交代には、EUが約40年かけたように、2世代を見るべきです。</p>
-        </div>
-      </div>
-
-      <p>
-        この規模感を、世界がいま実際に使っているお金と並べてみます。
-      </p>
-      <div class="ev-bars" aria-label="世界GDP比の支出比較">
-        <div class="ev-bar-row">
-          <span class="ev-bar-name">世界の軍事費（2025年）</span>
-          <div class="ev-bar-track"><div class="ev-bar-fill alc" data-w="100%"></div></div>
-          <span class="ev-bar-val">2.5%</span>
-        </div>
-        <div class="ev-bar-row">
-          <span class="ev-bar-name">このチャレンジの総コスト（試算）</span>
-          <div class="ev-bar-track"><div class="ev-bar-fill pov" data-w="20%"></div></div>
-          <span class="ev-bar-val">0.5%</span>
-        </div>
-        <div class="ev-bar-row">
-          <span class="ev-bar-name">現在の平和構築・平和維持への支出</span>
-          <div class="ev-bar-track"><div class="ev-bar-fill cos" data-w="2%"></div></div>
-          <span class="ev-bar-val">0.05%</span>
-        </div>
-      </div>
-      <p class="ev-bar-caption">世界GDPに対する年間支出の割合。世界の軍事費は2025年に2兆8,870億ドル（GDP比2.5%）に達した一方、平和構築・平和維持への支出は492億ドル——軍事費のわずか0.5%です。このチャレンジの総コストは、軍事費の約5分の1に収まります。</p>
-      <p>
-        もう一つ、比較すべき数字があります。暴力と紛争が世界経済に与えている損失は、<strong>年間21.8兆ドル（購買力平価）、世界GDPの10.5%</strong>と推計されています。つまりこのチャレンジは、その損失の20分の1程度のコストで、損失そのものを削りにいく投資です。人材の規模も、世界の人道支援セクター（約60万人）を3倍にする程度——「人類には到底無理な規模」ではなく、<strong>政治的意思さえ束ねられれば手が届く規模</strong>。ボトルネックがお金でも人手でもなく、合意をつくる集合的な能力にあることが、ここからも見えてきます。
-      </p>
-      <div class="ev-sources">
-        <div class="src-label">Sources &amp; Note</div>
-        <ul>
-          <li>軍事費：SIPRI <a href="https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025" target="_blank" rel="noopener">“Trends in World Military Expenditure, 2025”</a>（2026年4月）</li>
-          <li>暴力の経済損失・平和構築支出：Institute for Economics &amp; Peace <a href="https://www.economicsandpeace.org/wp-content/uploads/2026/06/Global-Peace-Index-2026-Report.pdf" target="_blank" rel="noopener">“Global Peace Index 2026”</a></li>
-          <li>注：お金・人・時間の見積もり自体は、上記の公表データと貧困研究（Fact 2）を足場にした当工房の試算です。</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="merge">
-  <div class="merge-mark" aria-hidden="true"></div>
-  <h2 class="fade-up">この地図の中の、私たちの持ち場。</h2>
-  <div class="merge-formula fade-up">デモクラ筋 × 共創筋 × メタ認知</div>
-  <p class="merge-note fade-up">
-    世界には、先を歩く巨大な実践と機関がいくつもあります。その後ろを歩く後発の私が、いま手をつないでいるのがデンマークと日本。デンマーク生まれのトレーニングを輸入するだけでなく、日本の知恵を持って訪ね返す。そしてこの往復を、地球儀の上の他の実践たちにも広げていく。小さくても、ここが私の持ち場です。
-  </p>
-</section>
-
-<section id="roadmap">
-  <div class="rm-head fade-up">
-    <div class="eyebrow">The Roadmap</div>
-    <h2>夜から、夜明けへ。</h2>
-  </div>
-  <div class="rm-track">
-    <div class="rm-line" aria-hidden="true"><div class="rm-line-fill" id="lineFill"></div></div>
-
-    <div class="stage fade-up">
-      <div class="stage-phase">Phase 0 / 個人</div>
-      <h3>きづきの言語を、世界に配る。</h3>
-      <div class="stage-period">いま — 2026</div>
-      <p class="stage-body">
-        すべての出発点は「あの人がわからず屋なのではなく、妖怪（構造）に取り憑かれているだけ」というメタ認知。妖怪診断と図鑑を無料で開き、3分でこの認知の書き換えを体験できる装置を世界に置いておきます。
-      </p>
-      <div class="stage-meta">
-        <span>妖怪診断・図鑑</span><span>召喚の呪文</span><span class="kpi">指標：診断数／呪文が使われた報告</span>
-      </div>
-    </div>
-
-    <div class="stage fade-up">
-      <div class="stage-phase">Phase 1 / 組織</div>
-      <h3>毎日通える道場をつくる。</h3>
-      <div class="stage-period">— 2028</div>
-      <p class="stage-body">
-        大人が民主主義を練習できる場所は、実は職場しかありません。会議も1on1も部門間のすれ違いも、毎日負荷がかかる最高のジム。共創道場とデモクラシーフィットネスを企業とチームに入れ、サーベイで前後の筋力を測ります。
-      </p>
-      <div class="stage-meta">
-        <span>企業研修・合宿</span><span>60問サーベイ</span><span class="kpi">指標：行動変容／心理的安全性／エンゲージメント</span>
-      </div>
-    </div>
-
-    <div class="stage fade-up">
-      <div class="stage-phase">Phase 2 / 社会</div>
-      <h3>地域と教育へ、広げる。</h3>
-      <div class="stage-period">— 2032</div>
-      <p class="stage-body">
-        職場で鍛えた筋肉を、学校・自治体・地域コミュニティへ。トレーナーの育成と認定を進めながら、市民議会や参加型予算のような世界の実践からも学び、日本の現場に合う形に翻訳していきます。
-      </p>
-      <div class="stage-meta">
-        <span>トレーナー育成</span><span>世界の実践との交流</span><span class="kpi">指標：トレーナー数／開催自治体数／教育現場導入数</span>
-      </div>
-    </div>
-
-    <div class="stage fade-up">
-      <div class="stage-phase">Phase 3 / 世界</div>
-      <h3>実践同士が、コラボし合う。</h3>
-      <div class="stage-period">— 2040 とその先</div>
-      <p class="stage-body">
-        一方通行の輸出でも輸入でもなく、地球儀の上の実践たちが互いに訪ね合い、混ざり合う段階へ。妖怪はすでに世界語です。「敵を構造として名付け、人を責めない」知恵を持って世界の仲間を訪ね、向こうの発明をこちらに持ち帰る。その往復の線が増えるほど、地図は明るくなります。
-      </p>
-      <div class="stage-meta">
-        <span>共創道場の海外展開</span><span>実践同士の相互訪問</span><span class="kpi">指標：コラボの線の数／展開国数</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="forever">
-  <div class="infinity fade-up" aria-hidden="true">∞</div>
-  <h2 class="fade-up">このロードマップに、完成の日は来ない。</h2>
-  <p class="fade-up">
-    それは挫折ではなく、フィットネスというメタファーの必然です。筋肉は、鍛えるのをやめれば衰える。民主主義も、平和も同じ。だからゴールは「平和が達成された状態」ではなく、<strong>世界中の人が、平和の筋トレを習慣にしている状態</strong>。ジムに卒業がないように、この道に終わりはありません。果てしないのではなく、終わらないことが正解の道です。
-  </p>
 </section>
 
 <section id="join">

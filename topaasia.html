@@ -724,7 +724,7 @@
 
     /* ===== モバイル最終 overflow & typography override
        （必ず style 終端の直前に配置 / コメント内に閉じstyleタグを書かないこと） ===== */
-    @media (max-width: 768px) {
+    @media (max-width: 1100px) {
       html, body {
         overflow-x: hidden;
         -webkit-text-size-adjust: 100%;
@@ -823,7 +823,7 @@
       nav { padding-left: 1.25rem; padding-right: 1.25rem; }
       .nav-links { gap: 1rem; }
     }
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .nav-links { display: none; }
       .hamburger { display: flex; }
       .lang-toggle { margin-left: auto; }
@@ -838,36 +838,51 @@
       <span class="nav-logo-text">きづきくみたて工房</span>
     </a>
     <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./roadmap.html">目指す未来</a></li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="./education-program.html">研修設計プログラム</a>
-          <a href="./od-program.html">組織開発プログラム</a>
-          <a href="./dialogue-program.html">対話力向上プログラム</a>
-          <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
-        </div>
-      </li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="./democracy-fitness.html">Democracy Fitness</a>
-          <a href="./lsp.html">LSP</a>
-          <a href="./topaasia.html" class="active">対話用カード</a>
-          <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
-        </div>
-      </li>
-      <li class="nav-dropdown">
-        <button class="nav-dropdown-toggle" type="button">補助情報 <span class="nav-caret">▾</span></button>
-        <div class="nav-dropdown-menu">
-          <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
-          <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
-          <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-          <a href="./index.html#contact">Contact</a>
-        </div>
-      </li>
-    </ul>
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html" class="active">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
     <button class="lang-toggle" id="langToggle" type="button" aria-label="Switch language">EN</button>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
@@ -878,7 +893,13 @@
   <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" id="mobileClose">✕</button>
   <a href="./index.html">Home</a>
-  <a href="./roadmap.html" class="mobile-cat-link">目指す未来</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
   <div class="mobile-acc">
     <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
@@ -898,12 +919,21 @@
     </div>
   </div>
   <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">補助情報 <span class="mobile-acc-caret">▾</span></button>
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
-      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
       <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-      <a href="./index.html#contact">Contact</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </div>
 </div>
