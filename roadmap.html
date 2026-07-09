@@ -227,6 +227,16 @@
   .voice .v-year { font-family: 'Jost', sans-serif; font-size: 0.68rem; letter-spacing: 0.2em; color: rgba(250,248,242,0.55); white-space: nowrap; }
   .voice .v-need { font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; color: var(--gold); margin: 0.55rem 0 0.6rem; }
   .voice p { font-size: 0.82rem; line-height: 2.05; font-weight: 300; color: rgba(250,248,242,0.78); }
+  .voice .v-head { display: flex; align-items: center; gap: 1.1rem; }
+  .voice .v-art { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid rgba(240,217,168,0.3); }
+  .voice .v-head-text { flex: 1; min-width: 0; }
+  @media (max-width: 540px) { .voice .v-art { width: 56px; height: 56px; } }
+  .stage-art { display: block; width: 100%; max-width: 620px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; border: 1px solid rgba(240,217,168,0.15); margin-bottom: 1.3rem; }
+  .section-art { display: block; width: 100%; max-width: 760px; margin: 2.2rem auto 0; border-radius: 14px; border: 1px solid rgba(240,217,168,0.18); }
+  .respect .section-art { margin-top: 1.8rem; }
+  .page-toc { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.55rem; max-width: 860px; margin: 0 auto; padding: 1.6rem 1.5rem 0; }
+  .page-toc a { font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.74rem; letter-spacing: 0.12em; color: rgba(250,248,242,0.75); text-decoration: none; border: 1px solid rgba(240,217,168,0.3); border-radius: 999px; padding: 0.38rem 0.95rem; white-space: nowrap; transition: color 0.25s, border-color 0.25s, background 0.25s; }
+  .page-toc a:hover { color: var(--gold-soft); border-color: var(--gold); background: rgba(217,164,65,0.08); }
   .voices-close { max-width: 700px; margin: 2.4rem auto 0; text-align: center; font-size: 0.9rem; line-height: 2.25; font-weight: 300; color: rgba(250,248,242,0.85); }
   .voices-close strong { font-weight: 600; color: var(--gold-soft); }
   .world-note { text-align: center; max-width: 620px; margin: 3rem auto 0; font-size: 0.88rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.72); }
@@ -627,6 +637,16 @@
   <div class="hero-scroll fade-up">Scroll</div>
 </section>
 
+<nav class="page-toc" aria-label="ページ内目次">
+  <a href="#diagnosis">二つのシステム不全</a>
+  <a href="#transform">鍛えると変わるもの</a>
+  <a href="#world">世界の実践</a>
+  <a href="#evidence">現実の目盛り</a>
+  <a href="#merge">私たちの持ち場</a>
+  <a href="#roadmap">ロードマップ</a>
+  <a href="#join">最初の一歩</a>
+</nav>
+
 
 <section id="diagnosis">
   <div class="diag-inner">
@@ -891,6 +911,7 @@
     <p>
       そして忘れてはいけないのは、国連をはじめ、平和のために人生を懸けてきた無数の機関と人々がいることです。停戦の交渉、難民の保護、地雷の除去、人道支援、教育——先を歩く人たちは、今日も世界のどこかで懸命に働いています。<strong>それでもなお、戦争は止められていない。</strong>これは彼らの力不足ではなく、平和が「一部の専門家に任せておけるもの」ではないことの証だと思うのです。制度の側の努力に、市民ひとりひとりの認知の側からの協力を足していく必要がある。私はその末席に、後発の一人として加わったばかりです。
     </p>
+    <img class="section-art fade-up" src="./assets/img/roadmap/respect-night.webp" alt="星の下、夜通し働く人たち——荷を運ぶ人、灯りをかかげる人、地面に膝をつく人——のイラスト" loading="lazy">
   </div>
   <div class="voices fade-up">
     <div class="voices-head">
@@ -902,28 +923,53 @@
     </p>
     <div class="voice-grid" style="margin-top:2.2rem;">
       <div class="voice fade-up">
-        <div class="v-who"><h4>アルフレッド・ノーベル</h4><span class="v-year">平和賞の原点</span></div>
-        <div class="v-need">必要なもの：国家間の友愛</div>
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-fraternity.webp" alt="国家間の友愛を表すイラスト：温かな光の中で交わされる握手" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>アルフレッド・ノーベル</h4><span class="v-year">平和賞の原点</span></div>
+            <div class="v-need">必要なもの：国家間の友愛</div>
+          </div>
+        </div>
         <p>遺言でこの賞に託した条件は、国家間の友愛と、軍備の削減、そして平和会議の開催への貢献。ダイナマイトの発明者が最後に賭けたのは、武力ではなく、関係と対話でした。</p>
       </div>
       <div class="voice fade-up">
-        <div class="v-who"><h4>ダライ・ラマ14世</h4><span class="v-year">1989 受賞</span></div>
-        <div class="v-need">必要なもの：内なる平和</div>
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-inner-peace.webp" alt="内なる平和を表すイラスト：静かな夜の湖に浮かぶ一つの灯りと波紋" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>ダライ・ラマ14世</h4><span class="v-year">1989 受賞</span></div>
+            <div class="v-need">必要なもの：内なる平和</div>
+          </div>
+        </div>
         <p>世界の平和は、一人ひとりの内なる平和からしか育たない、と語り続けています。外側の軍縮の前に、内側の武装解除を。認知から始めるこのロードマップにとって、最も直接的な先達です。</p>
       </div>
       <div class="voice fade-up">
-        <div class="v-who"><h4>ネルソン・マンデラ</h4><span class="v-year">1993 受賞</span></div>
-        <div class="v-need">必要なもの：敵と共に働くこと</div>
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-with-enemy.webp" alt="敵と共に働くことを表すイラスト：谷の両側から共に橋を架ける二人" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>ネルソン・マンデラ</h4><span class="v-year">1993 受賞</span></div>
+            <div class="v-need">必要なもの：敵と共に働くこと</div>
+          </div>
+        </div>
         <p>敵と平和を築きたいなら、敵と共に働くこと。そうすれば敵はパートナーになる——27年の獄中の後、報復ではなく対話で国をつくり直した人の確信です。教育を「世界を変えるための最も強力な武器」とも呼びました。</p>
       </div>
       <div class="voice fade-up">
-        <div class="v-who"><h4>マララ・ユスフザイ</h4><span class="v-year">2014 受賞</span></div>
-        <div class="v-need">必要なもの：教育</div>
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-education.webp" alt="教育の力を表すイラスト：開いた本から立ちのぼる光と芽" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>マララ・ユスフザイ</h4><span class="v-year">2014 受賞</span></div>
+            <div class="v-need">必要なもの：教育</div>
+          </div>
+        </div>
         <p>「一人の子ども、一人の教師、一冊の本、一本のペンが、世界を変えられる」。銃撃されてなお、武器ではなく教育を選び続けている彼女の人生そのものが、この言葉の証明になっています。</p>
       </div>
       <div class="voice fade-up">
-        <div class="v-who"><h4>日本被団協</h4><span class="v-year">2024 受賞</span></div>
-        <div class="v-need">必要なもの：証言と記憶</div>
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-testimony.webp" alt="証言と記憶を表すイラスト：ろうそくの灯りのそばの折り鶴と広がる光" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>日本被団協</h4><span class="v-year">2024 受賞</span></div>
+            <div class="v-need">必要なもの：証言と記憶</div>
+          </div>
+        </div>
         <p>広島・長崎の被爆者たちは、自らの痛みを語り続けることで「核兵器は二度と使われてはならない」という規範を世界に育ててきました。証言という対話の力が、最大級の暴力への抑止になっています。</p>
       </div>
     </div>
@@ -963,6 +1009,7 @@
       <p>
         だからこのロードマップが目指すのは「対立のない世界」ではありません。対立はこれからも生まれる。それは多様性の裏面だからです。目指すのは、<strong>対立を殺し合いに転化させない社会的なインフラが、世界の標準装備になること</strong>。そして、鍛えるのをやめれば衰える筋肉と同じように、このインフラを維持し続ける意思を持つ社会を増やすことです。
       </p>
+      <img class="section-art fade-up" src="./assets/img/roadmap/fact1-community.webp" alt="安全保障共同体のイメージ：隣り合う国々が光の糸で結ばれ、一つの温かい面になっている抽象的な地図のイラスト" loading="lazy">
     </div>
 
     <div class="ev-fact fade-up">
@@ -1079,6 +1126,7 @@
   <p class="merge-note fade-up">
     世界には、先を歩く巨大な実践と機関がいくつもあります。その後ろを歩く後発の私が、いま手をつないでいるのがデンマークと日本。デンマーク生まれのトレーニングを輸入するだけでなく、日本の知恵を持って訪ね返す。そしてこの往復を、地球儀の上の他の実践たちにも広げていく。小さくても、ここが私の持ち場です。
   </p>
+  <img class="section-art fade-up" src="./assets/img/roadmap/merge-network.webp" alt="夜の地球に散らばる実践の灯りが、対等な光の線でゆるやかに結ばれているイラスト" loading="lazy">
 </section>
 
 <section id="roadmap">
@@ -1090,6 +1138,7 @@
     <div class="rm-line" aria-hidden="true"><div class="rm-line-fill" id="lineFill"></div></div>
 
     <div class="stage fade-up">
+      <img class="stage-art" src="./assets/img/roadmap/roadmap-phase0.webp" alt="深夜、星空の下でひとり小さな灯りをともす人のイラスト" loading="lazy">
       <div class="stage-phase">Phase 0 / 個人</div>
       <h3>きづきの言語を、世界に配る。</h3>
       <div class="stage-period">いま — 2026</div>
@@ -1102,6 +1151,7 @@
     </div>
 
     <div class="stage fade-up">
+      <img class="stage-art" src="./assets/img/roadmap/roadmap-phase1.webp" alt="夜明け前、丘の上の道場に灯りがともり人々が集まってくるイラスト" loading="lazy">
       <div class="stage-phase">Phase 1 / チーム・組織</div>
       <h3>毎日通える道場をつくる。</h3>
       <div class="stage-period">— 2028</div>
@@ -1114,6 +1164,7 @@
     </div>
 
     <div class="stage fade-up">
+      <img class="stage-art" src="./assets/img/roadmap/roadmap-phase2.webp" alt="朝焼けの町の家々に、窓の灯りが広がっていくイラスト" loading="lazy">
       <div class="stage-phase">Phase 2 / 社会</div>
       <h3>地域と教育へ、広げる。</h3>
       <div class="stage-period">— 2032</div>
@@ -1126,6 +1177,7 @@
     </div>
 
     <div class="stage fade-up">
+      <img class="stage-art" src="./assets/img/roadmap/roadmap-phase3.webp" alt="丘の向こうから昇る朝日を見つめる人のイラスト" loading="lazy">
       <div class="stage-phase">Phase 3 / 世界</div>
       <h3>実践同士が、コラボし合う。</h3>
       <div class="stage-period">— 2040 とその先</div>
@@ -1145,6 +1197,7 @@
   <p class="fade-up">
     それは挫折ではなく、フィットネスというメタファーの必然です。筋肉は、鍛えるのをやめれば衰える。民主主義も、平和も同じ。だからゴールは「平和が達成された状態」ではなく、<strong>世界中の人が、平和の筋トレを習慣にしている状態</strong>。ジムに卒業がないように、この道に終わりはありません。果てしないのではなく、終わらないことが正解の道です。
   </p>
+  <img class="section-art fade-up" src="./assets/img/roadmap/forever-road.webp" alt="夜明けの空へ向かって続く終わりのない道を、人々がそれぞれの場所で歩いているイラスト" loading="lazy">
 </section>
 
 <section id="join">
