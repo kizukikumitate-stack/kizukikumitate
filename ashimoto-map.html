@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>足元からの地図 — 平和の展開編 | きづきくみたて工房</title>
+<meta name="description" content="世界平和までのロードマップ（戦略編）と対話の技法図鑑（実践編）をつなぐ展開編。個人・職場・学校・地域・制度の5つの層で、身近な場所から平和を育てる地図。">
+<meta property="og:title" content="足元からの地図 — 平和の展開編">
+<meta property="og:description" content="平和は、いちばん近い場所から育つ。個人の対話筋から制度の熟議まで、5つの層で描く展開の地図。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/ashimoto-map.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --gold:       #d9a441;
+    --gold-soft:  #f0d9a8;
+    --teal:       #0f6e56;
+    --teal-light: #e1f5ee;
+    --dawn:       #d85a30;
+    --dawn-soft:  #f6e3d8;
+    --paper:      #faf8f2;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+    --soil:       #f3efe4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; }
+
+  /* ===== NAV（サイト共通） ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+  }
+
+  /* ===== 共通パーツ ===== */
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--mid-gray); }
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    .seed-pulse { animation: none !important; }
+  }
+  section { padding: 5.5rem 2rem; }
+  .inner { max-width: 880px; margin: 0 auto; }
+  h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.5rem, 3.6vw, 2.1rem); line-height: 1.55; color: var(--ink); margin: 0.7rem 0 1.4rem; }
+  p.lead { font-size: 1.02rem; line-height: 2.05; color: #333; }
+  p.lead + p.lead { margin-top: 1.1rem; }
+  strong { font-weight: 600; }
+
+  /* ===== HERO：土からの視点 ===== */
+  #hero {
+    min-height: 88vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    text-align: center; padding: 7rem 1.5rem 4rem; position: relative;
+    background:
+      radial-gradient(ellipse 130% 55% at 50% 115%, var(--soil) 0%, rgba(243,239,228,0) 62%),
+      var(--paper);
+  }
+  #hero .eyebrow { color: var(--teal); }
+  #hero h1 {
+    font-family: 'Shippori Mincho', serif; font-weight: 800;
+    font-size: clamp(1.75rem, 5.4vw, 3.1rem); line-height: 1.62; color: var(--ink);
+    margin: 1.1rem 0 1.5rem; max-width: 22em;
+  }
+  #hero h1 .teal { color: var(--teal); }
+  .hero-sub { font-size: clamp(0.94rem, 2.4vw, 1.05rem); line-height: 2.1; color: #444; max-width: 36em; }
+  .hero-pair {
+    margin-top: 2.4rem; display: inline-flex; align-items: center; gap: 0.9rem; flex-wrap: wrap; justify-content: center;
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; color: var(--mid-gray);
+  }
+  .hero-pair a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); padding-bottom: 1px; }
+  .hero-pair .sep { color: #c9c2ae; }
+  .hero-scroll { margin-top: 3rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; color: var(--mid-gray); }
+  .hero-scroll::after { content: ''; display: block; width: 1px; height: 42px; background: linear-gradient(var(--mid-gray), transparent); margin: 0.6rem auto 0; }
+
+  /* ===== 三部構成 ===== */
+  #trilogy { background: #fff; border-top: 1px solid #eee7d6; border-bottom: 1px solid #eee7d6; }
+  .trilogy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+  .tri-card {
+    border: 1px solid #e8e2d2; border-radius: 14px; padding: 1.5rem 1.3rem 1.4rem; background: var(--paper);
+    text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.55rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .tri-card:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(38,33,92,0.10); }
+  .tri-q { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase; }
+  .tri-card h3 { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 800; color: var(--ink); }
+  .tri-card p { font-size: 0.86rem; line-height: 1.9; color: #555; }
+  .tri-card .tri-go { margin-top: auto; font-family: 'Jost', sans-serif; font-size: 0.75rem; letter-spacing: 0.12em; }
+  .tri-card.strategy .tri-q, .tri-card.strategy .tri-go { color: var(--purple); }
+  .tri-card.practice .tri-q, .tri-card.practice .tri-go { color: var(--dawn); }
+  .tri-card.deploy { border: 2px solid var(--teal); background: var(--teal-light); }
+  .tri-card.deploy .tri-q, .tri-card.deploy .tri-go { color: var(--teal); }
+  @media (max-width: 760px) { .trilogy-grid { grid-template-columns: 1fr; } }
+
+  /* ===== 年輪マップ ===== */
+  #rings { background: var(--paper); text-align: center; }
+  #rings .inner { max-width: 940px; }
+  .rings-note { font-size: 0.9rem; line-height: 2; color: #555; max-width: 34em; margin: 0 auto 1rem; text-align: left; }
+  .ring-stage { position: relative; width: min(560px, 92vw); margin: 1.4rem auto 0.4rem; }
+  .ring-stage svg { width: 100%; height: auto; display: block; }
+  .ring-band { cursor: pointer; transition: opacity 0.25s; }
+  .ring-band circle.band { fill: none; stroke-width: 30; opacity: 0.16; transition: opacity 0.25s, stroke-width 0.25s; }
+  .ring-band circle.line { fill: none; stroke-width: 1.6; opacity: 0.75; }
+  .ring-band:hover circle.band, .ring-band:focus circle.band, .ring-band.on circle.band { opacity: 0.42; }
+  .ring-band text { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 15px; letter-spacing: 0.14em; }
+  .ring-band .ring-en { font-family: 'Jost', sans-serif; font-weight: 400; font-size: 8.5px; letter-spacing: 0.3em; opacity: 0.7; }
+  .seed-pulse { transform-origin: 300px 300px; animation: seed 3.4s ease-in-out infinite; }
+  @keyframes seed { 0%,100% { transform: scale(1); opacity: 0.85; } 50% { transform: scale(1.25); opacity: 1; } }
+  .ring-legend { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: center; margin-top: 1.3rem; }
+  .ring-chip {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.78rem; letter-spacing: 0.06em;
+    border-radius: 999px; padding: 0.42rem 1rem; border: 1.5px solid; background: #fff;
+    cursor: pointer; text-decoration: none; transition: background 0.2s, color 0.2s;
+  }
+  .rings-caption { margin-top: 1.6rem; font-size: 0.82rem; color: var(--mid-gray); line-height: 1.9; }
+
+  /* ===== 各層セクション ===== */
+  .layer { border-top: 1px solid #eee7d6; }
+  .layer .inner { max-width: 820px; }
+  .layer-head { display: flex; align-items: baseline; gap: 0.9rem; flex-wrap: wrap; }
+  .layer-no {
+    font-family: 'Jost', sans-serif; font-size: 0.74rem; letter-spacing: 0.22em;
+    border-radius: 999px; padding: 0.3rem 0.9rem; color: #fff; white-space: nowrap;
+  }
+  .layer h2 { margin: 0.9rem 0 0.4rem; }
+  .layer .layer-sub { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); }
+  .layer-body { margin-top: 1.2rem; font-size: 0.98rem; line-height: 2.05; color: #333; }
+  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.8rem; }
+  .layer-cell { background: #fff; border: 1px solid #ece6d6; border-radius: 12px; padding: 1.2rem 1.25rem; }
+  .layer-cell h4 { font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.74rem; letter-spacing: 0.24em; margin-bottom: 0.7rem; }
+  .layer-cell p, .layer-cell li { font-size: 0.88rem; line-height: 1.95; color: #444; }
+  .layer-cell ul { list-style: none; }
+  .layer-cell li { padding-left: 1.1em; position: relative; }
+  .layer-cell li::before { content: '—'; position: absolute; left: 0; color: #b9b2a0; }
+  .layer-cell a { color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.3); }
+  .layer-cell a:hover { border-bottom-color: var(--forest); }
+  .layer-up {
+    margin-top: 1.6rem; padding: 1rem 1.3rem; border-left: 3px solid; background: #fff;
+    font-size: 0.9rem; line-height: 1.95; color: #444; border-radius: 0 10px 10px 0;
+  }
+  .layer-up b { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; display: block; margin-bottom: 0.35rem; }
+  @media (max-width: 680px) { .layer-grid { grid-template-columns: 1fr; } }
+
+  /* 層ごとの色 */
+  .l1 { --lc: var(--dawn); }
+  .l2 { --lc: var(--forest); }
+  .l3 { --lc: var(--teal); }
+  .l4 { --lc: #b3821f; }
+  .l5 { --lc: var(--purple); }
+  .layer .layer-no { background: var(--lc); }
+  .layer .layer-cell h4 { color: var(--lc); }
+  .layer .layer-up { border-color: var(--lc); }
+  .layer .layer-up b { color: var(--lc); }
+
+  /* ===== 循環 ===== */
+  #cycle { background: var(--ink); color: #ece9f5; }
+  #cycle .eyebrow { color: var(--gold); }
+  #cycle h2 { color: #fff; }
+  #cycle p.lead { color: #cfc9e2; }
+  .cycle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.2rem; }
+  .cycle-card { border: 1px solid rgba(217,164,65,0.35); border-radius: 14px; padding: 1.6rem 1.5rem; background: rgba(255,255,255,0.04); }
+  .cycle-card h3 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--gold-soft); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.6rem; }
+  .cycle-card h3 .arrow { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1.3rem; color: var(--gold); }
+  .cycle-card p { font-size: 0.9rem; line-height: 2; color: #d8d3e8; }
+  .cycle-close { margin-top: 2rem; font-size: 0.95rem; line-height: 2.1; color: #e6e1f2; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.6rem; }
+  @media (max-width: 680px) { .cycle-grid { grid-template-columns: 1fr; } }
+
+  /* ===== 3年スケッチ ===== */
+  #sketch { background: #fff; border-top: 1px solid #eee7d6; }
+  .sketch-line { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.2rem; position: relative; }
+  .sk-step { border-top: 3px solid var(--lc, var(--teal)); padding-top: 1.1rem; }
+  .sk-step.y1 { --lc: var(--dawn); } .sk-step.y2 { --lc: var(--teal); } .sk-step.y3 { --lc: var(--purple); }
+  .sk-step .sk-y { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.26em; color: var(--lc); }
+  .sk-step h3 { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 800; color: var(--ink); margin: 0.45rem 0 0.6rem; }
+  .sk-step p { font-size: 0.86rem; line-height: 1.95; color: #555; }
+  .sketch-note { margin-top: 1.8rem; font-size: 0.84rem; color: var(--mid-gray); line-height: 1.95; }
+  @media (max-width: 680px) { .sketch-line { grid-template-columns: 1fr; } }
+
+  /* ===== CTA ===== */
+  #next { text-align: center; }
+  .next-links { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+  .next-links a {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em;
+    text-decoration: none; border-radius: 999px; padding: 0.85rem 1.9rem; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .next-links a:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(38,33,92,0.14); }
+  .btn-strategy { background: var(--purple); color: #fff; }
+  .btn-practice { border: 1.5px solid var(--dawn); color: var(--dawn); background: #fff; }
+  .btn-contact { border: 1.5px solid var(--teal); color: var(--teal); background: #fff; }
+
+  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
+  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li><a href="./roadmap.html">目指す未来</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">補助情報 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./ashimoto-map.html" class="active">足元からの地図（展開編）</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="./index.html#contact">Contact</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <a href="./roadmap.html" class="mobile-cat-link">目指す未来</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">補助情報 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./ashimoto-map.html" class="active">足元からの地図（展開編）</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="./index.html#contact">Contact</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="eyebrow fade-up">Everyday Peace — 展開編</div>
+  <h1 class="fade-up">平和は、<span class="teal">いちばん近い場所</span>から育つ。</h1>
+  <p class="hero-sub fade-up">
+    戦略編の地図は、世界から足元へ降りてくる地図でした。<br>
+    この地図は逆向きです。今日の会議室、職員室、公民館——<br>
+    いちばん身近な場所から、平和が外へ育っていく道すじを描きます。
+  </p>
+  <div class="hero-pair fade-up">
+    <a href="./roadmap.html">戦略編：世界平和までのロードマップ</a>
+    <span class="sep">|</span>
+    <a href="./dialogue-zukan.html">実践編：世界の対話の技法図鑑</a>
+  </div>
+  <div class="hero-scroll fade-up">Scroll</div>
+</section>
+
+<!-- ===== 三部構成 ===== -->
+<section id="trilogy">
+  <div class="inner">
+    <div class="eyebrow fade-up">Three Maps</div>
+    <h2 class="fade-up">「なぜ」「なにを」に、<br>「どこで・誰から」を加える。</h2>
+    <p class="lead fade-up">
+      戦略編は、平和がなぜ認知と対話の問題なのかを描きました。実践編は、そのために世界が発明してきた技法を集めました。ただ、地図と道具だけでは歩き出せません。<strong>どの場所で、誰から始めるのか</strong>——それがこの展開編の問いです。
+    </p>
+    <div class="trilogy-grid">
+      <a class="tri-card strategy fade-up" href="./roadmap.html">
+        <div class="tri-q">Why — 戦略編</div>
+        <h3>世界平和までのロードマップ</h3>
+        <p>戦争の最小単位は一つの認知。世界の現在地とノーベル平和賞125年の系譜から、平和への戦略を描く。</p>
+        <div class="tri-go">戦略編を読む →</div>
+      </a>
+      <a class="tri-card practice fade-up" href="./dialogue-zukan.html">
+        <div class="tri-q">What — 実践編</div>
+        <h3>世界の対話の技法図鑑</h3>
+        <p>対立を暴力ではなく対話で代謝するために発明された技法・仕組み・運動を、エビデンス水準つきで収載。</p>
+        <div class="tri-go">実践編を読む →</div>
+      </a>
+      <div class="tri-card deploy fade-up">
+        <div class="tri-q">Where &amp; Who — 展開編</div>
+        <h3>足元からの地図（このページ）</h3>
+        <p>個人・職場・学校・地域・制度。5つの層を年輪のように育てる、いちばん身近な場所からの展開図。</p>
+        <div class="tri-go">▼ このまま読み進める</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 年輪マップ ===== -->
+<section id="rings">
+  <div class="inner">
+    <div class="eyebrow fade-up">The Five Rings</div>
+    <h2 class="fade-up">平和の年輪 — 内側から外側へ</h2>
+    <p class="rings-note fade-up">
+      木が内側から年輪を重ねるように、平和も内側の層から育ちます。中心にあるのは制度でも理念でもなく、<strong>一人の人の対話の筋肉</strong>。それが職場に、学校に、地域に、やがて制度に届く。輪をタップすると、それぞれの層の解説へ移動します。
+    </p>
+    <div class="ring-stage fade-up">
+      <svg viewBox="0 0 600 600" role="img" aria-label="5層の年輪マップ。内側から個人、職場、学校、地域、制度。">
+        <defs>
+          <filter id="wobble" x="-8%" y="-8%" width="116%" height="116%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="7" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="9"/>
+          </filter>
+        </defs>
+        <g filter="url(#wobble)">
+          <!-- 第5層 制度 -->
+          <g class="ring-band" data-target="layer5" tabindex="0" role="link" aria-label="第5層 制度">
+            <circle class="band" cx="300" cy="300" r="272" stroke="#3c3489"/>
+            <circle class="line" cx="300" cy="300" r="287" stroke="#3c3489"/>
+          </g>
+          <!-- 第4層 地域 -->
+          <g class="ring-band" data-target="layer4" tabindex="0" role="link" aria-label="第4層 地域">
+            <circle class="band" cx="300" cy="300" r="216" stroke="#b3821f"/>
+            <circle class="line" cx="300" cy="300" r="231" stroke="#b3821f"/>
+          </g>
+          <!-- 第3層 学校 -->
+          <g class="ring-band" data-target="layer3" tabindex="0" role="link" aria-label="第3層 学校">
+            <circle class="band" cx="300" cy="300" r="160" stroke="#0f6e56"/>
+            <circle class="line" cx="300" cy="300" r="175" stroke="#0f6e56"/>
+          </g>
+          <!-- 第2層 職場 -->
+          <g class="ring-band" data-target="layer2" tabindex="0" role="link" aria-label="第2層 職場">
+            <circle class="band" cx="300" cy="300" r="104" stroke="#1a5fad"/>
+            <circle class="line" cx="300" cy="300" r="119" stroke="#1a5fad"/>
+          </g>
+          <!-- 第1層 個人 -->
+          <g class="ring-band" data-target="layer1" tabindex="0" role="link" aria-label="第1層 個人">
+            <circle class="band" cx="300" cy="300" r="48" stroke="#d85a30"/>
+            <circle class="line" cx="300" cy="300" r="63" stroke="#d85a30"/>
+            <circle class="seed-pulse" cx="300" cy="300" r="22" fill="#d85a30" opacity="0.9"/>
+          </g>
+        </g>
+        <!-- ラベル（wobbleの外に置いて読みやすく） -->
+        <g pointer-events="none">
+          <text x="300" y="305" text-anchor="middle" fill="#fff" font-size="13">個人</text>
+          <text x="300" y="201" text-anchor="middle" fill="#1a5fad">職場</text>
+          <text x="300" y="145" text-anchor="middle" fill="#0f6e56">学校</text>
+          <text x="300" y="89" text-anchor="middle" fill="#b3821f">地域</text>
+          <text x="300" y="33" text-anchor="middle" fill="#3c3489">制度</text>
+          <text class="ring-en" x="300" y="345" text-anchor="middle" fill="#8a8474">DIALOGUE MUSCLES</text>
+        </g>
+      </svg>
+    </div>
+    <div class="ring-legend fade-up">
+      <a class="ring-chip" style="border-color:#d85a30;color:#d85a30" href="#layer1">1 個人</a>
+      <a class="ring-chip" style="border-color:#1a5fad;color:#1a5fad" href="#layer2">2 職場</a>
+      <a class="ring-chip" style="border-color:#0f6e56;color:#0f6e56" href="#layer3">3 学校</a>
+      <a class="ring-chip" style="border-color:#b3821f;color:#b3821f" href="#layer4">4 地域</a>
+      <a class="ring-chip" style="border-color:#3c3489;color:#3c3489" href="#layer5">5 制度</a>
+    </div>
+    <p class="rings-caption fade-up">年輪は一年では刻まれません。しかし刻まれた輪は、木が生きている限り消えません。</p>
+  </div>
+</section>
+
+<!-- ===== 第1層 個人 ===== -->
+<section class="layer l1" id="layer1">
+  <div class="inner">
+    <div class="layer-head fade-up">
+      <span class="layer-no">第 1 層</span>
+      <span class="layer-sub">Personal — 対話の筋肉</span>
+    </div>
+    <h2 class="fade-up">個人 — 平和の最小単位は、一人の認知。</h2>
+    <div class="layer-body fade-up">
+      <p>「反論を最後まで聞ける」「沈黙に耐えられる」「意見と人格を切り分けられる」。積極的平和は、こうした身体レベルの能力から始まります。デモクラシーフィットネスが「筋トレ」と呼ぶのはこのためです。思想ではなく筋肉なので、誰でも、何歳からでも鍛えられます。</p>
+    </div>
+    <div class="layer-grid">
+      <div class="layer-cell fade-up">
+        <h4>いま打てる手</h4>
+        <ul>
+          <li><a href="./democracy-fitness.html">デモクラシーフィットネス体験会</a>（各地で開催中）</li>
+          <li>合宿型トレーニング（軽井沢での2日間キャンプ）</li>
+          <li>図鑑：<a href="./dialogue-zukan.html#democracy-fitness">DF</a> / <a href="./dialogue-zukan.html#nvc">NVC</a> / <a href="./dialogue-zukan.html#mindfulness">マインドフルネス</a></li>
+        </ul>
+      </div>
+      <div class="layer-cell fade-up">
+        <h4>変化のしるし</h4>
+        <p>会議で最後まで人の話を聞けた回数。意見が違う人に「わからず屋だ」と思わず、問いを返せた回数。数えられるほど小さく、確かな変化です。</p>
+      </div>
+    </div>
+    <div class="layer-up fade-up">
+      <b>外の輪への波及</b>
+      筋肉を得た人は、翌日から職場の会議に持ち込みます。第1層は独立した層ではなく、すべての層の中心にある「種」です。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第2層 職場 ===== -->
+<section class="layer l2" id="layer2">
+  <div class="inner">
+    <div class="layer-head fade-up">
+      <span class="layer-no">第 2 層</span>
+      <span class="layer-sub">Workplace — 大人の市民広場</span>
+    </div>
+    <h2 class="fade-up">職場 — 大人が最も長く過ごす公共空間。</h2>
+    <div class="layer-body fade-up">
+      <p>日本の大人にとって、職場は事実上の市民広場です。会議・1on1・フィードバックは、毎日開かれている対話の練習場でもあります。ただし対話不全の多くは個人の資質ではなく構造の問題として現れます。だからこの層では、研修の前に診断を置きます——「本当に対話力の問題なのか、それとも仕組みの問題なのか」。</p>
+    </div>
+    <div class="layer-grid">
+      <div class="layer-cell fade-up">
+        <h4>いま打てる手</h4>
+        <ul>
+          <li><a href="./od-program.html">組織開発プログラム</a>（構造診断から入る）</li>
+          <li><a href="./dialogue-program.html">対話力向上プログラム</a> / <a href="./topaasia.html">対話用カード</a></li>
+          <li>図鑑：<a href="./dialogue-zukan.html#world-cafe">ワールドカフェ</a> / <a href="./dialogue-zukan.html#open-space">OST</a> / <a href="./dialogue-zukan.html#lsp">LSP</a></li>
+        </ul>
+      </div>
+      <div class="layer-cell fade-up">
+        <h4>変化のしるし</h4>
+        <p>会議で反対意見が出る回数（心理的安全性の実測値）。「あの人が悪い」が「この仕組みのどこが詰まっている？」に置き換わる頻度。</p>
+      </div>
+    </div>
+    <div class="layer-up fade-up">
+      <b>外の輪への波及</b>
+      職場で対話を経験した大人は、家庭とPTAと町内会にそれを持ち帰ります。そしてこの層の収益が、次の学校・地域の層を経済的に支えます（後述の「循環」参照）。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第3層 学校 ===== -->
+<section class="layer l3" id="layer3">
+  <div class="inner">
+    <div class="layer-head fade-up">
+      <span class="layer-no">第 3 層</span>
+      <span class="layer-sub">School — 増幅装置</span>
+    </div>
+    <h2 class="fade-up">学校 — 教員一人の対話力は、数百人に波及する。</h2>
+    <div class="layer-body fade-up">
+      <p>教員は、この地図で最も増幅率の高い存在です。一人の教員が対話の筋肉を得れば、その教室の数十人、教員人生では数百〜数千人の子どもが「意見が違っても敵ではない」経験を積みます。まず教員向けの体験と研修から入り、次に教員と一緒に子ども向けの授業を共同設計する——研修で終わらせず、教室に届くまでを設計します。</p>
+    </div>
+    <div class="layer-grid">
+      <div class="layer-cell fade-up">
+        <h4>いま打てる手</h4>
+        <ul>
+          <li>教員向けDF体験会（校内研修・夏季研修）</li>
+          <li><a href="./education-program.html">研修設計プログラム</a>による校内研修の再設計</li>
+          <li>図鑑：<a href="./dialogue-zukan.html#restorative-dialogue">修復的対話</a>（学級・生徒指導への応用）</li>
+        </ul>
+      </div>
+      <div class="layer-cell fade-up">
+        <h4>変化のしるし</h4>
+        <p>職員会議での発言の分布（特定の人だけが話していないか）。学級会で少数意見が最後まで聞かれた回数。教員自身の「言えなさ」の減少。</p>
+      </div>
+    </div>
+    <div class="layer-up fade-up">
+      <b>外の輪への波及</b>
+      学校での実践事例は、地域（保護者・公民館）への最良の入口であり、教育委員会（第5層）へ届く根拠にもなります。9年間の小学校教員経験が、この層と他の層をつなぐ橋です。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第4層 地域 ===== -->
+<section class="layer l4" id="layer4">
+  <div class="inner">
+    <div class="layer-head fade-up">
+      <span class="layer-no">第 4 層</span>
+      <span class="layer-sub">Community — 眠れるインフラ</span>
+    </div>
+    <h2 class="fade-up">地域 — 公民館という、世界的に稀有な装置。</h2>
+    <div class="layer-body fade-up">
+      <p>日本には公民館という、成人の学びと自治のための施設が全国に張りめぐらされています。これはデンマークのフォルケホイスコーレと同じ「民衆の学びが民主主義を支える」という系譜にある、世界的にも珍しいインフラです。ここでDF体験会や小さな熟議の場を開ければ、制度に頼らない市民の対話の場が、すでにある建物の上に載ります。</p>
+    </div>
+    <div class="layer-grid">
+      <div class="layer-cell fade-up">
+        <h4>いま打てる手</h4>
+        <ul>
+          <li>公民館・図書館でのDF体験会、地域の対話の場づくり</li>
+          <li>社会教育主事・公民館運営審議会との連携づくり</li>
+          <li>図鑑：<a href="./dialogue-zukan.html#folkehojskole">フォルケホイスコーレ</a> / <a href="./dialogue-zukan.html#yoriai">寄合</a> / <a href="./dialogue-zukan.html#iriai-commons">入会とコモンズ</a></li>
+        </ul>
+      </div>
+      <div class="layer-cell fade-up">
+        <h4>変化のしるし</h4>
+        <p>「講座を聞きに来る場」から「話しに来る場」への転換。世代の違う参加者が同じテーブルにつく回数。常連以外の新しい顔ぶれ。</p>
+      </div>
+    </div>
+    <div class="layer-up fade-up">
+      <b>外の輪への波及</b>
+      地域に対話の場が根づくと、自治体が住民の声を聞く回路（第5層の熟議）に、すでに鍛えられた市民が参加できるようになります。寄合の伝統は輸入品ではなく、この土地にもともとあった筋肉です。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第5層 制度 ===== -->
+<section class="layer l5" id="layer5">
+  <div class="inner">
+    <div class="layer-head fade-up">
+      <span class="layer-no">第 5 層</span>
+      <span class="layer-sub">Institution — マクロへの接続点</span>
+    </div>
+    <h2 class="fade-up">制度 — 内側の輪が育った先に、熟議が載る。</h2>
+    <div class="layer-body fade-up">
+      <p>市民議会、熟議世論調査、参加型予算——世界で実証されてきた熟議の仕組みは、参加する市民に一定の対話の体力があるほど機能します。逆に言えば、第1〜4層で筋肉が育っていれば、制度は接ぎ木できる。ここが戦略編のマクロな地図と、この足元の地図が合流する地点です。</p>
+    </div>
+    <div class="layer-grid">
+      <div class="layer-cell fade-up">
+        <h4>いま打てる手</h4>
+        <ul>
+          <li>自治体・教育委員会への事例持ち込み（第2・3層の実績が根拠になる）</li>
+          <li>図鑑：<a href="./dialogue-zukan.html#citizens-assembly">市民議会</a> / <a href="./dialogue-zukan.html#deliberative-polling">熟議世論調査</a> / <a href="./dialogue-zukan.html#participatory-budgeting">参加型予算</a> / <a href="./dialogue-zukan.html#vtaiwan">vTaiwan</a></li>
+        </ul>
+      </div>
+      <div class="layer-cell fade-up">
+        <h4>変化のしるし</h4>
+        <p>自治体の意思決定に住民の熟議が組み込まれた事例の数。「意見公募」が「対話の場」に置き換わった回数。</p>
+      </div>
+    </div>
+    <div class="layer-up fade-up">
+      <b>戦略編への接続</b>
+      この層から先——国家間・地球規模の話は、<a href="./roadmap.html" style="color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(60,52,137,0.4)">世界平和までのロードマップ（戦略編）</a>が引き受けます。足元の年輪と世界の地図は、ここで一枚につながります。
+    </div>
+  </div>
+</section>
+
+<!-- ===== 循環 ===== -->
+<section id="cycle">
+  <div class="inner">
+    <div class="eyebrow fade-up">The Cycle</div>
+    <h2 class="fade-up">お金は外から内へ、人は内から外へ。</h2>
+    <p class="lead fade-up">
+      5つの層は積み木ではなく、循環する生態系として設計します。二つの流れが、この地図を持続可能にします。
+    </p>
+    <div class="cycle-grid">
+      <div class="cycle-card fade-up">
+        <h3><span class="arrow">⟵</span> 資金の流れ：外から内へ</h3>
+        <p>企業（第2層）の研修・組織開発の収益と助成金が、単体では採算の合いにくい学校・公民館（第3・4層）の活動を支えます。学校の授業料で学校を賄おうとしない——これがこの地図の経済設計です。</p>
+      </div>
+      <div class="cycle-card fade-up">
+        <h3><span class="arrow">⟶</span> 人の流れ：内から外へ</h3>
+        <p>体験会で筋肉を得た個人（第1層）が、やがて自分の職場や地域で場を開く側に回ります。トレーナーが増えるほど、地図は一人の手を離れて育ちます。</p>
+      </div>
+    </div>
+    <p class="cycle-close fade-up">
+      そして学校・地域での実践事例は、企業にとっての信頼の資産として内側から外側へ還流します。お金と人と物語が逆向きに回る——年輪が太るのは、この循環が回っているときです。
+    </p>
+  </div>
+</section>
+
+<!-- ===== 3年スケッチ ===== -->
+<section id="sketch">
+  <div class="inner">
+    <div class="eyebrow fade-up">First Three Years</div>
+    <h2 class="fade-up">最初の3年のスケッチ</h2>
+    <p class="lead fade-up">
+      年輪は一気には刻めません。おおまかな順番だけ描いておきます。
+    </p>
+    <div class="sketch-line">
+      <div class="sk-step y1 fade-up">
+        <div class="sk-y">YEAR 1</div>
+        <h3>個人と職場に足場を</h3>
+        <p>体験会と合宿で第1層の仲間を増やし、企業の対話力プログラムで第2層の実績と収益基盤をつくる。</p>
+      </div>
+      <div class="sk-step y2 fade-up">
+        <div class="sk-y">YEAR 2</div>
+        <h3>学校と公民館へ</h3>
+        <p>教員向け研修から教室での共同実践へ。公民館での定例の場を1か所、根づかせる。助成金で経済を補強する。</p>
+      </div>
+      <div class="sk-step y3 fade-up">
+        <div class="sk-y">YEAR 3</div>
+        <h3>制度との接点を開く</h3>
+        <p>蓄積した事例を教育委員会・自治体に持ち込み、熟議の仕組みの小さな実装を1件つくる。トレーナー養成を始める。</p>
+      </div>
+    </div>
+    <p class="sketch-note fade-up">
+      ※これは予定表ではなく方位磁針です。順番が前後しても、内側の輪が痩せたまま外側だけ広げない——それだけを守ります。
+    </p>
+  </div>
+</section>
+
+<!-- ===== NEXT ===== -->
+<section id="next">
+  <div class="inner">
+    <div class="eyebrow fade-up">Next</div>
+    <h2 class="fade-up">地図はここまで。ここからは歩く番です。</h2>
+    <div class="next-links fade-up">
+      <a class="btn-strategy" href="./roadmap.html">戦略編を読む</a>
+      <a class="btn-practice" href="./dialogue-zukan.html">実践編（図鑑）を開く</a>
+      <a class="btn-contact" href="./index.html#contact">一緒に場を開く相談をする</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">© 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+
+  // フェードイン
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // 年輪クリック → 各層へ
+  document.querySelectorAll('.ring-band').forEach(g => {
+    const go = () => {
+      const t = document.getElementById(g.dataset.target);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    g.addEventListener('click', go);
+    g.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(); } });
+  });
+</script>
+
+</body>
+</html>
