@@ -17,6 +17,7 @@
 <link rel="canonical" href="https://kizukikumitate.com/yokai/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
 <style>
   :root{
     --yoru:#12151d; --yoru2:#1a1e2a; --washi:#e9e2d0; --sumi:#211f1b;
@@ -112,6 +113,54 @@
   .foot{text-align:center;margin-top:40px;color:var(--sub);font-size:.8rem;line-height:1.8}
   .foot .fin{font-family:"Shippori Mincho B1",serif;letter-spacing:.2em;color:var(--washi)}
   .editnote{max-width:640px;margin:0 auto;padding:14px 22px;color:#6a6a72;font-size:.7rem;text-align:center}
+
+  /* ===== 結果シェアカード（案A 夜行の札）===== */
+  .sc-panel{margin-top:34px;border-top:1px solid var(--line);padding-top:28px}
+  .sc-h{font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:1.15rem;letter-spacing:.06em;text-align:center;margin-bottom:6px}
+  .sc-desc{text-align:center;color:var(--sub);font-size:.85rem;margin-bottom:16px}
+  .sc-formats{display:flex;justify-content:center;gap:8px;margin-bottom:16px}
+  .sc-formats button{background:var(--yoru2);border:1px solid var(--line);color:var(--sub);border-radius:999px;padding:8px 18px;font-family:"Zen Kaku Gothic New",sans-serif;font-size:.82rem;cursor:pointer;letter-spacing:.04em;transition:color .15s,border-color .15s}
+  .sc-formats button.on{border-color:var(--kin);color:var(--kin)}
+  .sc-stage{overflow:hidden;border-radius:12px;background:#0d0f15}
+  .sc-scalebox{transform-origin:top left}
+  .sc-hint{text-align:center;color:var(--sub);font-size:.76rem;margin-top:12px;line-height:1.7}
+  .sc-actions{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+
+  /* --- card base --- */
+  .sc-card{position:relative;overflow:hidden}
+  .sc-card.sc-ogp{width:1200px;height:630px}
+  .sc-card.sc-sq{width:1080px;height:1080px}
+  .sc-vA{background:radial-gradient(140% 120% at 78% 28%, #232838 0%, var(--yoru) 58%);color:var(--washi)}
+  .sc-vA .sc-frame{position:absolute;inset:22px;border:1px solid rgba(201,168,76,.55);pointer-events:none}
+  .sc-vA .sc-frame::after{content:"";position:absolute;inset:7px;border:1px solid rgba(201,168,76,.25)}
+  .sc-vA .sc-yimg{position:absolute;top:0;right:0;height:100%;width:47%;object-fit:cover;object-position:center}
+  /* mask-image は html2canvas が無視するため、書き出しでも再現できるグラデーション被せでフェードさせる */
+  .sc-vA .sc-fade{position:absolute;top:0;right:0;height:100%;width:47%;pointer-events:none;background:linear-gradient(to left, transparent 0%, transparent 52%, var(--yoru) 100%)}
+  .sc-vA .sc-inner{position:absolute;inset:0;padding:64px 70px;display:flex;flex-direction:column}
+  .sc-vA .sc-eyebrow{font-family:"EB Garamond",serif;font-style:italic;letter-spacing:.3em;color:var(--kin);font-size:19px}
+  .sc-vA .sc-lead{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:25px;letter-spacing:.14em;margin-top:16px;color:rgba(233,226,208,.85)}
+  .sc-vA .sc-kuse{margin-top:30px;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:44px;line-height:1.5;letter-spacing:.04em;max-width:56%}
+  .sc-vA .sc-kuse .sc-q{color:var(--kin)}
+  .sc-vA .sc-noroi{margin-top:18px;font-size:20px;line-height:1.9;color:rgba(233,226,208,.72);max-width:52%}
+  .sc-vA .sc-rx{margin-top:auto;max-width:58%;border:1px solid rgba(201,168,76,.5);background:rgba(18,21,29,.72);padding:20px 26px;display:flex;gap:22px;align-items:center}
+  .sc-vA .sc-rx .sc-rl{font-family:"EB Garamond",serif;font-style:italic;color:var(--kin);font-size:15px;letter-spacing:.2em;white-space:nowrap}
+  .sc-vA .sc-rx .sc-rv{font-size:20px;line-height:1.7}
+  .sc-vA .sc-rx .sc-rv b{font-weight:900;color:var(--tomoshibi)}
+  .sc-vA .sc-brand{position:absolute;left:70px;bottom:38px;font-family:"EB Garamond",serif;font-style:italic;letter-spacing:.18em;color:rgba(233,226,208,.5);font-size:15px}
+  .sc-vA .sc-tate{position:absolute;top:54px;right:44px;writing-mode:vertical-rl;font-family:"Shippori Mincho B1",serif;font-weight:800;font-size:104px;letter-spacing:.1em;color:var(--washi);text-shadow:0 0 34px rgba(0,0,0,.85), 0 0 90px rgba(0,0,0,.6)}
+  .sc-vA .sc-tate .sc-yomi{writing-mode:vertical-rl;font-size:20px;font-weight:600;letter-spacing:.42em;color:var(--kin);margin-top:20px;text-shadow:0 0 18px rgba(0,0,0,.9)}
+  /* --- square adjustments --- */
+  .sc-sq.sc-vA .sc-yimg{width:100%;height:62%}
+  .sc-sq.sc-vA .sc-fade{width:100%;height:62%;background:linear-gradient(to bottom, transparent 0%, transparent 55%, var(--yoru) 100%)}
+  .sc-sq.sc-vA .sc-inner{padding:60px;justify-content:flex-end}
+  .sc-sq.sc-vA .sc-kuse{max-width:78%;font-size:46px}
+  .sc-sq.sc-vA .sc-noroi{max-width:80%}
+  .sc-sq.sc-vA .sc-rx{max-width:100%;margin-top:26px}
+  .sc-sq.sc-vA .sc-tate{top:60px;right:60px;font-size:118px}
+  .sc-sq.sc-vA .sc-brand{left:60px;bottom:34px}
+  .sc-sq.sc-vA .sc-lead,.sc-sq.sc-vA .sc-eyebrow{position:absolute;top:0;left:0}
+  .sc-sq.sc-vA .sc-eyebrow{top:58px;left:60px;text-shadow:0 0 16px rgba(0,0,0,.9)}
+  .sc-sq.sc-vA .sc-lead{top:92px;left:60px;text-shadow:0 0 20px rgba(0,0,0,.9)}
 
   /* ===== 既存サイト共通ヘッダー／フッター（B案：ここから下は白基調のまま） ===== */
   body{padding-top:62px}
@@ -498,6 +547,20 @@ function showResult(hit){
 
     ${strengthsHtml}
 
+    <div class="sc-panel">
+      <div class="sc-h">この結果を、1枚のカードに。</div>
+      <div class="sc-desc">保存して、SNSでシェアできます。</div>
+      <div class="sc-formats" id="scFormats">
+        <button data-f="ogp" class="on">SNS横長</button>
+        <button data-f="sq">正方形</button>
+      </div>
+      <div class="sc-stage" id="scStage"><div class="sc-scalebox" id="scScalebox"><div id="scMount"></div></div></div>
+      <div class="sc-actions">
+        <button class="btn" id="scSaveBtn">画像を保存 / シェア</button>
+      </div>
+      <div class="sc-hint">スマホは「保存 / シェア」から画像を各SNSやLINEに直接送れます。PCはPNG画像がダウンロードされます。</div>
+    </div>
+
     <div class="thorn">
       <div class="tt">――ただし、召喚しても<br>効かない日が、あります。</div>
       <div class="td">妖怪は、倒しても倒しても戻ってきます。本当は「倒す」のではなく、<br>「共に生きる」やり方があるのかもしれません。</div>
@@ -524,8 +587,98 @@ function showResult(hit){
     </div>
   `;
   show('result');
+  scInit(main);
 }
 function tweet(t){window.open('https://twitter.com/intent/tweet?text='+t,'_blank');}
+
+/* ===== 結果シェアカード（案A 夜行の札）===== */
+let scFmt='ogp', scMain=null;
+function scPad(n){return String(n).padStart(2,'0');}
+function scCardHtml(y){
+  return `<div class="sc-card sc-${scFmt} sc-vA" id="scCard">
+    <img class="sc-yimg" src="${y.yimg}" alt="${y.name}">
+    <div class="sc-fade"></div>
+    <div class="sc-frame"></div>
+    <div class="sc-inner">
+      <div class="sc-eyebrow">YOKAI DIAGNOSIS &middot; No.${scPad(y.id)}</div>
+      <div class="sc-lead">あなたの職場に、出ています。</div>
+      <div class="sc-kuse"><span class="sc-q">「</span>${y.kuse}<span class="sc-q">」</span></div>
+      <div class="sc-noroi">呪い：${y.noroi}</div>
+      <div class="sc-rx">
+        <div class="sc-rl">処方 / SHIKIGAMI</div>
+        <div class="sc-rv"><b>${y.shiki}</b>を召喚 ──「${y.spell}」</div>
+      </div>
+    </div>
+    <div class="sc-tate">${y.name}<span class="sc-yomi">${y.yomi}</span></div>
+    <div class="sc-brand">妖怪診断 3min free &mdash; kizukikumitate.com/yokai</div>
+  </div>`;
+}
+function scRender(){
+  const mount=document.getElementById('scMount');
+  if(!mount||!scMain) return;
+  mount.innerHTML=scCardHtml(scMain);
+  scFit();
+}
+function scFit(){
+  const box=document.getElementById('scScalebox');
+  const card=document.getElementById('scCard');
+  const stage=document.getElementById('scStage');
+  if(!box||!card||!stage) return;
+  const s=Math.min(1, stage.clientWidth/card.offsetWidth);
+  box.style.transform='scale('+s+')';
+  stage.style.height=(card.offsetHeight*s)+'px';
+}
+window.addEventListener('resize',scFit);
+function scInit(main){
+  scMain=main; scFmt='ogp';
+  scRender();
+  const fmtBox=document.getElementById('scFormats');
+  if(fmtBox){
+    fmtBox.onclick=e=>{
+      if(!e.target.dataset.f) return;
+      scFmt=e.target.dataset.f;
+      [...fmtBox.children].forEach(c=>c.classList.toggle('on',c===e.target));
+      scRender();
+    };
+  }
+  const btn=document.getElementById('scSaveBtn');
+  if(btn) btn.onclick=()=>scSave(btn);
+}
+function scDownload(blob,fname){
+  const a=document.createElement('a');
+  a.download=fname; a.href=URL.createObjectURL(blob); a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+}
+async function scSave(btn){
+  const card=document.getElementById('scCard');
+  const box=document.getElementById('scScalebox');
+  if(!card||!box||typeof html2canvas==='undefined'){ alert('画像の生成準備ができていません。少し待って再度お試しください。'); return; }
+  const orig=btn.textContent; btn.disabled=true; btn.textContent='画像を生成中…';
+  // プレビューは縮小表示だが、書き出しは原寸（1200×630 / 1080×1080）で行うため
+  // キャプチャ中だけ scale 変形を解除し、画面外に逃がす。
+  const prev={transform:box.style.transform,position:box.style.position,left:box.style.left,top:box.style.top};
+  box.style.transform='none'; box.style.position='fixed'; box.style.left='-20000px'; box.style.top='0';
+  try{
+    const canvas=await html2canvas(card,{useCORS:true,scale:2,backgroundColor:null,logging:false});
+    const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));
+    const y=scMain;
+    const fname='yokai-'+scPad(y.id)+'-'+scFmt+'.png';
+    const file=new File([blob],fname,{type:'image/png'});
+    const shareText='うちの会社の妖怪は「'+y.name+'」でした。あなたの会社の妖怪は？ #妖怪と式神';
+    if(navigator.canShare && navigator.canShare({files:[file]})){
+      try{ await navigator.share({files:[file],text:shareText}); }
+      catch(e){ if(e.name!=='AbortError'){ scDownload(blob,fname); } }
+    }else{
+      scDownload(blob,fname);
+    }
+  }catch(err){
+    alert('画像の生成に失敗しました。時間をおいて再度お試しください。');
+  }finally{
+    box.style.transform=prev.transform; box.style.position=prev.position; box.style.left=prev.left; box.style.top=prev.top;
+    scFit();
+    btn.disabled=false; btn.textContent=orig;
+  }
+}
 </script>
 <script>
 const hamburger = document.getElementById('hamburger');
