@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="組織：仕組みを設計し直す">
+  <circle cx="100" cy="100" r="92" fill="#e7e3f4"/>
+  <!-- org chart connectors -->
+  <path d="M100 74 L100 88 M62 88 L138 88 M62 88 L62 100 M138 88 L138 100" fill="none" stroke="#243a63" stroke-width="2.5"/>
+  <!-- top box -->
+  <rect x="80" y="50" width="40" height="26" rx="4" fill="#fbf7ee" stroke="#243a63" stroke-width="2.5"/>
+  <circle cx="100" cy="60" r="5" fill="#1a5fad"/>
+  <path d="M92 70 Q92 63 100 63 Q108 63 108 70 Z" fill="#1a5fad"/>
+  <!-- left box -->
+  <rect x="44" y="100" width="40" height="26" rx="4" fill="#fbf7ee" stroke="#243a63" stroke-width="2.5"/>
+  <circle cx="64" cy="110" r="5" fill="#d85a30"/>
+  <path d="M56 120 Q56 113 64 113 Q72 113 72 120 Z" fill="#d85a30"/>
+  <!-- right box -->
+  <rect x="116" y="100" width="40" height="26" rx="4" fill="#fbf7ee" stroke="#243a63" stroke-width="2.5"/>
+  <circle cx="136" cy="110" r="5" fill="#0f6e56"/>
+  <path d="M128 120 Q128 113 136 113 Q144 113 144 120 Z" fill="#0f6e56"/>
+  <!-- gear: redesigning the structure -->
+  <g transform="translate(100,152)">
+    <g stroke="#c99a3a" stroke-width="7" stroke-linecap="round">
+      <line x1="0" y1="-19" x2="0" y2="-12"/>
+      <line x1="13.4" y1="-13.4" x2="8.5" y2="-8.5"/>
+      <line x1="19" y1="0" x2="12" y2="0"/>
+      <line x1="13.4" y1="13.4" x2="8.5" y2="8.5"/>
+      <line x1="0" y1="19" x2="0" y2="12"/>
+      <line x1="-13.4" y1="13.4" x2="-8.5" y2="8.5"/>
+      <line x1="-19" y1="0" x2="-12" y2="0"/>
+      <line x1="-13.4" y1="-13.4" x2="-8.5" y2="-8.5"/>
+    </g>
+    <circle r="13" fill="#d9a441"/>
+    <circle r="5" fill="#e7e3f4"/>
+  </g>
+</svg>
