@@ -107,6 +107,7 @@
   @media (max-width: 1100px) {
     .nav-links { display: none; }
     .nav-hamburger { display: block; }
+      .nav-logo { margin-right: 0; }
   }
 
   .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
@@ -149,6 +150,10 @@
     .entry-art { border-radius: 10px; overflow: hidden; background: #f8f2e4; aspect-ratio: 5 / 4; }
     .entry-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
     @media (max-width: 640px) { .entry.has-art { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; } .entry-art { max-width: 360px; margin: 0 auto; } }
+    .entry.has-fig { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+    .entry-fig { width: 92px; height: 92px; }
+    .entry-fig svg { width: 100%; height: 100%; display: block; }
+    @media (max-width: 640px) { .entry.has-fig { grid-template-columns: 58px minmax(0, 1fr); gap: 1rem; } .entry-fig { width: 58px; height: 58px; } }
   .entry-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
   .entry h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.05em; }
   .entry .origin { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dawn); white-space: nowrap; }
@@ -353,53 +358,77 @@
   </div>
   <div class="entry-list">
 
-    <div class="entry fade-up" id="cct">
+    <div class="entry has-fig fade-up" id="cct">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round" stroke-linecap="round"><path d="M62 66 L62 94 L96 94 L96 66"/><path d="M56 68 L79 48 L102 68" fill="none"/><circle cx="33" cy="52" r="11"/></g><text x="33" y="57" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" fill="#16132a">¥</text><path d="M45 58 L61 70" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M54 66 L61 70 L59 62" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/><path d="M70 82 L76 88 L86 74" stroke="#d9a441" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>条件付き現金給付（CCT）</h3><span class="origin"><span class="ev ev-a">A</span>Mexico / 1997</span></div>
       <p class="desc">子どもの就学や予防接種などを条件に、貧困世帯へ直接現金を給付する仕組み。メキシコのプログレサは導入時からランダム化比較試験による効果検証を組み込んだ設計で知られ、就学率や健康指標の改善が確認されて、いまや数十カ国に広がる標準的な貧困対策になりました。市場が届けないなら条件付きで直接届ける——札束資本主義の外側に引かれた、最初の太い水路の一つです。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.worldbank.org/en/topic/safetynets" target="_blank" rel="noopener">World Bank: Social Safety Nets</a><a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="cash-transfer">
+    <div class="entry has-fig fade-up" id="cash-transfer">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round" stroke-linecap="round"><circle cx="82" cy="46" r="11"/><path d="M67 86 C67 68 97 68 97 86" fill="#fff"/><circle cx="32" cy="58" r="11"/></g><text x="32" y="63" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" fill="#16132a">¥</text><path d="M45 58 L66 58" stroke="#d9a441" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M60 52 L67 58 L60 64" stroke="#d9a441" stroke-width="3.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>無条件の直接給付・UBI実験</h3><span class="origin"><span class="ev ev-a">A</span>Kenya ほか / 2009</span></div>
       <p class="desc">条件すら付けず、貧困世帯に現金をそのまま送る仕組み。GiveDirectlyはケニアなどで大規模なランダム化比較試験を重ね、消費・資産・栄養の改善を確認するとともに、「現金を渡すと浪費が増える」という通念が概ね裏付けられないことを示してきました。世界最大規模のユニバーサル・ベーシックインカム長期実験も進行中です。「貧しい人はお金の使い方を知らない」という認知こそが妖怪だった、と検証が教えてくれた例です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.givedirectly.org/" target="_blank" rel="noopener">GiveDirectly</a><a href="https://www.givewell.org/" target="_blank" rel="noopener">GiveWell（現金給付の研究レビュー）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="microfinance">
+    <div class="entry has-fig fade-up" id="microfinance">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round" stroke-linecap="round"><path d="M60 94 L60 48" fill="none"/><path d="M60 70 C48 70 42 60 44 50 C56 50 62 60 60 70 Z"/><path d="M60 58 C72 58 78 48 76 38 C64 38 58 48 60 58 Z"/></g><circle cx="60" cy="98" r="9" fill="#d9a441" stroke="#16132a" stroke-width="2.5"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>マイクロファイナンス</h3><span class="origin"><span class="ev ev-a">A</span>Bangladesh / 1983</span></div>
       <p class="desc">担保を持たない貧困層、とりわけ女性に小口の融資を行うグラミン銀行の仕組みで、創設者ユヌスとともに2006年のノーベル平和賞を受賞しました。ただしその後の複数のランダム化比較試験では、貧困脱出の効果は当初の熱狂よりも穏やかであることが分かってきています。この図鑑があえてそれを書くのは、「効果を測り、期待を修正できる」こと自体が仕組みの健全さの証だからです。金融アクセスという回路の価値は、いまも残っています。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.nobelprize.org/prizes/peace/2006/summary/" target="_blank" rel="noopener">Nobel Peace Prize 2006</a><a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL（マイクロクレジット評価）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="quadratic-funding">
+    <div class="entry has-fig fade-up" id="quadratic-funding">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><g fill="#d9a441"><circle cx="26" cy="42" r="5"/><circle cx="24" cy="58" r="5"/><circle cx="30" cy="72" r="5"/><circle cx="40" cy="50" r="5"/><circle cx="38" cy="66" r="5"/></g><path d="M50 58 L66 58" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M60 52 L67 58 L60 64" stroke="#16132a" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"/><rect x="80" y="34" width="20" height="52" stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>クアドラティック・ファンディング</h3><span class="origin"><span class="ev ev-b">B</span>Beyond Borders / 2019</span></div>
       <p class="desc">「一人の大口」より「多数の小口」を数学的に優遇するマッチング寄付の仕組み。多くの人が少しずつ支持するプロジェクトほど、共有の資金プールからの上乗せが大きくなるよう設計されています。Gitcoinがオープンソースソフトウェアの資金分配で運用を重ね、誰の儲けにもならない公共財へお金を流す回路として注目されています。札束資本主義の「一円＝一票」を、数式のレベルで書き換える試みです。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.radicalxchange.org/" target="_blank" rel="noopener">RadicalxChange</a><a href="https://www.gitcoin.co/" target="_blank" rel="noopener">Gitcoin</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="sib">
+    <div class="entry has-fig fade-up" id="sib">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><g stroke="#16132a" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"><circle cx="55" cy="56" r="30" fill="#fff"/><circle cx="55" cy="56" r="20"/><circle cx="55" cy="56" r="10"/></g><circle cx="55" cy="56" r="5" fill="#d9a441"/><circle cx="88" cy="86" r="11" fill="#fff" stroke="#16132a" stroke-width="2.5"/><text x="88" y="91" text-anchor="middle" font-family="Jost, sans-serif" font-size="13" fill="#16132a">¥</text></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>ソーシャル・インパクト・ボンド</h3><span class="origin"><span class="ev ev-b">B</span>United Kingdom / 2010</span></div>
       <p class="desc">再犯防止や健康改善などの社会的成果が実際に出たときにだけ、行政が投資家に償還する官民連携の仕組み。「成果」に値札を付けることで、儲からないが社会コストを大きく減らす予防領域に民間資金を呼び込みます。英国ピーターバラ刑務所の再犯防止事業から始まり、日本でも神戸市や八王子市などの自治体が導入してきました。効果は事例によって濃淡があり、成果指標の設計の巧拙が問われる段階です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://golab.bsg.ox.ac.uk/" target="_blank" rel="noopener">Government Outcomes Lab</a><a href="https://en.wikipedia.org/wiki/Social_impact_bond" target="_blank" rel="noopener">Wikipedia: Social impact bond</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="worker-coop">
+    <div class="entry has-fig fade-up" id="worker-coop">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><circle cx="60" cy="58" r="16" fill="none" stroke="#d9a441" stroke-width="3"/><g fill="#fff" stroke="#16132a" stroke-width="2.5" stroke-linejoin="round"><circle cx="60" cy="26" r="7"/><circle cx="89" cy="42" r="7"/><circle cx="89" cy="74" r="7"/><circle cx="60" cy="90" r="7"/><circle cx="31" cy="74" r="7"/><circle cx="31" cy="42" r="7"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>労働者協同組合</h3><span class="origin"><span class="ev ev-b">B</span>Spain / 1956・日本法制化 2020</span></div>
       <p class="desc">働く人自身が出資し、経営方針を一人一票で決める企業形態。スペインのモンドラゴンは数万人規模で「経営の民主主義」を半世紀以上実証し続けています。日本でも2020年に労働者協同組合法が成立し（2022年施行）、3人から設立できるようになりました。企業という札束資本主義の中心部に、民主主義のサブシステムを埋め込む発明です。組合の合意形成そのものが、毎日の対話のトレーニングにもなります。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.mondragon-corporation.com/" target="_blank" rel="noopener">Mondragon Corporation</a><a href="https://jwcu.coop/" target="_blank" rel="noopener">日本労働者協同組合連合会</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#democracy-fitness">デモクラシーフィットネス（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="solidarity-levy">
+    <div class="entry has-fig fade-up" id="solidarity-levy">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><circle cx="60" cy="46" r="24" fill="#fff" stroke="#16132a" stroke-width="2.5"/><g stroke="#16132a" stroke-width="1.6" fill="none" opacity="0.55" stroke-linecap="round"><path d="M36 46 H84"/><path d="M60 22 C46 34 46 58 60 70"/><path d="M60 22 C74 34 74 58 60 70"/></g><path d="M44 84 Q60 96 76 84" fill="#fff" stroke="#16132a" stroke-width="2.5" stroke-linejoin="round"/><path d="M60 72 C56 78 56 84 60 84 C64 84 64 78 60 72 Z" fill="#d9a441"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>国際連帯税</h3><span class="origin"><span class="ev ev-b">B</span>France / 2006</span></div>
       <p class="desc">国境を越える経済活動——航空券など——にごく薄い税を乗せ、地球規模の課題へ直接流す仕組み。フランス発の航空券連帯税は、途上国への医薬品供給を担う国際機関Unitaidの主要財源になりました。「儲かる流れ」の川岸に小さな取水口を設け、水の届かない土地へ引く灌漑のような発想で、金融取引税などへの拡張も議論が続いています。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://unitaid.org/" target="_blank" rel="noopener">Unitaid</a><a href="https://en.wikipedia.org/wiki/Unitaid" target="_blank" rel="noopener">Wikipedia: Unitaid</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="effective-giving">
+    <div class="entry has-fig fade-up" id="effective-giving">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#faf3e0"/><path d="M48 70 C30 54 34 38 48 46 C62 38 66 54 48 70 Z" fill="none" stroke="#d9a441" stroke-width="3" stroke-linejoin="round"/><circle cx="66" cy="58" r="16" fill="none" stroke="#16132a" stroke-width="2.5"/><line x1="78" y1="70" x2="92" y2="84" stroke="#16132a" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>エビデンスに基づく寄付</h3><span class="origin"><span class="ev ev-b">B</span>United States / 2007</span></div>
       <p class="desc">「1ドルあたり最も多くの命を救う寄付先はどこか」を公開の調査で比較し、推奨先を絞り込む評価の仕組み。GiveWellに代表され、広告力や感情ではなく費用対効果で寄付の流れを変える回路として、これまでに大規模な資金移動へ影響を与えてきました。善意という貴重な資源の、交通整理にあたる発明です。マイクロファイナンスの項と同じく、「測って直す」文化の産物でもあります。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.givewell.org/" target="_blank" rel="noopener">GiveWell</a><a href="https://www.openphilanthropy.org/" target="_blank" rel="noopener">Open Philanthropy</a></div>
+    </div>
     </div>
 
   </div>
@@ -416,56 +445,80 @@
   </div>
   <div class="entry-list">
 
-    <div class="entry fade-up" id="citizens-assembly">
+    <div class="entry has-fig fade-up" id="citizens-assembly">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g fill="#fff" stroke="#16132a" stroke-width="2.5" stroke-linejoin="round"><circle cx="26" cy="72" r="6.5"/><circle cx="37" cy="49" r="6.5"/><circle cx="60" cy="39" r="6.5"/><circle cx="83" cy="49" r="6.5"/><circle cx="94" cy="72" r="6.5"/></g><path d="M22 80 Q60 100 98 80" fill="none" stroke="#16132a" stroke-width="2.5" stroke-linecap="round"/><g transform="rotate(-12 60 86)"><rect x="48" y="79" width="24" height="14" rx="2" fill="#fff" stroke="#3c3489" stroke-width="2.5"/><line x1="60" y1="79" x2="60" y2="93" stroke="#3c3489" stroke-width="1.6" stroke-dasharray="2 2"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>市民議会（くじ引き熟議）</h3><span class="origin"><span class="ev ev-a">A</span>Ireland ほか</span></div>
       <p class="desc">世論調査が「考える前の意見」を集めるのに対し、くじ引きで選ばれた市民が情報と時間を与えられて出す「考えた後の民意」を制度化する仕組み。アイルランドの憲法改正やフランスの気候市民会議で国政レベルの実績があり、OECDは34カ国733事例を比較して成功条件を整理しています。情弱民主主義の核心——熟慮の機会の不在——への、最も直接的な処方です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://citizensassembly.ie/" target="_blank" rel="noopener">The Citizens' Assembly（アイルランド公式）</a><a href="https://www.oecd.org/en/topics/sub-issues/open-government-and-citizen-participation/innovative-public-participation.html" target="_blank" rel="noopener">OECD 熟議民主主義データベース</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#citizens-assembly">市民議会の対話の現場（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="deliberative-polling">
+    <div class="entry has-fig fade-up" id="deliberative-polling">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g fill="#fff" stroke="#16132a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M26 30 H56 V50 H42 L34 58 V50 H26 Z"/><path d="M64 40 H98 V60 H80 L72 68 V60 H64 Z"/></g><path d="M34 92 L52 78 L66 86 L88 66" fill="none" stroke="#3c3489" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/><path d="M80 66 L88 66 L88 74" fill="none" stroke="#3c3489" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>熟議世論調査（Deliberative Polling®）</h3><span class="origin"><span class="ev ev-a">A</span>United States / 1988</span></div>
       <p class="desc">無作為抽出された数百人が、バランスの取れた資料と専門家への質疑、小グループ討論を経て、参加前後で意見がどう変わったかまで測定する世論調査。スタンフォード大学のフィシュキンが開発し、世界数十カ国で、日本でもエネルギー政策などを題材に実施されてきました。「国民が十分な情報を得て考えたら、世論はどうなるか」を科学的に可視化する装置です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://deliberation.stanford.edu/" target="_blank" rel="noopener">Stanford Deliberative Democracy Lab</a><a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#deliberative-polling">熟議世論調査（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="participatory-budgeting">
+    <div class="entry has-fig fade-up" id="participatory-budgeting">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g fill="#fff" stroke="#16132a" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"><path d="M26 60 V88 H46 V60"/><path d="M50 60 V88 H70 V60"/><path d="M74 60 V88 H94 V60"/></g><g fill="#3c3489" stroke="#16132a" stroke-width="2"><circle cx="36" cy="40" r="7"/><circle cx="60" cy="34" r="7"/><circle cx="84" cy="44" r="7"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>参加型予算</h3><span class="origin"><span class="ev ev-a">A</span>Brazil / 1989</span></div>
       <p class="desc">公共予算の一部の使い道を、市民の話し合いで直接決める仕組み。ブラジルのポルトアレグレで始まり、世界数千の自治体に広がりました。導入自治体では保健・衛生への支出増と乳幼児死亡率の低下との関連が実証研究で報告されています。「お金の配分」と「民意」を同じテーブルに載せるため、この図鑑の二つのカテゴリを一本でつなぐ、二つの機能不全への同時処方です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a><a href="https://en.wikipedia.org/wiki/Participatory_budgeting" target="_blank" rel="noopener">Wikipedia: Participatory budgeting</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#participatory-budgeting">参加型予算の対話の現場（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="broad-listening">
+    <div class="entry has-fig fade-up" id="broad-listening">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g stroke="#3c3489" stroke-width="1.6" fill="none" opacity="0.55" stroke-linejoin="round"><path d="M26 30 Q22 46 32 50 Q46 48 44 34 Q36 24 26 30 Z"/><path d="M74 40 Q66 54 76 60 Q92 58 90 44 Q84 34 74 40 Z"/><path d="M44 74 Q40 90 54 92 Q68 88 64 74 Q54 66 44 74 Z"/></g><g fill="#16132a"><circle cx="30" cy="36" r="3.5"/><circle cx="38" cy="34" r="3.5"/><circle cx="34" cy="44" r="3.5"/><circle cx="46" cy="80" r="3.5"/><circle cx="56" cy="84" r="3.5"/><circle cx="52" cy="76" r="3.5"/></g><g fill="#3c3489"><circle cx="78" cy="46" r="3.5"/><circle cx="86" cy="50" r="3.5"/><circle cx="80" cy="54" r="3.5"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>ブロードリスニング（Polis）</h3><span class="origin"><span class="ev ev-b">B</span>Taiwan / 2015</span></div>
       <p class="desc">数千〜数万人の意見をアルゴリズムとAIで構造化し、「分断の地図」と「意外な合意点」を可視化する仕組み。台湾のvTaiwanがライドシェア問題などの合意形成で先行し、日本でも2024年以降、東京都の政策づくりやチームみらいの取り組みなどで急速に広がっています。声の大きさではなく、声の分布を見るための——いわば民意の顕微鏡です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://pol.is/" target="_blank" rel="noopener">Polis</a><a href="https://ai.objectives.institute/" target="_blank" rel="noopener">AI Objectives Institute（Talk to the City）</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#vtaiwan">vTaiwan・デジタル民主主義（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="quadratic-voting">
+    <div class="entry has-fig fade-up" id="quadratic-voting">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g fill="#fff" stroke="#16132a" stroke-width="2.5" stroke-linejoin="round"><rect x="26" y="74" width="18" height="14"/><rect x="26" y="60" width="18" height="14"/><rect x="26" y="46" width="18" height="14"/><rect x="26" y="32" width="18" height="14"/></g><path d="M52 84 C68 84 84 74 90 40" fill="none" stroke="#3c3489" stroke-width="3" stroke-linecap="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>クアドラティック・ボーティング</h3><span class="origin"><span class="ev ev-b">B</span>United States / 2019</span></div>
       <p class="desc">一人が複数の票を持ち、強く思う論点に多く投じられる——ただし票数の二乗のコストがかかる——投票方式。「どれに賛成か」だけでなく「どれくらい大事か」という選好の強さを測れるのが特徴です。米コロラド州議会が法案の優先順位づけに実際に使い続けているほか、台湾の総統杯ハッカソンなどでも運用され、多数決の解像度を上げる仕組みとして検証が進んでいます。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.radicalxchange.org/" target="_blank" rel="noopener">RadicalxChange</a><a href="https://en.wikipedia.org/wiki/Quadratic_voting" target="_blank" rel="noopener">Wikipedia: Quadratic voting</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="liquid-democracy">
+    <div class="entry has-fig fade-up" id="liquid-democracy">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g fill="#fff" stroke="#16132a" stroke-width="2.5"><circle cx="30" cy="44" r="9"/><circle cx="30" cy="80" r="9"/><circle cx="62" cy="62" r="9"/><circle cx="92" cy="50" r="11"/></g><g stroke="#3c3489" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M38 48 L54 58"/><path d="M37 76 L55 66"/><path d="M71 60 L82 54"/><path d="M76 49 L83 53 L78 60"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>液体民主主義</h3><span class="origin"><span class="ev ev-c">C</span>Germany / 2010ごろ</span></div>
       <p class="desc">論点ごとに「自分で投票する」か「信頼する人に票を委任する」かを選べる、直接制と代議制のハイブリッド。ドイツ海賊党がLiquidFeedbackというソフトウェアで大規模に実験しましたが、少数への委任の集中など運用上の課題も見えてきました。成功例としてではなく、失敗の記録ごと参照できる貴重な社会実験のログとして収載しています。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://en.wikipedia.org/wiki/Liquid_democracy" target="_blank" rel="noopener">Wikipedia: Liquid democracy</a><a href="https://participedia.net/" target="_blank" rel="noopener">Participedia</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="community-notes">
+    <div class="entry has-fig fade-up" id="community-notes">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><g fill="#16132a"><circle cx="26" cy="44" r="4"/><circle cx="24" cy="60" r="4"/><circle cx="30" cy="74" r="4"/><circle cx="94" cy="44" r="4"/><circle cx="96" cy="60" r="4"/><circle cx="90" cy="74" r="4"/></g><rect x="44" y="46" width="32" height="28" rx="3" fill="#fff" stroke="#16132a" stroke-width="2.5"/><g stroke="#16132a" stroke-width="1.6" opacity="0.55" stroke-linecap="round"><line x1="50" y1="54" x2="70" y2="54"/><line x1="50" y1="60" x2="70" y2="60"/><line x1="50" y1="66" x2="66" y2="66"/></g><g stroke="#3c3489" stroke-width="2.8" fill="none" stroke-linecap="round"><path d="M32 58 L44 60"/><path d="M76 60 L88 58"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>コミュニティノート（ブリッジング設計）</h3><span class="origin"><span class="ev ev-b">B</span>United States / 2021</span></div>
       <p class="desc">SNS投稿への補足情報を、「普段は意見が対立している人たち」の双方から支持された場合にだけ表示する仕組み。分断を煽るほど拡散する通常のアルゴリズムとは逆に、対立を橋渡しする内容をコードで優遇する「ブリッジング」という設計思想に基づきます。X（旧Twitter）で運用され、誤情報の拡散抑制に関する研究も出始めました。情報空間そのものを情弱民主主義の増幅装置から解毒する試みの、代表例です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://communitynotes.x.com/" target="_blank" rel="noopener">Community Notes（X公式）</a><a href="https://en.wikipedia.org/wiki/Community_Notes" target="_blank" rel="noopener">Wikipedia: Community Notes</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="data-democracy">
+    <div class="entry has-fig fade-up" id="data-democracy">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#eef1fb"/><rect x="44" y="44" width="32" height="32" rx="6" fill="#fff" stroke="#16132a" stroke-width="2.5"/><circle cx="60" cy="60" r="6" fill="#3c3489"/><g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linecap="round"><circle cx="24" cy="40" r="5"/><circle cx="22" cy="70" r="5"/><circle cx="96" cy="42" r="5"/><circle cx="94" cy="72" r="5"/></g><g stroke="#3c3489" stroke-width="2.2" fill="none" stroke-linecap="round"><path d="M29 42 L44 50"/><path d="M27 68 L44 64"/><path d="M91 44 L76 52"/><path d="M89 70 L76 66"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>無意識データ民主主義</h3><span class="origin"><span class="ev ev-c">C</span>Japan / 2022（構想）</span></div>
       <p class="desc">選挙だけに頼らず、人々の言葉・行動・反応の膨大なデータから民意を抽出し、アルゴリズムが政策決定を支援するという、経済学者・成田悠輔さんの構想。実装はまだ思考実験の段階ですが、ロードマップの診断（札束資本主義×情弱民主主義）の着想元でもあり、「上からの処方」の到達点の一つとして収載します。私たちの持ち場は、この種の構想と市民の日常の間を埋めるトレーニングとサブシステムの側にあります。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.sbcr.jp/product/4815615604/" target="_blank" rel="noopener">『22世紀の民主主義』（SBクリエイティブ）</a><a href="https://wired.jp/article/commons-democracy-yusukenarita/" target="_blank" rel="noopener">WIRED：成田悠輔と考える「民主主義の再生」</a></div>
+    </div>
     </div>
 
   </div>
@@ -479,24 +532,33 @@
   </div>
   <div class="entry-list">
 
-    <div class="entry fade-up" id="folkehojskole">
+    <div class="entry has-fig fade-up" id="folkehojskole">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#e4f2ea"/><g stroke="#16132a" stroke-width="2.5" fill="#fff" stroke-linejoin="round" stroke-linecap="round"><path d="M60 60 C50 52 34 52 26 56 L26 86 C34 82 50 82 60 90 C70 82 86 82 94 86 L94 56 C86 52 70 52 60 60 Z"/><path d="M60 60 L60 90"/></g><path d="M60 48 C56 42 64 38 60 30 C68 36 68 46 60 48 Z" fill="#0f6e56" stroke="#16132a" stroke-width="2" stroke-linejoin="round"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>フォルケホイスコーレ（国民高等学校）</h3><span class="origin"><span class="ev ev-b">B</span>Denmark / 1844</span></div>
       <p class="desc">試験も成績もなく、対話と共同生活を通じて「社会をつくる市民」を育てるデンマークの成人教育機関。グルントヴィの思想から180年、いまも約70校が稼働し、デンマークが世界最高水準の民主主義指数を保つ土壌の一つとされています。仕組み（制度化された学校）と実践（対話の日常）が一体になった、この図鑑と対話技法図鑑の結び目にあたる存在です。デモクラシーフィットネスも、この伝統の現代版の一つです。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.hojskolerne.dk/" target="_blank" rel="noopener">Højskolerne（デンマーク公式）</a><a href="https://en.wikipedia.org/wiki/Folk_high_school" target="_blank" rel="noopener">Wikipedia: Folk high school</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#folkehojskole">フォルケホイスコーレ（対話技法図鑑）</a><a href="./dialogue-zukan.html#democracy-fitness">デモクラシーフィットネス（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="commons-governance">
+    <div class="entry has-fig fade-up" id="commons-governance">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#e4f2ea"/><circle cx="60" cy="62" r="30" fill="#fff" stroke="#16132a" stroke-width="2.5"/><circle cx="60" cy="62" r="23" fill="none" stroke="#0f6e56" stroke-width="1.6" stroke-dasharray="4 4"/><path d="M60 76 L60 58 M60 66 C54 66 52 60 54 55 C60 55 62 61 60 66 M60 62 C66 62 68 56 66 51 C60 51 58 57 60 62" fill="none" stroke="#16132a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff" stroke="#16132a" stroke-width="2.5"><circle cx="30" cy="44" r="6"/><circle cx="90" cy="44" r="6"/></g></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>コモンズの自治（オストロムの設計原理）</h3><span class="origin"><span class="ev ev-a">A</span>Beyond Borders</span></div>
       <p class="desc">森・水・漁場のような共有資源は「みんなのものは荒れる」と言われてきました。しかしエリノア・オストロムは、世界中の現地調査から、住民が自主ルールで何百年も共有地を守り続けてきた事例群を発見し、境界の明確さや当事者によるルール設定など8つの設計原理に整理しました（2009年ノーベル経済学賞）。日本の入会地もその代表例です。札束にも国家にも頼らない「第三の統治」の、最も検証された地図です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.nobelprize.org/prizes/economic-sciences/2009/summary/" target="_blank" rel="noopener">Nobel Prize in Economic Sciences 2009</a><a href="https://en.wikipedia.org/wiki/Elinor_Ostrom" target="_blank" rel="noopener">Wikipedia: Elinor Ostrom</a></div>
       <div class="sources"><span class="src-label">対になる実践</span><a href="./dialogue-zukan.html#iriai-commons">入会地の自治（対話技法図鑑）</a><a href="./dialogue-zukan.html#yoriai">寄合（対話技法図鑑）</a></div>
     </div>
+    </div>
 
-    <div class="entry fade-up" id="infrastructures-for-peace">
+    <div class="entry has-fig fade-up" id="infrastructures-for-peace">
+      <div class="entry-fig" aria-hidden="true"><svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="54" fill="#e4f2ea"/><g stroke="#16132a" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round"><line x1="22" y1="66" x2="98" y2="66"/><path d="M26 90 Q60 40 94 90"/><line x1="36" y1="66" x2="36" y2="78"/><line x1="48" y1="66" x2="48" y2="71"/><line x1="72" y1="66" x2="72" y2="71"/><line x1="84" y1="66" x2="84" y2="78"/></g><path d="M46 44 Q60 34 76 40" fill="none" stroke="#0f6e56" stroke-width="2.5" stroke-linecap="round"/><path d="M56 37 Q60 31 66 33 Q62 39 56 37 Z" fill="#0f6e56"/><path d="M66 39 Q71 33 77 35 Q72 41 66 39 Z" fill="#0f6e56"/></svg></div>
+      <div class="entry-body">
       <div class="entry-top"><h3>平和のインフラ（Infrastructures for Peace）</h3><span class="origin"><span class="ev ev-b">B</span>Ghana ほか / 2011</span></div>
       <p class="desc">紛争が起きてから外部が介入するのではなく、地域ごとの平和委員会や対話の常設窓口を、あらかじめ社会に埋め込んでおくという考え方。ガーナは全国・州・郡の各レベルに平和評議会を法制化し、選挙時の暴力の抑止に貢献したと評価されています。消防署のように「平和の常備施設」を社会に置くという発想は、ロードマップが描く「毎日通える道場」と同じ思想の、国家スケール版です。</p>
       <div class="sources"><span class="src-label">引用元・参考</span><a href="https://www.un.org/peacebuilding/" target="_blank" rel="noopener">UN Peacebuilding</a><a href="https://en.wikipedia.org/wiki/Infrastructure_for_peace" target="_blank" rel="noopener">Wikipedia: Infrastructure for peace</a></div>
+    </div>
     </div>
 
   </div>

@@ -107,6 +107,7 @@
   @media (max-width: 1100px) {
     .nav-links { display: none; }
     .nav-hamburger { display: block; }
+      .nav-logo { margin-right: 0; }
   }
 
   .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
@@ -195,13 +196,19 @@
   .ev-x { background: var(--gold); color: #fff; }
 
   /* ===== TED集ページ用 ===== */
-  .ted-item { margin-top: 1.1rem; }
-  .ted-tag { display: inline-block; font-family: 'Shippori Mincho', serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; border-radius: 4px; padding: 0.16rem 0.55rem; margin-right: 0.7rem; vertical-align: 1px; color: #fff; }
+  .ted-item { margin-top: 1.2rem; display: grid; grid-template-columns: 136px minmax(0, 1fr); gap: 1.1rem; align-items: start; text-decoration: none; }
+  .ted-thumb { position: relative; border-radius: 9px; overflow: hidden; background: #e9e3d6; aspect-ratio: 16 / 9; border: 1px solid #e0dac8; }
+  .ted-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s ease; }
+  .ted-item:hover .ted-thumb img { transform: scale(1.04); }
+  .ted-thumb .ted-play { position: absolute; inset: 0; margin: auto; width: 34px; height: 34px; opacity: 0.92; }
+  .ted-tag { display: inline-block; font-family: 'Shippori Mincho', serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; border-radius: 4px; padding: 0.16rem 0.55rem; vertical-align: 1px; color: #fff; }
+  .ted-thumb .ted-tag { position: absolute; top: 6px; left: 6px; box-shadow: 0 1px 5px rgba(0,0,0,0.3); }
   .ted-old { background: #8d8877; }
   .ted-now { background: var(--teal); }
-  .ted-item a.talk { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.92rem; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); letter-spacing: 0.02em; }
-  .ted-item a.talk:hover { border-bottom-color: var(--forest); }
-  .ted-item p { margin-top: 0.45rem; font-size: 0.84rem; line-height: 2.05; font-weight: 300; color: #3b3a42; }
+  .ted-item .talk { display: block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.9rem; color: var(--forest); text-decoration: none; letter-spacing: 0.02em; line-height: 1.6; }
+  .ted-item:hover .talk { text-decoration: underline; text-underline-offset: 3px; }
+  .ted-item p { margin-top: 0.4rem; font-size: 0.83rem; line-height: 2.0; font-weight: 300; color: #3b3a42; }
+  @media (max-width: 520px) { .ted-item { grid-template-columns: 108px minmax(0, 1fr); gap: 0.8rem; } }
   .ted-arc { margin-top: 1.1rem; padding: 0.7rem 1rem; border-left: 3px solid var(--dawn); background: #fdf6ef; font-size: 0.84rem; line-height: 2.05; color: #4a4652; }
 </style>
 </head>
@@ -354,20 +361,16 @@
 
     <div class="entry fade-up" id="t1">
       <div class="entry-top"><h3>1. 貧困と現金の回路</h3><span class="origin">妖怪：銭寄せ ↔ 式神：みつはこび</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty" target="_blank" rel="noopener">Esther Duflo「Social experiments to fight poverty」（2010）</a>
-      <p>貧困対策を思想ではなくランダム化比較試験で「測る」というRCT革命の宣言。のちのノーベル経済学賞受賞者による原点の一本。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/rory_stewart_to_end_extreme_poverty_give_cash_not_advice" target="_blank" rel="noopener">Rory Stewart「To end extreme poverty, give cash — not advice」（2024）</a>
-      <p>元・英国国際開発大臣が「助言や研修ではなく、現金をそのまま渡すのが最も効く」と自らの過去の政策を覆すまでの告白。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/esther_duflo_social_experiments_to_fight_poverty" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/167669_800x600.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">Esther Duflo「Social experiments to fight poverty」（2010）</span><p>貧困対策を思想ではなくランダム化比較試験で「測る」というRCT革命の宣言。のちのノーベル経済学賞受賞者による原点の一本。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/rory_stewart_to_end_extreme_poverty_give_cash_not_advice" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-assets.s3.amazonaws.com/production/talks/talk_136667/143538cc-9286-423c-9126-723b5a160429/RoryStewart_2024-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Rory Stewart「To end extreme poverty, give cash — not advice」（2024）</span><p>元・英国国際開発大臣が「助言や研修ではなく、現金をそのまま渡すのが最も効く」と自らの過去の政策を覆すまでの告白。</p></div></a>
       <p class="ted-arc">この14年で、問いは「援助の効果は測れるか」から「測った結果、現金が最強だった」へ。検証の文化が結論を出した実例です。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#cash-transfer">無条件の直接給付（仕組み図鑑）</a><a href="./shikumi-zukan.html#cct">条件付き現金給付（仕組み図鑑）</a></div>
     </div>
 
     <div class="entry fade-up" id="t2">
       <div class="entry-top"><h3>2. 寄付とエビデンス</h3><span class="origin">「値札」を提示する側の系譜</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/dan_pallotta_the_way_we_think_about_charity_is_dead_wrong" target="_blank" rel="noopener">Dan Pallotta「The way we think about charity is dead wrong」（2013）</a>
-      <p>「非営利は質素であるべき」という社会の認知の癖（＝妖怪）が、慈善の規模を縛ってきたことを暴いた告発の古典。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/natalie_cargill_how_to_solve_the_world_s_biggest_problems" target="_blank" rel="noopener">Natalie Cargill「How to solve the world’s biggest problems」（2023）</a>
-      <p>富裕層の上位1%が所得の10%を出せば年3.5兆ドル。極度の貧困の解消に約2,600億ドル——と、世界の課題に具体的な値札を付けていく一本。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/dan_pallotta_the_way_we_think_about_charity_is_dead_wrong" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/d5577fdfa6524f0b91a00fd8d9df84810fb5a10c_1600x1200.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">Dan Pallotta「The way we think about charity is dead wrong」（2013）</span><p>「非営利は質素であるべき」という社会の認知の癖（＝妖怪）が、慈善の規模を縛ってきたことを暴いた告発の古典。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/natalie_cargill_how_to_solve_the_world_s_biggest_problems" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/3e02c384-7799-4b30-b6b7-4124c28ba86f/NatalieCargill_2023-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Natalie Cargill「How to solve the world’s biggest problems」（2023）</span><p>富裕層の上位1%が所得の10%を出せば年3.5兆ドル。極度の貧困の解消に約2,600億ドル——と、世界の課題に具体的な値札を付けていく一本。</p></div></a>
       <p class="ted-arc">ロードマップのReality Check（貧困解消の値札）と直接つながる系譜。「お金が足りない」のではなく「回路と意思の問題」だという診断が、10年かけて数字になりました。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#effective-giving">エビデンスに基づく寄付（仕組み図鑑）</a><a href="./roadmap.html">ロードマップのReality Check</a></div>
     </div>
@@ -384,30 +387,24 @@
 
     <div class="entry fade-up" id="t3">
       <div class="entry-top"><h3>3. 民主主義の再発明</h3><span class="origin">妖怪：ぬりかべ ↔ 式神：かりむすび</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/michael_sandel_the_lost_art_of_democratic_debate" target="_blank" rel="noopener">Michael Sandel「The lost art of democratic debate」（2010）</a>
-      <p>民主主義の核心は投票ではなく、共に善さを問う公共の熟議だ——ハーバード白熱教室の哲学者による原点。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/brett_hennig_what_if_we_replaced_politicians_with_randomly_selected_people" target="_blank" rel="noopener">Brett Hennig「What if we replaced politicians with randomly selected people?」（2017）</a>
-      <p>「では、くじ引きで制度化しよう」。古代アテネから現代の市民議会まで、抽選制民主主義の実装を提案する一本。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/michael_sandel_the_lost_art_of_democratic_debate" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/6e656341-ed73-4148-bf39-106a46cb9d45/MichaelSandel_2010-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">Michael Sandel「The lost art of democratic debate」（2010）</span><p>民主主義の核心は投票ではなく、共に善さを問う公共の熟議だ——ハーバード白熱教室の哲学者による原点。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/brett_hennig_what_if_we_replaced_politicians_with_randomly_selected_people" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/7379b483-7b04-4776-bdb4-8795ae52e39c/BrettHennig_2017X-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Brett Hennig「What if we replaced politicians with randomly selected people?」（2017）</span><p>「では、くじ引きで制度化しよう」。古代アテネから現代の市民議会まで、抽選制民主主義の実装を提案する一本。</p></div></a>
       <p class="ted-arc">「熟議が大事」という哲学から、「くじで誰もが議席に座りうる」という設計へ。アイルランドやフランスの市民議会は、この二本の間で現実になりました。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#citizens-assembly">市民議会（仕組み図鑑）</a><a href="./dialogue-zukan.html#citizens-assembly">市民議会の対話の現場（対話技法図鑑）</a></div>
     </div>
 
     <div class="entry fade-up" id="t4">
       <div class="entry-top"><h3>4. デジタル民主主義</h3><span class="origin">妖怪：山彦 ↔ 式神：こだまよみ</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/pia_mancini_how_to_upgrade_democracy_for_the_internet_era" target="_blank" rel="noopener">Pia Mancini「How to upgrade democracy for the Internet era」（2014）</a>
-      <p>アルゼンチンの活動家による、ネットで政治参加を再設計する初期の壮大な実験（DemocracyOS）。液体民主主義の項の生きた記録。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/audrey_tang_how_digital_innovation_can_fight_pandemics_and_strengthen_democracy" target="_blank" rel="noopener">Audrey Tang「How digital innovation can fight pandemics and strengthen democracy」（2020）</a>
-      <p>台湾のデジタル担当政務委員（当時）が語る、vTaiwan・ブロードリスニングの実装と「速い公正さ」。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/pia_mancini_how_to_upgrade_democracy_for_the_internet_era" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/bbd1220c33566a0cfa339f526b881013a4e9f283_2880x1620.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">Pia Mancini「How to upgrade democracy for the Internet era」（2014）</span><p>アルゼンチンの活動家による、ネットで政治参加を再設計する初期の壮大な実験（DemocracyOS）。液体民主主義の項の生きた記録。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/audrey_tang_how_digital_innovation_can_fight_pandemics_and_strengthen_democracy" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/29df4caa-705d-41f1-9954-2a92bfc6771e/AudreyTang_2020S-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Audrey Tang「How digital innovation can fight pandemics and strengthen democracy」（2020）</span><p>台湾のデジタル担当政務委員（当時）が語る、vTaiwan・ブロードリスニングの実装と「速い公正さ」。</p></div></a>
       <p class="ted-arc">「ネットで投票の仕組みを変える」から「ネットで聴き方を変える」への転回。仕組み図鑑の液体民主主義↔ブロードリスニングの対を、当事者の声で辿れます。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#broad-listening">ブロードリスニング（仕組み図鑑）</a><a href="./shikumi-zukan.html#liquid-democracy">液体民主主義（仕組み図鑑）</a></div>
     </div>
 
     <div class="entry fade-up" id="t5">
       <div class="entry-top"><h3>5. 情報空間と分断</h3><span class="origin">妖怪：山彦の生態観察</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/eli_pariser_beware_online_filter_bubbles" target="_blank" rel="noopener">Eli Pariser「Beware online filter bubbles」（2011）</a>
-      <p>「フィルターバブル」という言葉を世界に与えた古典。山彦という妖怪の生態を、最初に名指しした一本。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/wael_ghonim_let_s_design_social_media_that_drives_real_change" target="_blank" rel="noopener">Wael Ghonim「Let’s design social media that drives real change」（2015）</a>
-      <p>アラブの春に火をつけた本人が、そのSNSが分断装置に転じた過程を告白し、橋を架ける設計（ブリッジング）を求める。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/eli_pariser_beware_online_filter_bubbles" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/0f550197b90f20147576a51962258dc5ac7ac82d_800x600.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">Eli Pariser「Beware online filter bubbles」（2011）</span><p>「フィルターバブル」という言葉を世界に与えた古典。山彦という妖怪の生態を、最初に名指しした一本。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/wael_ghonim_let_s_design_social_media_that_drives_real_change" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/8ac364a4-cded-475b-aca1-c57228a7b639/WaelGhonim_2015G-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Wael Ghonim「Let’s design social media that drives real change」（2015）</span><p>アラブの春に火をつけた本人が、そのSNSが分断装置に転じた過程を告白し、橋を架ける設計（ブリッジング）を求める。</p></div></a>
       <p class="ted-arc">予言（2011）と、当事者による検死報告（2015）。コミュニティノートのブリッジング設計は、この二本への現在進行形の回答として観られます。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#community-notes">コミュニティノート（仕組み図鑑）</a></div>
     </div>
@@ -424,20 +421,16 @@
 
     <div class="entry fade-up" id="t6">
       <div class="entry-top"><h3>6. 認知——「自分は正しい」の正体</h3><span class="origin">妖怪の理論編 ↔ 式神：かたどり（八咫烏）</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/kathryn_schulz_on_being_wrong" target="_blank" rel="noopener">Kathryn Schulz「On being wrong」（2011）</a>
-      <p>「自分が正しい」という感覚は、間違っているときもまったく同じ手触りをしている——妖怪論の哲学的な土台になる一本。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/adam_grant_what_frogs_in_hot_water_can_teach_us_about_thinking_again" target="_blank" rel="noopener">Adam Grant「What frogs in hot water can teach us about thinking again」（2021）</a>
-      <p>組織心理学者による「考え直す力（Think Again）」の鍛え方。再考を弱さではなく、日々磨ける筋力として描き直します。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/kathryn_schulz_on_being_wrong" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/8baad5d4-ec0f-4f37-97e2-1f64f09f859c/KathrynSchulz_2011-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">Kathryn Schulz「On being wrong」（2011）</span><p>「自分が正しい」という感覚は、間違っているときもまったく同じ手触りをしている——妖怪論の哲学的な土台になる一本。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/adam_grant_what_frogs_in_hot_water_can_teach_us_about_thinking_again" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/45c1d8b9-97d6-43ee-b8f1-c386c19aad3f/AdamGrant_2021S-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Adam Grant「What frogs in hot water can teach us about thinking again」（2021）</span><p>組織心理学者による「考え直す力（Think Again）」の鍛え方。再考を弱さではなく、日々磨ける筋力として描き直します。</p></div></a>
       <p class="ted-arc">「間違いを認める哲学」から「再考の筋トレ」へ。デモクラ筋・メタ認知トレーニングの思想的裏付けが、この10年で実践論に降りてきました。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./dialogue-zukan.html#democracy-fitness">デモクラシーフィットネス（対話技法図鑑）</a><a href="./dialogue-zukan.html#kyoso-dojo">妖怪と式神（対話技法図鑑）</a></div>
     </div>
 
     <div class="entry fade-up" id="t7">
       <div class="entry-top"><h3>7. 対話——糾弾から招き入れへ</h3><span class="origin">妖怪：ぬりかべ ↔ 式神たちの実践編</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/william_ury_the_walk_from_no_to_yes" target="_blank" rel="noopener">William Ury「The walk from “no” to “yes”」（2010）</a>
-      <p>『ハーバード流交渉術』の共著者による「第三の側（サードサイド）」論。対立の当事者ではなく、周囲が平和の器になるという思想。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/loretta_j_ross_don_t_call_people_out_call_them_in" target="_blank" rel="noopener">Loretta J. Ross「Don’t call people out — call them in」（2021）</a>
-      <p>公民権運動のベテランが説く、コールアウト（糾弾）ではなくコールイン（招き入れ）の文化。SNS時代の日常の作法として。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/william_ury_the_walk_from_no_to_yes" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/2c7b90e6c6de5607f0fa55080e199ac746a86846_800x600.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">William Ury「The walk from “no” to “yes”」（2010）</span><p>『ハーバード流交渉術』の共著者による「第三の側（サードサイド）」論。対立の当事者ではなく、周囲が平和の器になるという思想。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/loretta_j_ross_don_t_call_people_out_call_them_in" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/cc1eac1f-9a3a-4937-848e-5d74401e056b/LorettaJRoss_2021-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Loretta J. Ross「Don’t call people out — call them in」（2021）</span><p>公民権運動のベテランが説く、コールアウト（糾弾）ではなくコールイン（招き入れ）の文化。SNS時代の日常の作法として。</p></div></a>
       <p class="ted-arc">国際交渉のテーブルにあった原理が、20年かけてSNS時代の日常会話の作法に降りてきた系譜。「敵を作らずに変化を求める」技術です。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./dialogue-zukan.html#nvc">NVC（対話技法図鑑）</a><a href="./dialogue-zukan.html#braver-angels">Braver Angels（対話技法図鑑）</a></div>
     </div>
@@ -454,10 +447,8 @@
 
     <div class="entry fade-up" id="t8">
       <div class="entry-top"><h3>8. 平和と民主主義の教育</h3><span class="origin">土台を耕す ↔ 式神：あまだれ（ひとつつき）</span></div>
-      <div class="ted-item"><span class="ted-tag ted-old">昔</span><a class="talk" href="https://www.ted.com/talks/john_hunter_teaching_with_the_world_peace_game" target="_blank" rel="noopener">John Hunter「Teaching with the World Peace Game」（2011）</a>
-      <p>小学4年生が世界の危機を「プレイして」解決する伝説の授業。教室が平和の道場になりうることの、最も美しい証明。</p></div>
-      <div class="ted-item"><span class="ted-tag ted-now">今</span><a class="talk" href="https://www.ted.com/talks/hajer_sharief_how_to_use_family_dinner_to_teach_politics" target="_blank" rel="noopener">Hajer Sharief「How to use family dinner to teach politics」（2019）</a>
-      <p>リビア内戦を生きた平和活動家が語る、週に一度の家族会議。民主主義の練習は、家庭の夕食から始められる。</p></div>
+      <a class="ted-item" href="https://www.ted.com/talks/john_hunter_teaching_with_the_world_peace_game" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/pe.tedcdn.com/images/ted/af3e5f3af7d4337790cf0904b483629974aee789_800x600.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-old">昔</span></div><div class="ted-txt"><span class="talk">John Hunter「Teaching with the World Peace Game」（2011）</span><p>小学4年生が世界の危機を「プレイして」解決する伝説の授業。教室が平和の道場になりうることの、最も美しい証明。</p></div></a>
+      <a class="ted-item" href="https://www.ted.com/talks/hajer_sharief_how_to_use_family_dinner_to_teach_politics" target="_blank" rel="noopener"><div class="ted-thumb"><img src="https://pi.tedcdn.com/r/talkstar-photos.s3.amazonaws.com/uploads/dac51d32-4868-49e0-89d8-729b1be4be50/HajerSharief_2019T-embed.jpg?u%5Br%5D=2&amp;u%5Bs%5D=0.5&amp;u%5Ba%5D=0.8&amp;u%5Bt%5D=0.03&amp;quality=82&amp;c=1050%2C550&amp;w=1050" alt="" loading="lazy"><span class="ted-tag ted-now">今</span></div><div class="ted-txt"><span class="talk">Hajer Sharief「How to use family dinner to teach politics」（2019）</span><p>リビア内戦を生きた平和活動家が語る、週に一度の家族会議。民主主義の練習は、家庭の夕食から始められる。</p></div></a>
       <p class="ted-arc">学校の教室から、家庭の食卓へ。「毎日通える道場」の最小単位は家だった——ロードマップの結論を、二人の実践者が先に生きていました。</p>
       <div class="sources"><span class="src-label">あわせて読む</span><a href="./shikumi-zukan.html#folkehojskole">フォルケホイスコーレ（仕組み図鑑）</a><a href="./roadmap.html">世界平和までのロードマップ</a></div>
     </div>
