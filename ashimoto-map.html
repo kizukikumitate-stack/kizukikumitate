@@ -151,7 +151,7 @@
 
   /* ===== 三部構成 ===== */
   #trilogy { background: #fff; border-top: 1px solid #eee7d6; border-bottom: 1px solid #eee7d6; }
-  .trilogy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.2rem; }
+  .trilogy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; margin-top: 2.2rem; }
   .tri-card {
     border: 1px solid #e8e2d2; border-radius: 14px; padding: 1.5rem 1.3rem 1.4rem; background: var(--paper);
     text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.55rem;
@@ -166,7 +166,7 @@
   .tri-card.practice .tri-q, .tri-card.practice .tri-go { color: var(--dawn); }
   .tri-card.deploy { border: 2px solid var(--teal); background: var(--teal-light); }
   .tri-card.deploy .tri-q, .tri-card.deploy .tri-go { color: var(--teal); }
-  @media (max-width: 760px) { .trilogy-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 760px) { .trilogy-grid { grid-template-columns: minmax(0, 1fr); } }
 
   /* ===== 年輪マップ ===== */
   #rings { background: var(--paper); text-align: center; }
@@ -201,7 +201,8 @@
   .layer h2 { margin: 0.9rem 0 0.4rem; }
   .layer .layer-sub { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); }
   .layer-body { margin-top: 1.2rem; font-size: 0.98rem; line-height: 2.05; color: #333; }
-  .layer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.8rem; }
+  .layer-art { display: block; width: 100%; height: auto; border-radius: 14px; margin-top: 1.4rem; box-shadow: 0 12px 32px rgba(22,19,42,0.14); }
+  .layer-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1rem; margin-top: 1.8rem; }
   .layer-cell { background: #fff; border: 1px solid #ece6d6; border-radius: 12px; padding: 1.2rem 1.25rem; }
   .layer-cell h4 { font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.74rem; letter-spacing: 0.24em; margin-bottom: 0.7rem; }
   .layer-cell p, .layer-cell li { font-size: 0.88rem; line-height: 1.95; color: #444; }
@@ -215,7 +216,7 @@
     font-size: 0.9rem; line-height: 1.95; color: #444; border-radius: 0 10px 10px 0;
   }
   .layer-up b { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.72rem; letter-spacing: 0.22em; display: block; margin-bottom: 0.35rem; }
-  @media (max-width: 680px) { .layer-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .layer-grid { grid-template-columns: minmax(0, 1fr); } }
 
   /* 層ごとの色 */
   .l1 { --lc: var(--dawn); }
@@ -233,24 +234,24 @@
   #cycle .eyebrow { color: var(--gold); }
   #cycle h2 { color: #fff; }
   #cycle p.lead { color: #cfc9e2; }
-  .cycle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 2.2rem; }
+  .cycle-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; margin-top: 2.2rem; }
   .cycle-card { border: 1px solid rgba(217,164,65,0.35); border-radius: 14px; padding: 1.6rem 1.5rem; background: rgba(255,255,255,0.04); }
   .cycle-card h3 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--gold-soft); margin-bottom: 0.7rem; display: flex; align-items: center; gap: 0.6rem; }
   .cycle-card h3 .arrow { font-family: 'Jost', sans-serif; font-weight: 300; font-size: 1.3rem; color: var(--gold); }
   .cycle-card p { font-size: 0.9rem; line-height: 2; color: #d8d3e8; }
   .cycle-close { margin-top: 2rem; font-size: 0.95rem; line-height: 2.1; color: #e6e1f2; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 1.6rem; }
-  @media (max-width: 680px) { .cycle-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .cycle-grid { grid-template-columns: minmax(0, 1fr); } }
 
   /* ===== 3年スケッチ ===== */
   #sketch { background: #fff; border-top: 1px solid #eee7d6; }
-  .sketch-line { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.2rem; position: relative; }
+  .sketch-line { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2.2rem; position: relative; }
   .sk-step { border-top: 3px solid var(--lc, var(--teal)); padding-top: 1.1rem; }
   .sk-step.y1 { --lc: var(--dawn); } .sk-step.y2 { --lc: var(--teal); } .sk-step.y3 { --lc: var(--purple); }
   .sk-step .sk-y { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.26em; color: var(--lc); }
   .sk-step h3 { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 800; color: var(--ink); margin: 0.45rem 0 0.6rem; }
   .sk-step p { font-size: 0.86rem; line-height: 1.95; color: #555; }
   .sketch-note { margin-top: 1.8rem; font-size: 0.84rem; color: var(--mid-gray); line-height: 1.95; }
-  @media (max-width: 680px) { .sketch-line { grid-template-columns: 1fr; } }
+  @media (max-width: 680px) { .sketch-line { grid-template-columns: minmax(0, 1fr); } }
 
   /* ===== CTA ===== */
   #next { text-align: center; }
@@ -505,6 +506,7 @@
       <span class="layer-sub">Personal — 対話の筋肉</span>
     </div>
     <h2 class="fade-up">個人 — 平和の最小単位は、一人の認知。</h2>
+    <img class="layer-art fade-up" src="./assets/img/ashimoto/layer1-kojin.webp" alt="星空の下、小さな灯りを手にひとり座る人のイラスト" loading="lazy">
     <div class="layer-body fade-up">
       <p>「反論を最後まで聞ける」「沈黙に耐えられる」「意見と人格を切り分けられる」。積極的平和は、こうした身体レベルの能力から始まります。デモクラシーフィットネスが「筋トレ」と呼ぶのはこのためです。思想ではなく筋肉なので、誰でも、何歳からでも鍛えられます。</p>
     </div>
@@ -537,6 +539,7 @@
       <span class="layer-sub">Workplace — 大人の市民広場</span>
     </div>
     <h2 class="fade-up">職場 — 大人が最も長く過ごす公共空間。</h2>
+    <img class="layer-art fade-up" src="./assets/img/ashimoto/layer2-shokuba.webp" alt="夕暮れのオフィスで一室だけが温かく灯り、テーブルを囲んで対話する人々のイラスト" loading="lazy">
     <div class="layer-body fade-up">
       <p>日本の大人にとって、職場は事実上の市民広場です。会議・1on1・フィードバックは、毎日開かれている対話の練習場でもあります。ただし対話不全の多くは個人の資質ではなく構造の問題として現れます。だからこの層では、研修の前に診断を置きます——「本当に対話力の問題なのか、それとも仕組みの問題なのか」。</p>
     </div>
@@ -569,6 +572,7 @@
       <span class="layer-sub">School — 増幅装置</span>
     </div>
     <h2 class="fade-up">学校 — 教員一人の対話力は、数百人に波及する。</h2>
+    <img class="layer-art fade-up" src="./assets/img/ashimoto/layer3-gakko.webp" alt="一人の教員から発した光が、教室の机ひとつひとつに届いていくイラスト" loading="lazy">
     <div class="layer-body fade-up">
       <p>教員は、この地図で最も増幅率の高い存在です。一人の教員が対話の筋肉を得れば、その教室の数十人、教員人生では数百〜数千人の子どもが「意見が違っても敵ではない」経験を積みます。まず教員向けの体験と研修から入り、次に教員と一緒に子ども向けの授業を共同設計する——研修で終わらせず、教室に届くまでを設計します。</p>
     </div>
@@ -601,6 +605,7 @@
       <span class="layer-sub">Community — 眠れるインフラ</span>
     </div>
     <h2 class="fade-up">地域 — 公民館という、世界的に稀有な装置。</h2>
+    <img class="layer-art fade-up" src="./assets/img/ashimoto/layer4-chiiki.webp" alt="夕暮れの公民館に、子どもも大人も自転車の人もそれぞれに集まってくるイラスト" loading="lazy">
     <div class="layer-body fade-up">
       <p>日本には公民館という、成人の学びと自治のための施設が全国に張りめぐらされています。これはデンマークのフォルケホイスコーレと同じ「民衆の学びが民主主義を支える」という系譜にある、世界的にも珍しいインフラです。ここでDF体験会や小さな熟議の場を開ければ、制度に頼らない市民の対話の場が、すでにある建物の上に載ります。</p>
     </div>
@@ -633,6 +638,7 @@
       <span class="layer-sub">Institution — マクロへの接続点</span>
     </div>
     <h2 class="fade-up">制度 — 内側の輪が育った先に、熟議が載る。</h2>
+    <img class="layer-art fade-up" src="./assets/img/ashimoto/layer5-seido.webp" alt="同心円の輪の中心で温かく輝く円卓を上から見たイラスト" loading="lazy">
     <div class="layer-body fade-up">
       <p>市民議会、熟議世論調査、参加型予算——世界で実証されてきた熟議の仕組みは、参加する市民に一定の対話の体力があるほど機能します。逆に言えば、第1〜4層で筋肉が育っていれば、制度は接ぎ木できる。ここが戦略編のマクロな地図と、この足元の地図が合流する地点です。</p>
     </div>
