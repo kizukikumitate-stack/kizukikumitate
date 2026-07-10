@@ -47,6 +47,11 @@
   .btn.ghost{background:transparent;color:var(--washi);border:1px solid var(--line);font-size:.95rem;padding:14px}
   .intro-cards{display:flex;justify-content:center;gap:8px;margin:30px 0;flex-wrap:wrap}
   .intro-cards img{width:88px;height:88px;object-fit:cover;border-radius:14px;border:1px solid var(--line);opacity:.85}
+  .sphere-wrap{margin:28px 0 6px}
+  .sphere-label{text-align:center;color:var(--sub);font-size:.86rem;margin-bottom:12px;letter-spacing:.02em}
+  .sphere-pick{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+  .sphere-pick button{background:var(--yoru2);border:1px solid var(--line);color:var(--sub);border-radius:999px;padding:11px 20px;font-family:"Zen Kaku Gothic New",sans-serif;font-size:.9rem;cursor:pointer;letter-spacing:.03em;transition:color .15s,border-color .15s,background .15s}
+  .sphere-pick button.on{border-color:var(--kin);color:var(--yoru);background:var(--kin);font-weight:600}
 
   .prog{height:4px;background:var(--yoru2);border-radius:4px;overflow:hidden;margin-bottom:8px}
   .prog i{display:block;height:100%;background:var(--kin);width:0;transition:width .4s}
@@ -365,6 +370,14 @@
     <h1 id="introH1">あなたの社会の<br><span class="y">妖怪</span>は、どれ？</h1>
     <p class="intro-lead" id="introLead">社会の行き詰まりは、誰か個人の悪意のせいではありません。世界の伝承に系譜を持つ「妖怪」たちのしわざかもしれません。6つの質問で、あなたのまわりの社会に棲む妖怪を診断します。</p>
     <div class="intro-cards" id="introCards"></div>
+    <div class="sphere-wrap">
+      <p class="sphere-label" id="sphereLabel">どの「まわり」について診断しますか？</p>
+      <div class="sphere-pick" id="spherePick">
+        <button type="button" data-s="both" class="on">両方まとめて</button>
+        <button type="button" data-s="people">身の回りの人</button>
+        <button type="button" data-s="sns">SNS・ネット</button>
+      </div>
+    </div>
     <button class="btn" id="startBtn" onclick="start()">診断をはじめる</button>
     <p class="intro-note" id="introNote">所要 約1〜2分 ・ 全6問 ・ 当てはまるものを複数選べます</p>
   </div>
@@ -413,6 +426,7 @@ const UI={
   introLead:'社会の行き詰まりは、誰か個人の悪意のせいではありません。世界の伝承に系譜を持つ「妖怪」たちのしわざかもしれません。6つの質問で、あなたのまわりの社会に棲む妖怪を診断します。',
   start:'診断をはじめる', introNote:'所要 約1〜2分 ・ 全6問 ・ 当てはまるものを複数選べます',
   qhint:'良い・気になる、どちらも当てはまるものを選んでください', none:'どちらとも言えない・ピンとこない',
+  sphereLabel:'どの「まわり」について診断しますか？', spherePick:{both:'両方まとめて',people:'身の回りの人',sns:'SNS・ネット'},
   back:'戻る', next:'次へ', seeResults:'結果を見る',
   rEyebrow:'あなたのまわりの社会に、いちばん強く棲んでいるのは',
   curse:'呪い', kuse:'口癖', lineage:'系譜', divider:'乗り越える力', spellLabel:'召喚の呪文',
@@ -447,6 +461,7 @@ const UI={
   introLead:'When society gets stuck, it is rarely one person\'s malice. It may be the work of yokai — spirits with lineages in folklore from around the world. Six questions reveal the yokai dwelling in the society around you.',
   start:'Start the diagnosis', introNote:'About 1–2 min · 6 questions · choose all that apply',
   qhint:'Pick whatever fits — the good and the worrying alike', none:'Hard to say — this doesn\'t ring a bell',
+  sphereLabel:'Which “around you” would you like to look at?', spherePick:{both:'Both together',people:'People around you',sns:'Social media'},
   back:'Back', next:'Next', seeResults:'See your results',
   rEyebrow:'Dwelling most strongly in the society around you is',
   curse:'Curse', kuse:'Catchphrase', lineage:'Lineage', divider:'The power to overcome', spellLabel:'Summoning spell',
@@ -491,6 +506,8 @@ function applyLang(){
   document.getElementById('introNote').textContent = L().introNote;
   document.getElementById('qhint').textContent = L().qhint;
   document.getElementById('backBtn').textContent = L().back;
+  const sphLabel=document.getElementById('sphereLabel'); if(sphLabel) sphLabel.textContent = L().sphereLabel;
+  const sphBox=document.getElementById('spherePick'); if(sphBox){ [...sphBox.children].forEach(c=>{ c.textContent = L().spherePick[c.dataset.s]; }); }
   if(document.getElementById('quiz').classList.contains('on')) render();
   if(document.getElementById('result').classList.contains('on') && lastHit) showResult(lastHit);
 }
@@ -510,21 +527,41 @@ document.addEventListener('DOMContentLoaded', applyLang);
 const ic = document.getElementById('introCards');
 DATA.yokai.slice(0,6).forEach(y=>{const im=document.createElement('img');im.src=y.yimg;ic.appendChild(im);});
 
-let qi=0, scores={}, picked=[]; // picked[qi] = Set of yids
+// 診断の対象（まわり）: 'both' | 'people' | 'sns'
+let sphere='both';
+const sphereBox=document.getElementById('spherePick');
+if(sphereBox){
+  sphereBox.addEventListener('click',e=>{
+    const b=e.target.closest('button'); if(!b) return;
+    sphere=b.dataset.s;
+    [...sphereBox.children].forEach(c=>c.classList.toggle('on',c===b));
+  });
+}
+// 対象に応じた設問の主語・結果の言い回し
+function sphereQ(){const T={ja:{both:'あなたのまわりで',people:'あなたの身の回りの人たちの間で',sns:'あなたのSNS・ネットで'},en:{both:'around you',people:'among the people around you',sns:'on your social media and online feeds'}};return T[LANG][sphere];}
+function sphereRes(){const T={ja:{both:'あなたのまわりの社会に',people:'あなたの身の回りの人たちの間に',sns:'あなたのSNSのタイムラインに'},en:{both:'in the society around you',people:'among the people around you',sns:'in your social media feeds'}};return T[LANG][sphere];}
 
-function reset(){qi=0;scores={};picked=qs().map(()=>new Set());DATA.yokai.forEach(y=>scores[y.id]=0);}
+let qi=0, scores={}, picked=[], optOrder=[]; // picked[qi] = Set of yids / optOrder[qi] = 表示順(インデックス)
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function scrollTop(){window.scrollTo({top:0,left:0,behavior:'instant'});}
+
+function reset(){qi=0;scores={};picked=qs().map(()=>new Set());optOrder=qs().map(q=>shuffle(q.opts.map((_,i)=>i)));DATA.yokai.forEach(y=>scores[y.id]=0);}
 function start(){reset();show('quiz');render();}
-function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo({top:0,left:0,behavior:'instant'});}
+function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');scrollTop();}
 
 function render(){
   const q=qs()[qi];
   const sel=picked[qi];
   document.getElementById('qcount').textContent='Q'+(qi+1)+' / '+qs().length;
-  document.getElementById('qtext').textContent=q.q;
+  // 対象(まわり)に応じて設問の主語を差し替え
+  const subjFrom = LANG==='ja' ? 'あなたのまわりで' : 'around you';
+  document.getElementById('qtext').textContent = q.q.replace(subjFrom, sphereQ());
   document.getElementById('progBar').style.width=((qi)/qs().length*100)+'%';
   document.getElementById('backBtn').style.visibility = qi===0 ? 'hidden':'visible';
   const box=document.getElementById('opts');box.innerHTML='';
-  q.opts.forEach(([label,yid])=>{
+  const order = optOrder[qi] || q.opts.map((_,i)=>i);  // ランダム表示順
+  order.forEach(idx=>{
+    const [label,yid]=q.opts[idx];
     const isGood = (typeof yid==='string');  // ポジティブ(健やか)選択肢は id が 'okN' の文字列
     const b=document.createElement('div');b.className='opt'+(isGood?' good':'')+(sel.has(yid)?' sel':'');
     b.innerHTML='<span class="chk"></span><span>'+label+'</span>';
@@ -540,10 +577,10 @@ function render(){
   document.getElementById('nextBtn').disabled = sel.size===0;
   document.getElementById('nextBtn').textContent = (qi===qs().length-1)?L().seeResults:L().next;
 }
-function back(){ if(qi>0){qi--;render();} }
+function back(){ if(qi>0){qi--;render();scrollTop();} }
 function next(){
   if(picked[qi].size===0) return;
-  if(qi<DATA.questions.length-1){qi++;render();}
+  if(qi<DATA.questions.length-1){qi++;render();scrollTop();}
   else{ tally(); finish(); }
 }
 function tally(){
@@ -643,8 +680,9 @@ function showResult(hit){
         </div>`;}).join('')}
     </div>`;
   }
+  const rEye = T.rEyebrow.replace(LANG==='ja'?'あなたのまわりの社会に':'in the society around you', sphereRes());
   el.innerHTML=`
-    <p class="r-eyebrow">${T.rEyebrow}</p>
+    <p class="r-eyebrow">${rEye}</p>
     <p class="r-yokai-label">Yokai</p>
     <p class="r-name">${main.name}</p>
     <p class="r-yomi">${main.yomi}</p>
