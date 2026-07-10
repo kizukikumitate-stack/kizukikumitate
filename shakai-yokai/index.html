@@ -56,6 +56,7 @@
   .prog{height:4px;background:var(--yoru2);border-radius:4px;overflow:hidden;margin-bottom:8px}
   .prog i{display:block;height:100%;background:var(--kin);width:0;transition:width .4s}
   .qcount{font-family:"EB Garamond",serif;font-style:italic;color:var(--sub);font-size:.82rem;margin-bottom:8px}
+  .lens-chip{display:inline-block;font-size:.76rem;letter-spacing:.04em;color:var(--kin);border:1px solid rgba(201,168,76,.5);border-radius:999px;padding:5px 14px;margin-bottom:16px;background:rgba(201,168,76,.06)}
   .qhint{color:var(--tomoshibi);font-size:.8rem;margin-bottom:22px;letter-spacing:.02em}
   .qtext{font-family:"Shippori Mincho B1",serif;font-weight:600;font-size:1.35rem;letter-spacing:.04em;line-height:1.6;margin-bottom:24px}
   .opts{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
@@ -371,7 +372,7 @@
     <p class="intro-lead" id="introLead">社会の行き詰まりは、誰か個人の悪意のせいではありません。世界の伝承に系譜を持つ「妖怪」たちのしわざかもしれません。6つの質問で、あなたのまわりの社会に棲む妖怪を診断します。</p>
     <div class="intro-cards" id="introCards"></div>
     <div class="sphere-wrap">
-      <p class="sphere-label" id="sphereLabel">どの「まわり」について診断しますか？</p>
+      <p class="sphere-label" id="sphereLabel">どの「まわり」を思い浮かべて答えますか？<br><span style="font-size:.86em;opacity:.8">選んだ視点で、全6問に回答します</span></p>
       <div class="sphere-pick" id="spherePick">
         <button type="button" data-s="both" class="on">両方まとめて</button>
         <button type="button" data-s="people">身の回りの人</button>
@@ -387,6 +388,7 @@
   <div class="wrap">
     <div class="prog"><i id="progBar"></i></div>
     <p class="qcount" id="qcount"></p>
+    <p class="lens-chip" id="lensChip"></p>
     <p class="qtext" id="qtext"></p>
     <p class="qhint" id="qhint">良い・気になる、どちらも当てはまるものを選んでください</p>
     <div class="opts" id="opts"></div>
@@ -426,7 +428,7 @@ const UI={
   introLead:'社会の行き詰まりは、誰か個人の悪意のせいではありません。世界の伝承に系譜を持つ「妖怪」たちのしわざかもしれません。6つの質問で、あなたのまわりの社会に棲む妖怪を診断します。',
   start:'診断をはじめる', introNote:'所要 約1〜2分 ・ 全6問 ・ 当てはまるものを複数選べます',
   qhint:'良い・気になる、どちらも当てはまるものを選んでください', none:'どちらとも言えない・ピンとこない',
-  sphereLabel:'どの「まわり」について診断しますか？', spherePick:{both:'両方まとめて',people:'身の回りの人',sns:'SNS・ネット'},
+  sphereLabel:'どの「まわり」を思い浮かべて答えますか？<br><span style="font-size:.86em;opacity:.8">選んだ視点で、全6問に回答します</span>', spherePick:{both:'両方まとめて',people:'身の回りの人',sns:'SNS・ネット'},
   back:'戻る', next:'次へ', seeResults:'結果を見る',
   rEyebrow:'あなたのまわりの社会に、いちばん強く棲んでいるのは',
   curse:'呪い', kuse:'口癖', lineage:'系譜', divider:'対になる式神', spellLabel:'召喚の呪文',
@@ -461,7 +463,7 @@ const UI={
   introLead:'When society gets stuck, it is rarely one person\'s malice. It may be the work of yokai — spirits with lineages in folklore from around the world. Six questions reveal the yokai dwelling in the society around you.',
   start:'Start the diagnosis', introNote:'About 1–2 min · 6 questions · choose all that apply',
   qhint:'Pick whatever fits — the good and the worrying alike', none:'Hard to say — this doesn\'t ring a bell',
-  sphereLabel:'Which “around you” would you like to look at?', spherePick:{both:'Both together',people:'People around you',sns:'Social media'},
+  sphereLabel:'Which “around you” should the questions be about?<br><span style="font-size:.86em;opacity:.8">You’ll answer all 6 questions from that view.</span>', spherePick:{both:'Both together',people:'People around you',sns:'Social media'},
   back:'Back', next:'Next', seeResults:'See your results',
   rEyebrow:'Dwelling most strongly in the society around you is',
   curse:'Curse', kuse:'Catchphrase', lineage:'Lineage', divider:'Its paired shikigami', spellLabel:'Summoning spell',
@@ -506,7 +508,7 @@ function applyLang(){
   document.getElementById('introNote').textContent = L().introNote;
   document.getElementById('qhint').textContent = L().qhint;
   document.getElementById('backBtn').textContent = L().back;
-  const sphLabel=document.getElementById('sphereLabel'); if(sphLabel) sphLabel.textContent = L().sphereLabel;
+  const sphLabel=document.getElementById('sphereLabel'); if(sphLabel) sphLabel.innerHTML = L().sphereLabel;
   const sphBox=document.getElementById('spherePick'); if(sphBox){ [...sphBox.children].forEach(c=>{ c.textContent = L().spherePick[c.dataset.s]; }); }
   if(document.getElementById('quiz').classList.contains('on')) render();
   if(document.getElementById('result').classList.contains('on') && lastHit) showResult(lastHit);
@@ -537,8 +539,9 @@ if(sphereBox){
     [...sphereBox.children].forEach(c=>c.classList.toggle('on',c===b));
   });
 }
-// 対象に応じた設問の主語・結果の言い回し
-function sphereQ(){const T={ja:{both:'あなたのまわりで',people:'あなたの身の回りの人たちの間で',sns:'あなたのSNS・ネットで'},en:{both:'around you',people:'among the people around you',sns:'on your social media and online feeds'}};return T[LANG][sphere];}
+// 選んだ対象を全設問の上部に常時表示するチップ文言（設問文には差し込まない）
+function lensLabel(){const T={ja:{both:'回答の対象：身の回り＋SNS（両方）',people:'回答の対象：身の回りの人',sns:'回答の対象：SNS・ネットのタイムライン'},en:{both:'Answering about: real life + social media',people:'Answering about: the people around you',sns:'Answering about: your social media feed'}};return T[LANG][sphere];}
+// 結果の見出しの言い回し（対象を反映）
 function sphereRes(){const T={ja:{both:'あなたのまわりの社会に',people:'あなたの身の回りの人たちの間に',sns:'あなたのSNSのタイムラインに'},en:{both:'in the society around you',people:'among the people around you',sns:'in your social media feeds'}};return T[LANG][sphere];}
 
 let qi=0, scores={}, picked=[], optOrder=[]; // picked[qi] = Set of yids / optOrder[qi] = 表示順(インデックス)
@@ -553,9 +556,8 @@ function render(){
   const q=qs()[qi];
   const sel=picked[qi];
   document.getElementById('qcount').textContent='Q'+(qi+1)+' / '+qs().length;
-  // 対象(まわり)に応じて設問の主語を差し替え
-  const subjFrom = LANG==='ja' ? 'あなたのまわりで' : 'around you';
-  document.getElementById('qtext').textContent = q.q.replace(subjFrom, sphereQ());
+  document.getElementById('lensChip').textContent = lensLabel();  // 選んだ対象を上部に常時表示
+  document.getElementById('qtext').textContent = q.q;              // 設問文は共通（主語は差し込まない）
   document.getElementById('progBar').style.width=((qi)/qs().length*100)+'%';
   document.getElementById('backBtn').style.visibility = qi===0 ? 'hidden':'visible';
   const box=document.getElementById('opts');box.innerHTML='';
