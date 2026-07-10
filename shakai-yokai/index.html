@@ -3,18 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>会社の妖怪診断 ― 妖怪と式神</title>
-<meta property="og:title" content="あなたの会社の妖怪は、どれ？">
-<meta property="og:description" content="すれ違いを生む10の妖怪と、乗り越えるための10の式神。あなたの会社に棲む妖怪を診断します。">
+<title>社会の妖怪診断 ― 世界の妖怪と式神</title>
+<meta property="og:title" content="あなたの社会の妖怪は、どれ？">
+<meta property="og:description" content="世界の伝承に系譜を持つ10の妖怪と、乗り越えるための10の式神。あなたのまわりの社会に棲む妖怪を診断します。">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて">
-<meta property="og:url" content="https://kizukikumitate.com/yokai/">
-<meta property="og:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<meta property="og:url" content="https://kizukikumitate.com/shakai-yokai/">
+<meta property="og:image" content="https://kizukikumitate.com/shakai-yokai/assets/img/shakai-yokai-01-ecocoon.jpg">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="あなたの会社の妖怪は、どれ？">
-<meta name="twitter:description" content="すれ違いを生む10の妖怪と、乗り越えるための10の式神。あなたの会社に棲む妖怪を診断します。">
-<meta name="twitter:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
-<link rel="canonical" href="https://kizukikumitate.com/yokai/">
+<meta name="twitter:title" content="あなたの社会の妖怪は、どれ？">
+<meta name="twitter:description" content="世界の伝承に系譜を持つ10の妖怪と、乗り越えるための10の式神。あなたのまわりの社会に棲む妖怪を診断します。">
+<meta name="twitter:image" content="https://kizukikumitate.com/shakai-yokai/assets/img/shakai-yokai-01-ecocoon.jpg">
+<link rel="canonical" href="https://kizukikumitate.com/shakai-yokai/">
+<link rel="alternate" hreflang="ja" href="https://kizukikumitate.com/shakai-yokai/">
+<link rel="alternate" hreflang="en" href="https://kizukikumitate.com/shakai-yokai/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://kizukikumitate.com/shakai-yokai/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
@@ -232,9 +235,15 @@
     .nav-links{display:none}
     .nav-hamburger{display:flex}
   }
+
+  .langfab{position:fixed;right:16px;bottom:16px;z-index:90;background:var(--yoru2);color:var(--washi);border:1px solid var(--kin);border-radius:40px;padding:10px 18px;font-family:"EB Garamond","Zen Kaku Gothic New",serif;font-size:.9rem;letter-spacing:.08em;cursor:pointer;box-shadow:0 4px 18px rgba(0,0,0,.45);transition:transform .15s}
+  .langfab:hover{transform:translateY(-2px)}
+  .sc-enname{font-family:"EB Garamond",serif;font-size:34px;color:var(--kin);letter-spacing:.05em;margin-bottom:8px;text-shadow:0 0 16px rgba(0,0,0,.85)}
+  .sc-sq.sc-vA .sc-enname{font-size:40px}
 </style>
 </head>
 <body>
+<button class="langfab" id="langFab" onclick="toggleLang()">English</button>
 
 <!-- NAV（既存サイト共通ヘッダー） -->
 <!-- TODO: グローバルナビへの「妖怪と式神」項目追加は森本さん確認後（追加可否・位置） -->
@@ -267,9 +276,9 @@
         <a href="../democracy-fitness.html">Democracy Fitness</a>
         <a href="../lsp.html">LSP</a>
         <a href="../topaasia.html">対話用カード</a>
-        <a href="./">会社の妖怪診断</a>
-        <a href="../shakai-yokai/">社会の妖怪診断</a>
-        <a href="./workshop.html">妖怪と式神ワークショップ</a>
+        <a href="../yokai/">会社の妖怪診断</a>
+        <a href="./index.html">社会の妖怪診断</a>
+        <a href="../yokai/workshop.html">妖怪と式神ワークショップ</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -322,9 +331,9 @@
       <a href="../democracy-fitness.html">Democracy Fitness</a>
       <a href="../lsp.html">LSP</a>
       <a href="../topaasia.html">対話用カード</a>
-      <a href="./">会社の妖怪診断</a>
-      <a href="../shakai-yokai/">社会の妖怪診断</a>
-      <a href="./workshop.html">妖怪と式神ワークショップ</a>
+      <a href="../yokai/">会社の妖怪診断</a>
+        <a href="./index.html">社会の妖怪診断</a>
+        <a href="../yokai/workshop.html">妖怪と式神ワークショップ</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -351,13 +360,13 @@
 
 <section class="screen on" id="intro">
   <div class="wrap">
-    <p class="eyebrow">YOKAI &amp; SHIKIGAMI</p>
+    <p class="eyebrow">WORLD YOKAI &amp; SHIKIGAMI</p>
     <div class="intro-glyph">⟡</div>
-    <h1>あなたの会社の<br><span class="y">妖怪</span>は、どれ？</h1>
-    <p class="intro-lead">職場のすれ違いは、誰かの性格のせいではありません。あなたの会社に棲む「妖怪」のしわざかもしれません。6つの質問で、あなたの会社にいる妖怪たちを診断します。</p>
+    <h1 id="introH1">あなたの社会の<br><span class="y">妖怪</span>は、どれ？</h1>
+    <p class="intro-lead" id="introLead">社会の行き詰まりは、誰か個人の悪意のせいではありません。世界の伝承に系譜を持つ「妖怪」たちのしわざかもしれません。6つの質問で、あなたのまわりの社会に棲む妖怪を診断します。</p>
     <div class="intro-cards" id="introCards"></div>
-    <button class="btn" onclick="start()">診断をはじめる</button>
-    <p class="intro-note">所要 約1分 ・ 全6問 ・ 当てはまるものを複数選べます</p>
+    <button class="btn" id="startBtn" onclick="start()">診断をはじめる</button>
+    <p class="intro-note" id="introNote">所要 約1分 ・ 全6問 ・ 当てはまるものを複数選べます</p>
   </div>
 </section>
 
@@ -366,7 +375,7 @@
     <div class="prog"><i id="progBar"></i></div>
     <p class="qcount" id="qcount"></p>
     <p class="qtext" id="qtext"></p>
-    <p class="qhint">当てはまるものを、いくつでも選んでください</p>
+    <p class="qhint" id="qhint">当てはまるものを、いくつでも選んでください</p>
     <div class="opts" id="opts"></div>
     <div class="navbtns">
       <button class="back" id="backBtn" onclick="back()">戻る</button>
@@ -387,24 +396,132 @@
 </footer>
 
 <script>
-const DATA = {"yokai": [{"id": 1, "name": "一ツ目正論", "yomi": "ひとつめせいろん", "kuse": "普通、こうでしょ？", "noroi": "「自分の正解」以外が見えなくなる。", "shiki": "多眼フクロウ", "kin": "原理感知筋", "spell": "他の見え方はないかな？", "yimg": "assets/img/yokai-01-hitotsume.jpg", "simg": "assets/img/shiki-01-hitotsume.jpg"}, {"id": 2, "name": "座敷固定", "yomi": "ざしきこてい", "kuse": "現場はわかってない！", "noroi": "自分の部署や立場に縛られ、他が敵に見える。", "shiki": "渡りザル", "kin": "視座切替筋", "spell": "もし自分が相手の立場なら？", "yimg": "assets/img/yokai-02-zashiki.jpg", "simg": "assets/img/shiki-02-zashiki.jpg"}, {"id": 3, "name": "言霊直撃", "yomi": "ことだまちょくげき", "kuse": "ちゃんと言いましたよね？", "noroi": "専門用語や自分の理屈をそのままぶつける。", "shiki": "ことばオウム", "kin": "ことば変換筋", "spell": "あなたの言葉で言うと…", "yimg": "assets/img/yokai-03-kotodama.jpg", "simg": "assets/img/shiki-03-kotodama.jpg"}, {"id": 4, "name": "空気喰らい", "yomi": "くうきぐらい", "kuse": "（無言の圧力……）", "noroi": "沈黙を善とし、本音を消し去る。", "shiki": "場守りガメ", "kin": "安心場づくり筋", "spell": "まずは安心して話せる場を作ろう", "yimg": "assets/img/yokai-04-kuuki.jpg", "simg": "assets/img/shiki-04-kuuki.jpg"}, {"id": 5, "name": "白黒鬼", "yomi": "しろくろおに", "kuse": "で、どっちが正しいの！？", "noroi": "モヤモヤに耐えられず、拙速な答えを出す。", "shiki": "まどろみネコ", "kin": "モヤモヤ保持筋", "spell": "今日は決めなくていい。寝かせよう", "yimg": "assets/img/yokai-05-shirokuro.jpg", "simg": "assets/img/shiki-05-shirokuro.jpg"}, {"id": 6, "name": "目先坊", "yomi": "めさきぼう", "kuse": "今、それどころじゃない！", "noroi": "目の前のタスクに追われ、目的を見失う。", "shiki": "北星シカ", "kin": "北極星筋", "spell": "そもそも、何のためだっけ？", "yimg": "assets/img/yokai-06-mesaki.jpg", "simg": "assets/img/shiki-06-mesaki.jpg"}, {"id": 7, "name": "即反応丸", "yomi": "そくはんのうまる", "kuse": "（カチンときて）でもさぁ！", "noroi": "刺激に対して、感情がノータイムで暴発する。", "shiki": "一呼吸イヌ", "kin": "一歩ひく筋", "spell": "一回、呼吸しよう（スゥ……）", "yimg": "assets/img/yokai-07-sokuhan.jpg", "simg": "assets/img/shiki-07-sokuhan.jpg"}, {"id": 8, "name": "今今爺", "yomi": "いまいまじい", "kuse": "今月の数字はどうするんだ", "noroi": "短期的な利益しか見えず、未来を食いつぶす。", "shiki": "時間ゾウ", "kin": "時間視野筋", "spell": "このままだと、3年後はどうなる？", "yimg": "assets/img/yokai-08-imaima.jpg", "simg": "assets/img/shiki-08-imaima.jpg"}, {"id": 9, "name": "犯人探し狐", "yomi": "はんにんさがしぎつね", "kuse": "誰がやったんだ！", "noroi": "構造の欠陥ではなく、個人のミスを責める。", "shiki": "輪読みオオカミ", "kin": "システム読解筋", "spell": "これは、どういう悪循環だろう？", "yimg": "assets/img/yokai-09-hannin.jpg", "simg": "assets/img/shiki-09-hannin.jpg"}, {"id": 10, "name": "前例守", "yomi": "ぜんれいもり", "kuse": "昔はこれで上手くいった", "noroi": "過去の成功体験が絶対化し、変化を拒む。", "shiki": "脱皮ヘビ", "kin": "前提アップデート筋", "spell": "その前提、もう古くない？", "yimg": "assets/img/yokai-10-zenrei.jpg", "simg": "assets/img/shiki-10-zenrei.jpg"}], "questions": [{"q": "会議で意見がぶつかったとき、あなたの会社で起こりがちなのは？", "opts": [["自分の考えが正しい、と譲らない人がいる", 1], ["立場の違う相手を、はなから「わかってない」と見る", 2], ["専門用語や理屈をそのままぶつけがち", 3], ["ハレーションを恐れて、発言するのはごく一部の人だけ", 4], ["違う意見も、いったん受け止め合えている", "ok"]]}, {"q": "何かを決める場面で、あなたの会社で起こりがちなのは？", "opts": [["早く白黒つけたがり、拙速に決まる", 5], ["目の前の作業やこれまでの慣習が優先で、変更が後回しになる", 6], ["カチンときて、感情的な応酬になる", 7], ["十分な検討がなされないまま、何かとすぐに今期の数字の話に引き戻される", 8], ["迷いも抱えたまま、じっくり決められている", "ok"]]}, {"q": "問題やミスが起きたとき、あなたの会社で起こりがちなのは？", "opts": [["誰の責任か、の犯人探しが始まる", 9], ["以前はこうだったのに、と前例や過去の時代の話が持ち出される", 10], ["自分の正解を押し通そうとする人が出る", 1], ["波風を立てたくなくて、問題の真因を誰も指摘しない", 4], ["原因を、仕組みの問題として話し合えている", "ok"]]}, {"q": "部署をまたいで仕事を進めるとき、あなたの会社で起こりがちなのは？", "opts": [["専門用語や前提が食い違って、話が噛み合わない", 3], ["自分の部署の立場を、まず守りにいく", 2], ["意見の違いをグレーのまま置けず、すぐ「どっちが正しい」になる", 5], ["今の対応に追われ、先を見た調整ができない", 6], ["立場を越えて、目的をすり合わせられている", "ok"]]}, {"q": "物事が予定どおりに進まないとき、あなたの会社で起こりがちなのは？", "opts": [["カッとなって、すぐ反応が返ってくる", 7], ["短期の損得で、その場しのぎの判断になる", 8], ["原因より、誰のせいかを探し始める", 9], ["「やっぱり昔のやり方に戻そう」という力が、すぐに働く", 10], ["ひと呼吸おいて、立て直しを考えられている", "ok"]]}, {"q": "新しいやり方が提案されたとき、あなたの会社で起こりがちなのは？", "opts": [["普通こうでしょ、と一蹴されがち", 1], ["現場をわかってない、と返される", 2], ["もう古いのでは、と思うような前提が、今も幅を利かせている", 10], ["そもそも何のため？が問われずに進む", 6], ["まず試してみよう、と前向きに受け止められる", "ok"]]}]};
+const DATA = {"yokai": [{"id": 1, "name": "エコクーン", "yomi": "エコーの系譜", "keifu": "エコー（ギリシャ神話）", "kuse": "ほら、みんなそう言ってる", "noroi": "心地よい反響の繭でくるみ、自分の声を「世論」に聞こえさせる。", "shiki": "こだまコウモリ", "kin": "反響聞き分け筋", "spell": "今日ひとつ、違う声を聞きにいこう", "yimg": "assets/img/shakai-yokai-01-ecocoon.jpg", "simg": "assets/img/shakai-shiki-01-ecocoon.jpg", "en": {"name": "Echocoon", "yomi": "エコクーン", "keifu": "Echo (Greek myth)", "kuse": "See? Everyone's saying the same thing.", "noroi": "Wraps you in a cozy cocoon of echoes, until your own voice sounds like public opinion.", "shiki": "Sonar Bat", "kin": "Echo-discernment muscle", "spell": "Today, go listen to one different voice."}}, {"id": 2, "name": "バズリンゴ", "yomi": "エリスの系譜", "keifu": "エリスの黄金の林檎（ギリシャ神話）", "kuse": "で、あなたはどっち派？", "noroi": "広場に林檎（燃える話題）を転がし、隣人を敵味方に割る。", "shiki": "ダンスミツバチ", "kin": "合意ダンス筋", "spell": "敵味方に分かれる前に、共通の困りごとは何だろう？", "yimg": "assets/img/shakai-yokai-02-buzzringo.jpg", "simg": "assets/img/shakai-shiki-02-buzzringo.jpg", "en": {"name": "Buzz-Apple", "yomi": "バズリンゴ", "keifu": "Eris and the golden apple (Greek myth)", "kuse": "So — which side are you on?", "noroi": "Rolls an apple (a burning topic) into the square, splitting neighbors into rival camps.", "shiki": "Waggle-Dance Bee", "kin": "Consensus-dance muscle", "spell": "Before we split into sides — what problem do we share?"}}, {"id": 3, "name": "ドウセ・ウィンクル", "yomi": "ウィンクルの系譜", "keifu": "リップ・ヴァン・ウィンクル（アメリカ）", "kuse": "どうせ変わらないよ", "noroi": "まちの決定の日に限って、まぶたを重くする。目覚めた頃には決まっている。", "shiki": "ひとしずくハチドリ", "kin": "ひとしずく筋", "spell": "私に運べる一滴は、何だろう？", "yimg": "assets/img/shakai-yokai-03-dousewinkle.jpg", "simg": "assets/img/shakai-shiki-03-dousewinkle.jpg", "en": {"name": "Whatever Winkle", "yomi": "ドウセ・ウィンクル", "keifu": "Rip Van Winkle (United States)", "kuse": "Nothing ever changes anyway.", "noroi": "Makes your eyelids heavy on decision day. By the time you wake, it has been decided.", "shiki": "One-Drop Hummingbird", "kin": "One-drop muscle", "spell": "What is the one drop I can carry?"}}, {"id": 4, "name": "トーチモブ", "yomi": "セイラムの系譜", "keifu": "セイラムの魔女裁判（アメリカ）", "kuse": "あいつらのせいだ", "noroi": "不安が募るほど松明を明るくし、照らされた誰かの影を「魔女」に見せる。", "shiki": "輪番ペンギン", "kin": "外側交代筋", "spell": "いま、輪の外で凍えているのは誰？", "yimg": "assets/img/shakai-yokai-04-torchmob.jpg", "simg": "assets/img/shakai-shiki-04-torchmob.jpg", "en": {"name": "Torch Mob", "yomi": "トーチモブ", "keifu": "The Salem witch trials (United States)", "kuse": "It's THEM. They're the problem.", "noroi": "The more anxious the town, the brighter its torches burn — until someone's shadow starts to look like a witch.", "shiki": "Turn-Taking Penguin", "kin": "Outside-rotation muscle", "spell": "Who is freezing outside the circle right now?"}}, {"id": 5, "name": "クイツブシ饕餮", "yomi": "タオティエの系譜", "keifu": "饕餮（とうてつ／中国）", "kuse": "今が良ければ、それでいい", "noroi": "遠くの森から順に食べていき、最後は自分の足元を食べる。", "shiki": "時渡りクジラ", "kin": "未来贈与筋", "spell": "これ、100年後の誰かに手渡せる？", "yimg": "assets/img/shakai-yokai-05-taotie.jpg", "simg": "assets/img/shakai-shiki-05-taotie.jpg", "en": {"name": "Taotie the Future-Eater", "yomi": "クイツブシ饕餮", "keifu": "Taotie (ancient China)", "kuse": "As long as we're fine right now.", "noroi": "Eats the far forest first, then the sea, then the future — and at last the ground beneath its own feet.", "shiki": "Deep-Time Whale", "kin": "Future-gift muscle", "spell": "Could I hand this to someone 100 years from now?"}}, {"id": 6, "name": "サカサアスワン", "yomi": "アスワンの系譜", "keifu": "アスワン（フィリピン）", "kuse": "みんなもう知ってるよ。これが真実", "noroi": "親しみやすい昼の顔でニュースを配る。その瞳には事実が逆さに映っている。", "shiki": "裏取りカラス", "kin": "出どころ確かめ筋", "spell": "その話、出どころまでたどった？", "yimg": "assets/img/shakai-yokai-06-sakasaaswang.jpg", "simg": "assets/img/shakai-shiki-06-sakasaaswang.jpg", "en": {"name": "Upside-Down Aswang", "yomi": "サカサアスワン", "keifu": "Aswang (Philippines)", "kuse": "Everyone already knows. This is the truth.", "noroi": "Delivers the news with a friendly daytime face. In its eyes, the facts reflect upside down.", "shiki": "Fact-Check Crow", "kin": "Source-checking muscle", "spell": "Did you trace that story to its source?"}}, {"id": 7, "name": "エンジョウハント", "yomi": "ワイルドハントの系譜", "keifu": "ワイルドハント（ドイツ・北欧）", "kuse": "これは許せない！（全員で行くぞ）", "noroi": "夜空を渡る怒りの狩列。見上げただけの人も、気づけば列の中で走っている。", "shiki": "流れゆるめビーバー", "kin": "ひと晩ダム筋", "spell": "乗る前に、ひと晩ダムに溜めよう", "yimg": "assets/img/shakai-yokai-07-enjohunt.jpg", "simg": "assets/img/shakai-shiki-07-enjohunt.jpg", "en": {"name": "Blaze Hunt", "yomi": "エンジョウハント", "keifu": "The Wild Hunt (Germanic and Norse folklore)", "kuse": "Unacceptable! (Everyone — after them!)", "noroi": "A hunt of rage crossing the night sky. Look up, and suddenly you are running in it.", "shiki": "Slow-Stream Beaver", "kin": "Overnight-dam muscle", "spell": "Before you ride the current, let it rest overnight."}}, {"id": 8, "name": "ホードラゴン", "yomi": "ファフニールの系譜", "keifu": "ファフニール（北欧神話）", "kuse": "これは私が稼いだものだ", "noroi": "黄金は巣の中で子を産み続けるが、巣の外の畑は痩せていく。", "shiki": "めぐらせミミズ", "kin": "循環筋", "spell": "このお金は、どこを巡って還ってくる？", "yimg": "assets/img/shakai-yokai-08-hoardragon.jpg", "simg": "assets/img/shakai-shiki-08-hoardragon.jpg", "en": {"name": "Hoardragon", "yomi": "ホードラゴン", "keifu": "Fafnir (Norse myth)", "kuse": "I earned every coin of this.", "noroi": "The gold breeds more gold inside the nest, while the fields outside grow thin.", "shiki": "Circulating Earthworm", "kin": "Circulation muscle", "spell": "Where does this money circle back to?"}}, {"id": 9, "name": "シラケバジリスク", "yomi": "バジリスクの系譜", "keifu": "バジリスク（中世ヨーロッパ）", "kuse": "マジになっちゃって（笑）", "noroi": "視線の合った「真剣さ」を石にする。石の像が増えるほど、誰も本気を口にしなくなる。", "shiki": "朝告げニワトリ", "kin": "本気いちばん声筋", "spell": "最初のひと声、私が出そう", "yimg": "assets/img/shakai-yokai-09-basilisk.jpg", "simg": "assets/img/shakai-shiki-09-basilisk.jpg", "en": {"name": "Smirk Basilisk", "yomi": "シラケバジリスク", "keifu": "The basilisk (medieval Europe)", "kuse": "Wow, you're actually serious? lol", "noroi": "Its gaze turns earnestness to stone. The more statues in the square, the fewer dare to mean anything.", "shiki": "First-Crow Rooster", "kin": "First-voice muscle", "spell": "Let me be the first voice."}}, {"id": 10, "name": "フリシテーラー", "yomi": "はだかの王様の系譜", "keifu": "裸の王様（デンマーク）", "kuse": "賢い方には、ちゃんと見えているはずですが？", "noroi": "「見えないと言ったら愚か者」という布を織り、全員に見えるフリをさせる。", "shiki": "見張りミーアキャット", "kin": "見たまま言う筋", "spell": "見えないものは「見えない」と言おう", "yimg": "assets/img/shakai-yokai-10-furishitailor.jpg", "simg": "assets/img/shakai-shiki-10-furishitailor.jpg", "en": {"name": "Pretend-Tailor", "yomi": "フリシテーラー", "keifu": "“The Emperor's New Clothes” (Denmark)", "kuse": "Surely the wise can see it?", "noroi": "Weaves a cloth that only “fools” cannot see — so everyone pretends, and everyone believes they alone are blind.", "shiki": "Lookout Meerkat", "kin": "Say-what-you-see muscle", "spell": "If you cannot see it, say “I cannot see it.”"}}], "questions": [{"q": "SNSやニュースで意見が割れる話題を見たとき、あなたのまわりで起こりがちなのは？", "opts": [["自分のタイムラインでは、みんな同じ意見に見える", 1], ["中身の議論より先に、「どっち派か」の陣営分けが始まる", 2], ["出どころのわからない情報が、事実として流れてくる", 6], ["誰かへの批判が、あっという間に集中砲火になる", 7], ["違う立場の意見にも、目を通せている", "ok"]]}, {"q": "まちや国の何かが決まるとき（選挙・政策・まちの計画）、あなたのまわりで起こりがちなのは？", "opts": [["「どうせ変わらない」と、関心を持つ前にあきらめている", 3], ["10年後・50年後の話より、目先の損得で決まっていく", 5], ["結局、お金や力のあるところの声が通る、と感じる", 8], ["誰も心から納得していないのに、「決まったことだから」で進む", 10], ["自分ごととして意見を言う人が、まわりにいる", "ok"]]}, {"q": "社会で問題や事件が起きたとき、あなたのまわりで起こりがちなのは？", "opts": [["特定の誰かや、特定の属性の人たちが、まとめて悪者にされる", 4], ["確かめられていない情報のほうが、先に広まる", 6], ["我も我もと批判に加わり、お祭りのようになる", 7], ["「真面目に議論するだけ無駄」という空気が漂う", 9], ["事実の確認と、仕組みの議論を分けて話せている", "ok"]]}, {"q": "世代・地域・立場の違う人たちの間で、あなたのまわりで起こりがちなのは？", "opts": [["気づけば、同じ立場・同じ世代の人としか話していない", 1], ["「若者は」「年配は」「都会は」「地方は」の対立軸で語られがち", 2], ["うまくいかない原因が、「よそから来た人たち」のせいにされる", 4], ["本音では違和感があっても、その場の「みんな」に合わせてしまう", 10], ["立場の違う人と、対話する機会がある", "ok"]]}, {"q": "お金や環境の話題で、あなたのまわりで起こりがちなのは？", "opts": [["大事だとは思うけれど、「自分にできることはない」で終わる", 3], ["未来へのツケの話は、「今は仕方ない」で先送りされる", 5], ["儲かるところにばかりお金が集まり、必要なところに届かない", 8], ["環境や社会の話を真剣にすると、「意識高いね」と笑われる", 9], ["未来やお金の巡りの視点で、話ができている", "ok"]]}, {"q": "誰かが本気で社会を良くしようと動いたとき、あなたのまわりで起こりがちなのは？", "opts": [["応援も反対もせず、観客のまま眺めている人が多い", 3], ["小さな失点が見つかると、そこに批判が殺到する", 7], ["「どうせ売名でしょ」と、冷ややかな目で見られる", 9], ["賛同していても、まわりが動かないから自分も動かない", 10], ["本気の人が、応援される空気がある", "ok"]]}], "questions_en": [{"q": "When a divisive topic blows up on social media or in the news, what tends to happen around you?", "opts": [["On my timeline, everyone seems to hold the same opinion", 1], ["People sort into camps before discussing the substance", 2], ["Information of unknown origin circulates as fact", 6], ["Criticism of someone snowballs into a pile-on overnight", 7], ["People actually read opinions from different standpoints", "ok"]]}, {"q": "When something is being decided for your town or country (elections, policies, local plans), what tends to happen around you?", "opts": [["People give up before getting interested — “nothing will change anyway”", 3], ["Short-term gains win over the 10-year and 50-year view", 5], ["In the end, money and power seem to get the final say", 8], ["No one truly agrees, but it moves ahead “because it's been decided”", 10], ["People around me speak up as if it's their own business", "ok"]]}, {"q": "When a problem or scandal hits society, what tends to happen around you?", "opts": [["Specific people — or whole groups — get cast as the villains", 4], ["Unverified information spreads faster than the facts", 6], ["Everyone piles on, and it turns into a festival of blame", 7], ["An air of “serious debate is a waste of time” hangs around", 9], ["Fact-checking and systems-level discussion each get their place", "ok"]]}, {"q": "Between people of different generations, regions, and positions, what tends to happen around you?", "opts": [["I realize I only ever talk with people of my own position and generation", 1], ["Things get framed as “the young vs. the old,” “the city vs. the country”", 2], ["When things go wrong, “people from outside” get the blame", 4], ["Even feeling uneasy inside, people go along with the room", 10], ["There are real chances to talk with people in different positions", "ok"]]}, {"q": "When money or the environment comes up, what tends to happen around you?", "opts": [["People say it matters, then land on “there's nothing I can do”", 3], ["Talk of future costs gets postponed with “it can't be helped right now”", 5], ["Money pools where money already is, and doesn't reach where it's needed", 8], ["Taking these issues seriously earns a mocking “how noble of you”", 9], ["People can talk in terms of the future and how money circulates", "ok"]]}, {"q": "When someone genuinely tries to make society better, what tends to happen around you?", "opts": [["Most people stay in the audience — neither supporting nor opposing", 3], ["The moment a small flaw is found, criticism floods in", 7], ["They get the cold eye: “it's just self-promotion, right?”", 9], ["People quietly agree, but don't move because no one else is moving", 10], ["There's an atmosphere where earnest people get cheered on", "ok"]]}]};
 const byId = {}; DATA.yokai.forEach(y=>byId[y.id]=y);
+
+/* ===== i18n ===== */
+let LANG='ja';
+try{
+  const p=new URLSearchParams(location.search).get('lang');
+  LANG = p || localStorage.getItem('shakaiYokaiLang') || 'ja';
+}catch(e){}
+if(LANG!=='en') LANG='ja';
+
+const UI={
+ ja:{
+  introH1:'あなたの社会の<br><span class="y">妖怪</span>は、どれ？',
+  introLead:'社会の行き詰まりは、誰か個人の悪意のせいではありません。世界の伝承に系譜を持つ「妖怪」たちのしわざかもしれません。6つの質問で、あなたのまわりの社会に棲む妖怪を診断します。',
+  start:'診断をはじめる', introNote:'所要 約1分 ・ 全6問 ・ 当てはまるものを複数選べます',
+  qhint:'当てはまるものを、いくつでも選んでください', none:'どれも、あまり起こらない',
+  back:'戻る', next:'次へ', seeResults:'結果を見る',
+  rEyebrow:'あなたのまわりの社会に、いちばん強く棲んでいるのは',
+  curse:'呪い', kuse:'口癖', lineage:'系譜', divider:'乗り越える力', spellLabel:'召喚の呪文',
+  othersH:'あなたの社会には、他にもこんな妖怪が…',
+  othersSub:n=>'今回チェックした項目から、気配のあった妖怪（全'+n+'体）',
+  shikiLine:(s,sp)=>'式神：'+s+'（「'+sp+'」）',
+  strengthsH:'すでに、あなたの社会にいる式神',
+  strengthsSub:n=>'今回の回答で気配のなかった妖怪＝その式神は、もう働いています（'+n+'体）',
+  keepAway:n=>'妖怪「'+n+'」を寄せつけていません',
+  zeroEyebrow:'診断結果',
+  zeroH1:'あなたの社会では、<br><span style="color:var(--kin)">式神</span>が働いているようです。',
+  zeroLead:'6つの質問では、妖怪の気配はほとんど見えませんでした。社会を守る10体の式神が、あなたのまわりで働いているのかもしれません。',
+  zeroListH:'いま、あなたの社会で働いている式神',
+  zeroListSub:'気配のなかった妖怪＝その式神が、もう働いています（全10体）',
+  again:'もう一度診断する', dfBtn:'社会の筋トレ Democracy Fitness ▶', dfBtn2:'妖怪に効く筋トレを見る ▶',
+  orgBtn:'会社版：職場の妖怪診断へ',
+  scH:'この結果を、1枚のカードに。', scDesc:'保存して、SNSでシェアできます。',
+  fmtWide:'SNS横長', fmtSq:'正方形', scSaveBtn:'画像を保存 / シェア',
+  scHint:'スマホは「保存 / シェア」から画像を各SNSやLINEに直接送れます。PCはPNG画像がダウンロードされます。',
+  scGenerating:'画像を生成中…', scNotReady:'画像の生成準備ができていません。少し待って再度お試しください。', scFailed:'画像の生成に失敗しました。時間をおいて再度お試しください。',
+  thornTt:'――ただし、召喚しても<br>効かない日が、あります。',
+  thornTd:'社会の妖怪は、選挙のたび、事件のたびに戻ってきます。<br>倒すのではなく、市民の「筋肉」で向き合い続けるやり方があります。',
+  shareBtn:'結果をシェアする',
+  scLead:'あなたの社会に、出ています。',
+  links:[['../yokai/','会社版：職場の妖怪診断もやってみる'],['../democracy-fitness.html','社会の筋トレ：Democracy Fitness'],['../dialogue-zukan.html','世界の対話の技法図鑑を見る'],['../roadmap.html','世界平和までのロードマップ']],
+  tweetText:(n,name)=>'私のまわりの社会妖怪、'+n+'体いました。一番は「'+name+'」。あなたの社会の妖怪は？ #社会の妖怪と式神',
+  cardShare:name=>'私の社会の妖怪は「'+name+'」でした。あなたの社会の妖怪は？ #社会の妖怪と式神',
+  langBtn:'English'
+ },
+ en:{
+  introH1:'Which <span class="y">yokai</span><br>haunts your society?',
+  introLead:'When society gets stuck, it is rarely one person\'s malice. It may be the work of yokai — spirits with lineages in folklore from around the world. Six questions reveal the yokai dwelling in the society around you.',
+  start:'Start the diagnosis', introNote:'About 1 min · 6 questions · choose all that apply',
+  qhint:'Choose as many as apply', none:'None of these really happen',
+  back:'Back', next:'Next', seeResults:'See your results',
+  rEyebrow:'Dwelling most strongly in the society around you is',
+  curse:'Curse', kuse:'Catchphrase', lineage:'Lineage', divider:'The power to overcome', spellLabel:'Summoning spell',
+  othersH:'Other yokai lurking in your society…',
+  othersSub:n=>'Yokai whose presence showed in your answers ('+n+' in total)',
+  shikiLine:(s,sp)=>'Shikigami: '+s+' (“'+sp+'”)',
+  strengthsH:'Shikigami already at work in your society',
+  strengthsSub:n=>'No sign of these yokai — their shikigami are already on duty ('+n+')',
+  keepAway:n=>'Keeping the yokai “'+n+'” away',
+  zeroEyebrow:'Your result',
+  zeroH1:'In your society, the <span style="color:var(--kin)">shikigami</span> seem to be at work.',
+  zeroLead:'The six questions showed almost no trace of yokai. The ten shikigami that guard society may already be working around you.',
+  zeroListH:'Shikigami now at work in your society',
+  zeroListSub:'No trace of these yokai — their shikigami are already on duty (all 10)',
+  again:'Take it again', dfBtn:'Civic workout: Democracy Fitness ▶', dfBtn2:'See the workout that works on yokai ▶',
+  orgBtn:'Workplace edition (JA)',
+  scH:'Turn this result into a card.', scDesc:'Save it and share on social media.',
+  fmtWide:'Wide (SNS)', fmtSq:'Square', scSaveBtn:'Save / share image',
+  scHint:'On mobile, “Save / share” sends the image straight to your apps. On PC, a PNG downloads.',
+  scGenerating:'Generating image…', scNotReady:'Image generation is not ready yet. Please wait a moment and try again.', scFailed:'Image generation failed. Please try again later.',
+  thornTt:'—— But some days,<br>even summoning will not work.',
+  thornTd:'Society\'s yokai come back with every election, every scandal.<br>Rather than defeating them, keep facing them — with civic muscle.',
+  shareBtn:'Share this result',
+  scLead:'It has appeared in your society.',
+  links:[['../yokai/','Workplace edition: office yokai diagnosis (JA)'],['../democracy-fitness.html','Civic workout: Democracy Fitness (JA)'],['../dialogue-zukan.html','Encyclopedia of dialogue methods (JA)'],['../roadmap.html','Roadmap to world peace (JA)']],
+  tweetText:(n,name)=>'I found '+n+' societal yokai around me. The strongest: “'+name+'”. Which yokai haunts YOUR society? #WorldYokai',
+  cardShare:name=>'My society\'s yokai is “'+name+'”. Which one haunts yours? #WorldYokai',
+  langBtn:'日本語'
+ }
+};
+const L=()=>UI[LANG];
+const ty=y=>LANG==='en'?Object.assign({},y,y.en):y;   // 表示用（画像等は共通、文言をenで上書き）
+const qs=()=>LANG==='en'?DATA.questions_en:DATA.questions;
+let lastHit=null;
+
+function applyLang(){
+  document.documentElement.lang = LANG==='en'?'en':'ja';
+  document.getElementById('langFab').textContent = L().langBtn;
+  document.getElementById('introH1').innerHTML = L().introH1;
+  document.getElementById('introLead').textContent = L().introLead;
+  document.getElementById('startBtn').textContent = L().start;
+  document.getElementById('introNote').textContent = L().introNote;
+  document.getElementById('qhint').textContent = L().qhint;
+  document.getElementById('backBtn').textContent = L().back;
+  if(document.getElementById('quiz').classList.contains('on')) render();
+  if(document.getElementById('result').classList.contains('on') && lastHit) showResult(lastHit);
+}
+function toggleLang(){
+  LANG = (LANG==='en') ? 'ja' : 'en';
+  try{ localStorage.setItem('shakaiYokaiLang', LANG); }catch(e){}
+  try{
+    const u=new URL(location.href);
+    if(LANG==='en') u.searchParams.set('lang','en'); else u.searchParams.delete('lang');
+    history.replaceState(null,'',u);
+  }catch(e){}
+  applyLang();
+}
+document.addEventListener('DOMContentLoaded', applyLang);
+
 
 const ic = document.getElementById('introCards');
 DATA.yokai.slice(0,6).forEach(y=>{const im=document.createElement('img');im.src=y.yimg;ic.appendChild(im);});
 
 let qi=0, scores={}, picked=[]; // picked[qi] = Set of yids
 
-function reset(){qi=0;scores={};picked=DATA.questions.map(()=>new Set());DATA.yokai.forEach(y=>scores[y.id]=0);}
+function reset(){qi=0;scores={};picked=qs().map(()=>new Set());DATA.yokai.forEach(y=>scores[y.id]=0);}
 function start(){reset();show('quiz');render();}
 function show(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('on'));document.getElementById(id).classList.add('on');window.scrollTo({top:0,left:0,behavior:'instant'});}
 
 function render(){
-  const q=DATA.questions[qi];
+  const q=qs()[qi];
   const sel=picked[qi];
-  document.getElementById('qcount').textContent='Q'+(qi+1)+' / '+DATA.questions.length;
+  document.getElementById('qcount').textContent='Q'+(qi+1)+' / '+qs().length;
   document.getElementById('qtext').textContent=q.q;
-  document.getElementById('progBar').style.width=((qi)/DATA.questions.length*100)+'%';
+  document.getElementById('progBar').style.width=((qi)/qs().length*100)+'%';
   document.getElementById('backBtn').style.visibility = qi===0 ? 'hidden':'visible';
   const box=document.getElementById('opts');box.innerHTML='';
   q.opts.forEach(([label,yid])=>{
@@ -416,13 +533,12 @@ function render(){
   });
   // 「どれも、あまり起こらない」= 単独選択
   const nb=document.createElement('div');nb.className='opt none'+(sel.has('none')?' sel':'');
-  nb.innerHTML='<span class="chk"></span><span>どれも、あまり起こらない</span>';
+  nb.innerHTML='<span class="chk"></span><span>'+L().none+'</span>';
   nb.onclick=()=>{ if(sel.has('none'))sel.delete('none'); else{sel.clear();sel.add('none');} render(); };
   box.appendChild(nb);
 
-  // 次へは1つ以上選択で有効
   document.getElementById('nextBtn').disabled = sel.size===0;
-  document.getElementById('nextBtn').textContent = (qi===DATA.questions.length-1)?'結果を見る':'次へ';
+  document.getElementById('nextBtn').textContent = (qi===qs().length-1)?L().seeResults:L().next;
 }
 function back(){ if(qi>0){qi--;render();} }
 function next(){
@@ -439,6 +555,8 @@ function finish(){
   document.getElementById('progBar').style.width='100%';
   const hit = DATA.yokai.map(y=>({y,s:scores[y.id]})).filter(o=>o.s>0)
               .sort((a,b)=> b.s-a.s || a.y.id-b.y.id);
+  lastHit=hit;
+  recordResult(hit);
   showResult(hit);
 }
 
@@ -449,7 +567,7 @@ function recordResult(hit){
     const payload={
       mainId: hit.length ? hit[0].y.id : null,
       hits: hit.map(o=>({id:o.y.id, count:o.s})),
-      source:'yokai-diagnosis-v1'
+      source:'shakai-yokai-diagnosis-v1'
     };
     fetch(YOKAI_RECORD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true}).catch(()=>{});
   }catch(e){}
@@ -457,54 +575,54 @@ function recordResult(hit){
 
 function showResult(hit){
   const el=document.getElementById('resultInner');
-  recordResult(hit);
+  const T=L();
   if(hit.length===0){
-    const shrine=DATA.yokai.map(y=>`
+    const shrine=DATA.yokai.map(raw=>{const y=ty(raw);return `
         <div class="ocard" style="border-color:rgba(201,168,76,.35)">
           <img src="${y.simg}" alt="${y.shiki}" loading="lazy" decoding="async">
           <div class="oc-body">
             <div class="oc-name" style="color:var(--kin)">${y.shiki}</div>
             <div class="oc-kuse">「${y.spell}」</div>
-            <div class="oc-shiki" style="color:var(--sub)">妖怪「${y.name}」を寄せつけていません</div>
+            <div class="oc-shiki" style="color:var(--sub)">${T.keepAway(y.name)}</div>
           </div>
-        </div>`).join('');
+        </div>`;}).join('');
     el.innerHTML=`
-      <p class="r-eyebrow">診断結果</p>
-      <h1 style="margin-top:14px">あなたの会社では、<br><span style="color:var(--kin)">式神</span>が働いているようです。</h1>
-      <p class="intro-lead" style="margin-top:20px">6つの質問では、妖怪の気配はほとんど見えませんでした。すれ違いを防ぐ10体の式神が、しっかり機能しているのかもしれません。</p>
+      <p class="r-eyebrow">${T.zeroEyebrow}</p>
+      <h1 style="margin-top:14px">${T.zeroH1}</h1>
+      <p class="intro-lead" style="margin-top:20px">${T.zeroLead}</p>
       <div class="others" style="margin-top:16px">
-        <div class="others-h" style="color:var(--kin)">いま、あなたの会社で働いている式神</div>
-        <div class="others-sub">気配のなかった妖怪＝その式神が、もう働いています（全10体）</div>
+        <div class="others-h" style="color:var(--kin)">${T.zeroListH}</div>
+        <div class="others-sub">${T.zeroListSub}</div>
         ${shrine}
       </div>
       <div class="actions">
-        <button class="btn ghost" onclick="start()">もう一度診断する</button>
-        <a class="btn" href="./zukan.html">10体の妖怪と式神を見る ▶</a>
-        <a class="btn ghost" href="./ranking.html">日本の組織の妖怪ランキングを見る</a>
+        <button class="btn ghost" onclick="start()">${T.again}</button>
+        <a class="btn" href="../democracy-fitness.html">${T.dfBtn}</a>
+        <a class="btn ghost" href="../yokai/">${T.orgBtn}</a>
       </div>`;
     show('result');return;
   }
-  const main=hit[0].y, mainCnt=hit[0].s;
+  const main=ty(hit[0].y), mainCnt=hit[0].s;
   const others=hit.slice(1);
   const hitIds=new Set(hit.map(o=>o.y.id));
   const strengths=DATA.yokai.filter(y=>!hitIds.has(y.id)); // 出なかった＝式神が既にいる
-  const shareText=encodeURIComponent('うちの会社の妖怪、'+hit.length+'体いました。一番は「'+main.name+'」。あなたの会社の妖怪は？ #妖怪と式神');
+  const shareText=encodeURIComponent(T.tweetText(hit.length, main.name));
 
   let othersHtml='';
   if(others.length){
     othersHtml=`
     <div class="others">
-      <div class="others-h">あなたの会社には、他にもこんな妖怪が…</div>
-      <div class="others-sub">今回チェックした項目から、気配のあった妖怪（全${hit.length}体）</div>
-      ${others.map(o=>`
+      <div class="others-h">${T.othersH}</div>
+      <div class="others-sub">${T.othersSub(hit.length)}</div>
+      ${others.map(o=>{const y=ty(o.y);return `
         <div class="ocard">
-          <img src="${o.y.yimg}" alt="${o.y.name}">
+          <img src="${y.yimg}" alt="${y.name}">
           <div class="oc-body">
-            <div class="oc-name">${o.y.name}<span class="cnt">×${o.s}</span></div>
-            <div class="oc-kuse">「${o.y.kuse}」</div>
-            <div class="oc-shiki">式神：${o.y.shiki}（「${o.y.spell}」）</div>
+            <div class="oc-name">${y.name}<span class="cnt">×${o.s}</span></div>
+            <div class="oc-kuse">「${y.kuse}」</div>
+            <div class="oc-shiki">${T.shikiLine(y.shiki, y.spell)}</div>
           </div>
-        </div>`).join('')}
+        </div>`;}).join('')}
     </div>`;
   }
 
@@ -512,29 +630,30 @@ function showResult(hit){
   if(strengths.length){
     strengthsHtml=`
     <div class="others" style="margin-top:26px">
-      <div class="others-h" style="color:var(--kin)">すでに、あなたの会社にいる式神</div>
-      <div class="others-sub">今回の回答で気配のなかった妖怪＝その式神は、もう働いています（${strengths.length}体）</div>
-      ${strengths.map(y=>`
+      <div class="others-h" style="color:var(--kin)">${T.strengthsH}</div>
+      <div class="others-sub">${T.strengthsSub(strengths.length)}</div>
+      ${strengths.map(raw=>{const y=ty(raw);return `
         <div class="ocard" style="border-color:rgba(201,168,76,.35)">
           <img src="${y.simg}" alt="${y.shiki}">
           <div class="oc-body">
             <div class="oc-name" style="color:var(--kin)">${y.shiki}</div>
             <div class="oc-kuse">「${y.spell}」</div>
-            <div class="oc-shiki" style="color:var(--sub)">妖怪「${y.name}」を寄せつけていません</div>
+            <div class="oc-shiki" style="color:var(--sub)">${T.keepAway(y.name)}</div>
           </div>
-        </div>`).join('')}
+        </div>`;}).join('')}
     </div>`;
   }
   el.innerHTML=`
-    <p class="r-eyebrow">あなたの会社に、いちばん強く棲んでいるのは</p>
+    <p class="r-eyebrow">${T.rEyebrow}</p>
     <p class="r-yokai-label">Yokai</p>
     <p class="r-name">${main.name}</p>
     <p class="r-yomi">${main.yomi}</p>
     <img class="r-img" src="${main.yimg}" alt="${main.name}">
-    <div class="r-box"><div class="k">呪い</div><div class="v">${main.noroi}</div></div>
-    <div class="r-box"><div class="k">口癖</div><div class="v r-kuse">「${main.kuse}」</div></div>
+    <div class="r-box"><div class="k">${T.curse}</div><div class="v">${main.noroi}</div></div>
+    <div class="r-box"><div class="k">${T.kuse}</div><div class="v r-kuse">「${main.kuse}」</div></div>
+    <div class="r-box"><div class="k">${T.lineage}</div><div class="v">${main.keifu}</div></div>
 
-    <div class="divider"><span class="l"></span><span class="t">乗り越える力</span><span class="l"></span></div>
+    <div class="divider"><span class="l"></span><span class="t">${T.divider}</span><span class="l"></span></div>
 
     <div class="r-shiki">
       <img src="${main.simg}" alt="${main.shiki}">
@@ -542,7 +661,7 @@ function showResult(hit){
       <div class="sname">${main.shiki}</div>
       <div class="kin">${main.kin}</div>
       <div class="r-spell">
-        <div class="sl">召喚の呪文</div>
+        <div class="sl">${T.spellLabel}</div>
         <div class="sv">「${main.spell}」</div>
       </div>
     </div>
@@ -552,37 +671,32 @@ function showResult(hit){
     ${strengthsHtml}
 
     <div class="sc-panel">
-      <div class="sc-h">この結果を、1枚のカードに。</div>
-      <div class="sc-desc">保存して、SNSでシェアできます。</div>
+      <div class="sc-h">${T.scH}</div>
+      <div class="sc-desc">${T.scDesc}</div>
       <div class="sc-formats" id="scFormats">
-        <button data-f="ogp" class="on">SNS横長</button>
-        <button data-f="sq">正方形</button>
+        <button data-f="ogp" class="on">${T.fmtWide}</button>
+        <button data-f="sq">${T.fmtSq}</button>
       </div>
       <div class="sc-stage" id="scStage"><div class="sc-scalebox" id="scScalebox"><div id="scMount"></div></div></div>
       <div class="sc-actions">
-        <button class="btn" id="scSaveBtn">画像を保存 / シェア</button>
+        <button class="btn" id="scSaveBtn">${T.scSaveBtn}</button>
       </div>
-      <div class="sc-hint">スマホは「保存 / シェア」から画像を各SNSやLINEに直接送れます。PCはPNG画像がダウンロードされます。</div>
+      <div class="sc-hint">${T.scHint}</div>
     </div>
 
     <div class="thorn">
-      <div class="tt">――ただし、召喚しても<br>効かない日が、あります。</div>
-      <div class="td">妖怪は、倒しても倒しても戻ってきます。本当は「倒す」のではなく、<br>「共に生きる」やり方があるのかもしれません。</div>
+      <div class="tt">${T.thornTt}</div>
+      <div class="td">${T.thornTd}</div>
     </div>
 
     <div class="actions">
-      <!-- TODO: 三階ページ（「倒さない」共生の思想）完成後に差し替え -->
-      <a class="btn" href="./zukan.html">「倒さない」やり方を知る ▶</a>
-      <button class="btn ghost" onclick="tweet('${shareText}')">結果をシェアする</button>
-      <button class="btn ghost" onclick="start()">もう一度診断する</button>
+      <a class="btn" href="../democracy-fitness.html">${T.dfBtn2}</a>
+      <button class="btn ghost" onclick="tweet('${shareText}')">${T.shareBtn}</button>
+      <button class="btn ghost" onclick="start()">${T.again}</button>
     </div>
 
     <div class="links">
-      <a href="./gallery.html"><span>まだ図鑑にない、職場の妖怪を教える</span><span class="arw">→</span></a>
-      <a href="./ranking.html"><span>この妖怪、日本の組織に多い？ランキングを見る</span><span class="arw">→</span></a>
-      <a href="./zukan.html"><span>10体すべての妖怪図鑑を見る</span><span class="arw">→</span></a>
-      <a href="./workshop.html"><span>妖怪と式神ワークショップ</span><span class="arw">→</span></a>
-      <!-- TODO: SNS実URL確定後に復活（森本さん確認待ち）: <a href="SNS_URL_HERE"><span>SNSで妖怪シリーズをフォロー</span><span class="arw">→</span></a> -->
+      ${T.links.map(([href,label])=>`<a href="${href}"><span>${label}</span><span class="arw">→</span></a>`).join('\n      ')}
     </div>
 
     <div class="foot">
@@ -591,30 +705,41 @@ function showResult(hit){
     </div>
   `;
   show('result');
-  scInit(main);
+  scInit(hit[0].y);
 }
 function tweet(t){window.open('https://twitter.com/intent/tweet?text='+t,'_blank');}
 
 /* ===== 結果シェアカード（案A 夜行の札）===== */
 let scFmt='ogp', scMain=null;
 function scPad(n){return String(n).padStart(2,'0');}
-function scCardHtml(y){
+function scTateSize(name){
+  // 縦書きスペース：ogp≈520px / sq≈900px。字送り1.12を見込んで収める
+  const budget = (scFmt==='sq') ? 900 : 520;
+  const base   = (scFmt==='sq') ? 118 : 104;
+  return Math.min(base, Math.floor(budget/(name.length*1.12)));
+}
+function scCardHtml(raw){
+  const y=ty(raw);
+  // 縦書きの札は常に日本語名（意匠として固定）。英語モードでは英名を本文側に出す
+  const enname = LANG==='en' ? `<div class="sc-enname">${y.name}</div>` : '';
+  const yomi   = LANG==='en' ? '' : `<span class="sc-yomi">${raw.yomi}</span>`;
   return `<div class="sc-card sc-${scFmt} sc-vA" id="scCard">
     <img class="sc-yimg" src="${y.yimg}" alt="${y.name}">
     <div class="sc-fade"></div>
     <div class="sc-frame"></div>
     <div class="sc-inner">
-      <div class="sc-eyebrow">YOKAI DIAGNOSIS &middot; No.${scPad(y.id)}</div>
-      <div class="sc-lead">あなたの職場に、出ています。</div>
+      <div class="sc-eyebrow">WORLD YOKAI &middot; No.${scPad(y.id)}</div>
+      <div class="sc-lead">${L().scLead}</div>
+      ${enname}
       <div class="sc-kuse"><span class="sc-q">「</span>${y.kuse}<span class="sc-q">」</span></div>
-      <div class="sc-noroi">呪い：${y.noroi}</div>
+      <div class="sc-noroi">${LANG==='en'?'Curse: ':'呪い：'}${y.noroi}</div>
       <div class="sc-rx">
-        <div class="sc-rl">処方 / SHIKIGAMI</div>
-        <div class="sc-rv"><b>${y.shiki}</b>を召喚 ──「${y.spell}」</div>
+        <div class="sc-rl">${LANG==='en'?'Remedy / SHIKIGAMI':'処方 / SHIKIGAMI'}</div>
+        <div class="sc-rv"><b>${y.shiki}</b>${LANG==='en'?' — “'+y.spell+'”':'を召喚 ──「'+y.spell+'」'}</div>
       </div>
     </div>
-    <div class="sc-tate">${y.name}<span class="sc-yomi">${y.yomi}</span></div>
-    <div class="sc-brand">妖怪診断 3min free &mdash; kizukikumitate.com/yokai</div>
+    <div class="sc-tate" style="font-size:${scTateSize(raw.name)}px">${raw.name}${yomi}</div>
+    <div class="sc-brand">${LANG==='en'?'World Yokai Diagnosis':'社会の妖怪診断'} 1min free &mdash; kizukikumitate.com/shakai-yokai</div>
   </div>`;
 }
 function scRender(){
@@ -656,8 +781,8 @@ function scDownload(blob,fname){
 async function scSave(btn){
   const card=document.getElementById('scCard');
   const box=document.getElementById('scScalebox');
-  if(!card||!box||typeof html2canvas==='undefined'){ alert('画像の生成準備ができていません。少し待って再度お試しください。'); return; }
-  const orig=btn.textContent; btn.disabled=true; btn.textContent='画像を生成中…';
+  if(!card||!box||typeof html2canvas==='undefined'){ alert(L().scNotReady); return; }
+  const orig=btn.textContent; btn.disabled=true; btn.textContent=L().scGenerating;
   // プレビューは縮小表示だが、書き出しは原寸（1200×630 / 1080×1080）で行うため
   // キャプチャ中だけ scale 変形を解除し、画面外に逃がす。
   const prev={transform:box.style.transform,position:box.style.position,left:box.style.left,top:box.style.top};
@@ -666,9 +791,9 @@ async function scSave(btn){
     const canvas=await html2canvas(card,{useCORS:true,scale:2,backgroundColor:null,logging:false});
     const blob=await new Promise(res=>canvas.toBlob(res,'image/png'));
     const y=scMain;
-    const fname='yokai-'+scPad(y.id)+'-'+scFmt+'.png';
+    const fname='shakai-yokai-'+scPad(y.id)+'-'+scFmt+'.png';
     const file=new File([blob],fname,{type:'image/png'});
-    const shareText='うちの会社の妖怪は「'+y.name+'」でした。あなたの会社の妖怪は？ #妖怪と式神';
+    const shareText=L().cardShare(ty(y).name);
     if(navigator.canShare && navigator.canShare({files:[file]})){
       try{ await navigator.share({files:[file],text:shareText}); }
       catch(e){ if(e.name!=='AbortError'){ scDownload(blob,fname); } }
@@ -676,7 +801,7 @@ async function scSave(btn){
       scDownload(blob,fname);
     }
   }catch(err){
-    alert('画像の生成に失敗しました。時間をおいて再度お試しください。');
+    alert(L().scFailed);
   }finally{
     box.style.transform=prev.transform; box.style.position=prev.position; box.style.left=prev.left; box.style.top=prev.top;
     scFit();
