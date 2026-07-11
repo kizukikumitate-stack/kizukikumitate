@@ -504,6 +504,25 @@
   /* ===== Voices compact link / Nobel appendix ===== */
   .vc-link { display: inline-block; margin-top: 1.8rem; font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; color: var(--gold-soft); border-bottom: 1px solid rgba(217,164,65,0.45); text-decoration: none; transition: color 0.25s; }
   .vc-link:hover { color: var(--gold); }
+
+  /* ===== Naming（共創主義） ===== */
+  #naming { padding: 7rem 2rem; background: linear-gradient(180deg, var(--ink), var(--ink-deep)); color: var(--paper); }
+  #naming .naming-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  #naming .eyebrow { color: var(--gold); margin-bottom: 1.4rem; }
+  #naming h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.4rem, 3.4vw, 2.1rem); line-height: 1.8; letter-spacing: 0.04em; }
+  #naming .naming-lead, #naming .naming-close { margin-top: 2.2rem; font-size: 0.96rem; line-height: 2.3; text-align: left; font-weight: 300; color: rgba(250,248,242,0.88); }
+  #naming .naming-lead strong, #naming .naming-close strong { font-weight: 600; color: var(--gold-soft); }
+  #naming .naming-credit { margin-top: 0.9rem; text-align: right; font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.72rem; letter-spacing: 0.12em; color: rgba(250,248,242,0.5); }
+  .name-plate { margin: 3rem auto 0; padding: 2.4rem 1.5rem 2.2rem; border: 1px solid rgba(240,217,168,0.25); border-radius: 14px; background: rgba(255,255,255,0.03); max-width: 620px; }
+  .name-plate .np-ruby { font-family: 'Jost', 'Shippori Mincho', sans-serif; font-size: 0.8rem; letter-spacing: 0.55em; color: rgba(250,248,242,0.6); margin-bottom: 1.1rem; text-indent: 0.55em; }
+  .name-plate .np-row { display: flex; align-items: center; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
+  .name-plate .np-old { font-family: 'Shippori Mincho', serif; font-weight: 600; font-size: clamp(1.3rem, 4vw, 1.9rem); letter-spacing: 0.12em; color: rgba(250,248,242,0.45); position: relative; }
+  .name-plate .np-old::after { content: ""; position: absolute; left: -0.1em; right: -0.1em; top: 52%; height: 1px; background: rgba(250,248,242,0.45); }
+  .name-plate .np-arrow { font-family: 'Jost', sans-serif; color: var(--gold); font-size: 1.2rem; }
+  .name-plate .np-new { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.7rem, 5.5vw, 2.6rem); letter-spacing: 0.12em; color: var(--gold); }
+  .name-plate .np-caption { margin-top: 1.3rem; font-size: 0.85rem; letter-spacing: 0.08em; color: rgba(250,248,242,0.75); font-weight: 300; }
+  #naming .voices { margin-top: 4rem; }
+  @media (max-width: 540px) { .name-plate { padding: 1.8rem 1rem 1.6rem; } .name-plate .np-ruby { letter-spacing: 0.3em; text-indent: 0.3em; } }
 </style>
 </head>
 <body>
@@ -643,6 +662,7 @@
 
 <nav class="page-toc" aria-label="ページ内目次">
   <a href="#diagnosis">二つのシステム不全</a>
+  <a href="#naming">共創主義という仮説</a>
   <a href="#transform">鍛えると変わるもの</a>
   <a href="#world">世界の実践</a>
   <a href="#evidence">現実の目盛り</a>
@@ -679,9 +699,86 @@
     </div>
     <div class="diag-close fade-up">
       <p>診断そのものは、すでに共有され始めています。処方箋も、制度の再設計やテクノロジーといった「上から」の側では議論が進んでいます。けれど、どんなに良い仕組みも、それを日常で使いこなす市民の筋力と、練習できる場がなければ動きません。<strong>合意をつくる仕組み（サブシステム）の実装と、それを使う筋力を育てるトレーニングの開発が、圧倒的に追いついていない。</strong>これが、このロードマップの見立てです。</p>
-      <p style="margin-top:1.4rem">だからこの地図は、制度が変わるのを待ちません。認知の転換を生む機会——図鑑、診断、トレーニング——を無料で開き、それを使う人たちのムーブメントを育てるところから始めます。では、何をどう鍛えるのか。話は、戦争のいちばん小さな単位から始まります。</p>
+      <p style="margin-top:1.4rem">だからこの地図は、制度が変わるのを待ちません。認知の転換を生む機会——図鑑、診断、トレーニング——を無料で開き、それを使う人たちのムーブメントを育てるところから始めます。では、この二つの不全に代わる社会構造に、私たちはどんな名前をつければいいのでしょうか。</p>
     </div>
     <div class="fade-up" style="text-align:center;"><a class="vc-link" href="./shikumi-zukan.html">この空白を埋める世界の発明を集めました → 社会の仕組み図鑑（構造編）</a></div>
+  </div>
+</section>
+
+
+<section id="naming">
+  <div class="naming-inner">
+    <div class="eyebrow fade-up">Naming</div>
+    <h2 class="fade-up">新しい「何とか主義」に、<br>仮の名前をつける。</h2>
+    <div class="naming-lead fade-up">
+      <p>成田悠輔さんは、問いをこう立てています。壊れてしまった民主主義と資本主義の二人三脚に代わる社会構造を作れるか。つまり、情弱民主主義でも札束資本主義でもない、新しい「何とか主義」を生み出せるのか。そして、資本主義が得意とする<strong>「強者の放置」</strong>と、民主主義が得意とする<strong>「弱者の救済」</strong>を、単一のシステムの中で兼ね備えられるのか——。この地図からの、いまの仮の答えがこれです。</p>
+      <p class="naming-credit">※問いの立て方は、成田悠輔さんのPIVOTインタビュー（2026）および『22世紀の資本主義』の議論に基づきます</p>
+    </div>
+    <div class="name-plate fade-up">
+      <div class="np-ruby">きょうそうしゅぎ</div>
+      <div class="np-row"><span class="np-old">競争主義</span><span class="np-arrow">→</span><span class="np-new">共創主義</span></div>
+      <div class="np-caption">読み方は、そのまま。漢字だけを、書き換える。</div>
+    </div>
+    <div class="naming-lead fade-up">
+      <p>共創主義は、競争を否定しません。資本主義のエンジンである全力疾走は、そのままでいい（強者の放置）。ただしその出力が、勝者の総取りで終わらず、対話を通じて第三の案と公共の合意に接続される（弱者の救済）。速く走る自由と、誰も置き去りにしない仕組みを、同じ一語の中に同居させる——妖怪と同じで、まだ存在しない社会も、<strong>名前をつけて初めて目指せるようになります</strong>。だから未完成のまま、まず名前を掲げます。</p>
+    </div>
+  </div>
+  <div class="voices fade-up">
+    <div class="voices-head">
+      <div class="voices-eyebrow">Voices of Kyōsō</div>
+      <h3>同じ場所を、先人たちが指してきた。</h3>
+    </div>
+    <p class="voices-close" style="max-width:760px;margin:1.6rem auto 0;">
+      この名前は、思いつきではなく系譜の上にあります。時代も大陸も違う先人たちが、「市場か、再分配か」という二択の外側を、すでに指してきました。
+    </p>
+    <div class="voice-grid" style="margin-top:2.2rem;">
+      <div class="voice fade-up">
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-grundtvig.webp" alt="豊かさの再定義を表すイラスト：星空の下、すべての家の窓に同じ明るさの灯りがともる夜の村" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>N・F・S・グルントヴィ</h4><span class="v-year">デンマーク・1820</span></div>
+        <div class="v-need">指したもの：豊かさの再定義</div>
+          </div>
+        </div>
+        <p>「少数の者が持ちすぎず、さらに少数の者しか持たなさすぎないとき、豊かさにおいて我々は遠くまで来たことになる」。デモクラシーフィットネスの源流・フォルケホイスコーレの父は、強者の繁栄と弱者の救済を、200年前にひとつの歌の中に同居させていました。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-shibusawa.webp" alt="合本主義を表すイラスト：無数の金の雫が集まり、一本の大河になって流れていく" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>渋沢栄一</h4><span class="v-year">日本・1840–1931</span></div>
+        <div class="v-need">指したもの：合本主義</div>
+          </div>
+        </div>
+        <p>「日本資本主義の父」と呼ばれる本人は、資本主義という言葉を使わず、公益のために資本と人を合わせる「合本主義」を掲げました。『論語と算盤』いわく、正しい道理の富でなければ永続しない。<strong>主義に別の名前をつけること</strong>には、日本の先例があるのです。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-ostrom.webp" alt="コモンズの自治を表すイラスト：温かく光る共有の泉を、対等な人々が輪になって囲んでいる" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>エリノア・オストロム</h4><span class="v-year">米国・2009 ノーベル経済学賞</span></div>
+        <div class="v-need">指したもの：市場と国家を超えて</div>
+          </div>
+        </div>
+        <p>受賞講演の題は「市場と国家を超えて」。共有資源は、私有化か国家統制かの二択ではなく、当事者どうしの対話とルールづくりで守れることを、世界中の現場から実証しました。共創が理想論ではなく、<strong>観察された事実</strong>であることの証明です。</p>
+      </div>
+      <div class="voice fade-up">
+        <div class="v-head">
+          <img class="v-art" src="./assets/img/roadmap/voice-uzawa.webp" alt="社会的共通資本を表すイラスト：大きな金色の木が、根で家々をつなぎながら守っている" loading="lazy">
+          <div class="v-head-text">
+            <div class="v-who"><h4>宇沢弘文</h4><span class="v-year">日本・1928–2014</span></div>
+        <div class="v-need">指したもの：社会的共通資本</div>
+          </div>
+        </div>
+        <p>自然、インフラ、教育や医療——皆の暮らしの土台は、市場の論理だけに委ねてはならないと説いた経済学者。「緊急なのに儲からない課題」へ資金と制度の回路を通すという宿題を、日本の経済学はすでに受け取っていました。</p>
+      </div>
+    </div>
+  </div>
+  <div class="naming-inner">
+    <div class="naming-close fade-up">
+      <p>競争と共創。二つの漢字のあいだにあるのは、対話の筋肉と、合意をつくる仕組み——まさにこのロードマップが鍛え、実装しようとしているものです。名前は掲げました。では、何をどう鍛えるのか。話は、戦争のいちばん小さな単位から始まります。</p>
+      <p class="naming-credit">※グルントヴィの一節は1820年の歌「Langt højere Bjerge」より（訳は当工房）。渋沢栄一の言葉は『論語と算盤』（1916）に基づきます</p>
+    </div>
   </div>
 </section>
 
