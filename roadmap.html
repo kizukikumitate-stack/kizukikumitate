@@ -330,11 +330,23 @@
   #forever p strong { font-weight: 600; color: #7a2f16; }
 
   /* ===== CTA ===== */
+  /* ===== Next Reads（続きを読む） ===== */
+  #next-reads { padding: 4.5rem 2rem 0.5rem; background: var(--paper); }
+  .nr-inner { max-width: 860px; margin: 0 auto; text-align: center; }
+  .nr-inner .eyebrow { color: var(--forest); margin-bottom: 1.2rem; }
+  .nr-inner h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.15rem, 2.6vw, 1.55rem); letter-spacing: 0.06em; text-wrap: balance; }
+  #join .join-inner h2 { text-wrap: balance; }
+  .nr-lead { margin-top: 1.1rem; font-size: 0.88rem; line-height: 2.1; font-weight: 300; color: var(--mid-gray); }
+  .nr-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.7rem; margin-top: 1.8rem; }
+  .nr-links a { display: inline-flex; align-items: baseline; gap: 0.5em; padding: 0.6rem 1.15rem; border: 1px solid #ddd6c4; border-radius: 999px; background: #fff; text-decoration: none; font-size: 0.84rem; letter-spacing: 0.04em; color: var(--charcoal); transition: border-color 0.2s, color 0.2s, transform 0.2s; }
+  .nr-links a:hover { border-color: var(--forest); color: var(--forest); transform: translateY(-2px); }
+  .nr-links .nr-tag { font-family: 'Jost', sans-serif; font-size: 0.66rem; letter-spacing: 0.16em; color: var(--gold); white-space: nowrap; }
+
   #join { padding: 5rem 2rem 7rem; background: var(--paper); }
   .join-inner { max-width: 900px; margin: 0 auto; text-align: center; }
   .join-inner .eyebrow { color: var(--dawn); margin-bottom: 1.2rem; }
   .join-inner h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.06em; margin-bottom: 3rem; }
-  .join-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
+  .join-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
   @media (max-width: 820px) { .join-grid { grid-template-columns: minmax(0, 1fr); } }
   .join-card { display: block; text-decoration: none; border-radius: 14px; padding: 1.9rem 1.5rem 2.1rem; text-align: left; transition: transform 0.25s ease, box-shadow 0.25s ease; }
   .join-card:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(30,25,60,0.14); }
@@ -348,6 +360,9 @@
   .join-card.day .jc-eyebrow { color: var(--teal); }
   .join-card.dawn { background: var(--dawn-soft); color: #5a2a16; border: 1px solid #ecc9b6; }
   .join-card.dawn .jc-eyebrow { color: var(--dawn); }
+  .join-card.deep { background: var(--purple); color: var(--paper); }
+  .join-card.deep .jc-eyebrow { color: var(--gold-soft); }
+  .join-card.deep p { color: rgba(250,248,242,0.8); }
 
   footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
   .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
@@ -1302,15 +1317,35 @@
   <img class="section-art fade-up" src="./assets/img/roadmap/forever-road.webp" alt="夜明けの空へ向かって続く終わりのない道を、人々がそれぞれの場所で歩いているイラスト" loading="lazy">
 </section>
 
+<section id="next-reads">
+  <div class="nr-inner">
+    <div class="eyebrow fade-up">Keep Reading</div>
+    <h2 class="fade-up">この地図には、続きがあります。</h2>
+    <p class="nr-lead fade-up">今日は読むだけでも、十分な一歩です。続きの地図と図鑑を、すべて無料で開いています。</p>
+    <div class="nr-links fade-up">
+      <a href="./ashimoto-map.html"><span class="nr-tag">展開編</span>足元からの地図</a>
+      <a href="./dialogue-zukan.html"><span class="nr-tag">実践編</span>世界の対話技法図鑑</a>
+      <a href="./shikumi-zukan.html"><span class="nr-tag">構造編</span>社会の仕組み図鑑</a>
+      <a href="./ted-collection.html"><span class="nr-tag">映像で</span>おすすめTED集</a>
+      <a href="./nobel-peace.html"><span class="nr-tag">系譜</span>ノーベル平和賞の125年</a>
+    </div>
+  </div>
+</section>
+
 <section id="join">
   <div class="join-inner">
     <div class="eyebrow fade-up">Join the Training</div>
-    <h2 class="fade-up">今日から、最初の一歩を。</h2>
+    <h2 class="fade-up">そして今日から、最初の一歩を。</h2>
     <div class="join-grid">
       <a class="join-card night fade-up" href="./yokai/index.html">
-        <div class="jc-eyebrow">3 min / Free</div>
-        <h3>妖怪診断を受ける</h3>
-        <p>あなたの職場に出ている妖怪を3分で判定。調伏のための式神と、明日使える召喚の呪文を処方します。</p>
+        <div class="jc-eyebrow">3 min / Free — 職場編</div>
+        <h3>会社の妖怪診断を受ける</h3>
+        <p>あなたの職場に出ている妖怪を3分で判定。対になる式神と、明日使える召喚の呪文を処方します。</p>
+      </a>
+      <a class="join-card deep fade-up" href="./shakai-yokai/">
+        <div class="jc-eyebrow">3 min / Free — 社会編・JA/EN</div>
+        <h3>社会の妖怪診断を受ける</h3>
+        <p>ニュースやSNSを眺めるとき、社会とのあいだに出る妖怪を6問で判定。世界の伝承に系譜を持つ10体と、対になる式神を紹介します。</p>
       </a>
       <a class="join-card day fade-up" href="./democracy-fitness.html">
         <div class="jc-eyebrow">Workshop</div>
@@ -1319,8 +1354,8 @@
       </a>
       <a class="join-card dawn fade-up" href="./index.html#contact">
         <div class="jc-eyebrow">Collaborate</div>
-        <h3>この地図に、線を足す</h3>
-        <p>世界の平和実現に向けての活動を、ぜひ教えてください。協働・共同開催・翻訳・研究、大歓迎。応援のメッセージも、地図を明るくする力になります。</p>
+        <h3>この道を、一緒に歩く</h3>
+        <p>平和や対話にかかわる活動・研究・翻訳・共同開催——持ち場はどこでも、ぜひ教えてください。応援のメッセージひとつも、この道をともす灯りになります。</p>
       </a>
     </div>
   </div>
