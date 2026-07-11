@@ -444,7 +444,7 @@ const UI={
   zeroListH:'いま、あなたの社会で働いている式神',
   zeroListSub:'気配のなかった妖怪＝その式神が、もう働いています（全10体）',
   again:'もう一度診断する', dfBtn:'社会の筋トレ Democracy Fitness ▶', dfBtn2:'妖怪に効く筋トレを見る ▶',
-  orgBtn:'会社版：職場の妖怪診断へ',
+  orgBtn:'別バージョン：会社の妖怪診断を受ける',
   scH:'この結果を、1枚のカードに。', scDesc:'保存して、SNSでシェアできます。',
   fmtWide:'SNS横長', fmtSq:'正方形', scSaveBtn:'画像を保存 / シェア',
   scHint:'スマホは「保存 / シェア」から画像を各SNSやLINEに直接送れます。PCはPNG画像がダウンロードされます。',
@@ -479,7 +479,7 @@ const UI={
   zeroListH:'Shikigami now at work in your society',
   zeroListSub:'No trace of these yokai — their shikigami are already on duty (all 10)',
   again:'Take it again', dfBtn:'Civic workout: Democracy Fitness ▶', dfBtn2:'See the workout that works on yokai ▶',
-  orgBtn:'Workplace edition (JA)',
+  orgBtn:'Other edition: workplace yokai diagnosis (JA)',
   scH:'Turn this result into a card.', scDesc:'Save it and share on social media.',
   fmtWide:'Wide (SNS)', fmtSq:'Square', scSaveBtn:'Save / share image',
   scHint:'On mobile, “Save / share” sends the image straight to your apps. On PC, a PNG downloads.',
@@ -733,6 +733,7 @@ function showResult(hit){
       <a class="btn" href="../democracy-fitness.html">${T.dfBtn2}</a>
       <button class="btn ghost" onclick="tweet('${shareText}')">${T.shareBtn}</button>
       <button class="btn ghost" onclick="start()">${T.again}</button>
+      <a class="btn ghost" href="../yokai/">${T.orgBtn}</a>
     </div>
 
     <div class="links">
