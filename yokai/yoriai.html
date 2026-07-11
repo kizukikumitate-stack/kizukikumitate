@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妖怪と式神 — 寄合の間</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#14172B; --panel:#1E2240; --panel-2:#262B4E;
+  --washi:#F3EBD8; --washi-2:#EAE0C6; --ink:#2B2620;
+  --shu:#C43C2A; --kin:#C9A227; --mist:#A9AEC9; --line:#3A4066;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --goth:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--night);color:var(--washi);font-family:var(--goth);line-height:1.75;min-height:100vh;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,#232852 0%,transparent 60%)}
+.wrap{max-width:680px;margin:0 auto;padding:20px 16px 90px}
+.eyebrow{font-size:11px;letter-spacing:.35em;color:var(--kin);margin-bottom:8px}
+h1{font-family:var(--serif);font-weight:800;font-size:32px;letter-spacing:.12em;line-height:1.4}
+h2{font-family:var(--serif);font-weight:700;font-size:20px;letter-spacing:.08em;margin-bottom:6px}
+.sub{color:var(--mist);font-size:14px;margin-top:8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+button{font-family:var(--goth);cursor:pointer;border:none;border-radius:10px;font-size:15px}
+.btn{background:var(--shu);color:#FFF7EC;padding:13px 22px;font-weight:700;letter-spacing:.08em;width:100%}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--mist);font-weight:500}
+.btn.gold{background:var(--kin);color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:default}
+textarea,input[type=text]{flex:1;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;color:var(--washi);
+  font-family:var(--goth);font-size:15px;padding:12px;resize:none;outline:none;width:100%}
+textarea:focus,input:focus{border-color:var(--kin)}
+.inputrow{display:flex;gap:8px}
+.send{background:var(--kin);color:var(--ink);font-weight:700;padding:0 18px;border-radius:10px}
+.hidden{display:none!important}
+/* presence */
+.pbar{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0}
+.pchip{font-size:12px;padding:4px 12px;border-radius:999px;background:var(--panel-2);border:1px solid var(--line);color:var(--washi)}
+.pchip.host{border-color:var(--kin);color:var(--kin)}
+.pchip.done{border-color:#7B9E89;color:#9fc4ae}
+/* host bar */
+.hostbar{position:fixed;bottom:0;left:0;right:0;background:rgba(20,23,43,.96);border-top:1px solid var(--kin);padding:10px 16px;z-index:50}
+.hostbar .inner{max-width:680px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.hostbar .label{font-size:11px;letter-spacing:.2em;color:var(--kin);flex:none}
+/* vote chips */
+.votechips{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;min-height:22px}
+.vchip{font-size:11px;padding:2px 9px;border-radius:999px;background:rgba(201,162,39,.18);color:var(--kin);border:1px solid rgba(201,162,39,.4)}
+/* ofuda */
+.ofuda-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ofuda{background:var(--washi);color:var(--ink);border-radius:6px 6px 12px 12px;padding:14px 12px;text-align:center;
+  border-top:6px solid var(--type-c,var(--shu));box-shadow:0 3px 14px rgba(0,0,0,.35);position:relative}
+.ofuda.mine{outline:3px solid var(--kin)}
+.ofuda .tname{font-family:var(--serif);font-size:21px;font-weight:800;letter-spacing:.28em;writing-mode:vertical-rl;margin:0 auto;height:78px}
+.ofuda .ttag{font-size:11.5px;margin-top:8px;line-height:1.6}
+/* kcard */
+.kcard{background:var(--washi);color:var(--ink);border-radius:12px;padding:15px;margin-bottom:12px;border-left:6px solid var(--type-c,var(--shu));box-shadow:0 3px 14px rgba(0,0,0,.3)}
+.kcard.mine{outline:3px solid var(--kin)}
+.kcard h3{font-family:var(--serif);font-size:17px;letter-spacing:.08em}
+.kcard p{font-size:13px;margin-top:5px}
+.kcard .ex{font-size:12px;color:#6d6353;margin-top:7px;padding-top:7px;border-top:1px dashed #cfc3a6}
+/* sightings / answers */
+.sight{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin-bottom:8px;font-size:14px}
+.sight .who{font-size:11px;color:var(--kin);letter-spacing:.1em}
+/* candidates */
+.cand{background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.cand.mine{border-color:var(--kin)}
+.cand .name{font-family:var(--serif);font-size:22px;color:var(--kin);letter-spacing:.12em}
+.cand dl{font-size:13px;margin-top:8px}
+.cand dt{color:var(--mist);font-size:10.5px;letter-spacing:.2em;margin-top:6px}
+/* verbs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px}
+.tab{flex:none;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mist);font-size:13px}
+.tab.on{background:var(--vc,var(--kin));color:var(--ink);border-color:transparent;font-weight:700}
+.verbgrid{display:flex;flex-wrap:wrap;gap:8px}
+.verb{padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--washi);font-size:14px}
+.verb.sel{background:var(--kin);color:var(--ink);border-color:var(--kin);font-weight:700}
+.verbhint{font-size:12px;color:var(--mist);min-height:2.4em;margin-top:10px;padding:8px 10px;background:var(--panel-2);border-radius:8px}
+.agg{margin-top:16px}
+.aggrow{display:flex;align-items:center;gap:8px;margin-bottom:6px;font-size:13px}
+.aggverb{background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:4px 12px;flex:none}
+/* contract */
+.contract{background:var(--washi);color:var(--ink);border-radius:4px;padding:28px 22px;position:relative;box-shadow:0 6px 26px rgba(0,0,0,.5);
+  background-image:repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(120,100,60,.08) 31px,rgba(120,100,60,.08) 32px)}
+.contract .ctitle{font-family:var(--serif);font-weight:800;font-size:23px;letter-spacing:.4em;text-align:center;margin-bottom:16px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.contract .cbody{font-family:var(--serif);font-size:14px;line-height:2.1;white-space:pre-wrap}
+.stamp{position:absolute;right:18px;bottom:18px;width:60px;height:60px;border:3px solid var(--shu);border-radius:8px;color:var(--shu);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:24px;font-weight:800;transform:rotate(-8deg);opacity:0}
+.stamp.on{animation:stamp .5s ease-out forwards}
+@keyframes stamp{0%{opacity:0;transform:rotate(-8deg) scale(2.2)}70%{opacity:1;transform:rotate(-8deg) scale(.94)}100%{opacity:.88;transform:rotate(-8deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.stamp.on{animation:none;opacity:.88}}
+/* ema */
+.ema{background:var(--washi);color:var(--ink);border-radius:8px 8px 14px 14px;padding:14px 16px;margin-bottom:12px;border-top:8px solid #8a6b3f;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+.ema .ename{font-family:var(--serif);font-weight:800;font-size:17px;letter-spacing:.1em}
+.ema .emeta{font-size:11px;color:#7a6f5c;margin-top:2px}
+.ema .ebody{font-size:13px;margin-top:8px}
+.ema .react{margin-top:10px;background:transparent;border:1px solid #b8a880;color:#6d5c3a;border-radius:999px;padding:6px 14px;font-size:12px}
+/* chat */
+.chat{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+.msg{max-width:86%;padding:12px 15px;border-radius:14px;font-size:15px;white-space:pre-wrap}
+.msg.ai{background:var(--panel);border:1px solid var(--line);align-self:flex-start;border-top-left-radius:4px}
+.msg.me{background:#3B3020;border:1px solid #5a4a2c;align-self:flex-end;border-top-right-radius:4px}
+.phase-title{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.phase-num{font-family:var(--serif);color:var(--kin);font-size:13px;letter-spacing:.2em}
+.note{font-size:12px;color:var(--mist);margin-top:10px}
+.err{color:#E58B7D;font-size:13px;margin-top:8px}
+.roomtag{font-size:12px;color:var(--mist);letter-spacing:.15em;margin-bottom:4px}
+:focus-visible{outline:2px solid var(--kin);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="hostbar hidden" id="hostbar"><div class="inner" id="hostinner"></div></div>
+
+<script>
+/* ============ データ(ソロ版と共通) ============ */
+const TYPES=[
+ {id:"matsuru",name:"祀る",tagline:"排除せず、存在意義を認めて味方にする",color:"#B1493F"},
+ {id:"shieki",name:"使役",tagline:"契約を結び、その力を働かせる",color:"#3F5FB1"},
+ {id:"sumiwake",name:"住み分け",tagline:"領分を認め、境界線を引いて共に在る",color:"#4F8A5B"},
+ {id:"goraku",name:"娯楽化",tagline:"笑いとキャラの力で、ほどよい距離を取る",color:"#C9873B"}];
+const CARDS={
+ matsuru:[
+  {id:"m1",name:"守り神に任じる",d:"守ろうとしているものを見極め、守護役として祀る。",ex:"心配性の妖怪を「チームの安全の守り神」に任命。",q:"この妖怪は、私たちの何を守ろうとして現れているのでしょう?"},
+  {id:"m2",name:"社を建てる",d:"定位置(ノート、チャンネル、棚)を用意し、居場所を与える。",ex:"モヤモヤ専用チャンネルを作り、そこにだけ棲んでもらう。",q:"この妖怪の社(定位置)は、どこに建てるのが良さそうですか?"},
+  {id:"m3",name:"お供えを決める",d:"定期的なケアの習慣を「お供え」として決める。",ex:"週に一度、金曜夕方に10分だけ不安の棚卸し。",q:"どんなお供え(習慣)なら、無理なく続けられそうですか?"},
+  {id:"m4",name:"縁起を書く",d:"いつ、なぜ生まれたのか、由来を物語として書き残す。",ex:"「あの大失敗の日に生まれた」と縁起書に記す。",q:"この妖怪が生まれた日のことを、覚えていますか?"},
+  {id:"m5",name:"例大祭を開く",d:"月に一度、この妖怪のおかげで防げたことを数えて感謝する。",ex:"月末に「知らせてくれたリスク」を3つ挙げる。",q:"この妖怪に感謝できることが、一つあるとしたら何でしょう?"}],
+ shieki:[
+  {id:"s1",name:"見張り番にする",d:"出現そのものを早期警報として使う契約。",ex:"イライラ妖怪=「疲労が限界」のサインと定める。",q:"この妖怪が現れるとき、実は何の前兆になっていますか?"},
+  {id:"s2",name:"代弁者にする",d:"言いにくいことを、妖怪の口から言わせる。",ex:"「慎重妖怪が不安があると申しております」と会議で言う。",q:"この妖怪に代わりに言ってもらえたら楽になる一言は?"},
+  {id:"s3",name:"力を転用する",d:"エネルギーの向き先を変えて、別の仕事に振り向ける。",ex:"完璧主義妖怪には最終稿の誤字チェックだけを任せる。",q:"この妖怪の力は、どこで使えば一番役に立ちそうですか?"},
+  {id:"s4",name:"期間限定で雇う",d:"出てよい期間・場面を区切った条件付き契約。",ex:"締切前の三日間だけ、焦り妖怪をブースターに。",q:"いつ・どの場面でなら、働いてもらってもいいですか?"},
+  {id:"s5",name:"指南役にする",d:"師と仰ぎ、なぜ現れるのかを教わる契約。",ex:"嫉妬妖怪が出るたび「本当に欲しいもの」を一つ教わる。",q:"この妖怪から学べることがあるとしたら、何でしょう?"}],
+ sumiwake:[
+  {id:"w1",name:"領地を定める",d:"出てよい場所と、立ち入り禁止の場所を決める。",ex:"仕事の妖怪は書斎まで。寝室と食卓には入れない。",q:"この妖怪に、絶対に入ってほしくない場所はどこですか?"},
+  {id:"w2",name:"刻限を決める",d:"出てよい時間帯を定める。逢魔が時方式。",ex:"心配ごとの受付は朝のみ。22時以降は門限。",q:"この妖怪と会ってもいい時間帯は、いつなら許せますか?"},
+  {id:"w3",name:"通り道を譲る",d:"現れても反応せず、通過をただ見送る。",ex:"自己否定の声は追わず、行列が過ぎるのを待つ。",q:"この妖怪を「見送る」とき、何をして待ちますか?"},
+  {id:"w4",name:"関所を設ける",d:"言い分に通行手形(根拠)を求める。",ex:"「嫌われた」説には証拠を三つ持ってこないと通さない。",q:"この妖怪の言い分を通す前に、何を確かめたいですか?"},
+  {id:"w5",name:"季節を認める",d:"出やすい時期を暦に書き込み、備える。",ex:"年度末は多忙妖怪の繁殖期。3月は予定を2割減。",q:"この妖怪がよく出る季節・時期は、いつですか?"}],
+ goraku:[
+  {id:"g1",name:"キャラを立てる",d:"見た目・口癖・好物まで設定してキャラ化する。",ex:"先延ばし妖怪「アトデール」。口癖は「明日の自分は超人」。",q:"この妖怪の口癖と好物を決めるなら、何にしますか?"},
+  {id:"g2",name:"絵に描く",d:"姿を描いて図鑑に登録する。描けたら外在化完了。",ex:"緊張妖怪を、ガチガチの鎧を着た小鬼として描く。",q:"この妖怪、どんな姿をしていそうですか?"},
+  {id:"g3",name:"語り草にする",d:"失敗談を持ちネタ・昔話の型に仕立てる。",ex:"大失敗の日を「むかしむかし」の型で語り直す。",q:"一番の事件を笑い話にするなら、どこから話しますか?"},
+  {id:"g4",name:"番付を作る",d:"妖怪たちを相撲番付風にランキング化する。",ex:"東の横綱・締切妖怪、西の横綱・比較妖怪。",q:"私たちの妖怪番付、今の横綱は誰ですか?"},
+  {id:"g5",name:"着ぐるみを着せる",d:"深刻な言葉を、ゆるい口調に吹き替えて聞く。",ex:"「駄目だ」をゆるキャラ声で「だめかも〜」に。",q:"この妖怪の声を吹き替えるなら、どんな口調に?"}]};
+const VERBS=[
+ {id:"kizuku",name:"気づく系",color:"#7B9E89",verbs:[["名を呼ぶ","「あ、◯◯が出た」と心の中で名指しする"],["深呼吸する","3秒吸って6秒吐く"],["数を数える","10数える間、発言権を与えない"],["メモする","出現日時と状況を記録"],["立ち止まる","何もしない。それも初動"],["席を立つ","場を離れて仕切り直す"],["水を飲む","一口の間が距離になる"],["空を見る","視線を上げると縮尺が変わる"],["体に聞く","肩・胃・喉。どこに居座っている?"],["実況する","「今、騒いでいる」と中継する"],["観察する","退治せず、生態を眺める"],["気配を記す","予兆をリスト化しておく"],["合図を決める","出現時のセルフサインを決める"],["鏡を見る","憑かれていないか確認"],["印を結ぶ","身体のスイッチを作る"],["点呼を取る","今日出た妖怪を夜に数える"],["天気をつける","心の空模様として記録"],["足を感じる","地面との接点に意識を戻す"]]},
+ {id:"taiwa",name:"対話系",color:"#5B7DB1",verbs:[["問い返す","「本当にそうか?」と一問返す"],["聞き切る","遮らず最後まで"],["言い換える","「失敗」を「実験結果」に"],["代弁させる","本音を妖怪の口から言わせる"],["翻訳する","怒りの下の願いを訳す"],["復唱する","言葉をそのまま返し確かめる"],["沈黙する","沈黙は結界になる"],["尋ねる","「何しに来た?」と用件を聞く"],["確かめる","事実と解釈を仕分ける"],["打ち明ける","「不安妖怪が出ていて」と場に出す"],["交渉する","「今日は10分だけな」と条件を出す"],["礼を言う","知らせてくれたことに感謝"],["聞き役に回る","相手の話に席を譲る"],["名乗らせる","正体を言わせれば半分勝ち"],["宿題を出す","「根拠を三つ持ってこい」"],["口上を述べる","決めゼリフを用意しておく"],["書き置きする","言えなかったことを文字に"],["仲裁を頼む","妖怪同士の喧嘩に行司を"]]},
+ {id:"tenkan",name:"転換系",color:"#C98A4B",verbs:[["任せる","リスク点検係を任命"],["振り向ける","騒ぐ力を推進力に転用"],["遊ばせる","ゲームの形式に移す"],["描かせる","姿を絵にする"],["笑う","「またお前か」と吹き出す"],["書き出す","騒ぎを紙に全部移す"],["物語る","昔話の型で語り直す"],["歌にする","愚痴に節をつける"],["走らせる","体を動かして燃やす"],["掃除させる","モヤモヤした時ほど机が片付く"],["献上する","最終チェックを捧げる"],["変換する","「すべき」を「してみたい」に"],["採用する","使える一点だけ採る"],["実験にする","検証可能な問いに変える"],["キャラ化する","名前・口癖・好物を設定"],["配置換えする","壁打ち役に異動"],["燃料にする","悔しさを次の挑戦で使う"],["弟子入りする","何を教えに来たのか学ぶ"]]},
+ {id:"kyokai",name:"境界系",color:"#8C6BAE",verbs:[["待たせる","「後で聞く」と控室に案内"],["日を改める","返事は明日の自分に"],["時間を区切る","「悩むのは15分」とタイマー"],["場所を移す","この会議室には入れない"],["見送る","追わず、通過を見送る"],["断る","短く、理由は一つだけ"],["締め切る","「ここまで」と宣言する"],["結界を張る","通知オフ・扉を閉める"],["持ち帰らない","職場の下駄箱に預けて帰る"],["予約させる","心配はアポ制にする"],["定員を決める","相手する妖怪は一体まで"],["領分を認める","ただし朝は帰ってもらう"],["門限を敷く","22時以降は聞かない"],["棚上げする","名前を付けて棚へ"],["一晩寝かせる","送信は翌朝の自分に"],["線を引き直す","範囲を改めて測量する"],["留守にする","来る時間帯に予定を入れる"],["封をする","封筒に入れて物理的に閉じる"]]},
+ {id:"engun",name:"援軍系",color:"#B15B5B",verbs:[["相談する","妖怪の名前ごと話す"],["開示する","「この妖怪持ちなんです」と先に言う"],["預ける","判断を一つ丸ごと渡す"],["共に祀る","チームで祀れば文化になる"],["頼る","頼ることは信頼の表明"],["証人を立てる","宣言して見届けてもらう"],["紹介する","同じ妖怪持ちの先輩に"],["借りる","他人の視点・型を借りる"],["見守ってもらう","ただ隣にいてもらう"],["合言葉を作る","「出たかも」の符丁を決める"],["同盟を組む","出現時に声をかけ合う協定"],["託宣を仰ぐ","尊敬する人なら何と言うか"],["回覧する","契約書を見せて感想をもらう"],["餅をまく","小さな成功を配って祝う"],["宿を借りる","場所ごと人の懐に移る"],["太鼓を頼む","背中を押す一言を頼んでおく"],["寄合を開く","妖怪話の場を定例化"],["手を挙げる","「助けて」は最強の呪文"]]}];
+const TEMPLATES={
+ matsuru:{title:"祀り状",role:"祀り主",lines:["一、ここに{y}を「{c}」の作法により祀り、その働きに敬意を表する。","一、{y}が現れしときは、{u}は「{v}」をもってこれを迎える。","一、運用の定め:{p}","一、{y}の由来と功徳を忘れず、粗末に扱わないこと。"]},
+ shieki:{title:"式神契約書",role:"契約主",lines:["一、{y}は本日より{u}の式神として、「{c}」の役目を務めること。","一、{y}が現れしときは、{u}は「{v}」をもって応じ、みだりに争わないこと。","一、運用の定め:{p}","一、本契約は双方の益のために結ばれ、いつでも話し合いにより改められる。"]},
+ sumiwake:{title:"取り決め証文",role:"取り決め人",lines:["一、{y}と{u}は、「{c}」の作法により互いの領分を定める。","一、{y}が領分を越えて現れしときは、{u}は「{v}」をもって静かに境を示す。","一、運用の定め:{p}","一、互いの領分を侵さぬ限り、この世に共に在ることを認め合う。"]},
+ goraku:{title:"妖怪図鑑 登録証",role:"登録者",lines:["一、{y}を「{c}」の作法により、当家の妖怪図鑑に正式登録する。","一、{y}が現れしときは、{u}は「{v}」をもってこれと遊ぶ。","一、運用の定め:{p}","一、恐れるべからず、侮るべからず。笑いをもって良き隣人とすること。"]}};
+const DISCOVERY_PROMPT=`あなたは「妖怪と式神ワークショップ」の聞き手です。参加者との対話を通じて、その人の中にいる「妖怪」(繰り返し現れる思考・感情・行動のパターン)を見つけ、名付ける手伝いをします。
+進め方:1.最初の問いは必ず具体例を添えて尋ねる(例:会議で本音が出ない、つい先延ばし、断れない…)。2.身体感覚・浮かんだ言葉を聞く。3.出現パターンを探る。4.「一体の妖怪だとしたらどんな姿?」と外在化を促す。5.名前候補を2〜3案提示し、本人に選ばせる。
+作法:質問は一度に一つ、3文以内。診断しない。妖怪は敵ではなく「知らせに来た存在」。4〜6往復で命名まで。
+命名が確定したら、返答の最後に必ず次のJSONだけを1行で出力:{"yokai_name":"妖怪名","appearance":"姿(30字以内)","trigger":"出現条件(30字以内)","message":"知らせに来ていること(40字以内)"}`;
+
+const PHASES=[["lobby","寄合"],["discover","発見"],["naming","命名"],["type","対峙"],["card","作法"],["toiawase","問答"],["verbs","動詞"],["contract","契約"],["ema","絵馬掛所"]];
+
+/* ============ ローカル状態 ============ */
+const L={pid:Math.random().toString(36).slice(2,10),name:"",code:"",isHost:false,
+  me:{},room:null,parts:[],discovery:[],yokaiFound:null,curTab:"kizuku",lastRender:"",screen:"entry",busy:false};
+
+const app=document.getElementById("app");
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const rk=()=>"yroom:"+L.code;
+const pk=pid=>"yroom:"+L.code+":p:"+(pid||L.pid);
+
+/* ============ ストレージ(本番: kizukikumitate の Vercel 経由) ============ */
+/* アーティファクトの window.storage(共有KV)+3.5秒ポーリング を /api/yokai-room に置き換え。
+   Claude 直呼びは /api/yokai-claude に中継(APIキーはサーバー側に隠す)。 */
+const API_BASE="https://democracy-fitness-survey.vercel.app";
+async function roomApi(action,payload){
+  const r=await fetch(API_BASE+"/api/yokai-room",{method:"POST",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({action,...payload})});
+  if(!r.ok)throw new Error("room "+r.status);
+  return r.json();
+}
+async function saveMe(){L.me.name=L.name;try{await roomApi("saveParticipant",{code:L.code,pid:L.pid,data:L.me});return true}catch(e){return false}}
+async function saveRoom(patch){Object.assign(L.room,patch);try{await roomApi("saveRoom",{code:L.code,data:L.room});return true}catch(e){return false}}
+
+/* ============ API(Claude 中継) ============ */
+async function callClaudeTask(task,payload){
+  const r=await fetch(API_BASE+"/api/yokai-claude",{method:"POST",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({task,...payload})});
+  if(!r.ok)throw new Error("claude "+r.status);
+  const d=await r.json();return d.text||"";
+}
+
+/* ============ 同期ループ ============ */
+let pollTimer=null;
+function startPolling(){if(pollTimer)clearInterval(pollTimer);pollTimer=setInterval(sync,2500);sync()}
+async function sync(){
+  if(!L.code)return;
+  let res;
+  try{res=await roomApi("sync",{code:L.code});}catch(e){return;}
+  if(!res||!res.room)return;
+  L.room=res.room;
+  const parts=(res.participants||[]).slice();
+  parts.sort((a,b)=>(a.joined||0)-(b.joined||0));
+  L.parts=parts;
+  render();
+}
+
+/* ============ レンダリング(差分時のみ) ============ */
+function render(force){
+  const sig=JSON.stringify([L.screen,L.room,L.parts,L.discovery.length,L.yokaiFound,L.me,L.curTab,L.busy]);
+  if(!force&&sig===L.lastRender)return;
+  L.lastRender=sig;
+  if(L.screen==="entry")return renderEntry();
+  if(!L.room)return;
+  const ph=L.room.phase;
+  renderHostBar(ph);
+  if(ph==="lobby")renderLobby();
+  else if(ph==="discover")renderDiscover();
+  else if(ph==="naming")renderNaming();
+  else if(ph==="type")renderTypePhase();
+  else if(ph==="card")renderCardPhase();
+  else if(ph==="toiawase")renderToiawase();
+  else if(ph==="verbs")renderVerbsPhase();
+  else if(ph==="contract")renderContractPhase();
+  else if(ph==="ema")renderEma();
+}
+function header(title,subtitle){
+  const modeLabel=L.room.mode==="team"?"チームの妖怪":"各自の妖怪";
+  return `<div class="roomtag">部屋:${esc(L.code)} / ${modeLabel} ${L.isHost?"/ あなたが進行役":""}</div>
+  <div class="phase-title"><span class="phase-num">${PHASES.findIndex(p=>p[0]===L.room.phase)}·${PHASES.find(p=>p[0]===L.room.phase)[1]}</span></div>
+  <h2>${title}</h2>${subtitle?`<p class="sub">${subtitle}</p>`:""}
+  <div class="pbar">${L.parts.map(p=>`<span class="pchip ${p.pid===L.room.hostId?"host":""} ${p.ready?"done":""}">${esc(p.name)}</span>`).join("")}</div>`;
+}
+function renderHostBar(ph){
+  const bar=document.getElementById("hostbar");
+  if(!L.isHost||ph==="ema"){bar.classList.add("hidden");return}
+  bar.classList.remove("hidden");
+  const idx=PHASES.findIndex(p=>p[0]===ph);
+  let next=PHASES[idx+1]&&PHASES[idx+1][0];
+  if(ph==="discover"&&L.room.mode==="solo")next="type";
+  const labels={lobby:"発見をはじめる",discover:L.room.mode==="team"?"妖怪候補を出す(AI)":"対峙へ進む",naming:"—",type:"作法へ進む",card:"問答へ進む",toiawase:"動詞へ進む",verbs:"契約へ進む",contract:"絵馬掛所へ"};
+  document.getElementById("hostinner").innerHTML=`
+    <span class="label">進行役</span>
+    <button class="btn gold" style="flex:1;padding:10px" onclick="hostNext()" ${L.busy?"disabled":""}>${labels[ph]||"次へ"}</button>`;
+}
+async function hostNext(){
+  const ph=L.room.phase;
+  if(ph==="lobby")await saveRoom({phase:"discover"});
+  else if(ph==="discover"){
+    if(L.room.mode==="team")await genCandidates();
+    else await saveRoom({phase:"type"});
+  }
+  else if(ph==="type"){
+    if(L.room.mode==="team"){
+      const win=topVote(p=>p.voteType);
+      if(!win)return alert("まだ誰も対峙法を選んでいません");
+      await saveRoom({phase:"card",type:win});
+    }else await saveRoom({phase:"card"});
+  }
+  else if(ph==="card"){
+    if(L.room.mode==="team"){
+      const win=topVote(p=>p.voteCard);
+      if(!win)return alert("まだ誰も作法を選んでいません");
+      await saveRoom({phase:"toiawase",card:win});
+    }else await saveRoom({phase:"toiawase"});
+  }
+  else if(ph==="toiawase")await saveRoom({phase:"verbs"});
+  else if(ph==="verbs")await saveRoom({phase:"contract"});
+  else if(ph==="contract")await saveRoom({phase:"ema"});
+  sync();
+}
+function topVote(get){
+  const c={};L.parts.forEach(p=>{const v=get(p);if(v)c[v]=(c[v]||0)+1});
+  let best=null,n=0;Object.entries(c).forEach(([k,v])=>{if(v>n){best=k;n=v}});
+  return best;
+}
+function votersOf(get,val){return L.parts.filter(p=>get(p)===val).map(p=>`<span class="vchip">${esc(p.name)}</span>`).join("")}
+
+/* ============ 入口 ============ */
+function renderEntry(){
+  app.innerHTML=`
+  <div class="eyebrow">Yokai Peace Lab</div>
+  <h1>妖怪と式神<br><span style="font-size:20px;letter-spacing:.3em">— 寄合の間 —</span></h1>
+  <p class="sub">合言葉で同じ部屋に集まり、話しながらカードを眺め、選び、契約を結ぶ。Zoomや対面の対話と一緒に使う、みんなの盤面です。</p>
+  <div class="card" style="margin-top:20px">
+    <h2>部屋に入る</h2>
+    <input type="text" id="ename" placeholder="ニックネーム" style="margin:10px 0">
+    <input type="text" id="ecode" placeholder="部屋の合言葉(例:oki-2026)">
+    <button class="btn" style="margin-top:12px" onclick="joinRoom()">入室する</button>
+  </div>
+  <div class="card">
+    <h2>部屋を開く(進行役)</h2>
+    <input type="text" id="hname" placeholder="ニックネーム" style="margin:10px 0">
+    <input type="text" id="hcode" placeholder="部屋の合言葉を決める">
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button class="btn" style="flex:1" onclick="openRoom('team')">チームの妖怪を探す</button>
+      <button class="btn ghost" style="flex:1" onclick="openRoom('solo')">各自の妖怪を探す</button>
+    </div>
+    <p class="note">チーム型:全員で一体の妖怪を見つけ、一枚の契約を結ぶ。<br>各自型:一人ひとりが妖怪を見つけ、見せ合いながら進む。</p>
+  </div>
+  <p class="note">※ この部屋の内容は、同じアプリを開いている他の人にも見える共有領域に保存されます。個人情報や固有名詞は控えめに。</p>
+  <div id="eerr"></div>`;
+}
+function normCode(s){return s.trim().toLowerCase().replace(/[^a-z0-9\-ぁ-んァ-ン一-龠]/g,"")}
+async function openRoom(mode){
+  const n=document.getElementById("hname").value.trim();
+  const c=normCode(document.getElementById("hcode").value);
+  if(!n||!c){document.getElementById("eerr").innerHTML='<p class="err">ニックネームと合言葉を入れてください。</p>';return}
+  L.name=n;L.code=c;L.isHost=true;
+  L.room={phase:"lobby",mode,hostId:L.pid,created:Date.now()};
+  try{await roomApi("createRoom",{code:L.code,data:L.room});}
+  catch(e){document.getElementById("eerr").innerHTML='<p class="err">部屋を開けませんでした。通信環境を確認してもう一度お試しください。</p>';return}
+  L.me={name:n,joined:Date.now()};await saveMe();
+  L.screen="room";startPolling();
+}
+async function joinRoom(){
+  const n=document.getElementById("ename").value.trim();
+  const c=normCode(document.getElementById("ecode").value);
+  if(!n||!c){document.getElementById("eerr").innerHTML='<p class="err">ニックネームと合言葉を入れてください。</p>';return}
+  let room=null;
+  try{const r=await roomApi("getRoom",{code:c});room=r&&r.room;}catch(e){}
+  if(!room){document.getElementById("eerr").innerHTML='<p class="err">その合言葉の部屋が見つかりません。進行役が先に部屋を開いてください。</p>';return}
+  L.name=n;L.code=c;L.isHost=false;L.room=room;
+  L.me={name:n,joined:Date.now()};await saveMe();
+  L.screen="room";startPolling();
+}
+
+/* ============ 0 寄合(ロビー) ============ */
+function renderLobby(){
+  app.innerHTML=header("寄合","全員が揃ったら、進行役が下のボタンで始めます。合言葉「"+esc(L.code)+"」を仲間に伝えてください。")
+  +`<div class="card"><p style="font-size:14px">${L.room.mode==="team"
+    ?"今日は<b>チームに棲む妖怪</b>を一体見つけます。まず全員が「怪奇の目撃談」を持ち寄り、AIが妖怪の候補を描き、みんなで名を選びます。"
+    :"今日は<b>一人ひとりの妖怪</b>を見つけます。各自がAIの聞き手と対話し、見つかった妖怪をこの盤面で見せ合います。"}</p></div>`;
+}
+
+/* ============ 1 発見 ============ */
+function renderDiscover(){
+  if(L.room.mode==="team")return renderSightings();
+  return renderSoloDiscover();
+}
+/* --- チーム型:目撃談 --- */
+function renderSightings(){
+  const all=[];L.parts.forEach(p=>(p.sightings||[]).forEach(s=>all.push({who:p.name,text:s})));
+  app.innerHTML=header("怪奇の目撃談を持ち寄る","職場・チームで繰り返し起きる「よろしくない現象」を、見たままに。話しながらどうぞ。何件でも。")
+  +`<div class="verbgrid" style="margin-bottom:10px">${["会議で本音が出ない","決まったことが実行されない","忙しい自慢が飛び交う","新しい提案が減点で迎えられる","「どうせ変わらない」空気","責任の所在が霧の中"]
+    .map(c=>`<button class="verb" onclick="addSighting('${c}')">${c}</button>`).join("")}</div>
+  <div class="inputrow"><textarea id="sin" rows="2" placeholder="目撃談を書く(例:定例のあと本音の立ち話が始まる)"></textarea>
+  <button class="send" onclick="addSightingInput()">提出</button></div>
+  <div style="margin-top:16px">${all.map(s=>`<div class="sight"><div class="who">${esc(s.who)}</div>${esc(s.text)}</div>`).join("")||'<p class="note">まだ目撃談はありません。</p>'}</div>
+  ${L.isHost?'<p class="note">目撃談が集まったら、下の「妖怪候補を出す(AI)」で候補を描かせます。</p>':""}`;
+}
+async function addSighting(t){L.me.sightings=[...(L.me.sightings||[]),t];await saveMe();sync()}
+async function addSightingInput(){const el=document.getElementById("sin");const t=el.value.trim();if(!t)return;el.value="";await addSighting(t)}
+async function genCandidates(){
+  const all=[];L.parts.forEach(p=>(p.sightings||[]).forEach(s=>all.push(s)));
+  if(!all.length)return alert("目撃談がまだありません");
+  L.busy=true;render(true);
+  try{
+    const text=await callClaudeTask("candidates",{sightings:all});
+    const m=text.match(/\[[\s\S]*\]/);
+    const cands=JSON.parse(m[0]);
+    await saveRoom({candidates:cands,phase:"naming"});
+  }catch(e){alert("候補の生成に失敗しました。もう一度お試しください。")}
+  L.busy=false;sync();
+}
+/* --- 各自型:個別AI対話 --- */
+function renderSoloDiscover(){
+  const doneList=L.parts.filter(p=>p.yokai);
+  if(L.yokaiFound){
+    app.innerHTML=header("妖怪、見つかる","仲間の発見も並んでいきます。全員見つかったら進行役が先へ。")
+    +`<div class="cand mine"><div class="name">${esc(L.yokaiFound.yokai_name)}</div>
+      <dl><dt>すがた</dt><dd>${esc(L.yokaiFound.appearance)}</dd><dt>あらわれるとき</dt><dd>${esc(L.yokaiFound.trigger)}</dd><dt>知らせ</dt><dd>${esc(L.yokaiFound.message)}</dd></dl></div>
+    <h2 style="margin-top:18px">みんなの妖怪</h2>
+    ${doneList.filter(p=>p.pid!==L.pid).map(p=>`<div class="cand"><div class="name">${esc(p.yokai.yokai_name)}</div><p class="sub">${esc(p.name)}の妖怪 — ${esc(p.yokai.message)}</p></div>`).join("")||'<p class="note">仲間はまだ対話中…</p>'}`;
+    return;
+  }
+  const noUser=!L.discovery.some(m=>m.role==="user");
+  const chips=(noUser&&L.discovery.length)?`<div class="verbgrid" style="margin-bottom:10px">${["会議で本音が出ない","つい先延ばししてしまう","頼まれると断れない","細かいことが気になって進まない","誰かと比べて落ち込む"].map(c=>`<button class="verb" onclick="soloChip('${c}')">${c}</button>`).join("")}</div>`:"";
+  app.innerHTML=header("自分の妖怪を見つける","AIの聞き手との個別対話です。見つかったら盤面に並びます。")
+  +`<div class="chat">${L.discovery.map(m=>`<div class="msg ${m.role==="assistant"?"ai":"me"}">${esc(m.text)}</div>`).join("")}</div>
+  ${chips}<div class="inputrow"><textarea id="din" rows="2" placeholder="ここに答えを書く"></textarea><button class="send" onclick="soloSend()">送る</button></div><div id="derr"></div>`;
+  if(!L.discovery.length)soloStart();
+}
+async function soloStart(){await soloAI([{role:"user",content:"こんにちは。妖怪を見つける対話を始めてください。"}])}
+async function soloChip(t){L.discovery.push({role:"user",text:t});render(true);await soloContinue()}
+async function soloSend(){const el=document.getElementById("din");const t=el.value.trim();if(!t)return;
+  L.discovery.push({role:"user",text:t});render(true);await soloContinue()}
+async function soloContinue(){
+  const msgs=[{role:"user",content:"こんにちは。妖怪を見つける対話を始めてください。"},
+    ...L.discovery.map(m=>({role:m.role==="assistant"?"assistant":"user",content:m.text}))];
+  await soloAI(msgs);
+}
+async function soloAI(msgs){
+  L.discovery.push({role:"assistant",text:"…(考え中)"});render(true);
+  try{
+    const text=await callClaudeTask("discovery",{messages:msgs});
+    L.discovery.pop();
+    let clean=text;
+    const m=text.match(/\{[^{}]*"yokai_name"[^{}]*\}/);
+    if(m){try{L.yokaiFound=JSON.parse(m[0]);clean=text.replace(m[0],"").trim();
+      L.me.yokai=L.yokaiFound;L.me.ready=true;await saveMe();}catch(e){}}
+    if(clean)L.discovery.push({role:"assistant",text:clean});
+    render(true);
+  }catch(e){L.discovery.pop();render(true);
+    const el=document.getElementById("derr");if(el)el.innerHTML='<p class="err">通信に失敗しました。もう一度どうぞ。</p>'}
+}
+
+/* ============ 2 命名(チーム型のみ) ============ */
+function renderNaming(){
+  const cands=L.room.candidates||[];
+  app.innerHTML=header("名を選ぶ","AIが描いた3体の候補。話しながら、しっくり来る名に票を灯してください。")
+  +cands.map((c,i)=>`
+    <div class="cand ${L.me.voteName===i?"mine":""}">
+      <div class="name">${esc(c.yokai_name)}</div>
+      <dl><dt>すがた</dt><dd>${esc(c.appearance)}</dd><dt>あらわれるとき</dt><dd>${esc(c.trigger)}</dd><dt>知らせ</dt><dd>${esc(c.message)}</dd></dl>
+      <div class="votechips">${votersOf(p=>p.voteName,i)}</div>
+      <button class="btn ghost" style="margin-top:10px" onclick="voteName(${i})">${L.me.voteName===i?"票を灯した":"この名に票を灯す"}</button>
+      ${L.isHost?`<button class="btn gold" style="margin-top:8px;padding:9px" onclick="confirmName(${i})">この名で確定する(進行役)</button>`:""}
+    </div>`).join("")
+  +`<p class="note">どれもしっくり来なければ、対話で出た言葉から自分たちで名付けても構いません。${L.isHost?"下の欄で直接確定できます。":""}</p>
+  ${L.isHost?`<div class="inputrow" style="margin-top:8px"><input type="text" id="freename" placeholder="自分たちで名付ける"><button class="send" onclick="freeName()">確定</button></div>`:""}`;
+}
+async function voteName(i){L.me.voteName=i;await saveMe();sync()}
+async function confirmName(i){const c=L.room.candidates[i];await saveRoom({yokai:c,phase:"type"});sync()}
+async function freeName(){
+  const t=document.getElementById("freename").value.trim();if(!t)return;
+  await saveRoom({yokai:{yokai_name:t,appearance:"",trigger:"",message:""},phase:"type"});sync();
+}
+
+/* ============ 3 対峙 ============ */
+function yokaiName(){return L.room.mode==="team"?(L.room.yokai&&L.room.yokai.yokai_name):(L.me.yokai&&L.me.yokai.yokai_name)}
+function renderTypePhase(){
+  app.innerHTML=header("対峙法を選ぶ",`「${esc(yokaiName()||"妖怪")}」とどう向き合うか。誰がどれを選んだか見えます。理由を話しながら。`)
+  +`<div class="ofuda-grid">${TYPES.map(t=>`
+    <div class="ofuda ${L.me.voteType===t.id?"mine":""}" style="--type-c:${t.color}" role="button" tabindex="0" onclick="voteType('${t.id}')">
+      <div class="tname">${t.name}</div><div class="ttag">${t.tagline}</div>
+      <div class="votechips" style="justify-content:center">${votersOf(p=>p.voteType,t.id)}</div>
+    </div>`).join("")}</div>
+  <p class="note">${L.room.mode==="team"?"進行役が「作法へ進む」を押すと、最多票の型で進みます。":"各自が自分の妖怪に合う型を選んでください。"}</p>`;
+}
+async function voteType(id){L.me.voteType=id;await saveMe();sync()}
+
+/* ============ 4 作法カード ============ */
+function myTypeId(){return L.room.mode==="team"?L.room.type:(L.me.voteType||"shieki")}
+function renderCardPhase(){
+  const tid=myTypeId();const T=TYPES.find(t=>t.id===tid);
+  const others=L.room.mode==="solo"
+    ?`<div class="card"><h2 style="font-size:16px">みんなの選択</h2><p style="font-size:13px;color:var(--mist)">${L.parts.map(p=>{
+        const pt=TYPES.find(t=>t.id===p.voteType);const pc=pt&&p.voteCard&&CARDS[pt.id].find(c=>c.id===p.voteCard);
+        return `${esc(p.name)}:${pt?pt.name:"—"}${pc?" /「"+pc.name+"」":""}`}).join("<br>")}</p></div>`:"";
+  app.innerHTML=header(`「${T.name}」の作法を選ぶ`,"カードを眺めながら話してください。「しっくりこない」も大事な声です。")
+  +CARDS[tid].map(c=>`
+    <div class="kcard ${L.me.voteCard===c.id?"mine":""}" style="--type-c:${T.color}">
+      <h3>${c.name}</h3><p>${c.d}</p><p class="ex">例:${c.ex}</p>
+      <div class="votechips">${L.room.mode==="team"?votersOf(p=>p.voteCard,c.id):""}</div>
+      <button class="btn ghost" style="margin-top:8px;padding:9px;color:var(--ink);border-color:#b8a880" onclick="voteCard('${c.id}')">${L.me.voteCard===c.id?"選択中":"この作法に票を灯す"}</button>
+    </div>`).join("")+others;
+}
+async function voteCard(id){L.me.voteCard=id;await saveMe();sync()}
+
+/* ============ 5 問答 ============ */
+function myCard(){
+  const tid=myTypeId();
+  const cid=L.room.mode==="team"?L.room.card:L.me.voteCard;
+  return CARDS[tid].find(c=>c.id===cid)||CARDS[tid][0];
+}
+function renderToiawase(){
+  const c=myCard();
+  const answers=L.parts.filter(p=>p.answer).map(p=>`<div class="sight"><div class="who">${esc(p.name)}</div>${esc(p.answer)}</div>`).join("");
+  const hostTools=(L.isHost&&L.room.mode==="team")?`
+    <div class="card" style="margin-top:14px"><h2 style="font-size:16px">運用の定め(進行役がまとめる)</h2>
+    <textarea id="sadame" rows="2" placeholder="みんなの答えから一文に">${esc(L.room.sadame||"")}</textarea>
+    <div style="display:flex;gap:8px;margin-top:8px">
+      <button class="btn ghost" style="flex:1" onclick="aiSadame()" ${L.busy?"disabled":""}>AIにまとめてもらう</button>
+      <button class="btn gold" style="flex:1" onclick="setSadame()">この定めで決定</button>
+    </div></div>`:"";
+  app.innerHTML=header(`問答 —「${esc(c.name)}」`,"立会人からの問いです。声で話してから、要点を一言ずつ盤面へ。")
+  +`<div class="cand"><div class="name" style="font-size:17px">問い</div><p style="margin-top:8px;font-family:var(--serif);font-size:16px">${esc(c.q)}</p></div>
+  <div class="inputrow"><textarea id="ain" rows="2" placeholder="あなたの答えを一言"></textarea><button class="send" onclick="sendAnswer()">提出</button></div>
+  <div style="margin-top:14px">${answers||'<p class="note">まだ答えはありません。</p>'}</div>
+  ${L.room.mode==="team"?`<p class="note">現在の定め:${esc(L.room.sadame||"未定")}</p>`:'<p class="note">各自の答えが、そのまま自分の契約書の「運用の定め」になります。</p>'}
+  ${hostTools}`;
+}
+async function sendAnswer(){
+  const el=document.getElementById("ain");const t=el.value.trim();if(!t)return;
+  L.me.answer=t;await saveMe();sync();
+}
+async function aiSadame(){
+  const ansArr=L.parts.filter(p=>p.answer).map(p=>p.name+":"+p.answer);
+  if(!ansArr.length)return alert("まだ答えがありません");
+  L.busy=true;render(true);
+  try{
+    const line=await callClaudeTask("sadame",{answers:ansArr});
+    L.room.sadame=line.trim().replace(/^[「"]|[」"]$/g,"");
+    await roomApi("saveRoom",{code:L.code,data:L.room});
+  }catch(e){alert("まとめに失敗しました")}
+  L.busy=false;sync();
+}
+async function setSadame(){
+  const t=document.getElementById("sadame").value.trim();
+  await saveRoom({sadame:t});sync();
+}
+
+/* ============ 6 動詞 ============ */
+function renderVerbsPhase(){
+  const cat=VERBS.find(v=>v.id===L.curTab);
+  const my=L.me.verbs||[];
+  const agg={};L.parts.forEach(p=>(p.verbs||[]).forEach(v=>{agg[v]=agg[v]||[];agg[v].push(p.name)}));
+  const aggHtml=Object.entries(agg).sort((a,b)=>b[1].length-a[1].length).map(([v,names])=>
+    `<div class="aggrow"><span class="aggverb">${esc(v)}</span><span class="votechips" style="margin:0">${names.map(n=>`<span class="vchip">${esc(n)}</span>`).join("")}</span></div>`).join("");
+  app.innerHTML=header("現場の動詞を選ぶ",`「${esc(yokaiName()||"妖怪")}が現れたら、私は◯◯する」。一人3つまで。盤面下に全員の選択が集まります。`)
+  +`<div class="tabs">${VERBS.map(v=>`<button class="tab ${v.id===L.curTab?"on":""}" style="--vc:${v.color}" onclick="switchTab('${v.id}')">${v.name}</button>`).join("")}</div>
+  <div class="verbgrid">${cat.verbs.map((v,i)=>`<button class="verb ${my.includes(v[0])?"sel":""}" onclick="toggleVerb('${cat.id}',${i})">${v[0]}</button>`).join("")}</div>
+  <div class="verbhint" id="vhint">動詞をタップすると意味が表示され、選択されます(${my.length}/3)。</div>
+  <div class="agg"><h2 style="font-size:16px">みんなの動詞</h2>${aggHtml||'<p class="note">まだ選択はありません。</p>'}</div>
+  ${L.room.mode==="team"?'<p class="note">進行役が「契約へ進む」と、票の多い動詞から3つが契約書に載ります。</p>':""}`;
+}
+function switchTab(id){L.curTab=id;render(true)}
+async function toggleVerb(catId,i){
+  const v=VERBS.find(c=>c.id===catId).verbs[i];
+  const my=L.me.verbs||[];
+  const idx=my.indexOf(v[0]);
+  if(idx>=0)my.splice(idx,1);else{if(my.length>=3)return;my.push(v[0])}
+  L.me.verbs=my;await saveMe();render(true);
+  const h=document.getElementById("vhint");if(h)h.textContent=`${v[0]} — ${v[1]}(${my.length}/3)`;
+  sync();
+}
+
+/* ============ 7 契約 ============ */
+function teamVerbs(){
+  const agg={};L.parts.forEach(p=>(p.verbs||[]).forEach(v=>agg[v]=(agg[v]||0)+1));
+  return Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,3).map(e=>e[0]);
+}
+function buildContract(tid,y,cName,verbs,u,sadame){
+  const tpl=TEMPLATES[tid];const today=new Date();
+  const date=`${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`;
+  const body=tpl.lines.filter(l=>!(l.includes("{p}")&&!sadame))
+    .map(l=>l.replace(/\{y\}/g,y).replace(/\{c\}/g,cName).replace(/\{v\}/g,verbs.join("、")).replace(/\{u\}/g,u||"____").replace(/\{p\}/g,sadame||""))
+    .join("\n\n")+`\n\n${date}\n${tpl.role} ${u||"____"}\n見届け 妖怪ピースラボ`;
+  return{title:tpl.title,body};
+}
+function renderContractPhase(){
+  if(L.room.mode==="team"){
+    const verbs=teamVerbs();
+    const c=buildContract(L.room.type,L.room.yokai.yokai_name,myCard().name,verbs,L.room.teamName,L.room.sadame);
+    const nameOK=!!(L.room.teamName&&L.room.teamName.trim());
+    app.innerHTML=header("チームの契約","一枚の契約を全員で見届けます。")
+    +(L.isHost?`<div class="inputrow" style="margin-bottom:14px"><input type="text" id="tname" placeholder="チームの名前" value="${esc(L.room.teamName||"")}"><button class="send" onclick="setTeamName()">記名</button></div>`:"")
+    +`<div class="contract"><div class="ctitle">${c.title}</div><div class="cbody">${esc(c.body)}</div><div class="stamp ${nameOK?"on":""}">約</div></div>
+    ${L.isHost&&nameOK?`<button class="btn" style="margin-top:16px" onclick="postTeamEma()">絵馬掛所に奉納する</button>`:""}
+    <p class="note">${nameOK?"奉納すると絵馬掛所に飾られます。":"進行役がチーム名を記名すると印が押されます。"}</p>`;
+  }else{
+    const tid=myTypeId();
+    const c=buildContract(tid,(L.me.yokai&&L.me.yokai.yokai_name)||"名無し",myCard().name,L.me.verbs||[],L.name,L.me.answer);
+    app.innerHTML=header("各自の契約","自分の契約書です。奉納すると絵馬掛所で見せ合えます。")
+    +`<div class="contract"><div class="ctitle">${c.title}</div><div class="cbody">${esc(c.body)}</div><div class="stamp on">約</div></div>
+    <button class="btn" style="margin-top:16px" onclick="postSoloEma()" ${L.me.posted?"disabled":""}>${L.me.posted?"奉納済み":"絵馬掛所に奉納する"}</button>`;
+  }
+}
+async function setTeamName(){await saveRoom({teamName:document.getElementById("tname").value.trim()});sync()}
+async function postTeamEma(){
+  const e={id:Date.now()+"",yokai:L.room.yokai.yokai_name,by:L.room.teamName,type:TYPES.find(t=>t.id===L.room.type).name,
+    card:myCard().name,verbs:teamVerbs(),practice:L.room.sadame||"",date:new Date().toISOString().slice(0,10),reactions:0};
+  try{await roomApi("postEma",{room_code:L.code,ema:e});}catch(err){alert("奉納に失敗しました。もう一度お試しください。");return}
+  await saveRoom({phase:"ema"});sync();
+}
+async function postSoloEma(){
+  const e={id:Date.now()+"-"+L.pid,yokai:L.me.yokai.yokai_name,by:L.name,type:TYPES.find(t=>t.id===myTypeId()).name,
+    card:myCard().name,verbs:L.me.verbs||[],practice:L.me.answer||"",date:new Date().toISOString().slice(0,10),reactions:0};
+  try{await roomApi("postEma",{room_code:L.code,ema:e});}catch(err){alert("奉納に失敗しました。もう一度お試しください。");return}
+  L.me.posted=true;await saveMe();sync();
+}
+
+/* ============ 8 絵馬掛所 ============ */
+async function renderEma(){
+  app.innerHTML=header("絵馬掛所","この部屋で結ばれた契約たち。「うちにもいる!」で共感を灯せます。")
+  +`<div id="emalist"><p class="note">読み込み中…</p></div>`;
+  let emas=[];
+  try{const res=await roomApi("listEmas",{room_code:L.code});emas=(res&&res.emas)||[];}catch(e){}
+  const list=document.getElementById("emalist");if(!list)return;
+  list.innerHTML=emas.length?emas.map(e=>`
+    <div class="ema"><div class="ename">${esc(e.yokai)}</div>
+    <div class="emeta">${esc(e.by)} / ${esc(e.type)} /「${esc(e.card)}」/ ${esc(e.date)}</div>
+    <div class="ebody">現れたら:${(e.verbs||[]).map(esc).join("、")}${e.practice?`<br>定め:${esc(e.practice)}`:""}</div>
+    <button class="react" onclick="reactEma('${e.id}')">うちにもいる! ${e.reactions||0}</button></div>`).join("")
+   :'<p class="note">まだ絵馬はありません。</p>';
+}
+async function reactEma(id){
+  try{await roomApi("react",{id});renderEma();}catch(e){}
+}
+
+render(true);
+</script>
+</body>
+</html>

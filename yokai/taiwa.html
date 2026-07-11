@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>妖怪と式神 — 対話の間</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#14172B; --panel:#1E2240; --panel-2:#262B4E;
+  --washi:#F3EBD8; --washi-2:#EAE0C6; --ink:#2B2620;
+  --shu:#C43C2A; --kin:#C9A227; --mist:#A9AEC9; --line:#3A4066;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --goth:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--night);color:var(--washi);font-family:var(--goth);line-height:1.75;min-height:100vh;
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,#232852 0%,transparent 60%);}
+.wrap{max-width:640px;margin:0 auto;padding:20px 16px 80px}
+.eyebrow{font-size:11px;letter-spacing:.35em;color:var(--kin);text-transform:uppercase;margin-bottom:8px}
+h1{font-family:var(--serif);font-weight:800;font-size:34px;letter-spacing:.12em;line-height:1.4}
+h2{font-family:var(--serif);font-weight:700;font-size:21px;letter-spacing:.08em;margin-bottom:6px}
+.sub{color:var(--mist);font-size:14px;margin-top:10px}
+.step-nav{display:flex;gap:6px;margin:18px 0 26px;flex-wrap:wrap}
+.step-dot{font-size:11px;letter-spacing:.12em;color:var(--mist);padding:4px 10px;border:1px solid var(--line);border-radius:999px;opacity:.55}
+.step-dot.on{color:var(--kin);border-color:var(--kin);opacity:1}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+button{font-family:var(--goth);cursor:pointer;border:none;border-radius:10px;font-size:15px}
+.btn{background:var(--shu);color:#FFF7EC;padding:13px 22px;font-weight:700;letter-spacing:.08em;width:100%;transition:transform .15s}
+.btn:active{transform:scale(.98)}
+.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--mist);font-weight:500}
+.btn:disabled{opacity:.4;cursor:default}
+.hidden{display:none!important}
+/* chat */
+.chat{display:flex;flex-direction:column;gap:12px;margin-bottom:14px}
+.msg{max-width:86%;padding:12px 15px;border-radius:14px;font-size:15px;white-space:pre-wrap}
+.msg.ai{background:var(--panel);border:1px solid var(--line);align-self:flex-start;border-top-left-radius:4px}
+.msg.me{background:#3B3020;border:1px solid #5a4a2c;align-self:flex-end;border-top-right-radius:4px}
+.msg.thinking{color:var(--mist);font-style:italic}
+.inputrow{display:flex;gap:8px}
+textarea,input[type=text]{flex:1;background:var(--panel-2);border:1px solid var(--line);border-radius:10px;color:var(--washi);
+  font-family:var(--goth);font-size:15px;padding:12px;resize:none;outline:none}
+textarea:focus,input:focus{border-color:var(--kin)}
+.send{background:var(--kin);color:var(--ink);font-weight:700;padding:0 18px;border-radius:10px}
+/* yokai summary */
+.yokai-found{background:linear-gradient(160deg,var(--panel-2),var(--panel));border:1px solid var(--kin);border-radius:14px;padding:20px;text-align:center}
+.yokai-found .name{font-family:var(--serif);font-size:26px;color:var(--kin);letter-spacing:.15em;margin:6px 0}
+.yokai-found dl{text-align:left;margin-top:14px;font-size:14px}
+.yokai-found dt{color:var(--mist);font-size:11px;letter-spacing:.2em;margin-top:10px}
+/* ofuda type cards */
+.ofuda-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ofuda{background:var(--washi);color:var(--ink);border-radius:6px 6px 12px 12px;padding:16px 12px 14px;text-align:center;
+  border-top:6px solid var(--type-c,var(--shu));position:relative;transition:transform .15s;box-shadow:0 3px 14px rgba(0,0,0,.35)}
+.ofuda:active{transform:scale(.97)}
+.ofuda .tname{font-family:var(--serif);font-size:22px;font-weight:800;letter-spacing:.3em;writing-mode:vertical-rl;margin:0 auto;height:84px}
+.ofuda .ttag{font-size:12px;margin-top:8px;line-height:1.6}
+.ofuda .torigin{font-size:10px;color:#7a6f5c;margin-top:6px}
+/* kakawari cards */
+.kcard{background:var(--washi);color:var(--ink);border-radius:12px;padding:16px;margin-bottom:12px;border-left:6px solid var(--type-c,var(--shu));box-shadow:0 3px 14px rgba(0,0,0,.3)}
+.kcard h3{font-family:var(--serif);font-size:18px;letter-spacing:.1em}
+.kcard p{font-size:13px;margin-top:6px}
+.kcard .ex{font-size:12px;color:#6d6353;margin-top:8px;padding-top:8px;border-top:1px dashed #cfc3a6}
+.kcard .pick{margin-top:12px;background:var(--ink);color:var(--washi);padding:9px 16px;border-radius:8px;font-size:13px;width:auto}
+/* verbs */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:12px}
+.tab{flex:none;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--mist);font-size:13px}
+.tab.on{background:var(--vc,var(--kin));color:var(--ink);border-color:transparent;font-weight:700}
+.verbgrid{display:flex;flex-wrap:wrap;gap:8px}
+.verb{padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--washi);font-size:14px}
+.verb.sel{background:var(--kin);color:var(--ink);border-color:var(--kin);font-weight:700}
+.verbhint{font-size:12px;color:var(--mist);min-height:2.6em;margin-top:10px;padding:8px 10px;background:var(--panel-2);border-radius:8px}
+.selcount{font-size:12px;color:var(--kin);margin:10px 0}
+/* contract */
+.contract{background:var(--washi);color:var(--ink);border-radius:4px;padding:28px 22px;position:relative;box-shadow:0 6px 26px rgba(0,0,0,.5);
+  background-image:repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(120,100,60,.08) 31px,rgba(120,100,60,.08) 32px)}
+.contract .ctitle{font-family:var(--serif);font-weight:800;font-size:24px;letter-spacing:.4em;text-align:center;margin-bottom:18px;
+  border-bottom:2px solid var(--ink);padding-bottom:10px}
+.contract .cbody{font-family:var(--serif);font-size:14.5px;line-height:2.1;white-space:pre-wrap}
+.stamp{position:absolute;right:18px;bottom:18px;width:64px;height:64px;border:3px solid var(--shu);border-radius:8px;color:var(--shu);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:26px;font-weight:800;transform:rotate(-8deg);
+  opacity:0;letter-spacing:0}
+.stamp.on{animation:stamp .5s ease-out forwards}
+@keyframes stamp{0%{opacity:0;transform:rotate(-8deg) scale(2.2)}70%{opacity:1;transform:rotate(-8deg) scale(.94)}100%{opacity:.88;transform:rotate(-8deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.stamp.on{animation:none;opacity:.88}.btn:active,.ofuda:active{transform:none}}
+/* ema board */
+.ema{background:var(--washi);color:var(--ink);border-radius:8px 8px 14px 14px;padding:14px 16px;margin-bottom:12px;
+  border-top:8px solid #8a6b3f;box-shadow:0 3px 12px rgba(0,0,0,.35)}
+.ema .ename{font-family:var(--serif);font-weight:800;font-size:17px;letter-spacing:.1em}
+.ema .emeta{font-size:11px;color:#7a6f5c;margin-top:2px}
+.ema .ebody{font-size:13px;margin-top:8px}
+.ema .react{margin-top:10px;background:transparent;border:1px solid #b8a880;color:#6d5c3a;border-radius:999px;padding:6px 14px;font-size:12px}
+.note{font-size:12px;color:var(--mist);margin-top:12px}
+.err{color:#E58B7D;font-size:13px;margin-top:8px}
+:focus-visible{outline:2px solid var(--kin);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="step-nav" id="stepnav"></div>
+  <div id="app"></div>
+</div>
+
+<script>
+/* ===================== データ ===================== */
+const TYPES=[
+ {id:"matsuru",name:"祀る",tagline:"排除せず、存在意義を認めて味方にする",color:"#B1493F",origin:"御霊信仰・祀られる河童"},
+ {id:"shieki",name:"使役",tagline:"契約を結び、その力を働かせる",color:"#3F5FB1",origin:"陰陽師の式神・十二神将"},
+ {id:"sumiwake",name:"住み分け",tagline:"領分を認め、境界線を引いて共に在る",color:"#4F8A5B",origin:"百鬼夜行・逢魔が時"},
+ {id:"goraku",name:"娯楽化",tagline:"笑いとキャラの力で、ほどよい距離を取る",color:"#C9873B",origin:"石燕・黄表紙・水木しげる"}
+];
+const CARDS={
+ matsuru:[
+  {id:"m1",name:"守り神に任じる",d:"その妖怪が守ろうとしているものを見極め、守護役として正式に祀る。",ex:"心配性の妖怪を「チームの安全の守り神」に任命する。",q:"この妖怪は、あなたの何を守ろうとして現れているのでしょう?"},
+  {id:"m2",name:"社を建てる",d:"妖怪の定位置(ノート、チャンネル、棚)を用意し、居場所を与える。",ex:"モヤモヤ専用ノートを一冊作り、そこにだけ棲んでもらう。",q:"この妖怪の社(定位置)は、どこに建てるのが良さそうですか?"},
+  {id:"m3",name:"お供えを決める",d:"定期的なケアの習慣を「お供え」として決め、関係を保つ。",ex:"週に一度、金曜の夕方に10分だけ不安の棚卸しをする。",q:"どんなお供え(習慣)なら、無理なく続けられそうですか?"},
+  {id:"m4",name:"縁起を書く",d:"その妖怪がいつ、なぜ生まれたのか、由来を物語として書き残す。",ex:"「この妖怪は、新人時代の大きな失敗の日に生まれた」と縁起書に記す。",q:"この妖怪が生まれた日のことを、覚えていますか?"},
+  {id:"m5",name:"例大祭を開く",d:"月に一度、この妖怪のおかげで防げたこと・気づけたことを数えて感謝する。",ex:"月末に「今月この妖怪が知らせてくれたリスク」を3つ挙げる。",q:"この妖怪に感謝できることが、一つでもあるとしたら何でしょう?"}],
+ shieki:[
+  {id:"s1",name:"見張り番にする",d:"妖怪の出現そのものを早期警報として使う。出たら知らせてもらう契約。",ex:"イライラ妖怪が出たら「疲労が限界に近い」のサインと定める。",q:"この妖怪が現れるとき、実は何の前兆になっていますか?"},
+  {id:"s2",name:"代弁者にする",d:"自分では言いにくいことを、妖怪の口から言わせる。",ex:"「私の慎重妖怪が、この計画に不安があると申しております」と会議で言う。",q:"この妖怪に代わりに言ってもらえたら楽になる一言は、何ですか?"},
+  {id:"s3",name:"力を転用する",d:"妖怪のエネルギーの向き先を変えて、別の仕事に振り向ける。",ex:"完璧主義妖怪には、最終稿の誤字チェックだけを任せる。",q:"この妖怪の力は、どこで使えば一番役に立ちそうですか?"},
+  {id:"s4",name:"期間限定で雇う",d:"出てよい期間・場面を区切った条件付き契約を結ぶ。",ex:"締切前の三日間だけ、焦り妖怪をブースター役として雇う。",q:"いつ・どの場面でなら、この妖怪に働いてもらってもいいですか?"},
+  {id:"s5",name:"指南役にする",d:"妖怪を師と仰ぎ、なぜ現れるのかを教わる。学びの源として契約する。",ex:"嫉妬妖怪が出るたび「自分が本当に欲しいもの」を一つ教わる。",q:"この妖怪から学べることがあるとしたら、それは何でしょう?"}],
+ sumiwake:[
+  {id:"w1",name:"領地を定める",d:"妖怪が出てよい場所と、立ち入り禁止の場所を決める。",ex:"仕事の妖怪は書斎まで。寝室と食卓には入れない。",q:"この妖怪に、絶対に入ってほしくない場所はどこですか?"},
+  {id:"w2",name:"刻限を決める",d:"妖怪が出てよい時間帯を定める。逢魔が時方式。",ex:"心配ごとの受付は朝の通勤時間のみ。22時以降は門限。",q:"この妖怪と会ってもいい時間帯は、いつなら許せますか?"},
+  {id:"w3",name:"通り道を譲る",d:"現れても反応せず、通り過ぎるのをただ見送る。百鬼夜行の作法。",ex:"自己否定の声が湧いたら、追わず、掴まず、行列が過ぎるのを待つ。",q:"この妖怪を「見送る」とき、あなたは何をして待ちますか?"},
+  {id:"w4",name:"関所を設ける",d:"妖怪の言い分に通行手形(根拠)を求めるチェックポイントを置く。",ex:"「みんなに嫌われた」説には、証拠を三つ持ってこないと通さない。",q:"この妖怪の言い分を通す前に、何を確かめたいですか?"},
+  {id:"w5",name:"季節を認める",d:"出やすい時期を暦に書き込み、あらかじめ備える。",ex:"年度末は多忙妖怪の繁殖期。3月は予定を2割減らしておく。",q:"この妖怪がよく出る季節・時期は、いつですか?"}],
+ goraku:[
+  {id:"g1",name:"キャラを立てる",d:"名前に加えて、見た目・口癖・好物まで設定してキャラクター化する。",ex:"先延ばし妖怪「アトデール」。口癖は「明日の自分は超人」。",q:"この妖怪の口癖と好物を決めるなら、何にしますか?"},
+  {id:"g2",name:"絵に描く",d:"妖怪の姿を描いて図鑑に登録する。描けた時点で外在化は完了。",ex:"会議で固まる緊張妖怪を、ガチガチの鎧を着た小鬼として描く。",q:"この妖怪、どんな姿をしていそうですか?"},
+  {id:"g3",name:"語り草にする",d:"失敗談を持ちネタ・昔話の型に仕立てて、人に話せる形にする。",ex:"大失敗の日を「むかしむかし」の型で語り直す。",q:"この妖怪との一番の事件を、笑い話にするならどこから話しますか?"},
+  {id:"g4",name:"番付を作る",d:"自分の妖怪たちを相撲番付風にランキング化して、一覧で眺める。",ex:"東の横綱・締切妖怪、西の横綱・比較妖怪。",q:"あなたの妖怪番付、今の横綱は誰ですか?"},
+  {id:"g5",name:"着ぐるみを着せる",d:"妖怪の深刻な言葉を、ゆるい口調に吹き替えて聞く。",ex:"「お前は駄目だ」を、ゆるキャラ声で「だめかも〜」に吹き替える。",q:"この妖怪の声を吹き替えるなら、どんな口調にしますか?"}]
+};
+const VERBS=[
+ {id:"kizuku",name:"気づく系",color:"#7B9E89",verbs:[["名を呼ぶ","「あ、◯◯が出た」と心の中で名指しする"],["深呼吸する","3秒吸って6秒吐く。まず体から"],["数を数える","10数える間、妖怪に発言権を与えない"],["メモする","出現日時と状況を記録。妖怪観察日誌"],["立ち止まる","何もしない。それも立派な初動"],["席を立つ","物理的に場を離れて仕切り直す"],["水を飲む","一口の間が、妖怪との距離になる"],["空を見る","視線を上げると思考の縮尺が変わる"],["体に聞く","肩・胃・喉。妖怪はどこに居座っている?"],["実況する","「今、焦り妖怪が騒いでいる」と中継する"],["観察する","退治せず、まず生態を眺める"],["気配を記す","出そうな予兆をあらかじめリスト化しておく"],["合図を決める","出現時のセルフサイン(ペンを置く等)を決める"],["鏡を見る","今の自分の顔を確認する。憑かれていないか"],["印を結ぶ","指を組む・手を握るなど身体のスイッチを作る"],["点呼を取る","今日出た妖怪を夜に数え上げる"],["天気をつける","心の空模様として記録する(曇り時々小豆洗い)"],["足を感じる","地面との接点に意識を戻す"]]},
+ {id:"taiwa",name:"対話系",color:"#5B7DB1",verbs:[["問い返す","「本当にそうか?」と妖怪に一問返す"],["聞き切る","遮らず最後まで。妖怪の言い分にも筋がある"],["言い換える","「失敗」を「実験結果」に。言葉の衣替え"],["代弁させる","言いにくい本音を妖怪の口から言わせる"],["翻訳する","怒りの下の願いを訳す"],["復唱する","相手の言葉をそのまま返し、確かめる"],["沈黙する","間を怖がらない。沈黙は結界になる"],["尋ねる","「何しに来た?」と用件を聞く"],["確かめる","事実と解釈を仕分けてから動く"],["打ち明ける","「実は今、不安妖怪が出ていて」と場に出す"],["交渉する","「今日は10分だけな」と条件を出す"],["礼を言う","知らせてくれたことにまず感謝する"],["聞き役に回る","自分の妖怪を黙らせ、相手の話に席を譲る"],["名乗らせる","「お前は誰だ」。正体を言わせれば半分勝ち"],["宿題を出す","「根拠を三つ持ってこい」と妖怪に課す"],["口上を述べる","決めゼリフを用意しておく"],["書き置きする","言えなかったことを文字にして残す"],["仲裁を頼む","妖怪同士の喧嘩に行司を立てる"]]},
+ {id:"tenkan",name:"転換系",color:"#C98A4B",verbs:[["任せる","心配性妖怪にはリスク点検係を任命"],["振り向ける","騒ぐ力を、締切前の推進力に転用する"],["遊ばせる","深刻な話を一度ゲームの形式に移す"],["描かせる","妖怪の姿を絵にする。描けたら外在化完了"],["笑う","「またお前か」と吹き出す。笑いは最強の御札"],["書き出す","頭の中の騒ぎを紙に全部移す"],["物語る","今日の出来事を昔話の型で語り直す"],["歌にする","愚痴に節をつける。妖怪音頭"],["走らせる","体を動かして妖怪のエネルギーを燃やす"],["掃除させる","モヤモヤした時ほど机が片付く仕組みに"],["献上する","完璧主義妖怪には最終チェックを捧げる"],["変換する","「〜すべき」を「〜してみたい」に置き換える"],["採用する","妖怪の指摘のうち使える一点だけ採る"],["実験にする","不安の中身を検証可能な問いに変える"],["キャラ化する","名前・口癖・好物を設定してゆるキャラに"],["配置換えする","会議で騒ぐ妖怪を壁打ち役に異動"],["燃料にする","悔しさをタンクに入れて次の挑戦で使う"],["弟子入りする","妖怪が何を教えに来たのか、学ぶ側に回る"]]},
+ {id:"kyokai",name:"境界系",color:"#8C6BAE",verbs:[["待たせる","「後で聞く」と控室に案内する"],["日を改める","返事は明日の自分に任せる"],["時間を区切る","「悩むのは15分だけ」とタイマーを置く"],["場所を移す","この会議室には入れない、と場を変える"],["見送る","湧いた考えを追いかけず、通過を見送る"],["断る","短く、理由は一つだけ添えて"],["締め切る","「ここまで」と自分で終わりを宣言する"],["結界を張る","通知オフ・扉を閉める・イヤホンをする"],["持ち帰らない","職場の妖怪は職場の下駄箱に預けて帰る"],["予約させる","「心配は日曜の朝10時に受付」とアポ制に"],["定員を決める","同時に相手する妖怪は一体まで"],["領分を認める","夜中に出るのは仕方ない。ただし朝は帰す"],["門限を敷く","22時以降、妖怪の話は聞かない"],["棚上げする","今決めなくていいことは、名前を付けて棚へ"],["一晩寝かせる","送信ボタンは翌朝の自分に押させる"],["線を引き直す","引き受けすぎた範囲を改めて測量する"],["留守にする","妖怪が来る時間帯にあえて予定を入れる"],["封をする","書き出した紙を封筒に入れて物理的に閉じる"]]},
+ {id:"engun",name:"援軍系",color:"#B15B5B",verbs:[["相談する","妖怪の名前ごと話すと相談しやすい"],["開示する","「私、この妖怪持ちなんです」と先に言う"],["預ける","判断を一つ、信頼できる人に丸ごと渡す"],["共に祀る","チームで同じ妖怪を祀れば文化になる"],["頼る","頼ることは、相手への信頼の表明でもある"],["証人を立てる","契約を誰かに宣言して見届けてもらう"],["紹介する","同じ妖怪持ちの先輩に引き合わせてもらう"],["借りる","他人の視点・言葉・型を遠慮なく借りる"],["見守ってもらう","解決はいらない、ただ隣にいてもらう"],["合言葉を作る","「出たかも」で察してもらえる符丁を決める"],["同盟を組む","互いの妖怪出現時に声をかけ合う協定"],["託宣を仰ぐ","尊敬する人なら何と言うか、を想像して聞く"],["回覧する","自分の契約書をチームに見せて感想をもらう"],["餅をまく","小さな成功を周囲に配って祝ってもらう"],["宿を借りる","行き詰まったら場所ごと人の懐に移る"],["太鼓を頼む","背中を押す一言をあらかじめ頼んでおく"],["寄合を開く","妖怪話を持ち寄る雑談の場を定例化する"],["手を挙げる","「助けて」の一言。最短で最強の呪文"]]}
+];
+const TEMPLATES={
+ matsuru:{title:"祀り状",lines:["一、ここに{y}を「{c}」の作法により祀り、その働きに敬意を表する。","一、{y}が現れしときは、{u}は「{v}」をもってこれを迎える。","一、運用の定め:{p}","一、{y}の由来と功徳を忘れず、粗末に扱わないこと。"]},
+ shieki:{title:"式神契約書",lines:["一、{y}は本日より{u}の式神として、「{c}」の役目を務めること。","一、{y}が現れしときは、{u}は「{v}」をもって応じ、みだりに争わないこと。","一、運用の定め:{p}","一、本契約は双方の益のために結ばれ、いつでも話し合いにより改められる。"]},
+ sumiwake:{title:"取り決め証文",lines:["一、{y}と{u}は、「{c}」の作法により互いの領分を定める。","一、{y}が領分を越えて現れしときは、{u}は「{v}」をもって静かに境を示す。","一、運用の定め:{p}","一、互いの領分を侵さぬ限り、この世に共に在ることを認め合う。"]},
+ goraku:{title:"妖怪図鑑 登録証",lines:["一、{y}を「{c}」の作法により、当家の妖怪図鑑に正式登録する。","一、{y}が現れしときは、{u}は「{v}」をもってこれと遊ぶ。","一、運用の定め:{p}","一、恐れるべからず、侮るべからず。笑いをもって良き隣人とすること。"]}
+};
+const DISCOVERY_PROMPT=`あなたは「妖怪と式神ワークショップ」の聞き手です。参加者との対話を通じて、その人の中にいる「妖怪」(繰り返し現れる思考・感情・行動のパターン)を見つけ、名付ける手伝いをします。
+
+進め方:
+1. 最初の問いは必ず具体例を添えて尋ねる。例:「あなた自身や職場に、繰り返し現れる"怪奇"やよろしくない行動・空気はありますか?たとえば、会議で本音が出ない、つい先延ばししてしまう、頼まれると断れない——そんな心当たりから聞かせてください」
+2. その瞬間の身体感覚・頭に浮かんだ言葉を聞く
+3. 「それはいつ・どんな条件で現れますか?」と出現パターンを探る
+4. 十分に輪郭が見えたら「それを一体の妖怪だとしたら、どんな姿でしょう?」と外在化を促す
+5. 名前の候補を2〜3案提示し、参加者自身に選ばせるか、自分で名付けてもらう
+
+作法:
+- 質問は一度に一つだけ。短く、温かく。3文以内
+- 診断・分析はしない。本人の言葉を大切にし、本人が名付けることを最優先する
+- 妖怪は敵ではなく「何かを知らせに来た存在」として扱う
+- 深刻になりすぎたら、少し軽やかさを取り戻す
+- 5〜7往復を目安に、命名まで導く
+
+命名が確定したら、返答の最後に必ず次のJSONだけを1行で出力する:
+{"yokai_name":"妖怪名","appearance":"姿の描写(30字以内)","trigger":"出現条件(30字以内)","message":"この妖怪が知らせに来ていること(40字以内)"}`;
+
+/* ===================== 状態 ===================== */
+const S={step:"intro",yokai:null,type:null,card:null,discovery:[],dialogue:[],dialogueTurns:0,practice:"",verbs:[],userName:""};
+const STEPS=[["intro","はじまり"],["discover","発見"],["type","対峙"],["card","作法"],["dialogue","問答"],["verbs","動詞"],["contract","契約"],["board","絵馬掛所"]];
+const app=document.getElementById("app");
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function nav(){
+  document.getElementById("stepnav").innerHTML=STEPS.map(([id,label])=>
+    `<span class="step-dot ${S.step===id?"on":""}">${label}</span>`).join("");
+}
+function go(step){S.step=step;nav();render()}
+
+/* ===================== API(本番: kizukikumitate の Vercel 経由) ===================== */
+/* アーティファクトの api.anthropic.com 直呼び & window.storage は本番では動かないため、
+   Claude は /api/yokai-claude、共有ストア(絵馬)は /api/yokai-room に中継する。 */
+const API_BASE="https://democracy-fitness-survey.vercel.app";
+async function callClaudeTask(task,payload){
+  const r=await fetch(API_BASE+"/api/yokai-claude",{method:"POST",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({task,...payload})});
+  if(!r.ok)throw new Error("claude "+r.status);
+  const d=await r.json();return d.text||"";
+}
+async function roomApi(action,payload){
+  const r=await fetch(API_BASE+"/api/yokai-room",{method:"POST",
+    headers:{"Content-Type":"application/json"},body:JSON.stringify({action,...payload})});
+  if(!r.ok)throw new Error("room "+r.status);
+  return r.json();
+}
+
+/* ===================== 画面 ===================== */
+function render(){
+  if(S.step==="intro")renderIntro();
+  else if(S.step==="discover")renderDiscover();
+  else if(S.step==="type")renderType();
+  else if(S.step==="card")renderCard();
+  else if(S.step==="dialogue")renderDialogue();
+  else if(S.step==="verbs")renderVerbs();
+  else if(S.step==="contract")renderContract();
+  else if(S.step==="board")renderBoard();
+}
+
+function renderIntro(){
+  app.innerHTML=`
+  <div class="eyebrow">Yokai Peace Lab</div>
+  <h1>妖怪と式神</h1>
+  <p class="sub">あなたの中に棲む妖怪を見つけ、名付け、関わり方を選び、契約を結ぶ。日本の妖怪文化に伝わる「排除ではなく、関係の結び直し」の知恵をたどる、ひとりでできる対話の儀式です。所要20〜30分。</p>
+  <div class="card" style="margin-top:22px">
+    <h2>道行き</h2>
+    <p style="font-size:14px;color:var(--mist)">発見 → 対峙法を選ぶ → 関わり方の作法 → 問答 → 動詞を選ぶ → 契約書 → 絵馬掛所に奉納</p>
+  </div>
+  <button class="btn" onclick="startDiscovery()">対話をはじめる</button>
+  <button class="btn ghost" style="margin-top:10px" onclick="go('board')">絵馬掛所を眺める</button>
+  <p class="note">※ 絵馬掛所に奉納した契約書は、他の参加者にも表示されます。</p>`;
+}
+
+/* ---- 発見対話 ---- */
+async function startDiscovery(){
+  S.discovery=[];S.yokai=null;go("discover");
+  const msgs=[{role:"user",content:"こんにちは。妖怪を見つける対話を始めてください。"}];
+  await aiTurn(S.discovery,()=>callClaudeTask("discovery",{messages:msgs}),true);
+}
+function renderDiscover(){
+  const chat=S.discovery.map(m=>`<div class="msg ${m.role==="assistant"?"ai":"me"}">${esc(m.text)}</div>`).join("");
+  const found=S.yokai?`
+    <div class="yokai-found">
+      <div class="eyebrow">発見</div>
+      <div class="name">${esc(S.yokai.yokai_name)}</div>
+      <dl>
+        <dt>すがた</dt><dd>${esc(S.yokai.appearance||"")}</dd>
+        <dt>あらわれるとき</dt><dd>${esc(S.yokai.trigger||"")}</dd>
+        <dt>知らせに来ていること</dt><dd>${esc(S.yokai.message||"")}</dd>
+      </dl>
+      <button class="btn" style="margin-top:16px" onclick="go('type')">この妖怪と対峙する</button>
+    </div>`:"";
+  const noUserYet=!S.discovery.some(m=>m.role==="user");
+  const chips=(noUserYet&&!S.yokai&&S.discovery.length)?`
+    <div class="verbgrid" style="margin-bottom:12px">${[
+      "会議で本音が出ない","つい先延ばししてしまう","頼まれると断れない",
+      "細かいことが気になって進まない","「どうせ変わらない」空気がある","誰かと比べて落ち込む"
+    ].map(c=>`<button class="verb" onclick="chipAnswer('${c}')">${c}</button>`).join("")}</div>
+    <p class="note" style="margin:0 0 10px">近いものをタップするか、自分の言葉で書いてください。</p>`:"";
+  const input=S.yokai?"":`${chips}
+    <div class="inputrow">
+      <textarea id="din" rows="2" placeholder="ここに答えを書く"></textarea>
+      <button class="send" onclick="sendDiscovery()">送る</button>
+    </div>`;
+  app.innerHTML=`<h2>妖怪を見つける</h2><p class="sub" style="margin-bottom:16px">聞き手との対話です。思いつくままで大丈夫。</p>
+    <div class="chat" id="chatbox">${chat}</div>${found}${input}<div id="derr"></div>`;
+  const box=document.getElementById("chatbox");if(box)window.scrollTo(0,document.body.scrollHeight);
+}
+async function chipAnswer(t){
+  S.discovery.push({role:"user",text:t});renderDiscover();
+  const msgs=[{role:"user",content:"こんにちは。妖怪を見つける対話を始めてください。"},
+    ...S.discovery.map(m=>({role:m.role==="assistant"?"assistant":"user",content:m.text}))];
+  await aiTurn(S.discovery,()=>callClaudeTask("discovery",{messages:msgs}),true);
+}
+async function sendDiscovery(){
+  const el=document.getElementById("din");const t=el.value.trim();if(!t)return;
+  S.discovery.push({role:"user",text:t});renderDiscover();
+  const msgs=[{role:"user",content:"こんにちは。妖怪を見つける対話を始めてください。"},
+    ...S.discovery.map(m=>({role:m.role==="assistant"?"assistant":"user",content:m.text}))];
+  await aiTurn(S.discovery,()=>callClaudeTask("discovery",{messages:msgs}),true);
+}
+async function aiTurn(log,produce,checkJson){
+  log.push({role:"assistant",text:"…(考え中)",thinking:true});render();
+  try{
+    const text=await produce();
+    log.pop();
+    let clean=text;
+    if(checkJson){
+      const m=text.match(/\{[^{}]*"yokai_name"[^{}]*\}/);
+      if(m){try{S.yokai=JSON.parse(m[0]);clean=text.replace(m[0],"").trim();}catch(e){}}
+    }
+    if(clean)log.push({role:"assistant",text:clean});
+    render();
+  }catch(e){
+    log.pop();render();
+    const errEl=document.getElementById("derr")||document.getElementById("qerr");
+    if(errEl)errEl.innerHTML=`<p class="err">通信に失敗しました。もう一度送ってください。</p>`;
+  }
+}
+
+/* ---- 対峙法 ---- */
+function renderType(){
+  app.innerHTML=`<h2>対峙法を選ぶ</h2>
+  <p class="sub" style="margin-bottom:16px">日本の妖怪文化は「排除」ではなく「関係の結び直し」。<b style="color:var(--kin)">${esc(S.yokai.yokai_name)}</b>と、どう向き合いますか。</p>
+  <div class="ofuda-grid">${TYPES.map(t=>`
+    <div class="ofuda" style="--type-c:${t.color}" role="button" tabindex="0" onclick="pickType('${t.id}')" onkeydown="if(event.key==='Enter')pickType('${t.id}')">
+      <div class="tname">${t.name}</div>
+      <div class="ttag">${t.tagline}</div>
+      <div class="torigin">${t.origin}</div>
+    </div>`).join("")}</div>`;
+}
+function pickType(id){S.type=TYPES.find(t=>t.id===id);go("card")}
+
+/* ---- 関わり方カード ---- */
+function renderCard(){
+  app.innerHTML=`<h2>「${S.type.name}」の作法を選ぶ</h2>
+  <p class="sub" style="margin-bottom:16px">しっくり来るものがなければ、それも大事な発見です。</p>
+  ${CARDS[S.type.id].map(c=>`
+    <div class="kcard" style="--type-c:${S.type.color}">
+      <h3>${c.name}</h3><p>${c.d}</p><p class="ex">例:${c.ex}</p>
+      <button class="pick" onclick="pickCard('${c.id}')">この作法で関わる</button>
+    </div>`).join("")}
+  <button class="btn ghost" onclick="go('type')">対峙法を選び直す</button>`;
+}
+function pickCard(id){
+  S.card=CARDS[S.type.id].find(c=>c.id===id);
+  S.dialogue=[{role:"assistant",text:S.card.q}];S.dialogueTurns=0;S.practice="";
+  go("dialogue");
+}
+
+/* ---- 問答 ---- */
+function renderDialogue(){
+  const chat=S.dialogue.map(m=>`<div class="msg ${m.role==="assistant"?"ai":"me"}">${esc(m.text)}</div>`).join("");
+  const done=S.dialogueTurns>=2;
+  app.innerHTML=`<h2>問答 —「${S.card.name}」</h2>
+  <p class="sub" style="margin-bottom:16px">契約の立会人との短い対話です。</p>
+  <div class="chat">${chat}</div>
+  <div class="inputrow"><textarea id="qin" rows="2" placeholder="ここに答えを書く"></textarea>
+  <button class="send" onclick="sendDialogue()">送る</button></div>
+  ${done?`<button class="btn" style="margin-top:14px" onclick="finishDialogue()">この問答を契約に反映する</button>`:""}
+  <div id="qerr"></div>`;
+  window.scrollTo(0,document.body.scrollHeight);
+}
+async function sendDialogue(){
+  const el=document.getElementById("qin");const t=el.value.trim();if(!t)return;
+  S.dialogue.push({role:"user",text:t});S.dialogueTurns++;renderDialogue();
+  const msgs=S.dialogue.map(m=>({role:m.role==="assistant"?"assistant":"user",content:m.text}));
+  const context={yokaiName:S.yokai.yokai_name,trigger:S.yokai.trigger,typeName:S.type.name,cardName:S.card.name};
+  await aiTurn(S.dialogue,()=>callClaudeTask("dialogue",{messages:msgs,context}),false);
+}
+async function finishDialogue(){
+  const transcript=S.dialogue.map(m=>(m.role==="assistant"?"立会人:":"参加者:")+m.text).join("\n");
+  app.innerHTML=`<h2>問答をまとめています…</h2>`;
+  try{
+    const line=await callClaudeTask("sadame",{answers:[transcript]});
+    S.practice=line.trim().replace(/^["「』』]|["」]$/g,"");
+  }catch(e){S.practice="";}
+  go("verbs");
+}
+
+/* ---- 動詞 ---- */
+let curTab=VERBS[0].id;
+function renderVerbs(){
+  const cat=VERBS.find(v=>v.id===curTab);
+  app.innerHTML=`<h2>現場の動詞を選ぶ</h2>
+  <p class="sub">「${esc(S.yokai.yokai_name)}が現れたら、私は◯◯する」。3つまで選べます。眺めるだけでも、自分の型の偏りが見えてきます。</p>
+  <p class="selcount">選択中:${S.verbs.length?S.verbs.map(esc).join(" / "):"まだなし"}(${S.verbs.length}/3)</p>
+  <div class="tabs">${VERBS.map(v=>`<button class="tab ${v.id===curTab?"on":""}" style="--vc:${v.color}" onclick="switchTab('${v.id}')">${v.name}</button>`).join("")}</div>
+  <div class="verbgrid">${cat.verbs.map((v,i)=>`
+    <button class="verb ${S.verbs.includes(v[0])?"sel":""}" onclick="toggleVerb('${curTab}',${i})">${v[0]}</button>`).join("")}</div>
+  <div class="verbhint" id="vhint">動詞をタップすると意味が表示され、選択されます。</div>
+  <div class="inputrow" style="margin-top:12px">
+    <input type="text" id="freeverb" placeholder="自分の動詞を書く(例:祝詞をあげる)">
+    <button class="send" onclick="addFree()">追加</button>
+  </div>
+  <button class="btn" style="margin-top:16px" ${S.verbs.length?"":"disabled"} onclick="go('contract')">契約書を作る</button>`;
+}
+function switchTab(id){curTab=id;renderVerbs()}
+function toggleVerb(catId,i){
+  const v=VERBS.find(c=>c.id===catId).verbs[i];
+  const idx=S.verbs.indexOf(v[0]);
+  if(idx>=0)S.verbs.splice(idx,1);
+  else{if(S.verbs.length>=3)return;S.verbs.push(v[0]);}
+  renderVerbs();
+  document.getElementById("vhint").textContent=`${v[0]} — ${v[1]}`;
+}
+function addFree(){
+  const el=document.getElementById("freeverb");const t=el.value.trim();
+  if(!t||S.verbs.length>=3)return;
+  S.verbs.push(t);renderVerbs();
+}
+
+/* ---- 契約書 ---- */
+function renderContract(){
+  const tpl=TEMPLATES[S.type.id];
+  const today=new Date();
+  const date=`${today.getFullYear()}年${today.getMonth()+1}月${today.getDate()}日`;
+  const nameOK=S.userName.trim().length>0;
+  const body=tpl.lines
+    .filter(l=>!(l.includes("{p}")&&!S.practice))
+    .map(l=>l.replace(/\{y\}/g,S.yokai.yokai_name).replace(/\{c\}/g,S.card.name)
+      .replace(/\{v\}/g,S.verbs.join("、")).replace(/\{u\}/g,S.userName||"____")
+      .replace(/\{p\}/g,S.practice)).join("\n\n")
+    +`\n\n${date}\n${S.type.id==="matsuru"?"祀り主":S.type.id==="shieki"?"契約主":S.type.id==="sumiwake"?"取り決め人":"登録者"} ${S.userName||"____"}\n見届け 妖怪ピースラボ`;
+  app.innerHTML=`<h2>${tpl.title}</h2>
+  <div class="inputrow" style="margin:14px 0">
+    <input type="text" id="uname" placeholder="あなたの名前(ニックネーム可)" value="${esc(S.userName)}">
+    <button class="send" onclick="setName()">記名</button>
+  </div>
+  <div class="contract">
+    <div class="ctitle">${tpl.title}</div>
+    <div class="cbody">${esc(body)}</div>
+    <div class="stamp ${nameOK?"on":""}">約</div>
+  </div>
+  ${nameOK?`
+    <button class="btn" style="margin-top:18px" onclick="postEma()">絵馬掛所に奉納する</button>
+    <p class="note">奉納すると、妖怪名・対峙法・動詞・運用の定めが他の参加者にも表示されます。名前は表示されません。</p>
+    <button class="btn ghost" style="margin-top:8px" onclick="go('board')">奉納せずに絵馬掛所を見る</button>`
+   :`<p class="note">記名すると印が押され、奉納できるようになります。</p>`}`;
+}
+function setName(){S.userName=document.getElementById("uname").value.trim();renderContract()}
+async function postEma(){
+  const ema={id:Date.now()+"-"+Math.random().toString(36).slice(2,7),
+    yokai:S.yokai.yokai_name,type:S.type.name,card:S.card.name,
+    verbs:S.verbs,practice:S.practice,message:S.yokai.message||"",
+    date:new Date().toISOString().slice(0,10),reactions:0};
+  try{
+    await roomApi("postEma",{room_code:null,ema});
+    go("board");
+  }catch(e){
+    alert("奉納に失敗しました。もう一度お試しください。");
+  }
+}
+
+/* ---- 絵馬掛所 ---- */
+async function renderBoard(){
+  app.innerHTML=`<h2>絵馬掛所</h2><p class="sub">奉納された契約たち。「うちにもいる!」で共感を灯せます。</p><div id="emalist" style="margin-top:16px"><p class="note">読み込み中…</p></div>
+  <button class="btn ghost" style="margin-top:16px" onclick="go('intro')">はじまりに戻る</button>`;
+  let emas=[];
+  try{
+    const res=await roomApi("listEmas",{room_code:null});
+    emas=(res&&res.emas)||[];
+  }catch(e){}
+  const list=document.getElementById("emalist");
+  if(!list)return;
+  if(!emas.length){list.innerHTML=`<p class="note">まだ絵馬はありません。最初の一枚を奉納してみましょう。</p>`;return;}
+  list.innerHTML=emas.map(e=>`
+    <div class="ema">
+      <div class="ename">${esc(e.yokai)}</div>
+      <div class="emeta">${esc(e.type)} /「${esc(e.card)}」/ ${esc(e.date)}</div>
+      <div class="ebody">現れたら:${(e.verbs||[]).map(esc).join("、")}${e.practice?`<br>定め:${esc(e.practice)}`:""}</div>
+      <button class="react" onclick="react('${e.id}')">うちにもいる! ${e.reactions||0}</button>
+    </div>`).join("");
+}
+async function react(id){
+  try{
+    await roomApi("react",{id});
+    renderBoard();
+  }catch(err){}
+}
+
+nav();render();
+</script>
+</body>
+</html>
