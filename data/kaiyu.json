@@ -300,6 +300,30 @@
       "added": "2026-06-20",
       "band": true,
       "next": ["series", "od-program"]
+    },
+    {
+      "id": "pta-dialogue-kit",
+      "path": "pta-dialogue-kit.html",
+      "title": "PTA対話キット",
+      "tag": "対話キット",
+      "desc": "PTAのこれからを保護者と先生で話し合う無料の対話キット。8つの争点カードと進め方つき。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-12",
+      "band": true,
+      "next": ["facilitator-training", "dialogue-program"]
+    },
+    {
+      "id": "facilitator-training",
+      "path": "facilitator-training.html",
+      "title": "対話ファシリテーター養成プログラム",
+      "tag": "養成プログラム",
+      "desc": "学校の話し合いの進行役を校内で育てる、演習中心の養成プログラム（全4回）。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-12",
+      "band": true,
+      "next": ["pta-dialogue-kit", "dialogue-program"]
     }
   ]
 }

@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PTAのこれからについて話し合おう|PTA対話キット｜きづきくみたて工房</title>
+<meta name="description" content="PTAを守るためでも廃止するためでもなく、「うちの学校では何を、なぜ、どうするか」を保護者と先生が自分たちで決めるための無料の対話キット。8つの争点カード、90分の進め方、現状維持コストを見える化するリソース計算機つき。">
+<meta property="og:title" content="PTAのこれからについて話し合おう｜PTA対話キット">
+<meta property="og:description" content="賛成・反対で議論するのではなく、8つの争点を軸の上で整理する。保護者と先生がPTAのこれからを自分たちで決めるための無料の対話キット。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kizukikumitate.com/pta-dialogue-kit.html">
+<link rel="canonical" href="https://kizukikumitate.com/pta-dialogue-kit.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PTAのこれからについて話し合おう｜PTA対話キット">
+<meta name="twitter:description" content="保護者と先生がPTAのこれからを自分たちで決めるための無料の対話キット。8つの争点カード・90分の進め方つき。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF7;
+  --ink:#1E2A3A;
+  --red:#C73E2E;
+  --blue:#2B5DA8;
+  --marker:#F5D93F;
+  --line:#D8D3C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.85;
+  font-size:15px;
+}
+.wrap{max-width:840px;margin:0 auto;padding:0 24px}
+.serif{font-family:'Shippori Mincho B1',serif}
+mark{
+  background:linear-gradient(transparent 55%, var(--marker) 55%);
+  padding:0 2px;
+  color:inherit;
+}
+
+/* ===== cover ===== */
+.cover{padding:72px 0 56px;border-bottom:3px solid var(--ink)}
+.cover .eyebrow{
+  display:inline-block;
+  border:1.5px solid var(--ink);
+  padding:3px 14px;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:.18em;
+  margin-bottom:28px;
+}
+.cover h1{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:clamp(34px,6vw,54px);
+  line-height:1.35;
+  letter-spacing:.02em;
+}
+.cover h1 .sub{
+  display:block;
+  font-size:clamp(16px,2.4vw,20px);
+  font-weight:600;
+  margin-top:14px;
+  letter-spacing:.08em;
+}
+.cover .lede{
+  margin-top:32px;
+  max-width:680px;
+  font-size:15.5px;
+}
+.cover .lede p+p{margin-top:12px}
+.meta{
+  margin-top:32px;
+  display:flex;
+  gap:28px;
+  flex-wrap:wrap;
+  font-size:12.5px;
+  font-weight:500;
+  color:#5a6474;
+}
+.meta b{color:var(--ink);font-weight:700;margin-right:6px}
+
+/* ===== section heads ===== */
+section{padding:56px 0}
+section+section{border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:28px}
+.sec-head .no{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:15px;
+  border-bottom:3px solid var(--ink);
+  padding-bottom:2px;
+  letter-spacing:.1em;
+  white-space:nowrap;
+}
+.sec-head h2{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:clamp(22px,3.4vw,28px);
+  letter-spacing:.03em;
+}
+.sec-note{max-width:680px;margin-bottom:28px;color:#3d4655}
+
+/* ===== fact cards ===== */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.fact{
+  border:1.5px solid var(--ink);
+  padding:18px 18px 16px;
+  background:#fff;
+}
+.fact .tag{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.16em;
+  color:var(--blue);
+  margin-bottom:8px;
+}
+.fact h3{font-size:15px;font-weight:900;margin-bottom:8px;line-height:1.5}
+.fact p{font-size:13px;line-height:1.75;color:#3d4655}
+
+/* ===== issue cards ===== */
+.card{
+  border:2px solid var(--ink);
+  background:#fff;
+  margin-bottom:36px;
+  page-break-inside:avoid;
+}
+.card-head{
+  display:flex;
+  align-items:stretch;
+  border-bottom:2px solid var(--ink);
+}
+.card-no{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:26px;
+  padding:14px 18px;
+  border-right:2px solid var(--ink);
+  display:flex;
+  align-items:center;
+  background:var(--ink);
+  color:var(--paper);
+  min-width:76px;
+  justify-content:center;
+}
+.card-title{padding:14px 20px;flex:1}
+.card-title .theme{font-size:11.5px;font-weight:700;letter-spacing:.14em;color:#5a6474;margin-bottom:2px}
+.card-title h3{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:clamp(17px,2.6vw,21px);
+  line-height:1.5;
+}
+.card-body{padding:22px 24px 26px}
+.card-body .why{margin-bottom:18px;font-size:14.5px}
+.card-body .why b{background:linear-gradient(transparent 55%, var(--marker) 55%)}
+
+/* axis slider — signature element */
+.axis{
+  margin:22px 0 8px;
+  padding:18px 8px 14px;
+  border-top:1px dashed var(--line);
+  border-bottom:1px dashed var(--line);
+}
+.axis .axis-label{
+  text-align:center;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.2em;
+  color:#5a6474;
+  margin-bottom:14px;
+}
+.axis .poles{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:12.5px;
+  font-weight:700;
+  line-height:1.55;
+}
+.axis .poles .pole{max-width:44%}
+.axis .poles .pole.right{text-align:right}
+.axis .track{
+  position:relative;
+  height:2px;
+  background:var(--ink);
+  margin:14px 6px 6px;
+}
+.axis .track::before,.axis .track::after{
+  content:"";
+  position:absolute;
+  top:-5px;
+  width:2px;
+  height:12px;
+  background:var(--ink);
+}
+.axis .track::before{left:0}
+.axis .track::after{right:0}
+.axis .ticks{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:space-evenly;
+}
+.axis .ticks span{
+  width:1.5px;
+  height:8px;
+  background:var(--ink);
+  margin-top:-3px;
+  opacity:.45;
+}
+.axis .prompt{
+  text-align:center;
+  font-size:11.5px;
+  color:#5a6474;
+  margin-top:10px;
+}
+.axis .prompt b{color:var(--ink)}
+
+.two-col{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:18px}
+@media(max-width:640px){.two-col{grid-template-columns:minmax(0,1fr)}}
+.pit,.hint{padding:14px 16px;font-size:13px;line-height:1.75}
+.pit{border-left:4px solid var(--red)}
+.hint{border-left:4px solid var(--blue)}
+.pit .h,.hint .h{font-size:11.5px;font-weight:900;letter-spacing:.14em;margin-bottom:6px}
+.pit .h{color:var(--red)}
+.hint .h{color:var(--blue)}
+.case{
+  margin-top:16px;
+  font-size:12.5px;
+  color:#3d4655;
+  padding:12px 16px;
+  background:var(--paper);
+  border:1px solid var(--line);
+}
+.case b{font-weight:900;color:var(--ink)}
+
+/* ===== agenda ===== */
+.agenda{border:2px solid var(--ink);background:#fff}
+.agenda-row{
+  display:grid;
+  grid-template-columns:96px minmax(0,1fr);
+  border-bottom:1px solid var(--line);
+}
+.agenda-row:last-child{border-bottom:none}
+.agenda-row .time{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:14px;
+  padding:16px 14px;
+  border-right:1.5px solid var(--ink);
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  white-space:nowrap;
+}
+.agenda-row .what{padding:16px 20px}
+.agenda-row .what h4{font-size:14.5px;font-weight:900;margin-bottom:4px}
+.agenda-row .what p{font-size:13px;color:#3d4655}
+@media(max-width:520px){
+  .agenda-row{grid-template-columns:72px minmax(0,1fr)}
+}
+
+/* ===== worksheet ===== */
+.sheet{border:2px solid var(--ink);background:#fff;padding:26px 26px 30px}
+.sheet h3{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:19px;
+  margin-bottom:6px;
+}
+.sheet .note{font-size:12.5px;color:#5a6474;margin-bottom:22px}
+.sheet-row{margin-bottom:22px}
+.sheet-row .q{font-size:14px;font-weight:900;margin-bottom:10px}
+.sheet-row .q em{font-style:normal;font-weight:500;font-size:12px;color:#5a6474;margin-left:8px}
+.lines{border-bottom:1px solid #b9b2a4;height:34px}
+.lines+.lines{margin-top:0}
+
+/* ===== principles ===== */
+.principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.principle{border-top:3px solid var(--ink);padding-top:14px}
+.principle .p-no{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.14em;
+  margin-bottom:6px;
+}
+.principle h3{font-size:16px;font-weight:900;margin-bottom:8px}
+.principle p{font-size:13px;color:#3d4655}
+
+/* ===== calculator ===== */
+.calc{border:2px solid var(--ink);background:#fff}
+.calc-head{
+  background:var(--ink);
+  color:var(--paper);
+  padding:16px 22px;
+}
+.calc-head h3{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:19px;
+  letter-spacing:.03em;
+}
+.calc-head p{font-size:12px;color:rgba(251,250,247,.75);margin-top:2px}
+.calc-body{padding:20px 22px 24px}
+.calc-global{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  padding-bottom:16px;
+  border-bottom:1px dashed var(--line);
+  margin-bottom:16px;
+}
+.calc-global label{font-size:12px;font-weight:900;display:block;margin-bottom:4px}
+.calc-global input{
+  width:120px;
+  border:1.5px solid var(--ink);
+  padding:7px 10px;
+  font-size:14px;
+  font-family:inherit;
+  background:var(--paper);
+}
+.calc-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.calc-table th{
+  text-align:left;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.08em;
+  color:#5a6474;
+  padding:6px 6px;
+  border-bottom:1.5px solid var(--ink);
+  white-space:nowrap;
+}
+.calc-table td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:middle}
+.calc-table input{
+  width:100%;
+  border:1px solid var(--line);
+  padding:6px 8px;
+  font-size:13px;
+  font-family:inherit;
+  background:var(--paper);
+}
+.calc-table input:focus,.calc-global input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.calc-table .num input{text-align:right}
+.calc-table .rowtotal{
+  text-align:right;
+  font-weight:900;
+  white-space:nowrap;
+  font-size:13px;
+}
+.calc-table .del{
+  background:none;
+  border:1.5px solid var(--red);
+  color:var(--red);
+  font-weight:900;
+  font-size:12px;
+  width:26px;height:26px;
+  cursor:pointer;
+  line-height:1;
+}
+.calc-table .del:hover{background:var(--red);color:#fff}
+.calc-add{
+  margin-top:12px;
+  background:none;
+  border:1.5px solid var(--ink);
+  padding:8px 18px;
+  font-weight:900;
+  font-size:12.5px;
+  font-family:inherit;
+  cursor:pointer;
+}
+.calc-add:hover{background:var(--marker)}
+.calc-add:focus-visible,.calc-table .del:focus-visible,.share-btns a:focus-visible,.share-btns button:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.calc-results{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:12px;
+}
+.calc-result{
+  border:1.5px solid var(--ink);
+  padding:14px 14px 12px;
+  background:var(--paper);
+}
+.calc-result .label{font-size:10.5px;font-weight:900;letter-spacing:.12em;color:#5a6474;margin-bottom:4px}
+.calc-result .value{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:clamp(20px,3vw,26px);
+  line-height:1.2;
+}
+.calc-result .value small{font-size:12px;font-weight:600;margin-left:2px}
+.calc-result.hl{background:var(--marker);border-width:2px}
+.calc-note{margin-top:14px;font-size:11.5px;color:#5a6474;line-height:1.75}
+@media(max-width:640px){
+  .calc-table{display:block;overflow-x:auto}
+}
+
+/* ===== share ===== */
+.share{
+  border-top:1px solid var(--line);
+  padding:36px 0 44px;
+  text-align:center;
+}
+.share h3{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:18px;
+  margin-bottom:6px;
+}
+.share p{font-size:12.5px;color:#5a6474;margin-bottom:18px}
+.share-btns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.share-btns a,.share-btns button{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border:1.5px solid var(--ink);
+  background:#fff;
+  color:var(--ink);
+  font-family:inherit;
+  font-weight:900;
+  font-size:13px;
+  padding:9px 18px;
+  text-decoration:none;
+  cursor:pointer;
+}
+.share-btns a:hover,.share-btns button:hover{background:var(--marker)}
+.share-btns .ic{width:16px;height:16px;display:block}
+@media print{.share,.calc-add,.calc-table .del{display:none}}
+footer{
+  border-top:3px solid var(--ink);
+  background:var(--ink);
+  color:var(--paper);
+  padding:48px 0 40px;
+  font-size:13px;
+}
+.f-cta{
+  border:1.5px solid rgba(251,250,247,.5);
+  padding:24px 26px;
+  margin-bottom:40px;
+}
+.f-cta h3{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:19px;
+  margin-bottom:10px;
+  letter-spacing:.03em;
+}
+.f-cta p{font-size:13px;line-height:1.85;color:rgba(251,250,247,.85);max-width:620px}
+.f-cta .btn{
+  display:inline-block;
+  margin-top:16px;
+  background:var(--marker);
+  color:var(--ink);
+  font-weight:900;
+  font-size:13.5px;
+  padding:10px 26px;
+  text-decoration:none;
+  letter-spacing:.06em;
+}
+.f-cta .btn:hover{background:#fff}
+.f-cta .btn:focus-visible{outline:2px solid var(--marker);outline-offset:3px}
+.f-nav{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:28px 24px;
+  margin-bottom:40px;
+}
+.f-nav h4{
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.2em;
+  color:rgba(251,250,247,.55);
+  margin-bottom:12px;
+}
+.f-nav ul{list-style:none}
+.f-nav li{margin-bottom:9px}
+.f-nav a{
+  color:var(--paper);
+  text-decoration:none;
+  font-size:13px;
+  font-weight:500;
+  border-bottom:1px solid transparent;
+}
+.f-nav a:hover{border-bottom-color:var(--marker)}
+.f-nav a:focus-visible{outline:2px solid var(--marker);outline-offset:2px}
+.f-bottom{
+  border-top:1px solid rgba(251,250,247,.25);
+  padding-top:20px;
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:8px 20px;
+  font-size:11.5px;
+  color:rgba(251,250,247,.6);
+}
+.f-brand{
+  font-family:'Shippori Mincho B1',serif;
+  font-weight:800;
+  font-size:16px;
+  color:var(--paper);
+  margin-bottom:6px;
+}
+.f-tagline{font-size:12px;color:rgba(251,250,247,.7);line-height:1.8}
+@media print{footer{background:#fff;color:var(--ink)}.f-cta,.f-nav{display:none}.f-bottom{color:#5a6474;border-top-color:var(--line)}}
+
+/* ===== print ===== */
+@media print{
+  body{font-size:12.5px;background:#fff}
+  .cover{padding:32px 0 28px}
+  section{padding:28px 0}
+  .card{page-break-inside:avoid;margin-bottom:20px}
+  .no-print{display:none}
+  a{color:inherit;text-decoration:none}
+}
+.toc{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 18px;
+  margin-top:28px;
+  font-size:12.5px;
+  font-weight:700;
+}
+.toc a{color:var(--ink);text-decoration:none;border-bottom:1.5px solid var(--marker)}
+.toc a:hover{background:var(--marker)}
+.toc a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<!-- ============ BRAND BAR ============ -->
+<div style="background:var(--ink);padding:10px 0" class="no-print">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <a href="./index.html" style="color:var(--paper);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:14px;letter-spacing:.06em">きづきくみたて工房</a>
+    <span style="color:rgba(251,250,247,.65);font-size:11px;letter-spacing:.12em;font-weight:500">対話キットシリーズ 01</span>
+  </div>
+</div>
+
+<!-- ============ COVER ============ -->
+<header class="cover">
+  <div class="wrap">
+    <span class="eyebrow">PTA 対話キット</span>
+    <h1>PTAのこれからについて、
+話し合おう。<span class="sub">── 子どもと学校のこれからを、保護者と先生で考えるための8つの争点</span></h1>
+    <div class="lede">
+      <p>このキットは、PTAを<mark>守るためのものでも、廃止するためのものでもありません</mark>。「うちの学校では、何を、なぜ、どうするか」を保護者と先生が自分たちで決めるための、対話の道具です。</p>
+      <p>賛成・反対に分かれて議論するのではなく、8枚の争点カードそれぞれについて「うちの学校は今どこにいるか」「どこに向かいたいか」を軸の上に置いてみてください。答えは学校の数だけあります。</p>
+    </div>
+    <div class="meta">
+      <span><b>対象</b>PTA役員会・保護者会・学校運営協議会</span>
+      <span><b>時間</b>90分 × 1〜3回</span>
+      <span><b>人数</b>4〜30名(4〜5名のグループに分割)</span>
+      <span><b>準備</b>このキットを人数分印刷・ペン</span>
+    </div>
+    <nav class="toc no-print" aria-label="目次">
+      <a href="#why">まえがき:いまPTAが難しい理由</a>
+      <a href="#facts">0. 前提の共有</a>
+      <a href="#issues">1. 争点カード(8枚)</a>
+      <a href="#agenda">2. 進め方(90分)</a>
+      <a href="#sheet">3. ふりかえりメモ</a>
+      <a href="#principles">4. 設計原則</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ まえがき:いまPTAが難しい理由 ============ -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">まえがき</span><h2>いま、PTAの話し合いは、なぜこんなに難しいのか</h2></div>
+    <p class="sec-note">キットを開く前に、ひとつだけ確認させてください。もしあなたの学校でPTAの話し合いがうまくいっていないとしても、<mark>それは誰かのせいではありません</mark>。いま、どの学校でも同じ4つの難しさが重なっています。</p>
+    <div class="facts">
+      <div class="fact">
+        <div class="tag">難しさ 01</div>
+        <h3>時間が、いちばんない時期に回ってくる</h3>
+        <p>共働きがあたりまえになり、子育て期は人生でもっとも時間に余裕のない時期になりました。その真っただ中に役員が回ってくる。「協力したくない」のではなく「今は無理」という人が大半です。</p>
+      </div>
+      <div class="fact">
+        <div class="tag">難しさ 02</div>
+        <h3>「任意」のはずなのに、強制感がある</h3>
+        <p>PTAは本来、入るも入らないも自由な任意団体です。ところが実際には自動加入やくじ引き、免除の理由をみんなの前で話す慣行が残る学校もあり、建て付けと実態のずれが不信感を生んでいます。</p>
+      </div>
+      <div class="fact">
+        <div class="tag">難しさ 03</div>
+        <h3>やめる理由より、続ける理由が通る</h3>
+        <p>「先輩たちが続けてきた活動を、自分の代でやめられない」。前例踏襲には心理的な引力があり、活動は増える一方で減りません。誰のための活動か、誰も答えられないまま続いているものもあります。</p>
+      </div>
+      <div class="fact">
+        <div class="tag">難しさ 04</div>
+        <h3>「廃止か存続か」の二択が、対話を止める</h3>
+        <p>ニュースやSNSでは廃止論と擁護論がぶつかりがちです。でも実際の学校に必要なのは勝ち負けではなく、「うちの学校では何を大切にしたいか」を落ち着いて整理する場と、その進め方です。</p>
+      </div>
+    </div>
+    <p class="sec-note" style="margin-top:28px;margin-bottom:0">つまり、足りないのは意欲ではなく、<mark>意見が分かれるテーマを安全に話し合う「場」と「手順」</mark>です。それなら、用意できます。このページの下に、そのまま使える対話キットを無料で置いておきます。</p>
+  </div>
+</section>
+
+<!-- ============ FACTS ============ -->
+<section id="facts">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 0</span><h2>前提の共有 ── まずここを揃える</h2></div>
+    <p class="sec-note">対話が空中戦になる最大の原因は、前提知識のバラつきです。開始前に全員でこの4枚を読み合わせてください(約5分)。</p>
+    <div class="facts">
+      <div class="fact">
+        <div class="tag">FACT 01</div>
+        <h3>PTAは任意団体である</h3>
+        <p>加入も退会も自由で、入会を強制する法的根拠はありません。「全員加入が前提」の運営は、そもそも制度の建て付けと矛盾しています。ここは議論の対象ではなく、出発点です。</p>
+      </div>
+      <div class="fact">
+        <div class="tag">FACT 02</div>
+        <h3>解散しても再生した学校がある</h3>
+        <p>埼玉県草加市立松原小は役員総退任でPTAを解散後、サークル制+支援金方式で再出発。スポットボランティアに100名超が登録し、支援金は従来予算を上回りました。「強制をやめたら誰も来ない」は必ずしも事実ではありません。</p>
+      </div>
+      <div class="fact">
+        <div class="tag">FACT 03</div>
+        <h3>設計なしの任意化は失敗する</h3>
+        <p>一方で、活動量を維持したまま完全ボランティア制に切り替えた学校では、役員に仕事が集中し、行事の直前中止が相次いだ実例もあります。成功校はやり方を変える前に「やめること」を先に決めています。</p>
+      </div>
+      <div class="fact">
+        <div class="tag">FACT 04</div>
+        <h3>改革には2〜3年かかる</h3>
+        <p>成功した学校の共通項は「1年目に問題提起、2年目に小さく実験、3年目に本格移行」という段階設計です。今日の対話で全部を決める必要はありません。決めるのは「次に試す小さな一歩」だけです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ISSUE CARDS ============ -->
+<section id="issues">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 1</span><h2>争点カード ── 8つの「決めるべきこと」</h2></div>
+    <p class="sec-note">各カードには対立軸があります。どちらの極も正解になり得ます。グループで話し合い、<mark>「今いる位置」に○、「向かいたい位置」に◎</mark>を軸の上に書き込んでください。○と◎のズレが、あなたの学校の改革課題です。</p>
+
+    <!-- CARD 1 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">一</div>
+        <div class="card-title">
+          <div class="theme">活動の棚卸し</div>
+          <h3>「誰のため・何のため」に答えられない活動を、続けますか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">廃止した学校の多くが「思ったより困らなかった」と報告しています。つまりPTAの活動には、<b>必要だから続いているものと、続いているから必要に見えるもの</b>が混ざっています。まず全活動を書き出し、一つずつ「受益者は誰か」を問うてみてください。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">全活動を維持<br><span style="font-weight:500;font-size:11.5px">実績ある活動を軽々に手放さない</span></div>
+            <div class="pole right">ゼロベースで再構築<br><span style="font-weight:500;font-size:11.5px">白紙から必要なものだけ拾い直す</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>「先輩たちが続けてきたものを自分の代でやめられない」という心理的負債。やめる判断の責任を個人に負わせない仕組み(全員投票・匿名アンケート)が必要です。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>「今年やらなかったら、具体的に誰がどう困るか」を活動ごとに言語化。誰も答えられない活動は、その場でおやすみ候補に。</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 2 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">二</div>
+        <div class="card-title">
+          <div class="theme">強制と任意</div>
+          <h3>「強制感」の正体は、意欲の問題ですか? タイミングの問題ですか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">子育て期は人生で最も時間とお金に余裕がない時期です。まさにその瞬間に拠出を求めるのがPTAの設計でした。<b>「協力したくない」のではなく「今は無理」という人</b>が大半だとしたら、必要なのは説得ではなく、拠出タイミングをずらせる仕組みかもしれません。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">在学中に全員が担う<br><span style="font-weight:500;font-size:11.5px">公平性を輪番・ポイントで担保</span></div>
+            <div class="pole right">生涯のどこかで担う<br><span style="font-weight:500;font-size:11.5px">OB・OG、地域、卒業後も担い手に</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>「公平な負担」を目的化すると、免除理由の詮索や「儀式」化が起きます。公平の追求が、いちばん余裕のない家庭をいちばん追い詰めていないか。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>「今は受け取るだけでいい。余裕ができたら返せばいい」という世代間の約束を明文化できるか話してみる。読み聞かせを保護者OGが担った松原小の例が参考に。</div>
+        </div>
+        <div class="case"><b>事例:</b> 松戸市立栗ケ沢小「チーム栗っ子」はポイント制を廃止し「できるときに できることを できる人が できるだけ」に転換。担い手がいない委員会はその年は休止に。</div>
+      </div>
+    </article>
+
+    <!-- CARD 3 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">三</div>
+        <div class="card-title">
+          <div class="theme">安全活動</div>
+          <h3>見守り・旗振りは、手挙げ制に任せられますか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">見守りのような活動は「なくなった影響」が事故という形で、遅れて・確率的にしか現れません。受益者は子ども、負担者は大人。<b>需要があっても手が挙がりにくい「保険型」の活動</b>です。ここだけは手挙げ制の市場テストに任せず、別の手当てが要るかもしれません。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">保護者の手で守る<br><span style="font-weight:500;font-size:11.5px">当番制・輪番で全家庭が参加</span></div>
+            <div class="pole right">外部の仕組みで守る<br><span style="font-weight:500;font-size:11.5px">シルバー人材・委託・行政移管・GPS</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>任意化の初年度に人が集まらず、直前中止が続いた実例あり。安全活動だけは、旧方式と新方式を1年並走させてから切り替えるのが鉄則。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>「有償のベース人員+スポットボランティア」のハイブリッドなら、手挙げ制の不安定さを吸収できる。委託費は会費・支援金の使途として最も合意を得やすい項目。</div>
+        </div>
+        <div class="case"><b>事例:</b> 名古屋市立陽明小は旗当番をエントリー制に切り替えたところ、ほとんどの世帯が協力し「従来以上の制度が維持できた」。ただし事前の希望調査を丁寧に行った上での結果。</div>
+      </div>
+    </article>
+
+    <!-- CARD 4 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">四</div>
+        <div class="card-title">
+          <div class="theme">お金</div>
+          <h3>会費として「集める」か、支援金として「集まる」か</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">PTA活動は本来、会員か非会員かに関わらず全児童を対象にしています。だとすると「会費」という言葉自体が、<b>加入家庭と非加入家庭の分断</b>を生んでいるかもしれません。使途を先に示して賛同者から募る方式に変えた学校では、従来予算を上回る金額が集まった例もあります。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">会費制で安定<br><span style="font-weight:500;font-size:11.5px">定額徴収で予算を計画的に組む</span></div>
+            <div class="pole right">寄付・支援金制<br><span style="font-weight:500;font-size:11.5px">集まった額でできることをする</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>「集まらなかったらどうする」という不安から結局強制に戻るパターン。栗ケ沢小の答えは「資金集めが目的の組織ではない。集まった金額でできることをする」でした。この覚悟を持てるかが分岐点。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>使途の事前明示(「見守り委託費と卒業記念品に使います」)とセットで議論する。江東区立有明小は余った会費を各家庭に返金しています。</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 5 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">五</div>
+        <div class="card-title">
+          <div class="theme">先生との関係</div>
+          <h3>学校がPTAに「暗黙に頼っていること」を、書き出せますか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">教員の側からは「PTAがないことのマイナスの方が大きい」という声もあります。行事の人手、備品の寄付、対外的な保護者窓口──学校がPTAに<b>暗黙に外部化してきた機能</b>があり、無自覚に廃止するとそれが先生に還流します。改革は先生の働き方の問題でもあります。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">保護者主導で決める<br><span style="font-weight:500;font-size:11.5px">PTAの問題はPTAで解決する</span></div>
+            <div class="pole right">学校と共同設計する<br><span style="font-weight:500;font-size:11.5px">校長・教職員を対話の当事者に</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>保護者だけで決めた改革案を学校に「通告」すると、防衛反応を招きます。逆に学校主導すぎると保護者が受け身に。当事者から声が出るまで待った日枝小の校長の姿勢が参考に。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>「学校がPTAに助けられている業務リスト」を校長と一緒に作り、①学校業務に戻す ②外注する ③やめる、の3つに仕分ける。行事自体のスリム化を議論する好機でもあります。</div>
+        </div>
+        <div class="case"><b>事例:</b> 横浜市立日枝小では校長が月1回、役員と校長室で給食を食べながら対話。「本部をなくしたい」という声が当事者から出たタイミングで改革が動き、2021年にPTAを廃止して「日枝っ子友の会」へ移行。</div>
+      </div>
+    </article>
+
+    <!-- CARD 6 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">六</div>
+        <div class="card-title">
+          <div class="theme">緊急時</div>
+          <h3>非常時に「全保護者を動かせる窓口」は、どこに残しますか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">災害や不審者事案のとき、全保護者に一斉に声をかけられる正統性ある窓口の価値は、平時には見えません。廃止した学校が困っていないのは、<b>まだ非常時を経験していないだけ</b>という可能性を割り引けません。低頻度・高損害のリスクは、多数決や手挙げでは正しく評価されにくい項目です。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">組織として常備する<br><span style="font-weight:500;font-size:11.5px">PTA的な常設組織が動員力を保持</span></div>
+            <div class="pole right">仕組みに埋め込む<br><span style="font-weight:500;font-size:11.5px">学校公式アプリ+防災組織との協定</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>PTA名簿は実は非会員家庭をカバーしていません。連絡インフラは学校公式の一斉配信に一本化した方が網羅的、という逆転に注意。問題は連絡手段より「人を動かす正統性」の方。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>「年1回の合同防災訓練だけは残す」ように、動員の練習機会を最小限キープする案を検討。自治会・地域防災組織との事前接続もこのカードで議論。</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 7 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">七</div>
+        <div class="card-title">
+          <div class="theme">出口とブリッジ</div>
+          <h3>6年かけて築いたつながりを、卒業と同時に捨てますか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">PTAの会員資格は「在学児童の親」で定義されるため、卒業と同時に共助のネットワークが制度的に切断されます。せっかく築いた関係資本の強制廃棄です。<b>PTAを地域の共助への「入口」として設計し直せば</b>、この損失は防げます。ブリッジがないのは、作らなかったからです。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">在学期間で完結<br><span style="font-weight:500;font-size:11.5px">卒業したら円満に卒業する</span></div>
+            <div class="pole right">地域の共助へ接続<br><span style="font-weight:500;font-size:11.5px">協働本部・自治会・NPOへの動線を敷く</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>個人情報を理由に名簿の引き継ぎを最初から諦めるパターン。本人同意のチェックボックス一つで解決できる技術的問題を、文化的問題と混同しない。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>地域学校協働本部・コミュニティスクールは在学親に限定されない法定の受け皿。「卒業時にワンクリックで移籍登録できる出口」を作れないか、学校運営協議会と話してみる。</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CARD 8 -->
+    <article class="card">
+      <div class="card-head">
+        <div class="card-no">八</div>
+        <div class="card-title">
+          <div class="theme">この場は何を鍛えるのか</div>
+          <h3>作業を減らしたあと、「話し合って決める場」は残しますか?</h3>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="why">PTAの隠れた価値は、ベルマークの集計ではなく<b>「利害の異なる他人と合意形成する練習の場」</b>だったのかもしれません。従来のPTAは作業(タスク)と審議(ガバナンス)を混ぜ、作業の苦役が審議への意欲まで焼き尽くしてきました。作業を外部化した先に、審議だけを意図的に残すという選択肢があります。文化は説教では残りません。反復練習と成功体験でしか残りません。</p>
+        <div class="axis">
+          <div class="axis-label">対立軸 ── うちの学校は今どこ?</div>
+          <div class="poles">
+            <div class="pole">身軽さを最優先<br><span style="font-weight:500;font-size:11.5px">集まり自体を最小化する</span></div>
+            <div class="pole right">対話の場として再定義<br><span style="font-weight:500;font-size:11.5px">年数回、意見が割れることを話し合う場に</span></div>
+          </div>
+          <div class="track"><div class="ticks"><span></span><span></span><span></span><span></span><span></span></div></div>
+          <div class="prompt">今の位置に<b>○</b>、向かいたい位置に<b>◎</b>を書く</div>
+        </div>
+        <div class="two-col">
+          <div class="pit"><div class="h">⚠ 落とし穴</div>「対話の場を残す」が総会の形骸化した儀式に戻ってしまうこと。全会一致の報告会は対話ではありません。意見が割れるテーマを扱ってこそ練習になります。</div>
+          <div class="hint"><div class="h">✎ 対話のヒント</div>このキットを使った今日の対話そのものが、その第一回です。「年に何回、どんなテーマなら参加したいか」を最後に聞いてみてください。</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section id="calc">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">TOOL</span><h2>リソース計算機 ── 現状維持のコストを見える化する</h2></div>
+    <p class="sec-note">「今のままでいい」にもコストがかかっています。活動ごとの人手を入力すると、年間の延べ時間・1世帯あたりの負担・時給換算した「見えない人件費」を自動計算します。<mark>争点カード「一」の棚卸しの前に全員で眺めると、対話の土台になります</mark>。数値は概算で構いません。</p>
+    <div class="calc">
+      <div class="calc-head">
+        <h3>PTA活動の見えない人件費</h3>
+        <p>入力はこの画面の中だけで完結します。どこにも送信・保存されません。</p>
+      </div>
+      <div class="calc-body">
+        <div class="calc-global">
+          <div>
+            <label for="households">世帯数(全校)</label>
+            <input type="number" id="households" value="300" min="1" inputmode="numeric">
+          </div>
+          <div>
+            <label for="wage">時給換算レート(円)</label>
+            <input type="number" id="wage" value="1500" min="0" step="100" inputmode="numeric">
+          </div>
+        </div>
+        <table class="calc-table" aria-label="活動別リソース入力表">
+          <thead>
+            <tr>
+              <th style="min-width:140px">活動名</th>
+              <th>年間回数</th>
+              <th>1回あたり人数</th>
+              <th>1人あたり時間(h)</th>
+              <th style="text-align:right">年間延べ人時</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="calcRows"></tbody>
+        </table>
+        <button type="button" class="calc-add" id="addRow">＋ 活動を追加</button>
+        <div class="calc-results">
+          <div class="calc-result">
+            <div class="label">年間延べ時間</div>
+            <div class="value" id="rTotalHours">0<small>時間</small></div>
+          </div>
+          <div class="calc-result">
+            <div class="label">1世帯あたり負担</div>
+            <div class="value" id="rPerHouse">0<small>時間/年</small></div>
+          </div>
+          <div class="calc-result hl">
+            <div class="label">見えない人件費(時給換算)</div>
+            <div class="value" id="rMoney">0<small>万円/年</small></div>
+          </div>
+        </div>
+        <p class="calc-note">※「見えない人件費」は、保護者の時間を時給換算した機会費用の概算です。この金額と、外部委託・ツール導入・行政移管の費用を並べて比較すると、「対話して減らすこと」自体がコスト削減であることが見えてきます。金額の妥当性ではなく「桁」を全員で共有するのが目的です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AGENDA ============ -->
+<section id="agenda">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 2</span><h2>進め方 ── 90分の設計例</h2></div>
+    <p class="sec-note">初回は争点カードを全部扱おうとしないでください。<mark>「一(棚卸し)」+ もう1枚</mark>で十分です。残りは2回目・3回目へ。</p>
+    <div class="agenda">
+      <div class="agenda-row">
+        <div class="time">00–10分</div>
+        <div class="what"><h4>チェックイン</h4><p>一人一言:「PTAと聞いて最初に浮かぶ感情」を単語で。評価も反論もしない。ここで出た言葉が、その学校の現在地です。</p></div>
+      </div>
+      <div class="agenda-row">
+        <div class="time">10–15分</div>
+        <div class="what"><h4>前提の読み合わせ</h4><p>STEP 0のファクト4枚を音読。「議論しないこと(任意団体である等)」を先に固定する。</p></div>
+      </div>
+      <div class="agenda-row">
+        <div class="time">15–40分</div>
+        <div class="what"><h4>争点カード「一」:活動の棚卸し</h4><p>グループごとに全活動を付箋で書き出し、「誰のため」に答えられるか仕分け。答えられない活動はおやすみ候補ボードへ。</p></div>
+      </div>
+      <div class="agenda-row">
+        <div class="time">40–70分</div>
+        <div class="what"><h4>争点カード1枚を選んで対話</h4><p>グループごとに最も切実なカードを1枚選び、○(現在地)と◎(向かいたい位置)を軸に記入。○と◎のズレの理由を話し合う。</p></div>
+      </div>
+      <div class="agenda-row">
+        <div class="time">70–85分</div>
+        <div class="what"><h4>全体共有 → ふりかえりメモ</h4><p>各グループ2分で共有。その後、STEP 3のふりかえりメモを全体で1枚だけ書く。「決めないこと」を決めるのも立派な成果。</p></div>
+      </div>
+      <div class="agenda-row">
+        <div class="time">85–90分</div>
+        <div class="what"><h4>チェックアウト</h4><p>一人一言:「今日、少し見え方が変わったこと」。変わらなかったならそれも共有してよい。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORKSHEET ============ -->
+<section id="sheet">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 3</span><h2>ふりかえりメモ ── 今日の到達点を1枚に</h2></div>
+    <p class="sec-note">改革は単年ではできません。今日決めるのは方針ではなく「次に試す小さなおためし」だけです。おためしは失敗してもよいこと、1年間は旧方式と並走させてよいことを、あらかじめ合意しておいてください。</p>
+    <div class="sheet">
+      <h3>対話の記録</h3>
+      <p class="note">実施日:____年____月____日 / 参加:____名(保護者____名・教職員____名)</p>
+      <div class="sheet-row">
+        <div class="q">① 今日、全員で確認できた前提<em>(例:任意団体であること、改革には2〜3年かけること)</em></div>
+        <div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="sheet-row">
+        <div class="q">② おやすみ候補に挙がった活動と、その理由</div>
+        <div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="sheet-row">
+        <div class="q">③ 次に試す「小さなおためし」<em>(例:運動会の手伝いをメール募集してみる/見守りの希望調査をとる)</em></div>
+        <div class="lines"></div><div class="lines"></div>
+      </div>
+      <div class="sheet-row">
+        <div class="q">④ その実験の担当と期限<em>(担当は「言い出した人」でなくてよい)</em></div>
+        <div class="lines"></div>
+      </div>
+      <div class="sheet-row">
+        <div class="q">⑤ 今日は決めないと決めたこと<em>(次回に持ち越す争点カードの番号)</em></div>
+        <div class="lines"></div>
+      </div>
+      <div class="sheet-row">
+        <div class="q">⑥ 次回の日程と扱う争点カード</div>
+        <div class="lines"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRINCIPLES ============ -->
+<section id="principles">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 4</span><h2>迷ったら戻る3つの設計原則</h2></div>
+    <div class="principles">
+      <div class="principle">
+        <div class="p-no">原則 一</div>
+        <h3>機能で残し、組織で残さない</h3>
+        <p>守るべきはPTAという組織ではなく、安全・お金・窓口・対話という機能。機能ごとに最適な担い手(ボランティア・有償・行政・技術)は違ってよい。「存続を目的にしない」と言えた学校が、結果的に良い形で残っています。</p>
+      </div>
+      <div class="principle">
+        <div class="p-no">原則 二</div>
+        <h3>安全と非常時は、二重化してから切り替える</h3>
+        <p>見守りと緊急動員は、失敗が事故として遅れて現れる「保険型」。ここだけは手挙げ制のテストに任せず、1年間は旧方式と新方式を並走させて穴を確認してから移行する。</p>
+      </div>
+      <div class="principle">
+        <div class="p-no">原則 三</div>
+        <h3>説得より、小さなおためし</h3>
+        <p>「保護者は協力しない」も「協力する」も、やってみるまで分かりません。運動会のメール募集一回で見えない賛同層が可視化された学校があります。対話で仮説を立て、実験で確かめ、結果をまた対話に戻す。この往復が改革の本体です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARE ============ -->
+<section class="share no-print">
+  <div class="wrap">
+    <h3>このキットを、次の学校へ。</h3>
+    <p>PTAの対話は、一校で完結させるより、隣の学校と事例を交換しながら進めた方がうまくいきます。</p>
+    <div class="share-btns">
+      <a id="shareX" href="#" target="_blank" rel="noopener noreferrer" aria-label="Xでシェア">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.9 7.9L23.3 22h-6.4l-5-6.6L6.1 22H3l7.4-8.5L1 2h6.6l4.5 6zm-1.1 18h1.7L7 3.9H5.1z"/></svg>
+        Xでシェア
+      </a>
+      <a id="shareLine" href="#" target="_blank" rel="noopener noreferrer" aria-label="LINEで送る">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.5 2 2 5.7 2 10.2c0 4 3.4 7.4 8 8.1.3.1.7.2.8.5.1.2.1.6 0 .9l-.1.8c0 .2-.2.9.8.5s5.2-3.1 7.1-5.3C20.3 14 22 12.3 22 10.2 22 5.7 17.5 2 12 2zM8.4 12.8H6.2c-.3 0-.5-.2-.5-.5V8.5c0-.3.2-.5.5-.5s.5.2.5.5v3.3h1.7c.3 0 .5.2.5.5s-.2.5-.5.5zm1.9-.5c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.5c0-.3.2-.5.5-.5s.5.2.5.5v3.8zm4.7 0c0 .2-.1.4-.3.5h-.2c-.2 0-.3-.1-.4-.2l-2-2.7v2.4c0 .3-.2.5-.5.5s-.5-.2-.5-.5V8.5c0-.2.1-.4.3-.5h.2c.2 0 .3.1.4.2l2 2.7V8.5c0-.3.2-.5.5-.5s.5.2.5.5v3.8zm3.3-2.4c.3 0 .5.2.5.5s-.2.5-.5.5h-1.7v.9h1.7c.3 0 .5.2.5.5s-.2.5-.5.5h-2.2c-.3 0-.5-.2-.5-.5V8.5c0-.3.2-.5.5-.5h2.2c.3 0 .5.2.5.5s-.2.5-.5.5h-1.7v.9h1.7z"/></svg>
+        LINEで送る
+      </a>
+      <a id="shareFb" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebookでシェア">
+        <svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+        Facebook
+      </a>
+      <button type="button" id="copyUrl" aria-label="リンクをコピー">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg>
+        <span id="copyLabel">リンクをコピー</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 工房の想い ============ -->
+<section>
+  <div class="wrap" style="max-width:720px">
+    <div style="text-align:center;margin-bottom:26px">
+      <!-- TODO: ロゴ画像が用意でき次第 <img src="logo.png" alt="きづきくみたて工房" style="height:52px"> に差し替え -->
+      <div style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:22px;letter-spacing:.08em">きづきくみたて工房</div>
+    </div>
+    <h2 style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(19px,3vw,24px);text-align:center;margin-bottom:24px;letter-spacing:.03em">このキットを、つくった理由</h2>
+    <div style="font-size:14.5px;line-height:2.05;color:#3d4655">
+      <p style="margin-bottom:14px">こんにちは。きづきくみたて工房の森本康仁です。元・小学校の教員です。9年間、教室で子どもたちと学級会をやってきて、その後、企業の人材育成や組織づくりの仕事に移って、ふと感じる時があります。<mark>大人の会議は、良い学級会に負けているかもしれない</mark>、と。</p>
+      <p style="margin-bottom:14px">声の大きい人で決まる。反対意見が言えない。決まったことが実行されない──。これは個人の性格の問題ではなく、「話し合いの技術」を誰も教わってこなかったという、仕組みの問題です。だから、鍛えれば変わります。</p>
+      <p style="margin-bottom:14px">きづきくみたて工房は、「時代が必要とする学びの機会を作って、届ける」を合言葉に、対話と合意形成の技術を日本の社会と組織のインフラにするための教材とプログラムをつくっています。PTAは、その大切な現場のひとつです。子どもたちがいちばん近くで見ているのは、大人が話し合う姿だからです。</p>
+      <p style="margin-bottom:20px">だからこのキットは無料です。あなたの学校で使ってみて、良かったらほかの学校の方にも、このページを教えてあげてください。それがこの活動への、一番の応援になります。</p>
+    </div>
+    <div style="text-align:center">
+      <p style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16.5px;line-height:1.9;margin-bottom:6px">対話のトレーナー。<br>目指しているのは、世界平和です。</p>
+      <p style="font-size:13px;color:#5a6474">きづきくみたて工房 森本康仁</p>
+      <p style="font-size:12.5px;color:#5a6474;margin-top:14px">工房のこれからの実験は、<a href="https://note.com/kizukikumitate" style="color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none">note</a> でお知らせしています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./facilitator-training.html"><span class="kaiyu-tag">養成プログラム</span><span class="kaiyu-name">対話ファシリテーター養成プログラム</span><span class="kaiyu-desc">学校の話し合いの進行役を校内で育てる、演習中心の養成プログラム（全4回）。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./shakai-yokai/index.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">3分診断</span><span class="kaiyu-name">社会の妖怪診断（JA/EN）</span><span class="kaiyu-desc">ニュースやSNSとのあいだに出る社会の妖怪を6問で判定。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<footer>
+  <div class="wrap">
+
+    <!-- CTA:有料キット(主)+養成プログラム(従) -->
+    <div class="f-cta">
+      <h3>この対話を、あなたの学校でひらくなら。</h3>
+      <p>進行役がそのまま読める台本、紛糾したときの返し方集、全国の事例、当日の投影スライドとワークシートまで──ぜんぶ入った「進行テキスト+当日セット」をご用意しています。はじめての進行でも、手順が場を守ってくれます。</p>
+      <a class="btn" href="./facilitator-training.html#kit-text">進行テキスト+当日セット(3,000円)を見る →</a>
+      <p style="margin-top:18px;font-size:12.5px;color:rgba(251,250,247,.75)">進行を演習で身につけたい方には、対話ファシリテーター養成プログラム(全4回)もあります。<a href="./facilitator-training.html" style="color:rgba(251,250,247,.95);border-bottom:1px solid var(--marker);text-decoration:none">くわしく見る</a></p>
+    </div>
+
+    <!-- サイト回遊ナビ -->
+    <div class="f-nav">
+      <div>
+        <div class="f-brand">きづきくみたて工房</div>
+        <p class="f-tagline">時代が必要とする学びの機会を作って、届ける。対話と合意形成を、日本の社会と組織のインフラに。</p>
+      </div>
+      <div>
+        <h4>対話を学ぶ</h4>
+        <ul>
+          <li><a href="./facilitator-training.html">対話ファシリテーター養成</a></li>
+          <li><a href="./democracy-fitness.html">デモクラシーフィットネス</a></li>
+          <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
+          <li><a href="./lsp.html">レゴ®シリアスプレイ®</a></li>
+          <li><a href="./topaasia.html">TOPAASIA®</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>図鑑シリーズ</h4>
+        <ul>
+          <li><a href="./dialogue-zukan.html">世界の対話の技法図鑑</a></li>
+          <li><a href="./shikumi-zukan.html">社会のしくみ図鑑</a></li>
+          <li><a href="./ted-collection.html">TEDコレクション</a></li>
+          <li><a href="./roadmap.html">世界平和までのロードマップ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>工房について</h4>
+        <ul>
+          <li><a href="./index.html">ホーム</a></li>
+          <li><a href="https://note.com/kizukikumitate">note(きづきくみたてnote)</a></li>
+          <li><a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a></li>
+          <li><a href="./tokushoho.html">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <span>© きづきくみたて工房 ── PTA対話キット「PTAのこれからについて話し合おう」</span>
+      <span>本キットは無料です。学校を越えた共有・紹介も大歓迎──自由に改変してお使いください。</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ===== リソース計算機 ===== */
+  var defaults = [
+    {name:"旗振り・見守り当番", times:200, people:2, hours:0.5},
+    {name:"広報誌の制作・配布", times:3, people:8, hours:6},
+    {name:"ベルマーク集計", times:4, people:6, hours:2},
+    {name:"運動会などの行事手伝い", times:2, people:20, hours:4},
+    {name:"委員会・役員会の会議", times:10, people:12, hours:1.5}
+  ];
+  var tbody = document.getElementById("calcRows");
+  var fmt = function(n, digits){
+    return n.toLocaleString("ja-JP",{maximumFractionDigits:(digits===undefined?1:digits)});
+  };
+  function addRow(d){
+    d = d || {name:"", times:1, people:1, hours:1};
+    var tr = document.createElement("tr");
+    tr.innerHTML =
+      '<td><input type="text" class="c-name" value="'+ d.name.replace(/"/g,"&quot;") +'" placeholder="活動名"></td>' +
+      '<td class="num"><input type="number" class="c-times" min="0" step="1" inputmode="numeric" value="'+ d.times +'"></td>' +
+      '<td class="num"><input type="number" class="c-people" min="0" step="1" inputmode="numeric" value="'+ d.people +'"></td>' +
+      '<td class="num"><input type="number" class="c-hours" min="0" step="0.5" inputmode="decimal" value="'+ d.hours +'"></td>' +
+      '<td class="rowtotal">0</td>' +
+      '<td><button type="button" class="del" aria-label="この行を削除">×</button></td>';
+    tbody.appendChild(tr);
+    tr.querySelector(".del").addEventListener("click", function(){ tr.remove(); calc(); });
+    var inputs = tr.querySelectorAll("input");
+    for (var i=0;i<inputs.length;i++){ inputs[i].addEventListener("input", calc); }
+  }
+  function calc(){
+    var total = 0;
+    var rows = tbody.querySelectorAll("tr");
+    for (var i=0;i<rows.length;i++){
+      var t = parseFloat(rows[i].querySelector(".c-times").value) || 0;
+      var p = parseFloat(rows[i].querySelector(".c-people").value) || 0;
+      var h = parseFloat(rows[i].querySelector(".c-hours").value) || 0;
+      var sub = t * p * h;
+      rows[i].querySelector(".rowtotal").textContent = fmt(sub);
+      total += sub;
+    }
+    var households = parseFloat(document.getElementById("households").value) || 0;
+    var wage = parseFloat(document.getElementById("wage").value) || 0;
+    document.getElementById("rTotalHours").innerHTML = fmt(total,0) + "<small>時間</small>";
+    document.getElementById("rPerHouse").innerHTML =
+      (households > 0 ? fmt(total/households) : "—") + "<small>時間/年</small>";
+    document.getElementById("rMoney").innerHTML = fmt(total*wage/10000,0) + "<small>万円/年</small>";
+  }
+  for (var i=0;i<defaults.length;i++){ addRow(defaults[i]); }
+  document.getElementById("addRow").addEventListener("click", function(){ addRow(); calc(); });
+  document.getElementById("households").addEventListener("input", calc);
+  document.getElementById("wage").addEventListener("input", calc);
+  calc();
+
+  /* ===== シェアボタン ===== */
+  var pageUrl = encodeURIComponent(location.href);
+  var pageText = encodeURIComponent("PTAのこれからについて話し合おう ── 子どもと学校のこれからを、保護者と先生で考えるための8つの争点");
+  document.getElementById("shareX").href =
+    "https://twitter.com/intent/tweet?text=" + pageText + "&url=" + pageUrl;
+  document.getElementById("shareLine").href =
+    "https://social-plugins.line.me/lineit/share?url=" + pageUrl;
+  document.getElementById("shareFb").href =
+    "https://www.facebook.com/sharer/sharer.php?u=" + pageUrl;
+  document.getElementById("copyUrl").addEventListener("click", function(){
+    var label = document.getElementById("copyLabel");
+    function done(){ label.textContent = "コピーしました ✓"; setTimeout(function(){ label.textContent = "リンクをコピー"; }, 2000); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(location.href).then(done, fallback);
+    } else { fallback(); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = location.href;
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); done(); } catch(e){ label.textContent = "コピーできませんでした"; }
+      document.body.removeChild(ta);
+    }
+  });
+})();
+</script>
+</body>
+</html>

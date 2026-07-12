@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>対話ファシリテーター養成プログラム|きづきくみたて工房</title>
+<meta name="description" content="意見の違いを乗り越えて、より良い答えに辿り着く。PTA・学校の話し合いの進行役を校内で育てる、演習中心の養成プログラム(全4回)。無料の対話キットを自校で回せるようになります。">
+<meta property="og:title" content="対話ファシリテーター養成プログラム｜きづきくみたて工房">
+<meta property="og:description" content="PTA・学校の話し合いの「進行役」を自分たちの中に育てる、演習中心の養成プログラム(全4回)。無料の対話キットを自校で回せるようになります。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kizukikumitate.com/facilitator-training.html">
+<link rel="canonical" href="https://kizukikumitate.com/facilitator-training.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="対話ファシリテーター養成プログラム｜きづきくみたて工房">
+<meta name="twitter:description" content="PTA・学校の話し合いの進行役を校内で育てる、演習中心の養成プログラム(全4回)。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAF7;
+  --ink:#1E2A3A;
+  --red:#C73E2E;
+  --blue:#2B5DA8;
+  --marker:#F5D93F;
+  --line:#D8D3C8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.9;
+  font-size:15px;
+}
+.wrap{max-width:840px;margin:0 auto;padding:0 24px}
+mark{background:linear-gradient(transparent 55%, var(--marker) 55%);padding:0 2px;color:inherit}
+
+/* brand bar */
+.brandbar{background:var(--ink);padding:10px 0}
+.brandbar .in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.brandbar a{color:var(--paper);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:14px;letter-spacing:.06em}
+.brandbar span{color:rgba(251,250,247,.65);font-size:11px;letter-spacing:.12em;font-weight:500}
+
+/* hero */
+.hero{padding:72px 0 56px;border-bottom:3px solid var(--ink)}
+.hero .eyebrow{
+  display:inline-block;border:1.5px solid var(--ink);
+  padding:3px 14px;font-weight:700;font-size:12px;letter-spacing:.18em;margin-bottom:28px;
+}
+.hero h1{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(30px,5.4vw,48px);line-height:1.45;letter-spacing:.02em;
+}
+.hero .sub{
+  display:block;font-size:clamp(15px,2.2vw,19px);font-weight:600;margin-top:14px;letter-spacing:.06em;
+}
+.hero .lede{margin-top:30px;max-width:680px;font-size:15.5px}
+.hero .lede p+p{margin-top:12px}
+.hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-main{
+  display:inline-block;background:var(--ink);color:var(--paper);
+  font-weight:900;font-size:14.5px;padding:14px 32px;text-decoration:none;letter-spacing:.06em;
+}
+.btn-main:hover{background:#31445e}
+.btn-main:focus-visible{outline:3px solid var(--marker);outline-offset:2px}
+.btn-sub{
+  display:inline-block;color:var(--ink);font-weight:700;font-size:13px;
+  text-decoration:none;border-bottom:2px solid var(--marker);padding-bottom:1px;
+}
+.btn-sub:hover{background:var(--marker)}
+.btn-sub:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* sections */
+section{padding:56px 0}
+section+section{border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:26px}
+.sec-head .no{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:14px;
+  border-bottom:3px solid var(--ink);padding-bottom:2px;letter-spacing:.1em;white-space:nowrap;
+}
+.sec-head h2{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(21px,3.2vw,27px);letter-spacing:.03em;
+}
+.sec-note{max-width:680px;margin-bottom:28px;color:#3d4655}
+
+/* voice cards (こんな場面) */
+.voices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+.voice{border:1.5px solid var(--ink);background:#fff;padding:18px 18px 16px}
+.voice p{font-size:13.5px;line-height:1.8}
+.voice .who{font-size:11px;font-weight:700;color:#5a6474;margin-top:10px;letter-spacing:.08em}
+
+/* skill list */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.skill{border-top:3px solid var(--ink);padding-top:14px;background:transparent}
+.skill .s-no{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:13px;letter-spacing:.12em;margin-bottom:6px}
+.skill h3{font-size:15.5px;font-weight:900;margin-bottom:8px;line-height:1.55}
+.skill p{font-size:13px;color:#3d4655}
+
+/* curriculum */
+.curri{border:2px solid var(--ink);background:#fff}
+.curri-row{display:grid;grid-template-columns:120px minmax(0,1fr);border-bottom:1px solid var(--line)}
+.curri-row:last-child{border-bottom:none}
+.curri-row .day{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:14px;
+  padding:18px 14px;border-right:1.5px solid var(--ink);
+  display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;text-align:center;
+}
+.curri-row .day small{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-size:10.5px;color:#5a6474;letter-spacing:.05em}
+.curri-row .body{padding:18px 22px}
+.curri-row .body h4{font-size:15px;font-weight:900;margin-bottom:6px}
+.curri-row .body p{font-size:13px;color:#3d4655}
+.curri-row .body ul{margin:8px 0 0 1.2em;font-size:13px;color:#3d4655}
+.curri-row .body li{margin-bottom:3px}
+@media(max-width:520px){.curri-row{grid-template-columns:88px minmax(0,1fr)}}
+
+/* parent section */
+.parent{background:var(--ink);color:var(--paper)}
+.parent .sec-head .no,.parent .sec-head h2{color:var(--paper)}
+.parent .sec-head .no{border-bottom-color:var(--marker)}
+.parent p{color:rgba(251,250,247,.9)}
+.parent .big{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(19px,3vw,25px);line-height:1.7;max-width:680px;margin-bottom:20px;
+}
+.parent .big em{font-style:normal;border-bottom:3px solid var(--marker);padding-bottom:1px}
+.parent .body-p{max-width:680px;font-size:14.5px}
+.parent .body-p+.body-p{margin-top:12px}
+
+/* outline table */
+.outline{border:2px solid var(--ink);background:#fff}
+.outline-row{display:grid;grid-template-columns:140px minmax(0,1fr);border-bottom:1px solid var(--line)}
+.outline-row:last-child{border-bottom:none}
+.outline-row .k{
+  font-size:12.5px;font-weight:900;padding:14px 16px;letter-spacing:.06em;
+  border-right:1.5px solid var(--ink);display:flex;align-items:center;
+}
+.outline-row .v{padding:14px 18px;font-size:13.5px}
+.outline-row .v small{display:block;color:#5a6474;font-size:11.5px;margin-top:2px}
+@media(max-width:520px){.outline-row{grid-template-columns:104px minmax(0,1fr)}}
+
+/* faq */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line);padding:16px 4px}
+.faq summary{
+  font-size:14.5px;font-weight:900;cursor:pointer;list-style:none;
+  display:flex;gap:12px;align-items:baseline;
+}
+.faq summary::before{content:"Q";font-family:'Shippori Mincho B1',serif;font-weight:800;color:var(--blue)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.faq .a{padding:10px 0 4px 28px;font-size:13.5px;color:#3d4655}
+
+/* final cta */
+.final{padding:64px 0;text-align:center;border-top:3px solid var(--ink)}
+.final h2{
+  font-family:'Shippori Mincho B1',serif;font-weight:800;
+  font-size:clamp(22px,3.6vw,30px);margin-bottom:14px;line-height:1.6;
+}
+.final p{max-width:560px;margin:0 auto 28px;font-size:14px;color:#3d4655}
+
+/* footer (kit共通) */
+footer{border-top:3px solid var(--ink);background:var(--ink);color:var(--paper);padding:48px 0 40px;font-size:13px}
+.f-nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:28px 24px;margin-bottom:40px}
+.f-nav h4{font-size:11px;font-weight:900;letter-spacing:.2em;color:rgba(251,250,247,.55);margin-bottom:12px}
+.f-nav ul{list-style:none}
+.f-nav li{margin-bottom:9px}
+.f-nav a{color:var(--paper);text-decoration:none;font-size:13px;font-weight:500;border-bottom:1px solid transparent}
+.f-nav a:hover{border-bottom-color:var(--marker)}
+.f-nav a:focus-visible{outline:2px solid var(--marker);outline-offset:2px}
+.f-brand{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16px;color:var(--paper);margin-bottom:6px}
+.f-tagline{font-size:12px;color:rgba(251,250,247,.7);line-height:1.8}
+.f-bottom{
+  border-top:1px solid rgba(251,250,247,.25);padding-top:20px;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 20px;
+  font-size:11.5px;color:rgba(251,250,247,.6);
+}
+</style>
+</head>
+<body>
+
+<div class="brandbar">
+  <div class="wrap in">
+    <a href="./index.html">きづきくみたて工房</a>
+    <span>対話キットシリーズ 養成プログラム</span>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">対話ファシリテーター養成プログラム</span>
+    <h1>意見の違いを乗り越えて、<br>より良い答えに辿り着く。<span class="sub">── PTA・学校の話し合いの「進行役」を、自分たちの中に育てるプログラム</span></h1>
+    <div class="lede">
+      <p>役員決めの気まずい沈黙。誰も本音を言わない総会。声の大きい人だけで決まっていく会議──。話し合いがうまくいかないのは、参加者のせいではなく、<mark>進行の技術が場にないから</mark>かもしれません。</p>
+      <p>このプログラムでは、無料公開中の「PTA対話キット」を自分の学校で回せる進行役(ファシリテーター)になるための技術を、演習中心で身につけます。</p>
+    </div>
+    <div class="hero-cta">
+      <a class="btn-main" href="mailto:y.morimoto@kizukikumitate.com?subject=%E5%AF%BE%E8%A9%B1%E3%83%95%E3%82%A1%E3%82%B7%E3%83%AA%E3%83%86%E3%83%BC%E3%82%BF%E3%83%BC%E9%A4%8A%E6%88%90%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%20%E9%96%8B%E5%82%AC%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88">開催リクエスト・お問い合わせ</a>
+      <a class="btn-sub" href="./pta-dialogue-kit.html">まずは無料の対話キットを見る →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ こんな場面 ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">01</span><h2>こんな場面に、心当たりはありませんか</h2></div>
+    <div class="voices">
+      <div class="voice">
+        <p>「PTAを変えたい気持ちはある。でも総会で提案したら、反対されて終わる気がして言い出せない」</p>
+        <div class="who">── 役員2年目の保護者</div>
+      </div>
+      <div class="voice">
+        <p>「話し合いの場を作っても、結局いつも同じ人しか発言しない。他の人が何を考えているのか分からない」</p>
+        <div class="who">── PTA会長</div>
+      </div>
+      <div class="voice">
+        <p>「保護者と一緒に見直したい。でも学校側が仕切ると『押しつけ』に見えてしまうのが怖い」</p>
+        <div class="who">── 教頭・教務主任</div>
+      </div>
+    </div>
+    <p class="sec-note" style="margin-top:26px;margin-bottom:0">三者に共通するのは、意欲の不足ではなく、<mark>「意見が割れる話し合い」を安全に進める方法を、誰も教わってこなかった</mark>という一点です。それは教われば、身につきます。</p>
+  </div>
+</section>
+
+<!-- ============ 身につくこと ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">02</span><h2>身につく5つの技術</h2></div>
+    <div class="skills">
+      <div class="skill">
+        <div class="s-no">技術 一</div>
+        <h3>場の設計</h3>
+        <p>「何を決める会か、決めない会か」を先に定める技術。目的の混在が紛糾の最大原因です。チェックイン・グループ分け・時間配分まで、90分を設計できるようになります。</p>
+      </div>
+      <div class="skill">
+        <div class="s-no">技術 二</div>
+        <h3>全員の声を出させる</h3>
+        <p>声の大きさと意見の正しさを切り離す技術。書いてから話す、ペアで話してから全体へ──沈黙している人の考えを場に出す具体的な手順を練習します。</p>
+      </div>
+      <div class="skill">
+        <div class="s-no">技術 三</div>
+        <h3>対立を扱う</h3>
+        <p>意見の衝突を、避けるのでも勝ち負けにするのでもなく、「選択肢が増えた」と扱い直す技術。反対意見が出た瞬間の返し方を、ロールプレイで体に入れます。</p>
+      </div>
+      <div class="skill">
+        <div class="s-no">技術 四</div>
+        <h3>決め方を決める</h3>
+        <p>全会一致・多数決・お試し導入・見送り──決め方には種類があります。テーマごとに適切な決め方を選び、「決めないことを決める」ことも成果にできるようになります。</p>
+      </div>
+      <div class="skill">
+        <div class="s-no">技術 五</div>
+        <h3>次につなげる</h3>
+        <p>対話を「いい話し合いだった」で終わらせず、小さなおためし・担当・期限に落とす技術。ふりかえりメモの書き方と、次回への引き継ぎ方までを扱います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ カリキュラム ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">03</span><h2>プログラムの流れ</h2></div>
+    <p class="sec-note">講義は最小限。<mark>参加者どうしの演習とロールプレイが中心</mark>です。最終回までに、自分の学校での実施計画を持ち帰れる構成にしています。</p>
+    <!-- TODO: 回数・時間・形式(オンライン/対面)は仮。実施形態が決まり次第差し替え -->
+    <div class="curri">
+      <div class="curri-row">
+        <div class="day">第1回<small>オンライン/2時間</small></div>
+        <div class="body">
+          <h4>場の設計と、声の出し方</h4>
+          <p>対話キットの全体構造を理解し、90分の場を設計する演習。全員の声を出させる技術を、その場でお互いに体験しながら学びます。</p>
+        </div>
+      </div>
+      <div class="curri-row">
+        <div class="day">第2回<small>オンライン/2時間</small></div>
+        <div class="body">
+          <h4>対立の扱いと、決め方</h4>
+          <p>「反対です」と言われた瞬間から始まるロールプレイ演習。紛糾の型を知り、返し方を練習します。決め方の選び方、ふりかえりメモの書き方までを扱います。</p>
+        </div>
+      </div>
+      <div class="curri-row">
+        <div class="day">第3回<small>対面またはオンライン/2時間</small></div>
+        <div class="body">
+          <h4>自校での実施計画づくり</h4>
+          <p>自分の学校の状況(争点・関係者・タイミング)を持ち寄り、実施計画を作って相互フィードバック。修了後の初回実施に向けた個別の作戦を持ち帰ります。</p>
+        </div>
+      </div>
+      <div class="curri-row">
+        <div class="day">第4回<small>オンライン/2時間</small></div>
+        <div class="body">
+          <h4>初回実施のふりかえり会</h4>
+          <p>実際にキットを使った対話を実施したあと、うまくいったこと・詰まったことを持ち寄るふりかえり会。他校の実施報告からも学び、2回目以降の改善につなげます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 親としての学び ============ -->
+<section class="parent">
+  <div class="wrap">
+    <div class="sec-head"><span class="no">04</span><h2>そしてこれは、子育ての話でもあります</h2></div>
+    <p class="big">意見の違う相手と、対立を恐れず、<em>関係を壊さずに話し合う</em>。この技術がいちばん試されるのは、実は家庭かもしれません。</p>
+    <p class="body-p">子どもの言い分を最後まで聞けているか。「決めつけずに問いかける」ができているか。家族の中の小さな対立を、勝ち負けにせず扱えているか──進行役の技術は、そのまま親としてのあり方を見つめ直す鏡になります。</p>
+    <p class="body-p">私たちは、このプログラムが学校のためであると同時に、自分の子育てに向けて親としてのあり方を見つめ直す機会としても有用であると考えています。話し合って決める姿を、いちばん近くで見ているのは子どもたちです。</p>
+  </div>
+</section>
+
+<!-- ============ 開催概要 ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">05</span><h2>開催概要</h2></div>
+    <div class="outline">
+      <div class="outline-row"><div class="k">対象</div><div class="v">PTA役員・保護者・教職員・学校運営協議会委員など、学校に関わる話し合いの進行役を担う(担いたい)方<small>ファシリテーション経験は不問です</small></div></div>
+      <div class="outline-row"><div class="k">定員</div><div class="v"><!-- TODO: 仮 -->1期あたり6〜12名<small>演習中心のため少人数で実施します</small></div></div>
+      <div class="outline-row"><div class="k">形式</div><div class="v">全4回(各2時間)<small>第1・2・4回はオンライン、第3回は対面またはオンライン</small></div></div>
+      <div class="outline-row"><div class="k">受講料</div><div class="v">3,000円/回 × 全4回(計12,000円・税込)<small>1回ずつのお支払いも可能です</small></div></div>
+      <div class="outline-row"><div class="k">参加単位</div><div class="v">同一校から2名以上でのお申し込みを推奨<small>学校に戻ってからの実施は、仲間が1人いるだけで実現率が大きく変わります。保護者+教職員の組み合わせは特におすすめです(お一人でのご参加も歓迎します)</small></div></div>
+      <div class="outline-row"><div class="k">修了後</div><div class="v">進行テキスト(PDF・全25ページ)、当日投影スライド(PowerPoint)、A4ワークシート3種、修了者コミュニティへの参加</div></div>
+      <div class="outline-row"><div class="k">講師</div><div class="v">森本康仁(きづきくみたて工房)<small>元小学校教員(9年)。組織開発・人材育成の専門家として企業・自治体の対話の場づくりに携わる。デンマーク発の対話トレーニング手法の認定トレーナー。</small></div></div>
+    </div>
+
+    <!-- テキストのみの販売 -->
+    <div id="kit-text" style="border:2px solid var(--ink);background:#fff;margin-top:22px;padding:24px 26px;scroll-margin-top:16px">
+      <div style="font-size:11px;font-weight:900;letter-spacing:.16em;color:var(--blue);margin-bottom:6px">テキストのみでも始められます</div>
+      <h3 style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:19px;margin-bottom:10px">PTA対話 進行テキスト+当日セット ── 3,000円(税込)</h3>
+      <p style="font-size:13.5px;color:#3d4655;line-height:1.85;margin-bottom:14px">無料の対話キットを進行する人のための詳細版テキスト(PDF・全25ページ)に、当日そのまま使えるスライドとワークシートを付けたセットです。プログラムの日程が合わない方、まず独学で始めたい方向け。</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px">
+        <div>
+          <div style="font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px">テキストの収録内容</div>
+          <p style="font-size:12.5px;color:#3d4655;line-height:1.9">準備チェックリストと案内文例/90分の進行台本(そのまま読めるセリフ例つき)/争点カード8枚の進行の勘所/紛糾したときの返し方集(声の大きい人・沈黙・犯人探しなど8場面)/全国の成功・失敗事例と学べること/仲間の見つけ方・先生との連携・座組の型/ファシリテーション基本スキル7つ/ふりかえりメモの記入例/掲示用「今日の6つの約束」シート</p>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:900;color:var(--ink);margin-bottom:6px">セットに含まれるもの・特典</div>
+          <p style="font-size:12.5px;color:#3d4655;line-height:1.9">当日投影スライド13枚(PowerPoint形式・学校名や日程を自由に編集可)/A4ワークシート3種(棚卸しシート・話し合いシート・ふりかえりメモ)</p>
+          <p style="font-size:12.5px;color:var(--ink);line-height:1.9;margin-top:8px;background:var(--paper);border:1px solid var(--line);padding:8px 10px"><b>購入特典:</b>初回実施のあと、養成プログラムの「ふりかえり会」(オンライン・2時間)に1回無料でご招待。実施前の相談でも構いません。</p>
+        </div>
+      </div>
+      <div style="margin-top:16px;text-align:center">
+        <!-- TODO: 森本さんのStripe/BASE決済URLに差し替え。暫定でメール受注にしている -->
+        <a class="btn-main" href="mailto:y.morimoto@kizukikumitate.com?subject=PTA%E5%AF%BE%E8%A9%B1%20%E9%80%B2%E8%A1%8C%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%2B%E5%BD%93%E6%97%A5%E3%82%BB%E3%83%83%E3%83%88%20%E8%B3%BC%E5%85%A5%E5%B8%8C%E6%9C%9B">進行テキスト+当日セットを購入する</a>
+        <p style="font-size:11px;color:#5a6474;margin-top:8px">受講者にはプログラム内で配布されます(重複購入は不要です)</p>
+        <p style="font-size:11px;color:#5a6474;margin-top:6px">お支払い・返品等の条件は<a href="./tokushoho.html" style="color:var(--ink);border-bottom:1px solid var(--marker);text-decoration:none">特定商取引法に基づく表記</a>をご確認ください。</p>
+      </div>
+      <div style="margin-top:16px;border-top:1px solid var(--line);padding-top:14px;font-size:12px;color:#5a6474;line-height:1.9">
+        <p style="margin-bottom:8px"><b style="color:var(--ink)">サポートについて:</b>本キットは買い切りのデジタル教材で、個別サポートは付属しません。一人でも多くの学校に届けることを優先し、いただいたご質問・ご感想は個別返信ではなく、教材の改訂とFAQの充実というかたちで全員にお返しします。ご相談は月1回のふりかえり会(購入特典・1回無料)にお持ちください。</p>
+        <p><b style="color:var(--ink)">共有について:</b>ご購入いただいた学校・PTAの中では、印刷・配布・共有すべて自由です。役員会や保護者会でどんどんお使いください。一方、他校への配布・転送はご遠慮ください──この活動を続けていくための、ただひとつのお願いです。他校の方には、このページのURLをご紹介いただけるととても嬉しいです。紹介こそが、この取り組みへの最大の応援になります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">06</span><h2>よくある質問</h2></div>
+    <div class="faq">
+      <details>
+        <summary>人前で話すのが得意ではないのですが、進行役になれますか?</summary>
+        <div class="a">なれます。むしろ「よく聞く人」の方が良い進行役になることが多いです。このプログラムで学ぶのは話術ではなく、場の設計と手順です。手順があれば、話すのが得意でなくても場は回ります。</div>
+      </details>
+      <details>
+        <summary>うちのPTAはまだ改革の話が出ていません。受けても意味がありますか?</summary>
+        <div class="a">はい。むしろ「もめてから」学ぶより、「もめる前に」進行の技術を持っておく方がずっと楽です。役員会や委員会など、日常の小さな話し合いから使える技術です。</div>
+      </details>
+      <details>
+        <summary>PTAを廃止するためのプログラムですか?</summary>
+        <div class="a">いいえ。廃止する学校も、続ける学校も、形を変える学校もあってよい、というのが私たちの立場です。このプログラムが提供するのは結論ではなく、自分たちで結論を出すための話し合いの技術です。</div>
+      </details>
+      <details>
+        <summary>教職員でも受講できますか?</summary>
+        <div class="a">できます。保護者と教職員が同じ期で学ぶと、学校に戻ってからの実施が格段にスムーズになるため、同一校からの組み合わせ受講をおすすめしています。</div>
+      </details>
+      <details>
+        <summary>対話キットは受講しないと使えませんか?</summary>
+        <div class="a">いいえ、キットは無料で公開しており、どなたでも自由にお使いいただけます。より安心して進行したい方向けに、進行台本つきの有料テキスト(3,000円)と、演習で身につける本プログラム(全4回)をご用意しています。</div>
+      </details>
+      <details>
+        <summary>一人でも申し込めますか?</summary>
+        <div class="a">お一人でも歓迎です。ただ、学校に戻ってからの実施は仲間が1人いるだけで実現率が大きく変わるため、同じ学校からもう1名(保護者でも先生でも)お誘い合わせのうえのご参加を推奨しています。</div>
+      </details>
+      <details>
+        <summary>買ったテキストを、ほかの学校の役員仲間に渡してもいいですか?</summary>
+        <div class="a">同じ学校・同じPTAの中での共有は自由です(むしろ広めてください)。他校の方へは、ファイルの転送ではなく、このページのURLをご紹介ください。教材の売上と広がりが、無料キットの改訂とこの活動の継続を支えています。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <h2>話し合える学校は、<br>話し合える大人が作る。</h2>
+    <p>開催時期のリクエスト、自校・自地域での開催相談、内容についての質問など、まずはお気軽にお問い合わせください。</p>
+    <a class="btn-main" href="mailto:y.morimoto@kizukikumitate.com?subject=%E5%AF%BE%E8%A9%B1%E3%83%95%E3%82%A1%E3%82%B7%E3%83%AA%E3%83%86%E3%83%BC%E3%82%BF%E3%83%BC%E9%A4%8A%E6%88%90%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%A0%20%E9%96%8B%E5%82%AC%E3%83%AA%E3%82%AF%E3%82%A8%E3%82%B9%E3%83%88">開催リクエスト・お問い合わせ</a>
+  </div>
+</section>
+
+<!-- ============ 工房の想い ============ -->
+<section style="border-top:1px solid var(--line)">
+  <div class="wrap" style="max-width:720px">
+    <div style="text-align:center;margin-bottom:26px">
+      <!-- TODO: ロゴ画像が用意でき次第、下の行を <img src="logo.png" alt="きづきくみたて工房" style="height:52px"> に差し替え -->
+      <div style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:22px;letter-spacing:.08em">きづきくみたて工房</div>
+    </div>
+    <h2 style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(19px,3vw,24px);text-align:center;margin-bottom:24px;letter-spacing:.03em">つくっている人から、ひとこと</h2>
+    <div style="font-size:14.5px;line-height:2.05;color:#3d4655">
+      <p style="margin-bottom:14px">こんにちは。きづきくみたて工房の森本康仁です。元・小学校の教員です。9年間、教室で子どもたちと学級会をやってきて、その後、企業の人材育成や組織づくりの仕事に移って、ふと感じる時があります。<mark style="background:linear-gradient(transparent 55%, var(--marker) 55%);padding:0 2px">大人の会議は、良い学級会に負けているかもしれない</mark>、と。</p>
+      <p style="margin-bottom:14px">声の大きい人で決まる。反対意見が言えない。決まったことが実行されない──。これは個人の性格の問題ではなく、「話し合いの技術」を誰も教わってこなかったという、仕組みの問題です。だから、鍛えれば変わります。</p>
+      <p style="margin-bottom:14px">きづきくみたて工房は、「時代が必要とする学びの機会を作って、届ける」を合言葉に、対話と合意形成の技術を日本の社会と組織のインフラにするための教材とプログラムをつくっています。PTAは、その大切な現場のひとつです。子どもたちがいちばん近くで見ているのは、大人が話し合う姿だからです。</p>
+      <p style="margin-bottom:20px">このキットが、あなたの学校の「話せる関係」の小さな一歩になれたら、それがわたしたちの一番の成果です。</p>
+    </div>
+    <div style="text-align:center">
+      <p style="font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16.5px;line-height:1.9;margin-bottom:6px">対話のトレーナー。<br>目指しているのは、世界平和です。</p>
+      <p style="font-size:13px;color:#5a6474">きづきくみたて工房 森本康仁</p>
+      <p style="font-size:12.5px;color:#5a6474;margin-top:14px">工房のこれからの実験は、<a href="https://note.com/kizukikumitate" style="color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none">note</a> でお知らせしています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./pta-dialogue-kit.html"><span class="kaiyu-tag">対話キット</span><span class="kaiyu-name">PTA対話キット</span><span class="kaiyu-desc">PTAのこれからを保護者と先生で話し合う無料の対話キット。8つの争点カードと進め方つき。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./shakai-yokai/index.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">3分診断</span><span class="kaiyu-name">社会の妖怪診断（JA/EN）</span><span class="kaiyu-desc">ニュースやSNSとのあいだに出る社会の妖怪を6問で判定。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<footer>
+  <div class="wrap">
+    <div class="f-nav">
+      <div>
+        <div class="f-brand">きづきくみたて工房</div>
+        <p class="f-tagline">時代が必要とする学びの機会を作って、届ける。対話と合意形成を、日本の社会と組織のインフラに。</p>
+      </div>
+      <div>
+        <h4>対話を学ぶ</h4>
+        <ul>
+          <li><a href="./pta-dialogue-kit.html">PTA対話キット(無料)</a></li>
+          <li><a href="./facilitator-training.html#kit-text">PTA対話 進行テキスト+当日セット(有料)</a></li>
+          <li><a href="./democracy-fitness.html">デモクラシーフィットネス</a></li>
+          <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
+          <li><a href="./lsp.html">レゴ®シリアスプレイ®</a></li>
+          <li><a href="./topaasia.html">TOPAASIA®</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>図鑑シリーズ</h4>
+        <ul>
+          <li><a href="./dialogue-zukan.html">世界の対話の技法図鑑</a></li>
+          <li><a href="./shikumi-zukan.html">社会のしくみ図鑑</a></li>
+          <li><a href="./ted-collection.html">TEDコレクション</a></li>
+          <li><a href="./roadmap.html">世界平和までのロードマップ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>工房について</h4>
+        <ul>
+          <li><a href="./index.html">ホーム</a></li>
+          <li><a href="https://note.com/kizukikumitate">note(きづきくみたてnote)</a></li>
+          <li><a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a></li>
+          <li><a href="./tokushoho.html">特定商取引法に基づく表記</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© きづきくみたて工房 ── 対話ファシリテーター養成プログラム</span>
+      <span>PTA対話キットは無料で公開しています。</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
