@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>みんなの声|PTA対話キット</title>
+<meta property="og:title" content="みんなの声｜PTA対話キット">
+<meta property="og:description" content="全国のPTAから届いた「やってみて、意外だったこと」。良い声も、しんどかった声も、そのまま載せています。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kizukikumitate.com/pta-dialogue-kit-ogp.png">
+<meta property="og:url" content="https://kizukikumitate.com/minna-no-koe.html">
+<link rel="canonical" href="https://kizukikumitate.com/minna-no-koe.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="みんなの声｜PTA対話キット">
+<meta name="twitter:description" content="全国のPTAから届いた声。良い声もしんどい声もそのまま。">
+<meta name="twitter:image" content="https://kizukikumitate.com/pta-dialogue-kit-ogp.png">
+<meta name="description" content="全国のPTAから届いた「やってみて、意外だったこと」。良い声も、しんどかった声も、そのまま載せています。">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFAF7;--ink:#1E2A3A;--red:#C73E2E;--blue:#2B5DA8;--marker:#F5D93F;--line:#D8D3C8;--muted:#5a6474;--green:#3F8A66;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;font-size:15px;line-break:strict;hanging-punctuation:allow-end}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+mark{background:linear-gradient(transparent 55%, var(--marker) 55%);padding:0 2px}
+header{padding:56px 0 36px;border-bottom:3px solid var(--ink)}
+.eyebrow{display:inline-block;border:1.5px solid var(--ink);padding:3px 14px;font-weight:700;font-size:12px;letter-spacing:.18em;margin-bottom:20px}
+h1{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(28px,5vw,40px);line-height:1.4}
+.lede{margin-top:18px;max-width:680px;color:#3d4655}
+.policy{border-left:4px solid var(--blue);background:#fff;padding:14px 18px;font-size:13.5px;margin-top:22px;max-width:680px;line-height:1.9}
+section{padding:40px 0}
+section+section{border-top:1px solid var(--line)}
+/* filter tabs */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.tab{border:2px solid var(--ink);background:#fff;font:inherit;font-size:13px;font-weight:900;padding:8px 16px;cursor:pointer;display:flex;align-items:center;gap:8px}
+.tab .cnt{font-family:'Shippori Mincho B1',serif;font-size:12px;background:var(--paper);border:1px solid var(--line);padding:0 7px;border-radius:9px}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tab[aria-pressed="true"] .cnt{background:transparent;border-color:rgba(251,250,247,.4);color:var(--paper)}
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.card{border:2px solid var(--ink);background:#fff;padding:16px 18px 14px;display:flex;flex-direction:column}
+.card .kind{font-size:11px;font-weight:900;letter-spacing:.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.card .kind::before{content:"";width:9px;height:9px;border:1.5px solid var(--ink);transform:rotate(45deg)}
+.card .sample-badge{margin-left:auto;font-size:10px;font-weight:900;letter-spacing:.08em;color:var(--muted);border:1px solid var(--line);border-radius:9px;padding:0 7px;background:var(--paper)}
+.card.found .kind{color:var(--green)} .card.found .kind::before{background:#CFE8DB}
+.card.surprise .kind{color:var(--blue)} .card.surprise .kind::before{background:#D9E4F5}
+.card.hard .kind{color:var(--red)} .card.hard .kind::before{background:#F6DDD9}
+.card .body{font-size:14px;line-height:1.85;flex:1}
+.card .then{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);font-size:12.5px;color:#3d4655}
+.card .then b{font-weight:900;color:var(--ink)}
+.card .who{margin-top:10px;font-size:11.5px;color:var(--muted)}
+.empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0;font-size:14px}
+/* form section */
+.formbox{border:2px solid var(--ink);background:#fff;padding:24px 26px}
+.formbox h2{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:20px;margin-bottom:6px}
+.formbox .note{font-size:13px;color:var(--muted);margin-bottom:18px}
+.q{margin-bottom:16px}
+.q .label{font-weight:900;font-size:14px;margin-bottom:4px}
+.q .sample{font-size:12.5px;color:var(--muted);background:var(--paper);border:1px dashed var(--line);padding:8px 12px;line-height:1.7}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);font-weight:900;font-size:14px;padding:12px 28px;text-decoration:none;margin-top:6px}
+.btn:hover{background:#31445e}
+.rules{margin-top:22px;border-top:1px solid var(--line);padding-top:16px;font-size:13px}
+.rules b{font-weight:900}
+.rules li{list-style:none;position:relative;padding-left:20px;margin-top:8px;line-height:1.8}
+.rules li::before{content:"";position:absolute;left:2px;top:10px;width:8px;height:8px;background:var(--marker);border:1.5px solid var(--ink);border-radius:2px;transform:rotate(45deg)}
+footer{border-top:3px solid var(--ink);padding:28px 0 48px;font-size:12.5px;color:var(--muted)}
+footer a{color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none}
+</style>
+</head>
+<body>
+
+<!-- ============ BRAND BAR ============ -->
+<div style="background:var(--ink);padding:10px 0" class="no-print">
+  <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <a href="./index.html" style="color:var(--paper);text-decoration:none;font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:14px;letter-spacing:.06em">きづきくみたて工房</a>
+    <span style="color:rgba(251,250,247,.65);font-size:11px;letter-spacing:.12em;font-weight:500">対話キットシリーズ みんなの声</span>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">PTA対話キット みんなの声</span>
+    <h1>やってみて、意外だったこと。</h1>
+    <p class="lede">全国のPTAから届いた声を、そのまま並べていくページです。良かったことも、しんどかったことも、「PTAは要らないと思う」という声も。<mark>片方だけを載せたら、それはもう声ではなく宣伝になってしまう</mark>から。</p>
+    <div style="border:2px solid var(--ink);background:#fff;padding:14px 18px;font-size:13.5px;margin-top:20px;max-width:680px;line-height:1.9"><b>このページは、いま立ち上げたばかりです。</b><br>実際の投稿はまだ1件も届いていません。下に並んでいるのは、<b>どんなことを書けばいいのかの「記入例」として、こちらで作成したもの</b>です(実在の投稿ではありません)。本物の声が届き次第、順に差し替えていきます。最初の一人になっていただけたら、とても嬉しいです。</div>
+    <div class="policy">
+      <b>掲載のルール(3つだけ)</b><br>
+      ① 個人名・学校名が特定できる書き方をしていないこと<br>
+      ② 特定の誰かを責める書き方をしていないこと(仕組みへの批判は歓迎します)<br>
+      ③ <b>しんどかった話には、「それで、どうしたか/どうしてほしかったか」が書かれていること</b><br>
+      <span style="display:block;margin-top:8px;color:var(--muted);font-size:12.5px">③は、声を「呪い」ではなく「提案」にするためのお願いです。愚痴を封じるためではありません。しんどさの声こそ、次の学校の役に立ちます。この基準以外で、内容の good / bad による選別はしていません。</span>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 声 ===== -->
+<section>
+  <div class="wrap">
+    <div class="tabs" id="tabs">
+      <button class="tab" data-k="all" aria-pressed="true">すべて <span class="cnt" id="c-all">0</span></button>
+      <button class="tab" data-k="found" aria-pressed="false">見つけたもの <span class="cnt" id="c-found">0</span></button>
+      <button class="tab" data-k="surprise" aria-pressed="false">おどろいたこと <span class="cnt" id="c-surprise">0</span></button>
+      <button class="tab" data-k="hard" aria-pressed="false">しんどかったこと <span class="cnt" id="c-hard">0</span></button>
+    </div>
+    <div class="cards" id="cards"></div>
+    <p style="margin-top:20px;font-size:12.5px;color:var(--muted)">※ 上記はすべて「記入例」です。実在の投稿ではありません。実際の声が届き次第、こちらに掲載していきます(掲載時は「小学校・保護者(役員経験あり)」のような表記になります)。</p>
+  </div>
+</section>
+
+<!-- ===== 投稿 ===== -->
+<section>
+  <div class="wrap">
+    <div class="formbox">
+      <h2>あなたの学校の声を、聞かせてください</h2>
+      <p class="note">聞きたいのは、感想ではなく<b>経験</b>です。だから設問はこの3つだけ。うまく書こうとしなくて大丈夫です。</p>
+
+      <div class="q">
+        <div class="label">Q1. PTAをやってみて、意外だったことは何ですか?</div>
+        <div class="sample">回答例:「思ったより早く終わった」「意外と、誰も来なかった」「話しかけたら、みんな同じことを思っていた」──良いことでも、そうでないことでも構いません。</div>
+      </div>
+      <div class="q">
+        <div class="label">Q2. それは、あなたにとって「見つけたもの」「おどろいたこと」「しんどかったこと」のどれに近いですか?</div>
+        <div class="sample">3つから選んでください。しんどかったことも、そのまま載せます。</div>
+      </div>
+      <div class="q">
+        <div class="label">Q3.(しんどかった方へ)それで、どうしましたか? もしくは、どうしてほしかったですか?</div>
+        <div class="sample">回答例:「役員に相談したら、当番を半分にしてもらえた」「せめて時間だけでも、先に教えてほしかった」──ここが、次の学校のいちばんの手がかりになります。</div>
+      </div>
+
+      <!-- TODO: 投稿フォーム(Googleフォーム/Tally)が用意でき次第、下の span を
+           <a class="btn" href="フォームURL">最初の一人になる ── 声を投稿する(2分・匿名)</a> に戻す -->
+      <span class="btn" aria-disabled="true" style="opacity:.55;cursor:not-allowed;background:var(--muted)">投稿フォームは準備中です（まもなく公開）</span>
+      <p style="font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.8">公開までのあいだにお声を届けたい方は、<a href="mailto:y.morimoto@kizukikumitate.com?subject=%E3%81%BF%E3%82%93%E3%81%AA%E3%81%AE%E5%A3%B0" style="color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none">メール</a>でもお受けします（お名前・学校名は公開しません）。</p>
+
+      <div class="rules">
+        <b>投稿にあたって</b>
+        <ul>
+          <li>お名前・学校名は公開しません。掲載時は「小学校・保護者(役員経験あり)」のような形になります。</li>
+          <li>掲載までに数日いただきます(上の3つのルールを人の目で確認しています)。</li>
+          <li>掲載を見送った場合も、いただいた声はすべて読み、教材の改訂に生かします。</li>
+          <li>いただいた声は、PTA対話キットの教材や、学校向けの資料に(匿名で)引用させていただくことがあります。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>みんなの声 ── PTA対話キット / きづきくみたて工房</p>
+    <p style="margin-top:6px">やりがいの一覧は<a href="./yarigai-list.html">PTAのやりがいリスト</a>、負担の見える化は<a href="./pta-dialogue-kit.html#buntan-tool">ぶんたん計算機</a>、話し合いの進め方は<a href="./pta-dialogue-kit.html">無料の対話キット</a>をどうぞ。</p>
+  </div>
+</footer>
+
+<script>
+// TODO: 承認済みの声をここに追記していく(Notionからの書き出しを想定)
+const voices = [
+  {sample:true, k:"found", body:"旗振りに立ってみたら、子どもが友だちに「うちのお母さん」って紹介してた。照れくさそうだったけど、あれは嬉しそうだった。", who:"記入例(保護者・1年目)"},
+  {sample:true, k:"found", body:"広報の写真を撮りに行って、教室でのわが子を初めて見た。家では見せない顔で笑っていて、それだけで来た甲斐があった。", who:"記入例(保護者・広報担当)"},
+  {sample:true, k:"surprise", body:"「みんな乗り気じゃないだろうな」と思って会に出たら、他の人も同じことを思っていた。言い出せなかっただけだった。", who:"記入例(保護者・役員2年目)"},
+  {sample:true, k:"surprise", body:"やめる提案をしたら猛反対されると身構えていたが、実際にいちばん喜んだのは長年やってきた先輩役員だった。", who:"記入例(PTA会長)"},
+  {sample:true, k:"surprise", body:"思ったより早く終わった。1年間ずっと拘束されるイメージだったが、実際に動いたのは合計で10時間くらいだった。", who:"記入例(保護者・委員)"},
+  {sample:true, k:"hard", body:"下の子が小さくて朝の当番に出られず、免除の理由をみんなの前で説明させられた。あれはつらかった。", who:"記入例(保護者)",
+   then:"時間の希望を紙で出す方式に変えてもらった。口頭で言わせないだけで、ずいぶん違う。"},
+  {sample:true, k:"hard", body:"「できる人がやる」に変えた年、結局いつもの数人に集中した。手を挙げない人を責める空気ができかけて、こわかった。", who:"記入例(PTA役員)",
+   then:"活動そのものを先に減らすべきだった。人の集め方だけ変えても、量が同じなら誰かが潰れる。"},
+  {sample:true, k:"hard", body:"ベルマークの集計に何時間もかけて、換算額を計算したら時給に換算するのも申し訳ない金額だった。", who:"記入例(保護者・委員)",
+   then:"数字を出して会で共有したら、あっさり休止が決まった。誰も言い出せなかっただけだった。"},
+  {sample:true, k:"hard", body:"PTAは要らないと思っている。今の形のままなら、なくなっても子どもは困らない。", who:"記入例(保護者)",
+   then:"ただ、見守りだけは誰かがやらないといけない。そこだけ有償で外に頼めるなら、会費を払うのは構わない。"},
+];
+
+const cards = document.getElementById('cards');
+let filter = 'all';
+function render(){
+  const list = voices.filter(v => filter==='all' || v.k===filter);
+  const label = {found:"見つけたもの", surprise:"おどろいたこと", hard:"しんどかったこと"};
+  cards.innerHTML = list.length ? list.map(v => `
+    <div class="card ${v.k}">
+      <div class="kind">${label[v.k]}${v.sample ? '<span class="sample-badge">記入例</span>' : ''}</div>
+      <div class="body">${v.body}</div>
+      ${v.then ? `<div class="then"><b>それで、どうしたか:</b> ${v.then}</div>` : ``}
+      <div class="who">── ${v.who}</div>
+    </div>`).join('') : `<p class="empty">この分類の声は、まだ届いていません。</p>`;
+}
+function counts(){
+  // 記入例(sample:true)は件数に含めない ── 実際の投稿数だけを正直に表示する
+  const real = voices.filter(v=>!v.sample);
+  document.getElementById('c-all').textContent = real.length;
+  ['found','surprise','hard'].forEach(k=>{
+    document.getElementById('c-'+k).textContent = real.filter(v=>v.k===k).length;
+  });
+}
+document.getElementById('tabs').addEventListener('click', e=>{
+  const b = e.target.closest('.tab'); if(!b) return;
+  filter = b.dataset.k;
+  document.querySelectorAll('.tab').forEach(t=>t.setAttribute('aria-pressed', String(t===b)));
+  render();
+});
+counts(); render();
+</script>
+</body>
+</html>

@@ -11,7 +11,10 @@
       "category": "home",
       "added": "2025-01-01",
       "band": true,
-      "next": ["roadmap", "dialogue-program"]
+      "next": [
+        "roadmap",
+        "dialogue-program"
+      ]
     },
     {
       "id": "roadmap",
@@ -23,7 +26,10 @@
       "category": "mirai",
       "added": "2026-07-06",
       "band": false,
-      "next": ["ashimoto-map", "dialogue-zukan"]
+      "next": [
+        "ashimoto-map",
+        "dialogue-zukan"
+      ]
     },
     {
       "id": "ashimoto-map",
@@ -35,7 +41,10 @@
       "category": "mirai",
       "added": "2026-07-08",
       "band": true,
-      "next": ["roadmap", "shikumi-zukan"]
+      "next": [
+        "roadmap",
+        "shikumi-zukan"
+      ]
     },
     {
       "id": "dialogue-program",
@@ -47,7 +56,10 @@
       "category": "solution",
       "added": "2025-06-01",
       "band": true,
-      "next": ["dialogue-program-trial", "dialogue-zukan"]
+      "next": [
+        "dialogue-program-trial",
+        "dialogue-zukan"
+      ]
     },
     {
       "id": "education-program",
@@ -59,7 +71,10 @@
       "category": "solution",
       "added": "2025-06-01",
       "band": true,
-      "next": ["dialogue-program", "od-program"]
+      "next": [
+        "dialogue-program",
+        "od-program"
+      ]
     },
     {
       "id": "od-program",
@@ -71,7 +86,10 @@
       "category": "solution",
       "added": "2025-06-01",
       "band": true,
-      "next": ["dialogue-program", "social-leader-coaching"]
+      "next": [
+        "dialogue-program",
+        "social-leader-coaching"
+      ]
     },
     {
       "id": "social-leader-coaching",
@@ -83,7 +101,10 @@
       "category": "solution",
       "added": "2025-06-01",
       "band": true,
-      "next": ["od-program", "topaasia"]
+      "next": [
+        "od-program",
+        "topaasia"
+      ]
     },
     {
       "id": "dialogue-program-trial",
@@ -95,7 +116,10 @@
       "category": "solution",
       "added": "2026-05-03",
       "band": true,
-      "next": ["dialogue-program", "democracy-fitness"]
+      "next": [
+        "dialogue-program",
+        "democracy-fitness"
+      ]
     },
     {
       "id": "democracy-fitness",
@@ -107,7 +131,10 @@
       "category": "method",
       "added": "2025-06-01",
       "band": true,
-      "next": ["yokai-shindan", "dialogue-program-trial"]
+      "next": [
+        "yokai-shindan",
+        "dialogue-program-trial"
+      ]
     },
     {
       "id": "lsp",
@@ -119,7 +146,10 @@
       "category": "method",
       "added": "2025-06-01",
       "band": true,
-      "next": ["education-program", "topaasia"]
+      "next": [
+        "education-program",
+        "topaasia"
+      ]
     },
     {
       "id": "topaasia",
@@ -131,7 +161,10 @@
       "category": "method",
       "added": "2026-05-20",
       "band": true,
-      "next": ["democracy-fitness", "lsp"]
+      "next": [
+        "democracy-fitness",
+        "lsp"
+      ]
     },
     {
       "id": "topaasia-data-notes",
@@ -143,7 +176,10 @@
       "category": "method",
       "added": "2026-05-20",
       "band": true,
-      "next": ["topaasia", "shikumi-zukan"]
+      "next": [
+        "topaasia",
+        "shikumi-zukan"
+      ]
     },
     {
       "id": "yokai-shindan",
@@ -155,7 +191,10 @@
       "category": "yokai",
       "added": "2026-07-05",
       "band": false,
-      "next": ["yokai-zukan", "shakai-yokai"]
+      "next": [
+        "yokai-zukan",
+        "shakai-yokai"
+      ]
     },
     {
       "id": "shakai-yokai",
@@ -167,7 +206,10 @@
       "category": "yokai",
       "added": "2026-07-10",
       "band": false,
-      "next": ["yokai-shindan", "roadmap"]
+      "next": [
+        "yokai-shindan",
+        "roadmap"
+      ]
     },
     {
       "id": "yokai-zukan",
@@ -179,7 +221,10 @@
       "category": "yokai",
       "added": "2026-07-05",
       "band": true,
-      "next": ["yokai-shindan", "yokai-workshop"]
+      "next": [
+        "yokai-shindan",
+        "yokai-workshop"
+      ]
     },
     {
       "id": "yokai-workshop",
@@ -191,7 +236,10 @@
       "category": "yokai",
       "added": "2026-07-05",
       "band": true,
-      "next": ["yokai-zukan", "dialogue-program"]
+      "next": [
+        "yokai-zukan",
+        "dialogue-program"
+      ]
     },
     {
       "id": "yokai-ranking",
@@ -203,7 +251,10 @@
       "category": "yokai",
       "added": "2026-07-05",
       "band": true,
-      "next": ["yokai-shindan", "yokai-gallery"]
+      "next": [
+        "yokai-shindan",
+        "yokai-gallery"
+      ]
     },
     {
       "id": "yokai-gallery",
@@ -215,7 +266,10 @@
       "category": "yokai",
       "added": "2026-07-05",
       "band": true,
-      "next": ["yokai-zukan", "yokai-ranking"]
+      "next": [
+        "yokai-zukan",
+        "yokai-ranking"
+      ]
     },
     {
       "id": "dialogue-zukan",
@@ -227,7 +281,10 @@
       "category": "chie",
       "added": "2026-07-06",
       "band": true,
-      "next": ["roadmap", "ted-collection"]
+      "next": [
+        "roadmap",
+        "ted-collection"
+      ]
     },
     {
       "id": "shikumi-zukan",
@@ -239,7 +296,10 @@
       "category": "chie",
       "added": "2026-07-09",
       "band": true,
-      "next": ["poverty-zukan", "roadmap"]
+      "next": [
+        "poverty-zukan",
+        "roadmap"
+      ]
     },
     {
       "id": "poverty-zukan",
@@ -251,7 +311,10 @@
       "category": "chie",
       "added": "2026-07-09",
       "band": true,
-      "next": ["shikumi-zukan", "nobel-peace"]
+      "next": [
+        "shikumi-zukan",
+        "nobel-peace"
+      ]
     },
     {
       "id": "ted-collection",
@@ -263,7 +326,10 @@
       "category": "chie",
       "added": "2026-07-09",
       "band": true,
-      "next": ["dialogue-zukan", "nobel-peace"]
+      "next": [
+        "dialogue-zukan",
+        "nobel-peace"
+      ]
     },
     {
       "id": "nobel-peace",
@@ -275,7 +341,10 @@
       "category": "chie",
       "added": "2026-07-09",
       "band": true,
-      "next": ["roadmap", "dialogue-zukan"]
+      "next": [
+        "roadmap",
+        "dialogue-zukan"
+      ]
     },
     {
       "id": "series",
@@ -287,7 +356,10 @@
       "category": "series",
       "added": "2026-06-20",
       "band": true,
-      "next": ["series-diagnostic", "education-program"]
+      "next": [
+        "series-diagnostic",
+        "education-program"
+      ]
     },
     {
       "id": "series-diagnostic",
@@ -299,7 +371,10 @@
       "category": "series",
       "added": "2026-06-20",
       "band": true,
-      "next": ["series", "od-program"]
+      "next": [
+        "series",
+        "od-program"
+      ]
     },
     {
       "id": "pta-dialogue-kit",
@@ -311,7 +386,10 @@
       "category": "solution",
       "added": "2026-07-12",
       "band": true,
-      "next": ["facilitator-training", "dialogue-program"]
+      "next": [
+        "facilitator-training",
+        "dialogue-program"
+      ]
     },
     {
       "id": "facilitator-training",
@@ -323,7 +401,55 @@
       "category": "solution",
       "added": "2026-07-12",
       "band": true,
-      "next": ["pta-dialogue-kit", "dialogue-program"]
+      "next": [
+        "pta-dialogue-kit",
+        "dialogue-program"
+      ]
+    },
+    {
+      "id": "pta-kit-text",
+      "path": "pta-kit-text.html",
+      "title": "PTA対話 進行テキスト+当日セット",
+      "tag": "有料テキスト",
+      "desc": "無料キットを当日そのまま進行できる詳細テキスト+スライド+ワークシート（3,000円）。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-13",
+      "band": true,
+      "next": [
+        "pta-dialogue-kit",
+        "facilitator-training"
+      ]
+    },
+    {
+      "id": "minna-no-koe",
+      "path": "minna-no-koe.html",
+      "title": "みんなの声",
+      "tag": "みんなの声",
+      "desc": "全国のPTAから届いた「やってみて、意外だったこと」。良い声もしんどい声もそのまま。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-13",
+      "band": true,
+      "next": [
+        "pta-dialogue-kit",
+        "yarigai-list"
+      ]
+    },
+    {
+      "id": "yarigai-list",
+      "path": "yarigai-list.html",
+      "title": "PTAのやりがいリスト",
+      "tag": "付属資料",
+      "desc": "負担ばかりが語られがちなPTAの、見えにくい「得たもの」を5つの面から集めたリスト。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-13",
+      "band": true,
+      "next": [
+        "pta-dialogue-kit",
+        "minna-no-koe"
+      ]
     }
   ]
 }

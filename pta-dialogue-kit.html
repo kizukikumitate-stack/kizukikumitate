@@ -601,7 +601,7 @@ footer{
         <p>ニュースやSNSでは廃止論と擁護論がぶつかりがちです。でも実際の学校に必要なのは勝ち負けではなく、「うちの学校では何を大切にしたいか」を落ち着いて整理する場と、その進め方です。</p>
       </div>
     </div>
-    <p class="sec-note" style="margin-top:28px;margin-bottom:0">つまり、足りないのは意欲ではなく、<mark>意見が分かれるテーマを安全に話し合う「場」と「手順」</mark>です。それなら、用意できます。このページの下に、そのまま使える対話キットを無料で置いておきます。</p>
+    <p class="sec-note" style="margin-top:28px;margin-bottom:0">つまり、足りないのは意欲ではなく、<mark>意見が分かれるテーマを安全に話し合う「場」と「手順」</mark>です。それなら、用意できます。このページの下に、そのまま使える対話キットを無料で置いておきます。あわせて、負担の話ばかりにならないよう<a href="./yarigai-list.html" style="color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none;font-weight:700">「PTAのやりがいリスト」</a>も用意しました──見直しの天秤には、両方を載せてください。</p>
   </div>
 </section>
 
@@ -632,6 +632,7 @@ footer{
         <p>成功した学校の共通項は「1年目に問題提起、2年目に小さく実験、3年目に本格移行」という段階設計です。今日の対話で全部を決める必要はありません。決めるのは「次に試す小さな一歩」だけです。</p>
       </div>
     </div>
+    <p class="sec-note" style="margin-top:28px;margin-bottom:0">棚卸しで活動が出そろったら、このページ後半の付属ツール<a href="#buntan-tool" style="color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none;font-weight:700">「ぶんたん計算機」</a>で年間の必要時間と公平な分け方を数字にできます。「不公平だ」という感情論を、仕組みの話に変える道具です。全国から届いた声は<a href="./minna-no-koe.html" style="color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none;font-weight:700">「みんなの声」</a>で読めます。</p>
   </div>
 </section>
 
@@ -918,6 +919,225 @@ footer{
   </div>
 </section>
 
+
+<!-- ============ ぶんたん計算機（付属ツール・リソース計算機の直下に埋め込み） ============ -->
+<style>
+#buntan-tool{--muted:#5a6474;--green:#3F8A66}
+#buntan-tool .acts{width:100%;border-collapse:collapse;background:#fff;border:2px solid var(--ink);font-size:13px}
+#buntan-tool .acts th{background:var(--ink);color:var(--paper);padding:8px 6px;font-size:11.5px;font-weight:700;letter-spacing:.05em}
+#buntan-tool .acts td{border-top:1px solid var(--line);padding:5px 5px;text-align:center}
+#buntan-tool .acts input{width:100%;border:1px solid var(--line);border-radius:4px;padding:7px 8px;font:inherit;font-size:13px;text-align:center;background:var(--paper)}
+#buntan-tool .acts input.name{text-align:left}
+#buntan-tool .acts .hours{font-weight:900;white-space:nowrap}
+#buntan-tool .acts .del{background:none;border:none;color:var(--red);font-size:16px;cursor:pointer;padding:4px 6px}
+#buntan-tool .btnrow{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+#buntan-tool .btn{background:var(--ink);color:var(--paper);border:none;font:inherit;font-weight:900;font-size:13px;padding:10px 18px;cursor:pointer}
+#buntan-tool .btn:hover{background:#31445e}
+#buntan-tool .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+#buntan-tool .btn.ghost:hover{background:#fff}
+#buntan-tool .total{margin-top:20px;border:2px solid var(--ink);background:#fff;padding:18px 20px;display:flex;gap:24px;flex-wrap:wrap;align-items:baseline}
+#buntan-tool .total .num{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:40px}
+#buntan-tool .total .unit{font-size:14px;font-weight:700}
+#buntan-tool .total .sub{font-size:12.5px;color:var(--muted)}
+#buntan-tool .field{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+#buntan-tool .field label{font-weight:900;font-size:14px;min-width:180px}
+#buntan-tool .field input[type=number]{width:110px;border:1.5px solid var(--ink);border-radius:4px;padding:8px 10px;font:inherit;font-size:15px;text-align:center;background:#fff}
+#buntan-tool .field input[type=range]{flex:1;min-width:160px;accent-color:var(--ink)}
+#buntan-tool .field .val{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:18px;min-width:64px;text-align:right}
+#buntan-tool .field .hint{font-size:12px;color:var(--muted);width:100%;margin-left:190px}
+@media(max-width:560px){#buntan-tool .field .hint{margin-left:0}#buntan-tool .field label{min-width:0;width:100%}}
+#buntan-tool .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:20px}
+#buntan-tool .mode{border:2px solid var(--ink);background:#fff;padding:18px 18px 16px;position:relative}
+#buntan-tool .mode h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16px;margin-bottom:2px}
+#buntan-tool .mode .tag{font-size:11px;font-weight:900;letter-spacing:.12em;color:var(--blue);margin-bottom:8px}
+#buntan-tool .mode .big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:30px;margin:6px 0 0}
+#buntan-tool .mode .big small{font-size:13px;font-weight:700}
+#buntan-tool .mode .desc{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.7}
+#buntan-tool .mode .barwrap{height:10px;background:var(--paper);border:1px solid var(--line);margin-top:10px;border-radius:5px;overflow:hidden}
+#buntan-tool .mode .bar{height:100%;background:var(--ink);border-radius:5px;transition:width .3s}
+#buntan-tool .mode .status{font-size:12.5px;font-weight:900;margin-top:6px}
+#buntan-tool .ok{color:var(--green)}#buntan-tool .warn{color:#B8860B}#buntan-tool .bad{color:var(--red)}
+#buntan-tool .summary{border:2px solid var(--ink);background:#fff;padding:20px 22px;margin-top:8px}
+#buntan-tool .summary h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16px;margin-bottom:10px}
+#buntan-tool .summary pre{white-space:pre-wrap;font-family:inherit;font-size:13.5px;background:var(--paper);border:1px dashed var(--line);padding:14px 16px;line-height:1.9}
+#buntan-tool .bt-notice{border-left:4px solid var(--blue);background:#fff;padding:12px 16px;font-size:13px;line-height:1.9}
+</style>
+<div id="buntan-tool">
+<!-- STEP1 活動と工数 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">①</span><h2>ぶんたん計算機 ── 活動を入れて、必要な時間を見える化する</h2></div>
+    <p class="sec-note">棚卸しで書き出した活動を入力してください。「1回あたり何人が、何時間動くか」×「年に何回か」で、年間の総労力(のべ時間)を自動計算します。</p>
+    <div class="bt-notice" style="max-width:660px;margin-top:14px"><b>このツールとの付き合い方</b><br>完全に公平な分担は、計算では出せません。時間の余裕、得意なこと、家庭の事情──数字にできないものが、それぞれの家庭にあります。この計算機が出すのは「正解」ではなく、<b>話し合いのたたき台</b>です。数字を囲んで「これならできそう」「ここは無理がある」と言い合えたとき、生まれるのは完全な公平ではなく、納得感です。どうかこの数字を、結論ではなく、対話の入口として使ってください。</div>
+    <div style="overflow-x:auto"><table class="acts">
+      <thead><tr><th style="text-align:left">活動名</th><th>年間回数</th><th>1回の時間<br>(h)</th><th>1回の人数</th><th>年間のべ時間</th><th></th></tr></thead>
+      <tbody id="btRows"></tbody>
+    </table></div>
+    <div class="btnrow">
+      <button class="btn" onclick="btAddRow()">+ 活動を追加</button>
+      <button class="btn ghost" onclick="btLoadPreset()">よくある例を入れてみる</button>
+      <button class="btn ghost" onclick="btClearRows()">全部消す</button>
+    </div>
+    <div class="total">
+      <div><span class="num" id="btTotalH">0</span><span class="unit"> 時間/年</span></div>
+      <div class="sub">これが、いまのPTAを回すのに必要な労力の総量(のべ時間)です。<br>フルタイム勤務に換算すると <b id="btFte">0</b> 日ぶんの仕事量。</div>
+    </div>
+  </div>
+</section>
+
+<!-- STEP2 分け方 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">②</span><h2>分け方を、3つの方式で比べる</h2></div>
+    <p class="sec-note">同じ総量でも、分け方で景色が変わります。世帯数と参加の見込みを動かして、それぞれの方式で「一人あたりの重さ」と「そもそも成立するか」を確かめてください。</p>
+
+    <div class="field"><label>会員世帯数</label><input type="number" id="btHouseholds" value="300" min="1" oninput="btCalc()"></div>
+    <div class="field">
+      <label>手挙げ制の参加率</label>
+      <input type="range" id="btJoinRate" min="1" max="60" value="15" oninput="btCalc()"><span class="val" id="btJoinRateV">15%</span>
+      <span class="hint">「手伝ってもいい」と手を挙げる世帯の割合。先行事例では、丁寧に呼びかけた学校で2〜4割程度。</span>
+    </div>
+    <div class="field">
+      <label>申告制の内訳</label>
+      <input type="range" id="btCapaHigh" min="0" max="30" value="8" oninput="btCalc()"><span class="val" id="btCapaHighV">8%</span>
+      <span class="hint">▲「多め(年6時間)を出せる」世帯の割合。残りの手挙げ世帯は「少なめ(年2時間)」として計算します。</span>
+    </div>
+
+    <div class="modes">
+      <div class="mode">
+        <div class="tag">方式 A</div>
+        <h3>全員で均等(輪番)</h3>
+        <div class="big" id="btMA">–<small> 時間/世帯・年</small></div>
+        <div class="desc">全世帯で等分した場合の一人あたり負担。数字は軽く見えても、時間を出せない世帯には重く、免除の詮索を生みやすい方式。</div>
+        <div class="status" id="btSA"></div>
+      </div>
+      <div class="mode">
+        <div class="tag">方式 B</div>
+        <h3>手挙げ制(均等)</h3>
+        <div class="big" id="btMB">–<small> 時間/人・年</small></div>
+        <div class="desc">手を挙げた人だけで等分。参加率が低いと一人あたりが急増し、役員の燃え尽きコース。バーは「一人年6時間まで」を上限とした成立度。</div>
+        <div class="barwrap"><div class="bar" id="btBB"></div></div>
+        <div class="status" id="btSB"></div>
+      </div>
+      <div class="mode">
+        <div class="tag">方式 C</div>
+        <h3>申告制(出せる分だけ)</h3>
+        <div class="big" id="btMC">–<small>% 充足</small></div>
+        <div class="desc">「多め(6h)/少なめ(2h)/今年は無理(0h)」を申告して積み上げる方式。バーは、集まる時間で必要量をどこまで賄えるかの充足率。</div>
+        <div class="barwrap"><div class="bar" id="btBC"></div></div>
+        <div class="status" id="btSC"></div>
+      </div>
+    </div>
+
+    <div class="bt-notice"><b>足りないときの選択肢は3つ:</b> ①活動を減らす(おやすみ候補の検討) ②外部の力を借りる(委託・シルバー人材・行政) ③それでも残す価値があるか、対話キットで話し合う──の順で考えるのがおすすめです。参加率を上げる説得から始めるのは、たいてい遠回りです。なお、多めに引き受けてくれた人がちゃんと報われる工夫(子どもからのありがとうの手紙、おたがいさま台帳など)は、進行テキストの「ありがとうの設計」の章にまとめています。</div>
+  </div>
+</section>
+
+<!-- STEP3 まとめ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">③</span><h2>話し合いに持っていく</h2></div>
+    <p class="sec-note">この結果をふりかえりメモや対話の場にそのまま使えるよう、要約文を自動でつくります。</p>
+    <div class="summary">
+      <h3>要約(コピーして使えます)</h3>
+      <pre id="btSummaryText">活動を入力すると、ここに要約が表示されます。</pre>
+      <div class="btnrow">
+        <button class="btn" onclick="btCopySummary()">要約をコピー</button>
+        <button class="btn ghost" onclick="window.print()">このページを印刷</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+<script>
+const tbody = document.getElementById('btRows');
+function btRowTemplate(name='',times='',hours='',people=''){
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><input class="name" placeholder="例:旗振り当番" value="${name}" oninput="btCalc()"></td>
+    <td><input type="number" min="0" value="${times}" oninput="btCalc()"></td>
+    <td><input type="number" min="0" step="0.5" value="${hours}" oninput="btCalc()"></td>
+    <td><input type="number" min="0" value="${people}" oninput="btCalc()"></td>
+    <td class="hours">0</td>
+    <td><button class="del" onclick="this.closest('tr').remove();btCalc()" aria-label="削除">×</button></td>`;
+  return tr;
+}
+function btAddRow(n,t,h,p){ tbody.appendChild(btRowTemplate(n,t,h,p)); btCalc(); }
+function btClearRows(){ tbody.innerHTML=''; btAddRow(); }
+function btLoadPreset(){
+  tbody.innerHTML='';
+  [['旗振り・登校見守り',200,1,2],['運動会の運営手伝い',1,5,20],['広報誌づくり',3,8,4],['ベルマーク集計',4,2,6],['総会・委員会の運営',6,2,8],['ベルマーク以外の資源回収',2,3,10]].forEach(r=>btAddRow(...r));
+}
+function btFmt(x){ return (Math.round(x*10)/10).toLocaleString('ja-JP'); }
+function btCalc(){
+  let total=0;
+  tbody.querySelectorAll('tr').forEach(tr=>{
+    const ins = tr.querySelectorAll('input[type=number]');
+    const t=+ins[0].value||0, h=+ins[1].value||0, p=+ins[2].value||0;
+    const sub=t*h*p; total+=sub;
+    tr.querySelector('.hours').textContent = btFmt(sub);
+  });
+  document.getElementById('btTotalH').textContent = btFmt(total);
+  document.getElementById('btFte').textContent = btFmt(total/8);
+
+  const H=+document.getElementById('btHouseholds').value||1;
+  const jr=+document.getElementById('btJoinRate').value;
+  const ch=+document.getElementById('btCapaHigh').value;
+  document.getElementById('btJoinRateV').textContent=jr+'%';
+  document.getElementById('btCapaHighV').textContent=ch+'%';
+
+  // A: equal
+  const perA = total/H;
+  document.getElementById('btMA').innerHTML = btFmt(perA)+'<small> 時間/世帯・年</small>';
+  document.getElementById('btSA').textContent = perA<=2? '成立しやすい重さです':'一部の世帯には重い負担になりえます';
+  document.getElementById('btSA').className = 'status '+(perA<=2?'ok': perA<=4?'warn':'bad');
+
+  // B: volunteers equal
+  const vols = Math.max(1, Math.round(H*jr/100));
+  const perB = total/vols;
+  document.getElementById('btMB').innerHTML = btFmt(perB)+'<small> 時間/人・年('+vols+'人)</small>';
+  const capB = Math.min(100, (6/Math.max(perB,0.01))*100);
+  document.getElementById('btBB').style.width = capB+'%';
+  document.getElementById('btBB').style.background = perB<=6?'var(--green)': perB<=12?'#B8860B':'var(--red)';
+  const sB=document.getElementById('btSB');
+  if(perB<=6){sB.textContent='一人あたり年6時間以内 ── 成立ラインです';sB.className='status ok';}
+  else if(perB<=12){sB.textContent='やや重め ── 続けるうちに担い手が減るおそれ';sB.className='status warn';}
+  else {sB.textContent='この参加率では成立しません(燃え尽き圏)';sB.className='status bad';}
+
+  // C: capacity declaration
+  const volHigh = Math.round(H*Math.min(ch,jr)/100);
+  const volLow = Math.max(0, vols - volHigh);
+  const supply = volHigh*6 + volLow*2;
+  const fill = total>0? Math.min(150,(supply/total)*100) : 0;
+  document.getElementById('btMC').innerHTML = btFmt(Math.min(fill,999))+'<small>% 充足('+btFmt(supply)+'h 集まる想定)</small>';
+  document.getElementById('btBC').style.width = Math.min(fill,100)+'%';
+  document.getElementById('btBC').style.background = fill>=100?'var(--green)': fill>=70?'#B8860B':'var(--red)';
+  const sC=document.getElementById('btSC');
+  if(total===0){sC.textContent='';}
+  else if(fill>=100){sC.textContent='いまの申告見込みで、ぜんぶ賄えます';sC.className='status ok';}
+  else if(fill>=70){sC.textContent='おしい ── あと'+btFmt(total-supply)+'時間ぶん、活動の見直しか外部の力を';sC.className='status warn';}
+  else {sC.textContent='大きく不足 ── 活動量そのものの見直し(おやすみ候補)が先です';sC.className='status bad';}
+
+  // summary
+  const names=[...tbody.querySelectorAll('input.name')].map(i=>i.value).filter(v=>v).slice(0,6).join('、');
+  document.getElementById('btSummaryText').textContent =
+`【PTA活動のぶんたん試算】
+・対象の活動:${names||'(未入力)'}
+・年間に必要なのべ時間:${btFmt(total)}時間(フルタイム換算 約${btFmt(total/8)}日ぶん)
+・全世帯均等なら:1世帯あたり 年${btFmt(perA)}時間
+・手挙げ制(参加率${jr}%)なら:1人あたり 年${btFmt(perB)}時間
+・申告制(多め${Math.min(ch,jr)}%・少なめ${Math.max(0,jr-Math.min(ch,jr))}%)なら:必要量の${btFmt(Math.min(fill,999))}%を賄える見込み
+→ この数字をもとに、「どの活動を続けるか」「足りない分をどうするか」を話し合いたい。
+(ぶんたん計算機/PTA対話キット・きづきくみたて工房)`;
+}
+function btCopySummary(){
+  navigator.clipboard.writeText(document.getElementById('btSummaryText').textContent)
+    .then(()=>alert('コピーしました。ふりかえりメモや案内文にどうぞ。'));
+}
+btAddRow(); btCalc();
+</script>
+
 <!-- ============ AGENDA ============ -->
 <section id="agenda">
   <div class="wrap">
@@ -1129,7 +1349,7 @@ footer{
     <div class="f-cta">
       <h3>この対話を、あなたの学校でひらくなら。</h3>
       <p>進行役がそのまま読める台本、紛糾したときの返し方集、全国の事例、当日の投影スライドとワークシートまで──ぜんぶ入った「進行テキスト+当日セット」をご用意しています。はじめての進行でも、手順が場を守ってくれます。</p>
-      <a class="btn" href="./facilitator-training.html#kit-text">進行テキスト+当日セット(3,000円)を見る →</a>
+      <a class="btn" href="./pta-kit-text.html">進行テキスト+当日セット(3,000円)を見る →</a>
       <p style="margin-top:18px;font-size:12.5px;color:rgba(251,250,247,.75)">進行を演習で身につけたい方には、対話ファシリテーター養成プログラム(全4回)もあります。<a href="./facilitator-training.html" style="color:rgba(251,250,247,.95);border-bottom:1px solid var(--marker);text-decoration:none">くわしく見る</a></p>
     </div>
 
@@ -1143,6 +1363,10 @@ footer{
         <h4>対話を学ぶ</h4>
         <ul>
           <li><a href="./facilitator-training.html">対話ファシリテーター養成</a></li>
+          <li><a href="./pta-kit-text.html">進行テキスト+当日セット(有料)</a></li>
+          <li><a href="#buntan-tool">ぶんたん計算機(無料ツール)</a></li>
+          <li><a href="./minna-no-koe.html">みんなの声(全国から)</a></li>
+          <li><a href="./yarigai-list.html">PTAのやりがいリスト(無料)</a></li>
           <li><a href="./democracy-fitness.html">デモクラシーフィットネス</a></li>
           <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
           <li><a href="./lsp.html">レゴ®シリアスプレイ®</a></li>
