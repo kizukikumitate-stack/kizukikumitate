@@ -347,6 +347,21 @@
       ]
     },
     {
+      "id": "goikeisei-zukan",
+      "path": "goikeisei-zukan.html",
+      "title": "合意形成図鑑",
+      "tag": "世界の知恵",
+      "desc": "世界と日本の「話し合いがうまくいく仕組み」を12の標本と5つの成立条件で読み解く図鑑。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-13",
+      "band": true,
+      "next": [
+        "dialogue-zukan",
+        "shikumi-zukan"
+      ]
+    },
+    {
       "id": "series",
       "path": "series/index.html",
       "title": "連載：気づきから組み立てる",
