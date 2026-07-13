@@ -7,7 +7,7 @@
 - [ ] `diagnostic.html` の `WEBHOOK_URL` に Make.com の Webhook URL を設定
 - [ ] `index.html` セクション9 の 30分相談CTA リンクを Calendly URL に差し替え（現在 `https://calendly.com/yasuhito/30min` プレースホルダー）
 - [ ] `index.html` セクション10 のメルマガ登録フォームを実際のサービス埋込コードに差し替え（現在 `action="#"` ダミー）
-- [ ] OGP画像 (`/og-image.png`) を作成・設置（メインリポジトリ直下）
+- [x] OGP画像: 当面は既定の `/ogp.png`（ブランドカード1200×630）を使用。専用の `/og-image.png` を作る場合は差し替え
 
 ## 推奨（品質向上）
 
