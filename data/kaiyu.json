@@ -1,5 +1,5 @@
 {
-  "_readme": "サイト内回遊バンドの台帳。scripts/update-kaiyu.py が読み、各ページの <!-- KAIYU START/END --> 間を再生成する。新ページを追加したら、ここに1エントリ足して push するだけで全ページの回遊ボタンが自動更新される。band=false のページは行き先としてのみ使われる（バンドは挿入しない）。next は手動キュレーションのおすすめ2枠（id指定）。3枠目は added が最新のページが自動で入る。",
+  "_readme": "サイト内回遊バンドの台帳。scripts/update-kaiyu.py が読み、各ページの <!-- KAIYU START/END --> 間を再生成する。新ページを追加したら、ここに1エントリ足して push するだけで全ページの回遊ボタンが自動更新される。band=false のページは行き先としてのみ使われる（バンドは挿入しない）。next は手動キュレーションのおすすめ2枠（id指定）。3枠目は added が最新のページが自動で入る。auto=false のページは新着枠・同カテゴリ補完枠に自動掲載されない（＝どこかの next で明示指定したページからのみ到達できる）。有料テキストのように「無料版を必ず経由してから見せたい」導線に使う。",
   "pages": [
     {
       "id": "index",
@@ -402,8 +402,8 @@
       "added": "2026-07-12",
       "band": true,
       "next": [
-        "facilitator-training",
-        "dialogue-program"
+        "pta-kit-text",
+        "facilitator-training"
       ]
     },
     {
@@ -431,6 +431,7 @@
       "category": "solution",
       "added": "2026-07-13",
       "band": true,
+      "auto": false,
       "next": [
         "pta-dialogue-kit",
         "facilitator-training"

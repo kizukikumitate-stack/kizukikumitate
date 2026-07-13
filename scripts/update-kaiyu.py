@@ -105,15 +105,18 @@ def pick_cards(page, pages_by_id, all_pages):
         if e and e["id"] != page["id"]:
             chosen.append(e)
     # キュレーションが2枠に満たなければ同カテゴリの新しい順で補完
+    # （auto=false のページは自動掲載しない＝明示的な next からのみ到達させる）
     if len(chosen) < 2:
         same_cat = [p for p in all_pages
                     if p["category"] == page["category"]
                     and p["id"] != page["id"]
+                    and p.get("auto", True)
                     and p not in chosen]
         same_cat.sort(key=lambda p: p["added"], reverse=True)
         chosen.extend(same_cat[: 2 - len(chosen)])
-    # 新着枠: 全体で最新（自分と既出を除く）
-    rest = [p for p in all_pages if p["id"] != page["id"] and p not in chosen]
+    # 新着枠: 全体で最新（自分・既出・auto=false を除く）
+    rest = [p for p in all_pages
+            if p["id"] != page["id"] and p.get("auto", True) and p not in chosen]
     rest.sort(key=lambda p: p["added"], reverse=True)
     cards = [(e, False) for e in chosen]
     if rest:
