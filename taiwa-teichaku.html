@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>対話定着デザイン｜離職の真因に介入するリテンション設計 — きづきくみたて工房</title>
+<meta name="description" content="退職者の54%は本当の理由を告げずに去っていく。離職の真因「対話の不在」にBEM診断×対話筋トレ×効果測定で介入する、離職予防の一気通貫サービス。">
+<meta property="og:title" content="対話定着デザイン｜離職の真因に介入するリテンション設計">
+<meta property="og:description" content="社員は、本当の理由を言わずに辞めていく。診断・対話介入・効果測定を一気通貫で行う離職予防サービス。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ai:#22406B;        /* 藍 — 対話・信頼 */
+  --koiai:#141F33;     /* 濃藍 — 地 */
+  --kinari:#F6F2E9;    /* 生成 — 和紙 */
+  --kinari-deep:#EDE7D8;
+  --beni:#C1443C;      /* 紅 — 流出・損失 */
+  --matsuba:#3F6B52;   /* 松葉 — 定着・回復 */
+  --sumi:#26241F;      /* 墨 — 本文 */
+  --usuzumi:#6E6A5E;   /* 薄墨 — 補足 */
+  --line:#D8D0BC;
+  --disp:'Shippori Mincho',serif;
+  --body:'Zen Kaku Gothic New',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--sumi);background:var(--kinari);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.narrow{max-width:760px;margin:0 auto}
+.eyebrow{font-size:12px;letter-spacing:.28em;font-weight:700;color:var(--usuzumi);text-transform:uppercase}
+.eyebrow::before{content:"";display:inline-block;width:28px;height:1px;background:currentColor;vertical-align:middle;margin-right:12px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.5;letter-spacing:.04em;margin:14px 0 24px}
+.section{padding:96px 0}
+.note{font-size:12.5px;color:var(--usuzumi);line-height:1.7}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .bar-fill{transition:none !important}
+}
+
+/* ---------- hero ---------- */
+.hero{background:var(--koiai);color:var(--kinari);padding:150px 0 90px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 50% at 85% 15%, rgba(63,107,130,.28), transparent 65%),
+  radial-gradient(ellipse 50% 45% at 10% 90%, rgba(34,64,107,.5), transparent 60%);
+  pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero .eyebrow{color:#9FB0C9}
+.hero h1{font-family:var(--disp);font-weight:800;font-size:clamp(32px,5.6vw,58px);line-height:1.55;letter-spacing:.03em;margin:22px 0 28px}
+.hero h1 em{font-style:normal;color:#E8B4A8;border-bottom:2px solid rgba(232,180,168,.45);padding-bottom:2px}
+.hero p.lede{max-width:640px;font-size:clamp(15px,1.8vw,17.5px);color:#C9CFDA;line-height:2.1}
+.hero .stat-strip{display:flex;flex-wrap:wrap;gap:0;margin-top:56px;border-top:1px solid rgba(201,207,218,.25)}
+.hero .stat{flex:1 1 200px;padding:26px 28px 4px;border-left:1px solid rgba(201,207,218,.25)}
+.hero .stat:first-child{border-left:none;padding-left:0}
+.hero .stat .num{font-family:var(--disp);font-size:clamp(30px,4vw,44px);font-weight:700;letter-spacing:.02em}
+.hero .stat .num span{font-size:.55em}
+.hero .stat .lbl{font-size:12.5px;color:#9FB0C9;letter-spacing:.06em;margin-top:2px;line-height:1.7}
+.hero .cta-row{margin-top:52px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;letter-spacing:.1em;padding:16px 36px;border-radius:999px;font-size:14.5px;transition:transform .2s,background .25s,color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-fill{background:var(--kinari);color:var(--koiai)}
+.btn-fill:hover{background:#fff}
+.btn-line{border:1px solid rgba(201,207,218,.5);color:var(--kinari)}
+.btn-line:hover{border-color:#fff}
+
+/* ---------- gap chart (signature) ---------- */
+.gap-sec{background:var(--kinari)}
+.gap-chart{margin-top:44px;border:1px solid var(--line);background:#FCFAF4;padding:40px 36px;border-radius:6px}
+.gc-legend{display:flex;gap:26px;font-size:13px;margin-bottom:30px;flex-wrap:wrap}
+.gc-legend .key{display:flex;align-items:center;gap:8px}
+.gc-legend .sw{width:22px;height:11px;border-radius:2px}
+.sw-tatemae{background:#B9C4D6}
+.sw-honne{background:var(--beni)}
+.gc-row{margin-bottom:30px}
+.gc-row:last-child{margin-bottom:0}
+.gc-label{font-weight:700;font-size:14.5px;margin-bottom:8px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.gc-gap{font-family:var(--disp);font-size:13px;color:var(--beni);font-weight:700;white-space:nowrap}
+.bar{height:15px;background:var(--kinari-deep);border-radius:3px;margin-bottom:6px;position:relative;overflow:hidden}
+.bar-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:3px;transition:width 1.2s cubic-bezier(.25,.8,.3,1)}
+.bar-fill.tatemae{background:#B9C4D6}
+.bar-fill.honne{background:var(--beni)}
+.bar .pct{position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:11px;font-weight:700;color:var(--usuzumi)}
+.bar-tag{font-size:11.5px;color:var(--usuzumi);letter-spacing:.04em;margin-bottom:2px}
+.gap-quote{margin-top:52px;border-left:3px solid var(--beni);padding:8px 0 8px 28px}
+.gap-quote .q{font-family:var(--disp);font-size:clamp(20px,3vw,27px);font-weight:700;line-height:1.8;letter-spacing:.03em}
+.gap-quote .a{margin-top:10px;font-size:14px;color:var(--usuzumi)}
+
+/* ---------- redefine ---------- */
+.redef{background:var(--ai);color:var(--kinari)}
+.redef .eyebrow{color:#9FB0C9}
+.redef p{color:#D5DBE6;max-width:720px}
+.redef .thesis{font-family:var(--disp);font-size:clamp(22px,3.4vw,32px);font-weight:700;line-height:1.9;letter-spacing:.04em;margin:30px 0;color:#fff}
+.redef .thesis em{font-style:normal;border-bottom:2px solid rgba(232,180,168,.55);color:#E8B4A8}
+.shift{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:stretch;margin-top:48px;max-width:820px}
+.shift .box{border:1px solid rgba(213,219,230,.3);border-radius:6px;padding:26px 26px}
+.shift .box h4{font-family:var(--disp);font-size:17px;letter-spacing:.06em;margin-bottom:10px}
+.shift .box p{font-size:13.5px;line-height:1.9;color:#C0C8D6;max-width:none}
+.shift .arrow{align-self:center;font-family:var(--disp);font-size:26px;color:#E8B4A8}
+.shift .was{opacity:.75}
+.shift .now{background:rgba(20,31,51,.45)}
+@media(max-width:680px){.shift{grid-template-columns:1fr}.shift .arrow{transform:rotate(90deg);justify-self:center}}
+
+/* ---------- cost ---------- */
+.cost .cards{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:44px}
+@media(max-width:720px){.cost .cards{grid-template-columns:1fr}}
+.cost .card{border:1px solid var(--line);border-radius:6px;padding:34px 32px;background:#FCFAF4}
+.cost .card.leak{border-top:4px solid var(--beni)}
+.cost .card.invest{border-top:4px solid var(--matsuba)}
+.cost .card h3{font-family:var(--disp);font-size:19px;letter-spacing:.05em;margin-bottom:14px}
+.cost .card .big{font-family:var(--disp);font-size:clamp(26px,3.6vw,36px);font-weight:700;margin:6px 0 12px}
+.cost .card.leak .big{color:var(--beni)}
+.cost .card.invest .big{color:var(--matsuba)}
+.cost .card p{font-size:14px;color:#4C483E}
+.cost .punch{margin-top:36px;font-family:var(--disp);font-size:clamp(18px,2.6vw,24px);font-weight:700;line-height:1.9;letter-spacing:.03em}
+
+/* ---------- calculator ---------- */
+.calc{background:var(--koiai);color:var(--kinari)}
+.calc .eyebrow{color:#9FB0C9}
+.calc h2{color:#fff}
+.calc p.intro{color:#C9CFDA;max-width:680px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:48px;align-items:start}
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr}}
+.calc-in{background:rgba(246,242,233,.06);border:1px solid rgba(201,207,218,.25);border-radius:6px;padding:34px 30px}
+.calc-in h3,.calc-out h3{font-family:var(--disp);font-size:16px;letter-spacing:.14em;margin-bottom:26px;color:#B9C4D6}
+.field{margin-bottom:28px}
+.field:last-child{margin-bottom:0}
+.field label{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;font-weight:700;letter-spacing:.05em;margin-bottom:10px;gap:10px}
+.field label .val{font-family:var(--disp);font-size:19px;color:#fff;white-space:nowrap}
+.field label .val small{font-size:.6em;color:#9FB0C9;margin-left:2px}
+.field input[type=range]{width:100%;appearance:none;-webkit-appearance:none;height:4px;border-radius:2px;background:rgba(201,207,218,.3);outline:none;cursor:pointer}
+.field input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--kinari);border:4px solid var(--ai);cursor:pointer}
+.field input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--kinari);border:4px solid var(--ai);cursor:pointer}
+.field input[type=range]:focus-visible{outline:2px solid #E8B4A8;outline-offset:6px}
+.field .hint{font-size:11.5px;color:#8B96AB;margin-top:8px;line-height:1.6}
+.calc-out{display:flex;flex-direction:column;gap:16px}
+.res{border:1px solid rgba(201,207,218,.25);border-radius:6px;padding:24px 28px}
+.res .lbl{font-size:12.5px;letter-spacing:.08em;color:#9FB0C9;margin-bottom:4px}
+.res .num{font-family:var(--disp);font-weight:700;font-size:clamp(26px,3.4vw,36px);line-height:1.3;color:#fff}
+.res .num small{font-size:.5em;margin-left:2px;color:#B9C4D6}
+.res .sub{font-size:12.5px;color:#8B96AB;margin-top:6px;line-height:1.7}
+.res.loss{border-top:4px solid var(--beni)}
+.res.loss .num{color:#E8938B}
+.res.hero-res{background:rgba(246,242,233,.08);border-top:4px solid #E8B4A8}
+.res.hero-res .num{color:#E8B4A8}
+.res.gain{border-top:4px solid #7FAF93}
+.res.gain .num{color:#9FCDB2}
+.verdict{font-family:var(--disp);font-size:clamp(16px,2.2vw,20px);font-weight:700;line-height:2;letter-spacing:.03em;border-left:3px solid #E8B4A8;padding:6px 0 6px 22px;margin-top:6px;color:#F0EBDE}
+.calc .note{color:#7C8699;margin-top:34px}
+
+/* ---------- layers ---------- */
+.layers{background:var(--kinari-deep)}
+.layer{display:grid;grid-template-columns:150px 1fr;gap:34px;padding:46px 0;border-bottom:1px solid var(--line)}
+.layer:last-of-type{border-bottom:none}
+@media(max-width:640px){.layer{grid-template-columns:1fr;gap:10px;padding:38px 0}}
+.layer .no{font-family:var(--disp);color:var(--ai)}
+.layer .no .k{font-size:13px;letter-spacing:.24em;display:block;margin-bottom:4px}
+.layer .no .n{font-size:44px;font-weight:700;line-height:1}
+.layer h3{font-family:var(--disp);font-size:clamp(20px,2.8vw,25px);font-weight:700;letter-spacing:.05em;margin-bottom:12px}
+.layer h3 span{font-size:.62em;color:var(--usuzumi);font-family:var(--body);font-weight:500;letter-spacing:.12em;margin-left:14px}
+.layer p{font-size:15px;max-width:640px}
+.layer .tags{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.layer .tag{font-size:12px;font-weight:700;letter-spacing:.06em;border:1px solid var(--ai);color:var(--ai);border-radius:999px;padding:4px 14px}
+
+/* ---------- topaasia ---------- */
+.topa{margin-top:64px;background:#FCFAF4;border:1px solid var(--line);border-radius:6px;padding:44px 40px;display:grid;grid-template-columns:1fr 240px;gap:36px;align-items:center}
+@media(max-width:760px){.topa{grid-template-columns:1fr;padding:34px 26px}}
+.topa .k{font-size:11.5px;letter-spacing:.26em;font-weight:700;color:var(--matsuba);margin-bottom:10px}
+.topa h3{font-family:var(--disp);font-size:clamp(20px,2.8vw,25px);font-weight:700;letter-spacing:.04em;line-height:1.7;margin-bottom:14px}
+.topa p{font-size:14.5px;color:#4C483E;max-width:560px}
+.topa p + p{margin-top:12px}
+.topa .cred{margin-top:18px;font-size:12.5px;color:var(--usuzumi);border-top:1px dashed var(--line);padding-top:14px;line-height:2}
+.topa .cred strong{color:var(--matsuba)}
+.topa-link{color:var(--ai);font-weight:700;text-decoration:none;border-bottom:1px solid var(--ai);padding-bottom:1px;transition:opacity .2s}
+.topa-link:hover{opacity:.65}
+.cardfan{position:relative;height:230px;justify-self:center;width:200px}
+.cardfan .tcard{position:absolute;left:50%;bottom:6px;width:118px;height:172px;border-radius:10px;background:#fff;border:1px solid var(--line);box-shadow:0 8px 22px rgba(38,36,31,.14);transform-origin:50% 115%;display:flex;flex-direction:column;justify-content:space-between;padding:14px 12px;font-family:var(--disp)}
+.cardfan .tcard .w{font-size:16px;font-weight:700;letter-spacing:.1em;writing-mode:vertical-rl;line-height:1}
+.cardfan .tcard .g{width:16px;height:16px;background:linear-gradient(135deg,var(--matsuba),#7FAF93);transform:rotate(45deg);border-radius:3px;align-self:flex-end}
+.cardfan .c1{transform:translateX(-50%) rotate(-16deg);background:#F4F7F3}
+.cardfan .c2{transform:translateX(-50%) rotate(-5deg)}
+.cardfan .c3{transform:translateX(-50%) rotate(7deg);background:#F2F4F8}
+.cardfan .c4{transform:translateX(-50%) rotate(18deg)}
+.cardfan .tcard{transition:transform .5s cubic-bezier(.3,.9,.3,1.2)}
+.topa:hover .c1{transform:translateX(-50%) rotate(-24deg) translateY(-6px)}
+.topa:hover .c2{transform:translateX(-50%) rotate(-8deg) translateY(-10px)}
+.topa:hover .c3{transform:translateX(-50%) rotate(9deg) translateY(-10px)}
+.topa:hover .c4{transform:translateX(-50%) rotate(26deg) translateY(-6px)}
+@media (prefers-reduced-motion: reduce){.cardfan .tcard{transition:none}}
+
+/* ---------- why ---------- */
+.why .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
+@media(max-width:820px){.why .grid{grid-template-columns:1fr}}
+.why .cell{border-top:1px solid var(--sumi);padding-top:22px}
+.why .cell h3{font-family:var(--disp);font-size:18px;letter-spacing:.05em;line-height:1.7;margin-bottom:10px}
+.why .cell p{font-size:14px;color:#4C483E}
+.why .trojan{margin-top:56px;background:#FCFAF4;border:1px solid var(--line);border-radius:6px;padding:36px;font-size:15px}
+.why .trojan strong{color:var(--ai)}
+
+/* ---------- flow ---------- */
+.flow ol{list-style:none;margin-top:40px;counter-reset:step}
+.flow li{counter-increment:step;display:grid;grid-template-columns:64px 1fr;gap:22px;padding:22px 0;border-bottom:1px dashed var(--line);align-items:baseline}
+.flow li::before{content:counter(step,decimal-leading-zero);font-family:var(--disp);font-size:24px;font-weight:700;color:var(--ai)}
+.flow li b{font-size:16px;display:block;margin-bottom:2px}
+.flow li p{font-size:14px;color:#4C483E}
+
+/* ---------- cta ---------- */
+.cta-final{background:var(--koiai);color:var(--kinari);text-align:center;padding:110px 0}
+.cta-final h2{color:#fff}
+.cta-final p{max-width:600px;margin:0 auto 40px;color:#C9CFDA;font-size:15.5px}
+footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center}
+.footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,.9)}
+.footer-copy{font-size:12px;color:rgba(255,255,255,.55)}
+@media(max-width:640px){footer{padding:2rem 1.5rem;flex-direction:column;gap:8px;text-align:center}}
+
+/* ========== 共通ナビゲーション（サイト共通・od-programより移植） ========== */
+:root{ --teal-600:#22406B; --text-primary:#26241F; --gray-100:#F0EDE4; }
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--teal-600);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  text-decoration: none;
+  flex-shrink: 0;
+  margin-right: 4rem;
+}
+.nav-logo img { height: 36px; width: auto; object-fit: contain; }
+.nav-logo-text {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+  white-space: nowrap;
+  color: #1a5fad;
+  letter-spacing: 0.06em;
+}
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  list-style: none;
+  align-items: center;
+  margin-left: auto;
+}
+.nav-links a {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #5a6a7a;
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { color: var(--teal-600); }
+.nav-links a.active { color: var(--teal-600); font-weight: 500; }
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Noto Sans JP', 'Jost', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.1em; text-transform: uppercase; color: #5a6a7a;
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--teal-600); }
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--teal-600); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none;
+  cursor: pointer; padding: 4px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.nav-hamburger:hover { background: var(--gray-100); }
+.nav-hamburger span {
+  display: block; height: 2px; border-radius: 2px;
+  background: var(--text-primary);
+  transition: transform 0.25s, opacity 0.25s;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.9rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+.mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+.mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-logo { margin-right: 0; }
+  .nav-hamburger { margin-left: auto; flex-shrink: 0; }
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+@media (max-width: 1100px) {
+  html, body { overflow-x: hidden; }
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  /* 妖怪ページと同じモバイルハンバーガー位置修正: 狭い画面でハンバーガーが画面外に潰れる問題への対策 */
+  .nav-logo { margin-right: 0; }
+  .nav-hamburger { margin-left: auto; flex-shrink: 0; }
+  .hero h1 { font-size: 1.8rem; white-space: normal; }
+  .container { padding: 0 1.5rem; }
+  .hero-badge { white-space: normal; text-align: center; }
+  .prereq-tag { flex-wrap: wrap; max-width: 100%; }
+  .hero-sub { max-width: 100%; }
+  .flow-step { min-width: 80px; }
+  .field-flow { padding: 1rem; }
+  .section { padding: 3.5rem 0; }
+  .section-sm { padding: 2.5rem 0; }
+  .cta-section { padding: 3.5rem 0; }
+}
+@media (min-width: 1481px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+@media (max-width: 1100px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html" class="active">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニュー">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html" class="active">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Retention by Dialogue Design</p>
+    <h1>社員は、<em>本当の理由</em>を<br>言わずに辞めていく。</h1>
+    <p class="lede">退職者の54%は、会社に本音を告げずに去ります。最大の理由は「話しても理解してもらえないと思ったから」。離職は給与制度の問題である前に、<strong>対話の不在という組織の症状</strong>です。私たちは、その真因を診断し、対話の筋肉を組織に移植し、効果を経営の言葉で測定します。</p>
+    <div class="stat-strip">
+      <div class="stat"><div class="num">54<span>%</span></div><div class="lbl">本当の退職理由を<br>会社に伝えていない</div></div>
+      <div class="stat"><div class="num">46<span>%</span></div><div class="lbl">理由：「話しても理解して<br>もらえないと思った」</div></div>
+      <div class="stat"><div class="num">7<span>割</span></div><div class="lbl">退職決意の前に<br>不満のサインを出していた</div></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-fill" href="#contact">離職構造を無料診断する</a>
+      <a class="btn btn-line" href="#service">サービスの仕組みを見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GAP CHART ============ -->
+<section class="section gap-sec">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">The Gap</p>
+      <h2>「建前」と「本音」のあいだに、<br>離職の真因が隠れている</h2>
+      <p>退職面談で語られる理由と、本当の理由は一致しません。1,087人の退職者調査では、会社への不満ほど伝えられずに持ち去られていることが分かっています。出口で聞いても、もう遅いのです。</p>
+    </div>
+
+    <div class="gap-chart reveal" id="gapChart">
+      <div class="gc-legend">
+        <div class="key"><span class="sw sw-tatemae"></span>退職時に伝えた理由（建前）</div>
+        <div class="key"><span class="sw sw-honne"></span>本当の理由（本音）</div>
+      </div>
+
+      <div class="gc-row">
+        <div class="gc-label"><span>給与・待遇・人事評価への不満</span><span class="gc-gap">+12.0pt 隠される</span></div>
+        <div class="bar-tag">建前</div>
+        <div class="bar"><div class="bar-fill tatemae" data-w="25.1"></div><span class="pct">25.1%</span></div>
+        <div class="bar-tag">本音</div>
+        <div class="bar"><div class="bar-fill honne" data-w="37.1"></div><span class="pct">37.1%</span></div>
+      </div>
+
+      <div class="gc-row">
+        <div class="gc-label"><span>人間関係への不満</span><span class="gc-gap">+8.9pt 隠される</span></div>
+        <div class="bar-tag">建前</div>
+        <div class="bar"><div class="bar-fill tatemae" data-w="26.4"></div><span class="pct">26.4%</span></div>
+        <div class="bar-tag">本音</div>
+        <div class="bar"><div class="bar-fill honne" data-w="35.3"></div><span class="pct">35.3%</span></div>
+      </div>
+
+      <p class="note" style="margin-top:26px">出所：BOXIL「離職の実態調査」（過去3年以内に自己都合退職した1,087人・2024年）をもとに作成。</p>
+    </div>
+
+    <div class="gap-quote reveal">
+      <p class="q">「話しても、どうせ理解してもらえない」</p>
+      <p class="a">── 本音を伝えなかった理由の第1位（46%）。これは個人の性格の問題ではなく、<strong>本音を安全に話せる回路が組織に存在しない</strong>という設計の問題です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REDEFINE ============ -->
+<section class="section redef">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">Redefinition</p>
+      <h2>離職の重心は「働きすぎ」から<br>「納得できなさ」へ移った</h2>
+      <p>パーソル総合研究所の2025年調査によれば、コロナ禍前と比べて残業や労働時間への不満は大きく後退し、代わりに「上司の指示に納得できない」「評価に納得感がない」が離職につながる不満の上位に浮上しました。働き方改革では、もう止まらない離職が増えているのです。</p>
+      <p class="thesis">離職とは、<em>対話の不在</em>が最後に見せる症状である。</p>
+      <div class="shift">
+        <div class="box was">
+          <h4>これまでの離職対策</h4>
+          <p>残業削減・福利厚生・待遇改善など「負荷を減らす」施策。一律に投下され、効果測定は離職率のみ。</p>
+        </div>
+        <div class="arrow">→</div>
+        <div class="box now">
+          <h4>これからの離職対策</h4>
+          <p>異論や違和感が安全に表明され、聴かれ、納得が形成される——「対話の回路」を組織に実装する施策。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COST ============ -->
+<section class="section cost">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">Economics</p>
+      <h2>予防は、採用よりはるかに安い</h2>
+      <p>採用には紹介手数料や広告費だけでなく、面接工数・引き継ぎロス・立ち上がり期間の生産性低下という見えないコストが積み上がります。一方このコストはP/Lに載らないため、意思決定で軽視されがちです。</p>
+    </div>
+    <div class="cards reveal">
+      <div class="card leak">
+        <h3>ひとり辞めるコスト</h3>
+        <div class="big">年収の50〜200%</div>
+        <p>採用費・工数・引き継ぎ・戦力化までの生産性損失の合計。年収500万円の中堅社員なら、1人あたり数百万円〜1,000万円規模の流出が起こります。</p>
+      </div>
+      <div class="card invest">
+        <h3>ひとりの離職を防ぐコスト</h3>
+        <div class="big">その数分の一</div>
+        <p>真因を特定した上での管理職の対話能力開発・1on1の再設計は、採用コストと比べて桁が違います。ただし条件がひとつ——<strong>原因診断なしの一律投資では効かない</strong>こと。</p>
+      </div>
+    </div>
+    <p class="punch reveal">問いは「離職防止にいくら使うか」ではない。<br>「<span style="color:var(--ai)">誰の・どの離職原因</span>に介入するか」である。</p>
+  </div>
+</section>
+
+<!-- ============ CALCULATOR ============ -->
+<section class="section calc" id="calc">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">Simulator</p>
+      <h2>あなたの会社の離職コストを試算する</h2>
+      <p class="intro">スライダーを動かすだけで、いま流出しているコストと、離職防止投資の損益分岐点がその場で分かります。数字は概算です——しかし「見えないコスト」を初めて見える化するには、概算で十分です。</p>
+    </div>
+
+    <div class="calc-grid reveal">
+      <div class="calc-in">
+        <h3>あなたの会社の数字</h3>
+        <div class="field">
+          <label for="inEmp"><span>従業員数</span><span class="val"><span id="vEmp">100</span><small>人</small></span></label>
+          <input type="range" id="inEmp" min="10" max="1000" step="10" value="100">
+        </div>
+        <div class="field">
+          <label for="inRate"><span>年間離職率</span><span class="val"><span id="vRate">15</span><small>%</small></span></label>
+          <input type="range" id="inRate" min="1" max="40" step="1" value="15">
+          <p class="hint">日本の平均離職率は約15%（厚生労働省・令和5年雇用動向調査）</p>
+        </div>
+        <div class="field">
+          <label for="inSalary"><span>平均年収</span><span class="val"><span id="vSalary">450</span><small>万円</small></span></label>
+          <input type="range" id="inSalary" min="250" max="1200" step="10" value="450">
+        </div>
+        <div class="field">
+          <label for="inCoef"><span>1人あたり離職コスト係数</span><span class="val"><span id="vCoef">100</span><small>%（年収比）</small></span></label>
+          <input type="range" id="inCoef" min="50" max="200" step="10" value="100">
+          <p class="hint">採用費＋面接工数＋引き継ぎロス＋立ち上がり期間の生産性低下の合計。一般に年収の50〜200%とされます。</p>
+        </div>
+        <div class="field">
+          <label for="inInvest"><span>離職防止への年間投資額</span><span class="val"><span id="vInvest">300</span><small>万円</small></span></label>
+          <input type="range" id="inInvest" min="50" max="3000" step="50" value="300">
+          <p class="hint">診断・管理職の対話トレーニング・1on1再設計などの想定予算</p>
+        </div>
+        <div class="field">
+          <label for="inReduce"><span>離職を何%減らせたら？</span><span class="val"><span id="vReduce">20</span><small>%減</small></span></label>
+          <input type="range" id="inReduce" min="5" max="50" step="5" value="20">
+          <p class="hint">控えめなシナリオでの試算をおすすめします</p>
+        </div>
+      </div>
+
+      <div class="calc-out" aria-live="polite">
+        <h3>試算結果</h3>
+        <div class="res loss">
+          <div class="lbl">いま年間に流出しているコスト</div>
+          <div class="num" id="outLoss">6,750<small>万円/年</small></div>
+          <div class="sub">年間離職者 <span id="outLeavers">15</span>人 × 1人あたり <span id="outPerHead">450</span>万円</div>
+        </div>
+        <div class="res hero-res">
+          <div class="lbl">投資回収に必要な離職防止</div>
+          <div class="num" id="outBreakeven">0.7<small>人</small></div>
+          <div class="sub">たった<span id="outBreakevenCeil">1</span>人の離職を防げば、投資額を回収できます</div>
+        </div>
+        <div class="res gain">
+          <div class="lbl">離職<span id="outReduceLbl">20</span>%減シナリオでの効果</div>
+          <div class="num" id="outRoi">4.5<small>倍</small></div>
+          <div class="sub">削減額 <span id="outSaved">1,350</span>万円/年 − 投資 <span id="outInvest">300</span>万円 ＝ 純効果 <span id="outNet">1,050</span>万円/年</div>
+        </div>
+        <p class="verdict" id="verdict">この条件では、投資しないことが年間1,050万円の損失に相当します。</p>
+      </div>
+    </div>
+    <p class="note">※本試算は概算モデルです。離職コスト係数の根拠や貴社実データでの精緻な算定は、無料相談にてご説明します。</p>
+  </div>
+</section>
+
+<!-- ============ SERVICE 3 LAYERS ============ -->
+<section class="section layers" id="service">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">Service</p>
+      <h2>対話定着デザイン ── 三層の介入</h2>
+      <p>測るだけのサーベイでも、引き止めるだけの面談でもなく、<strong>診断・介入・測定を一気通貫</strong>で設計します。</p>
+    </div>
+
+    <div class="layer reveal">
+      <div class="no"><span class="k">LAYER</span><span class="n">壱</span></div>
+      <div>
+        <h3>診断<span>DIAGNOSIS</span></h3>
+        <p>行動工学モデル（BEM）にもとづき、「誰の・どの離職リスクか」を特定します。一般的なサーベイと違い、原因を個人の意欲ではなく<strong>環境要因（情報・リソース・評価の仕組み）</strong>に帰属させて分析。7割の退職者が出していた「不満のサイン」を、拾えなかった組織側の構造として可視化します。</p>
+        <div class="tags"><span class="tag">BEM 6ボックス分析</span><span class="tag">離職リスクの層別化</span><span class="tag">対話回路の棚卸し</span></div>
+      </div>
+    </div>
+
+    <div class="layer reveal">
+      <div class="no"><span class="k">LAYER</span><span class="n">弐</span></div>
+      <div>
+        <h3>介入<span>INTERVENTION</span></h3>
+        <p>デンマーク発「デモクラシーフィットネス」を核に、管理職とチームに<strong>対話の筋肉</strong>を鍛えます。異論を歓迎する筋肉、深く聴く筋肉、納得を共同形成する筋肉——「話しても理解してもらえない」を、「話せば何かが変わる」に置き換える職場のトレーニングです。1on1や会議体への実装まで伴走します。</p>
+        <div class="tags"><span class="tag">デモクラシーフィットネス</span><span class="tag">1on1再設計</span><span class="tag">キャリア対話（TOPAASIA）</span></div>
+      </div>
+    </div>
+
+    <div class="layer reveal">
+      <div class="no"><span class="k">LAYER</span><span class="n">参</span></div>
+      <div>
+        <h3>測定<span>MEASUREMENT</span></h3>
+        <p>「リテンション投資はROIを証明しにくい」——その通例に、先行指標で答えます。離職率という遅行指標だけでなく、<strong>本音のサインが拾われた件数、1on1の納得度、対話行動の変化</strong>を測定し、採用コスト換算で経営に報告。研修効果測定（カークパトリック）の設計思想で、投資判断できる数字に翻訳します。</p>
+        <div class="tags"><span class="tag">先行指標ダッシュボード</span><span class="tag">採用コスト換算レポート</span><span class="tag">4レベル評価設計</span></div>
+      </div>
+    </div>
+
+    <div class="topa reveal">
+      <div>
+        <p class="k">DIALOGUE TOOL — TOPAASIA®</p>
+        <h3>チームの対話の質を、<br>「道具」から底上げする</h3>
+        <p>TOPAASIA（トパーシア）は、フィンランド生まれのカード型対話メソッド。テーマに沿ったカードを場に出しながら話すことで、役職や声の大きさに関係なく全員の視点がテーブルに並び、30〜60分でチームの論点と納得のありか——「原石」——にたどり着きます。</p>
+        <p>「何を話せばいいか分からない1on1」「同じ人しか発言しない会議」に、ゲームの構造そのものが安全な入口をつくる。対話の筋トレを日常で続けるための、チームに手渡す道具です。</p>
+        <p class="cred">きづきくみたて工房は、開発元と連携してTOPAASIAの日本語版展開を担う、<strong>国内唯一のパートナー</strong>です。<br>
+        <a class="topa-link" href="https://kizukikumitate.com/topaasia.html">TOPAASIAの詳しい紹介ページ →</a>　
+        <a class="topa-link" href="https://topaasia.com" target="_blank" rel="noopener">公式サイト（英語） →</a></p>
+      </div>
+      <div class="cardfan" aria-hidden="true">
+        <div class="tcard c1"><span class="w">信頼</span><span class="g"></span></div>
+        <div class="tcard c2"><span class="w">役割</span><span class="g"></span></div>
+        <div class="tcard c3"><span class="w">本音</span><span class="g"></span></div>
+        <div class="tcard c4"><span class="w">納得</span><span class="g"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section why">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">Why Us</p>
+      <h2>「測る会社」でも「研修会社」でもない、<br>両方を貫く設計者</h2>
+      <p>エンゲージメントサーベイは測って終わり、研修会社は届けて終わり。診断から対話能力の開発、効果測定までを一人の設計者が一気通貫で担うことが、きづきくみたて工房の独自性です。</p>
+    </div>
+    <div class="grid reveal">
+      <div class="cell">
+        <h3>パフォーマンス<br>コンサルティング</h3>
+        <p>HPI／BEMにもとづき、「やる気」ではなく環境と仕組みに原因を求める診断技術。研修ありきの提案をしません。</p>
+      </div>
+      <div class="cell">
+        <h3>デモクラシー<br>フィットネス</h3>
+        <p>デンマークの団体から直接トレーナー認定を受けた、国内でも希少な実践者。対話の筋肉を「トレーニング」として鍛える方法論を持ちます。</p>
+      </div>
+      <div class="cell">
+        <h3>教室で鍛えた<br>ファシリテーション</h3>
+        <p>小学校教員9年の経験を土台に、LEGO® SERIOUS PLAY®等の認定を持つ対話設計者。本音が出る場を、現場でつくれます。</p>
+      </div>
+    </div>
+    <div class="trojan reveal">
+      <p><strong>入口は「離職コストの削減」。手に入るのは「対話できる組織」。</strong><br>離職防止のために鍛えた対話の筋肉は、会議の質、変化への適応力、心理的安全性——組織のあらゆる場面に転用されます。離職率はその最初の成果指標にすぎません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLOW ============ -->
+<section class="section flow">
+  <div class="wrap narrow">
+    <div class="reveal">
+      <p class="eyebrow">Process</p>
+      <h2>進め方</h2>
+    </div>
+    <ol class="reveal">
+      <li><div><b>無料相談（60分・オンライン）</b><p>現状の離職状況と、これまで打った施策をお聞きします。この時点で仮説をお返しします。</p></div></li>
+      <li><div><b>離職構造診断（約1ヶ月）</b><p>データ分析とインタビューで、離職リスクの所在と対話回路の欠損箇所を特定します。</p></div></li>
+      <li><div><b>介入設計と実施（3〜6ヶ月）</b><p>管理職の対話トレーニング、1on1・会議体の再設計を、現場と伴走しながら実装します。</p></div></li>
+      <li><div><b>効果測定と経営報告</b><p>先行指標と採用コスト換算で投資対効果を報告し、次の一手を設計します。</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-final" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#9FB0C9">Contact</p>
+    <h2>次の退職届が出る前に、<br>対話の回路を点検しませんか</h2>
+    <p>「うちの離職は何が真因なのか」——60分の無料相談で、初期仮説までお返しします。診断だけのご依頼も歓迎です。</p>
+    <a class="btn btn-fill" href="https://kizukikumitate.com/#contact">無料相談を申し込む</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+// scroll reveal
+const io = new IntersectionObserver((es)=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      // animate bars when the chart enters
+      if(e.target.id==='gapChart'){
+        e.target.querySelectorAll('.bar-fill').forEach(b=>{
+          b.style.width = b.dataset.w + '%';
+        });
+      }
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.18});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+// reduced motion: set bars immediately
+if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  document.querySelectorAll('.bar-fill').forEach(b=>b.style.width=b.dataset.w+'%');
+}
+
+// ---------- ROI calculator ----------
+const $ = id => document.getElementById(id);
+const fmt = n => Math.round(n).toLocaleString('ja-JP');
+const fmt1 = n => (Math.round(n*10)/10).toLocaleString('ja-JP',{minimumFractionDigits:0,maximumFractionDigits:1});
+
+function calc(){
+  const emp    = +$('inEmp').value;
+  const rate   = +$('inRate').value;      // %
+  const salary = +$('inSalary').value;    // 万円
+  const coef   = +$('inCoef').value;      // %
+  const invest = +$('inInvest').value;    // 万円
+  const reduce = +$('inReduce').value;    // %
+
+  // echo inputs
+  $('vEmp').textContent = fmt(emp);
+  $('vRate').textContent = rate;
+  $('vSalary').textContent = fmt(salary);
+  $('vCoef').textContent = coef;
+  $('vInvest').textContent = fmt(invest);
+  $('vReduce').textContent = reduce;
+
+  const leavers = emp * rate / 100;                 // 人/年
+  const perHead = salary * coef / 100;              // 万円/人
+  const annualLoss = leavers * perHead;             // 万円/年
+  const breakeven = invest / perHead;               // 人
+  const saved = annualLoss * reduce / 100;          // 万円/年
+  const net = saved - invest;                       // 万円/年
+  const roi = invest > 0 ? saved / invest : 0;
+
+  $('outLeavers').textContent = fmt1(leavers);
+  $('outPerHead').textContent = fmt(perHead);
+  $('outLoss').innerHTML = fmt(annualLoss) + '<small>万円/年</small>';
+  $('outBreakeven').innerHTML = fmt1(breakeven) + '<small>人</small>';
+  $('outBreakevenCeil').textContent = fmt(Math.max(1, Math.ceil(breakeven)));
+  $('outReduceLbl').textContent = reduce;
+  $('outRoi').innerHTML = fmt1(roi) + '<small>倍</small>';
+  $('outSaved').textContent = fmt(saved);
+  $('outInvest').textContent = fmt(invest);
+  $('outNet').textContent = fmt(net);
+
+  const v = $('verdict');
+  if(net > 0){
+    v.textContent = 'この条件では、投資しないことが年間' + fmt(net) + '万円の損失に相当します。';
+  }else if(net === 0){
+    v.textContent = 'この条件では、投資と削減効果が釣り合います。係数や削減率の前提を確認しましょう。';
+  }else{
+    v.textContent = 'この条件では回収に届きません。投資額を下げるか、まず診断で「効く介入先」を特定することをおすすめします。';
+  }
+}
+['inEmp','inRate','inSalary','inCoef','inInvest','inReduce'].forEach(id=>{
+  $(id).addEventListener('input', calc);
+});
+calc();
+</script>
+<script>
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileClose = document.getElementById('mobileClose');
+if (hamburger && mobileMenu) {
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+}
+</script>
+</body>
+</html>
