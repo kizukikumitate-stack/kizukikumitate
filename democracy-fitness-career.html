@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>デモクラシーフィットネス × キャリア開発 | きづきくみたて工房</title>
+<meta name="description" content="キャリア開発とは「自分」という事業の経営。意見を持ち、伝え、巻き込む力を、デンマーク発デモクラシーフィットネスで鍛える。転職しても、残っても効く。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="デモクラシーフィットネス × キャリア開発">
+<meta property="og:description" content="飲み込んだ意見は、キャリアの機会損失。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニングプログラム。">
+<meta property="og:url" content="https://kizukikumitate.com/democracy-fitness-career.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="デモクラシーフィットネス × キャリア開発">
+<meta name="twitter:description" content="意見を持ち、伝え、巻き込む筋肉を鍛える。転職しても、残っても効くキャリアの基礎トレーニング。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="canonical" href="https://kizukikumitate.com/democracy-fitness-career.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=M+PLUS+1p:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#EFF2F1;
+  --ink:#131E3A;
+  --red:#C8102E;      /* Dannebrog red */
+  --steel:#5B6B85;
+  --line:#C6CDD6;
+  --white:#FFFFFF;
+  --jp:'Zen Kaku Gothic New',sans-serif;
+  --jp-heavy:'M PLUS 1p',sans-serif;
+  --en:'Anton',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--jp);background:var(--paper);color:var(--ink);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* ---------- header ---------- */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:2px solid var(--ink)}
+.topbar .brand{font-family:var(--en);font-size:15px;letter-spacing:.12em}
+.topbar .brand span{color:var(--red)}
+.topbar .kizuki{font-size:12px;letter-spacing:.1em;color:var(--steel)}
+
+/* ---------- hero ---------- */
+.hero{padding:72px 0 64px;position:relative;overflow:hidden}
+.hero .eyebrow{font-family:var(--en);font-size:13px;letter-spacing:.28em;color:var(--red);margin-bottom:24px}
+.hero h1{font-family:var(--jp-heavy);font-weight:900;font-size:clamp(30px,6.4vw,58px);line-height:1.42;letter-spacing:.02em}
+.hero h1 .strike{position:relative;white-space:nowrap}
+.hero h1 .strike::after{content:"";position:absolute;left:-2%;bottom:8%;width:104%;height:.34em;background:var(--red);opacity:.22;transform:skewX(-8deg)}
+.hero .lead{margin-top:32px;max-width:620px;font-size:17px;color:var(--ink)}
+.hero .lead strong{background:linear-gradient(transparent 62%,rgba(200,16,46,.18) 62%)}
+.hero-tags{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px}
+.hero-tags span{font-size:13px;font-weight:700;border:1.5px solid var(--ink);padding:6px 14px;border-radius:999px;background:var(--white)}
+.hero .bigword{position:absolute;right:-40px;top:12px;font-family:var(--en);font-size:clamp(90px,17vw,190px);color:transparent;-webkit-text-stroke:1.5px var(--line);line-height:.9;user-select:none;pointer-events:none;z-index:-1}
+
+/* ---------- section base ---------- */
+section{padding:80px 0}
+.sec-label{display:flex;align-items:center;gap:14px;margin-bottom:36px}
+.sec-label .en{font-family:var(--en);font-size:14px;letter-spacing:.24em;color:var(--red)}
+.sec-label .bar{flex:1;height:2px;background:var(--ink)}
+h2{font-family:var(--jp-heavy);font-weight:900;font-size:clamp(24px,4.4vw,36px);line-height:1.5;margin-bottom:28px}
+.sec-body{max-width:640px;font-size:16px}
+.sec-body p+p{margin-top:1.4em}
+.sec-body strong{background:linear-gradient(transparent 62%,rgba(200,16,46,.18) 62%)}
+
+/* ---------- check (問診票) ---------- */
+.check{background:var(--ink);color:var(--paper)}
+.check h2{color:var(--white)}
+.check .sec-label .bar{background:rgba(255,255,255,.3)}
+.check-note{font-size:14px;color:#AAB4C6;margin-bottom:28px}
+.check-list{display:grid;gap:12px;max-width:640px}
+.check-item{display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:16px 18px;cursor:pointer;transition:background .2s,border-color .2s;font-size:15px;line-height:1.7}
+.check-item .box{flex:none;width:22px;height:22px;border:2px solid #8B97AC;border-radius:5px;margin-top:2px;display:grid;place-items:center;transition:all .2s}
+.check-item.on{background:rgba(200,16,46,.16);border-color:var(--red)}
+.check-item.on .box{background:var(--red);border-color:var(--red)}
+.check-item.on .box::after{content:"✓";color:#fff;font-size:14px;font-weight:700}
+.check-result{margin-top:28px;max-width:640px;border-left:4px solid var(--red);padding:14px 18px;background:rgba(255,255,255,.05);font-size:15px;min-height:1em}
+.check-result strong{color:#FF8DA0}
+
+/* ---------- concept ---------- */
+.concept-frame{border:2px solid var(--ink);background:var(--white);padding:36px 32px;max-width:720px;position:relative;margin-top:8px}
+.concept-frame::before{content:"THESIS";position:absolute;top:-11px;left:24px;background:var(--paper);font-family:var(--en);font-size:12px;letter-spacing:.22em;color:var(--red);padding:0 10px}
+.concept-frame p.big{font-family:var(--jp-heavy);font-weight:900;font-size:clamp(19px,3.2vw,25px);line-height:1.7}
+.concept-frame p.sub{margin-top:18px;font-size:15px;color:var(--steel)}
+
+/* ---------- muscle map ---------- */
+.muscle-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.muscle-card{background:var(--white);border:1.5px solid var(--line);border-radius:12px;padding:24px 22px;display:flex;flex-direction:column;gap:12px}
+.muscle-card .worry{font-size:14px;color:var(--steel);line-height:1.7}
+.muscle-card .worry::before{content:"「";color:var(--red)}
+.muscle-card .worry::after{content:"」"; color:var(--red)}
+.muscle-card .name{font-family:var(--jp-heavy);font-weight:900;font-size:20px;display:flex;align-items:center;gap:10px}
+.muscle-card .name::before{content:"💪";font-size:18px}
+.muscle-card .scene{font-size:13px;border-top:1px dashed var(--line);padding-top:12px;color:var(--ink)}
+.muscle-card .scene b{color:var(--red);font-size:12px;letter-spacing:.06em;display:block;margin-bottom:4px;font-family:var(--en)}
+.muscle-note{margin-top:20px;font-size:13px;color:var(--steel)}
+
+/* ---------- program ---------- */
+.dual{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media(max-width:720px){.dual{grid-template-columns:minmax(0,1fr)}}
+.plan{background:var(--white);border:2px solid var(--ink);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
+.plan.corp{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.plan .who{font-family:var(--en);font-size:13px;letter-spacing:.22em;color:var(--red);margin-bottom:12px}
+.plan.corp .who{color:#FF8DA0}
+.plan h3{font-family:var(--jp-heavy);font-weight:900;font-size:22px;margin-bottom:16px;line-height:1.5}
+.plan ul{list-style:none;display:grid;gap:10px;font-size:14.5px;margin-bottom:24px}
+.plan li{padding-left:22px;position:relative;line-height:1.7}
+.plan li::before{content:"—";position:absolute;left:0;color:var(--red)}
+.plan.corp li::before{color:#FF8DA0}
+.plan .cta{margin-top:auto;display:block;text-align:center;font-weight:700;font-size:15px;text-decoration:none;border-radius:999px;padding:14px 20px;transition:transform .15s}
+.plan .cta:hover{transform:translateY(-2px)}
+.plan:not(.corp) .cta{background:var(--red);color:#fff}
+.plan.corp .cta{background:var(--white);color:var(--ink)}
+.plan.wide{grid-column:1/-1;border-color:var(--red);border-width:2px}
+.plan.wide .who{color:var(--red)}
+.wide-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-bottom:24px}
+@media(max-width:720px){.wide-cols{grid-template-columns:minmax(0,1fr)}}
+.wide-cols h5{font-family:var(--jp-heavy);font-weight:700;font-size:16px;margin-bottom:8px;color:var(--red)}
+.wide-cols ul{margin-bottom:0}
+.plan.wide .lead-line{font-size:15px;margin-bottom:20px;line-height:1.9}
+.plan.wide .lead-line strong{background:linear-gradient(transparent 62%,rgba(200,16,46,.18) 62%)}
+.plan.wide .cta{background:var(--red);color:#fff;max-width:360px;margin-left:auto;margin-right:auto;width:100%}
+
+/* ---------- why ---------- */
+.why-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px;max-width:900px}
+.why-cols h4{font-family:var(--jp-heavy);font-weight:700;font-size:17px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid var(--red)}
+.why-cols p{font-size:14.5px;color:var(--ink)}
+
+/* ---------- trainer ---------- */
+.trainer{background:var(--white);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+.trainer-box{display:flex;gap:28px;align-items:flex-start;max-width:760px}
+.trainer-box .avatar{flex:none;width:96px;height:96px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-family:var(--en);font-size:26px}
+.trainer-box .t-name{font-family:var(--jp-heavy);font-weight:900;font-size:20px;margin-bottom:4px}
+.trainer-box .t-title{font-size:13px;color:var(--red);font-weight:700;margin-bottom:12px}
+.trainer-box p{font-size:14.5px}
+@media(max-width:600px){.trainer-box{flex-direction:column}}
+
+/* ---------- footer ---------- */
+footer{padding:48px 0 40px;text-align:center}
+footer .f-brand{font-family:var(--en);font-size:14px;letter-spacing:.16em;margin-bottom:8px}
+footer .f-brand span{color:var(--red)}
+footer p{font-size:12px;color:var(--steel)}
+footer a{color:var(--steel)}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.plan .cta:hover{transform:none}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">DEMOCRACY FITNESS <span>×</span> CAREER</div>
+  <div class="kizuki">きづきくみたて工房</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <div class="bigword">VOICE</div>
+    <div class="eyebrow">DEMOCRACY FITNESS × CAREER DEVELOPMENT</div>
+    <h1>会議で飲み込んだ<br>その意見は、<br><span class="strike">キャリアの機会損失</span>です。</h1>
+    <p class="lead">キャリア開発とは、資格を取ることでも、転職サイトに登録することでもありません。<strong>「自分」という事業を、自分で経営すること</strong>。そのために必要なのは、意見を持ち、伝え、周囲を巻き込む筋肉です。</p>
+    <div class="hero-tags">
+      <span>転職する人にも</span><span>会社に残る人にも</span><span>デンマーク発・認定トレーナーが実施</span>
+    </div>
+  </div>
+</div>
+
+<!-- CHECK -->
+<section class="check" id="check">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">SELF CHECK</span><span class="bar"></span></div>
+    <h2>キャリア筋・問診票</h2>
+    <p class="check-note">当てはまるものをタップしてください。</p>
+    <div class="check-list" id="checkList">
+      <div class="check-item"><span class="box"></span>会議で違和感を覚えても、その場では飲み込んでしまう</div>
+      <div class="check-item"><span class="box"></span>「あなたはどうしたい?」と聞かれると、言葉に詰まる</div>
+      <div class="check-item"><span class="box"></span>評価面談で、自分の成果をうまく主張できない</div>
+      <div class="check-item"><span class="box"></span>反対意見を言われると、正しいと思っていても引いてしまう</div>
+      <div class="check-item"><span class="box"></span>転職か残留か、判断の「軸」が自分の中にない</div>
+      <div class="check-item"><span class="box"></span>やりたいことはあるが、周囲を巻き込めず一人で抱えている</div>
+    </div>
+    <div class="check-result" id="checkResult">結果がここに表示されます。</div>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section id="concept">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">CONCEPT</span><span class="bar"></span></div>
+    <h2>キャリア開発は、<br>「自分」という事業の経営である。</h2>
+    <div class="sec-body">
+      <p>スキルを磨くことは、いわば商品開発。しかし事業は商品だけでは成立しません。<strong>より良い契約を獲得するには、交渉し、提案し、関係者を巻き込む必要があります。</strong></p>
+      <p>「自分の意見を持つ」「異論があるときに伝える」「対立を恐れず落とし所を探る」——これらは、民主主義に参加するための筋肉と、まったく同じ筋肉です。だから、キャリアの悩みは筋トレで解決できる。</p>
+    </div>
+    <div class="concept-frame">
+      <p class="big">転職は「新しい契約の獲得」。<br>残留は「既存契約の再交渉」。<br>どちらを選んでも、使う筋肉は同じ。</p>
+      <p class="sub">キャリアの選択肢を増やすのは情報ではなく、声を出せる身体です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- MUSCLES -->
+<section id="muscles" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">MUSCLE MAP</span><span class="bar"></span></div>
+    <h2>その悩み、鍛えれば変わります。</h2>
+    <div class="muscle-grid">
+      <div class="muscle-card">
+        <p class="worry">そもそも自分の意見がない</p>
+        <p class="name">意見を育てる筋肉</p>
+        <p class="scene"><b>CAREER SCENE</b>キャリア面談 / 転職の軸づくり / 自己分析</p>
+      </div>
+      <div class="muscle-card">
+        <p class="worry">会議で意見を飲み込んでしまう</p>
+        <p class="name">主張する筋肉</p>
+        <p class="scene"><b>CAREER SCENE</b>企画会議 / 評価面談 / 昇進アピール</p>
+      </div>
+      <div class="muscle-card">
+        <p class="worry">聞いているようで、聞けていない</p>
+        <p class="name">傾聴する筋肉</p>
+        <p class="scene"><b>CAREER SCENE</b>1on1 / 顧客理解 / チームマネジメント</p>
+      </div>
+      <div class="muscle-card">
+        <p class="worry">反対されると引いてしまう</p>
+        <p class="name">対立を扱う筋肉</p>
+        <p class="scene"><b>CAREER SCENE</b>上司との折衝 / 部門間調整</p>
+      </div>
+      <div class="muscle-card">
+        <p class="worry">平行線のまま、落とし所を作れない</p>
+        <p class="name">妥協点を見出す筋肉</p>
+        <p class="scene"><b>CAREER SCENE</b>条件交渉 / オファー交渉 / 合意形成</p>
+      </div>
+      <div class="muscle-card">
+        <p class="worry">言い出す勇気が出ない</p>
+        <p class="name">勇気の筋肉</p>
+        <p class="scene"><b>CAREER SCENE</b>異動希望 / 昇給交渉 / 退職の切り出し</p>
+      </div>
+    </div>
+    <p class="muscle-note">※ デモクラシーフィットネスは約30分×1筋肉のトレーニングで構成されます。プログラムではキャリア文脈に合わせて筋肉を選定します。</p>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section id="program" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">PROGRAM</span><span class="bar"></span></div>
+    <h2>会社の外で、こっそり鍛える。</h2>
+    <div class="dual">
+      <div class="plan">
+        <p class="who">FOR BEGINNERS</p>
+        <h3>キャリア筋トレ体験会</h3>
+        <ul>
+          <li>2〜3時間で2〜3の筋肉を実際にトレーニング</li>
+          <li>「意見を飲み込む癖」に気づき、その場で使える型を持ち帰る</li>
+          <li>転職活動中の方、社内でモヤモヤしている方、どちらも歓迎</li>
+          <li>利害関係のない参加者同士だから、安心して練習できる</li>
+          <li>東京・大阪ほか各地で開催</li>
+        </ul>
+        <a class="cta" href="democracy-fitness.html">開催中のイベントを見る →</a>
+      </div>
+      <div class="plan corp">
+        <p class="who">INTENSIVE CAMP</p>
+        <h3>キャンプ2026 in 軽井沢<br>〜2日間で全10筋肉〜</h3>
+        <ul>
+          <li>2026年8月11日(火)・12日(水)の1泊2日集中合宿</li>
+          <li>全10の筋肉を2日間で一気にトレーニング</li>
+          <li>会場は北軽井沢・TAKIVIVA。日常から離れ、焚き火を囲んで語る</li>
+          <li>キャリアの転機にいる人にこそ、まとまった時間を</li>
+          <li>申込締切:7月31日(金)</li>
+        </ul>
+        <a class="cta" href="democracy-fitness-camp-0811.html">合宿の詳細を見る →</a>
+      </div>
+      <div class="plan wide">
+        <p class="who">FOR PARTICIPANTS — PERSONAL SUPPORT</p>
+        <h3>鍛えた筋肉を、実戦へ。<br>個別コーチング &amp; キャリア表現コンサルティング</h3>
+        <p class="lead-line">体験会・合宿の参加者向けの個別サポートです。トレーニングで手に入れた「自分の意見」を、<strong>企業側から求められる人材としての表現</strong>に翻訳するところまで伴走します。自分という商品の、営業資料と商談設計です。</p>
+        <div class="wide-cols">
+          <div>
+            <h5>コーチング — 軸を、意思決定に</h5>
+            <ul>
+              <li>育てた意見を、転職か残留かの判断軸に落とし込む</li>
+              <li>次の交渉・面談に向けた作戦会議と振り返り</li>
+              <li>飲み込み癖が戻らないための継続トレーニング設計</li>
+            </ul>
+          </div>
+          <div>
+            <h5>コンサルティング — 強みを、商品に</h5>
+            <ul>
+              <li>職務経歴書を「自分という事業の企画書」として再設計</li>
+              <li>企業が採用したくなる言葉への翻訳(求人票の読み解き込み)</li>
+              <li>面接・評価面談・条件交渉での主張のシナリオ設計</li>
+            </ul>
+          </div>
+        </div>
+        <a class="cta" href="mailto:y.morimoto@kizukikumitate.com?subject=個別コーチング・コンサルティングの相談">個別サポートについて相談する →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">WHY DEMOCRACY FITNESS</span><span class="bar"></span></div>
+    <h2>なぜ「民主主義の筋トレ」なのか。</h2>
+    <div class="why-cols">
+      <div>
+        <h4>座学ではなく、反復練習</h4>
+        <p>デンマーク発のデモクラシーフィットネスは、知識ではなく「筋肉」を鍛えるメソッド。短時間・高頻度の実践トレーニングで、行動が変わります。</p>
+      </div>
+      <div>
+        <h4>自己分析で終わらせない</h4>
+        <p>従来のキャリア研修は棚卸しで止まりがち。このプログラムは、棚卸しした想いを「声に出して、通す」ところまでを射程にします。</p>
+      </div>
+      <div>
+        <h4>対人筋は、一人では鍛えられない</h4>
+        <p>本を読んでも、意見を飲み込む癖は直りません。筋トレに負荷が必要なように、対人筋には「生身の相手」が必要。だからこそ、職場の利害から離れた練習場を用意しました。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINER -->
+<section class="trainer" id="trainer">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">TRAINER</span><span class="bar"></span></div>
+    <div class="trainer-box">
+      <div class="avatar">YM</div>
+      <div>
+        <p class="t-name">森本 康仁</p>
+        <p class="t-title">きづきくみたて工房 代表 / デモクラシーフィットネス認定トレーナー</p>
+        <p>元小学校教員(9年)。人材開発・組織開発コンサルタントとして、HPI/BEMに基づくパフォーマンス改善、企業研修、ファシリテーションに従事。デンマークの認定を受けたデモクラシーフィットネストレーナーとして、東京・大阪・名古屋・福岡など各地でトレーニングを実施。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="f-brand">DEMOCRACY FITNESS <span>×</span> CAREER</p>
+    <p>きづきくみたて工房 | <a href="https://kizukikumitate.com">kizukikumitate.com</a> | <a href="mailto:y.morimoto@kizukikumitate.com">y.morimoto@kizukikumitate.com</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const items=document.querySelectorAll('.check-item');
+  const result=document.getElementById('checkResult');
+  const messages={
+    0:'チェックなし。あなたのキャリア筋は良好です。維持のためのトレーニングもどうぞ。',
+    low:'<strong>軽度の筋力低下</strong>の兆し。今のうちに鍛えれば、次の交渉から変わります。',
+    mid:'<strong>キャリア筋、眠っています。</strong>意見はあるのに使えていない状態。トレーニングの効果が最も出るタイプです。',
+    high:'<strong>慢性的な飲み込み癖</strong>が定着しているかもしれません。まずは体験会で「声を出す」感覚を取り戻すことから。'
+  };
+  function update(){
+    const n=document.querySelectorAll('.check-item.on').length;
+    if(n===0){result.innerHTML=messages[0];return;}
+    if(n<=2){result.innerHTML=n+'個該当 — '+messages.low;}
+    else if(n<=4){result.innerHTML=n+'個該当 — '+messages.mid;}
+    else{result.innerHTML=n+'個該当 — '+messages.high;}
+  }
+  items.forEach(el=>el.addEventListener('click',()=>{el.classList.toggle('on');update();}));
+  update();
+})();
+</script>
+</body>
+</html>
