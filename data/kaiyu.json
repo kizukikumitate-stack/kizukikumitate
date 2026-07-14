@@ -481,6 +481,36 @@
         "pta-dialogue-kit",
         "minna-no-koe"
       ]
+    },
+    {
+      "id": "bellmark",
+      "path": "bellmark-calculator.html",
+      "title": "ベルマーク時給換算機",
+      "tag": "付属ツール",
+      "desc": "ベルマーク集計の作業時間を実質時給に換算する無料ツール。数字は「なんとなく大変」を事実に変える対話の入口。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-14",
+      "band": true,
+      "next": [
+        "pta-dialogue-kit",
+        "pta-muda"
+      ]
+    },
+    {
+      "id": "pta-muda",
+      "path": "pta-muda.html",
+      "title": "PTAの「無駄」はどこから生まれるのか",
+      "tag": "記事",
+      "desc": "やめられた活動・やめられなかった活動を整理し、「じゃあ、どうやめるのか」の手順まで書いた記事。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-14",
+      "band": true,
+      "next": [
+        "bellmark",
+        "pta-dialogue-kit"
+      ]
     }
   ]
 }

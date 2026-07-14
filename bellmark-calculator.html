@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ベルマーク時給換算機｜集計作業の時給を計算する無料ツール</title>
+<meta name="description" content="ベルマークの集計作業、時給に換算するといくら?作業人数・時間・回収点数を入れるだけで自動計算。代替案との比較もできます。PTA対話キット付属の無料ツール。">
+<meta property="og:title" content="ベルマーク時給換算機｜集計作業の時給を計算する無料ツール">
+<meta property="og:description" content="ベルマーク集計を時給に換算するといくら?作業人数・時間・回収点数を入れるだけで自動計算。数字は「なんとなく大変」を事実に変える対話の入口。PTA対話キット付属の無料ツール。">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://kizukikumitate.com/pta-dialogue-kit-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kizukikumitate.com/bellmark-calculator.html">
+<link rel="canonical" href="https://kizukikumitate.com/bellmark-calculator.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ベルマーク時給換算機｜集計作業の時給を計算する無料ツール">
+<meta name="twitter:description" content="ベルマーク集計を時給に換算するといくら?入れるだけで自動計算する無料ツール。">
+<meta name="twitter:image" content="https://kizukikumitate.com/pta-dialogue-kit-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FBFAF7;--ink:#1E2A3A;--red:#C73E2E;--blue:#2B5DA8;--marker:#F5D93F;--line:#D8D3C8;--muted:#5a6474;--green:#3F8A66;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--paper);color:var(--ink);line-height:1.85;font-size:15px;word-break:keep-all;overflow-wrap:break-word;hanging-punctuation:allow-end;line-break:strict}
+.wrap{max-width:840px;margin:0 auto;padding:0 20px}
+mark{background:linear-gradient(transparent 55%, var(--marker) 55%);padding:0 2px}
+header{padding:52px 0 34px;border-bottom:3px solid var(--ink)}
+.eyebrow{display:inline-block;border:1.5px solid var(--ink);padding:3px 14px;font-weight:700;font-size:12px;letter-spacing:.18em;margin-bottom:18px}
+h1{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(27px,5vw,38px);line-height:1.4}
+.lede{margin-top:16px;max-width:660px;color:#3d4655;font-size:15px}
+.notice{border-left:4px solid var(--blue);background:#fff;padding:13px 17px;font-size:13.5px;margin-top:20px;max-width:660px;line-height:1.9}
+section{padding:40px 0}
+section+section{border-top:1px solid var(--line)}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:8px}
+.sec-head .no{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:14px;border-bottom:3px solid var(--ink);padding-bottom:2px;white-space:nowrap}
+.sec-head h2{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(19px,3vw,24px)}
+.sec-note{color:var(--muted);font-size:13px;margin-bottom:20px;max-width:640px}
+/* fields */
+.field{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.field label{font-weight:900;font-size:14px;min-width:210px}
+.field input[type=number]{width:120px;border:1.5px solid var(--ink);border-radius:4px;padding:9px 10px;font:inherit;font-size:16px;text-align:center;background:#fff}
+.field .unit{font-size:13px;font-weight:700;color:var(--muted)}
+.field .hint{width:100%;margin-left:222px;font-size:12px;color:var(--muted)}
+@media(max-width:600px){.field label{min-width:0;width:100%}.field .hint{margin-left:0}}
+/* result */
+.result{border:2px solid var(--ink);background:#fff;padding:26px 28px;margin-top:8px}
+.big-row{display:flex;gap:30px;flex-wrap:wrap;align-items:flex-end;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.big{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:clamp(38px,8vw,58px);line-height:1.1}
+.big.hi{color:var(--red)}
+.big-label{font-size:13px;font-weight:900;color:var(--muted);margin-bottom:2px}
+.big-unit{font-size:16px;font-weight:700}
+.subs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-top:18px}
+.sub{background:var(--paper);border:1px solid var(--line);padding:12px 14px}
+.sub .k{font-size:11.5px;font-weight:900;color:var(--muted);letter-spacing:.05em}
+.sub .v{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:22px;margin-top:2px}
+.sub .v small{font-size:12px;font-weight:700}
+.verdict{margin-top:18px;padding:14px 16px;font-size:14px;font-weight:700;line-height:1.8}
+.verdict.bad{border-left:4px solid var(--red);background:#FBF1EF}
+.verdict.warn{border-left:4px solid #B8860B;background:#FBF7EA}
+.verdict.ok{border-left:4px solid var(--green);background:#EEF6F2}
+/* compare */
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.opt{border:2px solid var(--ink);background:#fff;padding:18px 18px 16px}
+.opt h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16px;margin-bottom:4px}
+.opt .amt{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:26px;margin:6px 0}
+.opt .amt small{font-size:12px;font-weight:700;color:var(--muted)}
+.opt p{font-size:12.5px;color:var(--muted);line-height:1.75}
+.opt.win{border-color:var(--green);box-shadow:0 0 0 3px #EEF6F2 inset}
+.opt.win .amt{color:var(--green)}
+/* summary */
+.summary{border:2px solid var(--ink);background:#fff;padding:20px 22px}
+.summary h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:16px;margin-bottom:10px}
+.summary pre{white-space:pre-wrap;font-family:inherit;font-size:13.5px;background:var(--paper);border:1px dashed var(--line);padding:14px 16px;line-height:1.9}
+.btn{background:var(--ink);color:var(--paper);border:none;font:inherit;font-weight:900;font-size:13px;padding:10px 20px;cursor:pointer;margin-top:12px}
+.btn:hover{background:#31445e}
+/* caveat */
+.caveat{border:2px solid var(--ink);background:#fff;padding:20px 22px}
+.caveat h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:17px;margin-bottom:8px}
+.caveat p{font-size:13.5px;margin-bottom:8px}
+.caveat p:last-child{margin-bottom:0}
+/* stats */
+.stats{border:2px solid var(--ink);background:#fff;padding:22px 24px}
+.stats-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.stats-head h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:17px}
+.stats-head .n{font-size:12.5px;color:var(--muted)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.stat{background:var(--paper);border:1px solid var(--line);padding:12px 14px}
+.stat .k{font-size:11.5px;font-weight:900;color:var(--muted)}
+.stat .v{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:21px;margin-top:2px}
+.stat .v small{font-size:12px;font-weight:700}
+.rank{margin-top:14px;padding:13px 16px;border-left:4px solid var(--blue);background:#F2F5FA;font-size:14px;line-height:1.8}
+.rank b{font-weight:900}
+.share-box{border:2px solid var(--ink);background:#fff;padding:20px 22px;margin-top:16px}
+.share-box h3{font-family:'Shippori Mincho B1',serif;font-weight:800;font-size:17px;margin-bottom:6px}
+.share-box p{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:12px}
+.optin{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.optin select{border:1.5px solid var(--ink);border-radius:4px;padding:8px 10px;font:inherit;font-size:13px;background:#fff}
+.msg{font-size:13px;font-weight:900;margin-top:10px}
+.msg.ok{color:var(--green)} .msg.err{color:var(--red)}
+.counter{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:right}
+.counter b{font-family:'Shippori Mincho B1',serif;font-size:15px;color:var(--ink)}
+footer{border-top:3px solid var(--ink);padding:26px 0 48px;font-size:12.5px;color:var(--muted)}
+footer a{color:var(--ink);border-bottom:1.5px solid var(--marker);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">PTA対話キット 付属ツール</span>
+    <h1>ベルマーク時給換算機</h1>
+    <p class="lede">「この作業、時給にするといくらなんだろう」──ベルマーク集計をめぐって、10年以上ずっと問われてきた問いです。<mark>問うだけで終わらせず、実際に計算してみましょう。</mark>数字はどこにも送信されません。</p>
+    <div class="notice">
+      <b>このツールの目的</b><br>
+      ベルマーク活動を否定するためのものではありません。<b>「なんとなく大変」を「事実」に変える</b>ためのものです。数字が出れば、続けるにしても、やめるにしても、話し合いの土台ができます。数字を見たうえで「それでも続ける」と決めるなら、それも立派な結論です。
+    </div>
+  </div>
+</header>
+
+<!-- STEP1 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 1</span><h2>作業の実態を入れる</h2></div>
+    <p class="sec-note">分からない項目は、だいたいで大丈夫です。正確さより、桁の感覚をつかむのが目的です。</p>
+
+    <div class="field">
+      <label>1回の作業時間</label>
+      <input type="number" id="hours" value="2" min="0" step="0.5" oninput="calc()"><span class="unit">時間</span>
+      <span class="hint">仕分け・集計・台紙貼り・集計表の記入まで含めて。</span>
+    </div>
+    <div class="field">
+      <label>1回に集まる人数</label>
+      <input type="number" id="people" value="8" min="1" oninput="calc()"><span class="unit">人</span>
+    </div>
+    <div class="field">
+      <label>年間の作業回数</label>
+      <input type="number" id="times" value="4" min="0" oninput="calc()"><span class="unit">回</span>
+    </div>
+    <div class="field">
+      <label>年間の回収点数</label>
+      <input type="number" id="points" value="15000" min="0" step="100" oninput="calc()"><span class="unit">点(= 円)</span>
+      <span class="hint">ベルマークは1点=1円で換算されます。前年度の実績を、PTA会計や過去の広報誌で確認してください。<b>※できれば3年前の実績も見てみてください。減っていませんか?</b></span>
+    </div>
+    <div class="field">
+      <label>比較用の時給</label>
+      <input type="number" id="wage" value="1100" min="0" step="10" oninput="calc()"><span class="unit">円</span>
+      <span class="hint">お住まいの地域の最低賃金や、パート時給の目安を入れてください(全国平均のイメージで初期値1,100円)。</span>
+    </div>
+  </div>
+</section>
+
+<!-- STEP2 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 2</span><h2>結果</h2></div>
+    <div class="result">
+      <div class="big-row">
+        <div>
+          <div class="big-label">この作業の、実質時給は</div>
+          <span class="big" id="hourly">0</span><span class="big-unit"> 円/時</span>
+        </div>
+        <div>
+          <div class="big-label">年間の総作業時間</div>
+          <span class="big" style="font-size:34px" id="totalH">0</span><span class="big-unit"> 時間(のべ)</span>
+        </div>
+      </div>
+      <div class="subs">
+        <div class="sub"><div class="k">1人1時間あたりの成果</div><div class="v" id="perPersonHour">0<small> 円ぶんの点数</small></div></div>
+        <div class="sub"><div class="k">同じ時間を働いたら</div><div class="v" id="wageEquiv">0<small> 円</small></div></div>
+        <div class="sub"><div class="k">その差額(機会損失)</div><div class="v" id="gap" style="color:var(--red)">0<small> 円</small></div></div>
+        <div class="sub"><div class="k">1世帯あたりの寄付換算</div><div class="v" id="perHousehold">0<small> 円/年で同額</small></div></div>
+      </div>
+      <div class="verdict" id="verdict"></div>
+    </div>
+    <div class="field" style="margin-top:18px">
+      <label>参考:会員世帯数</label>
+      <input type="number" id="households" value="300" min="1" oninput="calc()"><span class="unit">世帯</span>
+      <span class="hint">「1世帯あたりの寄付換算」の計算に使います。全世帯で頭割りしたら、いくら出せば同じ金額になるか。</span>
+    </div>
+  </div>
+</section>
+
+<!-- STEP3 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 3</span><h2>もし、別のやり方をしたら</h2></div>
+    <p class="sec-note">同じ「学校に◯円を届ける」という目的を、別の手段で達成した場合の比較です。<mark>目的はお金なのか、集まる時間そのものなのか</mark>──ここが分かれ道になります。</p>
+    <div class="compare">
+      <div class="opt" id="optA">
+        <h3>A. いまのまま続ける</h3>
+        <div class="amt" id="amtA">0<small> 円/年 を学校へ</small></div>
+        <p>年間<b id="hA">0</b>時間の作業と引き換えに。交流の場としての価値があるなら、それは数字に表れない収穫です。</p>
+      </div>
+      <div class="opt" id="optB">
+        <h3>B. 1世帯◯円を寄付する</h3>
+        <div class="amt" id="amtB">0<small> 円/年 を学校へ</small></div>
+        <p>作業時間はゼロ。全世帯から<b id="donate">0</b>円ずつ集めれば、同額が集まります。使途を先に示すと集まりが良くなります。</p>
+      </div>
+      <div class="opt" id="optC">
+        <h3>C. 希望者だけで続ける</h3>
+        <div class="amt" id="amtC">0<small> 円/年 を学校へ</small></div>
+        <p>強制をやめ、「やりたい人だけ」のサークル活動に。集計を楽しみにしている人も実際にいます。金額は減っても、誰も苦しみません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 時間軸 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 4</span><h2>この数字は、来年もっと悪くなります</h2></div>
+    <p class="sec-note">いま出した実質時給は、<mark>これから毎年、下がっていく可能性が高い</mark>数字です。作業量が同じでも、集まる点数のほうが減っていくからです。</p>
+
+    <div class="compare">
+      <div class="opt">
+        <h3>協賛企業が、減っています</h3>
+        <div class="amt" style="font-size:22px">52社 → 45社</div>
+        <p>ベルマークを商品につける「協賛会社」は、2020年4月の52社から2023年7月には45社に減少しました。2026年には味の素の脱退も伝えられています。財団のサイトには「脱退した会社一覧」というページが常設されています。<b>脱退の理由として「PTA保護者の負担」を挙げる企業も報じられています。</b></p>
+      </div>
+      <div class="opt">
+        <h3>だから、同じ作業でも点数は減る</h3>
+        <div class="amt" style="font-size:22px">作業量は、そのまま</div>
+        <p>マークのついた商品が減れば、各家庭が持ち寄れるマークも減ります。それでも仕分けと集計の手間は変わりません。<b>実質時給は、何もしなくても年々下がっていく構造</b>です。あなたの学校の3年前の回収点数と、今年の点数を比べてみてください。</p>
+      </div>
+      <div class="opt">
+        <h3>切り貼りの要らない方法もある</h3>
+        <div class="amt" style="font-size:22px">インクカートリッジ等</div>
+        <p>使用済みの純正インクカートリッジ(1個5点)、トナーカートリッジ(1個50点)、乾かした紙パックなども点数になります。<b>切って貼る作業がまるごと不要</b>で、点数の効率も良い。「やめる」の前に「やり方を変える」という選択肢もあります。</p>
+      </div>
+    </div>
+
+    <div class="caveat" style="margin-top:18px">
+      <h3>それでも、ベルマークが目指していたものを忘れないでください</h3>
+      <p>ベルマーク運動は1960年、<b>「都会の子も、へき地の子も、平等に学べる環境を」</b>という願いから始まりました。集めた点数で自校の備品を買うだけでなく、購入額の1割が自動的にへき地校・特別支援学校・被災校への援助にまわる仕組みが、今も生きています。</p>
+      <p>つまりこれは、単なる備品集めではなく<b>再分配の運動</b>でした。だとすれば問うべきは「やめるか続けるか」ではなく、こうかもしれません──<mark>その願いは、いまのやり方でしか実現できないのでしょうか。</mark></p>
+      <p style="margin-bottom:0">たとえば、集計の時間をゼロにして、浮いた分を直接寄付にまわす。効率の良い方式(カートリッジ回収など)に切り替える。あるいは、やりたい人だけの活動として続ける。<b>目的を守りながら、手段を変える道は、いくつもあります。</b></p>
+    </div>
+  </div>
+</section>
+
+<!-- 全国データ -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 5</span><h2>全国のデータと、比べてみる</h2></div>
+    <p class="sec-note">ベルマークの作業時間には、全国的な統計が存在しません。「時給数十円」と長年言われながら、誰もその実態を集めてこなかったからです。<mark>このツールの利用者のデータを集めて、日本で最初のデータベースをつくっています。</mark></p>
+
+    <div class="stats">
+      <div class="stats-head">
+        <h3>これまでに寄せられたデータ</h3>
+        <span class="n" id="statsN">読み込み中…</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat"><div class="k">年間作業時間(中央値)</div><div class="v" id="stMedH">–<small> 時間</small></div></div>
+        <div class="stat"><div class="k">実質時給(中央値)</div><div class="v" id="stMedW">–<small> 円/時</small></div></div>
+        <div class="stat"><div class="k">年間回収点数(中央値)</div><div class="v" id="stMedP">–<small> 点</small></div></div>
+        <div class="stat"><div class="k">いちばん重かった学校</div><div class="v" id="stMaxH">–<small> 時間</small></div></div>
+      </div>
+      <div class="rank" id="rankBox" style="display:none"></div>
+    </div>
+
+    <div class="share-box">
+      <h3>あなたの学校のデータを、送っていただけませんか</h3>
+      <p>送信されるのは、上で入力した<b>数字だけ</b>です。学校名・お名前・メールアドレスは送られませんし、こちらでも保存しません。集まったデータは全国統計として公開し、PTAの実態を明らかにするために使います。<br>※ 都道府県だけは、地域差を見るために任意でお選びいただけます(空欄でも構いません)。</p>
+      <div class="optin">
+        <select id="pref">
+          <option value="">都道府県(任意)</option>
+          <option>北海道</option><option>青森県</option><option>岩手県</option><option>宮城県</option><option>秋田県</option><option>山形県</option><option>福島県</option>
+          <option>茨城県</option><option>栃木県</option><option>群馬県</option><option>埼玉県</option><option>千葉県</option><option>東京都</option><option>神奈川県</option>
+          <option>新潟県</option><option>富山県</option><option>石川県</option><option>福井県</option><option>山梨県</option><option>長野県</option>
+          <option>岐阜県</option><option>静岡県</option><option>愛知県</option><option>三重県</option>
+          <option>滋賀県</option><option>京都府</option><option>大阪府</option><option>兵庫県</option><option>奈良県</option><option>和歌山県</option>
+          <option>鳥取県</option><option>島根県</option><option>岡山県</option><option>広島県</option><option>山口県</option>
+          <option>徳島県</option><option>香川県</option><option>愛媛県</option><option>高知県</option>
+          <option>福岡県</option><option>佐賀県</option><option>長崎県</option><option>熊本県</option><option>大分県</option><option>宮崎県</option><option>鹿児島県</option><option>沖縄県</option>
+        </select>
+        <select id="stype">
+          <option value="">学校の種類(任意)</option>
+          <option value="elementary">小学校</option>
+          <option value="junior_high">中学校</option>
+          <option value="other">その他</option>
+        </select>
+        <button class="btn" style="margin-top:0" id="sendBtn" onclick="sendData()">この数字を送る(匿名)</button>
+      </div>
+      <div class="msg" id="sendMsg"></div>
+      <p style="margin-bottom:0;font-size:12px">送信は任意です。送らなくても、計算結果はそのままお使いいただけます。</p>
+    </div>
+
+    <p class="counter">この計算機は これまでに <b id="useCount">–</b> 回 使われました</p>
+  </div>
+</section>
+
+<!-- STEP5 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="no">STEP 6</span><h2>話し合いに持っていく</h2></div>
+    <div class="summary">
+      <h3>要約(コピーして使えます)</h3>
+      <pre id="summaryText"></pre>
+      <button class="btn" onclick="copySummary()">要約をコピー</button>
+      <button class="btn" style="background:transparent;color:var(--ink);border:1.5px solid var(--ink)" onclick="window.print()">印刷する</button>
+    </div>
+  </div>
+</section>
+
+<!-- 注意 -->
+<section>
+  <div class="wrap">
+    <div class="caveat">
+      <h3>数字を出すときの、たったひとつの注意</h3>
+      <p><b>この数字を、人を責めるために使わないでください。</b>ベルマーク活動を長年支えてきた人にとって、「時給◯円ですよ」という指摘は、自分が費やしてきた時間の否定に聞こえます。実際、正論をぶつけたせいで改革が握りつぶされた学校がいくつもあります。</p>
+      <p>やめられない本当の理由は、非効率さではありません。<mark>「やめること=これまでの否定」に見えてしまうこと</mark>です。だから数字は、勝つためではなく、全員が同じ事実を見るために使ってください。</p>
+      <p>そして、やめる前にひとつだけ。<b>この活動が生んでいた良いもの(交流、居場所、子どもへの気持ち)を、一度言葉にしてから手放す。</b>それだけで、続けてきた人の納得はまるで変わります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./pta-dialogue-kit.html"><span class="kaiyu-tag">対話キット</span><span class="kaiyu-name">PTA対話キット</span><span class="kaiyu-desc">PTAのこれからを保護者と先生で話し合う無料の対話キット。8つの争点カードと進め方つき。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./pta-muda.html"><span class="kaiyu-tag">記事</span><span class="kaiyu-name">PTAの「無駄」はどこから生まれるのか</span><span class="kaiyu-desc">やめられた活動・やめられなかった活動を整理し、「じゃあ、どうやめるのか」の手順まで書いた記事。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./taiwa-teichaku.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">離職防止プログラム</span><span class="kaiyu-desc">離職の真因「対話の不在」に、診断・対話介入・効果測定を一気通貫で行うリテンション設計。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<footer>
+  <div class="wrap">
+    <p>ベルマーク時給換算機 ── PTA対話キット 付属ツール / きづきくみたて工房</p>
+    <p style="margin-top:10px;font-size:13px;color:var(--ink);line-height:1.9">なぜ数字を出すのか。それは、<b>誰か一人の正論で切り捨てるのではなく、全員が同じ事実を見て、話し合って決めるため</b>です。理由を問わずに続けてきた活動が積み重なった状態を、組織的負債と呼びます。負債の返済は、対話によってしかできません。恨みという新しい負債を残さないために。</p>
+    <p style="margin-top:10px">PTA全体の作業時間は<a href="./pta-dialogue-kit.html#buntan-tool">ぶんたん計算機</a>で。やめ方の手順は<a href="./pta-muda.html">PTAの「無駄」はどこから生まれるのか</a>、話し合いの進め方は<a href="./pta-dialogue-kit.html">無料の対話キット</a>をどうぞ。</p>
+  </div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+const yen = n => Math.round(n).toLocaleString('ja-JP');
+
+function calc(){
+  const h = +$('hours').value || 0;
+  const p = +$('people').value || 1;
+  const t = +$('times').value || 0;
+  const pts = +$('points').value || 0;
+  const w = +$('wage').value || 0;
+  const hh = +$('households').value || 1;
+
+  const totalH = h * p * t;                    // のべ作業時間
+  const hourly = totalH > 0 ? pts / totalH : 0; // 実質時給
+  const wageEquiv = totalH * w;                 // 同じ時間働いたら
+  const gap = wageEquiv - pts;                  // 機会損失
+  const perHousehold = pts / hh;                // 1世帯いくら寄付すれば同額か
+
+  $('hourly').textContent = yen(hourly);
+  $('hourly').className = 'big' + (hourly < w * 0.5 ? ' hi' : '');
+  $('totalH').textContent = yen(totalH);
+  $('perPersonHour').innerHTML = yen(hourly) + '<small> 円ぶんの点数</small>';
+  $('wageEquiv').innerHTML = yen(wageEquiv) + '<small> 円</small>';
+  $('gap').innerHTML = yen(Math.max(gap,0)) + '<small> 円</small>';
+  $('perHousehold').innerHTML = yen(perHousehold) + '<small> 円/年で同額</small>';
+
+  // verdict
+  const v = $('verdict');
+  const ratio = w > 0 ? hourly / w : 0;
+  if(totalH === 0 || pts === 0){
+    v.className = 'verdict warn';
+    v.textContent = '数値を入力すると、判定が出ます。';
+  } else if(ratio < 0.2){
+    v.className = 'verdict bad';
+    v.innerHTML = `実質時給は、比較時給の <b>${Math.round(ratio*100)}%</b>。同じ時間を別の形(寄付・外部委託・仕事)に充てたほうが、学校に届く金額は大きくなります。ただし──下の「注意」も必ず読んでください。数字だけでは、決められません。`;
+  } else if(ratio < 0.7){
+    v.className = 'verdict warn';
+    v.innerHTML = `実質時給は、比較時給の <b>${Math.round(ratio*100)}%</b>。効率の面では見直す余地がありますが、集まること自体に価値を感じている人がいるなら、「やめる」以外の選択肢(希望者だけで続ける)も検討する価値があります。`;
+  } else {
+    v.className = 'verdict ok';
+    v.innerHTML = `実質時給は、比較時給の <b>${Math.round(ratio*100)}%</b>。効率としては悪くありません。作業のやり方(インクカートリッジ回収など、切り貼りの不要な方式)がうまく回っている可能性があります。`;
+  }
+
+  // compare
+  $('amtA').innerHTML = yen(pts) + '<small> 円/年 を学校へ</small>';
+  $('hA').textContent = yen(totalH);
+  $('amtB').innerHTML = yen(pts) + '<small> 円/年 を学校へ</small>';
+  $('donate').textContent = yen(perHousehold);
+  const halfPts = pts * 0.5;
+  $('amtC').innerHTML = yen(halfPts) + '<small> 円/年 を学校へ(仮に半減した場合)</small>';
+  ['optA','optB','optC'].forEach(id=>$(id).classList.remove('win'));
+  if(ratio < 0.2) $('optB').classList.add('win');
+  else if(ratio < 0.7) $('optC').classList.add('win');
+  else $('optA').classList.add('win');
+
+  // summary
+  $('summaryText').textContent =
+`【ベルマーク作業の時給換算】
+・作業実態:1回${h}時間 × ${p}人 × 年${t}回 = 年間のべ ${yen(totalH)}時間
+・年間の回収点数:${yen(pts)}点(= ${yen(pts)}円)
+・実質時給:1人1時間あたり ${yen(hourly)}円ぶん
+・同じ時間を時給${yen(w)}円で働いた場合:${yen(wageEquiv)}円(差額 ${yen(Math.max(gap,0))}円)
+・全${hh}世帯で頭割りすると:1世帯あたり年 ${yen(perHousehold)}円の寄付で、同額が集まる計算
+
+→ この数字をもとに、「この活動を続けるか」「別のやり方にするか」「やりたい人だけで続けるか」を話し合いたい。
+※協賛企業の脱退が続いており(2020年52社→2023年45社)、同じ作業量でも集まる点数は年々減っていく見込みです。
+※数字は、人を責めるためではなく、全員が同じ事実を見るために使います。
+(ベルマーク時給換算機/PTA対話キット・きづきくみたて工房)`;
+}
+function copySummary(){
+  navigator.clipboard.writeText($('summaryText').textContent)
+    .then(()=>alert('コピーしました。ふりかえりメモや議題の案内にどうぞ。'));
+}
+calc();
+
+/* ============================================================
+   Supabase 連携(全国データベース)
+   TODO(タスクC): 下の2つを Supabase の Project Settings → API から取得して差し替える。
+   差し替えれば、統計表示・データ送信・利用回数カウンターが自動で有効になる。
+   それまでは全て「準備中」表示になり、計算機本体はそのまま使える。
+   ※ anon key は公開して問題ないキーです(RLSで保護されています)
+   ============================================================ */
+const SUPABASE_URL  = 'https://YOUR-PROJECT.supabase.co';
+const SUPABASE_ANON = 'YOUR-ANON-KEY';
+// プレースホルダーのままなら「準備中」で安全に無効化する
+const SB_READY = !/YOUR-PROJECT|YOUR-ANON-KEY/.test(SUPABASE_URL + SUPABASE_ANON);
+const sbHeaders = {
+  'apikey': SUPABASE_ANON,
+  'Authorization': 'Bearer ' + SUPABASE_ANON,
+  'Content-Type': 'application/json'
+};
+const num = n => Math.round(Number(n)||0).toLocaleString('ja-JP');
+
+// --- 統計の読み込み ---
+async function loadStats(){
+  if(!SB_READY){ $('statsN').textContent = '全国データベースは準備中です(まもなく公開)'; return; }
+  try{
+    const r = await fetch(SUPABASE_URL + '/rest/v1/rpc/get_bellmark_stats', {
+      method:'POST', headers: sbHeaders, body: '{}'
+    });
+    if(!r.ok) throw new Error('stats');
+    const s = await r.json();
+    if(!s || !s.count){
+      $('statsN').textContent = 'まだデータがありません。最初の一校になりませんか?';
+      return;
+    }
+    $('statsN').textContent = `${num(s.count)}校ぶんのデータ`;
+    $('stMedH').innerHTML = num(s.median_hours) + '<small> 時間</small>';
+    $('stMedW').innerHTML = num(s.median_hourly) + '<small> 円/時</small>';
+    $('stMedP').innerHTML = num(s.median_points) + '<small> 点</small>';
+    $('stMaxH').innerHTML = num(s.max_hours) + '<small> 時間</small>';
+    loadRank();
+  }catch(e){
+    $('statsN').textContent = '統計を読み込めませんでした(計算機はそのままお使いいただけます)';
+  }
+}
+
+// --- 「あなたの学校は上位何%か」 ---
+async function loadRank(){
+  if(!SB_READY) return;
+  const myHours = (+$('hours').value||0) * (+$('people').value||0) * (+$('times').value||0);
+  if(myHours <= 0) return;
+  try{
+    const r = await fetch(SUPABASE_URL + '/rest/v1/rpc/get_bellmark_rank', {
+      method:'POST', headers: sbHeaders, body: JSON.stringify({ my_hours: myHours })
+    });
+    if(!r.ok) return;
+    const d = await r.json();
+    if(!d || !d.total) return;
+    const box = $('rankBox');
+    const pct = d.percentile;
+    box.style.display = 'block';
+    if(pct <= 25){
+      box.innerHTML = `あなたの学校(年間 <b>${num(myHours)}時間</b>)は、寄せられたデータの中で <b>重いほうから上位${pct}%</b> にあたります。全国的に見ても、負担の大きい部類です。`;
+    }else if(pct >= 75){
+      box.innerHTML = `あなたの学校(年間 <b>${num(myHours)}時間</b>)は、寄せられたデータの中では <b>軽いほう</b>です(重いほうから${pct}%)。ただし「軽い=続けるべき」ではありません。判断の材料は、時間だけではないからです。`;
+    }else{
+      box.innerHTML = `あなたの学校(年間 <b>${num(myHours)}時間</b>)は、寄せられたデータのちょうど真ん中あたり(重いほうから${pct}%)です。`;
+    }
+  }catch(e){ /* 失敗しても静かに無視 */ }
+}
+
+// --- データ送信 ---
+async function sendData(){
+  const btn = $('sendBtn'), msg = $('sendMsg');
+  if(!SB_READY){ msg.className='msg'; msg.textContent='全国データベースは準備中です。公開まで少しお待ちください。'; return; }
+  const h=+$('hours').value||0, p=+$('people').value||0, t=+$('times').value||0,
+        pts=+$('points').value||0, hh=+$('households').value||null;
+  const totalH = h*p*t;
+  const hourly = totalH>0 ? pts/totalH : 0;
+
+  if(totalH <= 0){ msg.className='msg err'; msg.textContent='作業時間・人数・回数を入力してから送信してください。'; return; }
+
+  btn.disabled = true; msg.className='msg'; msg.textContent='送信中…';
+  try{
+    const r = await fetch(SUPABASE_URL + '/rest/v1/bellmark_records', {
+      method:'POST', headers:{...sbHeaders, 'Prefer':'return=minimal'},
+      body: JSON.stringify({
+        hours:h, people:p, times:t, points:pts, households:hh,
+        total_hours:totalH, hourly:hourly,
+        prefecture: $('pref').value || null,
+        school_type: $('stype').value || null
+      })
+    });
+    if(!r.ok) throw new Error('post');
+    msg.className='msg ok';
+    msg.textContent='ありがとうございます。あなたの学校の数字が、全国のデータに加わりました。';
+    btn.disabled = true;
+    btn.textContent = '送信しました';
+    loadStats();
+  }catch(e){
+    btn.disabled = false;
+    msg.className='msg err';
+    msg.textContent='送信できませんでした。時間をおいて、もう一度お試しください。';
+  }
+}
+
+// --- 利用回数カウンター ---
+async function bumpCounter(){
+  if(!SB_READY){ document.querySelector('.counter')?.remove(); return; }
+  try{
+    const r = await fetch(SUPABASE_URL + '/rest/v1/rpc/increment_counter', {
+      method:'POST', headers: sbHeaders, body: JSON.stringify({ tool_name:'bellmark' })
+    });
+    if(!r.ok) throw new Error('counter');
+    const c = await r.json();
+    $('useCount').textContent = num(c);
+  }catch(e){
+    $('useCount').textContent = '—';
+  }
+}
+
+// 準備中は送信ボタンを無効化(見た目も)
+if(!SB_READY){
+  const b = $('sendBtn');
+  if(b){ b.disabled = true; b.textContent = '準備中(まもなく公開)'; b.style.opacity = '.55'; b.style.cursor = 'not-allowed'; }
+}
+
+loadStats();
+bumpCounter();
+</script>
+</body>
+</html>
