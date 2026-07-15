@@ -483,6 +483,21 @@
       ]
     },
     {
+      "id": "skill-succession-timebomb",
+      "path": "skill-succession-timebomb.html",
+      "title": "技能承継時限爆弾",
+      "tag": "未来リスク計算機",
+      "desc": "手順書には書けない「勘」は、教わる時間がなければ受け継げない。その技能が組織から消える年を試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "next": [
+        "recruitment-extinction",
+        "taiwa-teichaku"
+      ]
+    },
+    {
       "id": "customer-age-timebomb",
       "path": "customer-age-timebomb.html",
       "title": "顧客の平均年齢時限爆弾",

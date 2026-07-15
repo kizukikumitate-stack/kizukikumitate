@@ -70,7 +70,8 @@
           { "label": "採用市場消滅計算機", "href": "recruitment-extinction.html" },
           { "label": "税収カウントダウン", "href": "tax-revenue-countdown.html" },
           { "label": "学校統廃合カウントダウン", "href": "school-consolidation-countdown.html" },
-          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" }
+          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" },
+          { "label": "技能承継時限爆弾", "href": "skill-succession-timebomb.html" }
         ]
       },
       {
@@ -116,6 +117,7 @@
     { "path": "roadmap.html", "variant": "standard" },
     { "path": "school-consolidation-countdown.html", "variant": "standard" },
     { "path": "shikumi-zukan.html", "variant": "standard" },
+    { "path": "skill-succession-timebomb.html", "variant": "standard" },
     { "path": "social-leader-coaching.html", "variant": "standard" },
     { "path": "taiwa-teichaku.html", "variant": "standard" },
     { "path": "tax-revenue-countdown.html", "variant": "standard" },
