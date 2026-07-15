@@ -63,6 +63,10 @@ Democracy Fitness 等のハブ。
   全ページ（現在35ページ）が自動追従する。相対パス（`./` と `../`）と `active` は階層から自動計算される
 - **新規ページを作った** → `data/nav.json` の `pages`（共通ナビを載せる）か `exclude`（独自デザインで
   載せない・理由必須）に必ず1エントリ追加する。**どちらにも無いと GitHub Actions が失敗する**
+- **新規ページを作ったら `sitemap.xml` にも手で1エントリ追加する**（`data/kaiyu.json` の回遊も同様）。
+  ⚠️ sitemap.xml だけは**ジェネレーターが無く手動メンテ**で、update-nav.py を通しても入らず CI も
+  検証しない＝黙って漏れる。現状ナビ掲載35ページに対し21件しか載っておらず、実際に漏れ続けている。
+  形式は既存エントリのコピーでよい（`loc` / `lastmod` / `changefreq: monthly` / `priority: 0.6`）
 - ローカル確認: `python3 scripts/update-nav.py`（生成）/ `--check`（検証のみ）
 - 詳細は `scripts/update-nav.py` の冒頭コメントと `data/nav.json` の `_comment` を読む
 
