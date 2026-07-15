@@ -1,11 +1,11 @@
-name: Update Kaiyu Bands
+name: Update Global Nav & Footer
 
 on:
   push:
     branches: [main]
     paths:
-      - 'data/kaiyu.json'
-      - 'scripts/update-kaiyu.py'
+      - 'data/nav.json'
+      - 'scripts/update-nav.py'
       - '**/*.html'
   workflow_dispatch:          # 手動実行も可能
 
@@ -19,18 +19,22 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  kaiyu:
+  nav:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Regenerate kaiyu bands (回遊バンドを台帳から再生成)
-        run: python3 scripts/update-kaiyu.py
+      # 台帳の検証も兼ねる。台帳に未登録のページがあると、ここで失敗して気づける。
+      - name: Regenerate nav & footer (ナビ・フッターを台帳から再生成)
+        run: python3 scripts/update-nav.py
 
       - name: Commit if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A '*.html'
-          git diff --cached --quiet || git commit -m "chore: 回遊バンドを自動更新（data/kaiyu.json 台帳より）"
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: グローバルナビ・フッターを自動更新（data/nav.json 台帳より）"
+          # 実行中に人間の push が入っていた場合に備えて rebase してから push
+          git pull --rebase origin main
           git push

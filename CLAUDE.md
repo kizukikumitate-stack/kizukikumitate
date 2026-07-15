@@ -22,11 +22,12 @@ Democracy Fitness 等のハブ。
 - ashimoto-map.html — 足元からの地図（五層の平和構築モデル）
 - nobel-peace.html — ノーベル平和賞 125年の系譜
 - dialogue-zukan.html / shikumi-zukan.html / poverty-zukan.html / ted-collection.html
-  — 図鑑シリーズ（紙背景テンプレ。poverty はナビ非掲載＝shikumi からのみ導線）
+  — 図鑑シリーズ（紙背景テンプレ）
 - yokai/ — 会社の妖怪診断（index/zukan/workshop/ranking/gallery、夜色・金・墨の独自世界観）
 - shakai-yokai/ — 社会の妖怪診断（完全バイリンガル・自己完結）
 - democracy-fitness-camp-*.html / democracy-fitness-event-*.html — イベント個別ページ
 - *-mockup.html / preview-diagram.html / od-overflow-check.html / ogp-generator.html — 作業用（ナビ非掲載）
+- data/nav.json + scripts/update-nav.py — グローバルナビ・フッターの台帳・自動同期（唯一の正）
 - data/kaiyu.json + scripts/update-kaiyu.py — サイト内回遊バンドの台帳・自動更新
 
 ## 技術構成
@@ -47,26 +48,37 @@ Democracy Fitness 等のハブ。
 
 ## デザインルール
 
-### グローバルナビゲーション（全ページ共通）
+### グローバルナビゲーション・フッター（全ページ共通・台帳で自動同期）
 
-構成: Home / Democracy Fitness / LSP / 研修設計プログラム / 組織開発プログラム / Contact
+**❌ ページの `<nav>` や `<footer>` を手で書き換えないこと。** GitHub Actions が
+`data/nav.json` から再生成して黙って上書きするため、手の修正は必ず消える。
+各ページの `<!-- NAV START -->〜<!-- NAV END -->` / `<!-- FOOTER START -->〜<!-- FOOTER END -->`
+の中身は生成物であり、正は `data/nav.json` ただ一つ。
+
+- **ナビ項目を足す・減らす・並べ替える** → `data/nav.json` の `nav.items` を編集して push するだけで
+  全ページ（現在33ページ）が自動追従する。相対パス（`./` と `../`）と `active` は階層から自動計算される
+- **新規ページを作った** → `data/nav.json` の `pages`（共通ナビを載せる）か `exclude`（独自デザインで
+  載せない・理由必須）に必ず1エントリ追加する。**どちらにも無いと GitHub Actions が失敗する**
+- ローカル確認: `python3 scripts/update-nav.py`（生成）/ `--check`（検証のみ）
+- 詳細は `scripts/update-nav.py` の冒頭コメントと `data/nav.json` の `_comment` を読む
+
+ナビは **3変種** があり、各ページのJSが id/class を参照しているので台帳の `variant` を間違えないこと:
+
+| variant | ハンバーガー | モバイルメニュー | 対象 |
+|---|---|---|---|
+| `standard` | `.nav-hamburger#hamburger` | `.mobile-menu#mobileMenu` | 通常ページ |
+| `event` | `.global-nav-hamburger#globalHamburger` | `.global-mobile-menu#globalMobileMenu` | イベント・申込系 |
+| `topaasia` | `div.hamburger#hamburger`（＋`.lang-toggle`） | `.mobile-menu#mobileMenu` | topaasia系 |
+
+見た目のルール（CSSは各ページのインライン `<style>` 側にあり、台帳の管理外）:
 
 - ロゴ: `logotype.png` + テキスト「きづきくみたて工房」を必ず両方表示
 - ロゴ文字スタイル: `font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; color: #1a5fad; letter-spacing: 0.06em;`
 - ナビ下線: `border-bottom: 3px solid #3C3489`
-
-### フッター（全ページ共通）
-
-```html
-<footer>
-  <div class="footer-logo">きづきくみたて工房</div>
-  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
-</footer>
-```
-
-- CSS: `background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center;`
-- ロゴ: `font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9);`
-- lsp.html のみフッターにLEGO商標表記を追加
+- ハンバーガー切替は全ページ 1100px（6項目化でデスクトップ横ナビが欠けるため）
+- フッターCSS: `background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center;`
+- フッターロゴ: `font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9);`
+- フッターの例外は台帳側で表現する: lsp.html＝`footer_copy_prefix`（LEGO商標）、topaasia.html＝`footer: "topaasia"`（日英TM行）
 
 ### ヒーロー h1 フォントサイズ
 
@@ -112,6 +124,8 @@ Democracy Fitness 等のハブ。
 
 ## やってはいけないこと
 
+- ❌ ページの `<nav>` / `<footer>`（NAV・FOOTERマーカーの中身）を手で書き換えない
+      → `data/nav.json` を編集する。手の修正は自動生成で上書きされて消える
 - ❌ 依頼されていないページのデザイン・文言を変えない
 - ❌ 診断ツールの質問・スコアリング・判定ロジックを無断で変えない
 - ❌ CSSフレームワーク / JSフレームワークを勝手に導入しない

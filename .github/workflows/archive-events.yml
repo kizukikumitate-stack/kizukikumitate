@@ -8,6 +8,12 @@ on:
 permissions:
   contents: write
 
+# HTMLを自動commitするワークフロー（nav / kaiyu / archive-events）は同じグループで直列化する。
+# 同時に走ると push が非fast-forwardで衝突するため。
+concurrency:
+  group: html-autocommit
+  cancel-in-progress: false
+
 jobs:
   archive:
     runs-on: ubuntu-latest

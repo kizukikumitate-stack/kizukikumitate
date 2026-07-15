@@ -238,6 +238,7 @@
 
 <!-- NAV（既存サイト共通ヘッダー） -->
 <!-- TODO: グローバルナビへの「妖怪と式神」項目追加は森本さん確認後（追加可否・位置） -->
+<!-- NAV START -->
 <nav>
   <a href="../index.html" class="nav-logo">
     <img src="../logotype.png" alt="きづきくみたて工房">
@@ -268,7 +269,7 @@
         <a href="../democracy-fitness.html">Democracy Fitness</a>
         <a href="../lsp.html">LSP</a>
         <a href="../topaasia.html">対話用カード</a>
-        <a href="./">会社の妖怪診断</a>
+        <a href="./" class="active">会社の妖怪診断</a>
         <a href="../shakai-yokai/">社会の妖怪診断</a>
         <a href="./workshop.html">妖怪と式神ワークショップ</a>
       </div>
@@ -326,7 +327,7 @@
       <a href="../democracy-fitness.html">Democracy Fitness</a>
       <a href="../lsp.html">LSP</a>
       <a href="../topaasia.html">対話用カード</a>
-      <a href="./">会社の妖怪診断</a>
+      <a href="./" class="active">会社の妖怪診断</a>
       <a href="../shakai-yokai/">社会の妖怪診断</a>
       <a href="./workshop.html">妖怪と式神ワークショップ</a>
     </div>
@@ -354,6 +355,7 @@
     </div>
   </div>
 </div>
+<!-- NAV END -->
 
 <section class="screen on" id="intro">
   <div class="wrap">
@@ -387,10 +389,12 @@
 
 
 <!-- FOOTER（既存サイト共通フッター） -->
+<!-- FOOTER START -->
 <footer>
   <div class="footer-logo">きづきくみたて工房</div>
   <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
 </footer>
+<!-- FOOTER END -->
 
 <script>
 const DATA = {"yokai": [{"id": 1, "name": "一ツ目正論", "yomi": "ひとつめせいろん", "kuse": "普通、こうでしょ？", "noroi": "「自分の正解」以外が見えなくなる。", "shiki": "多眼フクロウ", "kin": "原理感知筋", "spell": "他の見え方はないかな？", "yimg": "assets/img/yokai-01-hitotsume.jpg", "simg": "assets/img/shiki-01-hitotsume.jpg"}, {"id": 2, "name": "座敷固定", "yomi": "ざしきこてい", "kuse": "現場はわかってない！", "noroi": "自分の部署や立場に縛られ、他が敵に見える。", "shiki": "渡りザル", "kin": "視座切替筋", "spell": "もし自分が相手の立場なら？", "yimg": "assets/img/yokai-02-zashiki.jpg", "simg": "assets/img/shiki-02-zashiki.jpg"}, {"id": 3, "name": "言霊直撃", "yomi": "ことだまちょくげき", "kuse": "ちゃんと言いましたよね？", "noroi": "専門用語や自分の理屈をそのままぶつける。", "shiki": "ことばオウム", "kin": "ことば変換筋", "spell": "あなたの言葉で言うと…", "yimg": "assets/img/yokai-03-kotodama.jpg", "simg": "assets/img/shiki-03-kotodama.jpg"}, {"id": 4, "name": "空気喰らい", "yomi": "くうきぐらい", "kuse": "（無言の圧力……）", "noroi": "沈黙を善とし、本音を消し去る。", "shiki": "場守りガメ", "kin": "安心場づくり筋", "spell": "まずは安心して話せる場を作ろう", "yimg": "assets/img/yokai-04-kuuki.jpg", "simg": "assets/img/shiki-04-kuuki.jpg"}, {"id": 5, "name": "白黒鬼", "yomi": "しろくろおに", "kuse": "で、どっちが正しいの！？", "noroi": "モヤモヤに耐えられず、拙速な答えを出す。", "shiki": "まどろみネコ", "kin": "モヤモヤ保持筋", "spell": "今日は決めなくていい。寝かせよう", "yimg": "assets/img/yokai-05-shirokuro.jpg", "simg": "assets/img/shiki-05-shirokuro.jpg"}, {"id": 6, "name": "目先坊", "yomi": "めさきぼう", "kuse": "今、それどころじゃない！", "noroi": "目の前のタスクに追われ、目的を見失う。", "shiki": "北星シカ", "kin": "北極星筋", "spell": "そもそも、何のためだっけ？", "yimg": "assets/img/yokai-06-mesaki.jpg", "simg": "assets/img/shiki-06-mesaki.jpg"}, {"id": 7, "name": "即反応丸", "yomi": "そくはんのうまる", "kuse": "（カチンときて）でもさぁ！", "noroi": "刺激に対して、感情がノータイムで暴発する。", "shiki": "一呼吸イヌ", "kin": "一歩ひく筋", "spell": "一回、呼吸しよう（スゥ……）", "yimg": "assets/img/yokai-07-sokuhan.jpg", "simg": "assets/img/shiki-07-sokuhan.jpg"}, {"id": 8, "name": "今今爺", "yomi": "いまいまじい", "kuse": "今月の数字はどうするんだ", "noroi": "短期的な利益しか見えず、未来を食いつぶす。", "shiki": "時間ゾウ", "kin": "時間視野筋", "spell": "このままだと、3年後はどうなる？", "yimg": "assets/img/yokai-08-imaima.jpg", "simg": "assets/img/shiki-08-imaima.jpg"}, {"id": 9, "name": "犯人探し狐", "yomi": "はんにんさがしぎつね", "kuse": "誰がやったんだ！", "noroi": "構造の欠陥ではなく、個人のミスを責める。", "shiki": "輪読みオオカミ", "kin": "システム読解筋", "spell": "これは、どういう悪循環だろう？", "yimg": "assets/img/yokai-09-hannin.jpg", "simg": "assets/img/shiki-09-hannin.jpg"}, {"id": 10, "name": "前例守", "yomi": "ぜんれいもり", "kuse": "昔はこれで上手くいった", "noroi": "過去の成功体験が絶対化し、変化を拒む。", "shiki": "脱皮ヘビ", "kin": "前提アップデート筋", "spell": "その前提、もう古くない？", "yimg": "assets/img/yokai-10-zenrei.jpg", "simg": "assets/img/shiki-10-zenrei.jpg"}], "questions": [{"q": "会議で意見がぶつかったとき、あなたの会社で起こりがちなのは？", "opts": [["自分の考えが正しい、と譲らない人がいる", 1], ["立場の違う相手を、はなから「わかってない」と見る", 2], ["専門用語や理屈をそのままぶつけがち", 3], ["ハレーションを恐れて、発言するのはごく一部の人だけ", 4], ["違う意見も、いったん受け止め合えている", "ok"]]}, {"q": "何かを決める場面で、あなたの会社で起こりがちなのは？", "opts": [["早く白黒つけたがり、拙速に決まる", 5], ["目の前の作業やこれまでの慣習が優先で、変更が後回しになる", 6], ["カチンときて、感情的な応酬になる", 7], ["十分な検討がなされないまま、何かとすぐに今期の数字の話に引き戻される", 8], ["迷いも抱えたまま、じっくり決められている", "ok"]]}, {"q": "問題やミスが起きたとき、あなたの会社で起こりがちなのは？", "opts": [["誰の責任か、の犯人探しが始まる", 9], ["以前はこうだったのに、と前例や過去の時代の話が持ち出される", 10], ["自分の正解を押し通そうとする人が出る", 1], ["波風を立てたくなくて、問題の真因を誰も指摘しない", 4], ["原因を、仕組みの問題として話し合えている", "ok"]]}, {"q": "部署をまたいで仕事を進めるとき、あなたの会社で起こりがちなのは？", "opts": [["専門用語や前提が食い違って、話が噛み合わない", 3], ["自分の部署の立場を、まず守りにいく", 2], ["意見の違いをグレーのまま置けず、すぐ「どっちが正しい」になる", 5], ["今の対応に追われ、先を見た調整ができない", 6], ["立場を越えて、目的をすり合わせられている", "ok"]]}, {"q": "物事が予定どおりに進まないとき、あなたの会社で起こりがちなのは？", "opts": [["カッとなって、すぐ反応が返ってくる", 7], ["短期の損得で、その場しのぎの判断になる", 8], ["原因より、誰のせいかを探し始める", 9], ["「やっぱり昔のやり方に戻そう」という力が、すぐに働く", 10], ["ひと呼吸おいて、立て直しを考えられている", "ok"]]}, {"q": "新しいやり方が提案されたとき、あなたの会社で起こりがちなのは？", "opts": [["普通こうでしょ、と一蹴されがち", 1], ["現場をわかってない、と返される", 2], ["もう古いのでは、と思うような前提が、今も幅を利かせている", 10], ["そもそも何のため？が問われずに進む", 6], ["まず試してみよう、と前向きに受け止められる", "ok"]]}]};

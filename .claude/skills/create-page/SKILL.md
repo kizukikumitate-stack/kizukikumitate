@@ -163,39 +163,10 @@ description: |
   </style>
 </head>
 <body>
-  <!-- ナビゲーション -->
-  <nav>
-    <a href="./index.html" class="nav-logo">
-      <img src="./logotype.png" alt="きづきくみたて工房ロゴ">
-      <span class="nav-logo-text">きづきくみたて工房</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="./index.html">Home</a></li>
-      <li><a href="./democracy-fitness.html">Democracy Fitness</a></li>
-      <li><a href="./lsp.html">LSP</a></li>
-      <li><a href="./education-program.html">研修設計プログラム</a></li>
-      <li><a href="./od-program.html">組織開発プログラム</a></li>
-      <li><a href="./dialogue-program.html">対話力向上プログラム</a></li>
-      <li><a href="./social-leader-coaching.html">リーダー向けコーチング</a></li>
-      <li><a href="./index.html#contact">Contact</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
-
-  <!-- モバイルメニュー -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu-close" id="mobileClose">✕</button>
-    <a href="./index.html">Home</a>
-    <a href="./democracy-fitness.html">Democracy Fitness</a>
-    <a href="./lsp.html">LSP</a>
-    <a href="./education-program.html">研修設計プログラム</a>
-    <a href="./od-program.html">組織開発プログラム</a>
-    <a href="./dialogue-program.html">対話力向上プログラム</a>
-    <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
-    <a href="./index.html#contact">Contact</a>
-  </div>
+  <!-- ナビゲーション：手で書かない。空マーカーだけ置く。
+       data/nav.json に登録して scripts/update-nav.py を実行すると中身が生成される -->
+  <!-- NAV START -->
+  <!-- NAV END -->
 
   <!-- ヒーロー -->
   <section class="hero">
@@ -205,18 +176,20 @@ description: |
   <!-- メインコンテンツ -->
   <!-- ここにページ固有のコンテンツを追加 -->
 
-  <!-- フッター -->
-  <footer>
-    <div class="footer-logo">きづきくみたて工房</div>
-    <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
-  </footer>
+  <!-- フッター：手で書かない。空マーカーだけ置く（同上） -->
+  <!-- FOOTER START -->
+  <!-- FOOTER END -->
 
   <script>
+    // ナビの開閉JS。variant "standard" の id/class に対応（台帳の variant と必ず揃える）
     document.getElementById('hamburger').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.add('active');
+      document.getElementById('mobileMenu').classList.add('open');
     });
     document.getElementById('mobileClose').addEventListener('click', () => {
-      document.getElementById('mobileMenu').classList.remove('active');
+      document.getElementById('mobileMenu').classList.remove('open');
+    });
+    document.querySelectorAll('.mobile-acc-toggle').forEach(t => {
+      t.addEventListener('click', () => t.parentElement.classList.toggle('open'));
     });
   </script>
 </body>
@@ -234,10 +207,35 @@ description: |
 5. Google Analytics タグが含まれているか
 6. ナビのリンク構成が他ページと同一か
 
-### 4. ナビリンクに新ページを追加する場合
+### 4. data/nav.json への登録（★必須・省略するとCIが落ちる）
 
-新ページをナビに追加する場合は、**全HTMLファイル**のナビとモバイルメニューを更新する必要がある。
-1ファイルだけ更新して終わりにしない。
+ページを作ったら、共通ナビを載せる／載せないに関わらず **必ず** `data/nav.json` に登録する。
+どちらにも無いページがあると GitHub Actions（update-nav）が失敗する。
+
+**共通ナビを載せる場合** — `pages` に追加（variant は3種から選ぶ。通常は `standard`）:
+
+```json
+{ "path": "new-page.html", "variant": "standard" }
+```
+
+**独自デザインで載せない場合** — `exclude` に理由付きで追加:
+
+```json
+{ "path": "new-page.html", "reason": "◯◯シリーズ＝独自ブランドバーの別LP" }
+```
+
+**グローバルナビのメニューにも項目として出す場合** — `nav.items` の該当グループに追加する。
+これだけで全ページのナビが自動追従する（1ファイルずつ手で直すのは禁止）。
+
+最後に生成を実行して確認:
+
+```bash
+python3 scripts/update-nav.py    # マーカーの中身が生成される
+```
+
+⚠️ ナビ／フッターのCSSは各ページのインライン `<style>` 側にあり、台帳の管理外。
+手順1で既存ページ（`education-program.html` 等）をコピーして作れば、正しいナビCSSと
+マーカーが最初から入っている。ゼロから書くとドロップダウンが無スタイルになる。
 
 ---
 

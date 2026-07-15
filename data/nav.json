@@ -1,0 +1,150 @@
+{
+  "_comment": [
+    "グローバルナビ／フッターの唯一の正（Single Source of Truth）。",
+    "この台帳を編集して push すれば scripts/update-nav.py が全ページに反映する。",
+    "手でページの <nav> や <footer> を書き換えないこと（次回の自動更新で上書きされる）。",
+    "",
+    "■ ナビ項目を足す/減らす/並べ替える → nav.items を編集するだけ。",
+    "■ 新しいページを作った → pages に1エントリ追加（共通ナビを載せる場合）",
+    "   または exclude に1エントリ追加（独自デザインで載せない場合）。",
+    "   どちらにも無いページがあると GitHub Actions が失敗して気づける。",
+    "",
+    "href はリポジトリルート基準で書く（相対パスは各ページの階層に応じて自動計算）。",
+    "ディレクトリは 'yokai/' のように末尾スラッシュ付きで書く。",
+    "外部リンク（http/mailto）はそのまま出力される。"
+  ],
+
+  "nav": {
+    "logo": {
+      "href": "index.html",
+      "image": "logotype.png",
+      "alt": "きづきくみたて工房",
+      "text": "きづきくみたて工房"
+    },
+    "items": [
+      { "label": "Home", "href": "index.html" },
+      {
+        "label": "目指す未来",
+        "children": [
+          { "label": "世界平和までのロードマップ", "href": "roadmap.html" },
+          { "label": "足元からの地図（展開編）", "href": "ashimoto-map.html" }
+        ]
+      },
+      {
+        "label": "ソリューション",
+        "children": [
+          { "label": "研修設計プログラム", "href": "education-program.html" },
+          { "label": "組織開発プログラム", "href": "od-program.html" },
+          { "label": "対話力向上プログラム", "href": "dialogue-program.html" },
+          { "label": "リーダー向けコーチング", "href": "social-leader-coaching.html" },
+          { "label": "離職防止プログラム", "href": "taiwa-teichaku.html" }
+        ]
+      },
+      {
+        "label": "手法・ワークショップ",
+        "children": [
+          { "label": "Democracy Fitness", "href": "democracy-fitness.html" },
+          { "label": "LSP", "href": "lsp.html" },
+          { "label": "対話用カード", "href": "topaasia.html" },
+          { "label": "会社の妖怪診断", "href": "yokai/" },
+          { "label": "社会の妖怪診断", "href": "shakai-yokai/" },
+          { "label": "妖怪と式神ワークショップ", "href": "yokai/workshop.html" }
+        ]
+      },
+      {
+        "label": "世界の知恵",
+        "children": [
+          { "label": "世界の対話の技法図鑑", "href": "dialogue-zukan.html" },
+          { "label": "社会の仕組み図鑑", "href": "shikumi-zukan.html" },
+          { "label": "世界の貧困解決アイデア図鑑", "href": "poverty-zukan.html" },
+          { "label": "合意形成図鑑", "href": "goikeisei-zukan.html" },
+          { "label": "おすすめTED集", "href": "ted-collection.html" },
+          { "label": "ノーベル平和賞", "href": "nobel-peace.html" },
+          { "label": "連載・気づきから組み立てる", "href": "series/" }
+        ]
+      },
+      {
+        "label": "コンタクト",
+        "children": [
+          { "label": "お問い合わせ", "href": "mailto:y.morimoto@kizukikumitate.com" },
+          { "label": "note（ブログ）", "href": "https://note.com/kizukikumitate", "external": true },
+          { "label": "Facebook", "href": "https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP", "external": true },
+          { "label": "X（旧Twitter）", "href": "https://x.com/c_mory_", "external": true },
+          { "label": "LinkedIn", "href": "https://www.linkedin.com/in/yasuhito-morimoto-10039b158/", "external": true }
+        ]
+      }
+    ]
+  },
+
+  "footer": {
+    "logo": "きづきくみたて工房",
+    "copy": "&copy; 2026 Yasuhito Morimoto. All rights reserved.",
+    "variants": {
+      "topaasia": {
+        "tm_ja": "運営: きづきくみたて（森本康仁）／デモクラシーフィットネス認定トレーナー、LEGO&reg; SERIOUS PLAY&reg;メソッドと教材活用トレーニング修了認定ファシリテータ。Topaasia&reg; はTopaasia Oy（フィンランド）の登録商標です。",
+        "tm_en": "Operated by Kizukikumitate (Yasuhito Morimoto) — certified Democracy Fitness trainer; certified facilitator of the LEGO&reg; SERIOUS PLAY&reg; method and materials. Topaasia&reg; is a registered trademark of Topaasia Oy, Finland."
+      }
+    }
+  },
+
+  "pages": [
+    { "path": "index.html", "variant": "standard" },
+    { "path": "ashimoto-map.html", "variant": "standard" },
+    { "path": "customer-age-timebomb.html", "variant": "standard" },
+    { "path": "democracy-fitness.html", "variant": "standard" },
+    { "path": "dialogue-program-trial.html", "variant": "standard" },
+    { "path": "dialogue-program.html", "variant": "standard" },
+    { "path": "dialogue-zukan.html", "variant": "standard" },
+    { "path": "education-program.html", "variant": "standard" },
+    { "path": "goikeisei-zukan.html", "variant": "standard" },
+    { "path": "lsp.html", "variant": "standard", "footer_copy_prefix": "LEGO® and SERIOUS PLAY® are trademarks of the LEGO Group.　" },
+    { "path": "nobel-peace.html", "variant": "standard" },
+    { "path": "od-program.html", "variant": "standard" },
+    { "path": "poverty-zukan.html", "variant": "standard" },
+    { "path": "recruitment-extinction.html", "variant": "standard" },
+    { "path": "roadmap.html", "variant": "standard" },
+    { "path": "shikumi-zukan.html", "variant": "standard" },
+    { "path": "social-leader-coaching.html", "variant": "standard" },
+    { "path": "taiwa-teichaku.html", "variant": "standard" },
+    { "path": "tax-revenue-countdown.html", "variant": "standard" },
+    { "path": "ted-collection.html", "variant": "standard" },
+    { "path": "shakai-yokai/index.html", "variant": "standard" },
+    { "path": "yokai/index.html", "variant": "standard" },
+    { "path": "yokai/gallery.html", "variant": "standard" },
+    { "path": "yokai/ranking.html", "variant": "standard" },
+    { "path": "yokai/workshop.html", "variant": "standard" },
+    { "path": "yokai/zukan.html", "variant": "standard" },
+
+    { "path": "democracy-fitness-camp-0811.html", "variant": "event", "logo_priority": true },
+    { "path": "democracy-fitness-camp-0811-signup.html", "variant": "event" },
+    { "path": "democracy-fitness-event-0427.html", "variant": "event" },
+    { "path": "democracy-fitness-event-0626-signup.html", "variant": "event" },
+    { "path": "democracy-fitness-event-0707.html", "variant": "event" },
+
+    { "path": "topaasia.html", "variant": "topaasia", "lang_toggle": true, "footer": "topaasia" },
+    { "path": "topaasia-data-notes.html", "variant": "topaasia" }
+  ],
+
+  "exclude": [
+    { "path": "pta-dialogue-kit.html", "reason": "PTA対話キット系＝独自ブランドバー＋独自フッターの別LP（2026-07-15 森本さん確認）" },
+    { "path": "pta-kit-text.html", "reason": "PTA対話キット系（有料進行テキスト）＝独自デザイン" },
+    { "path": "pta-muda.html", "reason": "PTA対話キット系の記事ページ＝独自デザイン" },
+    { "path": "minna-no-koe.html", "reason": "PTA対話キット系＝独自デザイン" },
+    { "path": "yarigai-list.html", "reason": "PTA対話キット系の付属資料＝独自デザイン" },
+    { "path": "bellmark-calculator.html", "reason": "PTA対話キット系の付属ツール＝独自デザイン" },
+    { "path": "tokushoho.html", "reason": "特定商取引法表記＝独自デザイン" },
+    { "path": "facilitator-training.html", "reason": "ファシリテーター養成＝独自デザインLP" },
+    { "path": "democracy-fitness-career.html", "reason": "Democracy Fitness × Career＝独自デザインLP" },
+    { "path": "democracy-fitness-intern.html", "reason": "インターン募集＝独自デザインLP" },
+    { "path": "series/index.html", "reason": "連載シリーズ＝独自デザイン（site-footer）" },
+    { "path": "series/diagnostic.html", "reason": "連載シリーズ＝独自デザイン（site-footer）" },
+    { "path": "series/_pdf-build/template.html", "reason": "PDF組版用テンプレート＝ページではない" },
+    { "path": "series/_reference/BEM-diagnostic-form.html", "reason": "参考資料＝ページではない" },
+    { "path": "yokai/taiwa.html", "reason": "妖怪と式神ワークショップ（ソロ）＝没入型アプリ画面。ナビ・フッターを出さない" },
+    { "path": "yokai/yoriai.html", "reason": "妖怪と式神ワークショップ（複数人）＝没入型アプリ画面。ナビ・フッターを出さない" },
+    { "path": "ogp-generator.html", "reason": "作業用ツール（非公開導線）" },
+    { "path": "shimon-mockup.html", "reason": "作業用モックアップ" },
+    { "path": "structure-mockup.html", "reason": "作業用モックアップ" },
+    { "path": "themes-mockup.html", "reason": "作業用モックアップ" }
+  ]
+}
