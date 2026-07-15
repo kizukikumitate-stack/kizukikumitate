@@ -23,6 +23,10 @@ Democracy Fitness 等のハブ。
 - nobel-peace.html — ノーベル平和賞 125年の系譜
 - dialogue-zukan.html / shikumi-zukan.html / poverty-zukan.html / ted-collection.html
   — 図鑑シリーズ（紙背景テンプレ）
+- customer-age-timebomb.html / recruitment-extinction.html / tax-revenue-countdown.html /
+  school-consolidation-countdown.html / caregiving-capacity-calculator.html
+  — 未来リスク計算機シリーズ01〜05（ナビ「未来のリスク計算機」。素のHTML/JS＋手書きSVGで作る。
+  新作の元原稿がReact/Rechartsで来ても移植すること。テンプレの正は recruitment-extinction.html）
 - yokai/ — 会社の妖怪診断（index/zukan/workshop/ranking/gallery、夜色・金・墨の独自世界観）
 - shakai-yokai/ — 社会の妖怪診断（完全バイリンガル・自己完結）
 - democracy-fitness-camp-*.html / democracy-fitness-event-*.html — イベント個別ページ
@@ -56,7 +60,7 @@ Democracy Fitness 等のハブ。
 の中身は生成物であり、正は `data/nav.json` ただ一つ。
 
 - **ナビ項目を足す・減らす・並べ替える** → `data/nav.json` の `nav.items` を編集して push するだけで
-  全ページ（現在33ページ）が自動追従する。相対パス（`./` と `../`）と `active` は階層から自動計算される
+  全ページ（現在35ページ）が自動追従する。相対パス（`./` と `../`）と `active` は階層から自動計算される
 - **新規ページを作った** → `data/nav.json` の `pages`（共通ナビを載せる）か `exclude`（独自デザインで
   載せない・理由必須）に必ず1エントリ追加する。**どちらにも無いと GitHub Actions が失敗する**
 - ローカル確認: `python3 scripts/update-nav.py`（生成）/ `--check`（検証のみ）
@@ -75,7 +79,8 @@ Democracy Fitness 等のハブ。
 - ロゴ: `logotype.png` + テキスト「きづきくみたて工房」を必ず両方表示
 - ロゴ文字スタイル: `font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; color: #1a5fad; letter-spacing: 0.06em;`
 - ナビ下線: `border-bottom: 3px solid #3C3489`
-- ハンバーガー切替は全ページ 1100px（6項目化でデスクトップ横ナビが欠けるため）
+- ハンバーガー切替は全ページ 1250px（7項目化でデスクトップ横ナビが欠けるため。
+  ナビ項目を増やすときは、この値も引き上がるか実測で確認する）
 - フッターCSS: `background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center;`
 - フッターロゴ: `font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9);`
 - フッターの例外は台帳側で表現する: lsp.html＝`footer_copy_prefix`（LEGO商標）、topaasia.html＝`footer: "topaasia"`（日英TM行）
