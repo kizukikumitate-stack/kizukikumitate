@@ -483,6 +483,21 @@
       ]
     },
     {
+      "id": "tax-revenue-countdown",
+      "path": "tax-revenue-countdown.html",
+      "title": "税収カウントダウン",
+      "tag": "未来リスク計算機",
+      "desc": "人口が入れ替わると、税収が下がりながら社会保障費が上がる。まちの財政が賄えなくなる年を試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "next": [
+        "ashimoto-map",
+        "shikumi-zukan"
+      ]
+    },
+    {
       "id": "bellmark",
       "path": "bellmark-calculator.html",
       "title": "ベルマーク時給換算機",

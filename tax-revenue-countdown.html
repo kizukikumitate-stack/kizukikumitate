@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>税収カウントダウン｜まちの財政が持たなくなる年を計算する | きづきくみたて工房</title>
+<meta name="description" content="人口が入れ替わると、税収が下がりながら社会保障費が上がる「ワニの口」が開きます。人口と財政の数字を入れるだけで、税収が歳出を賄えなくなる年を試算。その年のまちの様子もイラストで変化します。無料ツール。">
+<link rel="canonical" href="https://kizukikumitate.com/tax-revenue-countdown.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="税収カウントダウン｜まちの財政が持たなくなる年を計算する">
+<meta property="og:description" content="税収が下がりながら社会保障費が上がる「ワニの口」。いまの構造のまま進んだとき、まちの財政が賄えなくなるのは何年後か。人口と財政の数字から試算する無料ツール。">
+<meta property="og:url" content="https://kizukikumitate.com/tax-revenue-countdown.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="税収カウントダウン｜まちの財政が持たなくなる年を計算する">
+<meta name="twitter:description" content="いまの構造のまま進んだとき、まちの財政が賄えなくなるのは何年後か。人口と財政の数字から試算する無料ツール。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --ink-soft:   #4a4660;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --line:       #e5e0d3;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; hanging-punctuation: allow-end; line-break: strict; line-height: 1.9; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; align-items: center; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  @media (max-width: 1100px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+    .nav-logo { margin-right: 0; }
+  }
+
+  /* ===== layout ===== */
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-soft); }
+
+  #hero { padding: 8.5rem 0 3rem; }
+  #hero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(2rem, 4vw, 4.8rem); line-height: 1.25; margin: 0.7rem 0 1rem; color: var(--ink); }
+  #hero h1 .accent { color: var(--dawn); }
+  .lede { font-size: 0.95rem; font-weight: 300; line-height: 2.05; color: var(--ink-soft); max-width: 46em; }
+  @media (max-width: 768px) { #hero { padding-top: 7rem; } #hero h1 { font-size: 1.8rem; white-space: normal; } }
+  @media (max-width: 540px) { #hero h1 { font-size: 1.4rem; white-space: normal; } }
+
+  section { padding: 2.2rem 0; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
+  .card h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.9rem; }
+
+  /* ===== presets ===== */
+  .presets { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
+  .preset { font-family: 'Noto Serif JP', serif; padding: 0.4rem 0.95rem; font-size: 0.82rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); transition: background 0.18s, border-color 0.18s, color 0.18s; }
+  .preset:hover { border-color: var(--teal); }
+  .preset.on { background: var(--teal); border-color: var(--teal); color: var(--paper); }
+
+  /* ===== inputs ===== */
+  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+  @media (max-width: 760px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
+  .sl { margin-bottom: 0.85rem; }
+  .sl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.8rem; margin-bottom: 0.15rem; }
+  .sl-val { font-weight: 600; white-space: nowrap; }
+  .sl input[type=range] { width: 100%; }
+  .chk { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; cursor: pointer; margin-top: 0.5rem; }
+  .foot-note { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+
+  /* ===== countdown ===== */
+  .fuse { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 1.8rem 1.5rem 2.1rem; overflow: hidden; }
+  .fuse-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; opacity: 0.7; margin-bottom: 0.6rem; }
+  .fuse-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.3rem; margin-bottom: 1.4rem; }
+  .fuse-label { font-family: 'Shippori Mincho', serif; font-size: 1rem; }
+  .fuse-big { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(2.1rem, 8vw, 3.6rem); line-height: 1; color: var(--dawn); }
+  .fuse-at { font-size: 0.88rem; opacity: 0.85; }
+  .fuse-track { position: relative; height: 10px; border-radius: 999px; background: rgba(250,248,242,0.15); }
+  .fuse-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--dawn)); transition: width 0.5s ease; }
+  .fuse-spark { position: absolute; top: 50%; width: 18px; height: 18px; border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, #fff 0%, var(--gold) 40%, transparent 70%); animation: spark 1s infinite; transition: left 0.5s ease; }
+  @keyframes spark { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; } }
+  @media (prefers-reduced-motion: reduce) { .fuse-spark { animation: none; } .fuse-fill, .fuse-spark { transition: none; } }
+  .ends { display: flex; justify-content: space-between; font-family: 'Jost', sans-serif; font-size: 0.7rem; opacity: 0.6; margin-top: 0.5rem; }
+  .fuse-note { display: none; font-size: 0.76rem; line-height: 1.95; opacity: 0.75; margin-top: 1.2rem; padding-left: 0.9rem; border-left: 2px solid rgba(217,164,65,0.6); }
+  .fuse-note.on { display: block; }
+  .fuse-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.4rem; }
+  .fuse-stats .k { font-size: 0.72rem; opacity: 0.6; }
+  .fuse-stats .v { font-size: 0.95rem; font-weight: 600; margin-top: 0.1rem; }
+
+  /* ===== chart ===== */
+  .chart-box { overflow-x: auto; }
+  /* touch-action は指定しない。指定するとスマホで .chart-box の横スクロールが殺され、グラフ右端に届かなくなる */
+  .chart-box svg { display: block; width: 100%; height: auto; min-width: 460px; cursor: crosshair; }
+  .legend { display: flex; flex-wrap: wrap; gap: 1.1rem; font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.7rem; }
+  .legend i { display: inline-block; width: 22px; height: 3px; border-radius: 2px; margin-right: 0.4rem; vertical-align: middle; }
+
+  /* ===== town ===== */
+  .town-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .town-year { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.5rem; color: var(--dawn); }
+  .town-meta { font-size: 0.78rem; color: var(--ink-soft); }
+  .town-frame { border-radius: 12px; overflow: hidden; border: 1px solid var(--line); margin-bottom: 0.9rem; }
+  .town-frame svg { display: block; width: 100%; height: auto; }
+  .scrub-note { font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 0.3rem; }
+  #scrub { width: 100%; }
+
+  /* ===== prose ===== */
+  .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
+  .prose strong { color: var(--ink); font-weight: 600; }
+  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+
+  footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
+  .footer-copy { font-family: 'Jost', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+  @media (max-width: 768px) { footer { padding: 2.4rem 1.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow">未来リスク計算機 03</div>
+    <h1>税収<span class="accent">カウントダウン</span></h1>
+    <p class="lede">働く世代が税を納め、高齢の世代に社会保障が要る。人口が入れ替わると、自主財源（税収）が下がりながら社会保障費が上がる「ワニの口」が開きます。いまの構造のまま進んだとき、税収が歳出を賄えなくなる年を計算します。数字はどこにも送信されません。</p>
+  </div>
+</section>
+
+<!-- 入力 -->
+<section>
+  <div class="wrap">
+    <div class="presets" id="presets"></div>
+    <div class="grid2">
+      <div class="card">
+        <h2>まちの人口</h2>
+        <div id="popSliders"></div>
+        <label class="chk"><input type="checkbox" id="birthDecline" checked>出生数も年々減っていく（年 −1.5％）</label>
+      </div>
+      <div class="card">
+        <h2>まちの財政（自主財源ベース）</h2>
+        <div id="finSliders"></div>
+        <p class="foot-note" id="nowLine"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- カウントダウン -->
+<section>
+  <div class="wrap">
+    <div class="fuse">
+      <div class="fuse-eyebrow">いまの構造のまま進むと</div>
+      <div class="fuse-line">
+        <span class="fuse-label">税収が歳出を賄えなくなるまで</span>
+        <span class="fuse-big" id="fuseBig">—</span>
+        <span class="fuse-at" id="fuseAt"></span>
+      </div>
+      <div class="fuse-track">
+        <div class="fuse-fill" id="fuseFill"></div>
+        <div class="fuse-spark" id="fuseSpark"></div>
+      </div>
+      <div class="ends"><span>2026</span><span>2056</span></div>
+      <p class="fuse-note" id="fuseNote">この条件では、自主財源（まちが自分で集めるお金）だけで見ると初年度からすでに歳出のほうが大きい状態です。それでもいま成り立っているのは、地方交付税など国から配分されるお金が、その差を埋めているからです。この計算機は配分されるお金を含めていないため、ここに出ているのは「あと何年もつか」ではなく<strong style="color:var(--gold);font-weight:600">「自前ではどれだけ賄えていないか」の幅</strong>です。国からの配分が細れば、その幅がそのまま現実になります。</p>
+      <div class="fuse-stats">
+        <div><div class="k">人口が半減する年</div><div class="v" id="halfYear">—</div></div>
+        <div><div class="k">2050年の高齢化率</div><div class="v" id="ageRate2050">—</div></div>
+        <div><div class="k">2050年の収支</div><div class="v" id="balance2050">—</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ワニの口 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>税収と歳出の「ワニの口」</h2>
+      <div class="chart-box">
+        <svg id="chart" viewBox="0 0 760 320" role="img" aria-labelledby="chartDesc"></svg>
+      </div>
+      <p id="chartDesc" class="note" style="margin-top:0.6rem">グラフ上をなぞると、その年の「まちの様子」が下に表示されます。</p>
+      <div class="legend">
+        <span><i style="background:var(--teal)"></i>税収（自主財源）</span>
+        <span><i style="background:var(--dawn)"></i>歳出（社会保障＋固定費）</span>
+        <span><i style="background:rgba(216,90,48,0.22)"></i>賄えない部分＝ワニの口</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- まちの様子 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <div class="town-head">
+        <h2 style="margin:0">その年の、まちの様子</h2>
+        <div><span class="town-year" id="townYear">2040</span><span class="town-meta" id="townMeta"></span></div>
+      </div>
+      <div class="town-frame" id="townFrame"></div>
+      <p class="scrub-note">年をスライドすると、まちの様子が変わります → <strong id="scrubLabel" style="color:var(--ink)">2040年</strong></p>
+      <input type="range" id="scrub" min="2026" max="2056" step="1" value="2040" aria-label="表示する年">
+      <div class="ends" style="color:var(--ink-soft);opacity:1"><span>2026</span><span>2056</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 解除の型 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>この口は、節約だけでは閉じません</h2>
+      <p class="prose">事業の統廃合やコスト削減は口が開く速度を少し緩めますが、人口構造そのものは変えられません。税収が歳出に追いつかないのは職員の努力不足ではなく、<strong>「フルセットの行政サービスを、減っていく人口で維持する」前提が崩れている</strong>適応課題（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。解除の型は3つ──①サービスの範囲と水準を住民との対話で選び直す、②近隣の自治体・民間・住民自身の手と機能を分け合う、③「支える側」を増やす（移住、関係人口＝移り住まなくても関わり続ける人、世代をまたいだ循環）。どれも合意形成の場なしには進みません。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="note">※ 簡易コホートモデル（同じ年に生まれた集団を、1年ずつ歳を取らせながら数えていく簡易的な計算方法）による試算です。税収は生産年齢人口（15〜64歳）に、社会保障費は高齢人口（65歳以上）に比例すると仮定し、固定費は一定としています。地方交付税・国庫支出金などの移転財源（国から配られるお金）、税率改定、景気変動は反映していません。「まちの様子」のイラストは財政悪化と人口減少の度合いを視覚化した概念図で、特定地域を描いたものではありません。住民との対話の出発点としてお使いください。</p>
+  </div>
+</section>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./ashimoto-map.html"><span class="kaiyu-tag">目指す未来</span><span class="kaiyu-name">足元からの地図（展開編）</span><span class="kaiyu-desc">ロードマップを日本の足元に降ろす。地域と日常から始める展開編。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./shikumi-zukan.html"><span class="kaiyu-tag">図鑑・構造編</span><span class="kaiyu-name">社会の仕組み図鑑</span><span class="kaiyu-desc">お金・民意・土台。社会を作り直す世界の発明を集めた構造編。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./taiwa-teichaku.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">離職防止プログラム</span><span class="kaiyu-desc">離職の真因「対話の不在」に、診断・対話介入・効果測定を一気通貫で行うリテンション設計。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+
+<script>
+/* ===== nav ===== */
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+
+/* ===== palette ===== */
+const C = { indigo:'#16132a', gold:'#d9a441', teal:'#0f6e56', dawn:'#d85a30', inkSoft:'#4a4660', line:'#e5e0d3' };
+const START_YEAR = 2026, HORIZON = 30;
+
+/* ===== model ===== */
+function mortality(age){
+  if (age < 20) return 0.0002;
+  if (age < 40) return 0.0008;
+  if (age < 50) return 0.002;
+  if (age < 60) return 0.0045;
+  if (age < 70) return 0.010;
+  if (age < 80) return 0.026;
+  if (age < 90) return 0.085;
+  return 0.18;
+}
+const sum = (arr, from, to) => { let s = 0; for (let a = from; a <= to; a++) s += arr[a] || 0; return s; };
+
+const PRESETS = [
+  { name:'過疎の町',         pop:12000,  elder:0.42, young:0.09, births:55,  tax:18,  welfare:15,  fixed:9  },
+  { name:'地方都市',         pop:100000, elder:0.31, young:0.11, births:620, tax:150, welfare:110, fixed:70 },
+  { name:'郊外ベッドタウン', pop:45000,  elder:0.27, young:0.12, births:300, tax:70,  welfare:42,  fixed:33 },
+  { name:'中山間の村',       pop:3500,   elder:0.51, young:0.06, births:10,  tax:4,   welfare:5,   fixed:4  },
+];
+
+function simulate(p, birthDecline){
+  let pop = new Array(101).fill(0);
+  const youngN = p.pop * p.young;
+  const elderN = p.pop * p.elder;
+  const workN  = p.pop * (1 - p.young - p.elder);
+  for (let a = 0;  a < 15; a++) pop[a] += youngN / 15;
+  for (let a = 15; a < 65; a++) pop[a] += workN / 50;
+  for (let a = 65; a < 95; a++) pop[a] += elderN / 30;
+
+  const work0  = sum(pop, 15, 64);
+  const elder0 = sum(pop, 65, 100);
+  const taxPer     = p.tax / work0;
+  const welfarePer = p.welfare / elder0;
+
+  const rows = [];
+  let crossYear = null, halfYear = null;
+  const pop0 = p.pop;
+
+  for (let t = 0; t <= HORIZON; t++) {
+    const work  = sum(pop, 15, 64);
+    const elder = sum(pop, 65, 100);
+    const total = sum(pop, 0, 100);
+    const tax     = taxPer * work;
+    const welfare = welfarePer * elder;
+    const outlay  = welfare + p.fixed;
+    const balance = tax - outlay;
+
+    // 疲弊度: 生産年齢の減少と構造赤字の深さを合成 (0..1)
+    const workRatio    = work / work0;
+    const deficitRatio = outlay > 0 ? Math.max(0, (outlay - tax) / outlay) : 0;
+    const sev = Math.max(0, Math.min(1, (1 - workRatio) * 1.15 + deficitRatio * 0.55));
+
+    rows.push({
+      year: START_YEAR + t,
+      tax: Math.round(tax * 10) / 10,
+      welfare: Math.round(welfare * 10) / 10,
+      outlay: Math.round(outlay * 10) / 10,
+      balance: Math.round(balance * 10) / 10,
+      pop: Math.round(total),
+      elderRate: Math.round((elder / total) * 1000) / 10,
+      sev,
+    });
+
+    if (crossYear === null && tax < outlay) crossYear = START_YEAR + t;
+    if (halfYear === null && total <= pop0 / 2) halfYear = START_YEAR + t;
+
+    const next = new Array(101).fill(0);
+    pop.forEach((n, a) => {
+      const survived = n * (1 - mortality(a));
+      if (a + 1 <= 100) next[a + 1] += survived;
+    });
+    next[0] = p.births * (birthDecline ? Math.pow(0.985, t) : 1);
+    pop = next;
+  }
+  return { rows, crossYear, halfYear };
+}
+
+/* ===== state ===== */
+let P = Object.assign({}, PRESETS[0]);
+let presetIdx = 0;
+let birthDecline = true;
+let scrubYear = 2040;
+
+/* ===== sliders ===== */
+const SL_POP = [
+  // step は 500。1000 にすると「中山間の村」(3,500人) がつまみ位置だけ 4,000 に丸められ、表示値とズレる
+  { key:'pop',    label:'現在の人口',           min:2000, max:200000, step:500,  unit:'人', accent:C.teal },
+  { key:'elder',  label:'高齢化率（65歳以上）', min:15,   max:60,     step:1,    unit:'％', accent:C.dawn, pct:true },
+  { key:'young',  label:'年少人口率（15歳未満）', min:3,  max:20,     step:1,    unit:'％', accent:C.gold, pct:true },
+  { key:'births', label:'年間出生数',           min:0,    max:2000,   step:5,    unit:'人', accent:C.gold },
+];
+const SL_FIN = [
+  { key:'tax',     label:'税収（自主財源）',           min:1, max:400, step:1, unit:'億円', accent:C.teal },
+  { key:'welfare', label:'社会保障費（地方負担分）',   min:1, max:300, step:1, unit:'億円', accent:C.dawn },
+  { key:'fixed',   label:'固定費（インフラ維持・行政）', min:1, max:200, step:1, unit:'億円', accent:C.inkSoft },
+];
+
+function sliderHTML(s){
+  return '<div class="sl">'
+    + '<div class="sl-head"><span>' + s.label + '</span><span class="sl-val" id="v-' + s.key + '" style="color:' + s.accent + '"></span></div>'
+    + '<input type="range" id="s-' + s.key + '" min="' + s.min + '" max="' + s.max + '" step="' + s.step + '" style="accent-color:' + s.accent + '" aria-label="' + s.label + '">'
+    + '</div>';
+}
+document.getElementById('popSliders').innerHTML = SL_POP.map(sliderHTML).join('');
+document.getElementById('finSliders').innerHTML = SL_FIN.map(sliderHTML).join('');
+
+const ALL_SL = SL_POP.concat(SL_FIN);
+ALL_SL.forEach(s => {
+  document.getElementById('s-' + s.key).addEventListener('input', e => {
+    const raw = Number(e.target.value);
+    P[s.key] = s.pct ? raw / 100 : raw;
+    presetIdx = -1;
+    render();
+  });
+});
+
+document.getElementById('presets').innerHTML = PRESETS.map((pr, i) =>
+  '<button class="preset" type="button" data-i="' + i + '">' + pr.name + '</button>'
+).join('');
+document.querySelectorAll('.preset').forEach(btn => {
+  btn.addEventListener('click', () => {
+    presetIdx = Number(btn.dataset.i);
+    P = Object.assign({}, PRESETS[presetIdx]);
+    render();
+  });
+});
+
+document.getElementById('birthDecline').addEventListener('change', e => { birthDecline = e.target.checked; render(); });
+document.getElementById('scrub').addEventListener('input', e => { scrubYear = Number(e.target.value); render(); });
+
+/* ===== chart ===== */
+const CH = { w:760, h:320, t:14, r:16, b:34, l:54 };
+// 目盛りが半端な数にならないよう、上限を切りの良い値に丸める
+function niceMax(v){
+  const p = Math.pow(10, Math.floor(Math.log10(v)));
+  const n = v / p;
+  const m = n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10;
+  return m * p;
+}
+function drawChart(rows, crossYear, alreadyCrossed){
+  const iw = CH.w - CH.l - CH.r, ih = CH.h - CH.t - CH.b;
+  const maxV = niceMax(Math.max(1, ...rows.map(r => Math.max(r.tax, r.outlay))) * 1.1);
+  const X = y => CH.l + ((y - START_YEAR) / HORIZON) * iw;
+  const Y = v => CH.t + ih - (v / maxV) * ih;
+  const pts = key => rows.map(r => X(r.year) + ',' + Y(r[key])).join(' ');
+  let s = '';
+
+  // y grid + labels
+  const ticks = 5;
+  for (let i = 0; i <= ticks; i++) {
+    const v = (maxV / ticks) * i, yy = Y(v);
+    s += '<line x1="' + CH.l + '" y1="' + yy + '" x2="' + (CH.w - CH.r) + '" y2="' + yy + '" stroke="' + C.line + '" stroke-dasharray="3 3"/>';
+    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + (Math.round(v * 10) / 10) + '億</text>';
+  }
+  // x labels
+  for (let y = START_YEAR; y <= START_YEAR + HORIZON; y += 5) {
+    s += '<text x="' + X(y) + '" y="' + (CH.h - 12) + '" text-anchor="middle" font-size="11" fill="' + C.inkSoft + '">' + y + '</text>';
+  }
+
+  // 賄えない部分（ワニの口）: outlay > tax の領域を塗る
+  const gap = [];
+  rows.forEach((r, i) => {
+    if (r.outlay <= r.tax) return;
+    if (!gap.length && i > 0) {
+      // 直前の年との間で交差する点を線形補間して始点にする
+      const pr = rows[i - 1];
+      const d0 = pr.outlay - pr.tax, d1 = r.outlay - r.tax;
+      const f = d0 === d1 ? 0 : d0 / (d0 - d1);
+      const yr = pr.year + f, val = pr.tax + (r.tax - pr.tax) * f;
+      gap.push({ x: X(yr), top: Y(val), bot: Y(val) });
+    }
+    gap.push({ x: X(r.year), top: Y(r.outlay), bot: Y(r.tax) });
+  });
+  if (gap.length > 1) {
+    const top = gap.map(g => g.x + ',' + g.top).join(' ');
+    const bot = gap.slice().reverse().map(g => g.x + ',' + g.bot).join(' ');
+    s += '<polygon points="' + top + ' ' + bot + '" fill="' + C.dawn + '" fill-opacity="0.22"/>';
+  }
+
+  // 歳出の面
+  s += '<polygon points="' + CH.l + ',' + Y(0) + ' ' + pts('outlay') + ' ' + (CH.w - CH.r) + ',' + Y(0) + '" fill="' + C.dawn + '" fill-opacity="0.1"/>';
+  s += '<polyline points="' + pts('outlay') + '" fill="none" stroke="' + C.dawn + '" stroke-width="2.5" stroke-linejoin="round"/>';
+  s += '<polyline points="' + pts('tax') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
+
+  // 逆転ライン
+  if (crossYear && !alreadyCrossed) {
+    s += '<line x1="' + X(crossYear) + '" y1="' + CH.t + '" x2="' + X(crossYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
+    s += '<text x="' + X(crossYear) + '" y="' + (CH.t - 2) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">逆転</text>';
+  }
+  // スクラブライン
+  s += '<line x1="' + X(scrubYear) + '" y1="' + CH.t + '" x2="' + X(scrubYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.indigo + '" stroke-width="1.5"/>';
+
+  document.getElementById('chart').innerHTML = s;
+}
+
+// グラフをなぞって年を選ぶ
+const chartEl = document.getElementById('chart');
+function yearFromEvent(e){
+  const box = chartEl.getBoundingClientRect();
+  const cx = (e.touches ? e.touches[0].clientX : e.clientX) - box.left;
+  const sx = (cx / box.width) * CH.w;
+  const iw = CH.w - CH.l - CH.r;
+  const f = Math.max(0, Math.min(1, (sx - CH.l) / iw));
+  return START_YEAR + Math.round(f * HORIZON);
+}
+function scrubFromChart(e){
+  scrubYear = yearFromEvent(e);
+  document.getElementById('scrub').value = scrubYear;
+  render();
+}
+// 指のドラッグは横スクロールに譲る（スクラブに吸うとグラフ右端に到達できなくなる）。
+// タッチは tap＝click で年を選び、マウスはドラッグで追従させる。
+let dragging = false;
+chartEl.addEventListener('pointerdown', e => { if (e.pointerType === 'touch') return; dragging = true; scrubFromChart(e); });
+chartEl.addEventListener('pointermove', e => { if (dragging) scrubFromChart(e); });
+window.addEventListener('pointerup', () => { dragging = false; });
+chartEl.addEventListener('click', e => { if (!dragging) scrubFromChart(e); });
+
+/* ===== town scene ===== */
+const BUILDINGS = [
+  { x:40,  w:78, h:120, death:0.22 },
+  { x:130, w:62, h:90,  death:0.78 },
+  { x:205, w:84, h:150, death:0.42 },
+  { x:302, w:60, h:100, death:0.9  },
+  { x:375, w:90, h:128, death:0.55 },
+  { x:478, w:64, h:96,  death:0.3  },
+  { x:555, w:80, h:140, death:0.66 },
+  { x:648, w:70, h:110, death:0.85 },
+];
+const ROOFS = [C.dawn, C.teal, C.gold, C.indigo, C.dawn, C.teal, C.gold, C.indigo];
+const PEOPLE = [95, 160, 240, 330, 410, 500, 590, 675, 130, 450, 300, 620];
+
+function stageLabel(sev){
+  if (sev < 0.18) return '活気のある町';
+  if (sev < 0.38) return '少しずつ、灯りが消えていく';
+  if (sev < 0.58) return '商店のシャッターが下りはじめる';
+  if (sev < 0.78) return '空き家と空き地が増えていく';
+  return '町の機能が維持できなくなる';
+}
+
+function drawTown(sev){
+  const skyTop = sev < 0.5 ? '#f4e3c8' : '#d8cdbd';
+  const skyBot = sev < 0.5 ? '#faf8f2' : '#cfc8bd';
+  const grey = '#9a9384';
+  const groundY = 250;
+  const label = stageLabel(sev);
+  const shown = Math.round(PEOPLE.length * Math.max(0, 1 - sev * 1.25));
+  let s = '';
+
+  s += '<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">'
+    + '<stop offset="0%" stop-color="' + skyTop + '"/><stop offset="100%" stop-color="' + skyBot + '"/>'
+    + '</linearGradient></defs>';
+  s += '<rect x="0" y="0" width="760" height="300" fill="url(#sky)"/>';
+  s += '<path d="M0,235 Q190,215 380,232 T760,228 V300 H0 Z" fill="' + (sev < 0.5 ? '#e7dcc4' : '#c7bda9') + '"/>';
+  s += '<rect x="0" y="' + groundY + '" width="760" height="' + (300 - groundY) + '" fill="' + (sev < 0.5 ? '#d8cba8' : '#bdb298') + '"/>';
+  s += '<rect x="0" y="' + (groundY + 18) + '" width="760" height="8" fill="' + (sev < 0.5 ? '#b9ab86' : '#a89d84') + '"/>';
+
+  // ひび割れ
+  [120, 260, 400, 540, 660].forEach((cx, i) => {
+    const op = Math.max(0, sev - 0.25 - i * 0.06);
+    s += '<path d="M' + cx + ',' + (groundY + 18) + ' l6,8 l-4,10 l7,6" fill="none" stroke="#7d735c" stroke-width="1.4" opacity="' + op + '"/>';
+  });
+
+  // 建物
+  BUILDINGS.forEach((b, i) => {
+    const abandoned = sev >= b.death;
+    const bodyFill = abandoned ? grey : '#efe7d6';
+    const roof = abandoned ? '#867d6c' : ROOFS[i];
+    const y = groundY - b.h;
+    const lit = !abandoned && sev < 0.32 + b.death * 0.25;
+    const cols = b.w > 75 ? 3 : 2;
+    const rowsN = Math.max(2, Math.round(b.h / 42));
+    const ww = 12, wh = 16;
+    const gapX = (b.w - cols * ww) / (cols + 1);
+    const gapY = (b.h - 24 - rowsN * wh) / (rowsN + 1);
+
+    s += '<g opacity="' + (abandoned ? 0.92 : 1) + '">';
+    s += '<rect x="' + b.x + '" y="' + (y + 14) + '" width="' + b.w + '" height="' + (b.h - 14) + '" fill="' + bodyFill + '"/>';
+    s += '<path d="M' + (b.x - 4) + ',' + (y + 16) + ' L' + (b.x + b.w / 2) + ',' + y + ' L' + (b.x + b.w + 4) + ',' + (y + 16) + ' Z" fill="' + roof + '"/>';
+    for (let r = 0; r < rowsN; r++) {
+      for (let c = 0; c < cols; c++) {
+        const wx = b.x + gapX + c * (ww + gapX);
+        const wy = y + 20 + gapY + r * (wh + gapY);
+        const fill = abandoned ? '#5c5546' : (lit ? C.gold : '#3a3550');
+        s += '<rect x="' + wx + '" y="' + wy + '" width="' + ww + '" height="' + wh + '" rx="1.5" fill="' + fill + '" opacity="' + (abandoned ? 0.5 : 1) + '"/>';
+      }
+    }
+    // シャッター
+    s += '<rect x="' + (b.x + 6) + '" y="' + (groundY - 26) + '" width="' + (b.w - 12) + '" height="26" fill="' + (abandoned ? '#8a8070' : C.teal) + '" opacity="' + (abandoned ? 1 : 0.9) + '"/>';
+    if (abandoned) {
+      for (let k = 0; k < 4; k++) {
+        s += '<line x1="' + (b.x + 6) + '" y1="' + (groundY - 26 + k * 7) + '" x2="' + (b.x + b.w - 6) + '" y2="' + (groundY - 26 + k * 7) + '" stroke="#6e6555" stroke-width="1.2"/>';
+      }
+      s += '<g stroke="#6e6555" stroke-width="2" opacity="0.7">'
+        + '<line x1="' + (b.x + 8) + '" y1="' + (y + 24) + '" x2="' + (b.x + b.w - 8) + '" y2="' + (y + b.h - 40) + '"/>'
+        + '<line x1="' + (b.x + b.w - 8) + '" y1="' + (y + 24) + '" x2="' + (b.x + 8) + '" y2="' + (y + b.h - 40) + '"/>'
+        + '</g>';
+    }
+    s += '</g>';
+  });
+
+  // 街灯
+  [70, 350, 620].forEach(lx => {
+    s += '<g>';
+    s += '<rect x="' + lx + '" y="' + (groundY - 60) + '" width="3" height="60" fill="' + (sev < 0.6 ? '#8a7f66' : '#7a715c') + '"/>';
+    s += '<circle cx="' + (lx + 1.5) + '" cy="' + (groundY - 62) + '" r="6" fill="' + C.gold + '" opacity="' + Math.max(0.06, 0.9 - sev * 1.1) + '"/>';
+    s += '<circle cx="' + (lx + 1.5) + '" cy="' + (groundY - 62) + '" r="14" fill="' + C.gold + '" opacity="' + Math.max(0, 0.35 - sev * 0.6) + '"/>';
+    s += '</g>';
+  });
+
+  // 木
+  [25, 470, 730].forEach(tx => {
+    s += '<g>';
+    s += '<rect x="' + tx + '" y="' + (groundY - 30) + '" width="5" height="30" fill="#7a6a4e"/>';
+    s += '<circle cx="' + (tx + 2.5) + '" cy="' + (groundY - 36) + '" r="' + (14 + sev * 8) + '" fill="' + (sev < 0.5 ? C.teal : '#5f6b4a') + '" opacity="' + (sev < 0.7 ? 0.9 : 0.7) + '"/>';
+    s += '</g>';
+  });
+
+  // 雑草
+  if (sev > 0.4) {
+    const op = Math.min(1, (sev - 0.4) * 2);
+    [90, 200, 320, 440, 560, 680].forEach(wx => {
+      s += '<g opacity="' + op + '">';
+      s += '<path d="M' + wx + ',' + (groundY + 26) + ' q-3,-10 -1,-16" stroke="#6f7a4c" stroke-width="1.6" fill="none"/>';
+      s += '<path d="M' + wx + ',' + (groundY + 26) + ' q3,-9 5,-14" stroke="#6f7a4c" stroke-width="1.6" fill="none"/>';
+      s += '</g>';
+    });
+  }
+
+  // 人
+  PEOPLE.slice(0, shown).forEach(px => {
+    s += '<g><circle cx="' + px + '" cy="' + (groundY + 8) + '" r="3" fill="' + C.indigo + '"/>'
+      + '<rect x="' + (px - 2.5) + '" y="' + (groundY + 11) + '" width="5" height="9" rx="2" fill="' + C.indigo + '"/></g>';
+  });
+
+  s += '<text x="380" y="24" text-anchor="middle" font-size="15" font-family="Shippori Mincho, serif" font-weight="800" fill="' + (sev < 0.58 ? C.indigo : C.dawn) + '">' + label + '</text>';
+
+  document.getElementById('townFrame').innerHTML =
+    '<svg viewBox="0 0 760 300" role="img" aria-label="町の様子: ' + label + '">' + s + '</svg>';
+}
+
+/* ===== render ===== */
+const fmt = n => n.toLocaleString('ja-JP');
+const signed = n => (n > 0 ? '+' : '') + n;
+
+function render(){
+  // スライダーの表示値を state に合わせる
+  ALL_SL.forEach(s => {
+    const val = s.pct ? Math.round(P[s.key] * 100) : P[s.key];
+    document.getElementById('s-' + s.key).value = val;
+    document.getElementById('v-' + s.key).textContent = fmt(val) + s.unit;
+  });
+  document.querySelectorAll('.preset').forEach(b => b.classList.toggle('on', Number(b.dataset.i) === presetIdx));
+
+  const sim = simulate(P, birthDecline);
+  const rows = sim.rows, crossYear = sim.crossYear, halfYear = sim.halfYear;
+  const now = rows[0];
+  const alreadyCrossed = now.tax < now.outlay;
+  const yearsToCross = crossYear ? crossYear - START_YEAR : null;
+  const fusePct = alreadyCrossed ? 96
+    : yearsToCross === null ? 6
+    : Math.max(6, Math.min(96, (1 - yearsToCross / HORIZON) * 100));
+
+  const scrubRow = rows.find(r => r.year === scrubYear) || rows[rows.length - 1];
+  const r2050 = rows.find(r => r.year === 2050) || rows[rows.length - 1];
+
+  document.getElementById('nowLine').innerHTML =
+    '現在：税収 ' + now.tax + '億 −（社会保障 ' + now.welfare + '億 ＋ 固定費 ' + P.fixed + '億）＝ '
+    + '<strong style="color:' + (now.balance < 0 ? C.dawn : C.teal) + '">' + signed(now.balance) + '億</strong>';
+
+  document.getElementById('fuseBig').textContent =
+    alreadyCrossed ? 'すでに逆転' : (yearsToCross !== null ? 'あと' + yearsToCross + '年' : '30年以上');
+  document.getElementById('fuseAt').textContent =
+    (crossYear && !alreadyCrossed) ? crossYear + '年に到達' : '';
+  document.getElementById('fuseFill').style.width = fusePct + '%';
+  document.getElementById('fuseSpark').style.left = fusePct + '%';
+  // 初年度から赤字のとき＝移転財源で埋まっている状態。誤読を防ぐため注記を出す
+  document.getElementById('fuseNote').classList.toggle('on', alreadyCrossed);
+
+  document.getElementById('halfYear').textContent = halfYear !== null ? halfYear + '年' : '30年以内には到達せず';
+  document.getElementById('ageRate2050').textContent = r2050.elderRate + '％';
+  const b2050 = document.getElementById('balance2050');
+  b2050.textContent = signed(r2050.balance) + '億円/年';
+  b2050.style.color = r2050.balance < 0 ? C.gold : '#fff';
+
+  document.getElementById('townYear').textContent = scrubYear;
+  document.getElementById('townMeta').textContent =
+    '　人口 ' + fmt(scrubRow.pop) + '人 / 高齢化率 ' + scrubRow.elderRate + '％ / 収支 ' + signed(scrubRow.balance) + '億';
+  document.getElementById('scrubLabel').textContent = scrubYear + '年';
+
+  drawChart(rows, crossYear, alreadyCrossed);
+  drawTown(scrubRow.sev);
+}
+
+render();
+</script>
+</body>
+</html>
