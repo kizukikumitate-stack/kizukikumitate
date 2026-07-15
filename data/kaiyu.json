@@ -483,6 +483,36 @@
       ]
     },
     {
+      "id": "customer-age-timebomb",
+      "path": "customer-age-timebomb.html",
+      "title": "顧客の平均年齢時限爆弾",
+      "tag": "未来リスク計算機",
+      "desc": "売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "next": [
+        "recruitment-extinction",
+        "tax-revenue-countdown"
+      ]
+    },
+    {
+      "id": "recruitment-extinction",
+      "path": "recruitment-extinction.html",
+      "title": "採用市場消滅計算機",
+      "tag": "未来リスク計算機",
+      "desc": "2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "next": [
+        "customer-age-timebomb",
+        "tax-revenue-countdown"
+      ]
+    },
+    {
       "id": "tax-revenue-countdown",
       "path": "tax-revenue-countdown.html",
       "title": "税収カウントダウン",
