@@ -11,21 +11,21 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>顧客の平均年齢時限爆弾｜顧客基盤が半減する年を計算する | きづきくみたて工房</title>
-<meta name="description" content="売上が減る前に、顧客が市場からいなくなる。いまの顧客の年齢構成と新規獲得のペースを入れるだけで、何もしなかった場合に顧客基盤が半減する年を試算する無料ツール。数字はどこにも送信されません。">
-<link rel="canonical" href="https://kizukikumitate.com/customer-age-timebomb.html">
+<title>介護の支え手計算機｜あなたが高齢期を迎える年の支え手を計算する | きづきくみたて工房</title>
+<meta name="description" content="他人事の統計ではありません。あなたの年齢を入れるだけで、あなたが高齢期を迎える年に、何人の現役世代がひとりの高齢者を支えているか、介護の担い手はどれだけ足りないかを試算する無料ツール。数字はどこにも送信されません。">
+<link rel="canonical" href="https://kizukikumitate.com/caregiving-capacity-calculator.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="顧客の平均年齢時限爆弾｜顧客基盤が半減する年を計算する">
-<meta property="og:description" content="売上が減る前に、顧客が市場からいなくなる。いまの顧客の年齢構成から、何もしなかった場合に顧客基盤が半減する年を試算する無料ツール。">
-<meta property="og:url" content="https://kizukikumitate.com/customer-age-timebomb.html">
+<meta property="og:title" content="介護の支え手計算機｜あなたが高齢期を迎える年の支え手を計算する">
+<meta property="og:description" content="あなたの年齢を入れると、あなたが高齢期を迎える年に、何人の現役世代がひとりの高齢者を支えているかが出ます。他人事の統計ではありません。">
+<meta property="og:url" content="https://kizukikumitate.com/caregiving-capacity-calculator.html">
 <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="顧客の平均年齢時限爆弾｜顧客基盤が半減する年を計算する">
-<meta name="twitter:description" content="いまの顧客の年齢構成から、何もしなかった場合に顧客基盤が半減する年を試算する無料ツール。">
+<meta name="twitter:title" content="介護の支え手計算機｜あなたが高齢期を迎える年の支え手を計算する">
+<meta name="twitter:description" content="あなたの年齢を入れると、あなたが高齢期を迎える年の支え手比率と、介護職員の不足数が出る無料ツール。">
 <meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,40 +133,40 @@
   .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
   .card h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.9rem; }
 
-  /* ===== presets ===== */
-  .presets { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.4rem; }
-  .preset { font-family: 'Noto Serif JP', serif; padding: 0.4rem 0.95rem; font-size: 0.82rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); transition: background 0.18s, border-color 0.18s, color 0.18s; }
-  .preset:hover { border-color: var(--teal); }
-  .preset.on { background: var(--teal); border-color: var(--teal); color: var(--paper); }
-
   /* ===== inputs ===== */
-  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
-  @media (max-width: 760px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
   .sl { margin-bottom: 0.85rem; }
   .sl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.8rem; margin-bottom: 0.15rem; }
   .sl-val { font-weight: 600; white-space: nowrap; }
   .sl input[type=range] { width: 100%; }
-  .chk { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; cursor: pointer; margin-top: 0.5rem; }
-  .foot-note { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+  .foot-note { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.5rem; line-height: 1.9; }
+  .age-big { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.35rem; color: var(--teal); }
+
+  /* ===== chips（対象年齢の選択） ===== */
+  .field { margin: 1.2rem 0 0.9rem; }
+  .field-label { font-size: 0.8rem; margin-bottom: 0.4rem; }
+  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .chip { font-family: 'Noto Serif JP', serif; padding: 0.3rem 0.95rem; font-size: 0.8rem; border-radius: 8px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); transition: background 0.18s, border-color 0.18s, color 0.18s; }
+  .chips-dawn .chip:hover { border-color: var(--dawn); }
+  .chips-dawn .chip.on { background: var(--dawn); border-color: var(--dawn); color: #fff; }
 
   /* ===== countdown ===== */
   .fuse { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 1.8rem 1.5rem 2.1rem; overflow: hidden; }
-  .fuse-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; opacity: 0.7; margin-bottom: 0.6rem; }
+  .fuse-eyebrow { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.72rem; letter-spacing: 0.18em; opacity: 0.7; margin-bottom: 0.6rem; }
   .fuse-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.5rem 1.3rem; margin-bottom: 1.4rem; }
-  .fuse-label { font-family: 'Shippori Mincho', serif; font-size: 1rem; }
-  .fuse-big { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(2.1rem, 8vw, 3.6rem); line-height: 1; color: var(--dawn); }
+  .fuse-big { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(2.1rem, 8vw, 3.6rem); line-height: 1; color: var(--gold); }
   .fuse-at { font-size: 0.88rem; opacity: 0.85; }
   .fuse-track { position: relative; height: 10px; border-radius: 999px; background: rgba(250,248,242,0.15); }
-  .fuse-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--gold), var(--dawn)); transition: width 0.5s ease; }
+  .fuse-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 999px; background: linear-gradient(90deg, var(--teal), var(--gold)); transition: width 0.5s ease; }
   .fuse-spark { position: absolute; top: 50%; width: 18px; height: 18px; border-radius: 50%; transform: translate(-50%, -50%); background: radial-gradient(circle, #fff 0%, var(--gold) 40%, transparent 70%); animation: spark 1s infinite; transition: left 0.5s ease; }
   @keyframes spark { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; } }
   @media (prefers-reduced-motion: reduce) { .fuse-spark { animation: none; } .fuse-fill, .fuse-spark { transition: none; } }
   .ends { display: flex; justify-content: space-between; font-family: 'Jost', sans-serif; font-size: 0.7rem; opacity: 0.6; margin-top: 0.5rem; }
-  .fuse-note { display: none; font-size: 0.76rem; line-height: 1.95; opacity: 0.75; margin-top: 1.2rem; padding-left: 0.9rem; border-left: 2px solid rgba(217,164,65,0.6); }
-  .fuse-note.on { display: block; }
-  .fuse-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.4rem; }
-  .fuse-stats .k { font-size: 0.72rem; opacity: 0.6; }
-  .fuse-stats .v { font-size: 0.95rem; font-weight: 600; margin-top: 0.1rem; }
+  .fuse-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+  @media (max-width: 700px) { .fuse-stats { grid-template-columns: minmax(0, 1fr); } }
+  .fuse-stats .k { font-size: 0.72rem; opacity: 0.6; line-height: 1.8; }
+  .fuse-stats .v { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.2rem; margin: 0.1rem 0; }
+  .fuse-stats .v .u { font-size: 0.78rem; font-weight: 400; opacity: 0.8; font-family: 'Noto Serif JP', serif; }
+  .fuse-stats .s { font-size: 0.7rem; opacity: 0.6; }
 
   /* ===== chart ===== */
   .chart-box { overflow-x: auto; }
@@ -174,6 +174,17 @@
   .chart-box svg { display: block; width: 100%; height: auto; min-width: 460px; }
   .legend { display: flex; flex-wrap: wrap; gap: 1.1rem; font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.7rem; }
   .legend i { display: inline-block; width: 22px; height: 3px; border-radius: 2px; margin-right: 0.4rem; vertical-align: middle; }
+
+  /* ===== scene（支え合いのかたち） ===== */
+  .scene-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.7rem; }
+  .scene-head h2 { margin-bottom: 0; }
+  .scene-read { font-size: 0.8rem; color: var(--ink-soft); }
+  .scene-year { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.4rem; color: var(--dawn); margin-right: 0.6rem; }
+  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.9rem; }
+  .scene-frame svg { display: block; width: 100%; height: auto; }
+  .scrub-label { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+  .scrub-label strong { color: var(--ink); font-weight: 600; }
+  #scrub { width: 100%; accent-color: var(--dawn); }
 
   /* ===== prose ===== */
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
@@ -185,32 +196,14 @@
   .footer-copy { font-family: 'Jost', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.55); }
   @media (max-width: 768px) { footer { padding: 2.4rem 1.5rem; } }
 
-  /* ===== chips（選択式の入力） ===== */
-  .field { margin-bottom: 0.9rem; }
-  .field-label { font-size: 0.8rem; margin-bottom: 0.4rem; }
-  .field-label .hint { font-size: 0.7rem; color: var(--ink-soft); }
-  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .chip { font-family: 'Noto Serif JP', serif; padding: 0.25rem 0.7rem; font-size: 0.76rem; border-radius: 8px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); transition: background 0.18s, border-color 0.18s, color 0.18s; }
-  .chips-gold .chip:hover { border-color: var(--gold); }
-  .chips-gold .chip.on { background: var(--gold); border-color: var(--gold); color: #fff; }
-  .chips-dawn .chip:hover { border-color: var(--dawn); }
-  .chips-dawn .chip.on { background: var(--dawn); border-color: var(--dawn); color: #fff; }
-  .warn { display: none; font-size: 0.74rem; line-height: 1.85; color: var(--dawn); margin-top: 0.6rem; }
-  .warn.on { display: block; }
-  .need { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
-  @media (max-width: 760px) { .need { grid-template-columns: minmax(0, 1fr); } }
-  .need-cell { background: var(--paper); border-radius: 10px; padding: 0.9rem 1rem; }
-  .need-k { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 0.25rem; line-height: 1.8; }
-  .need-v { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; color: var(--dawn); }
-
   /* ===== 日本語の禁則処理・文節改行（モバイル） =====
      body の word-break: keep-all は、文節が行幅より長いと折り返し位置が無くなり、
      ブラウザが緊急改行して行頭に「。」を落とす。auto-phrase なら CJK の文節境界で
      折るため、禁則を守ったまま収まる（未対応の Firefox は normal にフォールバック） */
   @media (max-width: 768px) {
     body, p, li, dd, dt, blockquote, figcaption,
-    .lede, .prose, .note, .foot-note, .fuse-note, .fuse-label, .fuse-at,
-    .field-label, .warn, .chk, .need-k, .legend span, .sl-head {
+    .lede, .prose, .note, .foot-note, .fuse-at, .fuse-stats .k, .fuse-stats .s,
+    .field-label, .scene-read, .scrub-label, .legend span, .sl-head {
       word-break: auto-phrase;
       overflow-wrap: break-word;
       line-break: strict;
@@ -273,11 +266,11 @@
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
-        <a href="./customer-age-timebomb.html" class="active">顧客の平均年齢時限爆弾</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
         <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
         <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
         <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
-        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./caregiving-capacity-calculator.html" class="active">介護の支え手計算機</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -341,11 +334,11 @@
   <div class="mobile-acc">
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
-      <a href="./customer-age-timebomb.html" class="active">顧客の平均年齢時限爆弾</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
       <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
       <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
       <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
-      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./caregiving-capacity-calculator.html" class="active">介護の支え手計算機</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -363,35 +356,28 @@
 
 <section id="hero">
   <div class="wrap">
-    <div class="eyebrow">未来リスク計算機 01</div>
-    <h1>顧客の平均年齢<span class="accent">時限爆弾</span></h1>
-    <p class="lede">売上が減る前に、顧客が市場からいなくなる。いまの顧客の年齢構成と新規獲得のペースを入れると、何もしなかった場合に顧客基盤が半減する年が出ます。数字はどこにも送信されません。</p>
+    <div class="eyebrow">未来リスク計算機 05</div>
+    <h1>介護の<span class="accent">支え手</span>計算機</h1>
+    <p class="lede">これは、他人事の統計ではありません。あなたの年齢を入れると、あなたが高齢期を迎える年に、何人の現役世代がひとりの高齢者を支えているか、介護の担い手はどれだけ足りないかが出ます。数字はどこにも送信されません。</p>
   </div>
 </section>
 
 <!-- 入力 -->
 <section>
   <div class="wrap">
-    <div class="presets" id="presets"></div>
-    <div class="grid2">
-      <div class="card">
-        <h2>いまの顧客の年齢構成</h2>
-        <div id="bandSliders"></div>
-        <p class="foot-note">比率は自動で正規化されます（合計100％）。おおよその感覚で構いません。</p>
+    <div class="card">
+      <div class="sl">
+        <div class="sl-head"><span>あなたの今の年齢</span><span class="age-big" id="ageVal">40歳</span></div>
+        <input type="range" id="age" min="0" max="80" step="1" value="40" style="accent-color:var(--teal)" aria-label="今の年齢">
       </div>
-      <div class="card">
-        <h2>流入と退出の条件</h2>
-        <div id="flowSliders"></div>
-        <div class="field">
-          <div class="field-label">新規顧客の中心年齢層</div>
-          <div class="chips chips-gold" id="newBandChips"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">市場退出年齢 <span class="hint">（進学・卒業で離れる事業は10代、通販・宅配は遅め）</span></div>
-          <div class="chips chips-dawn" id="exitAgeChips"></div>
-        </div>
-        <p class="warn" id="warnBand">⚠ 新規顧客の年齢層が市場退出年齢以上のため、新規流入はゼロとして計算されています。</p>
-        <label class="chk"><input type="checkbox" id="shrinkInflow" checked>新規獲得も人口減少に連動させる（年 −0.7％）</label>
+      <div class="field">
+        <div class="field-label">あなたが次の年齢になる年を見る</div>
+        <div class="chips chips-dawn" id="targetChips"></div>
+      </div>
+      <div class="sl">
+        <div class="sl-head"><span>介護の担い手を増やす努力（介護職の割合を今の何倍にするか）</span><span class="sl-val" id="multVal" style="color:var(--gold)">1.0倍</span></div>
+        <input type="range" id="mult" min="1" max="3" step="0.1" value="1" style="accent-color:var(--gold)" aria-label="担い手を増やす努力">
+        <p class="foot-note">※ ただし担い手は他の産業からしか増やせません。倍率を上げるほど、他の仕事の人手が減ります。</p>
       </div>
     </div>
   </div>
@@ -401,9 +387,8 @@
 <section>
   <div class="wrap">
     <div class="fuse">
-      <div class="fuse-eyebrow">このままの場合</div>
+      <div class="fuse-eyebrow" id="fuseEyebrow">あなたが85歳になるのは</div>
       <div class="fuse-line">
-        <span class="fuse-label">顧客基盤の半減まで</span>
         <span class="fuse-big" id="fuseBig">—</span>
         <span class="fuse-at" id="fuseAt"></span>
       </div>
@@ -411,11 +396,23 @@
         <div class="fuse-fill" id="fuseFill"></div>
         <div class="fuse-spark" id="fuseSpark"></div>
       </div>
-      <div class="ends"><span>2026</span><span>2051</span></div>
-      <p class="fuse-note" id="fuseNote">いま設定されている市場退出年齢より下の年齢帯に、顧客が1人もいない状態です。計算上「現在の顧客は全員すでに市場から退出している」ことになるため、グラフは新規流入の分しか描かれません。年齢構成のスライダーか、市場退出年齢の設定を見直してみてください。</p>
+      <div class="ends"><span>2026（今）</span><span>2120</span></div>
       <div class="fuse-stats">
-        <div><div class="k">顧客の平均年齢</div><div class="v" id="avgLine">—</div></div>
-        <div><div class="k">3割減に到達する年</div><div class="v" id="thirtyYear">—</div></div>
+        <div>
+          <div class="k">そのとき、現役世代は</div>
+          <div class="v" id="ratioV">—</div>
+          <div class="s" id="ratioNow"></div>
+        </div>
+        <div>
+          <div class="k">85歳以上の人口</div>
+          <div class="v" id="e85V">—</div>
+          <div class="s" id="e85Now"></div>
+        </div>
+        <div>
+          <div class="k">介護職員の不足</div>
+          <div class="v" id="gapV">—</div>
+          <div class="s" id="gapSub">不足分</div>
+        </div>
       </div>
     </div>
   </div>
@@ -425,16 +422,36 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>顧客数と平均年齢の推移（現在＝100）</h2>
+      <h2>介護職員の「必要」と「供給」</h2>
       <div class="chart-box">
         <svg id="chart" viewBox="0 0 760 320" role="img" aria-labelledby="chartDesc"></svg>
       </div>
-      <p id="chartDesc" class="note" style="margin-top:0.6rem">顧客数が半分になる線（半減ライン）を割る年に、縦の点線が立ちます。</p>
+      <p id="chartDesc" class="note" style="margin-top:0.6rem">あなたが対象年齢になる年に、金色の縦線が立ちます。2つの線の差が、介護職員の不足分です。</p>
       <div class="legend">
-        <span><i style="background:var(--teal)"></i>顧客数（現在＝100）</span>
-        <span><i style="background:var(--gold)"></i>顧客の平均年齢（右軸・歳）</span>
-        <span><i style="background:var(--dawn)"></i>半減ライン</span>
+        <span><i style="background:var(--dawn)"></i>必要な介護職員（万人）</span>
+        <span><i style="background:var(--teal)"></i>供給できる介護職員（万人）</span>
+        <span><i style="background:var(--gold)"></i>あなたが対象年齢になる年</span>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- その年の支え合いのかたち -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <div class="scene-head">
+        <h2>その年の、支え合いのかたち</h2>
+        <div class="scene-read">
+          <span class="scene-year" id="sceneYear">—</span>
+          <span id="sceneStat"></span>
+        </div>
+      </div>
+      <div class="scene-frame">
+        <svg id="scene" viewBox="0 0 760 300" role="img" aria-label="支え手の様子"></svg>
+      </div>
+      <p class="scrub-label">年をスライドすると、支え合いのかたちが変わります → <strong id="scrubYearText">2071年</strong></p>
+      <input type="range" id="scrub" min="2026" max="2120" step="1" value="2071" aria-label="表示する年">
     </div>
   </div>
 </section>
@@ -443,15 +460,15 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>爆弾の解除方法は、値引きでも広告でもありません</h2>
-      <p class="prose">上のグラフでスライダーをいくら動かしても分かる通り、新規獲得を少し増やす程度では傾きは変わりません。顧客基盤の高齢化は「もっと頑張る」で解ける技術的問題ではなく、<strong>誰に何を売る事業なのかを問い直す適応課題</strong>（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。解除の型は3つ──①次の世代が入ってくる入口を別チャネルで作る、②縮む客数を一人あたりの関係の深さで補う、③顧客が退出する前に、事業そのものの定義を変える。どれも組織の中の対話なしには始まりません。</p>
+      <h2>「介護職を増やす」だけでは、椅子取りゲームになる</h2>
+      <p class="prose">上のスライダーで担い手を増やすと、供給線は上がります。けれど、その人手は他の産業から移ってきます。働く世代そのものが減る中で、介護だけに人を集めるのは、全体では成り立ちません。これは増員という技術的解決では閉じない、<strong>「支える／支えられる」の関係そのものを問い直す適応課題</strong>（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。考える型は3つ──①健康寿命をのばし「支えられる期間」を短くする、②担い手を広げる（元気な高齢者・地域の互助・テクノロジー・多様な人材）、③制度に任せきりにせず、身近な関係の中で支え合いを取り戻す。自分が支えられる側になる日を思い描くところから、この対話は始められます。</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="note">※ 簡易コホートモデル（同じ年に生まれた集団を、1年ずつ歳を取らせながら数えていく簡易的な計算方法）による試算です。年齢帯別の年間死亡率（日本の生命表の近似値）と設定した市場退出年齢をもとに、既存顧客を1年ずつ加齢させて計算しています。実際の顧客動態（解約・休眠・紹介等）は反映していません。意思決定の出発点としてお使いください。</p>
+    <p class="note">※ 簡易モデルによる試算です。人口は国立社会保障・人口問題研究所の将来推計人口（2023年推計・出生中位）をもとにした近似値で、2070年以降は概ね横ばいと仮定しています。要介護者数は年齢帯別の認定率（概算）、必要介護職員数は認定者あたりの職員比率、供給は生産年齢人口に占める介護職シェアを一定として推計したもので、公的な需給推計そのものではありません。「支え合いのかたち」のイラストは支え手比率（生産年齢人口÷高齢者人口）を視覚化した概念図です。自分と社会の未来を考える出発点としてお使いください。</p>
   </div>
 </section>
 
@@ -509,9 +526,9 @@
     <span class="kaiyu-title">次は、こちらへ。</span>
   </div>
   <div class="kaiyu-grid">
-    <a class="kaiyu-card" href="./recruitment-extinction.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">採用市場消滅計算機</span><span class="kaiyu-desc">2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./tax-revenue-countdown.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">税収カウントダウン</span><span class="kaiyu-desc">人口が入れ替わると、税収が下がりながら社会保障費が上がる。まちの財政が賄えなくなる年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./school-consolidation-countdown.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">学校統廃合カウントダウン</span><span class="kaiyu-desc">2032年に入学する子は、もう全員生まれている。複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./school-consolidation-countdown.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">学校統廃合カウントダウン</span><span class="kaiyu-desc">2032年に入学する子は、もう全員生まれている。複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./ashimoto-map.html"><span class="kaiyu-tag">目指す未来</span><span class="kaiyu-name">足元からの地図（展開編）</span><span class="kaiyu-desc">ロードマップを日本の足元に降ろす。地域と日常から始める展開編。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./customer-age-timebomb.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">顧客の平均年齢時限爆弾</span><span class="kaiyu-desc">売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
 </aside>
@@ -526,7 +543,6 @@
 
 <script>
 /* ===== nav ===== */
-
 document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
 document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
@@ -535,243 +551,246 @@ document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
 
 /* ===== palette ===== */
 const C = { indigo:'#16132a', gold:'#d9a441', teal:'#0f6e56', dawn:'#d85a30', inkSoft:'#4a4660', line:'#e5e0d3' };
-const START_YEAR = 2026, HORIZON = 25;
 
-const BANDS = [
-  { key:'b0',  label:'〜9歳',  from:0  },
-  { key:'b10', label:'10代',   from:10 },
-  { key:'b20', label:'20代',   from:20 },
-  { key:'b30', label:'30代',   from:30 },
-  { key:'b40', label:'40代',   from:40 },
-  { key:'b50', label:'50代',   from:50 },
-  { key:'b60', label:'60代',   from:60 },
-  { key:'b70', label:'70代',   from:70 },
-  { key:'b80', label:'80代+',  from:80 },
+const START_YEAR = 2026;
+// 0歳の人が90歳になる 2116年まで含める（ここを 2090 で切ると、若い人の対象年が
+// 黙って 2090 に丸められ、事実と違う年が表示される）。2070年以降の人口は横ばい仮定
+const END_YEAR = 2120;
+
+// 概算（国立社会保障・人口問題研究所 将来推計人口 2023年推計・中位をもとにした近似値、単位:万人）
+// work＝15〜64歳 ／ e65＝65歳以上 ／ e75＝75歳以上 ／ e85＝85歳以上
+const ANCHORS = [
+  { y:2025, work:7310, e65:3653, e75:2065, e85:700  },
+  { y:2030, work:7076, e65:3716, e75:2277, e85:830  },
+  { y:2035, work:6722, e65:3782, e75:2260, e85:1000 },
+  { y:2040, work:6213, e65:3928, e75:2239, e85:1024 },
+  { y:2045, work:5832, e65:3919, e75:2277, e85:1150 },
+  { y:2050, work:5540, e65:3891, e75:2417, e85:1250 },
+  { y:2055, work:5276, e65:3722, e75:2456, e85:1300 },
+  { y:2060, work:4793, e65:3540, e75:2438, e85:1310 },
+  { y:2065, work:4589, e65:3455, e75:2248, e85:1300 },
+  { y:2070, work:4535, e65:3367, e75:2180, e85:1250 },
 ];
-const EXIT_AGES = [13, 16, 19, 23, 30, 40, 50, 60, 65, 70, 75, 80, 85, 90];
 
 /* ===== model ===== */
-// 年間死亡率（日本の生命表を丸めた近似値）
-function mortality(age){
-  if (age < 20) return 0.0002;
-  if (age < 30) return 0.0006;
-  if (age < 40) return 0.0009;
-  if (age < 50) return 0.002;
-  if (age < 60) return 0.0045;
-  if (age < 70) return 0.010;
-  if (age < 80) return 0.026;
-  return 0.085;
+function interp(year){
+  const y = Math.max(2025, Math.min(2070, year));
+  let lo = ANCHORS[0], hi = ANCHORS[ANCHORS.length - 1];
+  for (let i = 0; i < ANCHORS.length - 1; i++) {
+    if (y >= ANCHORS[i].y && y <= ANCHORS[i + 1].y) { lo = ANCHORS[i]; hi = ANCHORS[i + 1]; break; }
+  }
+  const f = hi.y === lo.y ? 0 : (y - lo.y) / (hi.y - lo.y);
+  const mix = k => lo[k] + (hi[k] - lo[k]) * f;
+  return { work: mix('work'), e65: mix('e65'), e75: mix('e75'), e85: mix('e85') };
 }
 
-// 先頭＝初期表示。新規獲得が滞在年数に対して十分だと顧客基盤は均衡・増加するため、
-// 「半減まであとN年」が出るのは実質この地方紙・会報誌だけ。ページの主張が最初に伝わるよう先頭に置く
-const PRESETS = [
-  { name:'地方紙・会報誌', shares:{ b0:0,  b10:0,  b20:1, b30:2, b40:6,  b50:15, b60:30, b70:32, b80:14 }, newBand:'b60', newRate:1.5, exitAge:85 },
-  { name:'呉服・伝統工芸', shares:{ b0:0,  b10:0,  b20:1, b30:3, b40:8,  b50:18, b60:32, b70:28, b80:10 }, newBand:'b50', newRate:2,   exitAge:80 },
-  { name:'地域スーパー',   shares:{ b0:0,  b10:0,  b20:4, b30:8, b40:14, b50:20, b60:26, b70:20, b80:8  }, newBand:'b40', newRate:4,   exitAge:85 },
-  { name:'健康食品通販',   shares:{ b0:0,  b10:0,  b20:1, b30:4, b40:10, b50:22, b60:34, b70:24, b80:5  }, newBand:'b50', newRate:6,   exitAge:85 },
-  { name:'学習塾・習い事', shares:{ b0:35, b10:60, b20:5, b30:0, b40:0,  b50:0,  b60:0,  b70:0,  b80:0  }, newBand:'b0',  newRate:8,   exitAge:19 },
-];
-
-function simulate(shares, newRatePct, newBandKey, exitAge, shrinkInflow){
-  // 年齢別人口（0〜exitAge-1歳）、初期合計100。
-  // 退出年齢より上の帯は「現在の顧客」に存在しない前提で、有効な帯だけで正規化する
-  const validBands = BANDS.filter(b => b.from < exitAge);
-  const total0 = validBands.reduce((a, b) => a + (shares[b.key] || 0), 0);
-  let pop = new Array(101).fill(0);
-  validBands.forEach(b => {
-    const share = ((shares[b.key] || 0) / (total0 || 1)) * 100;
-    const bandEnd = b.key === 'b80' ? Math.max(exitAge, 81) : b.from + 10;
-    const span = Math.min(bandEnd, exitAge) - b.from;
-    for (let a = b.from; a < b.from + span; a++) pop[a] += share / span;
-  });
-
-  const newBand = BANDS.find(b => b.key === newBandKey);
-  const inflowTotal = newRatePct; // 初期顧客数100に対する年間新規（絶対数を維持）
-
-  const rows = [];
-  let halfYear = null, thirtyYear = null;
-
-  for (let t = 0; t <= HORIZON; t++) {
-    const total = pop.reduce((a, b) => a + b, 0);
-    let ageSum = 0;
-    pop.forEach((n, a) => { ageSum += n * a; });
-    const avgAge = total > 0 ? ageSum / total : 0;
-    rows.push({
-      year: START_YEAR + t,
-      cust: Math.round(total * 10) / 10,
-      age: Math.round(avgAge * 10) / 10,
-    });
-    if (halfYear === null && total <= 50) halfYear = START_YEAR + t;
-    if (thirtyYear === null && total <= 70) thirtyYear = START_YEAR + t;
-
-    // 1年進める
-    const next = new Array(101).fill(0);
-    pop.forEach((n, a) => {
-      const survived = n * (1 - mortality(a));
-      if (a + 1 < exitAge) next[a + 1] += survived;
-    });
-    // 新規流入。退出年齢が帯の途中にかかる場合は、その帯の残り年数（span）で割る。
-    // 除数を 10 固定にすると、設定した新規顧客数より少ない人数しか入らない
-    const inflow = inflowTotal * (shrinkInflow ? Math.pow(0.993, t) : 1);
-    const inflowSpan = Math.min(newBand.from + 10, exitAge) - newBand.from;
-    if (inflowSpan > 0) {
-      for (let a = newBand.from; a < newBand.from + inflowSpan; a++) next[a] += inflow / inflowSpan;
-    }
-    pop = next;
-  }
-  return { rows, halfYear, thirtyYear, empty: total0 <= 0 };
+// 要介護認定率（概算）: 65-74＝5％ ／ 75-84＝15％ ／ 85+＝58％
+function careModel(year, shareMult){
+  const p = interp(year);
+  const a6574 = p.e65 - p.e75, a7584 = p.e75 - p.e85, a85 = p.e85;
+  const needCare = 0.05 * a6574 + 0.15 * a7584 + 0.58 * a85; // 要介護者（万人）
+  const staffPerCare = 0.35;   // 認定者あたり必要職員
+  const baseShare = 0.0294;    // 生産年齢に占める介護職の現状シェア
+  const needStaff = needCare * staffPerCare;              // 必要介護職員（万人）
+  const supplyStaff = p.work * baseShare * shareMult;     // 供給介護職員（万人）
+  return {
+    work: p.work, e65: p.e65, e75: p.e75, e85: p.e85,
+    needCare, needStaff, supplyStaff,
+    gap: needStaff - supplyStaff,
+    supportRatio: p.work / p.e65,   // 支え手比率（現役 ÷ 高齢者）
+  };
 }
 
 /* ===== state ===== */
-let shares = Object.assign({}, PRESETS[0].shares);
-let newRate = PRESETS[0].newRate;
-let newBand = PRESETS[0].newBand;
-let exitAge = PRESETS[0].exitAge;
-let shrinkInflow = true;
-let presetIdx = 0;
+const TARGETS = [75, 85, 90];
+let age = 40;
+let targetAge = 85;
+let shareMult = 1.0;
+let scrubYear = Math.min(END_YEAR, START_YEAR + (targetAge - age));
 
 /* ===== inputs ===== */
-function sliderHTML(id, label, min, max, step, accent){
-  return '<div class="sl">'
-    + '<div class="sl-head"><span>' + label + '</span><span class="sl-val" id="v-' + id + '" style="color:' + accent + '"></span></div>'
-    + '<input type="range" id="s-' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" style="accent-color:' + accent + '" aria-label="' + label + '">'
-    + '</div>';
-}
-document.getElementById('bandSliders').innerHTML =
-  BANDS.map(b => sliderHTML(b.key, b.label, 0, 50, 1, C.teal)).join('');
-// step は 0.5。1 にすると「地方紙・会報誌」(1.5％) がつまみ位置だけ 2 に丸められ、表示値とズレる
-document.getElementById('flowSliders').innerHTML =
-  sliderHTML('rate', '年間の新規顧客（現在の顧客数に対する％）', 0, 15, 0.5, C.gold);
-
-BANDS.forEach(b => {
-  document.getElementById('s-' + b.key).addEventListener('input', e => {
-    shares[b.key] = Number(e.target.value);
-    presetIdx = -1;
+document.getElementById('targetChips').innerHTML = TARGETS.map(a =>
+  '<button class="chip" type="button" data-a="' + a + '">' + a + '歳のとき</button>'
+).join('');
+document.querySelectorAll('#targetChips .chip').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.disabled) return;
+    targetAge = Number(btn.dataset.a);
+    scrubYear = START_YEAR + (targetAge - age);
     render();
   });
 });
-document.getElementById('s-rate').addEventListener('input', e => {
-  newRate = Number(e.target.value);
-  presetIdx = -1;
+document.getElementById('age').addEventListener('input', e => {
+  age = Number(e.target.value);
+  // すでに通り過ぎた年齢は選べない（過去の年・マイナスの残り年数を出さないため）
+  if (targetAge <= age) {
+    const next = TARGETS.find(a => a > age);
+    if (next) targetAge = next;
+  }
+  scrubYear = START_YEAR + (targetAge - age);
   render();
 });
-
-document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
-  '<button class="preset" type="button" data-i="' + i + '">' + p.name + '</button>'
-).join('');
-document.querySelectorAll('.preset').forEach(btn => {
-  btn.addEventListener('click', () => {
-    presetIdx = Number(btn.dataset.i);
-    const p = PRESETS[presetIdx];
-    shares = Object.assign({}, p.shares);
-    newRate = p.newRate;
-    newBand = p.newBand;
-    exitAge = p.exitAge;
-    render();
-  });
-});
-
-document.getElementById('newBandChips').innerHTML = BANDS.map(b =>
-  '<button class="chip" type="button" data-band="' + b.key + '">' + b.label + '</button>'
-).join('');
-document.querySelectorAll('#newBandChips .chip').forEach(btn => {
-  btn.addEventListener('click', () => { newBand = btn.dataset.band; presetIdx = -1; render(); });
-});
-
-document.getElementById('exitAgeChips').innerHTML = EXIT_AGES.map(a =>
-  '<button class="chip" type="button" data-age="' + a + '">' + a + '歳</button>'
-).join('');
-document.querySelectorAll('#exitAgeChips .chip').forEach(btn => {
-  btn.addEventListener('click', () => { exitAge = Number(btn.dataset.age); presetIdx = -1; render(); });
-});
-
-document.getElementById('shrinkInflow').addEventListener('change', e => { shrinkInflow = e.target.checked; render(); });
+document.getElementById('mult').addEventListener('input', e => { shareMult = Number(e.target.value); render(); });
+document.getElementById('scrub').addEventListener('input', e => { scrubYear = Number(e.target.value); render(); });
 
 /* ===== chart ===== */
-const CH = { w:760, h:320, t:16, r:52, b:34, l:44 };
-const MAX_CUST = 110, MAX_AGE = 90;
+const CH = { w:760, h:320, t:18, r:16, b:34, l:44 };
+// 刻みを 5→10 と飛ばすとグラフが下に潰れるため、間の段（3・4・6・8）も持たせる
+function niceMax(v){
+  const p = Math.pow(10, Math.floor(Math.log10(v)));
+  const n = v / p;
+  const m = [1, 2, 2.5, 3, 4, 5, 6, 8, 10].find(x => n <= x);
+  return m * p;
+}
 
-function drawChart(rows, halfYear){
+function drawChart(rows, targetYear, effScrub){
   const iw = CH.w - CH.l - CH.r, ih = CH.h - CH.t - CH.b;
-  const X  = y => CH.l + ((y - START_YEAR) / HORIZON) * iw;
-  const YL = v => CH.t + ih - (v / MAX_CUST) * ih;
-  const YR = v => CH.t + ih - (v / MAX_AGE) * ih;
-  const ptsL = key => rows.map(r => X(r.year) + ',' + YL(r[key])).join(' ');
-  const ptsR = key => rows.map(r => X(r.year) + ',' + YR(r[key])).join(' ');
+  const maxV = niceMax(Math.max.apply(null, rows.map(r => Math.max(r.needStaff, r.supplyStaff))) * 1.15);
+  const X = y => CH.l + ((y - START_YEAR) / (END_YEAR - START_YEAR)) * iw;
+  const Y = v => CH.t + ih - (Math.min(v, maxV) / maxV) * ih;
   let s = '';
 
-  // 左軸（顧客数）のグリッドと目盛り
-  [0, 25, 50, 75, 100].forEach(v => {
-    const yy = YL(v);
+  const ticks = 4;
+  for (let i = 0; i <= ticks; i++) {
+    const v = (maxV / ticks) * i, yy = Y(v);
     s += '<line x1="' + CH.l + '" y1="' + yy + '" x2="' + (CH.w - CH.r) + '" y2="' + yy + '" stroke="' + C.line + '" stroke-dasharray="3 3"/>';
-    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + v + '</text>';
-  });
-  // 右軸（平均年齢）の目盛り
-  [0, 20, 40, 60, 80].forEach(v => {
-    s += '<text x="' + (CH.w - CH.r + 8) + '" y="' + (YR(v) + 4) + '" text-anchor="start" font-size="11" fill="' + C.gold + '">' + v + '歳</text>';
-  });
-  // 年
-  for (let y = START_YEAR; y <= START_YEAR + HORIZON; y += 5) {
+    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + Math.round(v) + '万</text>';
+  }
+  [2026, 2040, 2055, 2070, 2085, 2100, 2115].forEach(y => {
     s += '<text x="' + X(y) + '" y="' + (CH.h - 12) + '" text-anchor="middle" font-size="11" fill="' + C.inkSoft + '">' + y + '</text>';
-  }
+  });
 
-  // 半減ライン
-  s += '<line x1="' + CH.l + '" y1="' + YL(50) + '" x2="' + (CH.w - CH.r) + '" y2="' + YL(50) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-  s += '<text x="' + (CH.w - CH.r - 4) + '" y="' + (YL(50) - 5) + '" text-anchor="end" font-size="11" fill="' + C.dawn + '">半減ライン</text>';
-  // 半減に到達する年
-  if (halfYear !== null) {
-    s += '<line x1="' + X(halfYear) + '" y1="' + CH.t + '" x2="' + X(halfYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-    s += '<text x="' + X(halfYear) + '" y="' + (CH.t - 3) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">' + halfYear + '年</text>';
-  }
+  // あなたが対象年齢になる年
+  s += '<line x1="' + X(targetYear) + '" y1="' + CH.t + '" x2="' + X(targetYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.gold + '" stroke-width="2"/>';
+  s += '<text x="' + X(targetYear) + '" y="' + (CH.t - 4) + '" text-anchor="middle" font-size="11" fill="#b5872f">あなたが' + targetAge + '歳</text>';
+  // いま見ている年
+  s += '<line x1="' + X(effScrub) + '" y1="' + CH.t + '" x2="' + X(effScrub) + '" y2="' + (CH.t + ih) + '" stroke="' + C.indigo + '" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.6"/>';
 
-  s += '<polyline points="' + ptsL('cust') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
-  s += '<polyline points="' + ptsR('age') + '" fill="none" stroke="' + C.gold + '" stroke-width="2" stroke-dasharray="6 3" stroke-linejoin="round"/>';
+  // 必要な介護職員（面＋線）
+  const area = rows.map(r => X(r.year) + ',' + Y(r.needStaff)).join(' ')
+    + ' ' + X(END_YEAR) + ',' + Y(0) + ' ' + X(START_YEAR) + ',' + Y(0);
+  s += '<polygon points="' + area + '" fill="' + C.dawn + '" fill-opacity="0.12"/>';
+  s += '<polyline points="' + rows.map(r => X(r.year) + ',' + Y(r.needStaff)).join(' ') + '" fill="none" stroke="' + C.dawn + '" stroke-width="2.5" stroke-linejoin="round"/>';
+  // 供給できる介護職員
+  s += '<polyline points="' + rows.map(r => X(r.year) + ',' + Y(r.supplyStaff)).join(' ') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
 
   document.getElementById('chart').innerHTML = s;
 }
 
+/* ===== scene（支え合いのかたち） ===== */
+function elderSVG(cx, cy, sc){
+  return '<circle cx="' + cx + '" cy="' + cy + '" r="' + (7 * sc) + '" fill="' + C.gold + '"/>'
+    + '<rect x="' + (cx - 6 * sc) + '" y="' + (cy + 5 * sc) + '" width="' + (12 * sc) + '" height="' + (16 * sc) + '" rx="' + (5 * sc) + '" fill="' + C.dawn + '"/>'
+    + '<line x1="' + (cx + 8 * sc) + '" y1="' + (cy + 6 * sc) + '" x2="' + (cx + 11 * sc) + '" y2="' + (cy + 22 * sc) + '" stroke="#7a6a4e" stroke-width="1.6"/>';
+}
+function workerSVG(cx, cy){
+  return '<circle cx="' + cx + '" cy="' + cy + '" r="7" fill="' + C.indigo + '"/>'
+    + '<rect x="' + (cx - 6) + '" y="' + (cy + 5) + '" width="12" height="20" rx="5" fill="' + C.teal + '"/>'
+    + '<line x1="' + (cx - 5) + '" y1="' + (cy + 7) + '" x2="' + (cx - 11) + '" y2="' + (cy - 4) + '" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round"/>'
+    + '<line x1="' + (cx + 5) + '" y1="' + (cy + 7) + '" x2="' + (cx + 11) + '" y2="' + (cy - 4) + '" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round"/>';
+}
+
+function drawScene(ratio, year){
+  const warm = ratio >= 1.5;
+  const supporters = Math.max(1, Math.min(9, Math.round(ratio)));
+  const mode = warm ? 'lift' : 'shoulder';
+
+  const stage =
+    ratio >= 5    ? '胴上げの時代 ― 大勢で、軽々と' :
+    ratio >= 2.5  ? '騎馬戦のように、数人で' :
+    ratio >= 1.5  ? '少ない人数で、担ぐ' :
+    ratio >= 1.05 ? '肩車 ― たった一人で背負う' :
+                    '一人でも、支えきれない';
+
+  let s = '';
+  s += '<rect x="0" y="0" width="760" height="300" fill="' + (warm ? '#f2efe6' : '#e9e3d7') + '"/>';
+  s += '<rect x="0" y="272" width="760" height="28" fill="' + (warm ? '#e0d6bd' : '#cfc7b4') + '"/>';
+
+  if (mode === 'lift') {
+    // 胴上げ台
+    s += '<rect x="250" y="150" width="260" height="8" rx="4" fill="#8a7f66"/>';
+    s += elderSVG(380, 118, 1.4);
+    for (let i = 0; i < supporters; i++) {
+      const spread = Math.min(260, supporters * 40);
+      const x = 380 - spread / 2 + (supporters === 1 ? 0 : (spread / (supporters - 1)) * i);
+      s += '<line x1="' + x + '" y1="225" x2="' + x + '" y2="158" stroke="' + C.teal + '" stroke-width="2.5" opacity="0.5"/>';
+      s += workerSVG(x, 225);
+    }
+  } else {
+    // 肩車
+    const cx = 380, strain = ratio < 1.1;
+    s += '<line x1="' + (cx - 5) + '" y1="252" x2="' + (cx - (strain ? 12 : 8)) + '" y2="272" stroke="' + C.teal + '" stroke-width="4" stroke-linecap="round"/>';
+    s += '<line x1="' + (cx + 5) + '" y1="252" x2="' + (cx + (strain ? 12 : 8)) + '" y2="272" stroke="' + C.teal + '" stroke-width="4" stroke-linecap="round"/>';
+    s += '<rect x="' + (cx - 8) + '" y="220" width="16" height="34" rx="7" fill="' + C.teal + '"/>';
+    s += '<circle cx="' + cx + '" cy="212" r="8" fill="' + C.indigo + '"/>';
+    s += elderSVG(cx, 190, 1.3);
+    if (strain) s += '<text x="' + (cx + 24) + '" y="230" font-size="18" fill="' + C.dawn + '" font-weight="800">!</text>';
+  }
+
+  s += '<text x="380" y="26" text-anchor="middle" font-size="15" font-family="\'Shippori Mincho\',serif" font-weight="800" fill="' + (warm ? C.indigo : C.dawn) + '">' + stage + '</text>';
+  s += '<text x="380" y="292" text-anchor="middle" font-size="12" fill="' + C.inkSoft + '">' + year + '年 ・ 現役世代 ' + ratio.toFixed(2) + ' 人で高齢者1人を支える</text>';
+
+  const svg = document.getElementById('scene');
+  svg.innerHTML = s;
+  svg.setAttribute('aria-label', '支え手の様子: ' + stage);
+}
+
 /* ===== render ===== */
 function render(){
-  BANDS.forEach(b => {
-    document.getElementById('s-' + b.key).value = shares[b.key];
-    document.getElementById('v-' + b.key).textContent = shares[b.key] + '％';
+  const targetYear = START_YEAR + (targetAge - age);
+  const effScrub = Math.max(START_YEAR, Math.min(END_YEAR, scrubYear));
+  const yearsToTarget = targetYear - START_YEAR;
+
+  document.getElementById('age').value = age;
+  document.getElementById('ageVal').textContent = age + '歳';
+  document.getElementById('mult').value = shareMult;
+  document.getElementById('multVal').textContent = shareMult.toFixed(1) + '倍';
+  document.querySelectorAll('#targetChips .chip').forEach(b => {
+    const a = Number(b.dataset.a);
+    b.classList.toggle('on', a === targetAge);
+    b.disabled = a <= age;                       // すでに通り過ぎた年齢
+    b.style.opacity = a <= age ? 0.35 : 1;
+    b.style.cursor = a <= age ? 'default' : 'pointer';
   });
-  document.getElementById('s-rate').value = newRate;
-  document.getElementById('v-rate').textContent = newRate + '％';
-  document.getElementById('shrinkInflow').checked = shrinkInflow;
-  document.querySelectorAll('.preset').forEach(b => b.classList.toggle('on', Number(b.dataset.i) === presetIdx));
-  document.querySelectorAll('#newBandChips .chip').forEach(b => b.classList.toggle('on', b.dataset.band === newBand));
-  document.querySelectorAll('#exitAgeChips .chip').forEach(b => b.classList.toggle('on', Number(b.dataset.age) === exitAge));
 
-  const sim = simulate(shares, newRate, newBand, exitAge, shrinkInflow);
-  const rows = sim.rows, halfYear = sim.halfYear;
-  const avgNow   = rows[0].age;
-  const r2035    = rows.find(r => r.year === 2035);
-  const avg2035  = r2035 ? r2035.age : 0;
-  const size2035 = r2035 ? r2035.cust : 0;
-  const yearsToHalf = halfYear !== null ? halfYear - START_YEAR : null;
-  // 導火線: 残り年数が短いほど燃え進む（25年で満タン）
-  const fusePct = yearsToHalf === null ? 8 : Math.max(6, Math.min(96, (1 - yearsToHalf / HORIZON) * 100));
+  const rows = [];
+  for (let y = START_YEAR; y <= END_YEAR; y++) {
+    const m = careModel(y, shareMult);
+    rows.push({ year:y, needStaff:m.needStaff, supplyStaff:m.supplyStaff });
+  }
 
-  // 新規顧客の年齢層が退出年齢以上＝流入ゼロ
-  document.getElementById('warnBand').classList.toggle('on', BANDS.find(b => b.key === newBand).from >= exitAge);
-  // 有効な年齢帯に顧客がいない＝計算が成り立たない状態
-  document.getElementById('fuseNote').classList.toggle('on', sim.empty);
+  const atTarget = careModel(targetYear, shareMult);
+  const now = careModel(START_YEAR, shareMult);
+  const scrubM = careModel(effScrub, shareMult);
 
-  document.getElementById('fuseBig').textContent = yearsToHalf !== null ? 'あと' + yearsToHalf + '年' : '25年以上';
-  document.getElementById('fuseAt').textContent = halfYear !== null
-    ? halfYear + '年に到達 ／ 2035年時点で' + Math.round(100 - size2035) + '％減'
-    : '';
+  // 導火線＝あなたが対象年齢になるまでの残り（個人の時限）
+  const fusePct = Math.max(6, Math.min(96, (1 - yearsToTarget / (END_YEAR - START_YEAR)) * 100));
+
+  document.getElementById('fuseEyebrow').textContent = 'あなたが' + targetAge + '歳になるのは';
+  document.getElementById('fuseBig').textContent = targetYear + '年';
+  document.getElementById('fuseAt').textContent = 'あと' + yearsToTarget + '年';
   document.getElementById('fuseFill').style.width = fusePct + '%';
   document.getElementById('fuseSpark').style.left = fusePct + '%';
 
-  document.getElementById('avgLine').innerHTML =
-    avgNow + '歳 → <span style="color:' + C.gold + '">' + avg2035 + '歳（2035年）</span>';
-  document.getElementById('thirtyYear').textContent =
-    sim.thirtyYear !== null ? sim.thirtyYear + '年' : '25年以内には到達せず';
+  document.getElementById('ratioV').innerHTML = atTarget.supportRatio.toFixed(2) + '人 <span class="u">で高齢者1人</span>';
+  document.getElementById('ratioNow').textContent = '今は ' + now.supportRatio.toFixed(2) + '人';
+  document.getElementById('e85V').textContent = '約' + Math.round(atTarget.e85) + '万人';
+  document.getElementById('e85Now').textContent = '今の約' + (Math.round((atTarget.e85 / now.e85) * 10) / 10) + '倍';
+  // 担い手を増やす倍率しだいで供給が需要を上回る。「約-403万人の不足」ではなく余力として書く
+  const gapEl = document.getElementById('gapV');
+  const gap = Math.round(atTarget.gap);
+  gapEl.textContent = gap > 0 ? '約' + gap + '万人' : '不足なし';
+  gapEl.style.color = gap > 0 ? C.gold : '#fff';
+  document.getElementById('gapSub').textContent =
+    gap > 0 ? '不足分' : '約' + Math.abs(gap) + '万人の余力';
 
-  drawChart(rows, halfYear);
+  document.getElementById('sceneYear').textContent = effScrub;
+  document.getElementById('sceneStat').textContent = '支え手比率 ' + scrubM.supportRatio.toFixed(2);
+  document.getElementById('scrubYearText').textContent = effScrub + '年';
+  document.getElementById('scrub').value = effScrub;
+
+  drawChart(rows, targetYear, effScrub);
+  drawScene(scrubM.supportRatio, effScrub);
 }
 
 render();

@@ -64,6 +64,16 @@
         ]
       },
       {
+        "label": "未来のリスク計算機",
+        "children": [
+          { "label": "顧客の平均年齢時限爆弾", "href": "customer-age-timebomb.html" },
+          { "label": "採用市場消滅計算機", "href": "recruitment-extinction.html" },
+          { "label": "税収カウントダウン", "href": "tax-revenue-countdown.html" },
+          { "label": "学校統廃合カウントダウン", "href": "school-consolidation-countdown.html" },
+          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" }
+        ]
+      },
+      {
         "label": "コンタクト",
         "children": [
           { "label": "お問い合わせ", "href": "mailto:y.morimoto@kizukikumitate.com" },
@@ -90,6 +100,7 @@
   "pages": [
     { "path": "index.html", "variant": "standard" },
     { "path": "ashimoto-map.html", "variant": "standard" },
+    { "path": "caregiving-capacity-calculator.html", "variant": "standard" },
     { "path": "customer-age-timebomb.html", "variant": "standard" },
     { "path": "democracy-fitness.html", "variant": "standard" },
     { "path": "dialogue-program-trial.html", "variant": "standard" },
@@ -103,6 +114,7 @@
     { "path": "poverty-zukan.html", "variant": "standard" },
     { "path": "recruitment-extinction.html", "variant": "standard" },
     { "path": "roadmap.html", "variant": "standard" },
+    { "path": "school-consolidation-countdown.html", "variant": "standard" },
     { "path": "shikumi-zukan.html", "variant": "standard" },
     { "path": "social-leader-coaching.html", "variant": "standard" },
     { "path": "taiwa-teichaku.html", "variant": "standard" },

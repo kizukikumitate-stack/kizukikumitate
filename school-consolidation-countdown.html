@@ -11,21 +11,21 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>顧客の平均年齢時限爆弾｜顧客基盤が半減する年を計算する | きづきくみたて工房</title>
-<meta name="description" content="売上が減る前に、顧客が市場からいなくなる。いまの顧客の年齢構成と新規獲得のペースを入れるだけで、何もしなかった場合に顧客基盤が半減する年を試算する無料ツール。数字はどこにも送信されません。">
-<link rel="canonical" href="https://kizukikumitate.com/customer-age-timebomb.html">
+<title>学校統廃合カウントダウン｜統廃合が検討される年を計算する | きづきくみたて工房</title>
+<meta name="description" content="2032年にこの学校へ入学する子は、もう全員生まれています。校区の出生数を入れるだけで、全校児童数の推移と、複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。数字はどこにも送信されません。">
+<link rel="canonical" href="https://kizukikumitate.com/school-consolidation-countdown.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="顧客の平均年齢時限爆弾｜顧客基盤が半減する年を計算する">
-<meta property="og:description" content="売上が減る前に、顧客が市場からいなくなる。いまの顧客の年齢構成から、何もしなかった場合に顧客基盤が半減する年を試算する無料ツール。">
-<meta property="og:url" content="https://kizukikumitate.com/customer-age-timebomb.html">
+<meta property="og:title" content="学校統廃合カウントダウン｜統廃合が検討される年を計算する">
+<meta property="og:description" content="2032年にこの学校へ入学する子は、もう全員生まれています。校区の出生数から、複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。">
+<meta property="og:url" content="https://kizukikumitate.com/school-consolidation-countdown.html">
 <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="顧客の平均年齢時限爆弾｜顧客基盤が半減する年を計算する">
-<meta name="twitter:description" content="いまの顧客の年齢構成から、何もしなかった場合に顧客基盤が半減する年を試算する無料ツール。">
+<meta name="twitter:title" content="学校統廃合カウントダウン｜統廃合が検討される年を計算する">
+<meta name="twitter:description" content="校区の出生数から、複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。">
 <meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -140,14 +140,14 @@
   .preset.on { background: var(--teal); border-color: var(--teal); color: var(--paper); }
 
   /* ===== inputs ===== */
-  .grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
-  @media (max-width: 760px) { .grid2 { grid-template-columns: minmax(0, 1fr); } }
-  .sl { margin-bottom: 0.85rem; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 1.8rem; }
+  @media (max-width: 860px) { .grid3 { grid-template-columns: minmax(0, 1fr); } }
+  .sl { margin-bottom: 0.95rem; }
   .sl-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.8rem; margin-bottom: 0.15rem; }
   .sl-val { font-weight: 600; white-space: nowrap; }
   .sl input[type=range] { width: 100%; }
-  .chk { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; cursor: pointer; margin-top: 0.5rem; }
-  .foot-note { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+  .sl-hint { font-size: 0.7rem; color: var(--ink-soft); margin-top: 0.15rem; line-height: 1.8; }
+  .foot-note { font-size: 0.78rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.9; }
 
   /* ===== countdown ===== */
   .fuse { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 1.8rem 1.5rem 2.1rem; overflow: hidden; }
@@ -162,8 +162,6 @@
   @keyframes spark { 0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; } 50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; } }
   @media (prefers-reduced-motion: reduce) { .fuse-spark { animation: none; } .fuse-fill, .fuse-spark { transition: none; } }
   .ends { display: flex; justify-content: space-between; font-family: 'Jost', sans-serif; font-size: 0.7rem; opacity: 0.6; margin-top: 0.5rem; }
-  .fuse-note { display: none; font-size: 0.76rem; line-height: 1.95; opacity: 0.75; margin-top: 1.2rem; padding-left: 0.9rem; border-left: 2px solid rgba(217,164,65,0.6); }
-  .fuse-note.on { display: block; }
   .fuse-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.4rem; }
   .fuse-stats .k { font-size: 0.72rem; opacity: 0.6; }
   .fuse-stats .v { font-size: 0.95rem; font-weight: 600; margin-top: 0.1rem; }
@@ -174,6 +172,18 @@
   .chart-box svg { display: block; width: 100%; height: auto; min-width: 460px; }
   .legend { display: flex; flex-wrap: wrap; gap: 1.1rem; font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.7rem; }
   .legend i { display: inline-block; width: 22px; height: 3px; border-radius: 2px; margin-right: 0.4rem; vertical-align: middle; }
+  .legend i.sq { width: 12px; height: 12px; border-radius: 3px; }
+
+  /* ===== scene（その年の学校の様子） ===== */
+  .scene-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.5rem; margin-bottom: 0.7rem; }
+  .scene-head h2 { margin-bottom: 0; }
+  .scene-read { font-size: 0.8rem; color: var(--ink-soft); }
+  .scene-year { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.4rem; color: var(--dawn); margin-right: 0.6rem; }
+  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.9rem; }
+  .scene-frame svg { display: block; width: 100%; height: auto; }
+  .scrub-label { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+  .scrub-label strong { color: var(--ink); font-weight: 600; }
+  #scrub { width: 100%; accent-color: var(--dawn); }
 
   /* ===== prose ===== */
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
@@ -185,32 +195,14 @@
   .footer-copy { font-family: 'Jost', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.55); }
   @media (max-width: 768px) { footer { padding: 2.4rem 1.5rem; } }
 
-  /* ===== chips（選択式の入力） ===== */
-  .field { margin-bottom: 0.9rem; }
-  .field-label { font-size: 0.8rem; margin-bottom: 0.4rem; }
-  .field-label .hint { font-size: 0.7rem; color: var(--ink-soft); }
-  .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .chip { font-family: 'Noto Serif JP', serif; padding: 0.25rem 0.7rem; font-size: 0.76rem; border-radius: 8px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); transition: background 0.18s, border-color 0.18s, color 0.18s; }
-  .chips-gold .chip:hover { border-color: var(--gold); }
-  .chips-gold .chip.on { background: var(--gold); border-color: var(--gold); color: #fff; }
-  .chips-dawn .chip:hover { border-color: var(--dawn); }
-  .chips-dawn .chip.on { background: var(--dawn); border-color: var(--dawn); color: #fff; }
-  .warn { display: none; font-size: 0.74rem; line-height: 1.85; color: var(--dawn); margin-top: 0.6rem; }
-  .warn.on { display: block; }
-  .need { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
-  @media (max-width: 760px) { .need { grid-template-columns: minmax(0, 1fr); } }
-  .need-cell { background: var(--paper); border-radius: 10px; padding: 0.9rem 1rem; }
-  .need-k { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 0.25rem; line-height: 1.8; }
-  .need-v { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; color: var(--dawn); }
-
   /* ===== 日本語の禁則処理・文節改行（モバイル） =====
      body の word-break: keep-all は、文節が行幅より長いと折り返し位置が無くなり、
      ブラウザが緊急改行して行頭に「。」を落とす。auto-phrase なら CJK の文節境界で
      折るため、禁則を守ったまま収まる（未対応の Firefox は normal にフォールバック） */
   @media (max-width: 768px) {
     body, p, li, dd, dt, blockquote, figcaption,
-    .lede, .prose, .note, .foot-note, .fuse-note, .fuse-label, .fuse-at,
-    .field-label, .warn, .chk, .need-k, .legend span, .sl-head {
+    .lede, .prose, .note, .foot-note, .fuse-label, .fuse-at,
+    .sl-hint, .scene-read, .scrub-label, .legend span, .sl-head {
       word-break: auto-phrase;
       overflow-wrap: break-word;
       line-break: strict;
@@ -273,10 +265,10 @@
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
-        <a href="./customer-age-timebomb.html" class="active">顧客の平均年齢時限爆弾</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
         <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
         <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
-        <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
+        <a href="./school-consolidation-countdown.html" class="active">学校統廃合カウントダウン</a>
         <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
       </div>
     </li>
@@ -341,10 +333,10 @@
   <div class="mobile-acc">
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
-      <a href="./customer-age-timebomb.html" class="active">顧客の平均年齢時限爆弾</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
       <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
       <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
-      <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
+      <a href="./school-consolidation-countdown.html" class="active">学校統廃合カウントダウン</a>
       <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
     </div>
   </div>
@@ -363,9 +355,9 @@
 
 <section id="hero">
   <div class="wrap">
-    <div class="eyebrow">未来リスク計算機 01</div>
-    <h1>顧客の平均年齢<span class="accent">時限爆弾</span></h1>
-    <p class="lede">売上が減る前に、顧客が市場からいなくなる。いまの顧客の年齢構成と新規獲得のペースを入れると、何もしなかった場合に顧客基盤が半減する年が出ます。数字はどこにも送信されません。</p>
+    <div class="eyebrow">未来リスク計算機 04</div>
+    <h1>学校統廃合<span class="accent">カウントダウン</span></h1>
+    <p class="lede">2032年にこの学校へ入学する子は、もう全員生まれています。校区の出生数を入れると、全校児童数の推移と、複式学級になる年・統廃合が検討される規模になる年が出ます。近い将来の子どもの数は、予測ではなく確定です。数字はどこにも送信されません。</p>
   </div>
 </section>
 
@@ -373,26 +365,10 @@
 <section>
   <div class="wrap">
     <div class="presets" id="presets"></div>
-    <div class="grid2">
-      <div class="card">
-        <h2>いまの顧客の年齢構成</h2>
-        <div id="bandSliders"></div>
-        <p class="foot-note">比率は自動で正規化されます（合計100％）。おおよその感覚で構いません。</p>
-      </div>
-      <div class="card">
-        <h2>流入と退出の条件</h2>
-        <div id="flowSliders"></div>
-        <div class="field">
-          <div class="field-label">新規顧客の中心年齢層</div>
-          <div class="chips chips-gold" id="newBandChips"></div>
-        </div>
-        <div class="field">
-          <div class="field-label">市場退出年齢 <span class="hint">（進学・卒業で離れる事業は10代、通販・宅配は遅め）</span></div>
-          <div class="chips chips-dawn" id="exitAgeChips"></div>
-        </div>
-        <p class="warn" id="warnBand">⚠ 新規顧客の年齢層が市場退出年齢以上のため、新規流入はゼロとして計算されています。</p>
-        <label class="chk"><input type="checkbox" id="shrinkInflow" checked>新規獲得も人口減少に連動させる（年 −0.7％）</label>
-      </div>
+    <div class="card">
+      <h2>校区の子どもの数</h2>
+      <div class="grid3" id="sliders"></div>
+      <p class="foot-note" id="nowLine"></p>
     </div>
   </div>
 </section>
@@ -401,9 +377,9 @@
 <section>
   <div class="wrap">
     <div class="fuse">
-      <div class="fuse-eyebrow">このままの場合</div>
+      <div class="fuse-eyebrow">いまの出生数の傾向のまま進むと</div>
       <div class="fuse-line">
-        <span class="fuse-label">顧客基盤の半減まで</span>
+        <span class="fuse-label">統廃合が検討される規模まで</span>
         <span class="fuse-big" id="fuseBig">—</span>
         <span class="fuse-at" id="fuseAt"></span>
       </div>
@@ -411,11 +387,10 @@
         <div class="fuse-fill" id="fuseFill"></div>
         <div class="fuse-spark" id="fuseSpark"></div>
       </div>
-      <div class="ends"><span>2026</span><span>2051</span></div>
-      <p class="fuse-note" id="fuseNote">いま設定されている市場退出年齢より下の年齢帯に、顧客が1人もいない状態です。計算上「現在の顧客は全員すでに市場から退出している」ことになるため、グラフは新規流入の分しか描かれません。年齢構成のスライダーか、市場退出年齢の設定を見直してみてください。</p>
+      <div class="ends"><span>2026</span><span>2056</span></div>
       <div class="fuse-stats">
-        <div><div class="k">顧客の平均年齢</div><div class="v" id="avgLine">—</div></div>
-        <div><div class="k">3割減に到達する年</div><div class="v" id="thirtyYear">—</div></div>
+        <div><div class="k">複式学級になる年（いずれかの学年が8人未満）</div><div class="v" id="fukushikiYear">—</div></div>
+        <div><div class="k">全校が10人を切る年</div><div class="v" id="closeYear">—</div></div>
       </div>
     </div>
   </div>
@@ -425,15 +400,41 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>顧客数と平均年齢の推移（現在＝100）</h2>
+      <h2>全校児童数の推移</h2>
       <div class="chart-box">
         <svg id="chart" viewBox="0 0 760 320" role="img" aria-labelledby="chartDesc"></svg>
       </div>
-      <p id="chartDesc" class="note" style="margin-top:0.6rem">顧客数が半分になる線（半減ライン）を割る年に、縦の点線が立ちます。</p>
+      <p id="chartDesc" class="note" style="margin-top:0.6rem">2031年までに入学する子は、すでに生まれた人数で確定しています（グラフ左の網かけ）。複式化・統廃合の目安に届く年に、横の破線と交わります。</p>
       <div class="legend">
-        <span><i style="background:var(--teal)"></i>顧客数（現在＝100）</span>
-        <span><i style="background:var(--gold)"></i>顧客の平均年齢（右軸・歳）</span>
-        <span><i style="background:var(--dawn)"></i>半減ライン</span>
+        <span><i style="background:var(--teal)"></i>全校児童数（人）</span>
+        <span><i style="background:var(--dawn)"></i>1年生（人）</span>
+        <span><i style="background:var(--gold)"></i>複式化の目安（48人）</span>
+        <span><i style="background:var(--dawn)"></i>統廃合検討の目安（24人）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- その年の学校の様子 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <div class="scene-head">
+        <h2>その年の、学校の様子</h2>
+        <div class="scene-read">
+          <span class="scene-year" id="sceneYear">—</span>
+          <span id="sceneStat"></span>
+        </div>
+      </div>
+      <div class="scene-frame">
+        <svg id="scene" viewBox="0 0 760 300" role="img" aria-label="学校の様子"></svg>
+      </div>
+      <p class="scrub-label">年をスライドすると、学校の様子が変わります → <strong id="scrubYearText">2038年</strong></p>
+      <input type="range" id="scrub" min="2026" max="2056" step="1" value="2038" aria-label="表示する年">
+      <div class="legend">
+        <span><i class="sq" style="background:var(--gold)"></i>通常学級</span>
+        <span><i class="sq" style="background:var(--teal)"></i>少人数・複式</span>
+        <span><i class="sq" style="background:#3a3550"></i>その学年の子がいない</span>
       </div>
     </div>
   </div>
@@ -443,15 +444,15 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>爆弾の解除方法は、値引きでも広告でもありません</h2>
-      <p class="prose">上のグラフでスライダーをいくら動かしても分かる通り、新規獲得を少し増やす程度では傾きは変わりません。顧客基盤の高齢化は「もっと頑張る」で解ける技術的問題ではなく、<strong>誰に何を売る事業なのかを問い直す適応課題</strong>（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。解除の型は3つ──①次の世代が入ってくる入口を別チャネルで作る、②縮む客数を一人あたりの関係の深さで補う、③顧客が退出する前に、事業そのものの定義を変える。どれも組織の中の対話なしには始まりません。</p>
+      <h2>「残すか、統合するか」の二択にする前に</h2>
+      <p class="prose">数字が出ると議論は「存続か廃校か」に一気に収れんしがちですが、これは正解のない<strong>適応課題</strong>（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。子どもにとっての学びの質、地域にとっての学校の意味、通学の負担、財政──立場によって大切にするものが違うからこそ、誰かが正解を配るのではなく、当事者が納得を作る対話が要ります。考える型は3つ──①小規模を活かす（小中一貫・異学年学習・地域連携）、②機能を分け合う（近隣校との合同・分校化・オンライン併用）、③統合を選ぶなら、通学・跡地・地域の居場所をセットで設計する。どれを選ぶにせよ、数字を「結論」ではなく「対話の入口」として使えるかが分かれ目になります。</p>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <p class="note">※ 簡易コホートモデル（同じ年に生まれた集団を、1年ずつ歳を取らせながら数えていく簡易的な計算方法）による試算です。年齢帯別の年間死亡率（日本の生命表の近似値）と設定した市場退出年齢をもとに、既存顧客を1年ずつ加齢させて計算しています。実際の顧客動態（解約・休眠・紹介等）は反映していません。意思決定の出発点としてお使いください。</p>
+    <p class="note">※ 簡易モデルによる試算です。全校児童数は「校区の出生数 × 就学率」を6学年分積み上げて推計し、途中の転出入は考慮していません。2031年までの入学者はすでに生まれた人数で確定、2026年以降の出生数のみ想定減少率を適用します。複式学級・統廃合の目安（全校48人・24人）は目安であり、実際の基準は義務教育標準法や各自治体の方針で異なります。地域との対話の出発点としてお使いください。</p>
   </div>
 </section>
 
@@ -509,9 +510,9 @@
     <span class="kaiyu-title">次は、こちらへ。</span>
   </div>
   <div class="kaiyu-grid">
-    <a class="kaiyu-card" href="./recruitment-extinction.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">採用市場消滅計算機</span><span class="kaiyu-desc">2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./caregiving-capacity-calculator.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">介護の支え手計算機</span><span class="kaiyu-desc">あなたが高齢期を迎える年、何人の現役世代がひとりの高齢者を支えているか。介護の担い手の不足を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
     <a class="kaiyu-card" href="./tax-revenue-countdown.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">税収カウントダウン</span><span class="kaiyu-desc">人口が入れ替わると、税収が下がりながら社会保障費が上がる。まちの財政が賄えなくなる年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./school-consolidation-countdown.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">学校統廃合カウントダウン</span><span class="kaiyu-desc">2032年に入学する子は、もう全員生まれている。複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./customer-age-timebomb.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">顧客の平均年齢時限爆弾</span><span class="kaiyu-desc">売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
 </aside>
@@ -526,7 +527,6 @@
 
 <script>
 /* ===== nav ===== */
-
 document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
 document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
@@ -534,127 +534,82 @@ document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
 });
 
 /* ===== palette ===== */
-const C = { indigo:'#16132a', gold:'#d9a441', teal:'#0f6e56', dawn:'#d85a30', inkSoft:'#4a4660', line:'#e5e0d3' };
-const START_YEAR = 2026, HORIZON = 25;
+const C = { indigo:'#16132a', gold:'#d9a441', teal:'#0f6e56', dawn:'#d85a30', inkSoft:'#4a4660', line:'#e5e0d3', sakura:'#e6a6b0' };
 
-const BANDS = [
-  { key:'b0',  label:'〜9歳',  from:0  },
-  { key:'b10', label:'10代',   from:10 },
-  { key:'b20', label:'20代',   from:20 },
-  { key:'b30', label:'30代',   from:30 },
-  { key:'b40', label:'40代',   from:40 },
-  { key:'b50', label:'50代',   from:50 },
-  { key:'b60', label:'60代',   from:60 },
-  { key:'b70', label:'70代',   from:70 },
-  { key:'b80', label:'80代+',  from:80 },
+const START_YEAR = 2026;
+const HORIZON = 30;          // 2056
+const LOCKED_THROUGH = 2031; // これ以前の全校児童は「すでに生まれた子」で確定
+const FUKUSHIKI = 48;        // 複式化の目安（平均8人／学年）
+const TOUHAIGOU = 24;        // 統廃合検討の目安（平均4人／学年）
+
+const PRESETS = [
+  { name:'小さな小学校',         births:8,  decline:3, rate:85 },
+  { name:'中山間の分校',         births:4,  decline:3, rate:90 },
+  { name:'郊外の中規模校',       births:40, decline:2, rate:80 },
+  { name:'ニュータウンの高齢化', births:26, decline:5, rate:85 },
 ];
-const EXIT_AGES = [13, 16, 19, 23, 30, 40, 50, 60, 65, 70, 75, 80, 85, 90];
 
 /* ===== model ===== */
-// 年間死亡率（日本の生命表を丸めた近似値）
-function mortality(age){
-  if (age < 20) return 0.0002;
-  if (age < 30) return 0.0006;
-  if (age < 40) return 0.0009;
-  if (age < 50) return 0.002;
-  if (age < 60) return 0.0045;
-  if (age < 70) return 0.010;
-  if (age < 80) return 0.026;
-  return 0.085;
+function birthsAt(year, current, declinePct){
+  if (year <= 2025) return current; // 過去は現状で近似（実際にはすでに確定）
+  return current * Math.pow(1 - declinePct / 100, year - 2025);
 }
 
-// 先頭＝初期表示。新規獲得が滞在年数に対して十分だと顧客基盤は均衡・増加するため、
-// 「半減まであとN年」が出るのは実質この地方紙・会報誌だけ。ページの主張が最初に伝わるよう先頭に置く
-const PRESETS = [
-  { name:'地方紙・会報誌', shares:{ b0:0,  b10:0,  b20:1, b30:2, b40:6,  b50:15, b60:30, b70:32, b80:14 }, newBand:'b60', newRate:1.5, exitAge:85 },
-  { name:'呉服・伝統工芸', shares:{ b0:0,  b10:0,  b20:1, b30:3, b40:8,  b50:18, b60:32, b70:28, b80:10 }, newBand:'b50', newRate:2,   exitAge:80 },
-  { name:'地域スーパー',   shares:{ b0:0,  b10:0,  b20:4, b30:8, b40:14, b50:20, b60:26, b70:20, b80:8  }, newBand:'b40', newRate:4,   exitAge:85 },
-  { name:'健康食品通販',   shares:{ b0:0,  b10:0,  b20:1, b30:4, b40:10, b50:22, b60:34, b70:24, b80:5  }, newBand:'b50', newRate:6,   exitAge:85 },
-  { name:'学習塾・習い事', shares:{ b0:35, b10:60, b20:5, b30:0, b40:0,  b50:0,  b60:0,  b70:0,  b80:0  }, newBand:'b0',  newRate:8,   exitAge:19 },
-];
-
-function simulate(shares, newRatePct, newBandKey, exitAge, shrinkInflow){
-  // 年齢別人口（0〜exitAge-1歳）、初期合計100。
-  // 退出年齢より上の帯は「現在の顧客」に存在しない前提で、有効な帯だけで正規化する
-  const validBands = BANDS.filter(b => b.from < exitAge);
-  const total0 = validBands.reduce((a, b) => a + (shares[b.key] || 0), 0);
-  let pop = new Array(101).fill(0);
-  validBands.forEach(b => {
-    const share = ((shares[b.key] || 0) / (total0 || 1)) * 100;
-    const bandEnd = b.key === 'b80' ? Math.max(exitAge, 81) : b.from + 10;
-    const span = Math.min(bandEnd, exitAge) - b.from;
-    for (let a = b.from; a < b.from + span; a++) pop[a] += share / span;
-  });
-
-  const newBand = BANDS.find(b => b.key === newBandKey);
-  const inflowTotal = newRatePct; // 初期顧客数100に対する年間新規（絶対数を維持）
-
+function simulate(current, declinePct, ratePct){
+  const rate = ratePct / 100;
   const rows = [];
-  let halfYear = null, thirtyYear = null;
+  let touhaigouYear = null, fukushikiYear = null, closeYear = null;
 
   for (let t = 0; t <= HORIZON; t++) {
-    const total = pop.reduce((a, b) => a + b, 0);
-    let ageSum = 0;
-    pop.forEach((n, a) => { ageSum += n * a; });
-    const avgAge = total > 0 ? ageSum / total : 0;
-    rows.push({
-      year: START_YEAR + t,
-      cust: Math.round(total * 10) / 10,
-      age: Math.round(avgAge * 10) / 10,
-    });
-    if (halfYear === null && total <= 50) halfYear = START_YEAR + t;
-    if (thirtyYear === null && total <= 70) thirtyYear = START_YEAR + t;
-
-    // 1年進める
-    const next = new Array(101).fill(0);
-    pop.forEach((n, a) => {
-      const survived = n * (1 - mortality(a));
-      if (a + 1 < exitAge) next[a + 1] += survived;
-    });
-    // 新規流入。退出年齢が帯の途中にかかる場合は、その帯の残り年数（span）で割る。
-    // 除数を 10 固定にすると、設定した新規顧客数より少ない人数しか入らない
-    const inflow = inflowTotal * (shrinkInflow ? Math.pow(0.993, t) : 1);
-    const inflowSpan = Math.min(newBand.from + 10, exitAge) - newBand.from;
-    if (inflowSpan > 0) {
-      for (let a = newBand.from; a < newBand.from + inflowSpan; a++) next[a] += inflow / inflowSpan;
+    const year = START_YEAR + t;
+    // 各学年（0＝1年生 … 5＝6年生）
+    const grades = [];
+    for (let g = 0; g < 6; g++) {
+      grades.push(birthsAt(year - g - 6, current, declinePct) * rate);
     }
-    pop = next;
+    const total = grades.reduce((a, b) => a + b, 0);
+
+    rows.push({
+      year,
+      total: Math.round(total),
+      grade1: Math.round(grades[0] * 10) / 10,
+      grades,
+      locked: year <= LOCKED_THROUGH,
+    });
+
+    if (fukushikiYear === null && grades.some(s => s < 8)) fukushikiYear = year;
+    if (touhaigouYear === null && total < TOUHAIGOU) touhaigouYear = year;
+    if (closeYear === null && total < 10) closeYear = year;
   }
-  return { rows, halfYear, thirtyYear, empty: total0 <= 0 };
+  return { rows, touhaigouYear, fukushikiYear, closeYear };
 }
 
 /* ===== state ===== */
-let shares = Object.assign({}, PRESETS[0].shares);
-let newRate = PRESETS[0].newRate;
-let newBand = PRESETS[0].newBand;
-let exitAge = PRESETS[0].exitAge;
-let shrinkInflow = true;
+let P = Object.assign({}, PRESETS[0]);
 let presetIdx = 0;
+let scrubYear = 2038;
 
 /* ===== inputs ===== */
-function sliderHTML(id, label, min, max, step, accent){
+const SLIDERS = [
+  { key:'births',  label:'校区の年間出生数（いま）',   min:1, max:120, step:1, unit:'人',  accent:C.teal, hint:'分からなければ「今の1年生の人数 ÷ 就学率」で逆算できます' },
+  { key:'rate',    label:'この学校に入学する割合（就学率）', min:40, max:100, step:1, unit:'％', accent:C.gold, hint:'私立進学・学校選択・転出などで一部が抜けます' },
+  { key:'decline', label:'今後の出生数の減少率',       min:0, max:8, step:1, unit:'％／年', accent:C.dawn, hint:'2026年以降に生まれる子の想定。2031年までの入学者はすでに確定' },
+];
+
+function sliderHTML(s){
   return '<div class="sl">'
-    + '<div class="sl-head"><span>' + label + '</span><span class="sl-val" id="v-' + id + '" style="color:' + accent + '"></span></div>'
-    + '<input type="range" id="s-' + id + '" min="' + min + '" max="' + max + '" step="' + step + '" style="accent-color:' + accent + '" aria-label="' + label + '">'
+    + '<div class="sl-head"><span>' + s.label + '</span><span class="sl-val" id="v-' + s.key + '" style="color:' + s.accent + '"></span></div>'
+    + '<input type="range" id="s-' + s.key + '" min="' + s.min + '" max="' + s.max + '" step="' + s.step + '" style="accent-color:' + s.accent + '" aria-label="' + s.label + '">'
+    + '<p class="sl-hint">' + s.hint + '</p>'
     + '</div>';
 }
-document.getElementById('bandSliders').innerHTML =
-  BANDS.map(b => sliderHTML(b.key, b.label, 0, 50, 1, C.teal)).join('');
-// step は 0.5。1 にすると「地方紙・会報誌」(1.5％) がつまみ位置だけ 2 に丸められ、表示値とズレる
-document.getElementById('flowSliders').innerHTML =
-  sliderHTML('rate', '年間の新規顧客（現在の顧客数に対する％）', 0, 15, 0.5, C.gold);
-
-BANDS.forEach(b => {
-  document.getElementById('s-' + b.key).addEventListener('input', e => {
-    shares[b.key] = Number(e.target.value);
+document.getElementById('sliders').innerHTML = SLIDERS.map(sliderHTML).join('');
+SLIDERS.forEach(s => {
+  document.getElementById('s-' + s.key).addEventListener('input', e => {
+    P[s.key] = Number(e.target.value);
     presetIdx = -1;
     render();
   });
-});
-document.getElementById('s-rate').addEventListener('input', e => {
-  newRate = Number(e.target.value);
-  presetIdx = -1;
-  render();
 });
 
 document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
@@ -663,115 +618,200 @@ document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
 document.querySelectorAll('.preset').forEach(btn => {
   btn.addEventListener('click', () => {
     presetIdx = Number(btn.dataset.i);
-    const p = PRESETS[presetIdx];
-    shares = Object.assign({}, p.shares);
-    newRate = p.newRate;
-    newBand = p.newBand;
-    exitAge = p.exitAge;
+    P = Object.assign({}, PRESETS[presetIdx]);
     render();
   });
 });
 
-document.getElementById('newBandChips').innerHTML = BANDS.map(b =>
-  '<button class="chip" type="button" data-band="' + b.key + '">' + b.label + '</button>'
-).join('');
-document.querySelectorAll('#newBandChips .chip').forEach(btn => {
-  btn.addEventListener('click', () => { newBand = btn.dataset.band; presetIdx = -1; render(); });
+document.getElementById('scrub').addEventListener('input', e => {
+  scrubYear = Number(e.target.value);
+  render();
 });
-
-document.getElementById('exitAgeChips').innerHTML = EXIT_AGES.map(a =>
-  '<button class="chip" type="button" data-age="' + a + '">' + a + '歳</button>'
-).join('');
-document.querySelectorAll('#exitAgeChips .chip').forEach(btn => {
-  btn.addEventListener('click', () => { exitAge = Number(btn.dataset.age); presetIdx = -1; render(); });
-});
-
-document.getElementById('shrinkInflow').addEventListener('change', e => { shrinkInflow = e.target.checked; render(); });
 
 /* ===== chart ===== */
-const CH = { w:760, h:320, t:16, r:52, b:34, l:44 };
-const MAX_CUST = 110, MAX_AGE = 90;
+const CH = { w:760, h:320, t:18, r:16, b:34, l:44 };
+// 目盛りが半端な数にならないよう、上限を切りの良い値に丸める。
+// 刻みを 5→10 と飛ばすとグラフが下に潰れるため、間の段（3・4・6・8）も持たせる
+function niceMax(v){
+  const p = Math.pow(10, Math.floor(Math.log10(v)));
+  const n = v / p;
+  const m = [1, 2, 2.5, 3, 4, 5, 6, 8, 10].find(x => n <= x);
+  return m * p;
+}
 
-function drawChart(rows, halfYear){
+function drawChart(rows, touhaigouYear, alreadyTouhaigou){
   const iw = CH.w - CH.l - CH.r, ih = CH.h - CH.t - CH.b;
-  const X  = y => CH.l + ((y - START_YEAR) / HORIZON) * iw;
-  const YL = v => CH.t + ih - (v / MAX_CUST) * ih;
-  const YR = v => CH.t + ih - (v / MAX_AGE) * ih;
-  const ptsL = key => rows.map(r => X(r.year) + ',' + YL(r[key])).join(' ');
-  const ptsR = key => rows.map(r => X(r.year) + ',' + YR(r[key])).join(' ');
+  const maxV = niceMax(Math.max(FUKUSHIKI * 1.2, rows[0].total * 1.15, 10));
+  const X = y => CH.l + ((y - START_YEAR) / HORIZON) * iw;
+  const Y = v => CH.t + ih - (Math.min(v, maxV) / maxV) * ih;
   let s = '';
 
-  // 左軸（顧客数）のグリッドと目盛り
-  [0, 25, 50, 75, 100].forEach(v => {
-    const yy = YL(v);
+  // すでに生まれた子で確定しているゾーン
+  s += '<rect x="' + X(START_YEAR) + '" y="' + CH.t + '" width="' + (X(LOCKED_THROUGH) - X(START_YEAR)) + '" height="' + ih + '" fill="' + C.indigo + '" opacity="0.05"/>';
+  s += '<text x="' + ((X(START_YEAR) + X(LOCKED_THROUGH)) / 2) + '" y="' + (CH.t + 12) + '" text-anchor="middle" font-size="10" fill="' + C.inkSoft + '">すでに生まれた子で確定</text>';
+
+  // 縦軸のグリッドと目盛り
+  const ticks = 4;
+  for (let i = 0; i <= ticks; i++) {
+    const v = (maxV / ticks) * i, yy = Y(v);
     s += '<line x1="' + CH.l + '" y1="' + yy + '" x2="' + (CH.w - CH.r) + '" y2="' + yy + '" stroke="' + C.line + '" stroke-dasharray="3 3"/>';
-    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + v + '</text>';
-  });
-  // 右軸（平均年齢）の目盛り
-  [0, 20, 40, 60, 80].forEach(v => {
-    s += '<text x="' + (CH.w - CH.r + 8) + '" y="' + (YR(v) + 4) + '" text-anchor="start" font-size="11" fill="' + C.gold + '">' + v + '歳</text>';
-  });
+    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + Math.round(v) + '</text>';
+  }
   // 年
   for (let y = START_YEAR; y <= START_YEAR + HORIZON; y += 5) {
     s += '<text x="' + X(y) + '" y="' + (CH.h - 12) + '" text-anchor="middle" font-size="11" fill="' + C.inkSoft + '">' + y + '</text>';
   }
 
-  // 半減ライン
-  s += '<line x1="' + CH.l + '" y1="' + YL(50) + '" x2="' + (CH.w - CH.r) + '" y2="' + YL(50) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-  s += '<text x="' + (CH.w - CH.r - 4) + '" y="' + (YL(50) - 5) + '" text-anchor="end" font-size="11" fill="' + C.dawn + '">半減ライン</text>';
-  // 半減に到達する年
-  if (halfYear !== null) {
-    s += '<line x1="' + X(halfYear) + '" y1="' + CH.t + '" x2="' + X(halfYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-    s += '<text x="' + X(halfYear) + '" y="' + (CH.t - 3) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">' + halfYear + '年</text>';
+  // 目安ライン
+  if (FUKUSHIKI <= maxV) {
+    s += '<line x1="' + CH.l + '" y1="' + Y(FUKUSHIKI) + '" x2="' + (CH.w - CH.r) + '" y2="' + Y(FUKUSHIKI) + '" stroke="' + C.gold + '" stroke-dasharray="4 4"/>';
+    s += '<text x="' + (CH.w - CH.r - 4) + '" y="' + (Y(FUKUSHIKI) - 5) + '" text-anchor="end" font-size="11" fill="#b5872f">複式化の目安 48人</text>';
   }
+  s += '<line x1="' + CH.l + '" y1="' + Y(TOUHAIGOU) + '" x2="' + (CH.w - CH.r) + '" y2="' + Y(TOUHAIGOU) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
+  s += '<text x="' + (CH.w - CH.r - 4) + '" y="' + (Y(TOUHAIGOU) - 5) + '" text-anchor="end" font-size="11" fill="' + C.dawn + '">統廃合検討の目安 24人</text>';
 
-  s += '<polyline points="' + ptsL('cust') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
-  s += '<polyline points="' + ptsR('age') + '" fill="none" stroke="' + C.gold + '" stroke-width="2" stroke-dasharray="6 3" stroke-linejoin="round"/>';
+  // 統廃合の目安に届く年
+  if (touhaigouYear !== null && !alreadyTouhaigou) {
+    s += '<line x1="' + X(touhaigouYear) + '" y1="' + CH.t + '" x2="' + X(touhaigouYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
+    s += '<text x="' + X(touhaigouYear) + '" y="' + (CH.t - 4) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">' + touhaigouYear + '年</text>';
+  }
+  // いま見ている年
+  s += '<line x1="' + X(scrubYear) + '" y1="' + CH.t + '" x2="' + X(scrubYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.indigo + '" stroke-width="1.5" opacity="0.5"/>';
+
+  // 全校児童数（面＋線）
+  const area = rows.map(r => X(r.year) + ',' + Y(r.total)).join(' ')
+    + ' ' + X(START_YEAR + HORIZON) + ',' + Y(0) + ' ' + X(START_YEAR) + ',' + Y(0);
+  s += '<polygon points="' + area + '" fill="' + C.teal + '" fill-opacity="0.12"/>';
+  s += '<polyline points="' + rows.map(r => X(r.year) + ',' + Y(r.total)).join(' ') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
+  // 1年生
+  s += '<polyline points="' + rows.map(r => X(r.year) + ',' + Y(r.grade1)).join(' ') + '" fill="none" stroke="' + C.dawn + '" stroke-width="2" stroke-dasharray="6 3" stroke-linejoin="round"/>';
 
   document.getElementById('chart').innerHTML = s;
 }
 
+/* ===== scene（その年の学校の様子） ===== */
+function drawScene(row){
+  const total = row.total;
+  const grades = row.grades;
+  const closing = total < 10;
+  const warm = total >= TOUHAIGOU;
+
+  const skyTop = warm ? '#dfeaf0' : '#d3ccc2';
+  const ground = warm ? '#cdd6ad' : '#c2bda8';
+  const wall   = warm ? '#eef0ef' : '#d9d6cf';
+
+  const stage =
+    total >= FUKUSHIKI ? '校庭に、子どもたちの声が響く' :
+    total >= 34        ? '1クラスずつ、静かになっていく' :
+    total >= TOUHAIGOU ? '学年をまたいで、ひとつの教室に' :
+    total >= 10        ? '統廃合が検討される規模に' :
+                         'この校舎から、灯りが消える';
+
+  let s = '';
+  s += '<defs><linearGradient id="ssky" x1="0" y1="0" x2="0" y2="1">'
+    + '<stop offset="0%" stop-color="' + skyTop + '"/>'
+    + '<stop offset="100%" stop-color="' + (warm ? '#f2efe6' : '#c8c1b6') + '"/>'
+    + '</linearGradient></defs>';
+  s += '<rect x="0" y="0" width="760" height="300" fill="url(#ssky)"/>';
+  s += '<rect x="0" y="272" width="760" height="28" fill="' + ground + '"/>';
+
+  // 校舎
+  s += '<rect x="440" y="150" width="270" height="122" fill="' + wall + '"/>';
+  s += '<rect x="440" y="138" width="270" height="16" fill="' + (warm ? '#5a6f88' : '#8a8578') + '"/>';
+  s += '<circle cx="575" cy="130" r="10" fill="' + wall + '" stroke="' + C.inkSoft + '" stroke-width="1.5"/>';
+  // 教室の窓＝6学年
+  grades.forEach((g, i) => {
+    const wx = 452 + i * 42;
+    const combined = g > 0 && g < 8;
+    const empty = g < 1;
+    const fill = empty ? '#3a3550' : combined ? C.teal : C.gold;
+    const op = empty ? 0.55 : 1;
+    s += '<rect x="' + wx + '" y="168" width="32" height="34" rx="2" fill="' + fill + '" opacity="' + op + '"/>';
+    s += '<line x1="' + (wx + 16) + '" y1="168" x2="' + (wx + 16) + '" y2="202" stroke="' + wall + '" stroke-width="1.5"/>';
+    s += '<line x1="' + wx + '" y1="185" x2="' + (wx + 32) + '" y2="185" stroke="' + wall + '" stroke-width="1.5"/>';
+    s += '<text x="' + (wx + 16) + '" y="214" text-anchor="middle" font-size="8" fill="' + C.inkSoft + '">' + (i + 1) + '年</text>';
+    if (combined) s += '<text x="' + (wx + 16) + '" y="163" text-anchor="middle" font-size="9" fill="' + C.teal + '" font-weight="700">複</text>';
+  });
+  // 昇降口
+  s += '<rect x="558" y="236" width="34" height="36" fill="' + (closing ? '#4a4636' : '#6e6555') + '"/>';
+  if (closing) s += '<text x="575" y="260" text-anchor="middle" font-size="12" fill="#faf8f2" font-weight="800">閉</text>';
+
+  // 校門
+  const gate = closing ? '#7a715c' : '#8a7f66';
+  s += '<rect x="40" y="228" width="6" height="44" fill="' + gate + '"/>';
+  s += '<rect x="120" y="228" width="6" height="44" fill="' + gate + '"/>';
+  s += '<rect x="40" y="224" width="86" height="6" fill="' + gate + '"/>';
+  if (closing) s += '<line x1="46" y1="272" x2="120" y2="234" stroke="#7a715c" stroke-width="3"/>';
+
+  // 桜の木
+  s += '<rect x="180" y="222" width="7" height="50" fill="#7a6a4e"/>';
+  s += '<circle cx="183" cy="212" r="26" fill="' + C.sakura + '" opacity="' + (warm ? 0.9 : 0.55) + '"/>';
+  s += '<circle cx="168" cy="220" r="16" fill="' + C.sakura + '" opacity="' + (warm ? 0.85 : 0.5) + '"/>';
+  s += '<circle cx="200" cy="220" r="16" fill="' + C.sakura + '" opacity="' + (warm ? 0.85 : 0.5) + '"/>';
+
+  // 掲揚ポール（閉校時は旗なし）
+  s += '<rect x="410" y="180" width="3" height="92" fill="#8a8578"/>';
+  if (!closing) s += '<path d="M413,182 L440,188 L413,196 Z" fill="' + C.dawn + '" opacity="0.85"/>';
+
+  // 校庭の子ども（最大28体まで表示）
+  const shown = Math.min(total, 28);
+  const kidColors = [C.dawn, C.teal, C.gold, C.indigo];
+  for (let i = 0; i < shown; i++) {
+    const row2 = Math.floor(i / 14);
+    const x = 70 + (i % 14) * 45 + row2 * 22;
+    const y = 250 + row2 * 16;
+    s += '<circle cx="' + x + '" cy="' + y + '" r="3.4" fill="' + C.indigo + '"/>';
+    s += '<rect x="' + (x - 2.6) + '" y="' + (y + 3) + '" width="5.2" height="9" rx="2.2" fill="' + kidColors[i % 4] + '"/>';
+  }
+  if (total > 28) s += '<text x="70" y="242" font-size="11" fill="' + C.inkSoft + '">ほか ' + (total - 28) + ' 人</text>';
+
+  // 見出し
+  s += '<text x="380" y="26" text-anchor="middle" font-size="15" font-family="\'Shippori Mincho\',serif" font-weight="800" fill="' + (warm ? C.indigo : C.dawn) + '">' + stage + '</text>';
+
+  const svg = document.getElementById('scene');
+  svg.innerHTML = s;
+  svg.setAttribute('aria-label', '学校の様子: ' + stage);
+}
+
 /* ===== render ===== */
 function render(){
-  BANDS.forEach(b => {
-    document.getElementById('s-' + b.key).value = shares[b.key];
-    document.getElementById('v-' + b.key).textContent = shares[b.key] + '％';
+  SLIDERS.forEach(s => {
+    document.getElementById('s-' + s.key).value = P[s.key];
+    document.getElementById('v-' + s.key).textContent = P[s.key] + s.unit;
   });
-  document.getElementById('s-rate').value = newRate;
-  document.getElementById('v-rate').textContent = newRate + '％';
-  document.getElementById('shrinkInflow').checked = shrinkInflow;
   document.querySelectorAll('.preset').forEach(b => b.classList.toggle('on', Number(b.dataset.i) === presetIdx));
-  document.querySelectorAll('#newBandChips .chip').forEach(b => b.classList.toggle('on', b.dataset.band === newBand));
-  document.querySelectorAll('#exitAgeChips .chip').forEach(b => b.classList.toggle('on', Number(b.dataset.age) === exitAge));
 
-  const sim = simulate(shares, newRate, newBand, exitAge, shrinkInflow);
-  const rows = sim.rows, halfYear = sim.halfYear;
-  const avgNow   = rows[0].age;
-  const r2035    = rows.find(r => r.year === 2035);
-  const avg2035  = r2035 ? r2035.age : 0;
-  const size2035 = r2035 ? r2035.cust : 0;
-  const yearsToHalf = halfYear !== null ? halfYear - START_YEAR : null;
-  // 導火線: 残り年数が短いほど燃え進む（25年で満タン）
-  const fusePct = yearsToHalf === null ? 8 : Math.max(6, Math.min(96, (1 - yearsToHalf / HORIZON) * 100));
+  const sim = simulate(P.births, P.decline, P.rate);
+  const rows = sim.rows;
+  const now = rows[0];
+  const alreadyTouhaigou = now.total < TOUHAIGOU;
+  const yearsToTouhaigou = sim.touhaigouYear !== null ? sim.touhaigouYear - START_YEAR : null;
+  const fusePct = alreadyTouhaigou ? 96
+    : yearsToTouhaigou === null ? 6
+    : Math.max(6, Math.min(96, (1 - yearsToTouhaigou / HORIZON) * 100));
+  const scrubRow = rows.find(r => r.year === scrubYear) || rows[rows.length - 1];
 
-  // 新規顧客の年齢層が退出年齢以上＝流入ゼロ
-  document.getElementById('warnBand').classList.toggle('on', BANDS.find(b => b.key === newBand).from >= exitAge);
-  // 有効な年齢帯に顧客がいない＝計算が成り立たない状態
-  document.getElementById('fuseNote').classList.toggle('on', sim.empty);
+  document.getElementById('nowLine').innerHTML =
+    '現在の推計：1年生 <strong style="color:' + C.teal + '">約' + Math.round(now.grade1) + '人</strong>'
+    + ' ／ 全校児童 <strong style="color:' + C.teal + '">約' + now.total + '人</strong>';
 
-  document.getElementById('fuseBig').textContent = yearsToHalf !== null ? 'あと' + yearsToHalf + '年' : '25年以上';
-  document.getElementById('fuseAt').textContent = halfYear !== null
-    ? halfYear + '年に到達 ／ 2035年時点で' + Math.round(100 - size2035) + '％減'
-    : '';
+  document.getElementById('fuseBig').textContent =
+    alreadyTouhaigou ? 'すでに該当' : (yearsToTouhaigou !== null ? 'あと' + yearsToTouhaigou + '年' : '30年以上');
+  document.getElementById('fuseAt').textContent =
+    (sim.touhaigouYear !== null && !alreadyTouhaigou) ? sim.touhaigouYear + '年に到達' : '';
   document.getElementById('fuseFill').style.width = fusePct + '%';
   document.getElementById('fuseSpark').style.left = fusePct + '%';
 
-  document.getElementById('avgLine').innerHTML =
-    avgNow + '歳 → <span style="color:' + C.gold + '">' + avg2035 + '歳（2035年）</span>';
-  document.getElementById('thirtyYear').textContent =
-    sim.thirtyYear !== null ? sim.thirtyYear + '年' : '25年以内には到達せず';
+  document.getElementById('fukushikiYear').textContent = sim.fukushikiYear !== null ? sim.fukushikiYear + '年' : '30年以内には到達せず';
+  document.getElementById('closeYear').textContent = sim.closeYear !== null ? sim.closeYear + '年' : '30年以内には到達せず';
 
-  drawChart(rows, halfYear);
+  document.getElementById('sceneYear').textContent = scrubYear;
+  document.getElementById('sceneStat').textContent = '全校 ' + scrubRow.total + '人 ／ 1年生 ' + scrubRow.grade1 + '人';
+  document.getElementById('scrubYearText').textContent = scrubYear + '年';
+  document.getElementById('scrub').value = scrubYear;
+
+  drawChart(rows, sim.touhaigouYear, alreadyTouhaigou);
+  drawScene(scrubRow);
 }
 
 render();

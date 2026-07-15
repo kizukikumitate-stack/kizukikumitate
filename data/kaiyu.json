@@ -528,6 +528,36 @@
       ]
     },
     {
+      "id": "school-consolidation-countdown",
+      "path": "school-consolidation-countdown.html",
+      "title": "学校統廃合カウントダウン",
+      "tag": "未来リスク計算機",
+      "desc": "2032年に入学する子は、もう全員生まれている。複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "next": [
+        "caregiving-capacity-calculator",
+        "tax-revenue-countdown"
+      ]
+    },
+    {
+      "id": "caregiving-capacity-calculator",
+      "path": "caregiving-capacity-calculator.html",
+      "title": "介護の支え手計算機",
+      "tag": "未来リスク計算機",
+      "desc": "あなたが高齢期を迎える年、何人の現役世代がひとりの高齢者を支えているか。介護の担い手の不足を試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "next": [
+        "school-consolidation-countdown",
+        "ashimoto-map"
+      ]
+    },
+    {
       "id": "bellmark",
       "path": "bellmark-calculator.html",
       "title": "ベルマーク時給換算機",
