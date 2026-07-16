@@ -198,6 +198,24 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 2.4rem 1.5rem 2.6rem; }
+  .series-inner { max-width: 880px; margin: 0 auto; }
+  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1rem; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0.7rem; border-radius: 9px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .series-list .now { background: var(--ink); border-color: var(--ink); }
+  .series-no { font-family: 'Jost', sans-serif; font-size: 0.7rem; color: var(--gold-deep); flex-shrink: 0; }
+  .series-list .now .series-no { color: var(--gold); }
+  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.55; }
+  .series-list .now .series-name { color: var(--paper); }
+  .series-foot { font-size: 0.74rem; margin-top: 0.9rem; }
+  .series-foot a { color: var(--teal); }
+  .series-foot .now-hub { color: var(--ink-soft); }
+  @media print { .series-band { display: none !important; } }
   /* 感度レンジ。点推定を確定的に読ませないための、根拠のある幅 */
   .sens { font-size: 0.74rem; line-height: 1.9; opacity: 0.75; margin-top: 0.8rem; }
   .sens b { color: var(--gold); opacity: 1; }
@@ -549,7 +567,7 @@
   <div class="wrap">
     <p class="note">※ 簡易モデルによる試算です。全校児童数は「校区の出生数 × 就学率」を6学年分積み上げて推計し、途中の転出入は考慮していません。2031年までに入学する子はすでに生まれていますが、その人数は「いまの出生数が過去も同じだった」と仮定した近似値です（過去の実際の出生数は読み込んでいません）。2026年以降の出生数には想定減少率を適用します。複式学級・統廃合の目安（全校48人・24人）は目安であり、実際の基準は義務教育標準法や各自治体の方針で異なります。地域との対話の出発点としてお使いください。</p>
 <!-- CALC-COMMON START -->
-    <p class="note" style="margin-top:0.8rem">出典：出生数は利用者が入力したもので、外部の統計データは使っていません。学級編制の考え方は<a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_blank" rel="noopener">義務教育標準法</a>を参照していますが、本ページの目安（48人・24人）は簡略化したもので、実際の基準は各自治体の方針で異なります。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
+    <p class="note" style="margin-top:0.8rem">出典：出生数は利用者が入力したもので、外部の統計データは使っていません。学級編制の考え方は<a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_blank" rel="noopener">義務教育標準法</a>を参照していますが、本ページの目安（48人・24人）は簡略化したもので、実際の基準は各自治体の方針で異なります。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。いまのやり方・いまの生産性が続く前提で計算しており、技術や制度の変化（介護ロボットや自動化など）は織り込んでいません。変われば前提そのものが変わりますが、いつ来るか分からないものはリードタイムを見積もれないため、待つことは打ち手になりません。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
     <div class="license">
       &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）　<span class="ver">ver 1.1</span>（2026年7月16日）<br>
       この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E5%AD%A6%E6%A0%A1%E7%B5%B1%E5%BB%83%E5%90%88%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3%20ver%201.1%EF%BC%89">ご意見</a> をお寄せください。<br>
@@ -620,6 +638,23 @@
 </div>
 </aside>
 <!-- KAIYU END -->
+
+<!-- SERIES START -->
+<aside class="series-band" aria-label="未来のリスク計算機シリーズ">
+  <div class="series-inner">
+    <p class="series-head">未来のリスク計算機（全6本）</p>
+    <ul class="series-list">
+        <li><a href="./customer-age-timebomb.html"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></a></li>
+        <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
+        <li><a href="./tax-revenue-countdown.html"><span class="series-no">03</span><span class="series-name">税収カウントダウン</span></a></li>
+        <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
+        <li><span class="now" aria-current="page"><span class="series-no">05</span><span class="series-name">学校統廃合カウントダウン</span></span></li>
+        <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
+    </ul>
+    <p class="series-foot"><a href="./risk-calculators.html">このシリーズについて（前提・出典・免責・変更履歴）</a></p>
+  </div>
+</aside>
+<!-- SERIES END -->
 
 <!-- FOOTER START -->
 <footer>

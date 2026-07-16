@@ -317,6 +317,81 @@ TALK_START = "<!-- TALK START -->"
 TALK_END = "<!-- TALK END -->"
 
 
+# ===== シリーズ6本のフッター帯 =====
+# 計算機を見ている人が、ナビを開かずに他の5本へ移れるようにする。
+# 出すのは「計算機6本＋ハブ」の7ページだけ（森本さん判断）。PTAキットや妖怪診断の
+# 下に「税収カウントダウン」が並ぶのは筋が悪いので、サイト全体には出さない。
+# 置き場所は回遊バンドとサイト共通フッターの間（どちらも別スクリプトの生成物なので、
+# その外側に自前のマーカーを持つ）。
+SERIES_START = "<!-- SERIES START -->"
+SERIES_END = "<!-- SERIES END -->"
+
+# (ファイル名, 番号, 表示名)
+SERIES = [
+    ("customer-age-timebomb.html", "01", "顧客の平均年齢時限爆弾"),
+    ("recruitment-extinction.html", "02", "採用市場消滅計算機"),
+    ("tax-revenue-countdown.html", "03", "税収カウントダウン"),
+    ("skill-succession-timebomb.html", "04", "技能承継時限爆弾"),
+    ("school-consolidation-countdown.html", "05", "学校統廃合カウントダウン"),
+    ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
+]
+
+SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 2.4rem 1.5rem 2.6rem; }
+  .series-inner { max-width: 880px; margin: 0 auto; }
+  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1rem; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0.7rem; border-radius: 9px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .series-list .now { background: var(--ink); border-color: var(--ink); }
+  .series-no { font-family: 'Jost', sans-serif; font-size: 0.7rem; color: var(--gold-deep); flex-shrink: 0; }
+  .series-list .now .series-no { color: var(--gold); }
+  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.55; }
+  .series-list .now .series-name { color: var(--paper); }
+  .series-foot { font-size: 0.74rem; margin-top: 0.9rem; }
+  .series-foot a { color: var(--teal); }
+  .series-foot .now-hub { color: var(--ink-soft); }
+  @media print { .series-band { display: none !important; } }"""
+
+
+def series_band(current, prefix="./"):
+    """current = 現在のページのファイル名。ハブなら 'hub'。"""
+    items = []
+    for path, num, name in SERIES:
+        inner = f'<span class="series-no">{num}</span><span class="series-name">{name}</span>'
+        if path == current:
+            items.append(f'        <li><span class="now" aria-current="page">{inner}</span></li>')
+        else:
+            items.append(f'        <li><a href="{prefix}{path}">{inner}</a></li>')
+    hub = ('<span class="now-hub">このシリーズについて（前提・出典・免責・変更履歴）― いまご覧のページです</span>'
+           if current == "hub" else
+           f'<a href="{prefix}{HUB}">このシリーズについて（前提・出典・免責・変更履歴）</a>')
+    return (SERIES_START + '\n'
+            '<aside class="series-band" aria-label="未来のリスク計算機シリーズ">\n'
+            '  <div class="series-inner">\n'
+            '    <p class="series-head">未来のリスク計算機（全6本）</p>\n'
+            '    <ul class="series-list">\n'
+            + "\n".join(items) + '\n'
+            '    </ul>\n'
+            f'    <p class="series-foot">{hub}</p>\n'
+            '  </div>\n'
+            '</aside>\n' + SERIES_END)
+
+
+def put_series(s, path, current):
+    """回遊バンドとサイト共通フッターの間に差す（どちらの生成物も壊さない）。"""
+    band = series_band(current)
+    if SERIES_START in s:
+        return re.sub(re.escape(SERIES_START) + r".*?" + re.escape(SERIES_END),
+                      lambda m: band, s, count=1, flags=re.S)
+    anchor = "<!-- FOOTER START -->"
+    if s.count(anchor) != 1:
+        raise SystemExit(f"{path}: FOOTER マーカーが {s.count(anchor)} 個")
+    return s.replace(anchor, band + "\n\n" + anchor, 1)
+
+
 # path -> (シリーズ番号, タイトル, 出典の一文)
 PAGES = {
     "customer-age-timebomb.html": (
@@ -359,6 +434,17 @@ DISCLAIMER = (
     "これに基づく判断・意思決定の結果について当工房は責任を負いかねます。"
 )
 
+# 技術・制度の変化を織り込んでいないこと。
+# ★書き方に注意: 「技術が解決するかも」と書きすぎると先送りの免罪符になり、
+#   このツールが戦っている当のものになる。「前提は変わりうる／ただし待つのは
+#   打ち手にならない」の両方を必ずセットで書く（詳細はハブの前提5）。
+INNOVATION = (
+    "いまのやり方・いまの生産性が続く前提で計算しており、"
+    "技術や制度の変化（介護ロボットや自動化など）は織り込んでいません。"
+    "変われば前提そのものが変わりますが、いつ来るか分からないものはリードタイムを見積もれないため、"
+    "待つことは打ち手になりません。"
+)
+
 MARK_START = "<!-- CALC-COMMON START -->"
 MARK_END = "<!-- CALC-COMMON END -->"
 
@@ -382,7 +468,7 @@ def build_common(num, title, source):
     ★ <p> は必ず1行で書く。句読点の後で改行すると mobile-preflight の
       Pattern A（句読点孤立・widow の原因）に引っかかる。
     """
-    note = (f'{source}<br>{DISCLAIMER}'
+    note = (f'{source}<br>{DISCLAIMER}{INNOVATION}'
             f'前提・出典の詳細と変更履歴は <a href="./{HUB}" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。')
     return f"""{MARK_START}
     <p class="note" style="margin-top:0.8rem">{note}</p>
@@ -514,6 +600,11 @@ def process(path, num, title, source):
             raise SystemExit(f"{path}: 末尾の render(); が {s.count(tail)} 個")
         s = s.replace(tail, "\nrender();\n" + DIALOGUE_JS + "</script>", 1)
 
+    # --- 3.7 シリーズ6本のフッター帯 ---
+    if ".series-band {" not in s:
+        s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + SERIES_CSS, 1)
+    s = put_series(s, path, path)
+
     # --- 4. 共通ブロック（マーカーがあれば中身を差し替え＝冪等） ---
     block = build_common(num, title, source)
     if MARK_START in s:
@@ -531,6 +622,28 @@ def process(path, num, title, source):
     return None
 
 
+def process_hub(check):
+    """ハブページ（risk-calculators.html）にも同じ帯を出す。
+    ハブは計算機ではないので PAGES のループには乗せず、帯とCSSだけ入れる。"""
+    p = ROOT / HUB
+    s = orig = p.read_text(encoding="utf-8")
+    if ".series-band {" not in s:
+        anchor = "  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }"
+        if anchor not in s:
+            raise SystemExit(f"{HUB}: note の CSS が見つかりません")
+        s = s.replace(anchor, anchor + "\n" + SERIES_CSS, 1)
+    s = put_series(s, HUB, "hub")
+    if s == orig:
+        print(f"  ✅ {HUB}: 変更なし")
+        return 0
+    if check:
+        print(f"  ⚠️  {HUB}: 差分あり（--check のため書き込みません）")
+    else:
+        p.write_text(s, encoding="utf-8")
+        print(f"  ✏️  {HUB}: シリーズ帯を更新")
+    return 1
+
+
 def main():
     check = "--check" in sys.argv
     changed = 0
@@ -545,7 +658,8 @@ def main():
         else:
             (ROOT / path).write_text(out, encoding="utf-8")
             print(f"  ✏️  {path}: 共通パーツを更新（{num} {title} / ver {VERSION}）")
-    print(f"完了: {changed} ページ（対象 {len(PAGES)} ページ / ver {VERSION}）")
+    changed += process_hub(check)
+    print(f"完了: {changed} ページ（対象 {len(PAGES)} ページ＋ハブ / ver {VERSION}）")
     if check and changed:
         sys.exit(1)
 

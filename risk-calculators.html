@@ -145,6 +145,24 @@
   .prose + .prose { margin-top: 0.9rem; }
   .prose a, .card a { color: var(--teal); }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 2.4rem 1.5rem 2.6rem; }
+  .series-inner { max-width: 880px; margin: 0 auto; }
+  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1rem; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0.7rem; border-radius: 9px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .series-list .now { background: var(--ink); border-color: var(--ink); }
+  .series-no { font-family: 'Jost', sans-serif; font-size: 0.7rem; color: var(--gold-deep); flex-shrink: 0; }
+  .series-list .now .series-no { color: var(--gold); }
+  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.55; }
+  .series-list .now .series-name { color: var(--paper); }
+  .series-foot { font-size: 0.74rem; margin-top: 0.9rem; }
+  .series-foot a { color: var(--teal); }
+  .series-foot .now-hub { color: var(--ink-soft); }
+  @media print { .series-band { display: none !important; } }
   /* ライセンス表記。サイト共通フッターとは別物なので footer 要素ではなく div で作る
      （footer 要素にすると scripts/update-nav.py の locate_footer がこちらを先に掴み、
      マーカー破損時に誤置換される。同じ理由でこのコメントにもタグ名を書かない） */
@@ -500,6 +518,8 @@
       <p class="prose"><strong>2. 「何もしなかった場合」を描いています。</strong>対策を打てば線は変わります。むしろ変えるために使ってください。出てきた年は「予言」ではなく「このままなら」の話です。</p>
       <p class="prose"><strong>3. 入力した数字は、どこにも送信されません。</strong>すべてブラウザの中だけで計算しています（アクセス解析でページの閲覧数は取得していますが、入力値は一切送信・保存していません）。安心して実際の数字を入れてください。</p>
       <p class="prose"><strong>4. すでに決まっている部分と、想定の部分があります。</strong>すでに生まれた人の数は動きません（例：2032年に小学校へ入学する子は、もう全員生まれています）。一方で出生数の今後や退職の動きは想定です。ただし<strong>計算機がその実数を持っているとは限りません</strong>。多くは入力された数字からの近似で、各ページの但し書きにどこまでが近似かを書いています。</p>
+      <p class="prose"><strong>5. 技術や制度が変われば、前提そのものが変わります。</strong>どの計算機も「いまのやり方、いまの生産性が続く」という前提で計算しています。たとえば介護の計算機は、要介護の人ひとりを支えるのに必要な職員数を、2120年まで同じだと置いています。<strong>100年間、介護のやり方がまったく変わらないという前提</strong>です。現実には介護ロボットや自動化、制度の変更、働き方の変化が起こりえます。その意味で、ここに出る年は決定論ではありません。</p>
+      <p class="prose">ただし、ひとつ注意が要ります。<strong>「いつか技術が解決する」は、打ち手にはなりません。</strong>いつ実用になるか分からないものには、リードタイム（着手から効き始めるまでの年数）を見積もれないからです。しかも技術が現れてから現場で使えるようになるまでにも、また時間がかかります。技術に期待するのは自由ですが、<strong>期待を計画の代わりにすると、期限だけが静かに過ぎていきます</strong>。技術は「来たら前提が変わるもの」であって、「来るのを待つもの」ではない、というのがこの計算機の立場です。</p>
     </div>
   </div>
 </section>
@@ -566,6 +586,8 @@
           <li>数字を見たあとの<strong>対話の問い</strong>と、印刷して会議で配れる<strong>意思決定記録</strong>を全6本に追加しました（回答はブラウザにのみ保存され、送信されません）。矢巾町のフューチャー・デザインにならって「立場を変えて考える」問いも入れています。</li>
           <li><strong>感度レンジ</strong>を追加しました。主要な入力を±20％動かすと年がどこまで動くかを表示します。予測の信頼区間ではなく、感度分析です。</li>
           <li><a href="#too-late">「もう手遅れ」と出たときに、できること</a>を追加しました。期限を過ぎたと表示するだけで放り出さないよう、計算機の表示からこの節へ直接飛べるようにしています。</li>
+          <li><strong>「技術や制度が変われば、前提そのものが変わります」を前提に追加しました（前提5）。</strong>どの計算機も、いまのやり方・いまの生産性が続く前提で計算しています。介護ロボットや自動化は織り込んでいません。ただし「いつか技術が解決する」は打ち手にならない（リードタイムを見積もれない）ことも併せて書いています。</li>
+          <li>計算機6本とこのページの下部に、<strong>シリーズ6本の一覧</strong>を常に表示するようにしました。ナビを開かずに他の計算機へ移れます。</li>
           <li><strong>介護の支え手計算機（06）の人口データを、公式の公表値に差し替えました。</strong>従来は「近似値」を使い「2070年以降は横ばい」と仮定していましたが、社人研が2071〜2120年の長期参考推計を公表していることが分かったため、実データに置き換えています。あわせて、従来の近似値には誤差がありました（85歳以上人口は最大で3割ほど多く、2060年の生産年齢人口は約285万人少なく置かれていました）。<strong>これにより介護職員の不足はやや小さく、支え手比率は2060年前後でやや高く出るようになります。</strong>いまは全年で公表値と一致しています。</li>
         </ul>
         <p style="margin-top:0.9rem"><span class="log-ver">ver 1.0</span> ─ 2026年7月15日</p>
@@ -660,6 +682,23 @@
 </div>
 </aside>
 <!-- KAIYU END -->
+
+<!-- SERIES START -->
+<aside class="series-band" aria-label="未来のリスク計算機シリーズ">
+  <div class="series-inner">
+    <p class="series-head">未来のリスク計算機（全6本）</p>
+    <ul class="series-list">
+        <li><a href="./customer-age-timebomb.html"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></a></li>
+        <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
+        <li><a href="./tax-revenue-countdown.html"><span class="series-no">03</span><span class="series-name">税収カウントダウン</span></a></li>
+        <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
+        <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校統廃合カウントダウン</span></a></li>
+        <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
+    </ul>
+    <p class="series-foot"><span class="now-hub">このシリーズについて（前提・出典・免責・変更履歴）― いまご覧のページです</span></p>
+  </div>
+</aside>
+<!-- SERIES END -->
 
 <!-- FOOTER START -->
 <footer>
