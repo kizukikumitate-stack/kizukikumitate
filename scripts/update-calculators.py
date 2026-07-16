@@ -328,10 +328,13 @@ SERIES_START = "<!-- SERIES START -->"
 SERIES_END = "<!-- SERIES END -->"
 
 # (ファイル名, 番号, 表示名)
+# ★03 税収カウントダウンは 2026-07-16 から一時非表示（測り方の見直し中）。
+#   ここから外すと帯・件数表示・他ページからの導線がすべて消える。
+#   ページ自体は PAGES/DEADLINE/SENS に残してあるので共通パーツは維持される。
+#   復帰時はこの行を戻すこと → ("tax-revenue-countdown.html", "03", "税収カウントダウン")
 SERIES = [
     ("customer-age-timebomb.html", "01", "顧客の平均年齢時限爆弾"),
     ("recruitment-extinction.html", "02", "採用市場消滅計算機"),
-    ("tax-revenue-countdown.html", "03", "税収カウントダウン"),
     ("skill-succession-timebomb.html", "04", "技能承継時限爆弾"),
     ("school-consolidation-countdown.html", "05", "学校統廃合カウントダウン"),
     ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
@@ -372,7 +375,7 @@ def series_band(current, prefix="./"):
     return (SERIES_START + '\n'
             '<aside class="series-band" aria-label="未来のリスク計算機シリーズ">\n'
             '  <div class="series-inner">\n'
-            '    <p class="series-head">未来のリスク計算機（全6本）</p>\n'
+            f'    <p class="series-head">未来のリスク計算機（全{len(SERIES)}本）</p>\n'
             '    <ul class="series-list">\n'
             + "\n".join(items) + '\n'
             '    </ul>\n'

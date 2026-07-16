@@ -525,7 +525,7 @@
       "band": true,
       "next": [
         "recruitment-extinction",
-        "tax-revenue-countdown"
+        "skill-succession-timebomb"
       ]
     },
     {
@@ -540,7 +540,7 @@
       "band": true,
       "next": [
         "customer-age-timebomb",
-        "tax-revenue-countdown"
+        "skill-succession-timebomb"
       ]
     },
     {
@@ -553,6 +553,8 @@
       "category": "mirai",
       "added": "2026-07-15",
       "band": true,
+      "_hidden": "2026-07-16 測り方の見直しのため一時非表示。auto:false ＋ どのページの next からも外し、ナビ・sitemap・シリーズ帯からも削除済み。再公開するときは auto を消し、nav.json のドロップダウン・sitemap・scripts/update-calculators.py の SERIES とハブの一覧／出典表に戻す",
+      "auto": false,
       "next": [
         "ashimoto-map",
         "shikumi-zukan"
@@ -570,7 +572,7 @@
       "band": true,
       "next": [
         "caregiving-capacity-calculator",
-        "tax-revenue-countdown"
+        "ashimoto-map"
       ]
     },
     {

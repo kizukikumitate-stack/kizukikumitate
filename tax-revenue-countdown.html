@@ -22,6 +22,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>税収カウントダウン｜まちの財政が持たなくなる年を計算する | きづきくみたて工房</title>
 <meta name="description" content="人口が入れ替わると、税収が下がりながら社会保障費が上がる「ワニの口」が開きます。人口と財政の数字を入れるだけで、税収が歳出を賄えなくなる年を試算。その年のまちの様子もイラストで変化します。無料ツール。">
+<!-- 2026-07-16 測り方の見直しのため一時非表示。ナビ・一覧・sitemap から外し、検索にも出さない。
+     再公開するときは、この robots 行と下の notice ブロックを外す -->
+<meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://kizukikumitate.com/tax-revenue-countdown.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
@@ -131,11 +134,11 @@
   .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
   .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-soft); }
 
-  #hero { padding: 8.5rem 0 3rem; }
+  #hero { padding: 1.6rem 0 3rem; }   /* 上の余白は #notice が持つ（再公開時は 8.5rem に戻す） */
   #hero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(2rem, 4vw, 4.8rem); line-height: 1.25; margin: 0.7rem 0 1rem; color: var(--ink); }
   #hero h1 .accent { color: var(--dawn); }
   .lede { font-size: 0.95rem; font-weight: 300; line-height: 2.05; color: var(--ink-soft); max-width: 46em; }
-  @media (max-width: 768px) { #hero { padding-top: 7rem; } #hero h1 { font-size: 1.8rem; white-space: normal; } }
+  @media (max-width: 768px) { #hero { padding-top: 1.2rem; } #hero h1 { font-size: 1.8rem; white-space: normal; } }
   @media (max-width: 540px) { #hero h1 { font-size: 1.4rem; white-space: normal; } }
 
   section { padding: 2.2rem 0; }
@@ -197,6 +200,14 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* 一時非表示中のお知らせ（再公開時に削除） */
+  #notice { padding: 7.5rem 0 0; }
+  @media (max-width: 768px) { #notice { padding-top: 6rem; } }
+  .notice-box { background: #fbeee9; border: 2px solid var(--dawn); border-radius: 12px; padding: 1.1rem 1.2rem; }
+  .notice-box p { font-size: 0.82rem; line-height: 1.95; color: var(--ink-soft); }
+  .notice-box p + p { margin-top: 0.5rem; }
+  .notice-box strong { color: var(--dawn); font-weight: 600; }
+  .notice-links a { color: var(--teal); }
   /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
   .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 2.4rem 1.5rem 2.6rem; }
   .series-inner { max-width: 880px; margin: 0 auto; }
@@ -325,7 +336,6 @@
         <a href="./risk-calculators.html">このシリーズについて</a>
         <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
         <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
-        <a href="./tax-revenue-countdown.html" class="active">税収カウントダウン</a>
         <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
         <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
         <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
@@ -395,7 +405,6 @@
       <a href="./risk-calculators.html">このシリーズについて</a>
       <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
       <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
-      <a href="./tax-revenue-countdown.html" class="active">税収カウントダウン</a>
       <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
       <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
       <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
@@ -413,6 +422,16 @@
   </div>
 </div>
 <!-- NAV END -->
+
+<section id="notice">
+  <div class="wrap">
+    <div class="notice-box">
+      <p><strong>この計算機は、いま測り方を見直しています。</strong></p>
+      <p>「税収が歳出を賄えなくなる年」を数えていましたが、自治体は自主財源だけでは歳出を賄えないのが平常運転で（その差を埋めるのが地方交付税）、ほとんどの条件で初年度から該当してしまい、カウントダウンとして機能していませんでした。基準を入れ替えたものの、まだ練り直しの途中です。<strong>ここに出る数字は、いったん参考程度にご覧ください。</strong>シリーズの他の計算機からは、一時的に外しています。</p>
+      <p class="notice-links"><a href="./risk-calculators.html">未来のリスク計算機について</a>　／　<a href="./risk-calculators.html#too-late">ほかの計算機を見る</a></p>
+    </div>
+  </div>
+</section>
 
 <section id="hero">
   <div class="wrap">
@@ -624,11 +643,10 @@
 <!-- SERIES START -->
 <aside class="series-band" aria-label="未来のリスク計算機シリーズ">
   <div class="series-inner">
-    <p class="series-head">未来のリスク計算機（全6本）</p>
+    <p class="series-head">未来のリスク計算機（全5本）</p>
     <ul class="series-list">
         <li><a href="./customer-age-timebomb.html"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></a></li>
         <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
-        <li><span class="now" aria-current="page"><span class="series-no">03</span><span class="series-name">税収カウントダウン</span></span></li>
         <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
         <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校統廃合カウントダウン</span></a></li>
         <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
