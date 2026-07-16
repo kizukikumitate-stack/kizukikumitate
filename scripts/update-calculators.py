@@ -336,7 +336,7 @@ SERIES = [
     ("customer-age-timebomb.html", "01", "顧客の平均年齢時限爆弾"),
     ("recruitment-extinction.html", "02", "採用市場消滅計算機"),
     ("skill-succession-timebomb.html", "04", "技能承継時限爆弾"),
-    ("school-consolidation-countdown.html", "05", "学校統廃合カウントダウン"),
+    ("school-consolidation-countdown.html", "05", "学校の分岐点"),
     ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
 ]
 
@@ -417,7 +417,7 @@ PAGES = {
         "出典：外部の統計データは使っていません（入力された数字だけで計算しています）。",
     ),
     "school-consolidation-countdown.html": (
-        "05", "学校統廃合カウントダウン",
+        "05", "学校の分岐点",
         # 出生数は利用者入力のみ。人口動態統計の実績値は読み込んでいない
         f"出典：出生数は利用者が入力したもので、外部の統計データは使っていません。"
         f"学級編制の考え方は{EGOV_SCHOOL}を参照していますが、"
