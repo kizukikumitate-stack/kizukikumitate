@@ -33,7 +33,7 @@ HUB = "risk-calculators.html"
 
 # 出典はすべて到達確認済みのURLのみ。リンク切れを載せるのは本末転倒なので、
 # 追加するときは必ず curl で 200 を確認してから書くこと。
-IPSS = '<a href="https://www.ipss.go.jp/pp-zenkoku/j/zenkoku2023/pp_zenkoku2023.asp" target="_blank" rel="noopener">日本の将来推計人口（2023年推計・出生中位）</a>'
+IPSS = '<a href="https://www.ipss.go.jp/pp-zenkoku/j/zenkoku2023/pp_zenkoku2023.asp" target="_blank" rel="noopener">日本の将来推計人口（令和5年推計・出生中位）</a>'
 MHLW_VITAL = '<a href="https://www.mhlw.go.jp/toukei/list/81-1a.html" target="_blank" rel="noopener">人口動態統計</a>'
 MHLW_LIFE = '<a href="https://www.mhlw.go.jp/toukei/saikin/hw/life/life24/index.html" target="_blank" rel="noopener">簡易生命表</a>'
 MHLW_KAIGO = '<a href="https://www.mhlw.go.jp/topics/kaigo/toukei/joukyou.html" target="_blank" rel="noopener">介護保険事業状況報告</a>'
@@ -346,7 +346,10 @@ PAGES = {
     ),
     "caregiving-capacity-calculator.html": (
         "06", "介護の支え手計算機",
-        f"出典：人口は国立社会保障・人口問題研究所「{IPSS}」の近似値、"
+        # 2070年までは基本推計 表1-9A、2071〜2120年は長期参考推計 参考表1-9A の公表値
+        # （以前は「近似値・2070年以降は横ばい」としていたが、実データに置き換えた）
+        f"出典：人口は国立社会保障・人口問題研究所「{IPSS}」の公表値"
+        f"（2070年までは基本推計、2071〜2120年は同研究所の長期参考推計）、"
         f"要介護認定率・介護職員数は厚生労働省「{MHLW_KAIGO}」の概数。",
     ),
 }
