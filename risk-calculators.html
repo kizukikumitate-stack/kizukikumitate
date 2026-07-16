@@ -164,6 +164,14 @@
   .item-name { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.92rem; color: var(--ink); line-height: 1.6; }
   .item-desc { display: block; font-family: 'Noto Serif JP', serif; font-size: 0.74rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; margin-top: 0.2rem; }
 
+  /* ===== 事例 ===== */
+  .cases dt { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.92rem; color: var(--ink); line-height: 1.7; margin-top: 1.5rem; padding-left: 0.8rem; border-left: 3px solid var(--gold); }
+  .cases dt:first-child { margin-top: 0; }
+  .cases dd { margin-left: 0; margin-top: 0.5rem; font-size: 0.84rem; line-height: 2.05; color: var(--ink-soft); }
+  .cases dd strong { color: var(--ink); font-weight: 600; }
+  .cases dd a { color: var(--teal); }
+  .case-src { display: block; margin-top: 0.5rem; font-size: 0.7rem; line-height: 1.9; color: var(--mid-gray); }
+
   /* ===== 出典表 ===== */
   .src { font-size: 0.8rem; line-height: 1.95; color: var(--ink-soft); }
   .src dt { font-weight: 600; color: var(--ink); margin-top: 0.8rem; }
@@ -194,7 +202,8 @@
      折るため、禁則を守ったまま収まる（未対応の Firefox は normal にフォールバック） */
   @media (max-width: 768px) {
     body, p, li, dd, dt, blockquote, figcaption,
-    .lede, .prose, .note, .src, .log, .fb p, .item-desc, .item-name, .ver {
+    .lede, .prose, .note, .src, .log, .fb p, .item-desc, .item-name, .ver,
+    .cases dt, .cases dd, .case-src {
       word-break: auto-phrase;
       overflow-wrap: break-word;
       line-break: strict;
@@ -405,6 +414,35 @@
   </div>
 </section>
 
+<!-- 政策・対話に変えている場所 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>数字を、対話や政策に変えている場所があります</h2>
+      <p class="prose" style="margin-bottom:1.2rem">この計算機を使うと、たいてい気持ちが重くなります。けれど、同じ数字を前にして「では、どうするか」の仕組みを作った場所が、日本にも海外にもあります。うまくいった話だけでなく、うまくいかなかった話も並べます。<strong>どれも「正解」ではなく、参考になる先例です。</strong></p>
+
+      <dl class="cases">
+        <dt>仮想将来世代になって話し合う ― 岩手県矢巾町（フューチャー・デザイン）</dt>
+        <dd>参加者の一部が「数十年先の住民になりきって」議論する手法です。矢巾町では2015年度に約6か月の討議を実施し、町民を<strong>現世代グループと仮想将来世代グループ</strong>に分けて、それぞれ別々にまちの計画を検討したうえで、最後に両者で合意形成を行いました。結果として、<strong>最終的な合意案の半数以上が、仮想将来世代グループの提案から採られました</strong>。同じ町民が、立場を変えるだけで違う結論を出したということです。町は2019年に「未来戦略室」、2023年に「未来戦略課」を置いて、この考え方を町政に組み込んでいます。手法は高知工科大学フューチャー・デザイン研究所の西條辰義さんらが提唱したものです。<span class="case-src"><a href="https://www.rieti.go.jp/jp/special/special_report/197.html" target="_blank" rel="noopener">RIETI（経済産業研究所）の解説</a>／<a href="https://www.town.yahaba.iwate.jp/soshiki/mirai/" target="_blank" rel="noopener">矢巾町 未来戦略課</a>／<a href="https://www.jstage.jst.go.jp/article/reeps/11/2/11_29/_article/-char/ja/" target="_blank" rel="noopener">西條辰義「フューチャー・デザイン」（2018）</a></span></dd>
+
+        <dt>「統合ありき」にしない ― 文部科学省の学校統廃合の手引き</dt>
+        <dd>05の計算機に関わる話です。国の手引き（2015年1月）は、統廃合を推進するための文書ではありません。<strong>「学校統合により魅力ある学校づくりを行う場合や、小規模校のデメリットの克服を図りつつ学校の存続を選択する場合等の複数の選択がある」</strong>と明記し、判断するのは市町村教育委員会だとしています。数字が出ても、選択肢は二つではありません。<span class="case-src"><a href="https://www.mext.go.jp/a_menu/shotou/shugaku/detail/1354768.htm" target="_blank" rel="noopener">文部科学省「公立小学校・中学校の適正規模・適正配置等に関する手引」</a></span></dd>
+
+        <dt>長期の見通しを、全自治体に義務づける ― 公共施設等総合管理計画</dt>
+        <dd>2014年4月、総務省は全国の自治体に、公共施設の総合的・計画的な管理の計画を作るよう要請しました。人口減少と施設の老朽化を数十年単位で見通し、「このままでは持たない」を先に可視化させる仕組みです。<strong>つまり、この計算機がやっていることの本番は、すでに全自治体の義務になっています。</strong>お住まいの自治体の計画は公表されているので、実際の数字はそちらで確認できます。<span class="case-src"><a href="https://www.soumu.go.jp/iken/kanrikeikaku.html" target="_blank" rel="noopener">総務省 公共施設等総合管理計画（各団体の公表状況）</a></span></dd>
+
+        <dt>将来世代の代弁者を、法律で置く ― ウェールズ（英国）</dt>
+        <dd>2015年の「将来世代の幸福法（Well-being of Future Generations (Wales) Act 2015）」で、<strong>将来世代コミッショナー</strong>という法定の役職を置きました。公的機関は勧告に「従うためあらゆる合理的手段を講じる」義務を負い、従わない場合は理由と代替案を公表しなければなりません（強制はできません）。法は2026年時点も施行中です。<br>ただし、<strong>効果は限定的だという公式評価もあります。</strong>ウェールズの会計検査機関は2025年、10年間を振り返って「法は注目度を高めたが、<strong>意図された制度全体の変化は起こしていない</strong>」と結論しました。仕組みを作れば変わる、という単純な話ではないようです。<span class="case-src"><a href="https://www.legislation.gov.uk/anaw/2015/2/contents" target="_blank" rel="noopener">法令原文（legislation.gov.uk）</a>／<a href="https://www.audit.wales/publication/no-time-lose-lessons-our-work-under-well-being-future-generations-act" target="_blank" rel="noopener">Audit Wales「No time to lose」（2025）</a></span></dd>
+
+        <dt>続かなかった例 ― イスラエルの未来世代委員会</dt>
+        <dd>2001年に議会（クネセト）に置かれ、法案を遅らせる権限まで持っていましたが、<strong>2006年に後任が任命されず、事実上活動を終えました</strong>。議事に残る理由は「権限が強すぎる」「コストがかかる」。将来世代のための仕組みは、作っても続くとは限りません。<strong>この計算機も同じで、置いておくだけでは何も変わりません。</strong><span class="case-src"><a href="https://m.knesset.gov.il/EN/activity/mmm/me03194.pdf" target="_blank" rel="noopener">クネセト調査資料（英語・PDF）</a></span></dd>
+      </dl>
+
+      <p class="prose" style="margin-top:1.4rem">並べてみると、共通しているのは<strong>「誰かが将来世代の側に立って発言する場を、意識して作っている」</strong>ことです。放っておくと、目の前の利害を持つ人の声だけが大きくなるからです。矢巾町の実験が示しているのは、そのために特別な人が要るわけではない、ということでもあります。同じ町民が、立場を変えて話しただけでした。</p>
+    </div>
+  </div>
+</section>
+
 <!-- 共通の前提 -->
 <section>
   <div class="wrap">
@@ -478,6 +516,7 @@
         <ul>
           <li>版の管理を開始しました（全6本）。</li>
           <li>前提・出典・免責・ライセンス・変更履歴をこのページに集約しました。</li>
+          <li>「数字を、対話や政策に変えている場所があります」を追加しました（矢巾町のフューチャー・デザイン、文部科学省の学校統廃合の手引き、公共施設等総合管理計画、ウェールズの将来世代法とその公式評価、イスラエルの廃止例）。</li>
         </ul>
       </div>
     </div>
