@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+  未来リスク計算機シリーズ 04 学校統廃合カウントダウン
+  (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  License: CC BY-NC-SA 4.0
+  https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
+  非営利利用: クレジット表記＋同ライセンス継承で自由
+  商用利用: 要事前許諾 → kizukikumitate.com へご相談ください
+-->
 <html lang="ja">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -189,6 +197,11 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* ライセンス表記（CC BY-NC-SA 4.0）。サイト共通フッターとは別物なので
+     footer 要素ではなく div で作る。footer 要素にすると scripts/update-nav.py の
+     locate_footer がこちらを先に掴み、マーカー破損時に誤って置換されるため */
+  .license { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.7rem; line-height: 1.85; color: var(--ink-soft); }
+  .license a { color: var(--teal); }
 
   footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
@@ -201,7 +214,7 @@
      折るため、禁則を守ったまま収まる（未対応の Firefox は normal にフォールバック） */
   @media (max-width: 768px) {
     body, p, li, dd, dt, blockquote, figcaption,
-    .lede, .prose, .note, .foot-note, .fuse-label, .fuse-at,
+    .lede, .prose, .note, .license, .foot-note, .fuse-label, .fuse-at,
     .sl-hint, .scene-read, .scrub-label, .legend span, .sl-head {
       word-break: auto-phrase;
       overflow-wrap: break-word;
@@ -455,6 +468,10 @@
 <section>
   <div class="wrap">
     <p class="note">※ 簡易モデルによる試算です。全校児童数は「校区の出生数 × 就学率」を6学年分積み上げて推計し、途中の転出入は考慮していません。2031年までの入学者はすでに生まれた人数で確定、2026年以降の出生数のみ想定減少率を適用します。複式学級・統廃合の目安（全校48人・24人）は目安であり、実際の基準は義務教育標準法や各自治体の方針で異なります。地域との対話の出発点としてお使いください。</p>
+    <div class="license">
+      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）<br>
+      本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。研修・コンサルティング等の商用利用をご希望の場合は、<a href="./index.html#contact">お問い合わせ</a>ください。
+    </div>
   </div>
 </section>
 

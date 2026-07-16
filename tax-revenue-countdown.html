@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<!--
+  未来リスク計算機シリーズ 03 税収カウントダウン
+  (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  License: CC BY-NC-SA 4.0
+  https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
+  非営利利用: クレジット表記＋同ライセンス継承で自由
+  商用利用: 要事前許諾 → kizukikumitate.com へご相談ください
+-->
 <html lang="ja">
 <head>
 <!-- Google tag (gtag.js) -->
@@ -188,6 +196,11 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* ライセンス表記（CC BY-NC-SA 4.0）。サイト共通フッターとは別物なので
+     footer 要素ではなく div で作る。footer 要素にすると scripts/update-nav.py の
+     locate_footer がこちらを先に掴み、マーカー破損時に誤って置換されるため */
+  .license { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.7rem; line-height: 1.85; color: var(--ink-soft); }
+  .license a { color: var(--teal); }
 
   footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
@@ -437,6 +450,10 @@
 <section>
   <div class="wrap">
     <p class="note">※ 簡易コホートモデル（同じ年に生まれた集団を、1年ずつ歳を取らせながら数えていく簡易的な計算方法）による試算です。税収は生産年齢人口（15〜64歳）に、社会保障費は高齢人口（65歳以上）に比例すると仮定し、固定費は一定としています。地方交付税・国庫支出金などの移転財源（国から配られるお金）、税率改定、景気変動は反映していません。「まちの様子」のイラストは財政悪化と人口減少の度合いを視覚化した概念図で、特定地域を描いたものではありません。住民との対話の出発点としてお使いください。</p>
+    <div class="license">
+      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）<br>
+      本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。研修・コンサルティング等の商用利用をご希望の場合は、<a href="./index.html#contact">お問い合わせ</a>ください。
+    </div>
   </div>
 </section>
 
