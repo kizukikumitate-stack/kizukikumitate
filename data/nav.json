@@ -66,12 +66,13 @@
       {
         "label": "未来のリスク計算機",
         "children": [
+          { "label": "このシリーズについて", "href": "risk-calculators.html" },
           { "label": "顧客の平均年齢時限爆弾", "href": "customer-age-timebomb.html" },
           { "label": "採用市場消滅計算機", "href": "recruitment-extinction.html" },
           { "label": "税収カウントダウン", "href": "tax-revenue-countdown.html" },
+          { "label": "技能承継時限爆弾", "href": "skill-succession-timebomb.html" },
           { "label": "学校統廃合カウントダウン", "href": "school-consolidation-countdown.html" },
-          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" },
-          { "label": "技能承継時限爆弾", "href": "skill-succession-timebomb.html" }
+          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" }
         ]
       },
       {
@@ -115,6 +116,7 @@
     { "path": "poverty-zukan.html", "variant": "standard" },
     { "path": "recruitment-extinction.html", "variant": "standard" },
     { "path": "roadmap.html", "variant": "standard" },
+    { "path": "risk-calculators.html", "variant": "standard" },
     { "path": "school-consolidation-countdown.html", "variant": "standard" },
     { "path": "shikumi-zukan.html", "variant": "standard" },
     { "path": "skill-succession-timebomb.html", "variant": "standard" },

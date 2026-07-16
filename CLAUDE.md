@@ -23,16 +23,36 @@ Democracy Fitness 等のハブ。
 - nobel-peace.html — ノーベル平和賞 125年の系譜
 - dialogue-zukan.html / shikumi-zukan.html / poverty-zukan.html / ted-collection.html
   — 図鑑シリーズ（紙背景テンプレ）
-- customer-age-timebomb.html / recruitment-extinction.html / tax-revenue-countdown.html /
-  school-consolidation-countdown.html / caregiving-capacity-calculator.html
-  — 未来リスク計算機シリーズ01〜05（ナビ「未来のリスク計算機」。素のHTML/JS＋手書きSVGで作る。
-  新作の元原稿がReact/Rechartsで来ても移植すること。テンプレの正は recruitment-extinction.html）
+- risk-calculators.html — 未来のリスク計算機について（シリーズのハブ。共通の前提・出典・免責・
+  ライセンス・変更履歴・フィードバック導線の**唯一の正**。各計算機からここへリンク）
+- customer-age-timebomb(01) / recruitment-extinction(02) / tax-revenue-countdown(03) /
+  skill-succession-timebomb(04) / school-consolidation-countdown(05) /
+  caregiving-capacity-calculator(06).html — 未来リスク計算機シリーズ
+  （ナビ「未来のリスク計算機」。素のHTML/JS＋手書きSVGで作る。新作の元原稿がReact/Rechartsで
+  来ても移植すること。テンプレの正は recruitment-extinction.html）
 - yokai/ — 会社の妖怪診断（index/zukan/workshop/ranking/gallery、夜色・金・墨の独自世界観）
 - shakai-yokai/ — 社会の妖怪診断（完全バイリンガル・自己完結）
 - democracy-fitness-camp-*.html / democracy-fitness-event-*.html — イベント個別ページ
 - *-mockup.html / preview-diagram.html / od-overflow-check.html / ogp-generator.html — 作業用（ナビ非掲載）
 - data/nav.json + scripts/update-nav.py — グローバルナビ・フッターの台帳・自動同期（唯一の正）
 - data/kaiyu.json + scripts/update-kaiyu.py — サイト内回遊バンドの台帳・自動更新
+- scripts/update-calculators.py — 未来リスク計算機6本の共通パーツ（版・出典・免責・ライセンス・
+  「簡易試算」バッジ）の正。6本はCSS/JSがコピペ共有なので、共通文言を手で1本ずつ直すと必ず
+  取り残しが出る。`<!-- CALC-COMMON START/END -->` 間が生成物。版を上げるときは VERSION を
+  書き換えて実行し、risk-calculators.html の変更履歴に1項目足す
+
+### 未来リスク計算機シリーズの約束（数字を扱うページの原則）
+
+数字を出すツールは、誤用されると当事者を傷つける。以下は確定方針:
+
+- **出典は実装と一致させる。** 使っていないデータを出典に挙げない（例: 03税収・05学校は
+  利用者入力のみで、社人研・人口動態統計の実績値は読み込んでいない）。出典を足すときは
+  必ずコードを読んで実際に使っているデータか確認し、URLは curl で200を確認してから書く
+- **「確定」と書けるのは、実際に確定データを読み込んでいるときだけ。** モデルが入力値からの
+  近似なら「〜と仮定した近似値」と明記する
+- **大きな数字には必ず「簡易試算」バッジを隣に置く。** 数字と但し書きは数スクロール離れており、
+  スクショされると前提が伝わらないため
+- **どの結論も勧めない。** 学校統廃合・税収は政治的にセンシティブ。PTAキットと同じ中立性を貫く
 
 ## 技術構成
 

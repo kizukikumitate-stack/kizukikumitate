@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!--
-  未来リスク計算機シリーズ 04 学校統廃合カウントダウン
+  未来リスク計算機シリーズ 05 学校統廃合カウントダウン
   (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  version: 1.0 (2026-07-15)
   License: CC BY-NC-SA 4.0
   https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
   非営利利用: クレジット表記＋同ライセンス継承で自由
@@ -197,11 +198,15 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
-  /* ライセンス表記（CC BY-NC-SA 4.0）。サイト共通フッターとは別物なので
-     footer 要素ではなく div で作る。footer 要素にすると scripts/update-nav.py の
-     locate_footer がこちらを先に掴み、マーカー破損時に誤って置換されるため */
+  /* 「簡易試算」バッジ。大きな数字と但し書きは画面にして数スクロール離れているため、
+     数字だけスクショされると前提が一切伝わらない。数字の隣に置いて一緒に写るようにする */
+  .approx { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.15em 0.7em; border-radius: 999px; border: 1px solid rgba(250,248,242,0.45); color: rgba(250,248,242,0.8); white-space: nowrap; align-self: center; }
+  /* ライセンス表記。サイト共通フッターとは別物なので footer 要素ではなく div で作る
+     （footer 要素にすると scripts/update-nav.py の locate_footer がこちらを先に掴み、
+     マーカー破損時に誤置換される。同じ理由でこのコメントにもタグ名を書かない） */
   .license { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.7rem; line-height: 1.85; color: var(--ink-soft); }
   .license a { color: var(--teal); }
+  .license .ver { font-family: 'Jost', sans-serif; letter-spacing: 0.06em; color: var(--ink); font-weight: 600; }
 
   footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
@@ -278,12 +283,13 @@
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
         <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
         <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
         <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
         <a href="./school-consolidation-countdown.html" class="active">学校統廃合カウントダウン</a>
         <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
-        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -347,12 +353,13 @@
   <div class="mobile-acc">
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
       <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
       <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
       <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
       <a href="./school-consolidation-countdown.html" class="active">学校統廃合カウントダウン</a>
       <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
-      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -370,7 +377,7 @@
 
 <section id="hero">
   <div class="wrap">
-    <div class="eyebrow">未来リスク計算機 04</div>
+    <div class="eyebrow">未来リスク計算機 05</div>
     <h1>学校統廃合<span class="accent">カウントダウン</span></h1>
     <p class="lede">2032年にこの学校へ入学する子は、もう全員生まれています。校区の出生数を入れると、全校児童数の推移と、複式学級になる年・統廃合が検討される規模になる年が出ます。近い将来の子どもの数は、予測ではなく確定です。数字はどこにも送信されません。</p>
   </div>
@@ -396,6 +403,7 @@
       <div class="fuse-line">
         <span class="fuse-label">統廃合が検討される規模まで</span>
         <span class="fuse-big" id="fuseBig">—</span>
+        <span class="approx">簡易試算</span>
         <span class="fuse-at" id="fuseAt"></span>
       </div>
       <div class="fuse-track">
@@ -419,7 +427,7 @@
       <div class="chart-box">
         <svg id="chart" viewBox="0 0 760 320" role="img" aria-labelledby="chartDesc"></svg>
       </div>
-      <p id="chartDesc" class="note" style="margin-top:0.6rem">2031年までに入学する子は、すでに生まれた人数で確定しています（グラフ左の網かけ）。複式化・統廃合の目安に届く年に、横の破線と交わります。</p>
+      <p id="chartDesc" class="note" style="margin-top:0.6rem">2031年までに入学する子は、すでに生まれています（グラフ左の網かけ）。ただし人数は、いまの出生数が過去も同じだったと仮定した近似値です。複式化・統廃合の目安に届く年に、横の破線と交わります。</p>
       <div class="legend">
         <span><i style="background:var(--teal)"></i>全校児童数（人）</span>
         <span><i style="background:var(--dawn)"></i>1年生（人）</span>
@@ -467,11 +475,15 @@
 
 <section>
   <div class="wrap">
-    <p class="note">※ 簡易モデルによる試算です。全校児童数は「校区の出生数 × 就学率」を6学年分積み上げて推計し、途中の転出入は考慮していません。2031年までの入学者はすでに生まれた人数で確定、2026年以降の出生数のみ想定減少率を適用します。複式学級・統廃合の目安（全校48人・24人）は目安であり、実際の基準は義務教育標準法や各自治体の方針で異なります。地域との対話の出発点としてお使いください。</p>
+    <p class="note">※ 簡易モデルによる試算です。全校児童数は「校区の出生数 × 就学率」を6学年分積み上げて推計し、途中の転出入は考慮していません。2031年までに入学する子はすでに生まれていますが、その人数は「いまの出生数が過去も同じだった」と仮定した近似値です（過去の実際の出生数は読み込んでいません）。2026年以降の出生数には想定減少率を適用します。複式学級・統廃合の目安（全校48人・24人）は目安であり、実際の基準は義務教育標準法や各自治体の方針で異なります。地域との対話の出発点としてお使いください。</p>
+<!-- CALC-COMMON START -->
+    <p class="note" style="margin-top:0.8rem">出典：出生数は利用者が入力したもので、外部の統計データは使っていません。学級編制の考え方は<a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_blank" rel="noopener">義務教育標準法</a>を参照していますが、本ページの目安（48人・24人）は簡略化したもので、実際の基準は各自治体の方針で異なります。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
     <div class="license">
-      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）<br>
-      本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。研修・コンサルティング等の商用利用をご希望の場合は、<a href="./index.html#contact">お問い合わせ</a>ください。
+      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）　<span class="ver">ver 1.0</span>（2026年7月15日）<br>
+      この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E5%AD%A6%E6%A0%A1%E7%B5%B1%E5%BB%83%E5%90%88%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E3%83%80%E3%82%A6%E3%83%B3%20ver%201.0%EF%BC%89">ご意見</a> をお寄せください。<br>
+      本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。改変した場合はその旨を明記し、当工房の試算としては示さないでください。商用利用をご希望の場合は <a href="./index.html#contact">お問い合わせ</a> ください。
     </div>
+<!-- CALC-COMMON END -->
   </div>
 </section>
 
@@ -557,7 +569,7 @@ const C = { indigo:'#16132a', gold:'#d9a441', teal:'#0f6e56', dawn:'#d85a30', in
 
 const START_YEAR = 2026;
 const HORIZON = 30;          // 2056
-const LOCKED_THROUGH = 2031; // これ以前の全校児童は「すでに生まれた子」で確定
+const LOCKED_THROUGH = 2031; // これ以前に入学する子はすでに生まれている（人数は近似）
 const FUKUSHIKI = 48;        // 複式化の目安（平均8人／学年）
 const TOUHAIGOU = 24;        // 統廃合検討の目安（平均4人／学年）
 
@@ -612,7 +624,7 @@ let scrubYear = 2038;
 const SLIDERS = [
   { key:'births',  label:'校区の年間出生数（いま）',   min:1, max:120, step:1, unit:'人',  accent:C.teal, hint:'分からなければ「今の1年生の人数 ÷ 就学率」で逆算できます' },
   { key:'rate',    label:'この学校に入学する割合（就学率）', min:40, max:100, step:1, unit:'％', accent:C.gold, hint:'私立進学・学校選択・転出などで一部が抜けます' },
-  { key:'decline', label:'今後の出生数の減少率',       min:0, max:8, step:1, unit:'％／年', accent:C.dawn, hint:'2026年以降に生まれる子の想定。2031年までの入学者はすでに確定' },
+  { key:'decline', label:'今後の出生数の減少率',       min:0, max:8, step:1, unit:'％／年', accent:C.dawn, hint:'2026年以降に生まれる子の想定。2031年までに入学する子はすでに生まれています' },
 ];
 
 function sliderHTML(s){
@@ -665,9 +677,9 @@ function drawChart(rows, touhaigouYear, alreadyTouhaigou){
   const Y = v => CH.t + ih - (Math.min(v, maxV) / maxV) * ih;
   let s = '';
 
-  // すでに生まれた子で確定しているゾーン
+  // すでに生まれた世代のゾーン（人数自体は現在の出生数で一定と仮定した近似）
   s += '<rect x="' + X(START_YEAR) + '" y="' + CH.t + '" width="' + (X(LOCKED_THROUGH) - X(START_YEAR)) + '" height="' + ih + '" fill="' + C.indigo + '" opacity="0.05"/>';
-  s += '<text x="' + ((X(START_YEAR) + X(LOCKED_THROUGH)) / 2) + '" y="' + (CH.t + 12) + '" text-anchor="middle" font-size="10" fill="' + C.inkSoft + '">すでに生まれた子で確定</text>';
+  s += '<text x="' + ((X(START_YEAR) + X(LOCKED_THROUGH)) / 2) + '" y="' + (CH.t + 12) + '" text-anchor="middle" font-size="10" fill="' + C.inkSoft + '">すでに生まれた世代</text>';
 
   // 縦軸のグリッドと目盛り
   const ticks = 4;

@@ -2,6 +2,7 @@
 <!--
   未来リスク計算機シリーズ 02 採用市場消滅計算機
   (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  version: 1.0 (2026-07-15)
   License: CC BY-NC-SA 4.0
   https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
   非営利利用: クレジット表記＋同ライセンス継承で自由
@@ -187,11 +188,15 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
-  /* ライセンス表記（CC BY-NC-SA 4.0）。サイト共通フッターとは別物なので
-     footer 要素ではなく div で作る。footer 要素にすると scripts/update-nav.py の
-     locate_footer がこちらを先に掴み、マーカー破損時に誤って置換されるため */
+  /* 「簡易試算」バッジ。大きな数字と但し書きは画面にして数スクロール離れているため、
+     数字だけスクショされると前提が一切伝わらない。数字の隣に置いて一緒に写るようにする */
+  .approx { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.15em 0.7em; border-radius: 999px; border: 1px solid rgba(250,248,242,0.45); color: rgba(250,248,242,0.8); white-space: nowrap; align-self: center; }
+  /* ライセンス表記。サイト共通フッターとは別物なので footer 要素ではなく div で作る
+     （footer 要素にすると scripts/update-nav.py の locate_footer がこちらを先に掴み、
+     マーカー破損時に誤置換される。同じ理由でこのコメントにもタグ名を書かない） */
   .license { margin-top: 1.8rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.7rem; line-height: 1.85; color: var(--ink-soft); }
   .license a { color: var(--teal); }
+  .license .ver { font-family: 'Jost', sans-serif; letter-spacing: 0.06em; color: var(--ink); font-weight: 600; }
 
   footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
@@ -286,12 +291,13 @@
     <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
         <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
         <a href="./recruitment-extinction.html" class="active">採用市場消滅計算機</a>
         <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
         <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
         <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
-        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -355,12 +361,13 @@
   <div class="mobile-acc">
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
       <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
       <a href="./recruitment-extinction.html" class="active">採用市場消滅計算機</a>
       <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
       <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
       <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
-      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -416,6 +423,7 @@
       <div class="fuse-line">
         <span class="fuse-label">採用目標を割り込むまで</span>
         <span class="fuse-big" id="fuseBig">—</span>
+        <span class="approx">簡易試算</span>
         <span class="fuse-at" id="fuseAt"></span>
       </div>
       <div class="fuse-track">
@@ -477,10 +485,14 @@
 <section>
   <div class="wrap">
     <p class="note">※ 22歳人口は「22年前の出生数」（厚生労働省 人口動態統計）で近似しています。2046年までの新卒母集団はすでに生まれた人数で確定しており、2047年以降のみ出生数の想定減少率を適用します。自社のエントリー数は22歳人口に比例すると仮定した簡易モデルです。高卒採用（18歳人口）の場合は目標割れが4年早く訪れるとお考えください。意思決定の出発点としてお使いください。</p>
+<!-- CALC-COMMON START -->
+    <p class="note" style="margin-top:0.8rem">出典：出生数は厚生労働省「<a href="https://www.mhlw.go.jp/toukei/list/81-1a.html" target="_blank" rel="noopener">人口動態統計</a>」の実績値。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
     <div class="license">
-      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）<br>
-      本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。研修・コンサルティング等の商用利用をご希望の場合は、<a href="./index.html#contact">お問い合わせ</a>ください。
+      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）　<span class="ver">ver 1.0</span>（2026年7月15日）<br>
+      この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E6%8E%A1%E7%94%A8%E5%B8%82%E5%A0%B4%E6%B6%88%E6%BB%85%E8%A8%88%E7%AE%97%E6%A9%9F%20ver%201.0%EF%BC%89">ご意見</a> をお寄せください。<br>
+      本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。改変した場合はその旨を明記し、当工房の試算としては示さないでください。商用利用をご希望の場合は <a href="./index.html#contact">お問い合わせ</a> ください。
     </div>
+<!-- CALC-COMMON END -->
   </div>
 </section>
 

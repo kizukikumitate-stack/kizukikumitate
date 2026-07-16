@@ -483,6 +483,22 @@
       ]
     },
     {
+      "id": "risk-calculators",
+      "path": "risk-calculators.html",
+      "title": "未来のリスク計算機について",
+      "tag": "前提と出典",
+      "desc": "6本の計算機に共通する前提・出典・免責・ライセンスと変更履歴。数字は結論ではなく対話の入口です。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-15",
+      "band": true,
+      "auto": false,
+      "next": [
+        "skill-succession-timebomb",
+        "customer-age-timebomb"
+      ]
+    },
+    {
       "id": "skill-succession-timebomb",
       "path": "skill-succession-timebomb.html",
       "title": "技能承継時限爆弾",

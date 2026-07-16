@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!--
+  未来のリスク計算機シリーズ ― 共通の前提・出典・免責・ライセンス・変更履歴
+  (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  License: CC BY-NC-SA 4.0
+  https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
+  非営利利用: クレジット表記＋同ライセンス継承で自由
+  商用利用: 要事前許諾 → kizukikumitate.com へご相談ください
+-->
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未来のリスク計算機について｜前提・出典・免責・変更履歴 | きづきくみたて工房</title>
+<meta name="description" content="未来のリスク計算機シリーズ（全6本）の共通の前提と出典、免責、ライセンス、変更履歴をまとめたページ。数字は結論ではなく対話の入口です。ご意見をいただきながら育てていきます。">
+<link rel="canonical" href="https://kizukikumitate.com/risk-calculators.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="未来のリスク計算機について｜前提・出典・免責・変更履歴">
+<meta property="og:description" content="全6本の共通の前提と出典、免責、ライセンス、変更履歴。数字は結論ではなく対話の入口です。">
+<meta property="og:url" content="https://kizukikumitate.com/risk-calculators.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="未来のリスク計算機について｜前提・出典・免責・変更履歴">
+<meta name="twitter:description" content="全6本の共通の前提と出典、免責、ライセンス、変更履歴。数字は結論ではなく対話の入口です。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --ink-soft:   #4a4660;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --line:       #e5e0d3;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; hanging-punctuation: allow-end; line-break: strict; line-height: 1.9; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; align-items: center; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  @media (max-width: 1250px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+    .nav-logo { margin-right: 0; }
+  }
+
+  /* ===== layout ===== */
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.5rem; }
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--ink-soft); }
+
+  #hero { padding: 8.5rem 0 2.4rem; }
+  #hero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(2rem, 4vw, 4.8rem); line-height: 1.25; margin: 0.7rem 0 1rem; color: var(--ink); }
+  #hero h1 .accent { color: var(--dawn); }
+  .lede { font-size: 0.95rem; font-weight: 300; line-height: 2.05; color: var(--ink-soft); max-width: 46em; }
+  @media (max-width: 768px) { #hero { padding-top: 7rem; } #hero h1 { font-size: 1.8rem; white-space: normal; } }
+  @media (max-width: 540px) { #hero h1 { font-size: 1.4rem; white-space: normal; } }
+
+  section { padding: 2.2rem 0; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
+  .card h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.9rem; }
+  .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
+  .prose strong { color: var(--ink); font-weight: 600; }
+  .prose + .prose { margin-top: 0.9rem; }
+  .prose a, .card a { color: var(--teal); }
+  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* ライセンス表記。サイト共通フッターとは別物なので footer 要素ではなく div で作る
+     （footer 要素にすると scripts/update-nav.py の locate_footer がこちらを先に掴み、
+     マーカー破損時に誤置換される。同じ理由でこのコメントにもタグ名を書かない） */
+  .license { padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.7rem; line-height: 1.85; color: var(--ink-soft); }
+  .license a { color: var(--teal); }
+
+  /* ===== 版 ===== */
+  .ver { display: inline-flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; background: var(--ink); color: var(--paper); border-radius: 999px; padding: 0.3rem 1rem; font-size: 0.78rem; }
+  .ver b { font-family: 'Jost', sans-serif; font-weight: 500; letter-spacing: 0.08em; color: var(--gold); }
+
+  /* ===== 一覧 ===== */
+  .list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.8rem; }
+  @media (max-width: 760px) { .list { grid-template-columns: minmax(0, 1fr); } }
+  .item { display: flex; gap: 0.8rem; align-items: baseline; background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 0.9rem 1rem; text-decoration: none; transition: transform 0.18s, box-shadow 0.18s; }
+  .item:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(90,75,30,0.1); }
+  .item-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; color: var(--gold-deep); flex-shrink: 0; }
+  .item-name { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.92rem; color: var(--ink); line-height: 1.6; }
+  .item-desc { display: block; font-family: 'Noto Serif JP', serif; font-size: 0.74rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; margin-top: 0.2rem; }
+
+  /* ===== 出典表 ===== */
+  .src { font-size: 0.8rem; line-height: 1.95; color: var(--ink-soft); }
+  .src dt { font-weight: 600; color: var(--ink); margin-top: 0.8rem; }
+  .src dt:first-child { margin-top: 0; }
+  .src dd { margin-left: 0; }
+  .src a { color: var(--teal); }
+
+  /* ===== 変更履歴 ===== */
+  .log { font-size: 0.82rem; line-height: 2; color: var(--ink-soft); }
+  .log-ver { font-family: 'Jost', sans-serif; font-weight: 500; color: var(--ink); letter-spacing: 0.06em; }
+  .log li { margin-left: 1.2rem; }
+
+  /* ===== 意見の受け口 ===== */
+  .fb { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 1.8rem 1.5rem; }
+  .fb h2 { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; margin-bottom: 0.7rem; }
+  .fb p { font-size: 0.85rem; line-height: 2; opacity: 0.85; }
+  .fb-btn { display: inline-block; margin-top: 1.1rem; padding: 0.6rem 1.6rem; border-radius: 999px; background: var(--gold); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 0.88rem; }
+  .fb-btn:hover { background: #e8b955; }
+
+  footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9); }
+  .footer-copy { font-family: 'Jost', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.55); }
+  @media (max-width: 768px) { footer { padding: 2.4rem 1.5rem; } }
+
+  /* ===== 日本語の禁則処理・文節改行（モバイル） =====
+     body の word-break: keep-all は、文節が行幅より長いと折り返し位置が無くなり、
+     ブラウザが緊急改行して行頭に「。」を落とす。auto-phrase なら CJK の文節境界で
+     折るため、禁則を守ったまま収まる（未対応の Firefox は normal にフォールバック） */
+  @media (max-width: 768px) {
+    body, p, li, dd, dt, blockquote, figcaption,
+    .lede, .prose, .note, .src, .log, .fb p, .item-desc, .item-name, .ver {
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    #hero h1, .card h2 { text-wrap: balance; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html" class="active">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html" class="active">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./tax-revenue-countdown.html">税収カウントダウン</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校統廃合カウントダウン</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<section id="hero">
+  <div class="wrap">
+    <div class="eyebrow">未来のリスク計算機</div>
+    <h1>この計算機を、<span class="accent">信じすぎない</span>ために</h1>
+    <p class="lede">未来のリスク計算機シリーズ（全6本）の、共通の前提・出典・免責・ライセンス・変更履歴をまとめたページです。どれも簡易な試算であり、正確な予測ではありません。おかしな点があれば、ぜひ教えてください。いただいたご意見を反映しながら育てていきます。</p>
+    <p style="margin-top:1.2rem"><span class="ver"><b>ver 1.0</b><span>2026年7月15日 現在</span></span></p>
+  </div>
+</section>
+
+<!-- 思想 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>数字は「結論」ではなく、「対話の入口」です</h2>
+      <p class="prose">この計算機は、<strong>答えを出すための道具ではありません</strong>。「なんとなく不安」「まだ先の話」を、いったん具体的な年に置き換えて、話し合いを始めるための道具です。出てきた年が2038年でも2045年でも、本当に大事なのはその後の会話のほうです。</p>
+      <p class="prose">扱っているのは、どれも<strong>適応課題</strong>（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。学校を残すか統合するか、介護の担い手をどうするか、技能を誰に継ぐか──立場によって大切にするものが違うからこそ、誰かが正解を配るのではなく、当事者が納得を作る対話が要ります。</p>
+      <p class="prose"><strong>私たちは、どの結論も勧めていません。</strong>統廃合を進めるためにも、止めるためにも使えます。どちらの立場の人にも同じ数字を見てもらい、そこから話を始めてもらうことを願って公開しています。数字を「議論を終わらせる道具」として使われることが、この計算機にとって一番の失敗です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 一覧 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>6本の計算機</h2>
+      <div class="list">
+        <a class="item" href="./customer-age-timebomb.html">
+          <span class="item-no">01</span>
+          <span><span class="item-name">顧客の平均年齢時限爆弾</span><span class="item-desc">顧客基盤が半減する年</span></span>
+        </a>
+        <a class="item" href="./recruitment-extinction.html">
+          <span class="item-no">02</span>
+          <span><span class="item-name">採用市場消滅計算機</span><span class="item-desc">採用目標を割り込む年</span></span>
+        </a>
+        <a class="item" href="./tax-revenue-countdown.html">
+          <span class="item-no">03</span>
+          <span><span class="item-name">税収カウントダウン</span><span class="item-desc">まちの財政が賄えなくなる年</span></span>
+        </a>
+        <a class="item" href="./skill-succession-timebomb.html">
+          <span class="item-no">04</span>
+          <span><span class="item-name">技能承継時限爆弾</span><span class="item-desc">その技能が組織から消える年</span></span>
+        </a>
+        <a class="item" href="./school-consolidation-countdown.html">
+          <span class="item-no">05</span>
+          <span><span class="item-name">学校統廃合カウントダウン</span><span class="item-desc">統廃合が検討される規模になる年</span></span>
+        </a>
+        <a class="item" href="./caregiving-capacity-calculator.html">
+          <span class="item-no">06</span>
+          <span><span class="item-name">介護の支え手計算機</span><span class="item-desc">あなたが高齢期を迎える年の支え手</span></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 共通の前提 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>すべてに共通する4つの前提</h2>
+      <p class="prose"><strong>1. 簡易モデルです。</strong>いずれも数個の変数で組んだ単純な計算で、専門機関の需給推計や財政推計とは別物です。現実には無数の要因が絡みます。</p>
+      <p class="prose"><strong>2. 「何もしなかった場合」を描いています。</strong>対策を打てば線は変わります。むしろ変えるために使ってください。出てきた年は「予言」ではなく「このままなら」の話です。</p>
+      <p class="prose"><strong>3. 入力した数字は、どこにも送信されません。</strong>すべてブラウザの中だけで計算しています（アクセス解析でページの閲覧数は取得していますが、入力値は一切送信・保存していません）。安心して実際の数字を入れてください。</p>
+      <p class="prose"><strong>4. すでに決まっている部分と、想定の部分があります。</strong>すでに生まれた人の数は動きません（例：2032年に小学校へ入学する子は、もう全員生まれています）。一方で出生数の今後や退職の動きは想定です。ただし<strong>計算機がその実数を持っているとは限りません</strong>。多くは入力された数字からの近似で、各ページの但し書きにどこまでが近似かを書いています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 出典 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>使っているデータの出典</h2>
+      <p class="prose" style="margin-bottom:1rem">人口などの数値は、下記の公的統計をもとにした<strong>近似値</strong>です。原典の数字をそのまま転記しているわけではなく、計算しやすいよう丸めたり、区間を補間したりしています。正確な数字が必要な場合は必ず原典をご確認ください。</p>
+      <dl class="src">
+        <dt>01 顧客の平均年齢時限爆弾</dt>
+        <dd>年齢帯別の死亡率 ─ 厚生労働省「<a href="https://www.mhlw.go.jp/toukei/saikin/hw/life/life24/index.html" target="_blank" rel="noopener">簡易生命表</a>」の近似値</dd>
+        <dt>02 採用市場消滅計算機</dt>
+        <dd>22歳人口（＝22年前の出生数）─ 厚生労働省「<a href="https://www.mhlw.go.jp/toukei/list/81-1a.html" target="_blank" rel="noopener">人口動態統計</a>」の実績値</dd>
+        <dt>03 税収カウントダウン</dt>
+        <dd>人口・財政の数値は<strong>利用者が入力したもの</strong>で、外部の統計データは使っていません。加齢にともなう年齢帯別の死亡率のみ、厚生労働省「<a href="https://www.mhlw.go.jp/toukei/saikin/hw/life/life24/index.html" target="_blank" rel="noopener">簡易生命表</a>」の近似値を使っています</dd>
+        <dt>04 技能承継時限爆弾</dt>
+        <dd>外部データは使っていません。すべて利用者が入力した数字だけで計算しています</dd>
+        <dt>05 学校統廃合カウントダウン</dt>
+        <dd>出生数は<strong>利用者が入力したもの</strong>で、外部の統計データは使っていません（過去の年の出生数も、いまの出生数と同じだったと仮定した近似値です）。学級編制の考え方は <a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_blank" rel="noopener">公立義務教育諸学校の学級編制及び教職員定数の標準に関する法律</a>（義務教育標準法）を参照していますが、ページ内の「48人・24人」はあくまで<strong>目安</strong>で、実際の基準は各自治体の方針で異なります</dd>
+        <dt>06 介護の支え手計算機</dt>
+        <dd>人口 ─ 国立社会保障・人口問題研究所「<a href="https://www.ipss.go.jp/pp-zenkoku/j/zenkoku2023/pp_zenkoku2023.asp" target="_blank" rel="noopener">日本の将来推計人口（2023年推計・出生中位）</a>」の近似値／要介護認定率・介護職員数 ─ 厚生労働省「<a href="https://www.mhlw.go.jp/topics/kaigo/toukei/joukyou.html" target="_blank" rel="noopener">介護保険事業状況報告</a>」の概数</dd>
+      </dl>
+      <p class="note" style="margin-top:1.2rem">※ 将来推計人口はおおむね5年ごとに更新されます。新しい推計が公表された際に数値を見直す予定です（次回見直しの目安：社人研の次期推計の公表時）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 免責 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>免責事項</h2>
+      <p class="prose">本計算機が示す数値は<strong>簡易な試算</strong>であり、将来を予測・保証するものではありません。前提条件が変われば結果も変わります。</p>
+      <p class="prose">本計算機の結果を用いてなされた判断・意思決定およびその結果について、きづきくみたて工房は<strong>一切の責任を負いかねます</strong>。経営判断・人事判断・行政上の判断など、重要な意思決定にあたっては、必ず専門家にご相談のうえ、原典のデータをご確認ください。</p>
+      <p class="prose">また、掲載している数値・前提は予告なく変更することがあります。会議資料などに引用される場合は、<strong>版（ver）と参照日を併記</strong>していただくと、後日の食い違いを防げます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ライセンス -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>ライセンス ― 使ってください、ただし2つだけお願いがあります</h2>
+      <p class="prose">本シリーズは <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際（CC BY-NC-SA 4.0）</a> で公開しています。<strong>非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。</strong>授業・地域の話し合い・自主的な勉強会など、営利を目的としない場ではどうぞお使いください。</p>
+      <p class="prose"><strong>お願い1：改変したら、その旨を明記してください。</strong>数字や前提を変えた版を、当工房の試算であるかのように示さないでください。改変した事実を書いていただければ、自由に手を加えていただいて構いません（これはライセンス上の義務でもあります）。</p>
+      <p class="prose"><strong>お願い2：商用利用は事前にご相談ください。</strong>研修・コンサルティング等の営利目的でお使いになる場合は、<a href="./index.html#contact">お問い合わせ</a>ください。「これは商用にあたるだろうか」と迷った場合も、お気軽にご相談いただければお答えします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 変更履歴 -->
+<section>
+  <div class="wrap">
+    <div class="card">
+      <h2>変更履歴</h2>
+      <p class="prose" style="margin-bottom:0.9rem">数字や前提に変更があった場合は、ここに記録していきます。会議資料などに引用された数字が後で変わったとき、どの版のものかを確認できるようにするためです。</p>
+      <div class="log">
+        <p><span class="log-ver">ver 1.0</span> ─ 2026年7月15日</p>
+        <ul>
+          <li>版の管理を開始しました（全6本）。</li>
+          <li>前提・出典・免責・ライセンス・変更履歴をこのページに集約しました。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- フィードバック -->
+<section>
+  <div class="wrap">
+    <div class="fb">
+      <h2>おかしいと思ったところを、教えてください</h2>
+      <p>この計算機は完成品ではありません。前提の置き方、認定率や係数の妥当性、言葉づかい、「自分の業界だとここが違う」といった実感まで、どんなご指摘でも歓迎します。いただいたご意見は次の版に反映し、上の変更履歴に記録します。専門家の方からのご指摘は特にありがたいです。</p>
+      <a class="fb-btn" href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88ver%201.0%EF%BC%89">ご意見をメールで送る</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="license">
+      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）<br>
+      本シリーズは <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。ver 1.0（2026年7月15日）
+    </div>
+  </div>
+</section>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./skill-succession-timebomb.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">技能承継時限爆弾</span><span class="kaiyu-desc">手順書には書けない「勘」は、教わる時間がなければ受け継げない。その技能が組織から消える年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./customer-age-timebomb.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">顧客の平均年齢時限爆弾</span><span class="kaiyu-desc">売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./recruitment-extinction.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">採用市場消滅計算機</span><span class="kaiyu-desc">2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+/* ===== nav ===== */
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+</script>
+</body>
+</html>
