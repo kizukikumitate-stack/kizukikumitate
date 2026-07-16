@@ -100,7 +100,8 @@ function renderDeadline(problemYear){
   if (problemYear <= START_YEAR) {
     el.innerHTML = '<b class="dl-past">PROBLEM状態には、すでに入っています。</b>'
       + 'いま打ち手を決めても、効き始めるまでに' + leadYears + '年（' + (START_YEAR + leadYears) + '年ごろまで）はこの状態が続く見込みです。'
-      + '先に「何を諦め、何を守るか」を決める局面です。';
+      + '先に「何を諦め、何を守るか」を決める局面です。'
+      + '<a href="./HUB#too-late" style="color:var(--gold)">この状態でできること</a>をまとめています。';
     return;
   }
   const deadline = problemYear - leadYears;
@@ -113,11 +114,12 @@ function renderDeadline(problemYear){
   } else {
     el.innerHTML = '<b class="dl-past">着手の期限は、すでに' + (-rest) + '年過ぎています。</b>'
       + problemYear + '年に間に合わせるには' + deadline + '年までに始めている必要がありました。'
-      + '間に合わせるなら、リードタイムの短い打ち手に変えるしかありません。';
+      + '間に合わせるなら、リードタイムの短い打ち手に変えるしかありません。'
+      + '<a href="./HUB#too-late" style="color:var(--gold)">手遅れだったときにできること</a>をまとめています。';
   }
 }
 """ + DL_JS_END + """
-""").replace("PROBLEM", problem_label)
+""").replace("PROBLEM", problem_label).replace("HUB", HUB)
 
 
 # ===== 感度レンジ =====

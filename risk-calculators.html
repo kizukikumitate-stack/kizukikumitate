@@ -164,6 +164,10 @@
   .item-name { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.92rem; color: var(--ink); line-height: 1.6; }
   .item-desc { display: block; font-family: 'Noto Serif JP', serif; font-size: 0.74rem; font-weight: 300; color: var(--ink-soft); line-height: 1.85; margin-top: 0.2rem; }
 
+  h3.sub { font-family: 'Shippori Mincho', serif; font-size: 0.95rem; font-weight: 700; color: var(--ink); margin: 1.8rem 0 0.7rem; }
+  /* 固定ヘッダーぶん、アンカーで飛んだときに見出しが隠れないように */
+  #too-late { scroll-margin-top: 5rem; }
+
   /* ===== 事例 ===== */
   .cases dt { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.92rem; color: var(--ink); line-height: 1.7; margin-top: 1.5rem; padding-left: 0.8rem; border-left: 3px solid var(--gold); }
   .cases dt:first-child { margin-top: 0; }
@@ -203,7 +207,7 @@
   @media (max-width: 768px) {
     body, p, li, dd, dt, blockquote, figcaption,
     .lede, .prose, .note, .src, .log, .fb p, .item-desc, .item-name, .ver,
-    .cases dt, .cases dd, .case-src {
+    .cases dt, .cases dd, .case-src, h3.sub {
       word-break: auto-phrase;
       overflow-wrap: break-word;
       line-break: strict;
@@ -414,6 +418,46 @@
   </div>
 </section>
 
+<!-- 手遅れだったとき -->
+<section id="too-late">
+  <div class="wrap">
+    <div class="card">
+      <h2>「もう手遅れ」と出たときに、できること</h2>
+      <p class="prose">計算機は、しばしば「着手の期限は、すでに◯年過ぎています」と表示します。ここでは、そう出たときに実際に何が残っているかを書きます。</p>
+
+      <p class="prose" style="margin-top:1.2rem"><strong>まず、組み替えが要ります。「手遅れ」は状態ではなく、目標との関係で決まります。</strong>同じ現場が、元の姿のまま維持するには手遅れでも、軟着陸させるにはまだ間に合い、同じ失敗を次で繰り返さないためには十分間に合います。計算機が言っているのは、あくまで<strong>「いまの打ち手で、いまの目標に間に合わせる」ことに対して手遅れ</strong>だということです。目標を動かせば、手遅れではなくなります。だから最初にやるのは、打ち手探しではなく<strong>目標の置き直し</strong>です。</p>
+
+      <h3 class="sub">残っている手は、だいたい5つです</h3>
+      <dl class="cases">
+        <dt>1. 時間を買う（リードタイムを縮める）</dt>
+        <dd>育てる代わりに、外から持ってくる。中途・アルムナイ（一度離れた人）・提携・業務委託・既製品への切り替えなど、<strong>育成期間がゼロの選択肢</strong>に変えます。お金で時間を買うので高くつきますが、時間だけは他に買いようがありません。</dd>
+
+        <dt>2. 問題の年を後ろにずらす（延命）</dt>
+        <dd>定年延長や再雇用で、熟練者に残ってもらう。技能承継の計算機で定年を65歳から70歳に変えると、着手の期限そのものが後ろに動きます。ただし<strong>これは時間を買っただけで、買った時間で継承しなければ同じ場所に戻ります</strong>。延命が目的になると、数年後にまた同じ画面を見ることになります。</dd>
+
+        <dt>3. 絞る（何を諦めるか決める）</dt>
+        <dd>全部は継げない、全部は残せない。ならば<strong>どれを残すかを決める</strong>。撤退ではなく、資源を集中させるための意思決定です。手遅れだからこそ選別が要りますが、ここが一番エネルギーを使うので、たいてい先送りされます。</dd>
+
+        <dt>4. そもそも要らなくする（問題の定義を変える）</dt>
+        <dd>その技に依存しない工程に作り替える。必要な人数を減らす業務設計に変える。いちばん重いですが、いちばん効きます。<strong>手遅れの局面では、実はこれしか残っていないことも多い</strong>です。</dd>
+
+        <dt>5. 軟着陸させる（傷を設計する）</dt>
+        <dd>避けられないなら、誰がどう傷つくかを先に見立てて、手当てをセットで設計します。統廃合が避けられないなら通学・跡地・地域の居場所をセットで決める。財政なら、どのサービスをいつ縮小するかを先に住民と合意しておく。<strong>突然やるのと、予告してやるのとでは、傷の深さがまるで違います。</strong></dd>
+      </dl>
+
+      <h3 class="sub">「手遅れだと分かること」自体に、価値があります</h3>
+      <p class="prose">実務的には、ここがいちばん大きいかもしれません。最悪なのは手遅れになることではなく、<strong>手遅れなのに「まだ間に合う」前提の対策に資源を注ぎ続けること</strong>です。構造的に採用が無理な状況で採用広告費を増やし続ける。継承が間に合わないのに、従来どおりのOJT計画を回し続ける。<strong>間に合わない打ち手に払うコストは、全額が損失になります。</strong></p>
+      <p class="prose">手遅れだと確定すれば、その投資を止めて、上の5つに資源を回せます。計算機が「過ぎています」と出すことの本当の効用は、絶望させることではなく、<strong>これ以上つぎ込むのをやめる判断に、根拠を与えること</strong>です。</p>
+
+      <h3 class="sub">手遅れの局面こそ、対話が要ります</h3>
+      <p class="prose">間に合っているうちは「どうやるか」の話で済みます。間に合わなくなると、<strong>「何を諦め、何を守るか」という価値の選択しか残りません</strong>。これは正解を配れないので、当事者が納得を作るしかない。つまり技術的な解決が尽きた後に残るものが、まさに<strong>適応課題</strong>です。「もう遅いから対話している場合ではない」は逆で、遅いからこそ対話以外に方法がなくなります。</p>
+
+      <h3 class="sub">ひとつ、罠があります</h3>
+      <p class="prose">手遅れが判明した直後、組織はほぼ確実に<strong>犯人探し</strong>を始めます。「なぜ誰も言わなかったのか」と。これを始めると、残っている時間まで失います。そして実際のところ、原因は「誰も決めなかった」ことより<strong>「決める場がなかった」こと</strong>のほうが多いものです。だから手遅れの後に最初にやるべきは、犯人探しではなく、決める場を作ることです。</p>
+    </div>
+  </div>
+</section>
+
 <!-- 政策・対話に変えている場所 -->
 <section>
   <div class="wrap">
@@ -517,6 +561,7 @@
           <li>いただいたご意見（「問題が起きる年より、いつまでに決めないと打ち手が間に合わないかが重要」）を受けて、<strong>意思決定期限</strong>を01・02・03・05に追加しました。04には元からあった考え方の横展開です。</li>
           <li>数字を見たあとの<strong>対話の問い</strong>と、印刷して会議で配れる<strong>意思決定記録</strong>を全6本に追加しました（回答はブラウザにのみ保存され、送信されません）。矢巾町のフューチャー・デザインにならって「立場を変えて考える」問いも入れています。</li>
           <li><strong>感度レンジ</strong>を追加しました。主要な入力を±20％動かすと年がどこまで動くかを表示します。予測の信頼区間ではなく、感度分析です。</li>
+          <li><a href="#too-late">「もう手遅れ」と出たときに、できること</a>を追加しました。期限を過ぎたと表示するだけで放り出さないよう、計算機の表示からこの節へ直接飛べるようにしています。</li>
         </ul>
         <p style="margin-top:0.9rem"><span class="log-ver">ver 1.0</span> ─ 2026年7月15日</p>
         <ul>
