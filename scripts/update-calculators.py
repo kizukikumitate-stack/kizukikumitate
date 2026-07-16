@@ -51,7 +51,7 @@ EGOV_SCHOOL = '<a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_b
 DEADLINE = {
     "customer-age-timebomb.html":         ("halfYear",           "顧客基盤が半減する"),
     "recruitment-extinction.html":        ("breachYear",         "採用目標を割り込む"),
-    "tax-revenue-countdown.html":         ("crossYear",          "税収が歳出を賄えなくなる"),
+    "tax-revenue-countdown.html":         ("burdenYear",         "ひとりが負う固定費が1.5倍になる"),
     "school-consolidation-countdown.html": ("sim.touhaigouYear", "統廃合が検討される規模になる"),
 }
 
@@ -138,8 +138,9 @@ SENS = {
         "m => simulate(Object.assign({}, P, { entries: P.entries * m }), futureDecline, competition).breachYear",
         "年間エントリー数"),
     "tax-revenue-countdown.html": (
-        "m => simulate(Object.assign({}, P, { tax: P.tax * m }), birthDecline).crossYear",
-        "税収の見積もり"),
+        # 基準が「ひとりが負う固定費」になったので、振るのは税収ではなく人口の元＝出生数
+        "m => simulate(Object.assign({}, P, { births: P.births * m }), birthDecline).burdenYear",
+        "年間出生数"),
     "skill-succession-timebomb.html": (
         "m => simulate(holders, retire, Math.max(1, Math.round(handover * m)), succ).lossYear",
         "技の継承にかかる年数"),

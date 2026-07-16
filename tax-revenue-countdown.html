@@ -445,9 +445,9 @@
 <section>
   <div class="wrap">
     <div class="fuse">
-      <div class="fuse-eyebrow">いまの構造のまま進むと</div>
+      <div class="fuse-eyebrow">人は減っても、道路も水道も学校も減らない</div>
       <div class="fuse-line">
-        <span class="fuse-label">税収が歳出を賄えなくなるまで</span>
+        <span class="fuse-label">ひとりが負う固定費が1.5倍になるまで</span>
         <span class="fuse-big" id="fuseBig">—</span>
         <span class="approx">簡易試算</span>
         <span class="fuse-at" id="fuseAt"></span>
@@ -463,11 +463,11 @@
         <input type="range" id="lead" min="1" max="15" step="1" value="5" aria-label="打ち手が効き始めるまでの年数">
         <p class="deadline-out" id="deadlineOut">—</p>
       </div>
-      <p class="fuse-note" id="fuseNote">この条件では、自主財源（まちが自分で集めるお金）だけで見ると初年度からすでに歳出のほうが大きい状態です。それでもいま成り立っているのは、地方交付税など国から配分されるお金が、その差を埋めているからです。この計算機は配分されるお金を含めていないため、ここに出ているのは「あと何年もつか」ではなく<strong style="color:var(--gold);font-weight:600">「自前ではどれだけ賄えていないか」の幅</strong>です。国からの配分が細れば、その幅がそのまま現実になります。</p>
+      <p class="fuse-note on" id="fuseNote">自主財源（まちが自分で集めるお金）だけで見ると、ほとんどの自治体は初年度から歳出のほうが大きくなります。それでも成り立っているのは、地方交付税など国から配分されるお金が差を埋めているからです。つまり「自主財源が歳出に足りない」は<strong style="color:var(--gold);font-weight:600">危機の合図ではなく、平常運転</strong>です。この計算機が数えているのは赤字になる年ではなく、<strong style="color:var(--gold);font-weight:600">人が減っても減らない固定費を、ひとりがどれだけ負うようになるか</strong>です。</p>
       <div class="fuse-stats">
+        <div><div class="k">ひとりが負う固定費</div><div class="v" id="burdenNow">—</div></div>
         <div><div class="k">人口が半減する年</div><div class="v" id="halfYear">—</div></div>
         <div><div class="k">2050年の高齢化率</div><div class="v" id="ageRate2050">—</div></div>
-        <div><div class="k">2050年の収支</div><div class="v" id="balance2050">—</div></div>
       </div>
     </div>
   </div>
@@ -477,11 +477,11 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>税収と歳出の「ワニの口」</h2>
+      <h2>税収と歳出の推移</h2>
       <div class="chart-box">
         <svg id="chart" viewBox="0 0 760 320" role="img" aria-labelledby="chartDesc"></svg>
       </div>
-      <p id="chartDesc" class="note" style="margin-top:0.6rem">グラフ上をなぞると、その年の「まちの様子」が下に表示されます。</p>
+      <p id="chartDesc" class="note" style="margin-top:0.6rem">人が減ると税収は落ちますが、高齢者も減るため社会保障費も落ちます。つまりこのまちの問題は「社会保障費が財政を食いつぶす」ことではありません。落ちないのは<strong>固定費</strong>（道路・水道・学校・行政）で、そこがひとりの負担になって効いてきます。グラフ上をなぞると、その年の「まちの様子」が下に表示されます。</p>
       <div class="legend">
         <span><i style="background:var(--teal)"></i>税収（自主財源）</span>
         <span><i style="background:var(--dawn)"></i>歳出（社会保障＋固定費）</span>
@@ -511,8 +511,8 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>この口は、節約だけでは閉じません</h2>
-      <p class="prose">事業の統廃合やコスト削減は口が開く速度を少し緩めますが、人口構造そのものは変えられません。税収が歳出に追いつかないのは職員の努力不足ではなく、<strong>「フルセットの行政サービスを、減っていく人口で維持する」前提が崩れている</strong>適応課題（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。解除の型は3つ──①サービスの範囲と水準を住民との対話で選び直す、②近隣の自治体・民間・住民自身の手と機能を分け合う、③「支える側」を増やす（移住、関係人口＝移り住まなくても関わり続ける人、世代をまたいだ循環）。どれも合意形成の場なしには進みません。</p>
+      <h2>この負担は、節約だけでは下がりません</h2>
+      <p class="prose">経費の削減はひとりの負担が増える速度を少し緩めますが、人口構造そのものは変えられません。ひとりが負う固定費が増えるのは職員の努力不足ではなく、<strong>「フルセットの行政サービスを、減っていく人口で維持する」前提が崩れている</strong>適応課題（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。解除の型は3つ──①サービスの範囲と水準を住民との対話で選び直す、②近隣の自治体・民間・住民自身の手と機能を分け合う、③「支える側」を増やす（移住、関係人口＝移り住まなくても関わり続ける人、世代をまたいだ循環）。どれも合意形成の場なしには進みません。</p>
     </div>
   </div>
 </section>
@@ -692,8 +692,12 @@ function simulate(p, birthDecline){
   const welfarePer = p.welfare / elder0;
 
   const rows = [];
-  let crossYear = null, halfYear = null;
+  let crossYear = null, halfYear = null, burdenYear = null;
   const pop0 = p.pop;
+  // 固定費（道路・水道・学校・行政）は人が減っても減らない。だから人口が減ると
+  // ひとりが負う固定費が増える。このモデルで一貫して悪化するのはここだけなので、
+  // カウントダウンの基準にする（＝固定費が一定である以上、人口が2/3になる年と同じ）
+  const burdenPer0 = p.fixed / pop0;
 
   for (let t = 0; t <= HORIZON; t++) {
     const work  = sum(pop, 15, 64);
@@ -716,12 +720,14 @@ function simulate(p, birthDecline){
       outlay: Math.round(outlay * 10) / 10,
       balance: Math.round(balance * 10) / 10,
       pop: Math.round(total),
+      burdenPer: (p.fixed * 10000) / total,   // ひとりが負う固定費（万円/年）
       elderRate: Math.round((elder / total) * 1000) / 10,
       sev,
     });
 
     if (crossYear === null && tax < outlay) crossYear = START_YEAR + t;
     if (halfYear === null && total <= pop0 / 2) halfYear = START_YEAR + t;
+    if (burdenYear === null && (p.fixed / total) >= burdenPer0 * 1.5) burdenYear = START_YEAR + t;
 
     const next = new Array(101).fill(0);
     pop.forEach((n, a) => {
@@ -731,7 +737,7 @@ function simulate(p, birthDecline){
     next[0] = p.births * (birthDecline ? Math.pow(0.985, t) : 1);
     pop = next;
   }
-  return { rows, crossYear, halfYear };
+  return { rows, crossYear, halfYear, burdenYear };
 }
 
 /* ===== state ===== */
@@ -796,7 +802,7 @@ function niceMax(v){
   const m = n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10;
   return m * p;
 }
-function drawChart(rows, crossYear, alreadyCrossed){
+function drawChart(rows, burdenYear){
   const iw = CH.w - CH.l - CH.r, ih = CH.h - CH.t - CH.b;
   const maxV = niceMax(Math.max(1, ...rows.map(r => Math.max(r.tax, r.outlay))) * 1.1);
   const X = y => CH.l + ((y - START_YEAR) / HORIZON) * iw;
@@ -842,9 +848,11 @@ function drawChart(rows, crossYear, alreadyCrossed){
   s += '<polyline points="' + pts('tax') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
 
   // 逆転ライン
-  if (crossYear && !alreadyCrossed) {
-    s += '<line x1="' + X(crossYear) + '" y1="' + CH.t + '" x2="' + X(crossYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-    s += '<text x="' + X(crossYear) + '" y="' + (CH.t - 2) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">逆転</text>';
+  // 「逆転（税収<歳出）」は交付税で埋まっているのが平常運転で、ほぼ全自治体が初年度に該当し
+  // 線が引きっぱなしになる。代わりに、ひとりが負う固定費が1.5倍になる年に線を引く
+  if (burdenYear !== null) {
+    s += '<line x1="' + X(burdenYear) + '" y1="' + CH.t + '" x2="' + X(burdenYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
+    s += '<text x="' + X(burdenYear) + '" y="' + (CH.t - 2) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">ひとりの負担1.5倍</text>';
   }
   // スクラブライン
   s += '<line x1="' + X(scrubYear) + '" y1="' + CH.t + '" x2="' + X(scrubYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.indigo + '" stroke-width="1.5"/>';
@@ -1012,13 +1020,14 @@ function render(){
   document.querySelectorAll('.preset').forEach(b => b.classList.toggle('on', Number(b.dataset.i) === presetIdx));
 
   const sim = simulate(P, birthDecline);
-  const rows = sim.rows, crossYear = sim.crossYear, halfYear = sim.halfYear;
+  const rows = sim.rows, halfYear = sim.halfYear, burdenYear = sim.burdenYear;
   const now = rows[0];
-  const alreadyCrossed = now.tax < now.outlay;
-  const yearsToCross = crossYear ? crossYear - START_YEAR : null;
-  const fusePct = alreadyCrossed ? 96
-    : yearsToCross === null ? 6
-    : Math.max(6, Math.min(96, (1 - yearsToCross / HORIZON) * 100));
+  // カウントダウンの基準＝ひとりが負う固定費が1.5倍になる年。
+  // 「税収 < 歳出」を基準にしていたときは、交付税で埋まっているのが平常運転なので
+  // ほぼ全ての自治体が初年度に鳴ってしまい、カウントダウンとして機能しなかった
+  const yearsToBurden = burdenYear !== null ? burdenYear - START_YEAR : null;
+  const fusePct = yearsToBurden === null ? 6
+    : Math.max(6, Math.min(96, (1 - yearsToBurden / HORIZON) * 100));
 
   const scrubRow = rows.find(r => r.year === scrubYear) || rows[rows.length - 1];
   const r2050 = rows.find(r => r.year === 2050) || rows[rows.length - 1];
@@ -1027,29 +1036,29 @@ function render(){
     '現在：税収 ' + now.tax + '億 −（社会保障 ' + now.welfare + '億 ＋ 固定費 ' + P.fixed + '億）＝ '
     + '<strong style="color:' + (now.balance < 0 ? C.dawn : C.teal) + '">' + signed(now.balance) + '億</strong>';
 
-  renderDeadline(crossYear);
-  renderSens(m => simulate(Object.assign({}, P, { tax: P.tax * m }), birthDecline).crossYear);
+  renderDeadline(burdenYear);
+  // 感度は「税収」ではなく出生数を振る。この基準を動かすのは人口だから
+  renderSens(m => simulate(Object.assign({}, P, { births: P.births * m }), birthDecline).burdenYear);
   document.getElementById('fuseBig').textContent =
-    alreadyCrossed ? 'すでに逆転' : (yearsToCross !== null ? 'あと' + yearsToCross + '年' : '30年以上');
+    yearsToBurden !== null ? (yearsToBurden === 0 ? 'すでに到達' : 'あと' + yearsToBurden + '年') : '30年では届かない';
   document.getElementById('fuseAt').textContent =
-    (crossYear && !alreadyCrossed) ? crossYear + '年に到達' : '';
+    (burdenYear !== null && yearsToBurden > 0) ? burdenYear + '年に到達' : '';
   document.getElementById('fuseFill').style.width = fusePct + '%';
   document.getElementById('fuseSpark').style.left = fusePct + '%';
-  // 初年度から赤字のとき＝移転財源で埋まっている状態。誤読を防ぐため注記を出す
-  document.getElementById('fuseNote').classList.toggle('on', alreadyCrossed);
 
+  const last = rows[rows.length - 1];
+  document.getElementById('burdenNow').innerHTML =
+    now.burdenPer.toFixed(1) + '万円 <span style="font-size:0.72rem;font-weight:400;opacity:0.7">→ '
+    + last.burdenPer.toFixed(1) + '万円（' + last.year + '年）</span>';
   document.getElementById('halfYear').textContent = halfYear !== null ? halfYear + '年' : '30年以内には到達せず';
   document.getElementById('ageRate2050').textContent = r2050.elderRate + '％';
-  const b2050 = document.getElementById('balance2050');
-  b2050.textContent = signed(r2050.balance) + '億円/年';
-  b2050.style.color = r2050.balance < 0 ? C.gold : '#fff';
 
   document.getElementById('townYear').textContent = scrubYear;
   document.getElementById('townMeta').textContent =
     '　人口 ' + fmt(scrubRow.pop) + '人 / 高齢化率 ' + scrubRow.elderRate + '％ / 収支 ' + signed(scrubRow.balance) + '億';
   document.getElementById('scrubLabel').textContent = scrubYear + '年';
 
-  drawChart(rows, crossYear, alreadyCrossed);
+  drawChart(rows, burdenYear);
   drawTown(scrubRow.sev);
 }
 
@@ -1066,13 +1075,13 @@ function renderDeadline(problemYear){
   document.getElementById('leadVal').textContent = leadYears;
   const el = document.getElementById('deadlineOut');
   if (problemYear === null || problemYear === undefined) {
-    el.innerHTML = 'この条件では、税収が歳出を賄えなくなる年に届きません。いまは時間の余裕がある側です。';
+    el.innerHTML = 'この条件では、ひとりが負う固定費が1.5倍になる年に届きません。いまは時間の余裕がある側です。';
     return;
   }
   // すでに問題が起きている年は「間に合わせる」話にならない。
   // 打ち手が効くまでの年数は、これから何年それが続くかの話になる
   if (problemYear <= START_YEAR) {
-    el.innerHTML = '<b class="dl-past">税収が歳出を賄えなくなる状態には、すでに入っています。</b>'
+    el.innerHTML = '<b class="dl-past">ひとりが負う固定費が1.5倍になる状態には、すでに入っています。</b>'
       + 'いま打ち手を決めても、効き始めるまでに' + leadYears + '年（' + (START_YEAR + leadYears) + '年ごろまで）はこの状態が続く見込みです。'
       + '先に「何を諦め、何を守るか」を決める局面です。'
       + '<a href="./risk-calculators.html#too-late" style="color:var(--gold)">この状態でできること</a>をまとめています。';
@@ -1105,18 +1114,18 @@ function renderSens(f){
   try { lo = f(0.8); hi = f(1.2); } catch (e) { el.textContent = ''; return; }
   const ys = [lo, hi].filter(y => y !== null && y !== undefined);
   if (ys.length === 0) {
-    el.innerHTML = '税収の見積もり（あなたが入れた値）を±20％動かしても、この期間内には届きません。';
+    el.innerHTML = '年間出生数（あなたが入れた値）を±20％動かしても、この期間内には届きません。';
     return;
   }
   const a = Math.min.apply(null, ys), b = Math.max.apply(null, ys);
   if (ys.length === 1) {
-    el.innerHTML = '税収の見積もり（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '年から「この期間内には届かない」まで</b> 動きます。'
+    el.innerHTML = '年間出生数（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '年から「この期間内には届かない」まで</b> 動きます。'
       + '年そのものより、動かせる前提はどれかを見てください。';
   } else if (a === b) {
-    el.innerHTML = '税収の見積もり（あなたが入れた値）を±20％動かしても、この年は <b>' + a + '年のまま</b> です。'
+    el.innerHTML = '年間出生数（あなたが入れた値）を±20％動かしても、この年は <b>' + a + '年のまま</b> です。'
       + 'この結果は、その前提にはあまり左右されていません。効くのは別の前提です。';
   } else {
-    el.innerHTML = '税収の見積もり（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '〜' + b + '年</b> に動きます。'
+    el.innerHTML = '年間出生数（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '〜' + b + '年</b> に動きます。'
       + '前提が少し違うだけで年は動きます。年そのものより、動かせる前提はどれかを見てください。';
   }
 }
