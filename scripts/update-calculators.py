@@ -346,23 +346,35 @@ SERIES = [
 ]
 
 SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
-  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 2.4rem 1.5rem 2.6rem; }
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 3rem 1.5rem 3.2rem; }
   .series-inner { max-width: 880px; margin: 0 auto; }
-  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1rem; }
-  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
   @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
-  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0.7rem; border-radius: 9px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
   .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
   .series-list .now { background: var(--ink); border-color: var(--ink); }
-  .series-no { font-family: 'Jost', sans-serif; font-size: 0.7rem; color: var(--gold-deep); flex-shrink: 0; }
+  .series-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; color: var(--gold-deep); flex-shrink: 0; }
   .series-list .now .series-no { color: var(--gold); }
-  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.55; }
+  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.98rem; font-weight: 700; color: var(--ink); line-height: 1.6; }
   .series-list .now .series-name { color: var(--paper); }
-  .series-foot { font-size: 0.74rem; margin-top: 0.9rem; }
+  .series-foot { font-size: 0.8rem; margin-top: 1.1rem; }
   .series-foot a { color: var(--teal); }
   .series-foot .now-hub { color: var(--ink-soft); }
   @media print { .series-band { display: none !important; } }"""
+
+
+SERIES_CSS_START = "  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */"
+SERIES_CSS_END = "  @media print { .series-band { display: none !important; } }"
+
+
+def put_series_css(s, anchor):
+    """帯のCSSを流し込む。すでにあれば丸ごと差し替える（サイズ調整が全ページに効くように）。"""
+    if SERIES_CSS_START in s:
+        return re.sub(re.escape(SERIES_CSS_START) + r".*?" + re.escape(SERIES_CSS_END),
+                      lambda m: SERIES_CSS, s, count=1, flags=re.S)
+    return s.replace(anchor, anchor + "\n" + SERIES_CSS, 1)
 
 
 def series_band(current, prefix="./"):
@@ -390,14 +402,17 @@ def series_band(current, prefix="./"):
 
 
 def put_series(s, path, current):
-    """回遊バンドとサイト共通フッターの間に差す（どちらの生成物も壊さない）。"""
+    """シリーズ帯を回遊バンドの前に置く（帯→「次は、こちらへ。」→共通フッター の順。
+    2026-07-16 森本さん指定：まずシリーズを見せ、その次に回遊）。
+    位置を変えても直せるよう、既存の帯をいったん除去してから入れ直す（冪等）。"""
     band = series_band(current)
-    if SERIES_START in s:
-        return re.sub(re.escape(SERIES_START) + r".*?" + re.escape(SERIES_END),
-                      lambda m: band, s, count=1, flags=re.S)
-    anchor = "<!-- FOOTER START -->"
+    s = re.sub(re.escape(SERIES_START) + r".*?" + re.escape(SERIES_END) + r"\n\n",
+               "", s, count=1, flags=re.S)
+    anchor = "<!-- KAIYU START -->"
+    if anchor not in s:
+        anchor = "<!-- FOOTER START -->"
     if s.count(anchor) != 1:
-        raise SystemExit(f"{path}: FOOTER マーカーが {s.count(anchor)} 個")
+        raise SystemExit(f"{path}: {anchor} が {s.count(anchor)} 個")
     return s.replace(anchor, band + "\n\n" + anchor, 1)
 
 
@@ -610,8 +625,7 @@ def process(path, num, title, source):
         s = s.replace(tail, "\nrender();\n" + DIALOGUE_JS + "</script>", 1)
 
     # --- 3.7 シリーズ6本のフッター帯 ---
-    if ".series-band {" not in s:
-        s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + SERIES_CSS, 1)
+    s = put_series_css(s, BADGE_CSS_ANCHOR)
     s = put_series(s, path, path)
 
     # --- 4. 共通ブロック（マーカーがあれば中身を差し替え＝冪等） ---
@@ -636,11 +650,7 @@ def process_hub(check):
     ハブは計算機ではないので PAGES のループには乗せず、帯とCSSだけ入れる。"""
     p = ROOT / HUB
     s = orig = p.read_text(encoding="utf-8")
-    if ".series-band {" not in s:
-        anchor = "  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }"
-        if anchor not in s:
-            raise SystemExit(f"{HUB}: note の CSS が見つかりません")
-        s = s.replace(anchor, anchor + "\n" + SERIES_CSS, 1)
+    s = put_series_css(s, "  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }")
     s = put_series(s, HUB, "hub")
     if s == orig:
         print(f"  ✅ {HUB}: 変更なし")

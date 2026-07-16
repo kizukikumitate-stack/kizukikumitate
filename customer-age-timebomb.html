@@ -189,20 +189,20 @@
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
   /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
-  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 2.4rem 1.5rem 2.6rem; }
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 3rem 1.5rem 3.2rem; }
   .series-inner { max-width: 880px; margin: 0 auto; }
-  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.7rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1rem; }
-  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
   @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
-  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.6rem 0.7rem; border-radius: 9px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
   .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
   .series-list .now { background: var(--ink); border-color: var(--ink); }
-  .series-no { font-family: 'Jost', sans-serif; font-size: 0.7rem; color: var(--gold-deep); flex-shrink: 0; }
+  .series-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; color: var(--gold-deep); flex-shrink: 0; }
   .series-list .now .series-no { color: var(--gold); }
-  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 700; color: var(--ink); line-height: 1.55; }
+  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.98rem; font-weight: 700; color: var(--ink); line-height: 1.6; }
   .series-list .now .series-name { color: var(--paper); }
-  .series-foot { font-size: 0.74rem; margin-top: 0.9rem; }
+  .series-foot { font-size: 0.8rem; margin-top: 1.1rem; }
   .series-foot a { color: var(--teal); }
   .series-foot .now-hub { color: var(--ink-soft); }
   @media print { .series-band { display: none !important; } }
@@ -574,6 +574,22 @@
   </div>
 </section>
 
+<!-- SERIES START -->
+<aside class="series-band" aria-label="未来のリスク計算機シリーズ">
+  <div class="series-inner">
+    <p class="series-head">未来のリスク計算機（全5本）</p>
+    <ul class="series-list">
+        <li><span class="now" aria-current="page"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></span></li>
+        <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
+        <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
+        <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校の分岐点</span></a></li>
+        <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
+    </ul>
+    <p class="series-foot"><a href="./risk-calculators.html">このシリーズについて（前提・出典・免責・変更履歴）</a></p>
+  </div>
+</aside>
+<!-- SERIES END -->
+
 <!-- KAIYU START -->
 <aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
 <style>
@@ -635,22 +651,6 @@
 </div>
 </aside>
 <!-- KAIYU END -->
-
-<!-- SERIES START -->
-<aside class="series-band" aria-label="未来のリスク計算機シリーズ">
-  <div class="series-inner">
-    <p class="series-head">未来のリスク計算機（全5本）</p>
-    <ul class="series-list">
-        <li><span class="now" aria-current="page"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></span></li>
-        <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
-        <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
-        <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校の分岐点</span></a></li>
-        <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
-    </ul>
-    <p class="series-foot"><a href="./risk-calculators.html">このシリーズについて（前提・出典・免責・変更履歴）</a></p>
-  </div>
-</aside>
-<!-- SERIES END -->
 
 <!-- FOOTER START -->
 <footer>
