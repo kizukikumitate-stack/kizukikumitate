@@ -57,10 +57,10 @@ DEADLINE = {
 
 DEADLINE_CSS = """  /* 意思決定期限。「問題が起きる年」と「決められなくなる年」を並べる */
   .deadline { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(250,248,242,0.18); }
-  .deadline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.76rem; opacity: 0.75; margin-bottom: 0.2rem; }
+  .deadline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.8rem; opacity: 0.75; margin-bottom: 0.2rem; }
   .deadline-head b { font-family: 'Jost', sans-serif; color: var(--gold); font-size: 0.95rem; opacity: 1; }
   .deadline input[type=range] { width: 100%; accent-color: var(--gold); }
-  .deadline-out { font-size: 0.84rem; line-height: 1.95; margin-top: 0.7rem; }
+  .deadline-out { font-size: 0.9rem; line-height: 1.95; margin-top: 0.7rem; }
   .deadline-out b { color: var(--gold); }
   .deadline-out b.dl-past { color: var(--dawn); }"""
 
@@ -151,7 +151,7 @@ SENS = {
 }
 
 SENS_CSS = """  /* 感度レンジ。点推定を確定的に読ませないための、根拠のある幅 */
-  .sens { font-size: 0.74rem; line-height: 1.9; opacity: 0.75; margin-top: 0.8rem; }
+  .sens { font-size: 0.8rem; line-height: 1.9; opacity: 0.75; margin-top: 0.8rem; }
   .sens b { color: var(--gold); opacity: 1; }"""
 
 SENS_HTML = '      <p class="sens" id="sensOut"></p>'
@@ -214,21 +214,21 @@ ROLE_Q = {
 DIALOGUE_CSS = """  /* 対話の問い・意思決定シート。回答はブラウザにだけ残す（送信しない） */
   .talk { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
   .talk h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; }
-  .talk-lead { font-size: 0.82rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .talk-lead { font-size: 0.9rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
   .q { margin-bottom: 1rem; }
-  .q-label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
-  .q-hint { display: block; font-size: 0.72rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
-  .q textarea { width: 100%; min-height: 3.4em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 0.84rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
+  .q-label { display: block; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
+  .q-hint { display: block; font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
+  .q textarea { width: 100%; min-height: 3.2em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 1rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
   .q textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
   .q.role { background: rgba(217,164,65,0.09); border-radius: 10px; padding: 0.9rem 1rem; }
   .q.role .q-label { color: var(--gold-deep); }
   .talk-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 1.2rem; }
-  .talk-btn { font-family: 'Noto Serif JP', serif; font-size: 0.82rem; padding: 0.5rem 1.3rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .talk-btn { font-family: 'Noto Serif JP', serif; font-size: 0.88rem; padding: 0.5rem 1.3rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
   .talk-btn:hover { background: var(--ink-deep); }
   .talk-btn.ghost { background: transparent; color: var(--ink-soft); border-color: var(--line); }
   .talk-btn.ghost:hover { border-color: var(--dawn); color: var(--dawn); }
-  .talk-saved { font-size: 0.72rem; color: var(--teal); }
-  .talk-note { font-size: 0.7rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+  .talk-saved { font-size: 0.78rem; color: var(--teal); }
+  .talk-note { font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
   /* 印刷＝意思決定記録。計算機のUIは落とし、問いと答えだけを1枚に */
   @media print {
     nav, .mobile-menu, footer, .kaiyu, .fuse, .card, .chart-box, .scene-frame, .presets, .talk-actions, .license { display: none !important; }
@@ -363,6 +363,18 @@ SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calcula
   .series-foot a { color: var(--teal); }
   .series-foot .now-hub { color: var(--ink-soft); }
   @media print { .series-band { display: none !important; } }"""
+
+
+def put_css(s, css, anchor):
+    """CSSブロックを流し込む。すでにあれば丸ごと差し替える。
+    先頭のコメント行と末尾の行をマーカーとして使うので、CSS定数を書き換えるときは
+    先頭コメントと最終行を変えないこと（変えると差し替えできず二重挿入になる）。"""
+    lines = css.split("\n")
+    start, end = lines[0], lines[-1]
+    if start in s:
+        return re.sub(re.escape(start) + r".*?" + re.escape(end),
+                      lambda m: css, s, count=1, flags=re.S)
+    return s.replace(anchor, anchor + "\n" + css, 1)
 
 
 SERIES_CSS_START = "  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */"
@@ -556,8 +568,7 @@ def process(path, num, title, source):
             if not m:
                 raise SystemExit(f"{path}: fuse の ends が見つかりません")
             s = s[:m.end()] + DEADLINE_HTML + "\n" + s[m.end():]
-        if ".deadline {" not in s:
-            s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + DEADLINE_CSS, 1)
+        s = put_css(s, DEADLINE_CSS, BADGE_CSS_ANCHOR)
         if f"renderDeadline({var});" not in s:
             # render() 内、fuseBig を書くすぐ手前に呼び出しを差す（そこなら var がスコープ内）
             anchor = "  document.getElementById('fuseBig').textContent ="
@@ -584,8 +595,7 @@ def process(path, num, title, source):
             if not m:
                 raise SystemExit(f"{path}: fuse の ends が見つかりません")
             s = s[:m.end()] + SENS_HTML + "\n" + s[m.end():]
-        if ".sens {" not in s:
-            s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + SENS_CSS, 1)
+        s = put_css(s, SENS_CSS, BADGE_CSS_ANCHOR)
         if "renderSens(" not in s.split("function renderSens(")[0]:
             anchor = "  document.getElementById('fuseBig').textContent ="
             if s.count(anchor) != 1:
@@ -602,8 +612,7 @@ def process(path, num, title, source):
             s = s.replace(tail, js + tail, 1)
 
     # --- 3.6 対話の問い＋意思決定シート（全6本） ---
-    if ".talk {" not in s:
-        s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + DIALOGUE_CSS, 1)
+    s = put_css(s, DIALOGUE_CSS, BADGE_CSS_ANCHOR)
     talk = dialogue_html(num, title, ROLE_Q[path])
     if TALK_START in s:
         s = re.sub(re.escape(TALK_START) + r".*?" + re.escape(TALK_END), lambda m: talk, s, count=1, flags=re.S)

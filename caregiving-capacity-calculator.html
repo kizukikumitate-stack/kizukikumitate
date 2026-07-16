@@ -220,21 +220,21 @@
   /* 対話の問い・意思決定シート。回答はブラウザにだけ残す（送信しない） */
   .talk { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
   .talk h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; }
-  .talk-lead { font-size: 0.82rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .talk-lead { font-size: 0.9rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
   .q { margin-bottom: 1rem; }
-  .q-label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
-  .q-hint { display: block; font-size: 0.72rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
-  .q textarea { width: 100%; min-height: 3.4em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 0.84rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
+  .q-label { display: block; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
+  .q-hint { display: block; font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
+  .q textarea { width: 100%; min-height: 3.2em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 1rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
   .q textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
   .q.role { background: rgba(217,164,65,0.09); border-radius: 10px; padding: 0.9rem 1rem; }
   .q.role .q-label { color: var(--gold-deep); }
   .talk-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 1.2rem; }
-  .talk-btn { font-family: 'Noto Serif JP', serif; font-size: 0.82rem; padding: 0.5rem 1.3rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .talk-btn { font-family: 'Noto Serif JP', serif; font-size: 0.88rem; padding: 0.5rem 1.3rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
   .talk-btn:hover { background: var(--ink-deep); }
   .talk-btn.ghost { background: transparent; color: var(--ink-soft); border-color: var(--line); }
   .talk-btn.ghost:hover { border-color: var(--dawn); color: var(--dawn); }
-  .talk-saved { font-size: 0.72rem; color: var(--teal); }
-  .talk-note { font-size: 0.7rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+  .talk-saved { font-size: 0.78rem; color: var(--teal); }
+  .talk-note { font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
   /* 印刷＝意思決定記録。計算機のUIは落とし、問いと答えだけを1枚に */
   @media print {
     nav, .mobile-menu, footer, .kaiyu, .fuse, .card, .chart-box, .scene-frame, .presets, .talk-actions, .license { display: none !important; }
