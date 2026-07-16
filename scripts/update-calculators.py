@@ -26,9 +26,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-VERSION = "1.0"
-VERSION_DATE = "2026-07-15"
-VERSION_DATE_JA = "2026年7月15日"
+VERSION = "1.1"
+VERSION_DATE = "2026-07-16"
+VERSION_DATE_JA = "2026年7月16日"
 HUB = "risk-calculators.html"
 
 # 出典はすべて到達確認済みのURLのみ。リンク切れを載せるのは本末転倒なので、
@@ -38,6 +38,282 @@ MHLW_VITAL = '<a href="https://www.mhlw.go.jp/toukei/list/81-1a.html" target="_b
 MHLW_LIFE = '<a href="https://www.mhlw.go.jp/toukei/saikin/hw/life/life24/index.html" target="_blank" rel="noopener">簡易生命表</a>'
 MHLW_KAIGO = '<a href="https://www.mhlw.go.jp/topics/kaigo/toukei/joukyou.html" target="_blank" rel="noopener">介護保険事業状況報告</a>'
 EGOV_SCHOOL = '<a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_blank" rel="noopener">義務教育標準法</a>'
+
+# ===== 意思決定期限 =====
+# 「2038年に問題が起きる」と出すと「まだ12年ある」と読まれる。実際に効くのは
+# 「いつまでに決めないと打ち手が間に合わないか」。04（技能承継）は着手デッドラインを
+# 最初から持っており、シリーズで最も強い設計だったので、他のページへ横展開する。
+#
+# path -> (render() 内で「問題の年」を保持している式, 問題の呼び名)
+#   04 は既にネイティブの着手デッドラインを持つので対象外。
+#   06 は「あなたが85歳になる年」＝個人の話で、組織の打ち手のリードタイムという
+#   概念が当てはまらないので対象外。
+DEADLINE = {
+    "customer-age-timebomb.html":         ("halfYear",           "顧客基盤が半減する"),
+    "recruitment-extinction.html":        ("breachYear",         "採用目標を割り込む"),
+    "tax-revenue-countdown.html":         ("crossYear",          "税収が歳出を賄えなくなる"),
+    "school-consolidation-countdown.html": ("sim.touhaigouYear", "統廃合が検討される規模になる"),
+}
+
+DEADLINE_CSS = """  /* 意思決定期限。「問題が起きる年」と「決められなくなる年」を並べる */
+  .deadline { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(250,248,242,0.18); }
+  .deadline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.76rem; opacity: 0.75; margin-bottom: 0.2rem; }
+  .deadline-head b { font-family: 'Jost', sans-serif; color: var(--gold); font-size: 0.95rem; opacity: 1; }
+  .deadline input[type=range] { width: 100%; accent-color: var(--gold); }
+  .deadline-out { font-size: 0.84rem; line-height: 1.95; margin-top: 0.7rem; }
+  .deadline-out b { color: var(--gold); }
+  .deadline-out b.dl-past { color: var(--dawn); }"""
+
+DEADLINE_HTML = """      <div class="deadline">
+        <div class="deadline-head"><span>打ち手が効き始めるまでの年数（あなたの想定）</span><span><b id="leadVal">5</b>年</span></div>
+        <input type="range" id="lead" min="1" max="15" step="1" value="5" aria-label="打ち手が効き始めるまでの年数">
+        <p class="deadline-out" id="deadlineOut">—</p>
+      </div>"""
+
+
+DL_JS_START = "/* DEADLINE-JS START */"
+DL_JS_END = "/* DEADLINE-JS END */"
+
+
+def deadline_js(problem_label):
+    # ★ .replace() は末尾の文字列リテラルにしか掛からないので、全体を括弧で囲むこと
+    #   （囲み忘れて PROBLEM が置換されず、そのまま表示されるバグを踏んだ）
+    return ("""
+""" + DL_JS_START + """
+/* ===== 意思決定期限 =====
+   「問題が起きる年」だけを出すと「まだ◯年ある」と読まれて先送りされる。
+   打ち手が効き始めるまでの年数を引いた「決められなくなる年」を併記する。
+   ★リードタイムは利用者の想定であって、計算機が知っている値ではない（＝仮定と明記する） */
+let leadYears = 5;
+document.getElementById('lead').addEventListener('input', e => { leadYears = Number(e.target.value); render(); });
+
+function renderDeadline(problemYear){
+  document.getElementById('lead').value = leadYears;
+  document.getElementById('leadVal').textContent = leadYears;
+  const el = document.getElementById('deadlineOut');
+  if (problemYear === null || problemYear === undefined) {
+    el.innerHTML = 'この条件では、PROBLEM年に届きません。いまは時間の余裕がある側です。';
+    return;
+  }
+  // すでに問題が起きている年は「間に合わせる」話にならない。
+  // 打ち手が効くまでの年数は、これから何年それが続くかの話になる
+  if (problemYear <= START_YEAR) {
+    el.innerHTML = '<b class="dl-past">PROBLEM状態には、すでに入っています。</b>'
+      + 'いま打ち手を決めても、効き始めるまでに' + leadYears + '年（' + (START_YEAR + leadYears) + '年ごろまで）はこの状態が続く見込みです。'
+      + '先に「何を諦め、何を守るか」を決める局面です。';
+    return;
+  }
+  const deadline = problemYear - leadYears;
+  const rest = deadline - START_YEAR;
+  if (rest > 0) {
+    el.innerHTML = '問題が起きるのは' + problemYear + '年でも、打ち手が効くまでに' + leadYears + '年かかるなら、'
+      + '<b>決められるのはあと' + rest + '年（' + deadline + '年まで）</b>です。';
+  } else if (rest === 0) {
+    el.innerHTML = '<b>今年が、決められる最後の年です。</b>' + problemYear + '年に間に合わせるには、いま着手する必要があります。';
+  } else {
+    el.innerHTML = '<b class="dl-past">着手の期限は、すでに' + (-rest) + '年過ぎています。</b>'
+      + problemYear + '年に間に合わせるには' + deadline + '年までに始めている必要がありました。'
+      + '間に合わせるなら、リードタイムの短い打ち手に変えるしかありません。';
+  }
+}
+""" + DL_JS_END + """
+""").replace("PROBLEM", problem_label)
+
+
+# ===== 感度レンジ =====
+# 点推定の「2038年」は確定的に読まれる。かといって「2036〜2041年」と幅を出すには
+# 不確実性の分布が要るが、それは持っていない（適当な幅を書けば、根拠のない精度を
+# 装うことになり、出典の誤りと同じ失敗になる）。
+# 代わりに「利用者が入れた主要な数字を±20%動かすと、年が何年動くか」なら、
+# 計算で出せて根拠も言える。＝感度分析であって、予測の信頼区間ではない。
+#
+# path -> (±20%を適用して「問題の年」を返すJS式, 振る入力の呼び名)
+SENS = {
+    "customer-age-timebomb.html": (
+        "m => simulate(shares, newRate * m, newBand, exitAge, shrinkInflow).halfYear",
+        "年間の新規顧客の割合"),
+    "recruitment-extinction.html": (
+        "m => simulate(Object.assign({}, P, { entries: P.entries * m }), futureDecline, competition).breachYear",
+        "年間エントリー数"),
+    "tax-revenue-countdown.html": (
+        "m => simulate(Object.assign({}, P, { tax: P.tax * m }), birthDecline).crossYear",
+        "税収の見積もり"),
+    "skill-succession-timebomb.html": (
+        "m => simulate(holders, retire, Math.max(1, Math.round(handover * m)), succ).lossYear",
+        "技の継承にかかる年数"),
+    "school-consolidation-countdown.html": (
+        "m => simulate(P.births * m, P.decline, P.rate).touhaigouYear",
+        "校区の年間出生数"),
+    # 06 は「あなたが85歳になる年」＝年齢から決まる確定値で、振る前提がないので対象外
+}
+
+SENS_CSS = """  /* 感度レンジ。点推定を確定的に読ませないための、根拠のある幅 */
+  .sens { font-size: 0.74rem; line-height: 1.9; opacity: 0.75; margin-top: 0.8rem; }
+  .sens b { color: var(--gold); opacity: 1; }"""
+
+SENS_HTML = '      <p class="sens" id="sensOut"></p>'
+
+SENS_JS_START = "/* SENS-JS START */"
+SENS_JS_END = "/* SENS-JS END */"
+
+
+def sens_js(input_label):
+    return ("""
+""" + SENS_JS_START + """
+/* ===== 感度レンジ =====
+   「2038年」と1点で出すと確定的に読まれる。かといって信頼区間は出せない
+   （不確実性の分布を持っていないので、幅をでっち上げることになる）。
+   出せるのは「入力を±20%動かすと年がどう動くか」＝感度分析だけ。予測の幅ではない。 */
+function renderSens(f){
+  const el = document.getElementById('sensOut');
+  let lo, hi;
+  try { lo = f(0.8); hi = f(1.2); } catch (e) { el.textContent = ''; return; }
+  const ys = [lo, hi].filter(y => y !== null && y !== undefined);
+  if (ys.length === 0) {
+    el.innerHTML = 'INPUT（あなたが入れた値）を±20％動かしても、この期間内には届きません。';
+    return;
+  }
+  const a = Math.min.apply(null, ys), b = Math.max.apply(null, ys);
+  if (ys.length === 1) {
+    el.innerHTML = 'INPUT（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '年から「この期間内には届かない」まで</b> 動きます。'
+      + '年そのものより、動かせる前提はどれかを見てください。';
+  } else if (a === b) {
+    el.innerHTML = 'INPUT（あなたが入れた値）を±20％動かしても、この年は <b>' + a + '年のまま</b> です。'
+      + 'この結果は、その前提にはあまり左右されていません。効くのは別の前提です。';
+  } else {
+    el.innerHTML = 'INPUT（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '〜' + b + '年</b> に動きます。'
+      + '前提が少し違うだけで年は動きます。年そのものより、動かせる前提はどれかを見てください。';
+  }
+}
+""" + SENS_JS_END + """
+""").replace("INPUT", input_label)
+
+
+# ===== 対話の問い（立場の切り替え） =====
+# フューチャー・デザイン（矢巾町）の「仮想将来世代」の考え方。同じ人が立場を変えると
+# 違う結論を出す、という実証がある（risk-calculators.html の事例を参照）。
+# path -> その計算機に固有の「将来の当事者」の問い
+ROLE_Q = {
+    "customer-age-timebomb.html":
+        "あなたは2045年に、この会社の商品を選ぶかどうかを決める人です。いまの品ぞろえと売り方は、あなたに届いていますか。",
+    "recruitment-extinction.html":
+        "あなたは2040年に就職先を選ぶ22歳です。この会社の求人を見て、応募したいと思いますか。何があれば応募しますか。",
+    "tax-revenue-countdown.html":
+        "あなたは2050年にこのまちで子育てをしている住民です。2026年の意思決定者に、何をしておいてほしかったと言いますか。",
+    "skill-succession-timebomb.html":
+        "あなたは、この技を教わらないまま現場を任された10年後の担当者です。いまの引き継ぎ計画に何を言いますか。",
+    "school-consolidation-countdown.html":
+        "あなたは2040年にこの校区で暮らす子どもです。いまの大人たちの話し合いに、何を望みますか。",
+    "caregiving-capacity-calculator.html":
+        "あなたは、支えられる側になった自分自身です。そのときの自分は、いまの自分に何を頼みますか。",
+}
+
+DIALOGUE_CSS = """  /* 対話の問い・意思決定シート。回答はブラウザにだけ残す（送信しない） */
+  .talk { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
+  .talk h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; }
+  .talk-lead { font-size: 0.82rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .q { margin-bottom: 1rem; }
+  .q-label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
+  .q-hint { display: block; font-size: 0.72rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
+  .q textarea { width: 100%; min-height: 3.4em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 0.84rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
+  .q textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+  .q.role { background: rgba(217,164,65,0.09); border-radius: 10px; padding: 0.9rem 1rem; }
+  .q.role .q-label { color: var(--gold-deep); }
+  .talk-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 1.2rem; }
+  .talk-btn { font-family: 'Noto Serif JP', serif; font-size: 0.82rem; padding: 0.5rem 1.3rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .talk-btn:hover { background: var(--ink-deep); }
+  .talk-btn.ghost { background: transparent; color: var(--ink-soft); border-color: var(--line); }
+  .talk-btn.ghost:hover { border-color: var(--dawn); color: var(--dawn); }
+  .talk-saved { font-size: 0.72rem; color: var(--teal); }
+  .talk-note { font-size: 0.7rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+  /* 印刷＝意思決定記録。計算機のUIは落とし、問いと答えだけを1枚に */
+  @media print {
+    nav, .mobile-menu, footer, .kaiyu, .fuse, .card, .chart-box, .scene-frame, .presets, .talk-actions, .license { display: none !important; }
+    .talk { display: block !important; border: none; padding: 0; }
+    #printHead { display: block !important; }
+    body { background: #fff; }
+    .q textarea { border: none; border-bottom: 1px solid #ccc; background: #fff; min-height: 0; }
+  }
+  #printHead { display: none; }"""
+
+
+def dialogue_html(num, title, role_q):
+    qs = [
+        ("q1", "この結果を見て、いちばん驚いたことは何ですか。", "「思ったより早い」「思ったより遅い」でも構いません。"),
+        ("q2", "この未来が起きると、いちばん困るのは誰ですか。", "その人は、いまこの話し合いの場にいますか。"),
+        ("q3", "この計算が置いている前提のうち、自分たちで変えられるものはどれですか。", "変えられない前提と、変えられる前提を分けます。"),
+        ("q4", "いま決めなければ、いつから選択肢が減りますか。", "上の「決められるのはあと◯年」を見ながら書きます。"),
+        ("q5", "30日以内に試せる、いちばん小さな行動は何ですか。", "大きな計画ではなく、来週できることを1つ。"),
+        ("q6", "それは誰が、いつまでにやりますか。", "担当と期限がない行動は、実行されません。"),
+    ]
+    rows = "\n".join(
+        f'      <div class="q"><label class="q-label" for="{k}">{q}<span class="q-hint">{h}</span></label>'
+        f'<textarea id="{k}" data-k="{k}"></textarea></div>'
+        for k, q, h in qs)
+    return f"""{TALK_START}
+<section>
+  <div class="wrap">
+    <div class="talk">
+      <div id="printHead">
+        <p style="font-size:0.7rem;letter-spacing:0.2em;color:#888">未来リスク計算機 {num}／{title}</p>
+        <h1 style="font-family:'Shippori Mincho',serif;font-size:1.3rem;margin:0.3rem 0 1rem">未来リスク対話記録</h1>
+      </div>
+      <h2>数字を見たあとに、話すこと</h2>
+      <p class="talk-lead">ここまでの数字は、話し合いを始めるためのものです。以下に答えて印刷すると、そのまま会議で配れる1枚の記録になります。答えはこのブラウザにだけ保存され、どこにも送信されません。</p>
+      <div class="q role"><label class="q-label" for="q0">立場を変えて考える<span class="q-hint">{role_q}</span></label><textarea id="q0" data-k="q0"></textarea></div>
+{rows}
+      <div class="talk-actions">
+        <button class="talk-btn" type="button" id="printBtn">印刷／PDFで保存する</button>
+        <button class="talk-btn ghost" type="button" id="clearBtn">回答を消す</button>
+        <span class="talk-saved" id="savedMsg"></span>
+      </div>
+      <p class="talk-note">※ 回答はこの端末のブラウザ内（localStorage）にのみ保存されます。サーバーには送信していません。共有したいときは印刷／PDFをお使いください。端末やブラウザを変えると消えます。</p>
+    </div>
+  </div>
+</section>
+{TALK_END}"""
+
+
+DIALOGUE_JS = """
+/* TALK-JS START */
+/* ===== 対話の問い =====
+   数字を見て「厳しいですね」で終わらせないための導線。回答はサーバーに送らず
+   localStorage にだけ置く（「数字はどこにも送信されません」を崩さないため） */
+(function(){
+  const KEY = 'kk-talk-' + location.pathname.split('/').pop();
+  const fields = [...document.querySelectorAll('.talk textarea')];
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+  fields.forEach(t => { if (saved[t.dataset.k]) t.value = saved[t.dataset.k]; });
+
+  let timer = null;
+  const msg = document.getElementById('savedMsg');
+  function save(){
+    const out = {};
+    fields.forEach(t => { if (t.value.trim()) out[t.dataset.k] = t.value; });
+    try {
+      localStorage.setItem(KEY, JSON.stringify(out));
+      msg.textContent = 'この端末に保存しました';
+      clearTimeout(timer);
+      timer = setTimeout(() => { msg.textContent = ''; }, 2000);
+    } catch (e) { msg.textContent = '保存できませんでした（ブラウザの設定をご確認ください）'; }
+  }
+  fields.forEach(t => t.addEventListener('input', save));
+
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    if (!confirm('入力した回答をすべて消します。よろしいですか。')) return;
+    fields.forEach(t => { t.value = ''; });
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    msg.textContent = '消しました';
+  });
+})();
+/* TALK-JS END */
+"""
+
+TALK_START = "<!-- TALK START -->"
+TALK_END = "<!-- TALK END -->"
+
 
 # path -> (シリーズ番号, タイトル, 出典の一文)
 PAGES = {
@@ -154,6 +430,84 @@ def process(path, num, title, source):
         if not m:
             raise SystemExit(f"{path}: fuse-big が見つかりません")
         s = s.replace(m.group(1), m.group(1) + "\n        " + BADGE_HTML, 1)
+
+    # --- 3.5 意思決定期限（対象ページのみ） ---
+    if path in DEADLINE:
+        var, label = DEADLINE[path]
+        if 'class="deadline"' not in s:
+            # 導火線バーの目盛り（<div class="ends">）の直後、fuse ブロックの中に置く。
+            # 最初の1個が fuse のもの（scene 側にも ends を持つページがあるため count=1）
+            m = re.search(r'<div class="ends">.*?</div>\n', s, re.S)
+            if not m:
+                raise SystemExit(f"{path}: fuse の ends が見つかりません")
+            s = s[:m.end()] + DEADLINE_HTML + "\n" + s[m.end():]
+        if ".deadline {" not in s:
+            s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + DEADLINE_CSS, 1)
+        if f"renderDeadline({var});" not in s:
+            # render() 内、fuseBig を書くすぐ手前に呼び出しを差す（そこなら var がスコープ内）
+            anchor = "  document.getElementById('fuseBig').textContent ="
+            if s.count(anchor) != 1:
+                raise SystemExit(f"{path}: fuseBig の行が {s.count(anchor)} 個")
+            s = s.replace(anchor, f"  renderDeadline({var});\n" + anchor, 1)
+        js = deadline_js(label)
+        if DL_JS_START in s:
+            s = re.sub(re.escape(DL_JS_START) + r".*?" + re.escape(DL_JS_END),
+                       lambda m: js.strip("\n"), s, count=1, flags=re.S)
+        else:
+            # 関数定義は最後の render(); 呼び出しの手前に置く
+            tail = "\nrender();\n</script>"
+            if s.count(tail) != 1:
+                raise SystemExit(f"{path}: 末尾の render(); が {s.count(tail)} 個")
+            s = s.replace(tail, js + tail, 1)
+
+    # --- 3.55 感度レンジ（対象ページのみ） ---
+    if path in SENS:
+        expr, in_label = SENS[path]
+        if 'id="sensOut"' not in s:
+            # 導火線の目盛りの直後（意思決定期限より前）に置く
+            m = re.search(r'<div class="ends">.*?</div>\n', s, re.S)
+            if not m:
+                raise SystemExit(f"{path}: fuse の ends が見つかりません")
+            s = s[:m.end()] + SENS_HTML + "\n" + s[m.end():]
+        if ".sens {" not in s:
+            s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + SENS_CSS, 1)
+        if "renderSens(" not in s.split("function renderSens(")[0]:
+            anchor = "  document.getElementById('fuseBig').textContent ="
+            if s.count(anchor) != 1:
+                raise SystemExit(f"{path}: fuseBig の行が {s.count(anchor)} 個")
+            s = s.replace(anchor, f"  renderSens({expr});\n" + anchor, 1)
+        js = sens_js(in_label)
+        if SENS_JS_START in s:
+            s = re.sub(re.escape(SENS_JS_START) + r".*?" + re.escape(SENS_JS_END),
+                       lambda m: js.strip("\n"), s, count=1, flags=re.S)
+        else:
+            tail = "\nrender();\n"
+            if tail not in s:
+                raise SystemExit(f"{path}: 末尾の render(); が見つかりません")
+            s = s.replace(tail, js + tail, 1)
+
+    # --- 3.6 対話の問い＋意思決定シート（全6本） ---
+    if ".talk {" not in s:
+        s = s.replace(BADGE_CSS_ANCHOR, BADGE_CSS_ANCHOR + "\n" + DIALOGUE_CSS, 1)
+    talk = dialogue_html(num, title, ROLE_Q[path])
+    if TALK_START in s:
+        s = re.sub(re.escape(TALK_START) + r".*?" + re.escape(TALK_END), lambda m: talk, s, count=1, flags=re.S)
+    else:
+        # 「解除の型」の散文の後、※注記の手前に置く（＝数字→解説→対話 の順）
+        anchor = "<!-- CALC-COMMON START -->"
+        if anchor not in s:
+            raise SystemExit(f"{path}: CALC-COMMON マーカーがありません（先に共通ブロックを入れてください）")
+        # ※注記セクションの開始（<section> ... CALC-COMMON）まで遡って、その手前に差す
+        sec = s.rfind("<section>", 0, s.find(anchor))
+        s = s[:sec] + talk + "\n\n" + s[sec:]
+    if "/* TALK-JS START */" in s:
+        s = re.sub(r"/\* TALK-JS START \*/.*?/\* TALK-JS END \*/",
+                   lambda m: DIALOGUE_JS.strip("\n"), s, count=1, flags=re.S)
+    else:
+        tail = "\nrender();\n</script>"
+        if s.count(tail) != 1:
+            raise SystemExit(f"{path}: 末尾の render(); が {s.count(tail)} 個")
+        s = s.replace(tail, "\nrender();\n" + DIALOGUE_JS + "</script>", 1)
 
     # --- 4. 共通ブロック（マーカーがあれば中身を差し替え＝冪等） ---
     block = build_common(num, title, source)

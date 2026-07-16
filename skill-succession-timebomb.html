@@ -2,7 +2,7 @@
 <!--
   未来リスク計算機シリーズ 04 技能承継時限爆弾
   (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
-  version: 1.0 (2026-07-15)
+  version: 1.1 (2026-07-16)
   License: CC BY-NC-SA 4.0
   https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja
   非営利利用: クレジット表記＋同ライセンス継承で自由
@@ -234,6 +234,36 @@
   .prose { font-size: 0.88rem; line-height: 2.05; color: var(--ink-soft); }
   .prose strong { color: var(--ink); font-weight: 600; }
   .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }
+  /* 感度レンジ。点推定を確定的に読ませないための、根拠のある幅 */
+  .sens { font-size: 0.74rem; line-height: 1.9; opacity: 0.75; margin-top: 0.8rem; }
+  .sens b { color: var(--gold); opacity: 1; }
+  /* 対話の問い・意思決定シート。回答はブラウザにだけ残す（送信しない） */
+  .talk { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
+  .talk h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; }
+  .talk-lead { font-size: 0.82rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
+  .q { margin-bottom: 1rem; }
+  .q-label { display: block; font-size: 0.84rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
+  .q-hint { display: block; font-size: 0.72rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
+  .q textarea { width: 100%; min-height: 3.4em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 0.84rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
+  .q textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
+  .q.role { background: rgba(217,164,65,0.09); border-radius: 10px; padding: 0.9rem 1rem; }
+  .q.role .q-label { color: var(--gold-deep); }
+  .talk-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 1.2rem; }
+  .talk-btn { font-family: 'Noto Serif JP', serif; font-size: 0.82rem; padding: 0.5rem 1.3rem; border-radius: 999px; cursor: pointer; border: 1.5px solid var(--ink); background: var(--ink); color: var(--paper); }
+  .talk-btn:hover { background: var(--ink-deep); }
+  .talk-btn.ghost { background: transparent; color: var(--ink-soft); border-color: var(--line); }
+  .talk-btn.ghost:hover { border-color: var(--dawn); color: var(--dawn); }
+  .talk-saved { font-size: 0.72rem; color: var(--teal); }
+  .talk-note { font-size: 0.7rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
+  /* 印刷＝意思決定記録。計算機のUIは落とし、問いと答えだけを1枚に */
+  @media print {
+    nav, .mobile-menu, footer, .kaiyu, .fuse, .card, .chart-box, .scene-frame, .presets, .talk-actions, .license { display: none !important; }
+    .talk { display: block !important; border: none; padding: 0; }
+    #printHead { display: block !important; }
+    body { background: #fff; }
+    .q textarea { border: none; border-bottom: 1px solid #ccc; background: #fff; min-height: 0; }
+  }
+  #printHead { display: none; }
   /* 「簡易試算」バッジ。大きな数字と但し書きは画面にして数スクロール離れているため、
      数字だけスクショされると前提が一切伝わらない。数字の隣に置いて一緒に写るようにする */
   .approx { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.15em 0.7em; border-radius: 999px; border: 1px solid rgba(250,248,242,0.45); color: rgba(250,248,242,0.8); white-space: nowrap; align-self: center; }
@@ -479,6 +509,7 @@
         <div class="fuse-spark" id="fuseSpark"></div>
       </div>
       <div class="ends"><span>2026</span><span>2056</span></div>
+      <p class="sens" id="sensOut"></p>
       <p class="fuse-note" id="fuseNote"></p>
     </div>
   </div>
@@ -533,14 +564,42 @@
   </div>
 </section>
 
+<!-- TALK START -->
+<section>
+  <div class="wrap">
+    <div class="talk">
+      <div id="printHead">
+        <p style="font-size:0.7rem;letter-spacing:0.2em;color:#888">未来リスク計算機 04／技能承継時限爆弾</p>
+        <h1 style="font-family:'Shippori Mincho',serif;font-size:1.3rem;margin:0.3rem 0 1rem">未来リスク対話記録</h1>
+      </div>
+      <h2>数字を見たあとに、話すこと</h2>
+      <p class="talk-lead">ここまでの数字は、話し合いを始めるためのものです。以下に答えて印刷すると、そのまま会議で配れる1枚の記録になります。答えはこのブラウザにだけ保存され、どこにも送信されません。</p>
+      <div class="q role"><label class="q-label" for="q0">立場を変えて考える<span class="q-hint">あなたは、この技を教わらないまま現場を任された10年後の担当者です。いまの引き継ぎ計画に何を言いますか。</span></label><textarea id="q0" data-k="q0"></textarea></div>
+      <div class="q"><label class="q-label" for="q1">この結果を見て、いちばん驚いたことは何ですか。<span class="q-hint">「思ったより早い」「思ったより遅い」でも構いません。</span></label><textarea id="q1" data-k="q1"></textarea></div>
+      <div class="q"><label class="q-label" for="q2">この未来が起きると、いちばん困るのは誰ですか。<span class="q-hint">その人は、いまこの話し合いの場にいますか。</span></label><textarea id="q2" data-k="q2"></textarea></div>
+      <div class="q"><label class="q-label" for="q3">この計算が置いている前提のうち、自分たちで変えられるものはどれですか。<span class="q-hint">変えられない前提と、変えられる前提を分けます。</span></label><textarea id="q3" data-k="q3"></textarea></div>
+      <div class="q"><label class="q-label" for="q4">いま決めなければ、いつから選択肢が減りますか。<span class="q-hint">上の「決められるのはあと◯年」を見ながら書きます。</span></label><textarea id="q4" data-k="q4"></textarea></div>
+      <div class="q"><label class="q-label" for="q5">30日以内に試せる、いちばん小さな行動は何ですか。<span class="q-hint">大きな計画ではなく、来週できることを1つ。</span></label><textarea id="q5" data-k="q5"></textarea></div>
+      <div class="q"><label class="q-label" for="q6">それは誰が、いつまでにやりますか。<span class="q-hint">担当と期限がない行動は、実行されません。</span></label><textarea id="q6" data-k="q6"></textarea></div>
+      <div class="talk-actions">
+        <button class="talk-btn" type="button" id="printBtn">印刷／PDFで保存する</button>
+        <button class="talk-btn ghost" type="button" id="clearBtn">回答を消す</button>
+        <span class="talk-saved" id="savedMsg"></span>
+      </div>
+      <p class="talk-note">※ 回答はこの端末のブラウザ内（localStorage）にのみ保存されます。サーバーには送信していません。共有したいときは印刷／PDFをお使いください。端末やブラウザを変えると消えます。</p>
+    </div>
+  </div>
+</section>
+<!-- TALK END -->
+
 <section>
   <div class="wrap">
     <p class="note">※ 簡易モデルによる試算です。後継者は現役の熟練者がいる年にのみ習熟が進み、継承年数で習熟度100％に達すると仮定しています。実際の技能移転は個人差・意欲・技の複雑さに大きく左右されます。「現場の様子」は継承状況を視覚化した概念図です。組織内の対話の出発点としてお使いください。</p>
 <!-- CALC-COMMON START -->
     <p class="note" style="margin-top:0.8rem">出典：外部の統計データは使っていません（入力された数字だけで計算しています）。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
     <div class="license">
-      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）　<span class="ver">ver 1.0</span>（2026年7月15日）<br>
-      この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E6%8A%80%E8%83%BD%E6%89%BF%E7%B6%99%E6%99%82%E9%99%90%E7%88%86%E5%BC%BE%20ver%201.0%EF%BC%89">ご意見</a> をお寄せください。<br>
+      &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）　<span class="ver">ver 1.1</span>（2026年7月16日）<br>
+      この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E6%8A%80%E8%83%BD%E6%89%BF%E7%B6%99%E6%99%82%E9%99%90%E7%88%86%E5%BC%BE%20ver%201.1%EF%BC%89">ご意見</a> をお寄せください。<br>
       本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。改変した場合はその旨を明記し、当工房の試算としては示さないでください。商用利用をご希望の場合は <a href="./index.html#contact">お問い合わせ</a> ください。
     </div>
 <!-- CALC-COMMON END -->
@@ -946,6 +1005,7 @@ function render(){
         : 'この年までに育成を始めないと、技を教われる師匠がいなくなります。');
 
   // カウントダウン
+  renderSens(m => simulate(holders, retire, Math.max(1, Math.round(handover * m)), succ).lossYear);
   document.getElementById('fuseBig').textContent = lossYear !== null ? 'あと' + yearsToLoss + '年' : '継承の見込みあり';
   document.getElementById('fuseAt').textContent = lossYear !== null ? lossYear + '年に喪失' : '';
   document.getElementById('fuseFill').style.width = fusePct + '%';
@@ -963,7 +1023,70 @@ function render(){
   drawScene(scrubRow, scrubYear);
 }
 
+/* SENS-JS START */
+/* ===== 感度レンジ =====
+   「2038年」と1点で出すと確定的に読まれる。かといって信頼区間は出せない
+   （不確実性の分布を持っていないので、幅をでっち上げることになる）。
+   出せるのは「入力を±20%動かすと年がどう動くか」＝感度分析だけ。予測の幅ではない。 */
+function renderSens(f){
+  const el = document.getElementById('sensOut');
+  let lo, hi;
+  try { lo = f(0.8); hi = f(1.2); } catch (e) { el.textContent = ''; return; }
+  const ys = [lo, hi].filter(y => y !== null && y !== undefined);
+  if (ys.length === 0) {
+    el.innerHTML = '技の継承にかかる年数（あなたが入れた値）を±20％動かしても、この期間内には届きません。';
+    return;
+  }
+  const a = Math.min.apply(null, ys), b = Math.max.apply(null, ys);
+  if (ys.length === 1) {
+    el.innerHTML = '技の継承にかかる年数（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '年から「この期間内には届かない」まで</b> 動きます。'
+      + '年そのものより、動かせる前提はどれかを見てください。';
+  } else if (a === b) {
+    el.innerHTML = '技の継承にかかる年数（あなたが入れた値）を±20％動かしても、この年は <b>' + a + '年のまま</b> です。'
+      + 'この結果は、その前提にはあまり左右されていません。効くのは別の前提です。';
+  } else {
+    el.innerHTML = '技の継承にかかる年数（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '〜' + b + '年</b> に動きます。'
+      + '前提が少し違うだけで年は動きます。年そのものより、動かせる前提はどれかを見てください。';
+  }
+}
+/* SENS-JS END */
+
 render();
+
+/* TALK-JS START */
+/* ===== 対話の問い =====
+   数字を見て「厳しいですね」で終わらせないための導線。回答はサーバーに送らず
+   localStorage にだけ置く（「数字はどこにも送信されません」を崩さないため） */
+(function(){
+  const KEY = 'kk-talk-' + location.pathname.split('/').pop();
+  const fields = [...document.querySelectorAll('.talk textarea')];
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) { saved = {}; }
+  fields.forEach(t => { if (saved[t.dataset.k]) t.value = saved[t.dataset.k]; });
+
+  let timer = null;
+  const msg = document.getElementById('savedMsg');
+  function save(){
+    const out = {};
+    fields.forEach(t => { if (t.value.trim()) out[t.dataset.k] = t.value; });
+    try {
+      localStorage.setItem(KEY, JSON.stringify(out));
+      msg.textContent = 'この端末に保存しました';
+      clearTimeout(timer);
+      timer = setTimeout(() => { msg.textContent = ''; }, 2000);
+    } catch (e) { msg.textContent = '保存できませんでした（ブラウザの設定をご確認ください）'; }
+  }
+  fields.forEach(t => t.addEventListener('input', save));
+
+  document.getElementById('printBtn').addEventListener('click', () => window.print());
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    if (!confirm('入力した回答をすべて消します。よろしいですか。')) return;
+    fields.forEach(t => { t.value = ''; });
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    msg.textContent = '消しました';
+  });
+})();
+/* TALK-JS END */
 </script>
 </body>
 </html>
