@@ -47,6 +47,8 @@ def build_doors(nav):
     for spot, (group, exclude) in MAPPING.items():
         rows = []
         for child in nav_group_children(nav, group):
+            if "href" not in child:
+                continue  # 見出し行（{"heading": ...}）は扉にしない
             href = child["href"]
             if href.startswith(("http://", "https://", "mailto:")):
                 continue  # 外部リンクは扉にしない
