@@ -377,6 +377,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "ふりかえりの技法図鑑",
       "sub": "ひとりでもチームでも使えるふりかえりの技法23種。やり方・所要時間・由来・コツつき。"
+    },
+    {
+      "page": "shinkei-busshitsu-zukan.html",
+      "img": "shinkei-busshitsu-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#3A6BA5",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "主な神経物質図鑑",
+      "sub": "脳内で情報を受け渡す12の物質を、よくある誤解とともに正確に。対話と組織に読み替える現場メモつき。"
     }
   ]
 }

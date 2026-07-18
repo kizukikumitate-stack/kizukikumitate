@@ -755,6 +755,21 @@
         "growth-laws-zukan",
         "dialogue-zukan"
       ]
+    },
+    {
+      "id": "shinkei-busshitsu-zukan",
+      "path": "shinkei-busshitsu-zukan.html",
+      "title": "主な神経物質図鑑",
+      "tag": "世界の知恵",
+      "desc": "ドーパミン・セロトニン・オキシトシン……脳内で情報を受け渡す12の物質を、よくある誤解とともに正確に。対話と組織に読み替える『現場メモ』つき。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "growth-laws-zukan",
+        "chie-zukan"
+      ]
     }
   ]
 }

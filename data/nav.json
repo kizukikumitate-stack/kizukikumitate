@@ -144,6 +144,10 @@
             "href": "reflection-zukan.html"
           },
           {
+            "label": "主な神経物質図鑑",
+            "href": "shinkei-busshitsu-zukan.html"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html"
           },
@@ -422,6 +426,10 @@
     },
     {
       "path": "reflection-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shinkei-busshitsu-zukan.html",
       "variant": "standard"
     }
   ],
