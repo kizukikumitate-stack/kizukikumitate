@@ -743,18 +743,20 @@
   .rocket-map .rkt-doors a::before{content:"扉 "; color:var(--gold); font-weight:700}
   .rocket-map .rkt-doors a:hover{background:rgba(217,164,65,.2); transform:translateY(-1px)}
   .rocket-map .rkt-hint{font-size:11.5px; color:rgba(250,248,242,.45); text-align:center; margin-top:10px}
-  /* PC: 横長ワイド版のロケット図(.sky-wide)を表示。案内板は下のまま */
+  /* PC: 横長ワイド版のロケット図(.sky-wide)を表示。図＋案内板が1画面に収まるよう高さ基準でコンパクトに */
   @media (min-width: 860px){
-    .rocket-map{padding:48px 0 84px}
-    .rocket-map .rkt-wrap{max-width:1080px; padding:30px 30px 76px}
-    .rocket-map .rkt-head h2{font-size:28px}
-    .rocket-map .rkt-head p{font-size:15px}
+    .rocket-map{padding:40px 0 40px}
+    .rocket-map .rkt-wrap{max-width:1120px; padding:30px 30px 26px}
+    .rocket-map .rkt-head h2{font-size:25px; margin-bottom:2px}
+    .rocket-map .rkt-head p{font-size:13.5px; margin-bottom:2px}
     .rocket-map .sky{display:none}
-    .rocket-map .sky-wide{display:block; width:100%; margin:4px auto 0}
-    .rocket-map .rkt-panel{max-width:760px; margin-left:auto; margin-right:auto; margin-top:24px; padding:24px 30px 28px}
-    .rocket-map .rkt-panel h2{font-size:20px}
-    .rocket-map .rkt-panel p{font-size:15px; line-height:2}
-    .rocket-map .rkt-doors a{font-size:14px; padding:8px 15px}
+    .rocket-map .sky-wide{display:block; width:auto; height:min(44vh, 448px); max-width:100%; margin:0 auto}
+    .rocket-map .rkt-panel{max-width:860px; margin:12px auto 0; min-height:140px; padding:16px 26px 18px}
+    .rocket-map .rkt-panel h2{font-size:18px; margin-bottom:5px}
+    .rocket-map .rkt-panel p{font-size:14px; line-height:1.8; margin-bottom:8px}
+    .rocket-map .rkt-doors{gap:7px}
+    .rocket-map .rkt-doors a{font-size:13px; padding:6px 12px}
+    .rocket-map .rkt-hint{margin-top:8px; font-size:11px}
   }
 </style>
 <div class="rkt-wrap">
@@ -997,7 +999,7 @@
       <text x="265" y="490" text-anchor="middle" font-size="11" fill="#faf8f2" letter-spacing="2">協力者のみなさん</text>
     </g>
   </svg>
-<svg class="sky-wide" viewBox="0 0 940 510" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="（横長版）過去の蓄積を発射台に、対話の工房と事業のエンジンを積んだロケットが、協力者に支えられ、未来リスクの小惑星帯を抜けて平和な地球へ飛ぶ図">
+<svg class="sky-wide" viewBox="0 70 940 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="（横長版）過去の蓄積を発射台に、対話の工房と事業のエンジンを積んだロケットが、協力者に支えられ、未来リスクの小惑星帯を抜けて平和な地球へ飛ぶ図">
   <defs>
     <radialGradient id="earthsea-w" cx="38%" cy="32%" r="80%">
       <stop offset="0%" stop-color="#63c1f5"/>
@@ -1369,17 +1371,17 @@
     });
   }
 
-  if (window.matchMedia("(hover: hover)").matches){
-    document.querySelectorAll('[data-spot="archive"]').forEach(function(pad){
-      pad.addEventListener("mouseenter", function(){ show("archive"); });
-    });
-  }
+  var canHover = window.matchMedia("(hover: hover)").matches;
 
   spots.forEach(function(el){
     el.addEventListener("click", function(e){ e.stopPropagation(); show(el.dataset.spot); });
     el.addEventListener("keydown", function(e){
       if (e.key === "Enter" || e.key === " "){ e.preventDefault(); show(el.dataset.spot); }
     });
+    // PC等ホバー可能デバイスでは、カーソルを合わせるだけで案内板に内容を表示
+    if (canHover){
+      el.addEventListener("mouseenter", function(){ show(el.dataset.spot); });
+    }
   });
 })();
 </script>
