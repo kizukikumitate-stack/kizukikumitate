@@ -387,6 +387,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "主な神経物質図鑑",
       "sub": "脳内で情報を受け渡す12の物質を、よくある誤解とともに正確に。対話と組織に読み替える現場メモつき。"
+    },
+    {
+      "page": "nemuru-okane-zukan.html",
+      "img": "nemuru-okane-zukan-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#F5B841",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "眠るお金図鑑",
+      "sub": "日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。12の標本と、お金を教育にめぐらせる好循環アイデア10。"
     }
   ]
 }

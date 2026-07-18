@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>眠るお金図鑑 ｜ きづきくみたて工房</title>
+<meta name="description" content="日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。タンス預金47兆円から内部留保600兆円まで、12の標本と好循環アイデア10。">
+<link rel="canonical" href="https://kizukikumitate.com/nemuru-okane-zukan.html">
+<meta property="og:title" content="眠るお金図鑑｜きづきくみたて工房">
+<meta property="og:description" content="日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。タンス預金47兆円から内部留保600兆円まで、12の標本と好循環アイデア10。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/nemuru-okane-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/nemuru-okane-zukan-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="眠るお金図鑑｜きづきくみたて工房">
+<meta name="twitter:description" content="日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。12の標本と好循環アイデア10。">
+<meta name="twitter:image" content="https://kizukikumitate.com/nemuru-okane-zukan-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=M+PLUS+1+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#BFE3EF;
+  --sky-deep:#8EC9DE;
+  --soil:#4A3B2E;
+  --gap:#37304A;
+  --frost:#243452;
+  --bedrock:#171226;
+  --refine:#0E2E2A;
+  --pad:#0B1020;
+  --ore:#F5B841;
+  --ore-soft:#FFD98A;
+  --mint:#7EDCC3;
+  --paper:#FBF5E9;
+  --ink:#2A2118;
+  --ink-soft:#6B5C4C;
+  --white:#FFF9F0;
+  --forest:#1a5fad;
+  --charcoal:#1e1e1e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Zen Kaku Gothic New',sans-serif;
+  color:var(--ink);
+  background:var(--bedrock);
+  line-height:1.85;
+}
+.disp{font-family:'Zen Maru Gothic',sans-serif;}
+.mono{font-family:'M PLUS 1 Code',monospace;}
+
+/* ---------- 空（ヒーロー） ---------- */
+.sky{
+  background:linear-gradient(180deg,#DFF2F9 0%,var(--sky) 55%,var(--sky-deep) 100%);
+  padding:64px 24px 0;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.sky-inner{max-width:680px;margin:0 auto;position:relative;z-index:2;}
+.eyebrow{
+  display:inline-block;
+  font-size:12px;letter-spacing:.18em;
+  background:var(--white);
+  border:2px solid var(--ink);
+  border-radius:999px;
+  padding:5px 16px;
+  font-weight:700;
+}
+.sky h1{
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:900;
+  font-size:clamp(30px,6.5vw,52px);
+  letter-spacing:.06em;
+  margin:22px 0 6px;
+  color:#173042;
+}
+.sky .sub{
+  font-size:clamp(14px,2.6vw,17px);
+  font-weight:500;color:#2C4A5E;
+  max-width:520px;margin:0 auto;
+}
+.rocket-scene{position:relative;height:190px;margin-top:26px;}
+.rocket{
+  position:absolute;left:50%;transform:translateX(-50%);
+  bottom:24px;
+  animation:hover-float 3.4s ease-in-out infinite;
+}
+@keyframes hover-float{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+.fuel-note{
+  position:absolute;bottom:0;left:50%;transform:translateX(-50%);
+  font-size:12px;font-weight:700;color:#3C5A6E;
+  background:var(--white);border:2px dashed #3C5A6E;border-radius:12px;
+  padding:4px 14px;white-space:nowrap;
+}
+.ground-line{
+  height:26px;
+  background:
+    radial-gradient(circle at 12% 120%, #6B5540 22%, transparent 23%),
+    radial-gradient(circle at 38% 130%, #6B5540 26%, transparent 27%),
+    radial-gradient(circle at 64% 118%, #6B5540 20%, transparent 21%),
+    radial-gradient(circle at 88% 128%, #6B5540 24%, transparent 25%),
+    linear-gradient(180deg,var(--sky-deep) 0 40%,#6B5540 40%);
+}
+
+/* ---------- 断面レイアウト ---------- */
+.strata{position:relative;}
+.layer{padding:64px 24px 72px;position:relative;}
+.layer-inner{max-width:760px;margin:0 auto;position:relative;}
+.layer.soil{background:linear-gradient(180deg,#6B5540 0%,var(--soil) 12%,var(--soil) 100%);}
+.layer.gap{background:linear-gradient(180deg,var(--soil) 0%,var(--gap) 14%,var(--gap) 100%);}
+.layer.frost{background:linear-gradient(180deg,var(--gap) 0%,var(--frost) 14%,var(--frost) 100%);}
+.layer.bedrock{background:linear-gradient(180deg,var(--frost) 0%,var(--bedrock) 14%,var(--bedrock) 100%);}
+.layer.refine{background:linear-gradient(180deg,var(--bedrock) 0%,var(--refine) 12%,var(--refine) 100%);}
+.layer.pad{background:linear-gradient(180deg,var(--refine) 0%,var(--pad) 16%,var(--pad) 100%);}
+
+/* 深度定規 */
+.depth-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-bottom:8px;
+}
+.depth-tag .gl{
+  font-family:'M PLUS 1 Code',monospace;
+  font-size:13px;letter-spacing:.08em;
+  color:var(--ore-soft);
+  border:1.5px solid var(--ore-soft);
+  border-radius:6px;padding:2px 10px;
+}
+.depth-tag .rule{
+  flex:0 0 46px;height:1.5px;
+  background:repeating-linear-gradient(90deg,var(--ore-soft) 0 6px,transparent 6px 12px);
+}
+.layer h2{
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:900;
+  font-size:clamp(24px,5vw,34px);
+  color:var(--white);
+  letter-spacing:.05em;
+  margin-bottom:8px;
+}
+.layer .lede{
+  color:rgba(255,249,240,.82);
+  font-size:15px;max-width:600px;
+  margin-bottom:34px;
+}
+
+/* ---------- 標本カード ---------- */
+.card{
+  background:var(--paper);
+  border:2.5px solid var(--ink);
+  border-radius:18px;
+  padding:24px 24px 20px;
+  margin-bottom:26px;
+  box-shadow:6px 6px 0 rgba(0,0,0,.28);
+  position:relative;
+}
+.card-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:10px;}
+.spec-no{
+  font-family:'M PLUS 1 Code',monospace;
+  font-size:12px;font-weight:500;
+  background:var(--ink);color:var(--ore);
+  border-radius:8px;padding:6px 9px;line-height:1.2;
+  text-align:center;white-space:nowrap;
+}
+.spec-name{
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:900;font-size:clamp(19px,4vw,23px);
+  letter-spacing:.04em;line-height:1.35;
+}
+.spec-kana{font-size:11.5px;color:var(--ink-soft);letter-spacing:.14em;font-weight:500;}
+.stat-row{
+  display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 14px;
+}
+.stat{
+  background:var(--white);
+  border:1.5px solid var(--ink);
+  border-radius:10px;
+  padding:7px 12px;
+  font-size:12.5px;
+  flex:1 1 200px;min-width:0;
+}
+.stat b{display:block;font-size:10.5px;letter-spacing:.12em;color:var(--ink-soft);font-weight:700;margin-bottom:1px;}
+.stat .v{font-weight:700;font-size:14px;}
+.stat .v .mono{color:#8A5A00;}
+.depth-dots{letter-spacing:3px;font-size:13px;}
+.depth-dots .on{color:var(--ore);text-shadow:0 0 6px rgba(245,184,65,.55);}
+.depth-dots .off{color:#D8CCB8;}
+.card p.eco{font-size:14px;margin-bottom:12px;}
+.wake{
+  border-top:2px dashed var(--ink);
+  padding-top:10px;
+  font-size:13.5px;
+  display:flex;gap:8px;align-items:flex-start;
+}
+.wake .w-label{
+  flex:0 0 auto;
+  font-weight:700;font-size:11px;letter-spacing:.1em;
+  background:var(--ore);border:1.5px solid var(--ink);
+  border-radius:6px;padding:2px 8px;margin-top:2px;
+  white-space:nowrap;
+}
+.card .src{font-size:10.5px;color:var(--ink-soft);margin-top:10px;text-align:right;}
+
+/* 岩盤カードの差し色 */
+.bedrock .card{background:#EFE9F6;}
+.bedrock .wake .w-label{background:#C9B8E8;}
+
+/* ---------- 精錬所 ---------- */
+.refine h2,.pad h2{color:var(--white);}
+.refine .depth-tag .gl,.pad .depth-tag .gl{color:var(--mint);border-color:var(--mint);}
+.refine .depth-tag .rule,.pad .depth-tag .rule{background:repeating-linear-gradient(90deg,var(--mint) 0 6px,transparent 6px 12px);}
+.loop-group{
+  background:rgba(255,249,240,.06);
+  border:2px solid var(--mint);
+  border-radius:18px;
+  padding:22px 22px 10px;
+  margin-bottom:24px;
+}
+.loop-group h3{
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:700;font-size:17px;
+  color:var(--mint);letter-spacing:.06em;
+  margin-bottom:14px;display:flex;align-items:center;gap:8px;
+}
+.loop{
+  background:var(--paper);
+  border:2px solid var(--ink);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:14px;
+  box-shadow:4px 4px 0 rgba(0,0,0,.3);
+}
+.loop .l-name{
+  font-weight:700;font-size:14.5px;
+  font-family:'Zen Maru Gothic',sans-serif;
+  margin-bottom:4px;display:flex;gap:8px;align-items:center;
+}
+.loop .cycle{
+  font-family:'M PLUS 1 Code',monospace;
+  font-size:11.5px;color:#0B5E50;
+  background:#DFF5EE;border-radius:8px;
+  padding:4px 10px;display:inline-block;margin-bottom:6px;
+  line-height:1.7;
+}
+.loop p{font-size:13px;}
+.loop-badge{
+  flex:0 0 auto;font-size:10.5px;font-weight:700;
+  background:var(--mint);border:1.5px solid var(--ink);
+  border-radius:6px;padding:1px 7px;letter-spacing:.08em;
+}
+
+/* ---------- 発射台 ---------- */
+.pad{text-align:center;padding-bottom:80px;}
+.pad .lede{margin-left:auto;margin-right:auto;}
+.pad-rocket{margin:10px auto 20px;animation:hover-float 3.4s ease-in-out infinite;width:84px;}
+.cta{
+  display:inline-block;
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:700;font-size:16px;
+  color:var(--ink);
+  background:var(--ore);
+  border:2.5px solid var(--ink);
+  border-radius:999px;
+  padding:13px 32px;
+  text-decoration:none;
+  box-shadow:5px 5px 0 rgba(0,0,0,.4);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.cta:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 rgba(0,0,0,.4);}
+.pad .also{margin-top:22px;font-size:13px;}
+.pad .also a{color:var(--mint);font-weight:700;}
+
+/* ---------- 図鑑のおわりの但し書き（旧footer） ---------- */
+.page-note{
+  background:var(--pad);
+  color:rgba(255,249,240,.65);
+  font-size:11.5px;
+  padding:30px 24px 44px;
+  text-align:center;
+}
+.page-note .note{max-width:640px;margin:0 auto 12px;text-align:left;line-height:1.9;}
+.page-note a{color:var(--mint);}
+
+/* 鉱石のきらめき */
+.ore-glint{animation:glint 2.6s ease-in-out infinite;}
+@keyframes glint{0%,100%{opacity:.55}50%{opacity:1}}
+
+@media (prefers-reduced-motion:reduce){
+  .rocket,.pad-rocket,.ore-glint{animation:none;}
+}
+@media (max-width:520px){
+  .card{padding:20px 16px 16px;}
+  .stat{flex:1 1 100%;}
+}
+
+/* ===== 共通グローバルナビ（全ページ共通・台帳自動同期） ===== */
+nav{position:sticky;top:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem;}
+.nav-logo img{height:36px;width:auto;object-fit:contain;}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em;}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto;flex-wrap:wrap;}
+.nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em;}
+.nav-links a:hover,.nav-links a.active{color:var(--forest);}
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s;}
+.nav-caret{font-size:0.6em;transition:transform 0.25s;}
+.nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest);}
+.nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300;}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px);}
+.nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s;}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest);}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px);}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px);}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s;}
+.mobile-menu a:first-child{border-top:1px solid #e8e8e8;}
+.mobile-menu a:hover,.mobile-menu a.active{color:#3C3489;}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem;}
+.mobile-acc{width:100%;border-bottom:1px solid #e8e8e8;}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Noto Sans JP',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0;}
+.mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s;}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg);}
+.mobile-acc-panel{display:none;flex-direction:column;align-items:center;padding-bottom:0.7rem;}
+.mobile-acc.open .mobile-acc-panel{display:flex;}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s;}
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489;}
+@media(max-width:1250px){.nav-links{display:none;}.nav-hamburger{display:block;}.nav-logo{margin-right:0;}}
+/* ===== 共通フッター（図鑑シリーズの明色フッター） ===== */
+footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid var(--sky-deep);}
+.footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--ink);letter-spacing:.08em;}
+.footer-copy{margin-top:.6rem;font-size:12px;color:var(--ink-soft);letter-spacing:.06em;}
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html" class="active">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html" class="active">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<!-- ═══════════ 空：ロケットと問い ═══════════ -->
+<header class="sky">
+  <div class="sky-inner">
+    <span class="eyebrow disp">平和な地球行きロケット｜燃料鉱脈調査報告</span>
+    <h1>眠るお金図鑑</h1>
+    <p class="sub">ロケットを飛ばすには、燃料がいる。<br>
+    その燃料は──じつは日本の地下に、たっぷり眠っている。<br>
+    これは「使われずに眠るお金」を鉱脈として観察する図鑑です。</p>
+    <div class="rocket-scene" aria-hidden="true">
+      <svg class="rocket" width="72" height="120" viewBox="0 0 72 120">
+        <ellipse cx="36" cy="112" rx="26" ry="6" fill="rgba(23,48,66,.15)"/>
+        <path d="M36 6 C50 24 52 52 50 76 L22 76 C20 52 22 24 36 6Z" fill="#FFF9F0" stroke="#173042" stroke-width="3"/>
+        <circle cx="36" cy="40" r="10" fill="#BFE3EF" stroke="#173042" stroke-width="3"/>
+        <path d="M22 60 L8 84 L22 78Z" fill="#F5B841" stroke="#173042" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M50 60 L64 84 L50 78Z" fill="#F5B841" stroke="#173042" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M28 78 L44 78 L40 90 L32 90Z" fill="#173042"/>
+        <path class="ore-glint" d="M33 92 C33 98 30 101 36 106 C42 101 39 98 39 92Z" fill="#F5B841"/>
+      </svg>
+      <span class="fuel-note disp">⛽ 燃料残量：わずか</span>
+    </div>
+  </div>
+  <div class="ground-line" aria-hidden="true"></div>
+</header>
+
+<main class="strata">
+
+<!-- ═══════════ 表土層 ═══════════ -->
+<section class="layer soil" id="soil">
+  <div class="layer-inner">
+    <div class="depth-tag"><span class="gl">GL −1m</span><span class="rule"></span></div>
+    <h2>🏠 表土層｜家のなかで眠る鉱脈</h2>
+    <p class="lede">いちばん浅いところに、いちばん身近な鉱脈がある。スコップ一本で届く深さ。それなのに、なかなか掘り出されない。</p>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>01</span>
+        <div><div class="spec-name">タンス預金鉱</div><div class="spec-kana">タンスヨキンコウ</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v"><span class="mono">約47兆円</span></span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●</span><span class="off">●●●●</span></span></div>
+      </div>
+      <p class="eco">自宅の引き出しや金庫にひそむ、日本最大級の現金鉱脈。低金利の時代に「銀行に預けても増えないし」と地表近くに堆積した。ピーク時は60兆円規模。金利上昇や防犯不安で少しずつ地上に出はじめているが、それでも国家予算の半分近い量がまだ眠っている。災害・盗難・「しまった場所を忘れる」が三大天敵。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>金利のある世界への回帰と新紙幣発行で、2023年から約13兆円が地上へ。動くときは一気に動く鉱脈。</span></div>
+      <p class="src">出典：第一生命経済研究所試算（2025年7月時点）</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>02</span>
+        <div><div class="spec-name">置きっぱなし預金層</div><div class="spec-kana">オキッパナシヨキンソウ</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v">現預金<span class="mono">約1,100兆円超</span>の一部</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●</span><span class="off">●●●</span></span></div>
+      </div>
+      <p class="eco">家計金融資産2,385兆円のうち、現金・預金はいまだ47%。「とりあえず普通預金」のまま何年も動かない広大な堆積層だ。インフレ下では実質価値がじわじわ目減りする、いわば「風化する鉱脈」。ただし近年、NISA経由で投資へ流れる水脈ができ、現預金比率は史上はじめて50%を割った。地殻変動は始まっている。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>現預金比率が50%→47%へ低下中。「貯蓄から投資へ」の水路が、ようやく通水した。</span></div>
+      <p class="src">出典：日本銀行「資金循環統計」2026年第1四半期速報</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>03</span>
+        <div><div class="spec-name">休眠預金泉</div><div class="spec-kana">キュウミンヨキンセン</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>湧出量</b><span class="v">毎年<span class="mono">約1,200億円</span></span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●●</span><span class="off">●●</span></span></div>
+      </div>
+      <p class="eco">10年以上出し入れのない口座から、毎年こんこんと湧き出す不思議な泉。持ち主の多くは口座の存在すら忘れている。ただしこの泉、じつは日本で唯一「国の制度として汲み上げに成功した鉱脈」でもある。休眠預金活用法により、子ども支援・生活困難者支援・地域活性化へと流れる水路がすでに敷かれている。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>助成に加えて2023年度から「出資」も可能に。教育系ソーシャルスタートアップへのリスクマネー源に進化中。</span></div>
+      <p class="src">出典：政府広報・休眠預金等活用法関連資料</p>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ 制度のすき間層 ═══════════ -->
+<section class="layer gap" id="gap">
+  <div class="layer-inner">
+    <div class="depth-tag"><span class="gl">GL −10m</span><span class="rule"></span></div>
+    <h2>📄 すき間層｜制度の割れ目で眠る鉱脈</h2>
+    <p class="lede">書類と手続きの地層のあいだに、ぽろぽろとこぼれ落ちたお金がはさまっている。存在に気づけば取り出せる。気づかなければ、永遠にそのまま。</p>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>04</span>
+        <div><div class="spec-name">請求忘れ保険金・未支給年金脈</div><div class="spec-kana">セイキュウワスレホケンキンミャク</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v">把握しきれないほど点在</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●●</span><span class="off">●●</span></span></div>
+      </div>
+      <p class="eco">「請求しないと支払われない」という保険・年金制度の性質が生んだ鉱脈。契約者本人が亡くなると、家族が契約の存在を知らないまま時効を迎えることも。生命保険の契約照会制度など発掘ツールは整備されつつあるが、最大の採掘装置はローテクなもの──家族の会話である。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>「うちの保険、どこに入ってたっけ？」という一言が、最強のボーリング調査になる。</span></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>05</span>
+        <div><div class="spec-name">放置株・未受領配当鉱</div><div class="spec-kana">ホウチカブミジュリョウハイトウコウ</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v">株式等<span class="mono">317兆円</span>の周辺に点在</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●●</span><span class="off">●●</span></span></div>
+      </div>
+      <p class="eco">相続した株をそのままにしていたり、引っ越しで通知が届かなくなったりして持ち主とはぐれた株式と配当金。一定期間つづくと「所在不明株主」として整理されてしまうこともある。お金自体は消えていないのに、持ち主との縁だけが切れていく、少しさみしい鉱脈。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>証券保管振替機構への登録内容確認と住所変更、それだけで縁がつながり直す。</span></div>
+      <p class="src">出典：日本銀行「資金循環統計」（株式等残高は2025年12月末）</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>06</span>
+        <div><div class="spec-name">失効ポイント・眠り商品券砂</div><div class="spec-kana">シッコウポイントネムリショウヒンケンサ</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v">推定不能（それ自体が問題）</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●</span><span class="off">●●●</span></span></div>
+      </div>
+      <p class="eco">一粒一粒は小さいのに、国全体でみると膨大な量になる砂状の鉱脈。「いつか使おう」と思っているうちに有効期限という風が吹いて、さらさらと消えていく。おもしろいのは、これが「お金が眠るメカニズム」の縮図であること。金額が小さいほど、人は管理コストを払わず眠らせる。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>ポイント投資・ポイント寄付の登場で、砂粒を集めて流す水路ができはじめた。</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ 凍結層 ═══════════ -->
+<section class="layer frost" id="frost">
+  <div class="layer-inner">
+    <div class="depth-tag"><span class="gl">GL −50m</span><span class="rule"></span></div>
+    <h2>🧊 永久凍土層｜凍って眠る鉱脈</h2>
+    <p class="lede">ここから先は凍土地帯。お金はあるのに、法律や組織の氷に閉じこめられて、誰にも動かせない。埋蔵量は桁違いに大きい。</p>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>07</span>
+        <div><div class="spec-name">認知症凍結マネー氷床</div><div class="spec-kana">ニンチショウトウケツマネーヒョウショウ</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v">2030年に<span class="mono">200兆円超</span>との推計</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●●●</span><span class="off">●</span></span></div>
+      </div>
+      <p class="eco">口座名義人が認知症になると、本人保護のため資産が事実上動かせなくなる。高齢化とともに拡大しつづける、日本最大級の氷床だ。恐ろしいのは、凍ってからでは家族にもほぼ融かせないこと。成年後見制度という砕氷船はあるが、小回りが利きにくい。唯一の対策は「凍る前」にある。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>家族信託・任意後見など「凍結前の対話」で氷を防げる。これはお金の問題である前に、対話の問題。</span></div>
+      <p class="src">出典：第一生命経済研究所等の推計</p>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>08</span>
+        <div><div class="spec-name">相続停滞・所有者不明凍土</div><div class="spec-kana">ソウゾクテイタイショユウシャフメイトウド</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v">所有者不明土地は九州本島に迫る面積</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●●●</span><span class="off">●</span></span></div>
+      </div>
+      <p class="eco">相続の話し合いがつかないまま、あるいは登記されないまま、持ち主のわからなくなった資産の凍土帯。土地だけでなく預金・家屋もろとも凍りつく。世代をまたぐほど関係者が増え、氷はさらに厚くなる。2024年からの相続登記義務化は、国家レベルの砕氷作戦といえる。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>「実家をどうする？」を親が元気なうちに話せた家族から、凍土は融けていく。</span></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>09</span>
+        <div><div class="spec-name">内部留保大氷河</div><div class="spec-kana">ナイブリュウホダイヒョウガ</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>推定埋蔵量</b><span class="v"><span class="mono">600兆円超</span>（12年連続過去最大）</span></div>
+        <div class="stat"><b>眠りの深さ</b><span class="v depth-dots"><span class="on">●●●●●</span></span></div>
+      </div>
+      <p class="eco">企業が利益を蓄えたまま、賃上げにも投資にも十分回さずに形成された、日本最大の氷河。10年強で2倍近くに成長した。ただし誤解も多い鉱脈で、すべてが現金というわけではない。それでも「人への投資」に流れる量が細いことは確かで、GDPを丸ごと超える質量が、経済の血流の上流でじっと動かずにいる。</p>
+      <div class="wake"><span class="w-label disp">目覚めの兆し</span><span>人的資本開示の義務化で「人に投資しない企業」が市場から問われる時代に。氷河の融点が近づいている。</span></div>
+      <p class="src">出典：財務省「法人企業統計」2023年度</p>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ 岩盤層 ═══════════ -->
+<section class="layer bedrock" id="bedrock">
+  <div class="layer-inner">
+    <div class="depth-tag"><span class="gl">GL −100m</span><span class="rule"></span></div>
+    <h2>🧠 岩盤層｜お金を眠らせている心のクセ</h2>
+    <p class="lede">最深部で見つかったのは、お金そのものではなかった。すべての鉱脈を地中に封じている、固い固い「心の岩盤」である。ここを掘り抜かないかぎり、上のどの鉱脈も目を覚まさない。<br><span style="font-size:12.5px;opacity:.75">※この層の標本は姉妹編『ホモ・サピエンスの苦手図鑑』にも生息しています。</span></p>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>10</span>
+        <div><div class="spec-name">元本割れ恐怖岩</div><div class="spec-kana">ガンポンワレキョウフガン｜損失回避</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>硬度</b><span class="v depth-dots"><span class="on">●●●●</span><span class="off">●</span></span></div>
+        <div class="stat"><b>主成分</b><span class="v">「減るくらいなら増えなくていい」</span></div>
+      </div>
+      <p class="eco">人間は「1万円得する喜び」より「1万円失う痛み」を約2倍強く感じる。この性質が結晶化した岩石。減らないはずの預金がインフレで実質的に目減りしていても、数字の上で減っていなければ痛みを感じないため、岩は割れない。</p>
+      <div class="wake"><span class="w-label disp">掘削のヒント</span><span>「何もしないことのリスク」を見えるかたちにすること。損失回避は、向きを変えれば行動のエンジンになる。</span></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>11</span>
+        <div><div class="spec-name">いつかやる砂岩</div><div class="spec-kana">イツカヤルサガン｜現在バイアス</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>硬度</b><span class="v depth-dots"><span class="on">●●●</span><span class="off">●●</span></span></div>
+        <div class="stat"><b>主成分</b><span class="v">「今週は忙しいから来月やる」</span></div>
+      </div>
+      <p class="eco">一粒一粒の「まあ明日でいいか」が堆積してできた岩石。遠い将来の大きな利益より、目の前の小さな面倒の回避を選んでしまう人間の性質でできている。柔らかそうに見えて、10年分積もると掘るのは大仕事。休眠預金の多くはこの砂岩の下で見つかる。</p>
+      <div class="wake"><span class="w-label disp">掘削のヒント</span><span>「いつか」を「この日」に変える予約と自動化。意志ではなく仕組みで掘る。</span></div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <span class="spec-no">No.<br>12</span>
+        <div><div class="spec-name">めんどくさ玄武岩</div><div class="spec-kana">メンドクサゲンブガン｜現状維持バイアス</div></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><b>硬度</b><span class="v depth-dots"><span class="on">●●●●●</span></span></div>
+        <div class="stat"><b>主成分</b><span class="v">「手続きがめんどう」（休眠口座を解約しない理由・第1位）</span></div>
+      </div>
+      <p class="eco">最深部に横たわる、もっとも硬い岩盤。書類・印鑑・窓口・パスワード再設定──小さな摩擦の積み重ねが人を「現状のまま」に固定する。調査では、休眠口座を放置する理由の圧倒的1位が「手続きが面倒」。悪意も無知も関係ない、ただ摩擦だけでお金は眠りつづける。</p>
+      <div class="wake"><span class="w-label disp">掘削のヒント</span><span>摩擦を減らした側が勝つ。Web完結・ワンタップ化は、実は巨大な採掘技術である。</span></div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ 精錬所 ═══════════ -->
+<section class="layer refine" id="refine">
+  <div class="layer-inner">
+    <div class="depth-tag"><span class="gl">燃料精製区画</span><span class="rule"></span></div>
+    <h2>♻️ 地下精錬所｜掘ったお金を「めぐる燃料」に変える</h2>
+    <p class="lede">掘り出して終わりでは、鉱脈はまた眠ってしまう。ここは、お金を教育に流しこみ、育った力がまたお金を連れて還ってくる<strong style="color:var(--mint)">「好循環燃料」</strong>への精製ライン。ロケットが必要とするのは、この循環型燃料だ。</p>
+
+    <div class="loop-group">
+      <h3>🏠 精製ライン A｜個人・家庭の循環</h3>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">01</span>学び直しリターン再投資</div>
+        <div class="cycle">眠る預金 → リスキリング → 収入増 → 一部を次の学びへ</div>
+        <p>学び直しの内部収益率を見える化し、増えた収入の一部を次の学習資金に自動で振り分ける。学びが学びを買う状態をつくる。</p>
+      </div>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">02</span>家庭内「学びは投資」会議</div>
+        <div class="cycle">親の学ぶ姿 → 子の学習観 → 家族の対話文化 → 次の投資判断</div>
+        <p>学習費を「消費」でなく「投資」として話し合う家族会議の習慣。お金の使い道より先に、価値観がめぐりはじめる。</p>
+      </div>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">03</span>三世代・教育贈与ループ</div>
+        <div class="cycle">祖父母の凍結予備軍資産 → 孫の教育資金 → 学びの報告 → 次の贈与</div>
+        <p>教育資金贈与を「渡して終わり」にせず、三世代の対話とセットで設計する。凍結層（No.07・08）のいちばんの予防策でもある。</p>
+      </div>
+    </div>
+
+    <div class="loop-group">
+      <h3>🏘️ 精製ライン B｜地域の循環</h3>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">04</span>恩送り型・地域奨学金</div>
+        <div class="cycle">地域の眠る資産 → 奨学金 → 卒業生の活躍 → 次世代への少額寄付</div>
+        <p>返済ではなく「次の誰かへ送る」ペイ・フォワード型基金。お金と一緒に、物語が地域をめぐる。</p>
+      </div>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">05</span>休眠預金→教育NPOの見える化</div>
+        <div class="cycle">休眠預金 → 教育NPO → 地域の担い手 → 地域経済 → 寄付・参加</div>
+        <p>国の仕組みとしてすでに流れている水路（No.03）を、地域単位で可視化して市民の寄付と参加を呼びこむ。</p>
+      </div>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">06</span>遊休資産の「学びの場」転換</div>
+        <div class="cycle">空き家・遊休地 → 学びの場 → 人が集まる → 地域の価値上昇</div>
+        <p>凍った資産を金銭化せず「場」として教育に回す発想。掘り出せない鉱脈は、その場で発電すればいい。</p>
+      </div>
+    </div>
+
+    <div class="loop-group">
+      <h3>🏢 精製ライン C｜企業の循環</h3>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">07</span>内部留保→人的資本投資エンジン</div>
+        <div class="cycle">内部留保 → 対話・研修投資 → エンゲージメント → 利益 → 再投資</div>
+        <p>エンゲージメントと営業利益の相関はデータが裏づけ済み。「対話は贅沢ではなくコスト削減」を、氷河（No.09）を融かすバーナーにする。</p>
+      </div>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">08</span>越境学習の相互派遣</div>
+        <div class="cycle">A社の人材 ⇄ B社の現場 → 双方に新しい視点 → 組織の学習能力</div>
+        <p>お金ではなく「機会」を循環させる方式。キャッシュを動かさずに人的資本だけが増える、精錬所の隠し技。</p>
+      </div>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">09</span>成果連動型投資（SIB）</div>
+        <div class="cycle">投資 → 教育・就労支援 → 成果 → 資金還流 → 再投資</div>
+        <p>教育成果が出るほど資金が戻って再投資される設計。成果と資金がひとつの回路でつながる。</p>
+      </div>
+    </div>
+
+    <div class="loop-group">
+      <h3>🌏 精製ライン D｜社会全体の循環</h3>
+      <div class="loop">
+        <div class="l-name"><span class="loop-badge">10</span>「投資から教育へ」オプション</div>
+        <div class="cycle">貯蓄 → 投資 → リターンの一部 → 教育寄付 → 社会の学習力 → 経済成長</div>
+        <p>「貯蓄から投資へ」の次の合言葉。運用リターンの数%を教育に回す選択肢を、社会の標準装備にするという提言。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ 発射台 ═══════════ -->
+<section class="layer pad" id="launch">
+  <div class="layer-inner">
+    <div class="depth-tag" style="justify-content:center"><span class="gl">燃料供給パイプライン → 地上</span></div>
+    <h2>🚀 発射台へ</h2>
+    <p class="lede">地下でめぐりはじめた燃料は、パイプラインで地上のロケットへ。<br>
+    行き先はもちろん──<strong style="color:var(--ore)">平和な地球</strong>。<br>
+    お金を起こす鍵は、金融知識よりも「家族の対話・組織の対話・世代間の対話」でした。<br>
+    つまりこの鉱脈の採掘装置は、対話なのです。</p>
+    <svg class="pad-rocket" viewBox="0 0 72 120" aria-hidden="true">
+      <path d="M36 6 C50 24 52 52 50 76 L22 76 C20 52 22 24 36 6Z" fill="#FFF9F0" stroke="#173042" stroke-width="3"/>
+      <circle cx="36" cy="40" r="10" fill="#BFE3EF" stroke="#173042" stroke-width="3"/>
+      <path d="M22 60 L8 84 L22 78Z" fill="#F5B841" stroke="#173042" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M50 60 L64 84 L50 78Z" fill="#F5B841" stroke="#173042" stroke-width="3" stroke-linejoin="round"/>
+      <path d="M28 78 L44 78 L40 90 L32 90Z" fill="#173042"/>
+      <path class="ore-glint" d="M31 92 C31 102 27 106 36 114 C45 106 41 102 41 92Z" fill="#F5B841"/>
+      <path class="ore-glint" d="M34 92 C34 99 32 101 36 106 C40 101 38 99 38 92Z" fill="#FFF9F0"/>
+    </svg>
+    <div><a class="cta" href="rocket-map.html">🗺️ 平和な地球行きロケット図へ戻る</a></div>
+    <p class="also">姉妹編：<a href="nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>｜<a href="chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>｜<a href="risk-calculators.html">未来のリスク計算機シリーズ</a></p>
+  </div>
+</section>
+
+</main>
+
+<div class="page-note">
+  <p class="note">
+    📌 本図鑑の数値は公表統計・シンクタンク推計に基づく概数です（家計金融資産・現預金比率：日本銀行「資金循環統計」2026年6月公表分／タンス預金：第一生命経済研究所試算・2025年7月時点／内部留保：財務省「法人企業統計」2023年度／休眠預金：政府広報等）。時点により変動します。<br>
+    📌 本図鑑は特定の金融商品の勧誘・推奨を行うものではありません。投資判断はご自身で、できれば大切な人との対話とともに。
+  </p>
+  <p>ライセンス：CC BY-NC-SA 4.0（クレジット表記のうえ非営利・同条件で共有可）</p>
+</div>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="night" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./shikumi-zukan.html"><span class="kaiyu-tag">図鑑・構造編</span><span class="kaiyu-name">社会の仕組み図鑑</span><span class="kaiyu-desc">お金・民意・土台。社会を作り直す世界の発明を集めた構造編。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./poverty-zukan.html"><span class="kaiyu-tag">図鑑</span><span class="kaiyu-name">世界の貧困解決アイデア図鑑</span><span class="kaiyu-desc">貧困に世界はどう挑んできたか。解決アイデアの姉妹図鑑。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./systems-thinking-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">図鑑・見る技術</span><span class="kaiyu-name">システム思考図鑑</span><span class="kaiyu-desc">因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+  /* グローバルナビ開閉（standard variant・台帳生成対象外なので各ページに持つ） */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if (hamburger && mobileMenu) {
+    function openMenu(){ hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMenu(){ hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+    hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  }
+</script>
+
+</body>
+</html>

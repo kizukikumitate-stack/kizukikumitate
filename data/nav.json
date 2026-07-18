@@ -146,6 +146,10 @@
             "href": "poverty-zukan.html"
           },
           {
+            "label": "眠るお金図鑑",
+            "href": "nemuru-okane-zukan.html"
+          },
+          {
             "label": "世界のオルタナティブ教育図鑑",
             "href": "alternative-education-zukan.html"
           },
@@ -433,6 +437,10 @@
     },
     {
       "path": "shinkei-busshitsu-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "nemuru-okane-zukan.html",
       "variant": "standard"
     }
   ],
