@@ -828,6 +828,43 @@
   @media (prefers-reduced-motion: reduce){
     .rocket-map .rkt-secret .halo, .rocket-map .rkt-l-num span, .rocket-map .rkt-mine{animation:none}
   }
+
+  /* ===== 投影モード(ワークショップで使う) ===== */
+  .rocket-map .rkt-ws-link{display:block; text-align:center; margin-top:6px; font-size:11px; letter-spacing:.06em; color:rgba(250,248,242,.4); text-decoration:none}
+  .rocket-map .rkt-ws-link:hover{color:var(--gold)}
+  .rocket-map .rkt-ws{position:fixed; inset:0; z-index:410}
+  .rocket-map .rkt-ws[hidden]{display:none}
+  .rocket-map .rkt-ws-veil{position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(10,8,24,.18), rgba(10,8,24,.6) 90%)}
+  .rocket-map .rkt-ws-card{position:fixed; z-index:420; left:50%; top:40%; transform:translate(-50%,-50%); width:min(680px, 88vw); background:#16132a; border:2.5px solid var(--gold); border-radius:20px; padding:26px 30px 28px; box-shadow:0 18px 60px rgba(0,0,0,.55); color:var(--washi)}
+  .rocket-map .rkt-ws-card.anchored{transform:none}
+  .rocket-map .rkt-ws-card::before{content:""; position:absolute; width:0; height:0; border:14px solid transparent; display:none}
+  .rocket-map .rkt-ws-card.tail-left::before{display:block; left:-27px; top:50%; margin-top:-14px; border-right-color:var(--gold)}
+  .rocket-map .rkt-ws-card.tail-right::before{display:block; right:-27px; top:50%; margin-top:-14px; border-left-color:var(--gold)}
+  .rocket-map .rkt-ws-kicker{font-family:'Jost',sans-serif; font-size:12px; letter-spacing:.3em; color:var(--gold); margin:0 0 12px; text-transform:uppercase}
+  .rocket-map .rkt-ws-q{font-size:clamp(20px, 2.6vw, 34px); font-weight:700; line-height:1.75; margin:0; word-break:keep-all; overflow-wrap:break-word}
+  .rocket-map .rkt-ws-note{font-size:13px; color:rgba(250,248,242,.65); line-height:1.9; margin:12px 0 0}
+  .rocket-map .rkt-ws-chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+  .rocket-map .rkt-ws-chips button{font-family:inherit; font-size:clamp(13px, 1.5vw, 17px); color:var(--washi); background:transparent; border:1.5px solid var(--gold); border-radius:999px; padding:9px 16px; cursor:pointer; transition:background .15s ease}
+  .rocket-map .rkt-ws-chips button:hover{background:rgba(217,164,65,.18)}
+  .rocket-map .rkt-ws-chips button.guest{border-style:dashed}
+  .rocket-map .rkt-ws-theme{font-size:clamp(26px, 3.4vw, 44px); font-weight:700; line-height:1.6; color:var(--gold-soft, #f0d9a8); margin:10px 0 0; word-break:keep-all; overflow-wrap:break-word}
+  .rocket-map .rkt-ws textarea{width:100%; min-height:150px; font-family:inherit; font-size:15px; line-height:2; color:var(--washi); background:rgba(250,248,242,.06); border:1px solid rgba(217,164,65,.45); border-radius:12px; padding:12px 14px; outline:none; resize:vertical}
+  .rocket-map .rkt-ws textarea:focus{border-color:var(--gold)}
+  .rocket-map .rkt-ws-start{display:block; width:100%; margin-top:14px; font-family:inherit; font-size:15px; font-weight:700; color:var(--indigo); background:var(--gold); border:none; border-radius:999px; padding:12px 20px; cursor:pointer}
+  .rocket-map .rkt-ws-start:hover{background:#f0d9a8}
+  .rocket-map .rkt-ws-ctrl{position:fixed; left:50%; bottom:16px; transform:translateX(-50%); z-index:430; display:flex; align-items:center; gap:14px; background:rgba(22,19,42,.92); border:1px solid rgba(217,164,65,.5); border-radius:999px; padding:8px 18px; font-size:12px; color:rgba(250,248,242,.7); white-space:nowrap}
+  .rocket-map .rkt-ws-dots{display:flex; align-items:center; gap:6px}
+  .rocket-map .rkt-ws-dots i{width:7px; height:7px; border-radius:50%; background:rgba(250,248,242,.25)}
+  .rocket-map .rkt-ws-dots i.on{background:var(--gold)}
+  .rocket-map .rkt-ws-quit{font-family:inherit; font-size:12px; color:rgba(250,248,242,.7); background:transparent; border:1px solid rgba(250,248,242,.35); border-radius:999px; padding:4px 12px; cursor:pointer}
+  .rocket-map .rkt-ws-quit:hover{color:var(--gold); border-color:var(--gold)}
+  .rocket-map .spot.ws-glow .halo{opacity:.55}
+  body.rkt-ws-on nav, body.rkt-ws-on .mobile-menu{display:none}
+  @media (max-width: 860px){
+    .rocket-map .rkt-ws-card, .rocket-map .rkt-ws-card.anchored{left:12px; right:12px; top:auto; bottom:78px; width:auto; transform:none; padding:18px 18px 20px}
+    .rocket-map .rkt-ws-card.tail-left::before, .rocket-map .rkt-ws-card.tail-right::before{display:none}
+    .rocket-map .rkt-ws-ctrl .rkt-ws-keys{display:none}
+  }
 </style>
 <div class="rkt-wrap">
   <header class="rkt-head">
@@ -1419,6 +1456,13 @@
     <div class="rkt-extra" id="rkt-p-extra" hidden></div>
   </section>
   <p class="rkt-hint">※ 気になった区画の「扉」から、それぞれのページへ進めます。</p>
+  <a class="rkt-ws-link" href="?workshop=1">投影モード ─ ワークショップでこの図を使う</a>
+</div>
+<!-- 投影モード(吹き出しが順番に現れる・JSが組み立てる) -->
+<div class="rkt-ws" id="rkt-ws" hidden>
+  <div class="rkt-ws-veil"></div>
+  <div class="rkt-ws-card" id="rkt-ws-card"></div>
+  <div class="rkt-ws-ctrl" id="rkt-ws-ctrl"></div>
 </div>
 <!-- 発射シーケンス(初回訪問時のみ・JSが表示) -->
 <div class="rkt-launch" id="rkt-launch" hidden>
@@ -1832,7 +1876,8 @@
     try{ seen = !!localStorage.getItem("rktLaunchSeen"); }catch(e){ seen = true; }
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     var ov = document.getElementById("rkt-launch");
-    if (seen || reduce || !ov){ return; }
+    var isWs = location.search.indexOf("workshop=") !== -1;
+    if (seen || reduce || isWs || !ov){ return; }
     try{ localStorage.setItem("rktLaunchSeen", "1"); }catch(e){}
     var num = document.getElementById("rkt-l-num");
     var label = document.getElementById("rkt-l-label");
@@ -1866,6 +1911,168 @@
   updateProgress(false);
   renderFlag();
   renderRoids();
+
+  /* ===== 投影モード(ワークショップで使う): 吹き出しが順番に現れる ===== */
+  var WS_DEFAULT_QS = [
+    "このチャートの中で、あなたが気になっていることは?",
+    "あなたが辿り着きたい未来は、どんな未来?",
+    "今、一番、誰かと話をしてみたいテーマは?"
+  ];
+  var WS_ANCHORS = [null, "earth", "studio", "crew", "route", "archive", "engine", "prize"];
+  var wsRoot = document.getElementById("rkt-ws");
+  var wsCard = document.getElementById("rkt-ws-card");
+  var wsCtrl = document.getElementById("rkt-ws-ctrl");
+  var wsQs = [];
+  var wsStep = -1; /* -1=準備画面 0..n-1=問い n=小惑星選び n+1=今日のテーマ */
+  var wsTheme = null;
+
+  function wsVisibleSpot(key){
+    var els = document.querySelectorAll('.spot[data-spot="' + key + '"]');
+    for (var i = 0; i < els.length; i++){
+      var r = els[i].getBoundingClientRect();
+      if (r.width > 0 && r.height > 0){ return els[i]; }
+    }
+    return null;
+  }
+  function wsGlow(key){
+    document.querySelectorAll(".spot.ws-glow").forEach(function(s){ s.classList.remove("ws-glow"); });
+    if (!key){ return; }
+    document.querySelectorAll('.spot[data-spot="' + key + '"]').forEach(function(s){ s.classList.add("ws-glow"); });
+  }
+  function wsPlace(anchorKey){
+    wsCard.classList.remove("anchored", "tail-left", "tail-right");
+    wsCard.style.left = ""; wsCard.style.top = ""; wsCard.style.right = "";
+    if (!anchorKey || window.innerWidth < 860){ return; }
+    var sp = wsVisibleSpot(anchorKey);
+    if (!sp){ return; }
+    var r = sp.getBoundingClientRect();
+    var cw = Math.min(680, window.innerWidth * 0.88);
+    var onRight = (r.left + r.width / 2) < window.innerWidth / 2;
+    var left = onRight ? Math.min(r.right + 30, window.innerWidth - cw - 16) : Math.max(16, r.left - cw - 30);
+    var top = Math.max(76, Math.min(r.top + r.height / 2 - 90, window.innerHeight - 320));
+    wsCard.classList.add("anchored", onRight ? "tail-left" : "tail-right");
+    wsCard.style.left = left + "px";
+    wsCard.style.top = top + "px";
+  }
+  function wsDots(){
+    var total = wsQs.length + 1;
+    var wrap = el("span", "rkt-ws-dots");
+    for (var i = 0; i < total; i++){
+      var d = document.createElement("i");
+      if (i === wsStep || (wsStep > wsQs.length && i === total - 1)){ d.className = "on"; }
+      wrap.appendChild(d);
+    }
+    return wrap;
+  }
+  function wsRenderCtrl(){
+    wsCtrl.innerHTML = "";
+    if (wsStep >= 0){ wsCtrl.appendChild(wsDots()); }
+    wsCtrl.appendChild(el("span", "rkt-ws-keys", "クリック / → 次へ ・ ← 前へ ・ Esc 終了"));
+    var quit = el("button", "rkt-ws-quit", "終了");
+    quit.type = "button";
+    quit.addEventListener("click", wsExit);
+    wsCtrl.appendChild(quit);
+  }
+  function wsRender(){
+    wsCard.innerHTML = "";
+    wsRenderCtrl();
+    if (wsStep === -1){
+      wsGlow(null); wsPlace(null);
+      wsCard.appendChild(el("p", "rkt-ws-kicker", "投影モード ─ 対話のじかん"));
+      wsCard.appendChild(el("p", "rkt-ws-q", "今日の問いをつくりましょう"));
+      wsCard.appendChild(el("p", "rkt-ws-note", "1行にひとつずつ問いを書きます(そのまま使ってもOK)。最後には自動で「今日は、どの小惑星を回避する対話をする?」が付きます。"));
+      var ta = document.createElement("textarea");
+      ta.value = lsGet("rktWsQ", WS_DEFAULT_QS).join("\n");
+      wsCard.appendChild(ta);
+      var st = el("button", "rkt-ws-start", "はじめる");
+      st.type = "button";
+      st.addEventListener("click", function(){
+        var qs = ta.value.split("\n").map(function(s){ return s.trim(); }).filter(Boolean).slice(0, 8);
+        wsQs = qs.length ? qs : WS_DEFAULT_QS.slice();
+        lsSet("rktWsQ", wsQs);
+        wsStep = 0;
+        var svg = document.querySelector(window.innerWidth >= 860 ? ".sky-wide" : ".sky");
+        if (svg){ svg.scrollIntoView({ block: "center" }); }
+        wsRender();
+      });
+      wsCard.appendChild(st);
+      return;
+    }
+    if (wsStep < wsQs.length){
+      var anchor = WS_ANCHORS[wsStep % WS_ANCHORS.length];
+      wsGlow(anchor); wsPlace(anchor);
+      wsCard.appendChild(el("p", "rkt-ws-kicker", "問い " + (wsStep + 1) + " / " + wsQs.length));
+      wsCard.appendChild(el("p", "rkt-ws-q", wsQs[wsStep]));
+      return;
+    }
+    if (wsStep === wsQs.length){
+      wsGlow("belt"); wsPlace("belt");
+      wsCard.appendChild(el("p", "rkt-ws-kicker", "最後の問い"));
+      wsCard.appendChild(el("p", "rkt-ws-q", "今日は、どの小惑星を回避する対話をする?"));
+      var chips = el("div", "rkt-ws-chips");
+      SPOTS.belt.doors.forEach(function(d){
+        if (d[1] === "risk-calculators.html"){ return; }
+        var b = el("button", null, d[0]);
+        b.type = "button";
+        b.addEventListener("click", function(){ wsTheme = d[0]; wsStep++; wsRender(); });
+        chips.appendChild(b);
+      });
+      myRoids.forEach(function(r){
+        var b = el("button", "guest", r.m + (r.n ? "(" + r.n + ")" : ""));
+        b.type = "button";
+        b.addEventListener("click", function(){ wsTheme = r.m; wsStep++; wsRender(); });
+        chips.appendChild(b);
+      });
+      wsCard.appendChild(chips);
+      wsCard.appendChild(el("p", "rkt-ws-note", "会場で出た小惑星は、小惑星帯の案内板「自分の小惑星を置く」から追加すると、ここに並びます。"));
+      return;
+    }
+    wsGlow("belt"); wsPlace(null);
+    wsCard.appendChild(el("p", "rkt-ws-kicker", "今日の対話"));
+    wsCard.appendChild(el("p", "rkt-ws-theme", wsTheme || "(テーマは選ばずに進みました)"));
+    wsCard.appendChild(el("p", "rkt-ws-note", "それでは、対話をはじめましょう。クリックで投影モードを終了します。"));
+  }
+  function wsNext(){
+    if (wsStep === -1){ return; }
+    if (wsStep === wsQs.length){ wsStep += 2; wsRender(); return; } /* 小惑星を選ばずスキップ */
+    if (wsStep > wsQs.length){ wsExit(); return; }
+    wsStep++;
+    wsRender();
+  }
+  function wsPrev(){
+    if (wsStep <= 0){ return; }
+    if (wsStep > wsQs.length){ wsStep = wsQs.length; }
+    else { wsStep--; }
+    wsTheme = null;
+    wsRender();
+  }
+  function wsStart(){
+    wsStep = -1; wsTheme = null;
+    document.body.classList.add("rkt-ws-on");
+    wsRoot.hidden = false;
+    wsRender();
+  }
+  function wsExit(){
+    wsRoot.hidden = true;
+    document.body.classList.remove("rkt-ws-on");
+    wsGlow(null);
+    wsStep = -1;
+    if (location.search.indexOf("workshop=") !== -1){
+      history.replaceState(null, "", location.pathname);
+    }
+  }
+  wsRoot.addEventListener("click", function(e){
+    if (e.target.closest("button, textarea, a, input")){ return; }
+    wsNext();
+  });
+  document.addEventListener("keydown", function(e){
+    if (wsRoot.hidden){ return; }
+    if (e.key === "ArrowRight" || e.key === " "){ if (!e.target.closest("textarea")){ e.preventDefault(); wsNext(); } }
+    else if (e.key === "ArrowLeft"){ if (!e.target.closest("textarea")){ wsPrev(); } }
+    else if (e.key === "Escape"){ wsExit(); }
+  });
+  window.addEventListener("resize", function(){ if (!wsRoot.hidden && wsStep >= 0){ wsRender(); } });
+  if (location.search.indexOf("workshop=") !== -1){ wsStart(); }
 })();
 </script>
 </section>
