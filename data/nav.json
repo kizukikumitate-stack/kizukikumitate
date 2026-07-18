@@ -29,16 +29,16 @@
         "label": "目指す未来",
         "children": [
           {
+            "label": "平和な地球行きロケット",
+            "href": "rocket-map.html"
+          },
+          {
             "label": "世界平和までのロードマップ",
             "href": "roadmap.html"
           },
           {
             "label": "足元からの地図（展開編）",
             "href": "ashimoto-map.html"
-          },
-          {
-            "label": "平和な地球行きロケット",
-            "href": "rocket-map.html"
           }
         ]
       },
