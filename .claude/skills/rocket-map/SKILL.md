@@ -24,9 +24,12 @@ description: |
 - **SVGが2枚ある**。CSSメディアクエリで出し分け:
   - `.sky` … 縦長（viewBox `0 0 380 520`）。**モバイル用**。`@media(min-width:860px)` で `display:none`
   - `.sky-wide` … 横長（viewBox `0 70 940 420`）。**PC(≥860px)用**。左→右に発射台→ロケット→小惑星帯→地球と流れる構図
-- 8スポット（`data-spot`）: earth / prize(平和の使者=鳩) / route(目指すルート=星) / belt(小惑星帯) /
-  studio(対話の工房) / engine(事業のエンジン) / archive(世界の知恵図鑑=発射台) / crew(協力者)。
-  加えて cycle(コイン・engine扱い・aria-hidden)
+- 9スポット（`data-spot`）: earth / prize(平和の使者=鳩) / route(目指すルート=星) / belt(小惑星帯) /
+  studio(対話の工房) / engine(事業のエンジン) / archive(世界の知恵図鑑=発射台) / crew(協力者) /
+  vein(未来への鉱脈=眠るお金図鑑・手書きの物語スポット)。加えて cycle(コイン・engine扱い・aria-hidden)
+- vein は物語スポット（手書き）。SPOTS.vein と `BASE_KEYS`（進捗カウンタ `N/9` と隠し部屋の解錠数の
+  両方がこの配列長で決まる）に追加済み。区画を増減したら HTML の `見てまわった区画 …/9` と
+  cockpit の desc「9つの区画」も手で合わせる。縦SVGは vein 用に viewBox 高さを 584 に拡張済み
 - 案内板 `.rkt-panel` はSVGの下。スポットをクリック（PCはホバーでも）すると `SPOTS[key]` の
   tag/title/desc/doors に切り替わる。JSは末尾の `<script>` 内 IIFE
 
