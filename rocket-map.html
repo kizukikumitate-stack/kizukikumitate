@@ -832,6 +832,13 @@
   /* ===== 投影モード(ワークショップで使う) ===== */
   .rocket-map .rkt-ws-link{display:block; text-align:center; margin-top:6px; font-size:11px; letter-spacing:.06em; color:rgba(250,248,242,.4); text-decoration:none}
   .rocket-map .rkt-ws-link:hover{color:var(--gold)}
+  /* みんなで作る(参加の入口をまとめたブロック) */
+  .rocket-map .rkt-coop{max-width:860px; margin:26px auto 0; border:1.5px dashed rgba(217,164,65,.55); border-radius:14px; padding:18px 20px 20px; text-align:center}
+  .rocket-map .rkt-coop h3{font-family:inherit; font-size:15px; font-weight:700; letter-spacing:.22em; color:var(--gold); margin:0 0 10px}
+  .rocket-map .rkt-coop p{font-size:12.5px; line-height:2.1; color:rgba(250,248,242,.78); margin:0 0 14px; text-align:left; word-break:keep-all; overflow-wrap:break-word}
+  .rocket-map .rkt-coop-acts{display:flex; flex-wrap:wrap; justify-content:center; gap:8px}
+  .rocket-map .rkt-coop-acts button, .rocket-map .rkt-coop-acts a{font-family:inherit; font-size:12.5px; text-decoration:none; color:var(--washi); background:transparent; border:1.5px solid var(--gold); border-radius:999px; padding:7px 14px; cursor:pointer; transition:background .15s ease, transform .15s ease}
+  .rocket-map .rkt-coop-acts button:hover, .rocket-map .rkt-coop-acts a:hover{background:rgba(217,164,65,.18); transform:translateY(-1px)}
   .rocket-map .rkt-ws{position:fixed; inset:0; z-index:410}
   .rocket-map .rkt-ws[hidden]{display:none}
   .rocket-map .rkt-ws-veil{position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(10,8,24,.18), rgba(10,8,24,.6) 90%)}
@@ -1456,7 +1463,15 @@
     <div class="rkt-extra" id="rkt-p-extra" hidden></div>
   </section>
   <p class="rkt-hint">※ 気になった区画の「扉」から、それぞれのページへ進めます。</p>
-  <a class="rkt-ws-link" href="?workshop=1">投影モード ─ ワークショップでこの図を使う</a>
+  <section class="rkt-coop" aria-label="みんなで作る">
+    <h3>みんなで作る</h3>
+    <p>このロケットの図は、眺めるだけのものではありません。気になる小惑星を置いたり、乗組員名簿に記帳したり、問いを立てて話し合ったり——子どもや学生のみなさんとも、ぜひこの図を囲んで対話をしてみてください。</p>
+    <div class="rkt-coop-acts">
+      <button type="button" id="rkt-coop-roid">自分の小惑星を置く</button>
+      <button type="button" id="rkt-coop-crew">乗組員名簿に記帳する</button>
+      <a href="?workshop=1">投影モード ─ 学校・ワークショップで</a>
+    </div>
+  </section>
 </div>
 <!-- 投影モード(吹き出しが順番に現れる・JSが組み立てる) -->
 <div class="rkt-ws" id="rkt-ws" hidden>
@@ -1911,6 +1926,11 @@
   updateProgress(false);
   renderFlag();
   renderRoids();
+  /* 「みんなで作る」ブロックの入口ボタン */
+  var coopRoid = document.getElementById("rkt-coop-roid");
+  if (coopRoid){ coopRoid.addEventListener("click", openRoidForm); }
+  var coopCrew = document.getElementById("rkt-coop-crew");
+  if (coopCrew){ coopCrew.addEventListener("click", openCrewForm); }
 
   /* ===== 投影モード(ワークショップで使う): 吹き出しが順番に現れる ===== */
   var WS_DEFAULT_QS = [
