@@ -15,7 +15,8 @@
   ],
   "_exclude": {
     "tokushoho.html": "法定表記ページ。汎用ogp.pngで可",
-    "tax-revenue-countdown.html": "一時非表示中。再公開時にcalcテンプレで作成する"
+    "tax-revenue-countdown.html": "一時非表示中。再公開時にcalcテンプレで作成する",
+    "rocket-map.html": "サイト全体図（ロケット）。当面は汎用ogp.png。将来ロケット図の専用画像を作れる"
   },
   "pages": [
     {

@@ -27,7 +27,8 @@
         "label": "目指す未来",
         "children": [
           { "label": "世界平和までのロードマップ", "href": "roadmap.html" },
-          { "label": "足元からの地図（展開編）", "href": "ashimoto-map.html" }
+          { "label": "足元からの地図（展開編）", "href": "ashimoto-map.html" },
+          { "label": "平和な地球行きロケット", "href": "rocket-map.html" }
         ]
       },
       {
@@ -119,6 +120,7 @@
     { "path": "poverty-zukan.html", "variant": "standard" },
     { "path": "recruitment-extinction.html", "variant": "standard" },
     { "path": "roadmap.html", "variant": "standard" },
+    { "path": "rocket-map.html", "variant": "standard" },
     { "path": "risk-calculators.html", "variant": "standard" },
     { "path": "school-consolidation-countdown.html", "variant": "standard" },
     { "path": "shikumi-zukan.html", "variant": "standard" },
