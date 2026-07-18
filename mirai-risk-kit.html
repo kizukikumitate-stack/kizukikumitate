@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<!--
+  未来リスク対話キット 販売ページ
+  (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  【要差し替え】購入ボタンのhref: Stripe Payment Linkが発行できたら
+  「PURCHASE-LINK」で検索して2箇所を差し替えてください。
+  それまではメール注文で受け付ける作りになっています。
+-->
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>未来リスク対話キット｜数字を、対話と決断に変える | きづきくみたて工房</title>
+<meta name="description" content="未来のリスク計算機で見えた数字を、組織・地域の対話と決断に変えるためのキット。ファシリテーション経験がなくても90分の対話の場をひらける進行台本・ワークシート・反発対応ガイドの完全版。">
+<link rel="canonical" href="https://kizukikumitate.com/mirai-risk-kit.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="未来リスク対話キット｜数字を、対話と決断に変える">
+<meta property="og:description" content="経験がなくても、90分の対話の場をひらける。進行台本・ワークシート4種・反発対応ガイドの完全キット。">
+<meta property="og:url" content="https://kizukikumitate.com/mirai-risk-kit.html">
+<meta property="og:image" content="https://kizukikumitate.com/mirai-risk-kit-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="未来リスク対話キット｜数字を、対話と決断に変える">
+<meta name="twitter:description" content="経験がなくても、90分の対話の場をひらける完全キット。">
+<meta name="twitter:image" content="https://kizukikumitate.com/mirai-risk-kit-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@400;600;700;800&family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --ink-soft:   #4a4660;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --line:       #e5e0d3;
+    --charcoal:   #1e1e1e;
+    --forest:     #1a5fad;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; hanging-punctuation: allow-end; line-break: strict; line-height: 2.0; }
+  img { max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 1.6rem; }
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-deep); }
+  h2 { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(1.45rem, 3.4vw, 1.9rem); letter-spacing: 0.05em; line-height: 1.7; margin: 0.7rem 0 1.6rem; color: var(--ink); }
+  .prose { font-size: 0.96rem; font-weight: 300; color: var(--ink-soft); margin-bottom: 1.1rem; }
+  .prose strong { font-weight: 600; color: var(--ink); }
+  section { padding: 4.4rem 0; }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ===== nav（サイト共通） ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.65em; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; padding-bottom: 0.6rem; }
+  .mobile-acc.open .mobile-acc-panel { display: block; }
+  .mobile-acc-panel a { font-size: 0.98rem; font-weight: 500; border-bottom: none !important; border-top: none !important; padding: 0.55rem 0; color: #444; }
+  @media (max-width: 1250px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+    .nav-logo { margin-right: 0; }
+  }
+
+  /* ===== hero ===== */
+  .hero { background: var(--ink); color: var(--paper); padding: 10.5rem 0 5.2rem; position: relative; overflow: hidden; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 45% at 88% 8%, rgba(217,164,65,0.10), transparent 65%),
+      radial-gradient(ellipse 50% 40% at 6% 96%, rgba(216,90,48,0.10), transparent 60%);
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero .eyebrow { color: var(--gold); }
+  .hero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.75rem, 5vw, 2.9rem); line-height: 1.85; letter-spacing: 0.04em; margin: 1.3rem 0 1.6rem; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero .lede { max-width: 640px; font-size: clamp(0.92rem, 1.7vw, 1.02rem); font-weight: 300; color: rgba(250,248,242,0.78); line-height: 2.2; }
+  .hero .price-tag { margin-top: 2.2rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; }
+  .hero .price-tag .p-num { font-family: 'Shippori Mincho', serif; font-size: 2rem; font-weight: 700; color: var(--gold); letter-spacing: 0.04em; }
+  .hero .price-tag .p-note { font-size: 0.78rem; color: rgba(250,248,242,0.6); margin-left: 0.9em; letter-spacing: 0.08em; }
+  .hero .cta-row { margin-top: 1.8rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-buy { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.92rem; letter-spacing: 0.14em; text-decoration: none; color: var(--ink); background: var(--gold); border-radius: 999px; padding: 1rem 2.8rem; transition: transform 0.2s, background 0.25s; font-weight: 500; }
+  .btn-buy:hover { transform: translateY(-2px); background: #e6b558; }
+  .btn-ghost { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.84rem; letter-spacing: 0.12em; text-decoration: none; color: var(--paper); border: 1px solid rgba(250,248,242,0.4); border-radius: 999px; padding: 0.9rem 2rem; transition: border-color 0.25s; }
+  .btn-ghost:hover { border-color: var(--gold); }
+
+  /* ===== 問題提起 ===== */
+  .pain-sec { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .pain-quote { border-left: 3px solid var(--dawn); padding: 0.3rem 0 0.4rem 1.5rem; margin: 1.6rem 0; }
+  .pain-quote p { font-family: 'Shippori Mincho', serif; font-size: clamp(1.05rem, 2.4vw, 1.3rem); font-weight: 700; color: var(--ink); line-height: 2.0; margin: 0; }
+
+  /* ===== 比較表 ===== */
+  .cmp-sec { background: #fffdf7; border-bottom: 1px solid var(--line); }
+  .cmp-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; margin-top: 1.6rem; }
+  table.cmp { width: 100%; border-collapse: collapse; font-size: 0.88rem; min-width: 620px; }
+  .cmp th, .cmp td { border: 1px solid var(--line); padding: 0.75rem 0.9rem; text-align: left; vertical-align: top; font-weight: 300; color: var(--ink-soft); line-height: 1.9; }
+  .cmp th { background: #f3efe4; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-weight: 500; font-size: 0.8rem; letter-spacing: 0.06em; color: var(--ink); }
+  .cmp th.paid-col, .cmp td.paid-col { background: rgba(217,164,65,0.07); }
+  .cmp .yes { color: var(--teal); font-weight: 600; }
+  .cmp .no-mark { color: #b0a88f; }
+  .cmp td strong { font-weight: 600; color: var(--ink); }
+  .cmp-note { font-size: 0.78rem; color: var(--ink-soft); font-weight: 300; margin-top: 0.8rem; }
+
+  /* ===== 中身 ===== */
+  .inside-sec { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .inside-row { display: grid; grid-template-columns: 64px minmax(0,1fr); gap: 1.3rem; padding: 1.7rem 0; border-top: 1px solid var(--line); }
+  .inside-row:last-of-type { border-bottom: 1px solid var(--line); }
+  .inside-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; letter-spacing: 0.14em; color: var(--gold-deep); padding-top: 0.4rem; }
+  .inside-body h3 { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 1.06rem; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 0.4rem; }
+  .inside-body p { font-size: 0.88rem; font-weight: 300; color: var(--ink-soft); line-height: 2.0; margin: 0; }
+  @media (max-width: 560px) { .inside-row { grid-template-columns: minmax(0,1fr); gap: 0.3rem; } }
+
+  /* ===== 日本語の禁則処理・文節改行（モバイル） =====
+     body の word-break: keep-all は、文節が行幅より長いと折り返し位置が無くなり、
+     ブラウザが緊急改行して行頭に「。」を落とす。auto-phrase なら CJK の文節境界で
+     折るため、禁則を守ったまま収まる（未対応の Firefox は normal にフォールバック） */
+  @media (max-width: 768px) {
+    body, p, li, dd, dt, blockquote, figcaption,
+    .prose, .cmp-note, .lede, .buy-flow, .who-item, .q, .a, .inside-body {
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    .hero h1, section h2 { text-wrap: balance; }
+  }
+
+  /* ===== 対象 ===== */
+  .who-sec { background: #fffdf7; border-bottom: 1px solid var(--line); }
+  .who-list { margin-top: 1.4rem; display: grid; gap: 0.9rem; }
+  .who-item { border: 1px solid var(--line); border-radius: 10px; background: var(--paper); padding: 1.1rem 1.4rem; font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); line-height: 2.0; }
+  .who-item strong { font-weight: 600; color: var(--ink); }
+
+  /* ===== 購入 ===== */
+  .buy-sec { background: var(--ink); color: var(--paper); text-align: center; }
+  .buy-sec .eyebrow { color: var(--gold); }
+  .buy-sec h2 { color: var(--paper); }
+  .buy-card { max-width: 560px; margin: 1.8rem auto 0; border: 1px solid rgba(217,164,65,0.4); border-radius: 14px; padding: 2.2rem 1.8rem; background: rgba(250,248,242,0.03); }
+  .buy-card .b-name { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.06em; }
+  .buy-card .b-price { font-family: 'Shippori Mincho', serif; font-size: 2.4rem; font-weight: 800; color: var(--gold); margin: 0.6rem 0 0.2rem; letter-spacing: 0.04em; }
+  .buy-card .b-tax { font-size: 0.76rem; color: rgba(250,248,242,0.6); letter-spacing: 0.1em; }
+  .buy-card ul { list-style: none; margin: 1.4rem 0 1.6rem; text-align: left; display: inline-block; }
+  .buy-card li { font-size: 0.86rem; font-weight: 300; color: rgba(250,248,242,0.82); line-height: 2.1; padding-left: 1.4em; position: relative; }
+  .buy-card li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); }
+  .buy-flow { max-width: 560px; margin: 1.6rem auto 0; font-size: 0.8rem; font-weight: 300; color: rgba(250,248,242,0.65); line-height: 2.1; }
+  .buy-flow a { color: var(--gold); }
+
+  /* ===== FAQ ===== */
+  .faq-sec { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .faq { margin-top: 1.4rem; }
+  .faq .q { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 0.98rem; color: var(--ink); margin: 1.6rem 0 0.4rem; }
+  .faq .q::before { content: "Q．"; color: var(--gold-deep); }
+  .faq .a { font-size: 0.89rem; font-weight: 300; color: var(--ink-soft); line-height: 2.1; }
+  .faq .a a { color: var(--teal); }
+
+  /* ===== footer ===== */
+  footer { background: var(--ink-deep); color: rgba(250,248,242,0.6); text-align: center; padding: 2.6rem 1.5rem; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-copy { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; }
+  .footer-links { font-size: 0.76rem; margin-bottom: 0.8rem; }
+  .footer-links a { color: rgba(250,248,242,0.7); text-underline-offset: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="https://kizukikumitate-stack.github.io/systems-thinking-zukan/" target="_blank" rel="noopener">システム思考図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="https://kizukikumitate-stack.github.io/systems-thinking-zukan/" target="_blank" rel="noopener">システム思考図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<!-- hero -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Mirai Risk Dialogue Kit</p>
+    <h1>数字は出た。<br>それを<em>対話</em>に変えるのが、このキットです。</h1>
+    <p class="lede"><a href="./risk-calculators.html" style="color:var(--gold)">未来のリスク計算機</a>で見えた数字を、経営会議・役員会・地域の話し合いに持ち込むための完全キットです。ファシリテーションの経験がなくても、進行台本のとおりに進めれば、90分の対話の場をひらけます。</p>
+    <div class="price-tag"><span class="p-num">¥4,980</span><span class="p-note">税込 ｜ PDF・買い切り ｜ 組織・地域内での印刷配布は自由</span></div>
+    <div class="cta-row">
+      <a class="btn-buy" href="#buy">キットを購入する</a>
+      <a class="btn-ghost" href="#cmp">無料版とのちがいを見る</a>
+    </div>
+  </div>
+</header>
+
+<!-- 問題提起 -->
+<section class="pain-sec">
+  <div class="wrap reveal">
+    <p class="eyebrow">The gap</p>
+    <h2>いちばん難しいのは、数字のあとです</h2>
+    <p class="prose">計算機を使うと、数分で「意思決定の期限」まで見えます。難しいのはそこからです。多くの場合、数字はひとりの担当者のブラウザの中で止まります。</p>
+    <div class="pain-quote"><p>「この数字を会議に出したら、<br>悲観的だと言われて終わる気がする。」</p></div>
+    <p class="prose">その予感は、たいてい当たります。数字だけを持ち込むと、正確性の議論と犯人探しが始まり、対話になる前に場が閉じてしまうからです。必要なのは、数字ではなく<strong>数字の出し方と、受けとめる場の設計</strong>です。このキットは、その設計をまるごとお渡しするものです。</p>
+  </div>
+</section>
+
+<!-- 比較表 -->
+<section class="cmp-sec" id="cmp">
+  <div class="wrap reveal">
+    <p class="eyebrow">Free vs. Full</p>
+    <h2>無料でできること、キットでできるようになること</h2>
+    <p class="prose">計算機は、これからも無料です。対話の問いと意思決定記録も、各計算機に組み込んであり、無料でお使いいただけます。キットが足すのは、「<strong>経験がなくても、場を回せる</strong>」ための部分です。</p>
+    <div class="cmp-wrap">
+    <table class="cmp">
+      <tr><th style="width:44%"></th><th>計算機（無料）</th><th class="paid-col">対話キット（¥4,980）</th></tr>
+      <tr><td><strong>数字の試算・感度レンジ・意思決定期限</strong></td><td><span class="yes">✓</span></td><td class="paid-col"><span class="yes">✓</span>（計算機をそのまま使います）</td></tr>
+      <tr><td><strong>対話の問い・意思決定記録（基本版）</strong></td><td><span class="yes">✓</span> 各計算機に組み込み</td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>進行台本 90分版</strong>（そのまま読めるセリフつき）</td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>進行台本 半日版</strong>（決めるところまで・3.5時間）</td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>よくある反発6パターンと受けとめ方</strong></td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>印刷用ワークシート4種</strong>（感情共有／立場交換／選択肢マップ／意思決定記録 拡張版）</td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>投影スライドの構成（10枚）</strong></td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>開催前後チェックリスト・フォローアップ手順</strong></td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span></td></tr>
+      <tr><td><strong>初回オンライン相談（30分）</strong></td><td><span class="no-mark">—</span></td><td class="paid-col"><span class="yes">✓</span> 無料でお受けします</td></tr>
+    </table>
+    </div>
+    <p class="cmp-note">※ キットは計算機5本すべてに共通で使える汎用版です。学校・企業・地域、どの場面でもお使いいただけます。</p>
+  </div>
+</section>
+
+<!-- 中身 -->
+<section class="inside-sec">
+  <div class="wrap reveal">
+    <p class="eyebrow">What's inside</p>
+    <h2>キットの中身（全7章・約30ページ）</h2>
+    <div class="inside-row">
+      <div class="inside-no">01</div>
+      <div class="inside-body"><h3>使い方と、開催前の準備</h3><p>誰を呼ぶか、案内文に何を書くか、前日までに何を印刷するか。2週間前から前日までのチェックリストです。「向いていない場面」（結論の追認に使わない）も最初に書いてあります。</p></div>
+    </div>
+    <div class="inside-row">
+      <div class="inside-no">02</div>
+      <div class="inside-body"><h3>進行台本 90分版</h3><p>チェックイン → 数字を見る → 感情の共有 → 立場を変えて考える → 選択肢を並べる → 記録、の6ステップ。要所には「そのまま読めるセリフ」と、つまずきやすい箇所への対処を付けています。</p></div>
+    </div>
+    <div class="inside-row">
+      <div class="inside-no">03</div>
+      <div class="inside-body"><h3>進行台本 半日版（3.5時間）</h3><p>90分版の先、「絞り込んで決める」ところまで。多数決を使わない懸念ベースの合意の進め方と、決まらなかったときの終わり方まで書いてあります。</p></div>
+    </div>
+    <div class="inside-row">
+      <div class="inside-no">04</div>
+      <div class="inside-body"><h3>よくある反発と、その受けとめ方</h3><p>「こんな数字、当たるわけがない」「悲観的すぎる」「まだ先の話だ」「技術が解決する」「決めるのは上の仕事だ」「もう手遅れだ」。6つの反発それぞれに、言い負かさずに場に残ってもらうための返し方を用意しました。</p></div>
+    </div>
+    <div class="inside-row">
+      <div class="inside-no">05</div>
+      <div class="inside-body"><h3>投影スライドの構成（10枚）</h3><p>1枚1メッセージの構成案です。「予言ではなく、試算です」の1枚と、問題発生年と意思決定期限のちがいを示す1枚が、場の空気を決めます。</p></div>
+    </div>
+    <div class="inside-row">
+      <div class="inside-no">06</div>
+      <div class="inside-body"><h3>印刷用ワークシート4種</h3><p>A：いま、感じたこと（感情の共有）／B：立場を変えて考える（フューチャー・デザイン式）／C：選択肢マップ（残す・変える・やめる）／D：意思決定記録（拡張版）。A4でそのまま印刷して配れます。</p></div>
+    </div>
+    <div class="inside-row">
+      <div class="inside-no">07</div>
+      <div class="inside-body"><h3>終わったあとのフォローアップ</h3><p>48時間以内の記録共有、反発が強かった方への個別フォロー、次回の始め方。対話を一過性のイベントで終わらせないための手順です。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 対象 -->
+<section class="who-sec">
+  <div class="wrap reveal">
+    <p class="eyebrow">Who it's for</p>
+    <h2>こんな方のために作りました</h2>
+    <div class="who-list">
+      <div class="who-item"><strong>経営企画・総務・人事の方</strong>　計算機の数字を役員会に持ち込みたいが、「脅している」と受け取られない出し方を探している。</div>
+      <div class="who-item"><strong>後継者・若手経営者の方</strong>　危機感を口にすると「まだ早い」と流されてしまう。数字を自分の意見ではなく、全員の共通の土台にしたい。</div>
+      <div class="who-item"><strong>学校・PTA・自治体・地域団体の方</strong>　統廃合や施設のあり方など、対立しやすいテーマの最初の話し合いを、壊さずに始めたい。</div>
+      <div class="who-item"><strong>士業・支援機関の方</strong>　顧問先・支援先との対話のきっかけに使いたい（業務でお使いになる場合は、<a href="./bansou-shien.html#nakama" style="color:var(--teal)">パートナーのご案内</a>もご覧ください）。</div>
+    </div>
+  </div>
+</section>
+
+<!-- 購入 -->
+<section class="buy-sec" id="buy">
+  <div class="wrap reveal">
+    <p class="eyebrow">Get the kit</p>
+    <h2>キットを購入する</h2>
+    <div class="buy-card">
+      <div class="b-name">未来リスク対話キット（完全版）v1.0</div>
+      <div class="b-price">¥4,980</div>
+      <div class="b-tax">税込・買い切り・PDF形式</div>
+      <ul>
+        <li>全7章・約30ページ（ワークシート4種を含む）</li>
+        <li>ご購入者の組織・地域内での印刷・配布は自由です</li>
+        <li>v1系の更新版は、無償でお送りします</li>
+        <li>初回オンライン相談30分つき（希望者のみ）</li>
+      </ul>
+      <!-- PURCHASE-LINK：Stripe Payment Link発行後、このhrefを差し替えてください -->
+      <a class="btn-buy" href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%83%AA%E3%82%B9%E3%82%AF%E5%AF%BE%E8%A9%B1%E3%82%AD%E3%83%83%E3%83%88%E8%B3%BC%E5%85%A5%E5%B8%8C%E6%9C%9B&body=%E6%9C%AA%E6%9D%A5%E3%83%AA%E3%82%B9%E3%82%AF%E5%AF%BE%E8%A9%B1%E3%82%AD%E3%83%83%E3%83%88%EF%BC%88%C2%A54%2C980%EF%BC%89%E3%81%AE%E8%B3%BC%E5%85%A5%E3%82%92%E5%B8%8C%E6%9C%9B%E3%81%97%E3%81%BE%E3%81%99%E3%80%82%0A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E3%81%94%E6%89%80%E5%B1%9E%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A%0A%E4%BD%BF%E3%81%86%E4%BA%88%E5%AE%9A%E3%81%AE%E5%A0%B4%E9%9D%A2%EF%BC%88%E4%BB%BB%E6%84%8F%EF%BC%89%EF%BC%9A">メールで購入を申し込む</a>
+      <!-- PURCHASE-LINK ここまで -->
+    </div>
+    <p class="buy-flow">現在はメールでのお申し込みを受け付けています。ご連絡をいただいたら、お支払い方法（銀行振込またはカード決済リンク）とあわせて、1営業日以内にご案内します。入金確認後、キットのPDFをメールでお送りします。<br>特定商取引法に基づく表記は<a href="./tokushoho.html">こちら</a>をご覧ください。</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="wrap reveal">
+    <p class="eyebrow">FAQ</p>
+    <h2>よくあるご質問</h2>
+    <div class="faq">
+      <p class="q">社内・地域内の複数の会議で使えますか。</p>
+      <p class="a">使えます。ご購入いただいた組織・地域の中での印刷・複製・配布は、回数の制限なく自由です。ご遠慮いただきたいのは、組織の外への再配布・再販売・ウェブでの公開です。</p>
+      <p class="q">研修会社・コンサルタントですが、顧客への業務で使えますか。</p>
+      <p class="a">本キット単体のライセンスは、自組織・自地域内での利用を対象にしています。お客さまへの業務でお使いになる場合は、商用ライセンスとあわせて<a href="./bansou-shien.html#nakama">紹介パートナーのご案内</a>をご覧ください。仕組みを一緒に設計してくださる最初のパートナーを探しています。</p>
+      <p class="q">ファシリテーションの経験がまったくありません。</p>
+      <p class="a">その方のために作りました。進行台本には、要所でそのまま読めるセリフを付けてあります。それでも不安な場合は、購入者特典の初回オンライン相談（30分・無料）で、開催前の作戦会議にお付き合いします。</p>
+      <p class="q">どの計算機にも使えますか。</p>
+      <p class="a">使えます。顧客年齢・採用・技能承継・学校・介護、いずれの計算機とも組み合わせられる汎用版です。</p>
+      <p class="q">内容が更新されたら、買い直しですか。</p>
+      <p class="a">v1系の更新（誤りの修正、ワークシートの改良など）は、ご購入者に無償でお送りします。計算機と同じく、いただいたご意見で育てていくつもりです。</p>
+      <p class="q">返金はできますか。</p>
+      <p class="a">デジタル商品の性質上、お送りしたあとの返金はお受けしていません。迷われている場合は、購入前にメールでご質問ください。中身の目次や、向き不向きも正直にお答えします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./risk-calculators.html"><span class="kaiyu-tag">前提と出典</span><span class="kaiyu-name">未来のリスク計算機について</span><span class="kaiyu-desc">6本の計算機に共通する前提・出典・免責・ライセンスと変更履歴。数字は結論ではなく対話の入口です。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./recruitment-extinction.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">採用市場消滅計算機</span><span class="kaiyu-desc">2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./longevity-money-map.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">老後のお金の見取り図</span><span class="kaiyu-desc">「いつまで生きるか分からない」不安は、統計で目安が引けます。平均・2人に1人・10人に1人の寿命で、いまの資産が何歳まで持つかを試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+/* ===== nav ===== */
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+/* ===== reveal ===== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

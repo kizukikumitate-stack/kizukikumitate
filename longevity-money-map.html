@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  未来リスク計算機シリーズ 02 採用市場消滅計算機
+  未来リスク計算機シリーズ 07 老後のお金の見取り図
   (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
   version: 1.2 (2026-07-18)
   License: CC BY-NC-SA 4.0
@@ -20,21 +20,21 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>採用市場消滅計算機｜採用目標を割り込む年を計算する | きづきくみたて工房</title>
-<meta name="description" content="2046年に22歳になる人は、もう全員生まれています。いまの採用力のまま進んだとき、自社が採用目標を割り込む年を、確定した出生数から試算する無料ツール。数字はどこにも送信されません。">
-<link rel="canonical" href="https://kizukikumitate.com/recruitment-extinction.html">
+<title>老後のお金の見取り図｜資産が何歳まで持つかを試算する | きづきくみたて工房</title>
+<meta name="description" content="「いつまで生きるか分からない」不安は、統計で目安が引けます。令和6年簡易生命表・家計調査2024・介護費用の全国実態調査をもとに、平均・2人に1人・10人に1人の3つの寿命で、いまの資産が何歳まで持つかを試算する無料ツール。数字はどこにも送信されません。">
+<link rel="canonical" href="https://kizukikumitate.com/longevity-money-map.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="採用市場消滅計算機｜採用目標を割り込む年を計算する">
-<meta property="og:description" content="2046年に22歳になる人は、もう全員生まれています。いまの採用力のまま進んだとき、自社が採用目標を割り込む年を試算する無料ツール。">
-<meta property="og:url" content="https://kizukikumitate.com/recruitment-extinction.html">
+<meta property="og:title" content="老後のお金の見取り図｜資産が何歳まで持つかを試算する">
+<meta property="og:description" content="平均・2人に1人・10人に1人の3つの寿命で、いまの資産が何歳まで持つかを試算する無料ツール。上限が見えれば、守るお金と使えるお金の線が引けます。">
+<meta property="og:url" content="https://kizukikumitate.com/longevity-money-map.html">
 <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="採用市場消滅計算機｜採用目標を割り込む年を計算する">
-<meta name="twitter:description" content="いまの採用力のまま進んだとき、自社が採用目標を割り込む年を、確定した出生数から試算する無料ツール。">
+<meta name="twitter:title" content="老後のお金の見取り図｜資産が何歳まで持つかを試算する">
+<meta name="twitter:description" content="平均・2人に1人・10人に1人の3つの寿命で、いまの資産が何歳まで持つかを試算する無料ツール。">
 <meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -158,6 +158,19 @@
   .chk { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; cursor: pointer; margin-top: 0.5rem; }
   .foot-note { font-size: 0.72rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
 
+  /* ===== 世帯・人の選択（このページ固有） ===== */
+  .seg { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+  .seg button { font-family: 'Noto Serif JP', serif; padding: 0.35rem 1rem; font-size: 0.82rem; border-radius: 8px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); transition: background 0.18s, border-color 0.18s, color 0.18s; }
+  .seg button:hover { border-color: var(--teal); }
+  .seg button.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .person { display: flex; align-items: center; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+  .person .p-label { font-size: 0.8rem; width: 3.6em; }
+  .stepbtn { width: 1.9rem; height: 1.9rem; border: 1px solid var(--line); background: #fff; border-radius: 6px; cursor: pointer; font-size: 1rem; line-height: 1; color: var(--ink); display: inline-flex; align-items: center; justify-content: center; }
+  .stepbtn:hover { border-color: var(--teal); }
+  .age-val { font-weight: 700; min-width: 3rem; text-align: center; font-size: 0.9rem; }
+  .sexbtn { font-family: 'Noto Serif JP', serif; padding: 0.28rem 0.7rem; font-size: 0.74rem; border-radius: 8px; cursor: pointer; border: 1.5px solid var(--line); background: transparent; color: var(--ink); }
+  .sexbtn.on { background: var(--teal); border-color: var(--teal); color: #fff; }
+
   /* ===== countdown ===== */
   .fuse { background: var(--ink); color: var(--paper); border-radius: 18px; padding: 1.8rem 1.5rem 2.1rem; overflow: hidden; }
   .fuse-eyebrow { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; opacity: 0.7; margin-bottom: 0.6rem; }
@@ -176,6 +189,18 @@
   .fuse-stats { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-top: 1.4rem; }
   .fuse-stats .k { font-size: 0.72rem; opacity: 0.6; }
   .fuse-stats .v { font-size: 0.95rem; font-weight: 600; margin-top: 0.1rem; }
+
+  /* ===== insight（10人に1人でも足りるか） ===== */
+  .insight { border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
+  .insight.short { background: #fbeee9; border: 2px solid var(--dawn); }
+  .insight.ok { background: #fff; border: 2px solid var(--teal); }
+  .insight-k { font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.5rem; line-height: 1.8; }
+  .insight-line { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 1rem; }
+  .insight-big { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.5rem; }
+  .insight.short .insight-big { color: var(--dawn); }
+  .insight.ok .insight-big { color: var(--teal); }
+  .insight-sub { font-size: 0.92rem; color: var(--ink); font-weight: 600; }
+  .insight p { font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.9; }
 
   /* ===== chart ===== */
   .chart-box { overflow-x: auto; }
@@ -206,16 +231,14 @@
   .series-foot a { color: var(--teal); }
   .series-foot .now-hub { color: var(--ink-soft); }
   @media print { .series-band { display: none !important; } }
-  /* 感度レンジ。点推定を確定的に読ませないための、根拠のある幅 */
-  .sens { font-size: 0.8rem; line-height: 1.9; opacity: 0.75; margin-top: 0.8rem; }
-  .sens b { color: var(--gold); opacity: 1; }
   /* 対話の問い・意思決定シート。回答はブラウザにだけ残す（送信しない） */
   .talk { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1.4rem 1.4rem 1.5rem; }
   .talk h2 { font-family: 'Shippori Mincho', serif; font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 0.5rem; }
   .talk-lead { font-size: 0.9rem; line-height: 1.95; color: var(--ink-soft); margin-bottom: 1.2rem; }
   .q { margin-bottom: 1rem; }
   .q-label { display: block; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; line-height: 1.75; }
-  .q-hint { display: block; font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.1rem; line-height: 1.8; }
+  .q-step { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 0.8rem; color: var(--paper); background: var(--teal); border-radius: 999px; padding: 0.1rem 0.7rem; margin-right: 0.5rem; white-space: nowrap; }
+  .q-hint { display: block; font-size: 0.8rem; color: var(--ink-soft); font-weight: 400; margin-top: 0.25rem; line-height: 1.85; }
   .q textarea { width: 100%; min-height: 3.2em; padding: 0.6rem 0.7rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); font-family: 'Noto Serif JP', serif; font-size: 1rem; line-height: 1.9; color: var(--charcoal); resize: vertical; }
   .q textarea:focus { outline: 2px solid var(--teal); outline-offset: 1px; }
   .q.role { background: rgba(217,164,65,0.09); border-radius: 10px; padding: 0.9rem 1rem; }
@@ -227,23 +250,15 @@
   .talk-btn.ghost:hover { border-color: var(--dawn); color: var(--dawn); }
   .talk-saved { font-size: 0.78rem; color: var(--teal); }
   .talk-note { font-size: 0.76rem; color: var(--ink-soft); margin-top: 0.7rem; line-height: 1.85; }
-  /* 印刷＝意思決定記録。計算機のUIは落とし、問いと答えだけを1枚に */
+  /* 印刷＝対話記録。計算機のUIは落とし、問いと答えだけを1枚に */
   @media print {
-    nav, .mobile-menu, footer, .kaiyu, .fuse, .card, .chart-box, .scene-frame, .presets, .talk-actions, .license { display: none !important; }
+    nav, .mobile-menu, footer, .kaiyu, .fuse, .card, .chart-box, .scene-frame, .presets, .insight, #hero, .talk-actions, .license { display: none !important; }
     .talk { display: block !important; border: none; padding: 0; }
     #printHead { display: block !important; }
     body { background: #fff; }
     .q textarea { border: none; border-bottom: 1px solid #ccc; background: #fff; min-height: 0; }
   }
   #printHead { display: none; }
-  /* 意思決定期限。「問題が起きる年」と「決められなくなる年」を並べる */
-  .deadline { margin-top: 1.4rem; padding-top: 1.2rem; border-top: 1px solid rgba(250,248,242,0.18); }
-  .deadline-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; font-size: 0.8rem; opacity: 0.75; margin-bottom: 0.2rem; }
-  .deadline-head b { font-family: 'Jost', sans-serif; color: var(--gold); font-size: 0.95rem; opacity: 1; }
-  .deadline input[type=range] { width: 100%; accent-color: var(--gold); }
-  .deadline-out { font-size: 0.9rem; line-height: 1.95; margin-top: 0.7rem; }
-  .deadline-out b { color: var(--gold); }
-  .deadline-out b.dl-past { color: var(--dawn); }
   /* 「簡易試算」バッジ。大きな数字と但し書きは画面にして数スクロール離れているため、
      数字だけスクショされると前提が一切伝わらない。数字の隣に置いて一緒に写るようにする */
   .approx { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.12em; padding: 0.15em 0.7em; border-radius: 999px; border: 1px solid rgba(250,248,242,0.45); color: rgba(250,248,242,0.8); white-space: nowrap; align-self: center; }
@@ -269,13 +284,6 @@
   .chips-gold .chip.on { background: var(--gold); border-color: var(--gold); color: #fff; }
   .chips-dawn .chip:hover { border-color: var(--dawn); }
   .chips-dawn .chip.on { background: var(--dawn); border-color: var(--dawn); color: #fff; }
-  .warn { display: none; font-size: 0.74rem; line-height: 1.85; color: var(--dawn); margin-top: 0.6rem; }
-  .warn.on { display: block; }
-  .need { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem; }
-  @media (max-width: 760px) { .need { grid-template-columns: minmax(0, 1fr); } }
-  .need-cell { background: var(--paper); border-radius: 10px; padding: 0.9rem 1rem; }
-  .need-k { font-size: 0.72rem; color: var(--ink-soft); margin-bottom: 0.25rem; line-height: 1.8; }
-  .need-v { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; color: var(--dawn); }
 
   /* ===== 日本語の禁則処理・文節改行（モバイル） =====
      body の word-break: keep-all は、文節が行幅より長いと折り返し位置が無くなり、
@@ -284,7 +292,7 @@
   @media (max-width: 768px) {
     body, p, li, dd, dt, blockquote, figcaption,
     .lede, .prose, .note, .license, .foot-note, .fuse-note, .fuse-label, .fuse-at,
-    .field-label, .warn, .chk, .need-k, .legend span, .sl-head {
+    .field-label, .chk, .legend span, .sl-head, .insight-k, .insight p, .talk-lead, .q-hint {
       word-break: auto-phrase;
       overflow-wrap: break-word;
       line-break: strict;
@@ -350,11 +358,11 @@
       <div class="nav-dropdown-menu">
         <a href="./risk-calculators.html">このシリーズについて</a>
         <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
-        <a href="./recruitment-extinction.html" class="active">採用市場消滅計算機</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
         <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
         <a href="./school-consolidation-countdown.html">学校の分岐点</a>
         <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
-        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./longevity-money-map.html" class="active">老後のお金の見取り図</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -421,11 +429,11 @@
     <div class="mobile-acc-panel">
       <a href="./risk-calculators.html">このシリーズについて</a>
       <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
-      <a href="./recruitment-extinction.html" class="active">採用市場消滅計算機</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
       <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
       <a href="./school-consolidation-countdown.html">学校の分岐点</a>
       <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
-      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./longevity-money-map.html" class="active">老後のお金の見取り図</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -443,9 +451,9 @@
 
 <section id="hero">
   <div class="wrap">
-    <div class="eyebrow">未来リスク計算機 02</div>
-    <h1>採用市場<span class="accent">消滅</span>計算機</h1>
-    <p class="lede">2046年に22歳になる人は、もう全員生まれています──2024年生まれの68.6万人。今年の22歳（111万人）より4割少ない未来は、予測ではなく確定です。いまの採用力のまま進んだとき、あなたの会社が採用目標を割り込む年を計算します。数字はどこにも送信されません。</p>
+    <div class="eyebrow">未来リスク計算機 07</div>
+    <h1>老後のお金の<span class="accent">見取り図</span></h1>
+    <p class="lede">「いつまで生きるか分からない」という不安は、実は統計で目安が引けます。令和6年簡易生命表・家計調査（2024年）・介護費用の全国実態調査（2024年度）をもとに、平均どおりの寿命、2人に1人が到達する寿命、10人に1人の長寿——3つの未来で、いまの資産が何歳まで持つかを描きます。金額はすべて現在の物価です。数字はどこにも送信されません。</p>
   </div>
 </section>
 
@@ -455,31 +463,34 @@
     <div class="presets" id="presets"></div>
     <div class="grid2">
       <div class="card">
-        <h2>いまの採用の実力</h2>
-        <div id="powerSliders"></div>
-        <p class="foot-note" id="nowLine"></p>
+        <h2>だれの老後か</h2>
+        <div class="seg" id="householdSeg">
+          <button type="button" data-couple="1">夫婦</button>
+          <button type="button" data-couple="0">単身</button>
+        </div>
+        <div id="persons"></div>
+        <div id="assetsSlider"></div>
       </div>
       <div class="card">
-        <h2>前提条件</h2>
-        <div id="assumeSliders"></div>
-        <div class="field">
-          <div class="field-label">2047年以降の出生数の想定</div>
-          <div class="chips chips-dawn" id="declineChips"></div>
-          <p class="foot-note" style="margin-top:0.45rem">※ 2046年までは実績出生数で確定。この想定が効くのは2047年以降のみ</p>
+        <h2>毎月の家計と介護の想定</h2>
+        <div id="householdSliders"></div>
+        <div class="field" style="margin-top:0.4rem">
+          <div class="field-label">介護の想定（1人あたり）</div>
+          <div class="chips chips-gold" id="careChips"></div>
         </div>
-        <label class="chk"><input type="checkbox" id="competition">採用競争の激化を織り込む（獲得シェアが年1％ずつ低下）</label>
+        <p class="foot-note" id="careNote"></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- カウントダウン -->
+<!-- カウントダウン（2人に1人ケース） -->
 <section>
   <div class="wrap">
     <div class="fuse">
-      <div class="fuse-eyebrow">採用力が今のままの場合</div>
+      <div class="fuse-eyebrow" id="fuseEyebrow"></div>
       <div class="fuse-line">
-        <span class="fuse-label">採用目標を割り込むまで</span>
+        <span class="fuse-label">いまの資産が尽きるまで</span>
         <span class="fuse-big" id="fuseBig">—</span>
         <span class="approx">簡易試算</span>
         <span class="fuse-at" id="fuseAt"></span>
@@ -488,33 +499,21 @@
         <div class="fuse-fill" id="fuseFill"></div>
         <div class="fuse-spark" id="fuseSpark"></div>
       </div>
-      <div class="ends"><span>2026</span><span>2056</span></div>
-      <p class="sens" id="sensOut"></p>
-      <div class="deadline">
-        <div class="deadline-head"><span>打ち手が効き始めるまでの年数（あなたの想定）</span><span><b id="leadVal">5</b>年</span></div>
-        <input type="range" id="lead" min="1" max="15" step="1" value="5" aria-label="打ち手が効き始めるまでの年数">
-        <p class="deadline-out" id="deadlineOut">—</p>
-      </div>
-      <p class="fuse-note" id="fuseNote">この条件では、人口が減るより前に、いまの時点ですでに採用目標に届いていません。若手の総量はこれから減っていくため、同じやり方のままでは差はさらに開きます。まず「いまの歩留まりで足りるのか」から見直す局面です。</p>
+      <div class="ends"><span id="endsLo">—</span><span id="endsHi">—</span></div>
       <div class="fuse-stats">
-        <div><div class="k">採用数が目標の半分になる年</div><div class="v" id="halfYear">—</div></div>
-        <div><div class="k">2046年の予測採用人数</div><div class="v" id="hire2046">—</div></div>
+        <div><div class="k">必要資金・平均ケース</div><div class="v" id="needAvg">—</div></div>
+        <div><div class="k">2人に1人ケース</div><div class="v" id="needMed">—</div></div>
+        <div><div class="k">10人に1人ケース</div><div class="v" id="needUpper">—</div></div>
       </div>
+      <p class="fuse-note on" id="fuseNote">高齢者が資産を使えない最大の理由は、この「上限の見えなさ」です——けれど、上限には目安が引けます。</p>
     </div>
   </div>
 </section>
 
-<!-- 2046年の必要量 -->
+<!-- 10人に1人でも足りるか -->
 <section>
   <div class="wrap">
-    <div class="card">
-      <h2 id="needHead">2046年も今と同じ人数を採るには</h2>
-      <div class="need">
-        <div class="need-cell"><div class="need-k">採用力（母集団形成×口説く力）</div><div class="need-v" id="needMult">—</div></div>
-        <div class="need-cell"><div class="need-k">または年間エントリー数を</div><div class="need-v" id="needEntries">—</div></div>
-        <div class="need-cell"><div class="need-k">または採用予算を（単価が努力に比例する場合）</div><div class="need-v" id="needBudget">—</div></div>
-      </div>
-    </div>
+    <div class="insight" id="insight"></div>
   </div>
 </section>
 
@@ -522,66 +521,65 @@
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>22歳人口と自社の採用可能人数の推移</h2>
+      <h2>資産残高の推移 ― 3つの未来</h2>
       <div class="chart-box">
         <svg id="chart" viewBox="0 0 760 320" role="img" aria-labelledby="chartDesc"></svg>
       </div>
-      <p id="chartDesc" class="note" style="margin-top:0.6rem">採用目標を割り込む年に、縦の点線が立ちます。2046年までの22歳人口は、すでに生まれた人数で確定しています。</p>
+      <p id="chartDesc" class="note" style="margin-top:0.6rem">縦軸はいまの物価での資産残高（万円）。ゼロを下回る前に、線が「枯渇ライン」に触れます。寿命が延びるほど、線は右に伸び、下に沈みます。</p>
       <div class="legend">
-        <span><i style="background:var(--teal)"></i>自社の採用人数（人／年）</span>
-        <span><i style="background:var(--gold)"></i>22歳人口（右軸・万人）</span>
-        <span><i style="background:var(--dawn)"></i>採用目標</span>
+        <span><i style="background:var(--teal)"></i>平均どおりの寿命</span>
+        <span><i style="background:var(--gold)"></i>2人に1人が到達</span>
+        <span><i style="background:var(--dawn)"></i>10人に1人の長寿</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 解除の型 -->
+<!-- 上限の見えなさ -->
 <section>
   <div class="wrap">
     <div class="card">
-      <h2>採用予算を増やしても、この曲線からは逃げられません</h2>
-      <p class="prose">全社が同じように予算を増やせば、競争は激化するだけで母集団は増えません。若手の総量が減る世界で「採れない」のは採用担当の力不足ではなく、<strong>「新卒を毎年◯人採って育てる」という事業モデルの前提が崩れている</strong>という適応課題（正解を当てはめれば済む問題ではなく、関わる人の考え方そのものが変わらないと解けない課題）です。打ち手の型は3つ──①採る対象を再定義する（中途・アルムナイ＝一度辞めた人・外国人・シニア・副業人材）、②「採る」より「辞めない・戻ってくる」組織をつくる、③そもそも必要人数を減らす業務設計に変える。どれも人事部だけでは決められず、経営と現場の対話が要ります。</p>
+      <h2>「上限が見えない不安」が、使えるお金まで凍らせています</h2>
+      <p class="prose">日本の家計金融資産の多くは、高齢の世帯のもとにあります。使われない大きな理由は倹約ではなく、<strong>「いくらあれば足りるか」の上限が見えないこと</strong>です。上限が見えなければ、慎重な人ほど使えません。統計は個人の運命を教えてくれませんが、「10人に9人はこの範囲に収まる」という線なら引けます。線が引ければ、その外側は「守るお金」ではなく<strong>「使うお金」「渡すお金」</strong>に変わります。過度な我慢や抱え込みは、むしろ人生の取りこぼしかもしれません。この計算機は、不安を煽るためではなく、<strong>不安に輪郭を与えて、その外側にある「ねがい」の話を始めるため</strong>のものです。</p>
     </div>
   </div>
 </section>
 
-<!-- TALK START -->
+<!-- 対話シート（親との「安心とねがい」） -->
 <section>
   <div class="wrap">
     <div class="talk">
       <div id="printHead">
-        <p style="font-size:0.7rem;letter-spacing:0.2em;color:#888">未来リスク計算機 02／採用市場消滅計算機</p>
-        <h1 style="font-family:'Shippori Mincho',serif;font-size:1.3rem;margin:0.3rem 0 1rem">未来リスク対話記録</h1>
+        <p style="font-size:0.7rem;letter-spacing:0.2em;color:#888">未来リスク計算機 07／老後のお金の見取り図</p>
+        <h1 style="font-family:'Shippori Mincho',serif;font-size:1.3rem;margin:0.3rem 0 1rem">親との「安心とねがい」対話記録</h1>
       </div>
-      <h2>数字を見たあとに、話すこと</h2>
-      <p class="talk-lead">ここまでの数字は、話し合いを始めるためのものです。以下に答えて印刷すると、そのまま会議で配れる1枚の記録になります。答えはこのブラウザにだけ保存され、どこにも送信されません。</p>
-      <div class="q role"><label class="q-label" for="q0">立場を変えて考える<span class="q-hint">あなたは2040年に就職先を選ぶ22歳です。この会社の求人を見て、応募したいと思いますか。何があれば応募しますか。</span></label><textarea id="q0" data-k="q0"></textarea></div>
-      <div class="q"><label class="q-label" for="q1">この結果を見て、いちばん驚いたことは何ですか。<span class="q-hint">「思ったより早い」「思ったより遅い」でも構いません。</span></label><textarea id="q1" data-k="q1"></textarea></div>
-      <div class="q"><label class="q-label" for="q2">この未来が起きると、いちばん困るのは誰ですか。<span class="q-hint">その人は、いまこの話し合いの場にいますか。</span></label><textarea id="q2" data-k="q2"></textarea></div>
-      <div class="q"><label class="q-label" for="q3">この計算が置いている前提のうち、自分たちで変えられるものはどれですか。<span class="q-hint">変えられない前提と、変えられる前提を分けます。</span></label><textarea id="q3" data-k="q3"></textarea></div>
-      <div class="q"><label class="q-label" for="q4">いま決めなければ、いつから選択肢が減りますか。<span class="q-hint">上の「決められるのはあと◯年」を見ながら書きます。</span></label><textarea id="q4" data-k="q4"></textarea></div>
-      <div class="q"><label class="q-label" for="q5">30日以内に試せる、いちばん小さな行動は何ですか。<span class="q-hint">大きな計画ではなく、来週できることを1つ。</span></label><textarea id="q5" data-k="q5"></textarea></div>
-      <div class="q"><label class="q-label" for="q6">それは誰が、いつまでにやりますか。<span class="q-hint">担当と期限がない行動は、実行されません。</span></label><textarea id="q6" data-k="q6"></textarea></div>
+      <h2>数字を見たあとに、話すこと ― 親との対話記録</h2>
+      <p class="talk-lead">この計算機の本体は、実はここから先です。数字は説得の道具ではなく、不安に輪郭を与えて、その外側にある「ねがい」の話を始めるための入口。7つの問いに沿って、親と話したことをそのまま書き留めてください。心得は3つ——<strong>説得しない。数字より、親の言葉を書き取る。一度で決めない。</strong>答えはこのブラウザにだけ保存され、どこにも送信されません。印刷すると、そのまま手元に残せる1枚の記録になります。</p>
+      <div class="q"><label class="q-label" for="q1"><span class="q-step">1 とびら</span>これは「もらう話」ではない、と伝える<span class="q-hint">この対話は相続や節約の交渉ではなく、「お互いが何を心配し、何をねがっているか」を見せ合う時間です。まず自分から、親のお金ではなく親の暮らしについて心配していることを一つ、正直に書いてみてください。冒頭でこれをそのまま伝えます。</span></label><textarea id="q1" data-k="q1" placeholder="例: お金の心配で、行きたい場所ややりたいことを我慢しているように見えるのが気になっている…"></textarea></div>
+      <div class="q"><label class="q-label" for="q2"><span class="q-step">2 おどろき</span>試算を一緒に見て、意外だった点<span class="q-hint">上の計算機を親と一緒に動かして、それぞれが「思ったより持つ」「思ったより持たない」どちらを感じたか。感じ方のズレこそが対話の入口です。親の言葉はできるだけそのまま書き留めます。</span></label><textarea id="q2" data-k="q2" placeholder="例: 父は「案外もつんだな」、母は「介護のところが気になる」と言った…"></textarea></div>
+      <div class="q"><label class="q-label" for="q3"><span class="q-step">3 ほどく</span>不安を、数字にできるものとできないものに分ける<span class="q-hint">「老後が不安」の中身を一緒に言葉にします。数字にできたもの（生活費・介護・寿命の幅）と、数字にならないもの（健康・孤独・住まいの行く末・家族に迷惑をかけたくない気持ち）を分けて書き出します。数字にならない不安は、お金では解けない＝別の備え方がある、と確認します。</span></label><textarea id="q3" data-k="q3" placeholder="例: 数字にできた→介護費の上限。できない→一人になったときの寂しさ…"></textarea></div>
+      <div class="q"><label class="q-label" for="q4"><span class="q-step">4 まもり</span>「ここまで備えれば大丈夫」の線を引く<span class="q-hint">10人に1人ケースの必要額を、この家の「守りの線」として書き留めます。足りない場合は、変えられる前提（支出・住まい・繰下げ受給・働き方）のうちどれなら現実的か、親自身の言葉で選んでもらいます。</span></label><textarea id="q4" data-k="q4" placeholder="例: 守りの線は約◯◯万円。不足分は繰下げ受給と固定費の見直しで届きそう…"></textarea></div>
+      <div class="q role"><label class="q-label" for="q5"><span class="q-step">5 ねがい</span>線の外側のお金に、名前をつける<span class="q-hint">守りの線を超えて残りそうなお金は、「守るお金」ではなく「使うお金」「渡すお金」です。親自身がやり残していること・行きたい場所・会いたい人、そして家族や次の世代に叶えてほしいこと——お金に名前をつけるつもりで聞いてください。あなた自身の人生のねがいも、ここで初めて話します。</span></label><textarea id="q5" data-k="q5" placeholder="例: 母は九州の妹にもう一度会いたい。私は40代のうちに一度学び直しをしたい…"></textarea></div>
+      <div class="q"><label class="q-label" for="q6"><span class="q-step">6 いっぽ</span>30日以内の、小さな一歩<span class="q-hint">大きな計画は要りません。30日以内にできる具体的な一歩を一つだけ決めます（ねんきん定期便を一緒に見る／口座と保険の棚卸し／旅行の日程を決める／FP・税理士への相談予約／贈与制度を調べる…）。</span></label><textarea id="q6" data-k="q6" placeholder="例: 来月の連休に、ねんきん定期便と保険証券を一緒に広げる…"></textarea></div>
+      <div class="q"><label class="q-label" for="q7"><span class="q-step">7 つづき</span>次に話す日を決める<span class="q-hint">この話は一度では終わりません。誰と・いつ・何を決めるかを書き留めて、今日は締めます。決めきれなかったことを「宿題」として残せたら、それは失敗ではなく続きがある印です。</span></label><textarea id="q7" data-k="q7" placeholder="例: 正月に兄も入れて3人で。次回は住まいをどうするかを中心に…"></textarea></div>
       <div class="talk-actions">
         <button class="talk-btn" type="button" id="printBtn">印刷／PDFで保存する</button>
         <button class="talk-btn ghost" type="button" id="clearBtn">回答を消す</button>
         <span class="talk-saved" id="savedMsg"></span>
       </div>
-      <p class="talk-note">※ 回答はこの端末のブラウザ内（localStorage）にのみ保存されます。サーバーには送信していません。共有したいときは印刷／PDFをお使いください。端末やブラウザを変えると消えます。</p>
+      <p class="talk-note">※ うまく話が進まなくても大丈夫です。親世代にとってお金の話は「弱みを見せる話」でもあります。1の「とびら」だけで終わった日も、扉が開いた日として数えてください。回答はこの端末のブラウザ内（localStorage）にのみ保存され、サーバーには送信していません。端末やブラウザを変えると消えます。</p>
     </div>
   </div>
 </section>
-<!-- TALK END -->
 
 <section>
   <div class="wrap">
-    <p class="note">※ 22歳人口は「22年前の出生数」（厚生労働省 人口動態統計）で近似しています。2046年までの新卒母集団はすでに生まれた人数で確定しており、2047年以降のみ出生数の想定減少率を適用します。自社のエントリー数は22歳人口に比例すると仮定した簡易モデルです。高卒採用（18歳人口）の場合は目標割れが4年早く訪れるとお考えください。意思決定の出発点としてお使いください。</p>
+    <p class="note">※ 平均余命・年齢別の生存率は厚生労働省「令和6年簡易生命表」（65・75・90・95歳以外の生存率は補間による概算）、高齢無職世帯の家計収支は総務省「家計調査（2024年）」（夫婦は支出28.7万・実収入25.3万／月、単身は16.2万・13.4万／月を初期値に採用）、介護費用は生命保険文化センター「2024年度 生命保険に関する全国実態調査」（一時費用47.2万＋月9.0万×55か月ほか）をもとにした簡易な試算です。予備費（葬儀・住宅修繕等）は初期値150万円／人を死亡時に計上しています。金額はすべて現在の物価で、インフレ・年金の実質的な目減り・資産運用益・高額療養費を超える医療費は織り込んでいません。統計上の平均に基づく概算であり個人差が大きい点にご注意ください。判断の際はファイナンシャル・プランナー等の専門家にもご相談ください。</p>
 <!-- CALC-COMMON START -->
-    <p class="note" style="margin-top:0.8rem">出典：出生数は厚生労働省「<a href="https://www.mhlw.go.jp/toukei/list/81-1a.html" target="_blank" rel="noopener">人口動態統計</a>」の実績値。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。いまのやり方・いまの生産性が続く前提で計算しており、技術や制度の変化（介護ロボットや自動化など）は織り込んでいません。変われば前提そのものが変わりますが、いつ来るか分からないものはリードタイムを見積もれないため、待つことは打ち手になりません。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
+    <p class="note" style="margin-top:0.8rem">出典：平均余命・年齢別の生存率は厚生労働省「令和6年<a href="https://www.mhlw.go.jp/toukei/saikin/hw/life/life24/index.html" target="_blank" rel="noopener">簡易生命表</a>」の値（65・75・90・95歳以外の生存率は補間による概算）、高齢無職世帯の家計収支は総務省「<a href="https://www.stat.go.jp/data/kakei/2024np/index.html" target="_blank" rel="noopener">家計調査（2024年）</a>」、介護費用は生命保険文化センター「<a href="https://www.jili.or.jp/" target="_blank" rel="noopener">2024年度 生命保険に関する全国実態調査</a>」の各値をもとにした試算です。<br>本計算機の結果は簡易な試算であり、将来を保証するものではありません。これに基づく判断・意思決定の結果について当工房は責任を負いかねます。いまのやり方・いまの生産性が続く前提で計算しており、技術や制度の変化（介護ロボットや自動化など）は織り込んでいません。変われば前提そのものが変わりますが、いつ来るか分からないものはリードタイムを見積もれないため、待つことは打ち手になりません。前提・出典の詳細と変更履歴は <a href="./risk-calculators.html" style="color:var(--teal)">未来のリスク計算機について</a> にまとめています。</p>
     <div class="license">
       &copy; 2026 きづきくみたて工房（<a href="./index.html">kizukikumitate.com</a>）　<span class="ver">ver 1.2</span>（2026年7月18日）<br>
-      この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E6%8E%A1%E7%94%A8%E5%B8%82%E5%A0%B4%E6%B6%88%E6%BB%85%E8%A8%88%E7%AE%97%E6%A9%9F%20ver%201.2%EF%BC%89">ご意見</a> をお寄せください。<br>
+      この計算機は、いただくご意見を反映しながら育てています。前提や数字におかしな点があれば <a href="mailto:y.morimoto@kizukikumitate.com?subject=%E6%9C%AA%E6%9D%A5%E3%81%AE%E3%83%AA%E3%82%B9%E3%82%AF%E8%A8%88%E7%AE%97%E6%A9%9F%E3%81%B8%E3%81%AE%E3%81%94%E6%84%8F%E8%A6%8B%EF%BC%88%E8%80%81%E5%BE%8C%E3%81%AE%E3%81%8A%E9%87%91%E3%81%AE%E8%A6%8B%E5%8F%96%E3%82%8A%E5%9B%B3%20ver%201.2%EF%BC%89">ご意見</a> をお寄せください。<br>
       本計算機は <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" rel="license noopener" target="_blank">CC BY-NC-SA 4.0</a> で公開しています。非営利での利用・改変・再配布は、クレジット表記と同条件での公開を条件に自由です。改変した場合はその旨を明記し、当工房の試算としては示さないでください。商用利用をご希望の場合は <a href="./index.html#contact">お問い合わせ</a> ください。
     </div>
 <!-- CALC-COMMON END -->
@@ -594,11 +592,11 @@
     <p class="series-head">未来のリスク計算機（全6本）</p>
     <ul class="series-list">
         <li><a href="./customer-age-timebomb.html"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></a></li>
-        <li><span class="now" aria-current="page"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></span></li>
+        <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
         <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
         <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校の分岐点</span></a></li>
         <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
-        <li><a href="./longevity-money-map.html"><span class="series-no">07</span><span class="series-name">老後のお金の見取り図</span></a></li>
+        <li><span class="now" aria-current="page"><span class="series-no">07</span><span class="series-name">老後のお金の見取り図</span></span></li>
     </ul>
     <p class="series-foot"><a href="./risk-calculators.html">このシリーズについて（前提・出典・免責・変更履歴）</a></p>
   </div>
@@ -659,9 +657,9 @@
     <span class="kaiyu-title">次は、こちらへ。</span>
   </div>
   <div class="kaiyu-grid">
-    <a class="kaiyu-card" href="./customer-age-timebomb.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">顧客の平均年齢時限爆弾</span><span class="kaiyu-desc">売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./skill-succession-timebomb.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">技能承継時限爆弾</span><span class="kaiyu-desc">手順書には書けない「勘」は、教わる時間がなければ受け継げない。その技能が組織から消える年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./longevity-money-map.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">老後のお金の見取り図</span><span class="kaiyu-desc">「いつまで生きるか分からない」不安は、統計で目安が引けます。平均・2人に1人・10人に1人の寿命で、いまの資産が何歳まで持つかを試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./caregiving-capacity-calculator.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">介護の支え手計算機</span><span class="kaiyu-desc">あなたが高齢期を迎える年、何人の現役世代がひとりの高齢者を支えているか。介護の担い手の不足を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./risk-calculators.html"><span class="kaiyu-tag">前提と出典</span><span class="kaiyu-name">未来のリスク計算機について</span><span class="kaiyu-desc">6本の計算機に共通する前提・出典・免責・ライセンスと変更履歴。数字は結論ではなく対話の入口です。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./skill-succession-timebomb.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">技能承継時限爆弾</span><span class="kaiyu-desc">手順書には書けない「勘」は、教わる時間がなければ受け継げない。その技能が組織から消える年を試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
 </aside>
@@ -676,7 +674,6 @@
 
 <script>
 /* ===== nav ===== */
-
 document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
 document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
 document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
@@ -685,291 +682,351 @@ document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
 
 /* ===== palette ===== */
 const C = { indigo:'#16132a', gold:'#d9a441', teal:'#0f6e56', dawn:'#d85a30', inkSoft:'#4a4660', line:'#e5e0d3' };
-const START_YEAR = 2026, HORIZON = 30;
 
-// 22歳人口の近似（万人）＝ 22年前の出生数（厚生労働省 人口動態統計・実績値）
-// 2026年の22歳 = 2004年生まれ（111.1万人）… 2046年の22歳 = 2024年生まれ（68.6万人）
-const POP22_ACTUAL = [
-  111.1, 106.3, 109.3, 109.0, 109.1, // 2026-2030
-  107.0, 107.1, 105.1, 103.7, 103.0, // 2031-2035
-  100.4, 100.6, 97.7,  94.6,  91.8,  // 2036-2040
-  86.5,  84.1,  81.2,  77.1,  72.7,  // 2041-2045
-  68.6,                              // 2046（2024年生まれ）
-];
+/* ===== 統計データ ===== */
+/* 令和6年簡易生命表（厚生労働省）: 平均余命 */
+const EX = {
+  M: { 60: 23.63, 65: 19.47, 70: 15.6, 75: 12.08, 80: 8.96, 85: 6.31, 90: 4.27, 95: 2.87, 100: 1.9 },
+  F: { 60: 28.92, 65: 24.38, 70: 19.97, 75: 15.75, 80: 11.83, 85: 8.37, 90: 5.55, 95: 3.64, 100: 2.3 },
+};
+/* 出生からの生存率(%)。65/75/90/95歳は令和6年公表値、他は補間による概算 */
+const LX = {
+  M: { 60: 92.5, 65: 89.6, 70: 83.3, 75: 75.3, 80: 62.5, 85: 45.5, 90: 25.8, 95: 9.3, 100: 1.7, 105: 0.05 },
+  F: { 60: 95.7, 65: 94.4, 70: 91.7, 75: 87.9, 80: 80.8, 85: 68.0, 90: 50.2, 95: 25.6, 100: 8.5, 105: 0.8 },
+};
+/* 介護想定（生命保険文化センター 2024年度全国実態調査）: 一時費用(万) / 月額(万) / 月数 */
+const CARE = {
+  avg:   { label: '平均的な介護', lump: 47.2, monthly: 9.0,  months: 55  },
+  fac5:  { label: '施設介護5年',  lump: 100,  monthly: 13.8, months: 60  },
+  fac10: { label: '施設介護10年', lump: 100,  monthly: 13.8, months: 120 },
+  none:  { label: '見込まない',   lump: 0,    monthly: 0,    months: 0   },
+};
 
-const PRESETS = [
-  { name:'地方中小メーカー', target:3,  entries:90,  yieldPct:3.5, cost:80  },
-  { name:'中堅IT企業',       target:10, entries:600, yieldPct:2,   cost:120 },
-  { name:'介護・福祉法人',   target:8,  entries:130, yieldPct:6.5, cost:60  },
-  { name:'建設・インフラ',   target:5,  entries:80,  yieldPct:7,   cost:90  },
-];
-const DECLINES = [
-  { v:0.02, label:'緩やか（年 −2％）' },
-  { v:0.04, label:'直近トレンド（年 −4％）' },
-];
-
-/* ===== model ===== */
-function simulate(P, futureDecline, competition){
-  // 22歳人口系列を2056年まで構築（2047年以降は想定減少率で外挿）
-  const pop = POP22_ACTUAL.slice();
-  while (pop.length <= HORIZON) pop.push(pop[pop.length - 1] * (1 - futureDecline));
-
-  const h0 = P.entries * (P.yieldPct / 100); // 現在の採用実力（人/年）
-  const rows = [];
-  let breachYear = null, halfYear = null;
-
-  for (let t = 0; t <= HORIZON; t++) {
-    const ratio = (pop[t] / pop[0]) * (competition ? Math.pow(0.99, t) : 1);
-    const hires = h0 * ratio;
-    rows.push({
-      year: START_YEAR + t,
-      hires: Math.round(hires * 10) / 10,
-      pop22: Math.round(pop[t] * 10) / 10,
-      ratio,
-    });
-    if (breachYear === null && hires < P.target) breachYear = START_YEAR + t;
-    if (halfYear === null && hires < P.target / 2) halfYear = START_YEAR + t;
+function interp(t, x) {
+  const ks = Object.keys(t).map(Number).sort((a, b) => a - b);
+  if (x <= ks[0]) return t[ks[0]];
+  if (x >= ks[ks.length - 1]) return t[ks[ks.length - 1]];
+  for (let i = 0; i < ks.length - 1; i++) {
+    const a = ks[i], b = ks[i + 1];
+    if (x >= a && x <= b) return t[a] + ((x - a) / (b - a)) * (t[b] - t[a]);
   }
-  return { rows, breachYear, halfYear, h0 };
+  return t[ks[ks.length - 1]];
 }
+const deathMean = (sex, age) => age + interp(EX[sex], age);
+function deathPct(sex, age, p) {
+  const base = interp(LX[sex], age), target = base * p;
+  const ks = Object.keys(LX[sex]).map(Number).sort((a, b) => a - b);
+  for (let i = 0; i < ks.length - 1; i++) {
+    const a = ks[i], b = ks[i + 1], la = LX[sex][a], lb = LX[sex][b];
+    if (la >= target && target >= lb) return a + ((la - target) / (la - lb)) * (b - a);
+  }
+  return ks[ks.length - 1];
+}
+
+/* ===== 資産残高シミュレーション（年単位） =====
+   介護費は各人が亡くなる前の想定期間に月額で発生、一時費用は介護開始年に計上。
+   予備費（葬儀・住宅修繕等）は各人の死亡年に計上。金額はすべて万円・現在物価。 */
+function simulate(p, deathFn) {
+  const d1 = deathFn(p.sex1, p.age1);
+  const d2 = p.couple ? deathFn(p.sex2, p.age2) : null;
+  const persons = [
+    { death: d1, care: CARE[p.care] },
+    ...(p.couple ? [{ death: d2, care: CARE[p.care] }] : []),
+  ];
+  const horizon = Math.ceil(Math.max(d1, (d2 ?? 0) - (p.couple ? p.age2 - p.age1 : 0)) - p.age1) + 1;
+
+  let bal = p.assets;
+  let needTotal = 0;
+  let depleteAge = null;
+  const rows = [];
+
+  for (let t = 0; t <= horizon; t++) {
+    const myAge = p.age1 + t;
+    rows.push({ age: myAge, balance: Math.round(bal) });
+
+    const alive1 = myAge < d1;
+    const alive2 = p.couple ? p.age2 + t < d2 : false;
+    let out = 0;
+    if (p.couple) {
+      if (alive1 && alive2) out += Math.max(0, p.expC - p.incC) * 12;
+      else if (alive1 || alive2) out += Math.max(0, p.expS - p.incS) * 12;
+    } else if (alive1) {
+      out += Math.max(0, p.expC - p.incC) * 12; // 単身時は expC/incC を単身の値として使う
+    }
+    persons.forEach((ps, idx) => {
+      const a = (idx === 0 ? p.age1 : p.age2) + t;
+      const careStart = ps.death - ps.care.months / 12;
+      if (ps.care.months > 0) {
+        const yStart = Math.max(a, careStart), yEnd = Math.min(a + 1, ps.death);
+        if (yEnd > yStart) out += ps.care.monthly * 12 * (yEnd - yStart);
+        if (careStart >= a && careStart < a + 1) out += ps.care.lump;
+      }
+      if (ps.death >= a && ps.death < a + 1) out += p.reserve;
+    });
+
+    needTotal += out;
+    bal -= out;
+    if (depleteAge === null && bal < 0) depleteAge = myAge + 1;
+  }
+  return { rows, depleteAge, needTotal: Math.round(needTotal), d1, d2 };
+}
+
+/* ===== プリセット ===== */
+const PRESETS = [
+  { name:'65歳夫婦・平均的な家計', couple:true,  age1:65, sex1:'M', age2:65, sex2:'F', expC:28.7, incC:25.3, expS:16.2, incS:13.4, care:'avg',   reserve:150, assets:2000 },
+  { name:'65歳おひとりさま（女性）', couple:false, age1:65, sex1:'F', age2:65, sex2:'M', expC:16.2, incC:13.4, expS:16.2, incS:13.4, care:'avg',   reserve:150, assets:1500 },
+  { name:'70歳夫婦・施設介護を想定', couple:true,  age1:70, sex1:'M', age2:68, sex2:'F', expC:28.7, incC:25.3, expS:16.2, incS:13.4, care:'fac10', reserve:150, assets:3000 },
+  { name:'賃貸・年金少なめ（単身）', couple:false, age1:65, sex1:'M', age2:65, sex2:'F', expC:19.0, incC:12.0, expS:19.0, incS:12.0, care:'avg',   reserve:150, assets:1000 },
+];
 
 /* ===== state ===== */
-let P = Object.assign({}, PRESETS[0]);
+let st = Object.assign({}, PRESETS[0]);
 let presetIdx = 0;
-let futureDecline = 0.02;
-let competition = false;
+const touch = () => { presetIdx = -1; };
 
-/* ===== inputs ===== */
-const SL_POWER = [
-  { key:'target',   label:'年間の採用目標',             min:1,  max:50,   step:1,   unit:'人', accent:C.teal },
-  { key:'entries',  label:'年間エントリー数（応募・接点）', min:10, max:1000, step:10,  unit:'件', accent:C.teal },
-  { key:'yieldPct', label:'エントリー→入社の歩留まり',   min:0.5, max:20,  step:0.5, unit:'％', accent:C.gold },
+/* ===== 入力の定義 ===== */
+const SL_HOUSE_C = [
+  { key:'expC', labelC:'夫婦の月支出（税・保険料込）', labelS:'月支出（税・保険料込）', min:8, max:45, step:0.1, unit:'万円', accent:C.dawn },
+  { key:'incC', labelC:'年金等の月収入', labelS:'年金等の月収入', min:0, max:40, step:0.1, unit:'万円', accent:C.teal },
 ];
-const SL_ASSUME = [
-  { key:'cost', label:'一人当たり採用コスト', min:20, max:300, step:10, unit:'万円', accent:C.gold },
+const SL_HOUSE_S = [
+  { key:'expS', labelC:'配偶者没後の月支出', labelS:'', min:8, max:35, step:0.1, unit:'万円', accent:C.dawn },
+  { key:'incS', labelC:'配偶者没後の月収入（遺族年金含む）', labelS:'', min:0, max:30, step:0.1, unit:'万円', accent:C.teal },
 ];
 
-function sliderHTML(s){
+function sliderHTML(s, label){
   return '<div class="sl">'
-    + '<div class="sl-head"><span>' + s.label + '</span><span class="sl-val" id="v-' + s.key + '" style="color:' + s.accent + '"></span></div>'
-    + '<input type="range" id="s-' + s.key + '" min="' + s.min + '" max="' + s.max + '" step="' + s.step + '" style="accent-color:' + s.accent + '" aria-label="' + s.label + '">'
+    + '<div class="sl-head"><span>' + label + '</span><span class="sl-val" id="v-' + s.key + '" style="color:' + s.accent + '"></span></div>'
+    + '<input type="range" id="s-' + s.key + '" min="' + s.min + '" max="' + s.max + '" step="' + s.step + '" style="accent-color:' + s.accent + '" aria-label="' + label + '">'
     + '</div>';
 }
-document.getElementById('powerSliders').innerHTML = SL_POWER.map(sliderHTML).join('');
-document.getElementById('assumeSliders').innerHTML = SL_ASSUME.map(sliderHTML).join('');
 
-const ALL_SL = SL_POWER.concat(SL_ASSUME);
-ALL_SL.forEach(s => {
-  document.getElementById('s-' + s.key).addEventListener('input', e => {
-    P[s.key] = Number(e.target.value);
-    presetIdx = -1;
-    render();
+/* 資産スライダー（左カード） */
+const ASSETS_SL = { key:'assets', min:0, max:8000, step:50, unit:'万円', accent:C.gold, label:'現在の金融資産' };
+document.getElementById('assetsSlider').innerHTML = sliderHTML(ASSETS_SL, ASSETS_SL.label);
+
+function buildPersons(){
+  const rows = [];
+  rows.push(personRow('本人', 'age1', 'sex1'));
+  if (st.couple) rows.push(personRow('配偶者', 'age2', 'sex2'));
+  document.getElementById('persons').innerHTML = rows.join('');
+  bindPersons();
+}
+function personRow(label, ageKey, sexKey){
+  return '<div class="person">'
+    + '<span class="p-label">' + label + '</span>'
+    + '<button type="button" class="stepbtn" data-age="' + ageKey + '" data-d="-1" aria-label="' + label + 'の年齢を下げる">−</button>'
+    + '<span class="age-val" id="av-' + ageKey + '">' + st[ageKey] + '歳</span>'
+    + '<button type="button" class="stepbtn" data-age="' + ageKey + '" data-d="1" aria-label="' + label + 'の年齢を上げる">＋</button>'
+    + '<button type="button" class="sexbtn" data-sex="' + sexKey + '" data-v="M">男性</button>'
+    + '<button type="button" class="sexbtn" data-sex="' + sexKey + '" data-v="F">女性</button>'
+    + '</div>';
+}
+function bindPersons(){
+  document.querySelectorAll('.stepbtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const k = btn.dataset.age, d = Number(btn.dataset.d);
+      st[k] = Math.min(95, Math.max(55, st[k] + d));
+      touch(); render();
+    });
   });
+  document.querySelectorAll('.sexbtn').forEach(btn => {
+    btn.addEventListener('click', () => { st[btn.dataset.sex] = btn.dataset.v; touch(); render(); });
+  });
+}
+
+function buildHouseholdSliders(){
+  let html = SL_HOUSE_C.map(s => sliderHTML(s, st.couple ? s.labelC : s.labelS)).join('');
+  if (st.couple) html += SL_HOUSE_S.map(s => sliderHTML(s, s.labelC)).join('');
+  document.getElementById('householdSliders').innerHTML = html;
+  const list = st.couple ? SL_HOUSE_C.concat(SL_HOUSE_S) : SL_HOUSE_C;
+  list.forEach(s => {
+    document.getElementById('s-' + s.key).addEventListener('input', e => { st[s.key] = Number(e.target.value); touch(); render(); });
+  });
+}
+
+/* 世帯（夫婦／単身） */
+document.querySelectorAll('#householdSeg button').forEach(btn => {
+  btn.addEventListener('click', () => { st.couple = btn.dataset.couple === '1'; touch(); buildPersons(); buildHouseholdSliders(); render(); });
 });
 
+/* 資産スライダーのバインド */
+document.getElementById('s-assets').addEventListener('input', e => { st.assets = Number(e.target.value); touch(); render(); });
+
+/* プリセット */
 document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
   '<button class="preset" type="button" data-i="' + i + '">' + p.name + '</button>'
 ).join('');
 document.querySelectorAll('.preset').forEach(btn => {
   btn.addEventListener('click', () => {
     presetIdx = Number(btn.dataset.i);
-    P = Object.assign({}, PRESETS[presetIdx]);
-    render();
+    st = Object.assign({}, PRESETS[presetIdx]);
+    buildPersons(); buildHouseholdSliders(); buildCareChips(); render();
   });
 });
 
-document.getElementById('declineChips').innerHTML = DECLINES.map(d =>
-  '<button class="chip" type="button" data-v="' + d.v + '">' + d.label + '</button>'
-).join('');
-document.querySelectorAll('#declineChips .chip').forEach(btn => {
-  btn.addEventListener('click', () => { futureDecline = Number(btn.dataset.v); render(); });
-});
-
-document.getElementById('competition').addEventListener('change', e => { competition = e.target.checked; render(); });
+/* 介護チップ */
+function buildCareChips(){
+  document.getElementById('careChips').innerHTML = Object.entries(CARE).map(([k, c]) =>
+    '<button class="chip" type="button" data-care="' + k + '">' + c.label + '</button>'
+  ).join('');
+  document.querySelectorAll('#careChips .chip').forEach(btn => {
+    btn.addEventListener('click', () => { st.care = btn.dataset.care; touch(); render(); });
+  });
+}
 
 /* ===== chart ===== */
-const CH = { w:760, h:320, t:16, r:58, b:34, l:40 };
-const MAX_POP = 120;
-// 目盛りが半端な数にならないよう、上限を切りの良い値に丸める
+const CH = { w:760, h:320, t:18, r:18, b:34, l:56 };
 function niceMax(v){
+  if (v <= 0) return 1;
   const p = Math.pow(10, Math.floor(Math.log10(v)));
   const n = v / p;
   const m = n <= 1 ? 1 : n <= 2 ? 2 : n <= 2.5 ? 2.5 : n <= 5 ? 5 : 10;
   return m * p;
 }
 
-function drawChart(rows, target, breachYear, alreadyBreached, h0){
+const SCEN = [
+  { key:'avg',   label:'平均どおりの寿命', color:C.teal, fn:deathMean,                     area:true },
+  { key:'med',   label:'2人に1人が到達',   color:C.gold, fn:(s,a)=>deathPct(s,a,0.5),      dash:false },
+  { key:'up',    label:'10人に1人の長寿',  color:C.dawn, fn:(s,a)=>deathPct(s,a,0.1),      dash:true  },
+];
+
+function drawChart(scenarios, minAge, maxAge){
   const iw = CH.w - CH.l - CH.r, ih = CH.h - CH.t - CH.b;
-  const maxH = niceMax(Math.max(1, target, h0) * 1.4);
-  const X  = y => CH.l + ((y - START_YEAR) / HORIZON) * iw;
-  const YL = v => CH.t + ih - (v / maxH) * ih;
-  const YR = v => CH.t + ih - (v / MAX_POP) * ih;
+  // Y の範囲（負値あり）
+  let vals = [st.assets, 0];
+  scenarios.forEach(sc => sc.rows.forEach(r => vals.push(r.balance)));
+  const rawMax = Math.max.apply(null, vals);
+  const rawMin = Math.min.apply(null, vals);
+  const yMax = niceMax(rawMax * 1.05 || 1);
+  const yMin = rawMin < 0 ? -niceMax(-rawMin * 1.08) : 0;
+  const span = (maxAge - minAge) || 1;
+  const X = a => CH.l + ((a - minAge) / span) * iw;
+  const Y = v => CH.t + ih - ((v - yMin) / (yMax - yMin)) * ih;
   let s = '';
 
-  // 左軸（採用人数）のグリッドと目盛り
-  const ticks = 4;
-  for (let i = 0; i <= ticks; i++) {
-    const v = (maxH / ticks) * i, yy = YL(v);
+  // 横グリッド＋左軸目盛り
+  const step = niceMax((yMax - yMin) / 4);
+  for (let v = Math.ceil(yMin / step) * step; v <= yMax + 0.5; v += step) {
+    const yy = Y(v);
     s += '<line x1="' + CH.l + '" y1="' + yy + '" x2="' + (CH.w - CH.r) + '" y2="' + yy + '" stroke="' + C.line + '" stroke-dasharray="3 3"/>';
-    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + (Math.round(v * 10) / 10) + '</text>';
+    s += '<text x="' + (CH.l - 8) + '" y="' + (yy + 4) + '" text-anchor="end" font-size="11" fill="' + C.inkSoft + '">' + Math.round(v).toLocaleString('ja-JP') + '</text>';
   }
-  // 右軸（22歳人口）の目盛り
-  [0, 30, 60, 90, 120].forEach(v => {
-    s += '<text x="' + (CH.w - CH.r + 8) + '" y="' + (YR(v) + 4) + '" text-anchor="start" font-size="11" fill="' + C.gold + '">' + v + '万</text>';
+  // 年齢軸
+  for (let a = Math.ceil(minAge / 5) * 5; a <= maxAge; a += 5) {
+    s += '<text x="' + X(a) + '" y="' + (CH.h - 12) + '" text-anchor="middle" font-size="11" fill="' + C.inkSoft + '">' + a + '歳</text>';
+  }
+  // 平均ケースの塗り（ゼロ線までの面）
+  const avg = scenarios.find(sc => sc.key === 'avg');
+  if (avg && avg.rows.length > 1) {
+    const top = avg.rows.map(r => X(r.age) + ',' + Y(r.balance)).join(' ');
+    const y0 = Y(0);
+    const first = avg.rows[0], last = avg.rows[avg.rows.length - 1];
+    s += '<polygon points="' + X(first.age) + ',' + y0 + ' ' + top + ' ' + X(last.age) + ',' + y0 + '" fill="' + C.teal + '" fill-opacity="0.08"/>';
+  }
+  // 枯渇ライン（ゼロ）
+  s += '<line x1="' + CH.l + '" y1="' + Y(0) + '" x2="' + (CH.w - CH.r) + '" y2="' + Y(0) + '" stroke="' + C.dawn + '" stroke-width="1.5"/>';
+  s += '<text x="' + (CH.w - CH.r - 4) + '" y="' + (Y(0) - 5) + '" text-anchor="end" font-size="11" fill="' + C.dawn + '">枯渇ライン</text>';
+
+  // 各シナリオの線
+  scenarios.forEach(sc => {
+    if (sc.rows.length < 2) return;
+    const pts = sc.rows.map(r => X(r.age) + ',' + Y(r.balance)).join(' ');
+    s += '<polyline points="' + pts + '" fill="none" stroke="' + sc.color + '" stroke-width="2.5" stroke-linejoin="round"'
+      + (sc.dash ? ' stroke-dasharray="6 3"' : '') + '/>';
   });
-  // 年
-  for (let y = START_YEAR; y <= START_YEAR + HORIZON; y += 5) {
-    s += '<text x="' + X(y) + '" y="' + (CH.h - 12) + '" text-anchor="middle" font-size="11" fill="' + C.inkSoft + '">' + y + '</text>';
-  }
-
-  // 採用目標ライン
-  s += '<line x1="' + CH.l + '" y1="' + YL(target) + '" x2="' + (CH.w - CH.r) + '" y2="' + YL(target) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-  s += '<text x="' + (CH.w - CH.r - 4) + '" y="' + (YL(target) - 5) + '" text-anchor="end" font-size="11" fill="' + C.dawn + '">採用目標 ' + target + '人</text>';
-  // 目標を割り込む年
-  if (breachYear !== null && !alreadyBreached) {
-    s += '<line x1="' + X(breachYear) + '" y1="' + CH.t + '" x2="' + X(breachYear) + '" y2="' + (CH.t + ih) + '" stroke="' + C.dawn + '" stroke-dasharray="4 4"/>';
-    s += '<text x="' + X(breachYear) + '" y="' + (CH.t - 3) + '" text-anchor="middle" font-size="11" fill="' + C.dawn + '">' + breachYear + '年</text>';
-  }
-  // 2046年（実績出生数で確定している最遠の年）
-  s += '<line x1="' + X(2046) + '" y1="' + CH.t + '" x2="' + X(2046) + '" y2="' + (CH.t + ih) + '" stroke="' + C.inkSoft + '" stroke-width="1" opacity="0.45"/>';
-  s += '<text x="' + X(2046) + '" y="' + (CH.t + 11) + '" text-anchor="middle" font-size="10" fill="' + C.inkSoft + '">ここまで確定</text>';
-
-  s += '<polyline points="' + rows.map(r => X(r.year) + ',' + YL(r.hires)).join(' ') + '" fill="none" stroke="' + C.teal + '" stroke-width="2.5" stroke-linejoin="round"/>';
-  s += '<polyline points="' + rows.map(r => X(r.year) + ',' + YR(r.pop22)).join(' ') + '" fill="none" stroke="' + C.gold + '" stroke-width="2" stroke-dasharray="6 3" stroke-linejoin="round"/>';
 
   document.getElementById('chart').innerHTML = s;
 }
 
 /* ===== render ===== */
-const fmt = n => n.toLocaleString('ja-JP');
+const fmt = n => Math.round(n).toLocaleString('ja-JP');
 
 function render(){
-  ALL_SL.forEach(s => {
-    document.getElementById('s-' + s.key).value = P[s.key];
-    document.getElementById('v-' + s.key).textContent = fmt(P[s.key]) + s.unit;
+  // 世帯セグメント
+  document.querySelectorAll('#householdSeg button').forEach(b => b.classList.toggle('on', (b.dataset.couple === '1') === st.couple));
+  // 年齢・性別
+  ['age1','age2'].forEach(k => { const el = document.getElementById('av-' + k); if (el) el.textContent = st[k] + '歳'; });
+  document.querySelectorAll('.sexbtn').forEach(b => b.classList.toggle('on', st[b.dataset.sex] === b.dataset.v));
+  // スライダー
+  const slList = [ASSETS_SL].concat(SL_HOUSE_C).concat(st.couple ? SL_HOUSE_S : []);
+  slList.forEach(s => {
+    const inp = document.getElementById('s-' + s.key);
+    if (!inp) return;
+    inp.value = st[s.key];
+    document.getElementById('v-' + s.key).textContent = (s.step < 1 ? st[s.key] : fmt(st[s.key])) + s.unit;
   });
-  document.getElementById('competition').checked = competition;
+  // プリセット・介護チップ
   document.querySelectorAll('.preset').forEach(b => b.classList.toggle('on', Number(b.dataset.i) === presetIdx));
-  document.querySelectorAll('#declineChips .chip').forEach(b => b.classList.toggle('on', Number(b.dataset.v) === futureDecline));
+  document.querySelectorAll('#careChips .chip').forEach(b => b.classList.toggle('on', b.dataset.care === st.care));
 
-  const sim = simulate(P, futureDecline, competition);
-  const rows = sim.rows, breachYear = sim.breachYear, h0 = sim.h0;
-  const alreadyBreached = h0 < P.target;
-  const yearsToBreach = breachYear !== null ? breachYear - START_YEAR : null;
-  const fusePct = alreadyBreached ? 96
-    : yearsToBreach === null ? 6
-    : Math.max(6, Math.min(96, (1 - yearsToBreach / HORIZON) * 100));
+  // 介護の説明
+  const cn = CARE[st.care];
+  document.getElementById('careNote').innerHTML = st.care === 'none'
+    ? '介護費は見込みません。予備費（葬儀・住宅修繕等）として別途' + st.reserve + '万円／人を死亡時に計上します。'
+    : '選択中：一時費用' + cn.lump + '万＋月' + cn.monthly + '万×' + cn.months + 'か月（約' + fmt(cn.lump + cn.monthly * cn.months) + '万）。予備費（葬儀・住宅修繕等）として別途' + st.reserve + '万円／人を死亡時に計上します。';
 
-  // 2046年（実績出生数で確定している最遠の年）の必要倍率
-  const r2046 = rows.find(r => r.year === 2046);
-  const mult2046 = r2046 ? P.target / (h0 * r2046.ratio) : 1;
-  const mult = Math.max(mult2046, 1);
+  // 3シナリオを計算
+  const scenarios = SCEN.map(d => Object.assign({}, d, simulate(st, d.fn)));
+  const avg = scenarios[0], median = scenarios[1], upper = scenarios[2];
 
-  document.getElementById('nowLine').innerHTML =
-    '現在の採用実力：年 <strong style="color:' + C.teal + '">' + (Math.round(h0 * 10) / 10) + '人</strong>'
-    + (alreadyBreached ? '<span style="color:' + C.dawn + '">（すでに目標未達です）</span>' : '');
+  const medianEnd = Math.round(Math.max(median.d1, median.d2 ?? 0));
+  const yearsLeft = median.depleteAge ? median.depleteAge - st.age1 : null;
+  const fusePct = median.depleteAge
+    ? Math.max(6, Math.min(96, (1 - yearsLeft / Math.max(1, medianEnd - st.age1)) * 100))
+    : 6;
 
-  renderDeadline(breachYear);
-  renderSens(m => simulate(Object.assign({}, P, { entries: P.entries * m }), futureDecline, competition).breachYear);
-  document.getElementById('fuseBig').textContent =
-    alreadyBreached ? '割れています' : (yearsToBreach !== null ? 'あと' + yearsToBreach + '年' : '30年以上');
-  document.getElementById('fuseAt').textContent =
-    (breachYear !== null && !alreadyBreached) ? breachYear + '年に到達' : '';
+  // fuse
+  document.getElementById('fuseEyebrow').textContent =
+    '2人に1人が到達する寿命（本人' + Math.round(median.d1) + '歳' + (st.couple ? '・配偶者' + Math.round(median.d2) + '歳' : '') + '）まで生きた場合';
+  document.getElementById('fuseBig').textContent = median.depleteAge ? 'あと' + yearsLeft + '年' : '生涯もつ見込み';
+  document.getElementById('fuseBig').style.color = median.depleteAge ? C.dawn : C.gold;
+  document.getElementById('fuseAt').textContent = median.depleteAge
+    ? median.depleteAge + '歳で枯渇 → 以後' + Math.max(0, medianEnd - median.depleteAge) + '年は年金収入だけの生活に'
+    : '';
   document.getElementById('fuseFill').style.width = fusePct + '%';
   document.getElementById('fuseSpark').style.left = fusePct + '%';
-  document.getElementById('fuseNote').classList.toggle('on', alreadyBreached);
+  document.getElementById('endsLo').textContent = st.age1 + '歳';
+  document.getElementById('endsHi').textContent = medianEnd + '歳';
 
-  document.getElementById('halfYear').textContent =
-    sim.halfYear !== null ? sim.halfYear + '年' : '30年以内には到達せず';
-  document.getElementById('hire2046').innerHTML =
-    '年' + (r2046 ? Math.round(h0 * r2046.ratio * 10) / 10 : '—') + '人'
-    + '<span style="color:' + C.gold + '">（目標' + P.target + '人）</span>';
+  document.getElementById('needAvg').textContent = fmt(avg.needTotal) + '万円';
+  document.getElementById('needMed').textContent = fmt(median.needTotal) + '万円';
+  document.getElementById('needUpper').textContent = fmt(upper.needTotal) + '万円';
 
-  document.getElementById('needHead').textContent = '2046年も今と同じ' + P.target + '人を採るには';
-  document.getElementById('needMult').textContent = (Math.round(mult * 10) / 10) + '倍';
-  document.getElementById('needEntries').textContent =
-    fmt(P.entries) + '件 → ' + fmt(Math.ceil(P.entries * mult)) + '件';
-  document.getElementById('needBudget').textContent =
-    fmt(Math.round(P.target * P.cost)) + '万円 → ' + fmt(Math.round(P.target * P.cost * mult)) + '万円/年';
-
-  drawChart(rows, P.target, breachYear, alreadyBreached, h0);
-}
-
-/* DEADLINE-JS START */
-/* ===== 意思決定期限 =====
-   「問題が起きる年」だけを出すと「まだ◯年ある」と読まれて先送りされる。
-   打ち手が効き始めるまでの年数を引いた「決められなくなる年」を併記する。
-   ★リードタイムは利用者の想定であって、計算機が知っている値ではない（＝仮定と明記する） */
-let leadYears = 5;
-document.getElementById('lead').addEventListener('input', e => { leadYears = Number(e.target.value); render(); });
-
-function renderDeadline(problemYear){
-  document.getElementById('lead').value = leadYears;
-  document.getElementById('leadVal').textContent = leadYears;
-  const el = document.getElementById('deadlineOut');
-  if (problemYear === null || problemYear === undefined) {
-    el.innerHTML = 'この条件では、採用目標を割り込む年に届きません。いまは時間の余裕がある側です。';
-    return;
-  }
-  // すでに問題が起きている年は「間に合わせる」話にならない。
-  // 打ち手が効くまでの年数は、これから何年それが続くかの話になる
-  if (problemYear <= START_YEAR) {
-    el.innerHTML = '<b class="dl-past">採用目標を割り込む状態には、すでに入っています。</b>'
-      + 'いま打ち手を決めても、効き始めるまでに' + leadYears + '年（' + (START_YEAR + leadYears) + '年ごろまで）はこの状態が続く見込みです。'
-      + '先に「何を諦め、何を守るか」を決める局面です。'
-      + '<a href="./risk-calculators.html#too-late" style="color:var(--gold)">この状態でできること</a>をまとめています。';
-    return;
-  }
-  const deadline = problemYear - leadYears;
-  const rest = deadline - START_YEAR;
-  if (rest > 0) {
-    el.innerHTML = '問題が起きるのは' + problemYear + '年でも、打ち手が効くまでに' + leadYears + '年かかるなら、'
-      + '<b>決められるのはあと' + rest + '年（' + deadline + '年まで）</b>です。';
-  } else if (rest === 0) {
-    el.innerHTML = '<b>今年が、決められる最後の年です。</b>' + problemYear + '年に間に合わせるには、いま着手する必要があります。';
+  // insight（10人に1人）
+  const upperShort = Math.max(0, upper.needTotal - st.assets);
+  const upperYears = Math.max(1, Math.round(Math.max(upper.d1, upper.d2 ?? 0)) - st.age1);
+  const fixPerMonth = upperShort > 0 ? Math.ceil((upperShort / (upperYears * 12)) * 10) / 10 : 0;
+  const box = document.getElementById('insight');
+  const head = '10人に1人の長寿（本人' + Math.round(upper.d1) + '歳' + (st.couple ? '・配偶者' + Math.round(upper.d2) + '歳' : '') + '）でも資産をもたせるには';
+  if (upperShort > 0) {
+    box.className = 'insight short';
+    box.innerHTML = '<div class="insight-k">' + head + '</div>'
+      + '<div class="insight-line"><span class="insight-big">あと' + fmt(upperShort) + '万円 不足</span>'
+      + '<span class="insight-sub">≒ 毎月の収支を ' + fixPerMonth + '万円 改善できれば届く距離</span></div>'
+      + '<p>支出の見直し・年金の繰下げ受給（65→70歳で受給額が増えます）・働く期間を数年延ばす・住まいのダウンサイジング——どれか一つでなく、小さく組み合わせるのが現実的です。逆に言えば、ここまで備えれば「使ってよいお金」の線が引けます。</p>';
   } else {
-    el.innerHTML = '<b class="dl-past">着手の期限は、すでに' + (-rest) + '年過ぎています。</b>'
-      + problemYear + '年に間に合わせるには' + deadline + '年までに始めている必要がありました。'
-      + '間に合わせるなら、リードタイムの短い打ち手に変えるしかありません。'
-      + '<a href="./risk-calculators.html#too-late" style="color:var(--gold)">手遅れだったときにできること</a>をまとめています。';
+    box.className = 'insight ok';
+    box.innerHTML = '<div class="insight-k">' + head + '</div>'
+      + '<div class="insight-line"><span class="insight-big">いまの資産で足ります</span></div>'
+      + '<p>10人に1人の長寿と介護まで見込んでも、資産が残る計算です。つまりその分は「使ってよいお金」——過度な我慢や抱え込みは、むしろ人生の取りこぼしかもしれません。下の対話シートで、その線の外側にある「ねがい」を言葉にしてみてください。</p>';
   }
-}
-/* DEADLINE-JS END */
 
-/* SENS-JS START */
-/* ===== 感度レンジ =====
-   「2038年」と1点で出すと確定的に読まれる。かといって信頼区間は出せない
-   （不確実性の分布を持っていないので、幅をでっち上げることになる）。
-   出せるのは「入力を±20%動かすと年がどう動くか」＝感度分析だけ。予測の幅ではない。 */
-function renderSens(f){
-  const el = document.getElementById('sensOut');
-  let lo, hi;
-  try { lo = f(0.8); hi = f(1.2); } catch (e) { el.textContent = ''; return; }
-  const ys = [lo, hi].filter(y => y !== null && y !== undefined);
-  if (ys.length === 0) {
-    el.innerHTML = '年間エントリー数（あなたが入れた値）を±20％動かしても、この期間内には届きません。';
-    return;
-  }
-  const a = Math.min.apply(null, ys), b = Math.max.apply(null, ys);
-  if (ys.length === 1) {
-    el.innerHTML = '年間エントリー数（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '年から「この期間内には届かない」まで</b> 動きます。'
-      + '年そのものより、動かせる前提はどれかを見てください。';
-  } else if (a === b) {
-    el.innerHTML = '年間エントリー数（あなたが入れた値）を±20％動かしても、この年は <b>' + a + '年のまま</b> です。'
-      + 'この結果は、その前提にはあまり左右されていません。効くのは別の前提です。';
-  } else {
-    el.innerHTML = '年間エントリー数（あなたが入れた値）を±20％動かすと、この年は <b>' + a + '〜' + b + '年</b> に動きます。'
-      + '前提が少し違うだけで年は動きます。年そのものより、動かせる前提はどれかを見てください。';
-  }
+  // chart
+  const maxAge = Math.max.apply(null, scenarios.map(sc => sc.rows[sc.rows.length - 1].age));
+  drawChart(scenarios, st.age1, maxAge);
 }
-/* SENS-JS END */
 
+/* 初期化 */
+buildPersons();
+buildHouseholdSliders();
+buildCareChips();
 render();
 
 /* TALK-JS START */
 /* ===== 対話の問い =====
-   数字を見て「厳しいですね」で終わらせないための導線。回答はサーバーに送らず
-   localStorage にだけ置く（「数字はどこにも送信されません」を崩さないため） */
+   数字を見て終わりにしないための導線。回答はサーバーに送らず localStorage にだけ置く
+   （「数字はどこにも送信されません」を崩さないため）。 */
 (function(){
   const KEY = 'kk-talk-' + location.pathname.split('/').pop();
   const fields = [...document.querySelectorAll('.talk textarea')];

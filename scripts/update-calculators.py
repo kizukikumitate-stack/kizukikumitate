@@ -26,9 +26,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-VERSION = "1.1"
-VERSION_DATE = "2026-07-16"
-VERSION_DATE_JA = "2026年7月16日"
+VERSION = "1.2"
+VERSION_DATE = "2026-07-18"
+VERSION_DATE_JA = "2026年7月18日"
 HUB = "risk-calculators.html"
 
 # 出典はすべて到達確認済みのURLのみ。リンク切れを載せるのは本末転倒なので、
@@ -38,6 +38,8 @@ MHLW_VITAL = '<a href="https://www.mhlw.go.jp/toukei/list/81-1a.html" target="_b
 MHLW_LIFE = '<a href="https://www.mhlw.go.jp/toukei/saikin/hw/life/life24/index.html" target="_blank" rel="noopener">簡易生命表</a>'
 MHLW_KAIGO = '<a href="https://www.mhlw.go.jp/topics/kaigo/toukei/joukyou.html" target="_blank" rel="noopener">介護保険事業状況報告</a>'
 EGOV_SCHOOL = '<a href="https://laws.e-gov.go.jp/law/333AC0000000116" target="_blank" rel="noopener">義務教育標準法</a>'
+STAT_KAKEI = '<a href="https://www.stat.go.jp/data/kakei/2024np/index.html" target="_blank" rel="noopener">家計調査（2024年）</a>'
+JILI_CARE = '<a href="https://www.jili.or.jp/" target="_blank" rel="noopener">2024年度 生命保険に関する全国実態調査</a>'
 
 # ===== 意思決定期限 =====
 # 「2038年に問題が起きる」と出すと「まだ12年ある」と読まれる。実際に効くのは
@@ -53,6 +55,15 @@ DEADLINE = {
     "recruitment-extinction.html":        ("breachYear",         "採用目標を割り込む"),
     "tax-revenue-countdown.html":         ("burdenYear",         "ひとりが負う固定費が1.5倍になる"),
     "school-consolidation-countdown.html": ("sim.touhaigouYear", "統廃合が検討される規模になる"),
+    # 07 老後のお金の見取り図 は「資産が尽きる年」＝個人の家計の話で、組織の打ち手の
+    #   リードタイムという概念が当てはまらないので対象外（06 介護と同じ扱い）。
+}
+
+# 生成される汎用の対話シートを入れないページ。
+# 07 は専用の「親との対話」シート（.talk 構造を流用して手書き）を本文に持っているため、
+# 汎用シートを重ねて二重にしない。CSS/JS（.talk 系・TALK-JS）はページ内に静的に持つ。
+SKIP_TALK = {
+    "longevity-money-map.html",
 }
 
 DEADLINE_CSS = """  /* 意思決定期限。「問題が起きる年」と「決められなくなる年」を並べる */
@@ -343,6 +354,7 @@ SERIES = [
     ("skill-succession-timebomb.html", "04", "技能承継時限爆弾"),
     ("school-consolidation-countdown.html", "05", "学校の分岐点"),
     ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
+    ("longevity-money-map.html", "07", "老後のお金の見取り図"),
 ]
 
 SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
@@ -462,6 +474,14 @@ PAGES = {
         f"出典：人口は国立社会保障・人口問題研究所「{IPSS}」の公表値"
         f"（2070年までは基本推計、2071〜2120年は同研究所の長期参考推計）、"
         f"要介護認定率・介護職員数は厚生労働省「{MHLW_KAIGO}」の概数。",
+    ),
+    "longevity-money-map.html": (
+        "07", "老後のお金の見取り図",
+        # 平均余命・生存率は令和6年簡易生命表、家計収支は家計調査2024、介護費は
+        # 生命保険文化センターの実態調査。人口推計（社人研）は使っていない。
+        f"出典：平均余命・年齢別の生存率は厚生労働省「令和6年{MHLW_LIFE}」の値"
+        f"（65・75・90・95歳以外の生存率は補間による概算）、高齢無職世帯の家計収支は"
+        f"総務省「{STAT_KAKEI}」、介護費用は生命保険文化センター「{JILI_CARE}」の各値をもとにした試算です。",
     ),
 }
 
@@ -611,27 +631,29 @@ def process(path, num, title, source):
                 raise SystemExit(f"{path}: 末尾の render(); が見つかりません")
             s = s.replace(tail, js + tail, 1)
 
-    # --- 3.6 対話の問い＋意思決定シート（全6本） ---
-    s = put_css(s, DIALOGUE_CSS, BADGE_CSS_ANCHOR)
-    talk = dialogue_html(num, title, ROLE_Q[path])
-    if TALK_START in s:
-        s = re.sub(re.escape(TALK_START) + r".*?" + re.escape(TALK_END), lambda m: talk, s, count=1, flags=re.S)
-    else:
-        # 「解除の型」の散文の後、※注記の手前に置く（＝数字→解説→対話 の順）
-        anchor = "<!-- CALC-COMMON START -->"
-        if anchor not in s:
-            raise SystemExit(f"{path}: CALC-COMMON マーカーがありません（先に共通ブロックを入れてください）")
-        # ※注記セクションの開始（<section> ... CALC-COMMON）まで遡って、その手前に差す
-        sec = s.rfind("<section>", 0, s.find(anchor))
-        s = s[:sec] + talk + "\n\n" + s[sec:]
-    if "/* TALK-JS START */" in s:
-        s = re.sub(r"/\* TALK-JS START \*/.*?/\* TALK-JS END \*/",
-                   lambda m: DIALOGUE_JS.strip("\n"), s, count=1, flags=re.S)
-    else:
-        tail = "\nrender();\n</script>"
-        if s.count(tail) != 1:
-            raise SystemExit(f"{path}: 末尾の render(); が {s.count(tail)} 個")
-        s = s.replace(tail, "\nrender();\n" + DIALOGUE_JS + "</script>", 1)
+    # --- 3.6 対話の問い＋意思決定シート ---
+    # SKIP_TALK のページは専用シートを本文に持っているので、汎用シートは入れない。
+    if path not in SKIP_TALK:
+        s = put_css(s, DIALOGUE_CSS, BADGE_CSS_ANCHOR)
+        talk = dialogue_html(num, title, ROLE_Q[path])
+        if TALK_START in s:
+            s = re.sub(re.escape(TALK_START) + r".*?" + re.escape(TALK_END), lambda m: talk, s, count=1, flags=re.S)
+        else:
+            # 「解除の型」の散文の後、※注記の手前に置く（＝数字→解説→対話 の順）
+            anchor = "<!-- CALC-COMMON START -->"
+            if anchor not in s:
+                raise SystemExit(f"{path}: CALC-COMMON マーカーがありません（先に共通ブロックを入れてください）")
+            # ※注記セクションの開始（<section> ... CALC-COMMON）まで遡って、その手前に差す
+            sec = s.rfind("<section>", 0, s.find(anchor))
+            s = s[:sec] + talk + "\n\n" + s[sec:]
+        if "/* TALK-JS START */" in s:
+            s = re.sub(r"/\* TALK-JS START \*/.*?/\* TALK-JS END \*/",
+                       lambda m: DIALOGUE_JS.strip("\n"), s, count=1, flags=re.S)
+        else:
+            tail = "\nrender();\n</script>"
+            if s.count(tail) != 1:
+                raise SystemExit(f"{path}: 末尾の render(); が {s.count(tail)} 個")
+            s = s.replace(tail, "\nrender();\n" + DIALOGUE_JS + "</script>", 1)
 
     # --- 3.7 シリーズ6本のフッター帯 ---
     s = put_series_css(s, BADGE_CSS_ANCHOR)

@@ -494,8 +494,24 @@
       "band": true,
       "auto": false,
       "next": [
-        "skill-succession-timebomb",
-        "customer-age-timebomb"
+        "mirai-risk-kit",
+        "skill-succession-timebomb"
+      ]
+    },
+    {
+      "id": "mirai-risk-kit",
+      "path": "mirai-risk-kit.html",
+      "title": "未来リスク対話キット",
+      "tag": "有料キット",
+      "desc": "計算機で見えた数字を対話に変える完全キット。進行台本・ワークシート4種・反発対応ガイド（4,980円）。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-17",
+      "band": true,
+      "auto": false,
+      "next": [
+        "risk-calculators",
+        "recruitment-extinction"
       ]
     },
     {
@@ -587,7 +603,22 @@
       "band": true,
       "next": [
         "school-consolidation-countdown",
-        "ashimoto-map"
+        "longevity-money-map"
+      ]
+    },
+    {
+      "id": "longevity-money-map",
+      "path": "longevity-money-map.html",
+      "title": "老後のお金の見取り図",
+      "tag": "未来リスク計算機",
+      "desc": "「いつまで生きるか分からない」不安は、統計で目安が引けます。平均・2人に1人・10人に1人の寿命で、いまの資産が何歳まで持つかを試算する無料ツール。",
+      "theme": "paper",
+      "category": "mirai",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "caregiving-capacity-calculator",
+        "risk-calculators"
       ]
     },
     {

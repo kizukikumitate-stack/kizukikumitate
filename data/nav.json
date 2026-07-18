@@ -72,7 +72,8 @@
           { "label": "採用市場消滅計算機", "href": "recruitment-extinction.html" },
           { "label": "技能承継時限爆弾", "href": "skill-succession-timebomb.html" },
           { "label": "学校の分岐点", "href": "school-consolidation-countdown.html" },
-          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" }
+          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" },
+          { "label": "老後のお金の見取り図", "href": "longevity-money-map.html" }
         ]
       },
       {
@@ -110,7 +111,9 @@
     { "path": "dialogue-zukan.html", "variant": "standard" },
     { "path": "education-program.html", "variant": "standard" },
     { "path": "goikeisei-zukan.html", "variant": "standard" },
+    { "path": "longevity-money-map.html", "variant": "standard" },
     { "path": "lsp.html", "variant": "standard", "footer_copy_prefix": "LEGO® and SERIOUS PLAY® are trademarks of the LEGO Group.　" },
+    { "path": "mirai-risk-kit.html", "variant": "standard" },
     { "path": "nobel-peace.html", "variant": "standard" },
     { "path": "od-program.html", "variant": "standard" },
     { "path": "poverty-zukan.html", "variant": "standard" },
