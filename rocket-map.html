@@ -737,13 +737,13 @@
   .rocket-map .rkt-doors a::before{content:"扉 "; color:var(--gold); font-weight:700}
   .rocket-map .rkt-doors a:hover{background:rgba(217,164,65,.2); transform:translateY(-1px)}
   .rocket-map .rkt-hint{font-size:11.5px; color:rgba(250,248,242,.45); text-align:center; margin-top:10px}
-  /* PC: 案内板は下に置いたまま（単カラム）、ロケットのチャートそのものを大きく広げる */
+  /* PC: 案内板は下（単カラム）。縦長の絵なので高さを1画面に収め、その範囲で最大化（比率維持・歪みなし） */
   @media (min-width: 860px){
-    .rocket-map{padding:56px 0 88px}
-    .rocket-map .rkt-wrap{max-width:760px; padding:32px 24px 76px}
+    .rocket-map{padding:48px 0 80px}
+    .rocket-map .rkt-wrap{max-width:760px; padding:28px 24px 72px}
     .rocket-map .rkt-head h2{font-size:28px}
     .rocket-map .rkt-head p{font-size:15px}
-    .rocket-map .sky{margin:6px auto 0}
+    .rocket-map .sky{width:auto; height:min(74vh, 700px); max-width:100%; margin:6px auto 0}
     .rocket-map .rkt-panel{max-width:640px; margin-left:auto; margin-right:auto; margin-top:22px; padding:24px 28px 28px}
     .rocket-map .rkt-panel h2{font-size:20px}
     .rocket-map .rkt-panel p{font-size:15px; line-height:2}
