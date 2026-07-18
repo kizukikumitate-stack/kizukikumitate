@@ -725,6 +725,36 @@
         "chie-zukan",
         "nigate-zukan"
       ]
+    },
+    {
+      "id": "growth-laws-zukan",
+      "path": "growth-laws-zukan.html",
+      "title": "学びと成長の法則図鑑",
+      "tag": "世界の知恵",
+      "desc": "テスト効果・忘却曲線・成長マインドセット・心理的安全性……科学が確かめた学びと成長の法則23種を、根拠と但し書きと今日ためせる一手つきで収蔵。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "reflection-zukan",
+        "chie-zukan"
+      ]
+    },
+    {
+      "id": "reflection-zukan",
+      "path": "reflection-zukan.html",
+      "title": "ふりかえりの技法図鑑",
+      "tag": "世界の知恵",
+      "desc": "ジャーナリング・ORID・KPT・AAR・プレモーテム・免疫マップ……ひとりでもチームでも使えるふりかえりの技法23種を、やり方・所要時間・由来・コツつきで収蔵。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "growth-laws-zukan",
+        "dialogue-zukan"
+      ]
     }
   ]
 }

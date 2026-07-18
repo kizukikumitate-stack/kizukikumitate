@@ -136,6 +136,14 @@
             "href": "hininchi-zukan.html"
           },
           {
+            "label": "学びと成長の法則図鑑",
+            "href": "growth-laws-zukan.html"
+          },
+          {
+            "label": "ふりかえりの技法図鑑",
+            "href": "reflection-zukan.html"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html"
           },
@@ -406,6 +414,14 @@
     },
     {
       "path": "hininchi-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "growth-laws-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "reflection-zukan.html",
       "variant": "standard"
     }
   ],

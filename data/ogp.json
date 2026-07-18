@@ -357,6 +357,26 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "非認知スキル図鑑",
       "sub": "テストでは測れないけれど人生を支える25のちからを、鍛え方と研究ノートつきで。"
+    },
+    {
+      "page": "growth-laws-zukan.html",
+      "img": "growth-laws-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2F6B4C",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "学びと成長の法則図鑑",
+      "sub": "科学が確かめた学びと成長の法則23種。根拠と、過信を戒める但し書きと、今日ためせる一手つき。"
+    },
+    {
+      "page": "reflection-zukan.html",
+      "img": "reflection-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2E6E7A",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "ふりかえりの技法図鑑",
+      "sub": "ひとりでもチームでも使えるふりかえりの技法23種。やり方・所要時間・由来・コツつき。"
     }
   ]
 }

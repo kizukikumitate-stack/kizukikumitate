@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ふりかえりの技法図鑑|経験を学びに変える、ふりかえりの技法|きづきくみたて工房</title>
+<meta name="description" content="ジャーナリング、ORID、KPT、AAR、プレモーテム、免疫マップ。ひとりでも、チームでも使える「ふりかえりの技法」23種を、やり方・所要時間・由来・コツつきで収蔵。経験しっぱなしを、学びに変えるための図鑑。">
+<link rel="canonical" href="https://kizukikumitate.com/reflection-zukan.html">
+<meta property="og:title" content="ふりかえりの技法図鑑|きづきくみたて工房">
+<meta property="og:description" content="ひとりでも、チームでも使えるふりかえりの技法23種。やり方・所要時間・由来・コツつきで、経験を学びに変える図鑑。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/reflection-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/reflection-zukan-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ふりかえりの技法図鑑｜きづきくみたて工房">
+<meta name="twitter:description" content="ひとりでも、チームでも使えるふりかえりの技法23種。やり方・所要・由来・コツつきの図鑑。">
+<meta name="twitter:image" content="https://kizukikumitate.com/reflection-zukan-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --washi:#F4F2EA;
+  --washi-deep:#EBE8DC;
+  --sumi:#26313A;
+  --sumi-soft:#4E5A63;
+  --accent:#2E6E7A;        /* 青緑:静かな水面。ヒーロー・章見出し・焼印 */
+  --accent-soft:#D3E6E7;
+  --c1:#4A5E86;   /* ひとりで書く */
+  --c2:#2E7D74;   /* 問いかける */
+  --c3:#B15A5A;   /* 感情を扱う */
+  --c4:#A67A2E;   /* チームで振り返る */
+  --c5:#5E4A7C;   /* 深く掘り下げる */
+  --line:#C9C4B4;
+  --charcoal:#1e1e1e;
+  --forest:#1a5fad;
+  --f-display:'Shippori Mincho B1','Hiragino Mincho ProN',serif;
+  --f-body:'Zen Kaku Gothic New','Hiragino Kaku Gothic ProN',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--f-body);
+  background:var(--washi);
+  color:var(--sumi);
+  line-height:1.95;
+  font-size:17px;
+  hanging-punctuation:allow-end;
+  background-image:radial-gradient(rgba(46,110,122,0.035) 1px, transparent 1px);
+  background-size:22px 22px;
+  overflow-x:hidden;
+}
+img{max-width:100%}
+a{color:var(--accent)}
+p, dd, li{word-break:keep-all;overflow-wrap:break-word}
+
+/* ===== 共通グローバルナビ（全ページ共通・sticky） ===== */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  padding: 0.7rem 2rem; display: flex; align-items: center;
+  background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+  border-bottom: 3px solid #3C3489;
+}
+.nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+.nav-logo img { height: 36px; width: auto; object-fit: contain; }
+.nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+.nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; flex-wrap: wrap; }
+.nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+.nav-links a:hover, .nav-links a.active { color: var(--forest); }
+.nav-dropdown { position: relative; display: flex; align-items: center; }
+.nav-dropdown-toggle {
+  font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+  letter-spacing: 0.04em; color: var(--charcoal);
+  background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+  display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+}
+.nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+.nav-dropdown-menu {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+  min-width: 210px; background: #fff; border: 1px solid #eee;
+  box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+  padding: 0.5rem 0; display: flex; flex-direction: column;
+  opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+}
+.nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+.nav-dropdown-menu a {
+  font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+  letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+  padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+}
+.nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+.nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+.nav-dropdown:last-child:hover .nav-dropdown-menu,
+.nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+.nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+.nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+.mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+.mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+.mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+.mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+.mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+.mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+.mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+.mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+.mobile-acc-panel { display: none; flex-direction: column; align-items: center; padding-bottom: 0.7rem; }
+.mobile-acc.open .mobile-acc-panel { display: flex; }
+.mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+.mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+@media (max-width: 1250px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: block; }
+  .nav-logo { margin-right: 0; }
+}
+
+/* ===== ヒーロー ===== */
+.hero{max-width:1080px;margin:0 auto;padding:64px 24px 56px}
+.hero-title{
+  font-family:var(--f-display);font-weight:800;
+  font-size:clamp(34px,6vw,68px);
+  letter-spacing:.1em;line-height:1.3;
+  color:var(--accent);
+  border-bottom:3px solid var(--accent);
+  padding-bottom:14px;margin-bottom:36px;
+}
+.hero-title small{display:block;font-size:15px;font-weight:500;letter-spacing:.4em;color:var(--sumi-soft);margin-top:8px}
+.hero-body h1{font-family:var(--f-display);font-size:clamp(20px,3vw,26px);font-weight:700;line-height:1.7;letter-spacing:.04em;margin-bottom:20px}
+.hero-body h1 em{font-style:normal;background:linear-gradient(transparent 62%, var(--accent-soft) 62%)}
+.hero-body p{max-width:34em;color:var(--sumi-soft);margin-bottom:14px}
+.hero-note{display:inline-block;margin-top:10px;padding:10px 16px;border:1px solid var(--line);background:#fff;font-size:15px;letter-spacing:.05em}
+.hero-note b{color:var(--accent)}
+.pair-link{display:inline-block;margin-top:18px;font-size:14.5px;letter-spacing:.03em}
+
+/* ===== 章見出し ===== */
+.section{max-width:1080px;margin:0 auto;padding:64px 24px}
+.sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+.sec-no{font-family:var(--f-display);font-size:14px;letter-spacing:.3em;color:var(--accent);border:1px solid var(--accent);padding:2px 10px;white-space:nowrap}
+.sec-head h2{font-family:var(--f-display);font-size:clamp(22px,3vw,30px);font-weight:700;letter-spacing:.06em}
+.sec-lead{color:var(--sumi-soft);max-width:42em;margin-bottom:36px}
+
+/* ===== 前提の三箱 ===== */
+.premise-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.premise{background:#fff;border:1px solid var(--line);padding:26px 24px;position:relative}
+.premise::before{content:attr(data-mark);position:absolute;top:-15px;left:18px;font-family:var(--f-display);font-size:14px;font-weight:700;background:var(--sumi);color:var(--washi);padding:3px 12px;letter-spacing:.15em}
+.premise h3{font-family:var(--f-display);font-size:19px;margin:8px 0 8px;letter-spacing:.04em}
+.premise p{font-size:15.5px;color:var(--sumi-soft);line-height:1.9}
+
+/* ===== 系統（焼印） ===== */
+.stamp-legend{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:18px;margin-top:8px}
+.legend-item{background:#fff;border:1px solid var(--line);padding:24px 18px 20px;text-align:center;position:relative}
+.stamp{
+  width:92px;height:92px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--f-display);font-weight:800;font-size:42px;
+  transform:rotate(-5deg);letter-spacing:0;position:relative;margin-bottom:16px;
+}
+.stamp::after{content:"";position:absolute;inset:5px;border-radius:50%;border:1px solid currentColor;opacity:.4}
+.legend-item h3{font-size:17px;font-family:var(--f-display);letter-spacing:.08em;margin-bottom:6px}
+.legend-item .count{font-size:12.5px;letter-spacing:.18em;color:var(--sumi-soft);margin-bottom:8px}
+.legend-item p{font-size:14.5px;color:var(--sumi-soft);line-height:1.85;text-align:left}
+
+/* ===== フィルタタブ ===== */
+.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 32px}
+.tab{font-family:var(--f-body);font-size:15.5px;letter-spacing:.08em;padding:8px 20px;border:1px solid var(--sumi);background:transparent;color:var(--sumi);cursor:pointer;transition:all .18s ease}
+.tab:hover{background:var(--washi-deep)}
+.tab.active{background:var(--sumi);color:var(--washi)}
+.tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+/* ===== 標本カード ===== */
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(38,49,58,.10)}
+.card-fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:var(--washi-deep);display:flex;align-items:center;justify-content:center;position:relative}
+.mon{
+  width:104px;height:104px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--f-display);font-weight:800;font-size:50px;
+  transform:rotate(-5deg);position:relative;
+}
+.mon::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px solid currentColor;opacity:.38}
+.stamp.s1{border:4px solid var(--c1);color:var(--c1);background:radial-gradient(circle at 32% 28%, rgba(74,94,134,.15), transparent 62%);box-shadow:0 0 0 2px rgba(74,94,134,.14) inset, 0 3px 10px rgba(74,94,134,.12)}
+.mon.m1{border:5px solid var(--c1);color:var(--c1);background:radial-gradient(circle at 32% 28%, rgba(74,94,134,.17), transparent 62%);box-shadow:0 0 0 2px rgba(74,94,134,.12) inset, 0 4px 14px rgba(74,94,134,.14)}
+.badge.kaku{background:var(--c1)}
+.stamp.s2{border:4px solid var(--c2);color:var(--c2);background:radial-gradient(circle at 32% 28%, rgba(46,125,116,.15), transparent 62%);box-shadow:0 0 0 2px rgba(46,125,116,.14) inset, 0 3px 10px rgba(46,125,116,.12)}
+.mon.m2{border:5px solid var(--c2);color:var(--c2);background:radial-gradient(circle at 32% 28%, rgba(46,125,116,.17), transparent 62%);box-shadow:0 0 0 2px rgba(46,125,116,.12) inset, 0 4px 14px rgba(46,125,116,.14)}
+.badge.toi{background:var(--c2)}
+.stamp.s3{border:4px solid var(--c3);color:var(--c3);background:radial-gradient(circle at 32% 28%, rgba(177,90,90,.15), transparent 62%);box-shadow:0 0 0 2px rgba(177,90,90,.14) inset, 0 3px 10px rgba(177,90,90,.12)}
+.mon.m3{border:5px solid var(--c3);color:var(--c3);background:radial-gradient(circle at 32% 28%, rgba(177,90,90,.17), transparent 62%);box-shadow:0 0 0 2px rgba(177,90,90,.12) inset, 0 4px 14px rgba(177,90,90,.14)}
+.badge.kanjo{background:var(--c3)}
+.stamp.s4{border:4px solid var(--c4);color:var(--c4);background:radial-gradient(circle at 32% 28%, rgba(166,122,46,.15), transparent 62%);box-shadow:0 0 0 2px rgba(166,122,46,.14) inset, 0 3px 10px rgba(166,122,46,.12)}
+.mon.m4{border:5px solid var(--c4);color:var(--c4);background:radial-gradient(circle at 32% 28%, rgba(166,122,46,.17), transparent 62%);box-shadow:0 0 0 2px rgba(166,122,46,.12) inset, 0 4px 14px rgba(166,122,46,.14)}
+.badge.team{background:var(--c4)}
+.stamp.s5{border:4px solid var(--c5);color:var(--c5);background:radial-gradient(circle at 32% 28%, rgba(94,74,124,.15), transparent 62%);box-shadow:0 0 0 2px rgba(94,74,124,.14) inset, 0 3px 10px rgba(94,74,124,.12)}
+.mon.m5{border:5px solid var(--c5);color:var(--c5);background:radial-gradient(circle at 32% 28%, rgba(94,74,124,.17), transparent 62%);box-shadow:0 0 0 2px rgba(94,74,124,.12) inset, 0 4px 14px rgba(94,74,124,.14)}
+.badge.fukaku{background:var(--c5)}
+.card-head{padding:18px 20px 14px;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card-head>div{min-width:0}
+.card-no{font-family:var(--f-display);font-size:13px;letter-spacing:.2em;color:var(--sumi-soft)}
+.card h3{font-family:var(--f-display);font-size:20px;font-weight:700;letter-spacing:.03em;line-height:1.5;margin-top:2px;overflow-wrap:break-word}
+.card .latin{font-size:13px;color:var(--sumi-soft);letter-spacing:.04em;margin-top:2px}
+.card-time{font-size:12px;color:var(--accent);letter-spacing:.06em;margin-top:5px;font-weight:500}
+.badge{flex-shrink:0;font-size:13px;letter-spacing:.12em;padding:4px 10px;color:#fff;font-weight:500;white-space:nowrap}
+.card-body{padding:16px 20px 20px;flex:1;display:flex;flex-direction:column;gap:12px}
+.card-body dl div{margin-bottom:10px}
+.card-body dt{font-size:13px;letter-spacing:.2em;color:var(--sumi-soft);font-weight:700;margin-bottom:2px}
+.card-body dd{font-size:15px;line-height:1.9}
+.card-body ol.how{margin:4px 0 0;padding-left:1.4em}
+.card-body ol.how li{font-size:14.5px;line-height:1.82;margin-bottom:5px}
+.card-q{margin-top:auto;padding:14px 16px;background:var(--washi);border:1px solid var(--line);font-size:14.5px;line-height:1.85;letter-spacing:.02em}
+.card-q-label{display:inline-block;font-family:var(--f-display);font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--accent);border:1px solid var(--accent);padding:1px 8px;margin-right:10px}
+.card.hidden{display:none}
+
+/* ===== 逆引き表 ===== */
+.rev-table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line)}
+table.rev{width:100%;border-collapse:collapse;min-width:640px}
+table.rev th, table.rev td{padding:15px 16px;font-size:15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.rev thead th{font-family:var(--f-display);font-size:15.5px;letter-spacing:.08em;background:var(--sumi);color:var(--washi);border-bottom:none}
+table.rev tbody th{font-weight:700;width:15em;background:var(--washi-deep);font-family:var(--f-display);letter-spacing:.05em}
+table.rev tr:last-child th, table.rev tr:last-child td{border-bottom:none}
+
+/* ===== CTA ===== */
+.cta{background:var(--accent);color:#fff;margin-top:80px}
+.cta-inner{max-width:1080px;margin:0 auto;padding:72px 24px;text-align:center}
+.cta h2{font-family:var(--f-display);font-size:clamp(22px,3vw,30px);letter-spacing:.08em;margin-bottom:18px}
+.cta p{max-width:36em;margin:0 auto 28px;color:rgba(255,255,255,.88);font-size:16.5px}
+.cta-check{display:inline-block;text-align:left;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.25);padding:22px 30px;margin-bottom:32px;font-size:16px;line-height:2.15}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:15px 34px;font-size:15px;letter-spacing:.1em;text-decoration:none;font-weight:700;transition:all .18s ease}
+.btn-primary{background:#fff;color:var(--accent)}
+.btn-primary:hover{background:var(--washi-deep)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+/* ===== フッター前の出典 ===== */
+footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid var(--line)}
+.footer-logo{font-family:var(--f-display);font-weight:800;color:var(--accent);letter-spacing:.08em}
+.footer-copy{margin-top:.6rem;font-size:12px;color:var(--sumi-soft);letter-spacing:.06em}
+.sources{max-width:1080px;margin:0 auto;padding:0 24px 24px;font-size:13.5px;color:var(--sumi-soft);line-height:1.9}
+.sources summary{cursor:pointer;letter-spacing:.1em;font-weight:700}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .card, .tab, .btn{transition:none}
+  .card:hover{transform:none}
+}
+@media (max-width:820px){
+  .hero{padding:44px 20px 36px}
+  .hero-title{font-size:clamp(30px,8vw,44px);letter-spacing:.06em}
+  .hero-title small{letter-spacing:.28em}
+  .premise-grid{grid-template-columns:minmax(0,1fr)}
+  .stamp-legend{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:minmax(0,1fr)}
+  .stamp{width:78px;height:78px;font-size:36px}
+  .section{padding:48px 20px}
+  .sec-head{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html" class="active">ふりかえりの技法図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html" class="active">ふりかえりの技法図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<!-- ===== ヒーロー ===== -->
+<header class="hero">
+  <div class="hero-title">ふりかえりの<br>技法図鑑<small>A FIELD GUIDE TO REFLECTION</small></div>
+  <div class="hero-body">
+    <h1>経験は、積むだけでは<em>学びにならない</em>。</h1>
+    <p>同じ経験をしても、そこから学べる量は「ふりかえるかどうか」で変わる。忙しいと「ふりかえる暇があれば一件でも多くこなしたい」と思いがちだが、実験では、その直感はくり返し裏切られてきた。数分立ち止まる人のほうが、次に伸びる。</p>
+    <p>この図鑑は、経験を学びに変える「ふりかえりの技法」を23種おさめたもの。ひとりで書くものから、チームで囲むもの、前提そのものを問い直す深いものまで。やり方・所要時間・由来・つまずかないコツを添えた。</p>
+    <span class="hero-note">ふりかえりは、反省ではない。<b>次の一歩を、取り出す</b>作業である。</span>
+    <div><a class="pair-link" href="./growth-laws-zukan.html">→ 対になる『学びと成長の法則図鑑』を読む</a></div>
+  </div>
+</header>
+
+<!-- ===== 第一章 前提 ===== -->
+<section class="section" id="premise">
+  <div class="sec-head"><span class="sec-no">第一章</span><h2>ふりかえる前の、三つの前提</h2></div>
+  <p class="sec-lead">この図鑑は、過ぎたことを悔やむための本ではない。経験から「使える一歩」を取り出すための、道具箱である。</p>
+  <div class="premise-grid">
+    <div class="premise" data-mark="其の一">
+      <h3>ふりかえりは、反省ではない</h3>
+      <p>「何がダメだったか」を数えるのがふりかえりではない。うまくいったことも、意外だったことも並べて、「次にどうするか」を取り出す。自分を責めるためではなく、次の自分を助けるために立ち止まる。</p>
+    </div>
+    <div class="premise" data-mark="其の二">
+      <h3>事実と、感情を分ける</h3>
+      <p>多くの技法が、まず「何が起きたか（事実）」と「どう感じたか（感情）」を分けることから始まる。混ぜたまま考えると、話が空中戦になりやすい。分けるからこそ、そこから学びを取り出せる。</p>
+    </div>
+    <div class="premise" data-mark="其の三">
+      <h3>「次の一歩」まで書いて、完成</h3>
+      <p>気づきを出しただけでは、ふりかえりは半分。「では、次に何を、いつ試すか」まで具体にして、はじめて経験が前に進む。行動の一歩を決めるところまでを、ひとつのセットとして扱う。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第二章 五系統 ===== -->
+<section class="section" id="families">
+  <div class="sec-head"><span class="sec-no">第二章</span><h2>ふりかえりの五系統 ─ 焼印の読み方</h2></div>
+  <p class="sec-lead">この図鑑の技法は、大きく五つの系統に分かれる。ひとりで書く、問いで深める、感情を扱う、チームで囲む、前提まで掘り下げる。各カードの焼印が、その系統を示している。</p>
+  <div class="stamp-legend">
+    <div class="legend-item">
+      <span class="stamp s1">書</span>
+      <h3>ひとりで書く</h3>
+      <div class="count">全4種</div>
+      <p>紙とペンひとつで、頭の中を外に出す。ひとりで、静かに、自分と向き合うための技法。</p>
+    </div>
+    <div class="legend-item">
+      <span class="stamp s2">問</span>
+      <h3>問いかける</h3>
+      <div class="count">全4種</div>
+      <p>問いの順番で、対話を自然に深めていく。自分にも、人にも使える「問いの型」。</p>
+    </div>
+    <div class="legend-item">
+      <span class="stamp s3">情</span>
+      <h3>感情を扱う</h3>
+      <div class="count">全4種</div>
+      <p>揺れた気持ちと、少し距離をとる。感情に飲み込まれずに考えるための技法。</p>
+    </div>
+    <div class="legend-item">
+      <span class="stamp s4">衆</span>
+      <h3>チームで振り返る</h3>
+      <div class="count">全6種</div>
+      <p>みんなで経験を持ち寄り、次に活かす。犯人さがしではなく、学びのための場。</p>
+    </div>
+    <div class="legend-item">
+      <span class="stamp s5">深</span>
+      <h3>深く掘り下げる</h3>
+      <div class="count">全5種</div>
+      <p>出来事の奥にある前提まで問い直す。同じところでつまずかないための、深いふりかえり。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 第三章 標本カード ===== -->
+<section class="section" id="cards">
+  <div class="sec-head"><span class="sec-no">第三章</span><h2>ふりかえりの技法 二十三種</h2></div>
+  <p class="sec-lead">それぞれの技法に、やり方・所要時間・生まれた由来がある。所要時間の短いものから試すのがおすすめ。最後の「コツ」は、つまずかないための小さな一言。</p>
+
+  <div class="tabs" role="tablist" aria-label="系統で絞り込む">
+    <button class="tab active" data-filter="all" type="button">すべて</button>
+    <button class="tab" data-filter="kaku" type="button">ひとりで書く</button>
+    <button class="tab" data-filter="toi" type="button">問いかける</button>
+    <button class="tab" data-filter="kanjo" type="button">感情を扱う</button>
+    <button class="tab" data-filter="team" type="button">チームで振り返る</button>
+    <button class="tab" data-filter="fukaku" type="button">深く掘り下げる</button>
+  </div>
+
+  <div class="cards">
+
+    <article class="card" data-cat="kaku">
+      <figure class="card-fig"><span class="mon m1" aria-hidden="true">綴</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.001</span>
+          <h3>ジャーナリング</h3>
+          <p class="latin">Journaling</p>
+          <p class="card-time">⏱ 所要 3〜15分</p>
+        </div>
+        <span class="badge kaku">ひとりで書く</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>頭に浮かぶことを評価せずにそのまま書き出し、自分の内面を観察する習慣。</dd></div>
+          <div><dt>どんな技法か</dt><dd>決まったテーマや自由なテーマで、思考や感情を紙に書き出す実践の総称。「書く瞑想」とも呼ばれ、頭の中を外に出すことで思考が整理され、自分を客観視できるようになる。数分から始められ、あらゆるリフレクションの土台になる基本技法。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>静かな場所でタイマーを3〜10分セットする</li><li>テーマを決める(例:「今、気になっていること」)か、完全に自由に書く</li><li>手を止めず、誤字も文法も気にせず書き続ける(書くことがなければ「書くことがない」と書く)</li><li>時間が来たら読み返し、気づいたことを1行メモする</li><li>毎日または週数回、同じ時間帯に続ける</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>朝や夜の習慣として。頭がごちゃごちゃしている時</dd></div>
+          <div><dt>由来</dt><dd>日記による内省は古代から存在するが、心理学的手法としては Ira Progoff が1966年に始めた「インテンシブ・ジャーナル・メソッド」が現代的ジャーナリングの源流の一つ。近年はマインドフルネスの文脈で再普及した。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>筆記による開示の効果研究(Pennebaker 以降の数百件)が理論的支柱。感情の言語化(affect labeling)が扁桃体の反応を抑えるという神経科学的知見(Lieberman et al. 2007)もある。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「うまく書こう」としないことが唯一にして最大のルール。読み返して自分を批判し始めたら、それ自体を次のジャーナリングのテーマにする。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kaku">
+      <figure class="card-fig"><span class="mon m1" aria-hidden="true">筆</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.002</span>
+          <h3>エクスプレッシブ・ライティング(筆記開示)</h3>
+          <p class="latin">Expressive Writing</p>
+          <p class="card-time">⏱ 所要 15〜20分 × 3〜4日</p>
+        </div>
+        <span class="badge kaku">ひとりで書く</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>つらかった出来事についての最も深い感情と思考を、数日間連続で書き綴る科学的筆記法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>ストレスフルな体験について「最も深い感情と思考」を1日15〜20分、3〜4日連続で書く技法。書くことで体験が整理され意味づけが進み、心身の健康が改善することが多数の実験で示されている。リフレクション技法の中で最も研究の蓄積が厚いものの一つ。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>誰にも見せない前提で、心に引っかかっている体験をひとつ選ぶ</li><li>タイマーを15〜20分にセットし、その体験についての最も深い感情と考えを書き続ける</li><li>文法や構成は無視。同じことを繰り返し書いてもよい</li><li>これを3〜4日連続で行う(同じ体験でも別の体験でもよい)</li><li>最終日に、体験の意味や見え方の変化を短く書き添える</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>つらい出来事や大きな変化を経験した後、心の整理がつかない時</dd></div>
+          <div><dt>由来</dt><dd>社会心理学者 James Pennebaker が開発。Pennebaker &amp; Beall (1986) の実験(トラウマ体験について4日間書いた学生は健康センターの受診回数が減少)が出発点。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>1986年以降、数百の研究とメタ分析(Frattaroli 2006 など)が行われ、心身の健康・免疫機能・気分への小〜中程度の効果が確認されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>直後は一時的に気分が沈むことがあるが、効果は数週間後に現れるのが典型。あまりに生々しい傷にはいきなり使わず、扱える題材から始める。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kaku">
+      <figure class="card-fig"><span class="mon m1" aria-hidden="true">朝</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.003</span>
+          <h3>モーニングページ</h3>
+          <p class="latin">Morning Pages</p>
+          <p class="card-time">⏱ 所要 20〜40分(毎朝)</p>
+        </div>
+        <span class="badge kaku">ひとりで書く</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>毎朝起き抜けに、頭に浮かぶままノート3ページを書き切る創造性回復の習慣。</dd></div>
+          <div><dt>どんな技法か</dt><dd>毎朝一番に、意識の流れをそのまま手書きで3ページ書くという実践。内容は何でもよく、うまく書く必要も読み返す必要もない。頭の中の雑念や自己検閲を「排水」することで、思考がクリアになり創造性が動き出すとされる。芸術家に限らず幅広い層に愛用されている。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>ノートとペンを枕元に用意し、起きたらすぐ書き始める</li><li>頭に浮かぶことを検閲せず、手書きで3ページ(A4なら約1.5枚)書く</li><li>愚痴・不安・予定・くだらないこと、何を書いてもよい</li><li>書き終えたら読み返さずに閉じる(最初の8週間は特に)</li><li>毎朝続ける。数週間後に読み返すと自分のパターンが見えてくる</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>毎日の朝の習慣として。創作や仕事で行き詰まりを感じている時期に</dd></div>
+          <div><dt>由来</dt><dd>作家・アーティストの Julia Cameron が『The Artist's Way(ずっとやりたかったことを、やりなさい。)』(1992) で提唱した創造性回復プログラムの中核ツール。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>学術的検証は限定的だが、30年以上・数百万部規模で世界に普及した実務的定番。自由筆記一般の効果研究(筆記開示研究)が間接的な裏付けとされる。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「3ページは多い」と感じても書き切ることに意味がある(2ページ目以降に本音が出やすい)。タイピングより手書きが推奨される。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kaku">
+      <figure class="card-fig"><span class="mon m1" aria-hidden="true">謝</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.004</span>
+          <h3>感謝日記</h3>
+          <p class="latin">Gratitude Journal</p>
+          <p class="card-time">⏱ 所要 5〜10分</p>
+        </div>
+        <span class="badge kaku">ひとりで書く</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>週に数回、ありがたかったことを数個書き留めるだけで幸福感を高める習慣。</dd></div>
+          <div><dt>どんな技法か</dt><dd>その週(またはその日)にあった感謝できる出来事を3〜5個書き出す技法。注意のフォーカスを「足りないもの」から「既にあるもの」へ切り替える訓練になり、幸福感や楽観性、さらには睡眠の質への効果が実験で確認されている。最も手軽で実証的なポジティブ心理学介入の一つ。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>週1回(または毎晩)、決まったタイミングでノートを開く</li><li>この期間に感謝を感じた出来事を3〜5個書く</li><li>「何があったか」だけでなく「なぜありがたいのか」を1行添える</li><li>人・偶然・当たり前になっているものなど、種類を散らすと効果的</li><li>数週間続け、気分の変化を観察する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>毎日の終わりや週末に。ネガティブなことばかり目につく時期に</dd></div>
+          <div><dt>由来</dt><dd>心理学者 Robert Emmons と Michael McCullough の実験研究「Counting Blessings Versus Burdens」(JPSP, 2003) で効果が実証され、広く普及した。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>Emmons &amp; McCullough (2003) では感謝条件の参加者が幸福感・楽観性・身体症状で改善を示した。以降、多数の追試とメタ分析で小〜中程度の効果が報告されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>毎日義務的にやると「感謝の作業化」で効果が薄れるという知見があり、週1〜3回が続けやすい。同じ内容の繰り返しを避け、具体的に書くのがコツ。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="toi">
+      <figure class="card-fig"><span class="mon m2" aria-hidden="true">焦</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.005</span>
+          <h3>ORID(焦点会話法)</h3>
+          <p class="latin">ORID / Focused Conversation</p>
+          <p class="card-time">⏱ 所要 20分〜1時間</p>
+        </div>
+        <span class="badge toi">問いかける</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>事実→感情→意味→決定の4段階の問いで、対話を自然に深めるファシリテーション技法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>客観(Objective)・反応(Reflective)・解釈(Interpretive)・決定(Decisional)の順に問いを重ねる会話の設計法。人間が経験を処理する自然な流れに沿っているため、議論が飛躍したり空中戦になったりするのを防げる。グループの振り返りにも、1対1の対話にも使える。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>O(客観):「何を見た?何が起きた?」と事実だけを集める</li><li>R(反応):「どこで心が動いた?驚いたのは?」と感情や連想を聞く</li><li>I(解釈):「これは何を意味する?何を学んだ?」と意味づけを促す</li><li>D(決定):「では次に何をする?」と行動や結論を決める</li><li>各段階を飛ばさず、順番どおりに進める</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>イベント後の全体振り返り、意見が割れそうな議題の対話</dd></div>
+          <div><dt>由来</dt><dd>文化事業協会(ICA: Institute of Cultural Affairs)が1960〜70年代から開発してきた手法。R. Brian Stanfield 編『The Art of Focused Conversation』(1997) で体系的に紹介された。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>ICAの「参加型手法(ToP)」の中核として世界数十カ国のファシリテーター養成で教えられ、評価(evaluation)分野の標準ツール集にも収載されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>多くの会議は事実確認(O)と感情の共有(R)を飛ばして解釈(I)から始まるため荒れる。OとRに時間をかけるほどDが速く決まる。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="toi">
+      <figure class="card-fig"><span class="mon m2" aria-hidden="true">導</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.006</span>
+          <h3>GROWモデルの問い</h3>
+          <p class="latin">GROW Model</p>
+          <p class="card-time">⏱ 所要 20〜45分</p>
+        </div>
+        <span class="badge toi">問いかける</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>目標→現状→選択肢→意志の4つの問いで、自分やメンバーの前進を助けるコーチングの型。</dd></div>
+          <div><dt>どんな技法か</dt><dd>Goal(目標)・Reality(現状)・Options(選択肢)・Will(意志)の順に問いを進めるコーチングの基本フレームワーク。答えを与えるのではなく、問いによって本人の気づきと当事者意識を引き出す。1on1やセルフコーチングの振り返りにそのまま使える。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>G:「本当はどうなっていたい?」「今日この時間で何を持ち帰りたい?」と目標を明確にする</li><li>R:「今は実際どうなっている?」「これまで何を試した?」と現状を具体的に描く</li><li>O:「他にどんなやり方がありうる?」「制約がなければ?」と選択肢を広げる</li><li>W:「では何を、いつまでにやる?」「実行度は10点中何点?」と意志を確認する</li><li>次回、Wで決めたことの振り返りから始める</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>1on1、キャリア面談、目標がモヤモヤしている時のセルフコーチング</dd></div>
+          <div><dt>由来</dt><dd>1980年代に英国のコーチ Graham Alexander、Alan Fine、John Whitmore らのコーチング実践から生まれた。Whitmore の著書『Coaching for Performance』(1992) で世界的に普及。テニス指導の「インナーゲーム」(Timothy Gallwey) の系譜。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>世界で最も使われるコーチングモデルの一つとされ、企業のマネジャー研修の標準教材。職場コーチングの効果はメタ分析(Theeboom et al. 2014 など)でパフォーマンスやウェルビーイングへの正の効果が報告されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>現状(R)を十分聞く前に解決策(O)へ飛ぶのが最頻の失敗。問いは詰問にならないよう、好奇心のトーンを保つ。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="toi">
+      <figure class="card-fig"><span class="mon m2" aria-hidden="true">三</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.007</span>
+          <h3>What? So What? Now What?</h3>
+          <p class="latin">Borton / Rolfe's Framework</p>
+          <p class="card-time">⏱ 所要 5〜20分</p>
+        </div>
+        <span class="badge toi">問いかける</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「何が起きた?それはどういう意味?では次は?」の3つの問いだけで完結する最小の振り返り。</dd></div>
+          <div><dt>どんな技法か</dt><dd>たった3つの問いで経験を学びと行動に変換する、世界で最もシンプルなリフレクションモデル。覚えやすく、口頭でも書面でも、個人でもグループでも使える。医療・看護教育では省察的実践の標準モデルの一つになっている。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>What?: 何が起きたか、自分は何をしたか、事実を描写する</li><li>So What?: それは何を意味するか、なぜ重要か、何を学んだかを掘り下げる</li><li>Now What?: その学びを踏まえ、次に何をするかを決める</li><li>書く場合は各問いに3〜5行ずつ。対話の場合は問いを順に投げる</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>毎日の終わり、実習や当直の後、短時間で振り返りたいあらゆる場面</dd></div>
+          <div><dt>由来</dt><dd>教育者 Terry Borton が『Reach, Touch and Teach』(1970) で提唱した3つの問いが原型。Gary Rolfe ら (2001) が看護・医療教育向けの省察的実践の枠組みとして発展させた(Driscoll 1994 の展開も知られる)。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>英語圏の看護・医療・教員養成課程で省察レポートの標準形式として採用。シンプルさゆえに定着率が高いことが実務上の強み。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>So What? が最も浅くなりやすい。「だから何が言える?」を2回繰り返して一段深く掘るとよい。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="toi">
+      <figure class="card-fig"><span class="mon m2" aria-hidden="true">四</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.008</span>
+          <h3>4F(事実・感情・発見・未来)</h3>
+          <p class="latin">4F: Facts, Feelings, Findings, Future</p>
+          <p class="card-time">⏱ 所要 15〜40分</p>
+        </div>
+        <span class="badge toi">問いかける</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>事実・感情・発見・未来の4つのFで、体験をバランスよく学びに変える振り返り。</dd></div>
+          <div><dt>どんな技法か</dt><dd>Facts(何が起きたか)→Feelings(何を感じたか)→Findings(何を発見したか)→Future(どう活かすか)の順に振り返る技法。感情を独立したステップとして明示的に扱うため、頭だけの反省になりにくい。野外教育・体験学習の現場で生まれ、Kolbの経験学習サイクルを実践しやすくしたモデルとされる。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>Facts: 出来事を時系列で客観的に書き出す(評価しない)</li><li>Feelings: 各場面で自分が感じた感情を言葉にする</li><li>Findings: 事実と感情から「何がわかったか」「何が学べたか」を抽出する</li><li>Future: 学びを次にどう活かすか、具体的な場面を想定して決める</li><li>グループなら各Fごとに全員で共有してから次へ進む</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>研修・ワークショップ・野外活動など、感情の動きが大きかった体験の後</dd></div>
+          <div><dt>由来</dt><dd>体験学習の振り返り(reviewing)研究者 Roger Greenaway が「Active Reviewing Cycle」として提唱(1990年代)。エディンバラ大学のリフレクション・ツールキット等で紹介されている。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>英国を中心に野外教育・青少年教育・企業研修で普及し、大学の省察教育の標準ツール集にも収載されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>FactsとFeelingsを混ぜないことが質を決める。感情語彙が出にくいグループには感情リストを配ると効果的。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kanjo">
+      <figure class="card-fig"><span class="mon m3" aria-hidden="true">慈</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.009</span>
+          <h3>セルフコンパッション・レター</h3>
+          <p class="latin">Self-Compassion Letter</p>
+          <p class="card-time">⏱ 所要 15〜30分</p>
+        </div>
+        <span class="badge kanjo">感情を扱う</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>悩む自分に向けて、無条件に受け入れてくれる友人の視点から手紙を書く技法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>自分が恥や不全感を抱いている事柄について、「自分を深く思いやってくれる架空の友人」の視点から自分宛てに手紙を書く技法。自己批判の声を思いやりの声に置き換える練習であり、失敗後の立ち直りを助ける。自分に厳しすぎる人にとくに効果的とされる。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>自分が責めてしまっていること(失敗・欠点)をひとつ思い浮かべる</li><li>「あなたを無条件に受け入れ、深く理解してくれる友人」を想像する</li><li>その友人になりきって、自分宛ての手紙を書く(理解→人間なら誰でもあること→優しい励ましの順)</li><li>書き終えたらしばらく置き、後で受け取る側として読み返す</li><li>つらい時に読み返せる場所に保管する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>失敗して自分を責めている時、恥の感情が続いている時</dd></div>
+          <div><dt>由来</dt><dd>自己批判研究から生まれた筆記課題で、セルフコンパッション研究の第一人者 Kristin Neff(概念の定式化は2003年)が代表的エクササイズとして普及させた。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>Shapira &amp; Mongrain (2010) の実験で、7日間のセルフコンパッション筆記が抑うつを3か月後まで低減し、幸福感を6か月後まで高めたと報告。セルフコンパッション介入全般のメタ分析でも効果が支持されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>最初は「甘やかしでは」と抵抗が出るのが普通。優しさと同時に「友人ならどんな行動を勧めるか」も書くと、自己憐憫ではなく前進につながる。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kanjo">
+      <figure class="card-fig"><span class="mon m3" aria-hidden="true">距</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.010</span>
+          <h3>セルフトーク距離化(三人称の自己対話)</h3>
+          <p class="latin">Distanced Self-Talk</p>
+          <p class="card-time">⏱ 所要 5〜15分</p>
+        </div>
+        <span class="badge kanjo">感情を扱う</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>自分を名前や「あなた」で呼んで振り返ると、感情の渦から一歩引いて考えられる。</dd></div>
+          <div><dt>どんな技法か</dt><dd>内省の際に「私はなぜ不安なのか」ではなく「(自分の名前)はなぜ不安なのか」と、三人称や自分の名前を使って自問する技法。言葉ひとつの切り替えで心理的距離が生まれ、感情に飲み込まれる反芻ではなく、賢い友人に助言するような視点で考えられるようになる。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>モヤモヤしている出来事をひとつ選ぶ</li><li>自分の名前か「あなた」を主語にして、状況を書く(または心の中で語る)。例:「太郎は今日のプレゼンで緊張した。なぜだろう?」</li><li>「友人が同じ状況ならどう助言するか」という視点で問いを続ける</li><li>見えてきたことを一人称に戻して受け取り直す(「つまり私は…」)</li><li>不安な本番の前のセルフトークにも同じ形で使う</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>モヤモヤ・怒り・本番前の不安など、感情が高ぶっている時</dd></div>
+          <div><dt>由来</dt><dd>心理学者 Ethan Kross(ミシガン大学)らの研究。Kross et al. (2014, JPSP)「Self-talk as a regulatory mechanism」で効果を実証。著書『Chatter』(2021) で一般に広まった。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>Kross et al. (2014) でストレス課題前の不安低減を確認。Moser et al. (2017, Scientific Reports) の脳波・fMRI研究では、認知的努力を増やさずに感情制御が働くことが示された。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>声に出す必要はなく、心の中や筆記で十分。反芻癖のある人ほど効果を感じやすい。日本語では「〜さんはどう思う?」と敬称をつけると距離が取りやすい。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kanjo">
+      <figure class="card-fig"><span class="mon m3" aria-hidden="true">評</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.011</span>
+          <h3>認知的再評価</h3>
+          <p class="latin">Cognitive Reappraisal</p>
+          <p class="card-time">⏱ 所要 10〜20分</p>
+        </div>
+        <span class="badge kanjo">感情を扱う</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>出来事の「意味づけ」を意識的に変えることで、感情の反応そのものを変える技法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>ネガティブな出来事に対する解釈を意図的に変える(例:「失敗した」→「弱点が本番前にわかった」)ことで、感情反応を調整する技法。感情を抑え込む「抑制」と違い、心身への負担が少なく効果が持続することが示されている。認知行動療法の中核的な考え方を日常の振り返りに応用できる。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>感情が動いた出来事と、そのとき浮かんだ解釈を書き出す</li><li>その解釈が「事実」か「自分の意味づけ」かを区別する</li><li>別の解釈を最低3つ考える(第三者なら? 10年後の自分なら? この経験が役立つとしたら?)</li><li>最も納得でき、かつ現実的な解釈を選ぶ</li><li>新しい解釈で状況を語り直し、感情の変化を確認する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>落ち込みや怒りを引きずっている時、失敗の直後</dd></div>
+          <div><dt>由来</dt><dd>感情制御研究の枠組みとしては James Gross の「感情制御のプロセスモデル」(1998) で定式化。源流はストア哲学や、Aaron Beck の認知療法(1960〜70年代)、Lazarus のストレス評価理論にさかのぼる。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>Gross (1998) 以降の多数の実験とメタ分析(Webb et al. 2012 など)で、抑制より効果的で副作用の少ない感情制御方略であることが確認されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「無理やりポジティブに考える」のとは違い、納得できる解釈でなければ効果がない。感情が最高潮の瞬間より、少し落ち着いてからの方がやりやすい。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="kanjo">
+      <figure class="card-fig"><span class="mon m3" aria-hidden="true">脱</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.012</span>
+          <h3>脱フュージョン</h3>
+          <p class="latin">Cognitive Defusion</p>
+          <p class="card-time">⏱ 所要 5〜15分</p>
+        </div>
+        <span class="badge kanjo">感情を扱う</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「私はダメだ」を「『私はダメだ』という考えが浮かんでいる」と眺め直し、思考と距離を取る技法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>ネガティブな思考の内容を変えるのではなく、「思考は思考にすぎない」と気づいて距離を取る技法。頭の中の言葉と現実の区別がつかなくなる「フュージョン(融合)」状態から抜け出すことで、思考に振り回されずに行動を選べるようになる。ACT(アクセプタンス&amp;コミットメント・セラピー)の中核スキル。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>繰り返し浮かぶネガティブな思考をひとつ選ぶ(例:「私は失敗ばかりだ」)</li><li>その思考の前に「私は『…』という考えを持っている」と付けて言い直す</li><li>さらに「私は『…』という考えを持っていることに気づいている」と重ねる</li><li>変な声で言ってみる・歌にしてみる・紙に書いて眺めるなど、思考を「モノ」として扱ってみる</li><li>距離が取れた状態で「自分が大事にしたいことは何か」に注意を戻す</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>同じネガティブ思考がぐるぐる回っている時、自己否定が強い時</dd></div>
+          <div><dt>由来</dt><dd>心理学者 Steven C. Hayes らが開発したACTの中核技法。1980年代の「包括的距離化」研究に始まり、Hayes, Strosahl &amp; Wilson『Acceptance and Commitment Therapy』(1999) で体系化された。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>ACTは1,000件超のランダム化比較試験が行われた実証的心理療法であり、脱フュージョン単体でも思考の信憑性・苦痛の低減効果が実験で示されている(Masuda et al. 2004 など)。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>思考を「消そう」とすると逆効果(思考抑制のリバウンド)。目的は消すことではなく、思考と自分の間にすき間を作ることだと押さえておく。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="team">
+      <figure class="card-fig"><span class="mon m4" aria-hidden="true">改</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.013</span>
+          <h3>KPT(ケプト)</h3>
+          <p class="latin">Keep / Problem / Try</p>
+          <p class="card-time">⏱ 所要 30分〜1時間</p>
+        </div>
+        <span class="badge team">チームで振り返る</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「続けること・問題・次に試すこと」の3つの枠で活動を振り返るシンプルな定番手法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>ホワイトボードを3つの領域に分け、良かったので続けたいこと(Keep)、うまくいかなかったこと(Problem)、次に試したいこと(Try)を出し合う振り返りフレームワーク。構造が単純で初心者でも迷わず、問題指摘だけで終わらず必ず「次の一手」につながるのが強み。日本のソフトウェア開発チームを中心に広く普及している。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>ボードをKeep / Problem / Tryの3領域に分ける</li><li>各自が付箋にKeep(続けたい良かったこと)を書いて貼り、共有する</li><li>同様にProblem(問題・困ったこと)を出して共有する</li><li>KeepとProblemを眺めながら、Try(次に試す具体的な行動)を議論して決める</li><li>Tryは担当と期限を決め、次回の振り返りで実施状況を確認する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>スプリントやイベントの節目ごとに、チームの定例の振り返りとして</dd></div>
+          <div><dt>由来</dt><dd>Alistair Cockburn が考案した「Keep/Try Reflection(振り返りワークショップ)」が原型。日本ではアジャイル開発の第一人者・平鍋健児がKeep/Problem/Tryの形に整理して「KPT」として紹介し(2000年代前半)、広く定着した。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>学術研究というより実務発の手法。日本のアジャイル開発コミュニティで事実上の標準となり、開発以外の業務改善や教育現場にも広がっている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>Problemの犯人探しにならないよう「人ではなく出来事」を書くルールにする。Tryは「頑張る」ではなく検証可能な具体的行動まで落とし込むのがコツ。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="team">
+      <figure class="card-fig"><span class="mon m4" aria-hidden="true">得</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.014</span>
+          <h3>YWT(やったこと・わかったこと・次にやること)</h3>
+          <p class="latin">YWT</p>
+          <p class="card-time">⏱ 所要 15〜45分</p>
+        </div>
+        <span class="badge team">チームで振り返る</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「やった→わかった→次にやる」の流れで経験を学びに変える日本生まれの振り返り法。</dd></div>
+          <div><dt>どんな技法か</dt><dd>やったこと(Y)、わかったこと(W)、次にやること(T)の順に書き出す振り返りフレームワーク。KPTが「問題と改善」に焦点を当てるのに対し、YWTは「経験から何を学んだか」という気づきを真ん中に置くのが特徴。個人でもチームでも使え、日報や研修の振り返りにも向く。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>まず「やったこと」を事実ベースで箇条書きにする(評価を混ぜない)</li><li>それぞれについて「わかったこと」(気づき・学び・意外だったこと)を書く</li><li>学びを踏まえて「次にやること」を具体的に決める</li><li>チームの場合は各自のY・W・Tを共有し、共通する学びを対話で深める</li><li>次回、前回のTがどうなったかから始める</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>研修や試行的な取り組みの後など、「学び」を言語化したい時。日々の日報にも</dd></div>
+          <div><dt>由来</dt><dd>日本能率協会コンサルティング(JMAC)が提唱した日本発の手法。同社が長年の現場コンサルティングの中で「能率」を高める振り返りのマネジメント手法として体系化した。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>実務発の手法で、日本の製造業の現場改善から始まり、人材育成・アジャイル開発の振り返りへと普及した。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「やったこと」と「わかったこと」を混ぜないことが最大のコツ。事実と解釈を分けることで、学びの質が上がる。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="team">
+      <figure class="card-fig"><span class="mon m4" aria-hidden="true">顧</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.015</span>
+          <h3>レトロスペクティブ(ふりかえり)</h3>
+          <p class="latin">Agile Retrospective</p>
+          <p class="card-time">⏱ 所要 45分〜1.5時間</p>
+        </div>
+        <span class="badge team">チームで振り返る</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>チームが定期的に集まり、仕事のやり方そのものを検査して改善する会議。</dd></div>
+          <div><dt>どんな技法か</dt><dd>アジャイル開発で制度化された、チームによる定期的な振り返りの場。成果物ではなく「チームの働き方・プロセス・関係性」を対象に、データを集め、洞察を生み、次の改善アクションを決める。心理的安全性を前提とした構造化された進行が特徴で、KPTや4Fなど様々な技法を中で使える「器」でもある。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>場を設定する(目的とルールを確認。例:「全員が当時の知識でベストを尽くした」という基本原則を読み上げる)</li><li>データを集める(タイムラインや出来事を事実として書き出す)</li><li>アイデアを出す(なぜそうなったか、パターンや原因を探る)</li><li>何をするか決める(改善アクションを1〜3個に絞り、担当を決める)</li><li>振り返りを終える(この振り返り自体の良し悪しも短く確認する)</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>スプリント終了ごと、プロジェクトの節目ごとに定期開催</dd></div>
+          <div><dt>由来</dt><dd>Norman Kerth が『Project Retrospectives』(2001) で方法論を体系化し、「振り返りの基本原則(Prime Directive)」を提唱。Esther Derby と Diana Larsen の『Agile Retrospectives』(2006) で上記5ステップが定式化された。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>アジャイル開発の標準プラクティスとして世界中で実践。チームの継続的改善・学習に関するソフトウェア工学研究でも主要テーマになっている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>毎回同じ形式だと形骸化するので、技法を時々変えると新しい発見が出やすい。アクションを欲張って増やしすぎないこと(実行されない改善リストは士気を下げる)。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="team">
+      <figure class="card-fig"><span class="mon m4" aria-hidden="true">検</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.016</span>
+          <h3>AAR(アフター・アクション・レビュー)</h3>
+          <p class="latin">After Action Review</p>
+          <p class="card-time">⏱ 所要 15分〜1時間(行動の直後に短く回すのが理想)</p>
+        </div>
+        <span class="badge team">チームで振り返る</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「何を目指したか/実際どうだったか/なぜ/次どうするか」を階級抜きで検証する米軍発祥の振り返り。</dd></div>
+          <div><dt>どんな技法か</dt><dd>行動の直後に、意図した結果と実際の結果のギャップを全員で検証する構造化された対話。上下関係を持ち込まず、批評ではなく学習を目的とするのが最大の特徴。訓練や作戦のたびに短時間で回すことで、組織の学習速度を上げる。企業や医療、消防などにも広く移植されている。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>「私たちは何を達成しようとしていたか?」(意図・目標を確認)</li><li>「実際には何が起きたか?」(事実を全員の視点から再構成)</li><li>「なぜそうなったか?」(ギャップの原因を探る)</li><li>「次回は何を維持し、何を変えるか?」(教訓を具体化)</li><li>教訓を記録し、次の行動計画に反映する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>訓練・イベント・障害対応など、ひとまとまりの行動が終わった直後に</dd></div>
+          <div><dt>由来</dt><dd>1970年代に米陸軍が訓練改革の一環として開発(訓練教義コマンドTRADOCの下で制度化され、後に規範TC 25-20として文書化)。従来の教官による一方的講評に代わり、参加者自身が学ぶ形式として設計された。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>米軍で数十年運用され組織学習の代表例とされる。ハーバード・ビジネス・レビュー等で企業への応用が繰り返し紹介され、シェルやBPなどの導入事例が知られる。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「誰が悪かったか」ではなく「何が起きたか」に徹すること。時間が経つほど記憶が美化されるので、行動直後の実施が鉄則。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="team">
+      <figure class="card-fig"><span class="mon m4" aria-hidden="true">予</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.017</span>
+          <h3>プレモーテム(事前検死)</h3>
+          <p class="latin">Premortem</p>
+          <p class="card-time">⏱ 所要 30分〜1時間</p>
+        </div>
+        <span class="badge team">チームで振り返る</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「この計画は失敗した」と仮定して、失敗の理由を先に洗い出す未来の振り返り。</dd></div>
+          <div><dt>どんな技法か</dt><dd>プロジェクト開始前に「1年後、この計画は完全に失敗した」と想像し、その原因を全員で書き出す技法。失敗を既成事実として語ることで、通常なら言い出しにくい懸念が表明しやすくなり、計画への過信を防げる。振り返りを「未来から」行う逆転の発想。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>計画の概要を全員で確認する</li><li>ファシリテーターが宣言する:「この計画は実行され、大失敗に終わりました」</li><li>各自が2〜3分で「失敗の理由」を思いつく限り書き出す</li><li>一人ずつ理由を発表し、全員分をリスト化する</li><li>重要度の高いリスクを選び、計画に対策を組み込む</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>プロジェクトや重要な意思決定の開始前、キックオフ時</dd></div>
+          <div><dt>由来</dt><dd>認知心理学者 Gary Klein がハーバード・ビジネス・レビュー誌の「Performing a Project Premortem」(2007) で提唱。Mitchell, Russo &amp; Pennington (1989) の「未来を過去形で考えると原因の想像が具体的になる(prospective hindsight)」という研究が理論的根拠。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>Mitchell らの実験では、結果を確定した過去として想像すると理由の生成が約30%増えると報告された。行動経済学者カーネマンも推奨し、リスクマネジメントの定番手法になっている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「懸念はありますか?」と聞くのではなく「失敗しました。なぜ?」と断定形で始めるのが肝。心配性の人の意見こそ歓迎する空気をつくる。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="team">
+      <figure class="card-fig"><span class="mon m4" aria-hidden="true">前</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.018</span>
+          <h3>フィードフォワード</h3>
+          <p class="latin">Feedforward</p>
+          <p class="card-time">⏱ 所要 15〜30分(1ペア2〜3分×数回転)</p>
+        </div>
+        <span class="badge team">チームで振り返る</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>過去の指摘ではなく「これから」のアイデアだけを贈り合う前向きな相互支援。</dd></div>
+          <div><dt>どんな技法か</dt><dd>過去の行動への批評(フィードバック)をやめ、未来に向けた提案だけを交換する技法。変えられない過去ではなく変えられる未来に焦点を当てるため、受け手が防衛的にならず、楽しく建設的な対話になる。変えたい行動を自分で選んで助言を募る点で、自律性も保たれる。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>自分が変えたい行動をひとつ選ぶ(例:「もっと人の話を最後まで聞きたい」)</li><li>ペアになり、相手にそれを伝えて「未来に向けた提案を2つください」と頼む</li><li>相手は過去に一切触れず、これからできるアイデアだけを提案する</li><li>受け手は反論や弁明をせず「ありがとう」とだけ言ってメモする</li><li>役割を交代し、ペアを替えて数回繰り返す</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>研修やチームビルディングで、行動変容のアイデアを集めたい時</dd></div>
+          <div><dt>由来</dt><dd>エグゼクティブコーチの Marshall Goldsmith が提唱。論考「Try Feedforward Instead of Feedback」(Leader to Leader誌, 2002頃) で広めた。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>Goldsmith が数千人の経営者研修で実践し、「役に立ち、しかも楽しい」という反応が圧倒的だったと報告。コーチングや人材開発の現場で広く採用されている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>受け手が「でも」と言い始めたら止めるのがファシリテーターの仕事。提案の質より量と気軽さを重視すると場が温まる。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="fukaku">
+      <figure class="card-fig"><span class="mon m5" aria-hidden="true">環</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.019</span>
+          <h3>コルブの経験学習サイクル</h3>
+          <p class="latin">Kolb's Experiential Learning Cycle</p>
+          <p class="card-time">⏱ 所要 20〜40分</p>
+        </div>
+        <span class="badge fukaku">深く掘り下げる</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>経験→省察→概念化→実験の4段階を回して、経験を「持論」に変える学習理論。</dd></div>
+          <div><dt>どんな技法か</dt><dd>具体的経験→内省的観察→抽象的概念化→能動的実験という4段階のサイクルで人は経験から学ぶ、とする理論。単に振り返るだけでなく「他の場面でも使える教訓(マイセオリー)」まで抽象化し、それを次の行動で試すところまで含むのが特徴。多くのリフレクション技法の理論的土台になっている。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>具体的経験: 振り返る経験をひとつ選ぶ</li><li>内省的観察: 何が起きたか、なぜうまくいった/いかなかったかを多角的に観察する</li><li>抽象的概念化:「要するに、こういう場面ではこうするとよい」という一般化された教訓を言葉にする</li><li>能動的実験: その教訓を試す次の機会を具体的に決める</li><li>試した結果を新たな経験として、サイクルを回し続ける</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>仕事の節目、研修後、育成面談。「経験は積んでいるのに成長実感がない」時</dd></div>
+          <div><dt>由来</dt><dd>組織行動学者 David A. Kolb が『Experiential Learning: Experience as the Source of Learning and Development』(1984) で提唱。デューイ、レヴィン、ピアジェの学習論を統合したもの。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>経験学習研究・人材開発研究で最も引用される理論の一つ。企業の人材育成(経験からの学習を重視する「70:20:10」等)の理論的支柱となっている。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>日本のビジネス現場では「概念化」が省略されがち。「この教訓を後輩に一言で伝えるなら?」と問うと抽象化しやすい。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="fukaku">
+      <figure class="card-fig"><span class="mon m5" aria-hidden="true">巡</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.020</span>
+          <h3>ギブスのリフレクティブ・サイクル</h3>
+          <p class="latin">Gibbs' Reflective Cycle</p>
+          <p class="card-time">⏱ 所要 30分〜1時間</p>
+        </div>
+        <span class="badge fukaku">深く掘り下げる</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>描写→感情→評価→分析→結論→行動計画の6段階で、一つの経験を徹底的に振り返る型。</dd></div>
+          <div><dt>どんな技法か</dt><dd>ひとつの出来事を6つの段階(描写・感情・評価・分析・結論・行動計画)で順に振り返る構造化モデル。感情を独立した段階として明示的に扱い、分析と結論を分けているため、深く均質な振り返りができる。看護・医療・教員養成の省察レポートで世界標準的に使われている。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>描写: 何が起きたか、事実を詳しく書く(判断しない)</li><li>感情: その時々に何を感じ、何を考えていたかを書く</li><li>評価: 良かった点と悪かった点の両方を挙げる</li><li>分析: なぜそうなったのか、意味を掘り下げる(知識や理論とも結びつける)</li><li>結論と行動計画: 何を学んだか、同じ状況が来たら何を変えるかを具体的に書く</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>重要な出来事(うまくいった/いかなかった案件、難しい対人場面)をじっくり振り返る時</dd></div>
+          <div><dt>由来</dt><dd>教育研究者 Graham Gibbs が『Learning by Doing: A Guide to Teaching and Learning Methods』(1988, Further Education Unit, Oxford Polytechnic) で提唱。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>英語圏の看護・医療・教育の専門職教育で数十年にわたり標準モデルとして採用され、省察的実践研究で最も参照されるモデルの一つ。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>6段階すべてを均等にやろうとして「描写」だけで力尽きるのが典型的失敗。描写は簡潔に、分析に時間の半分を使うとよい。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="fukaku">
+      <figure class="card-fig"><span class="mon m5" aria-hidden="true">疑</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.021</span>
+          <h3>ダブルループ学習</h3>
+          <p class="latin">Double-Loop Learning</p>
+          <p class="card-time">⏱ 所要 45分〜1.5時間</p>
+        </div>
+        <span class="badge fukaku">深く掘り下げる</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「やり方」の修正にとどまらず、その裏にある前提や価値観そのものを問い直す学習。</dd></div>
+          <div><dt>どんな技法か</dt><dd>エラーを既存の枠組みの中で修正するのがシングルループ学習、そもそもの目標・前提・価値観を問い直すのがダブルループ学習。「サーモスタットが温度を調整する」のがシングルループ、「なぜその設定温度なのか」を問うのがダブルループという比喩で知られる。同じ問題が繰り返し起きる時に必要になる、一段深い振り返り。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>繰り返し起きている問題をひとつ選ぶ</li><li>これまでの対処(シングルループ)を書き出す</li><li>「この対処は、どんな前提を疑わずに置いているか?」を問う(例:「品質より納期が絶対」)</li><li>その前提自体が妥当かを検討する(誰が決めた? 今も正しい?)</li><li>前提を変えた場合の新しい行動の選択肢を設計する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>同じ失敗が繰り返される時、改善策を打っても効かない時、組織変革の議論</dd></div>
+          <div><dt>由来</dt><dd>組織心理学者 Chris Argyris が提唱。Argyris &amp; Schön『Theory in Practice』(1974) で理論化され、Argyris の論文「Double Loop Learning in Organizations」(Harvard Business Review, 1977) で広く知られるようになった。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>組織学習論の基礎概念として、Senge の「学習する組織」など後続理論に大きな影響を与えた。経営学・組織開発分野で膨大な研究蓄積がある。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>前提を問われると人は防衛的になる(Argyrisの言う「防衛的ルーティン」)。「誰の前提が間違いか」ではなく「我々は何を当然としてきたか」と主語を広げて問うのがコツ。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="fukaku">
+      <figure class="card-fig"><span class="mon m5" aria-hidden="true">察</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.022</span>
+          <h3>行為の中の省察/行為についての省察</h3>
+          <p class="latin">Reflection-in-Action / on-Action</p>
+          <p class="card-time">⏱ 所要 行為の中は数秒〜数分/事後は15〜30分</p>
+        </div>
+        <span class="badge fukaku">深く掘り下げる</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>行動しながらその場で考えを修正する省察と、後からじっくり振り返る省察を使い分ける。</dd></div>
+          <div><dt>どんな技法か</dt><dd>熟達した実践者は、マニュアル通りではなく「行為の最中に状況と対話しながら」考えを修正している(行為の中の省察)、というSchönの洞察に基づく概念。事後の振り返り(行為についての省察)と組み合わせることで、実践の質が上がる。「省察的実践家(reflective practitioner)」という専門職像の原点。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>【行為の中】仕事の最中に「今、何が起きている? 想定と何が違う?」と一瞬立ち止まる習慣をつける</li><li>違和感を覚えたら、その場でやり方を小さく変えて反応を見る(状況との対話)</li><li>【行為の後】その日のうちに、立ち止まった瞬間・違和感・即興的にやったことを書き出す</li><li>「あの時自分は暗黙に何を判断していたか?」を言語化する</li><li>言語化した実践知を、次の類似場面で意識的に試す</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>授業・診療・ファシリテーションなど、その場の判断が問われる仕事の後</dd></div>
+          <div><dt>由来</dt><dd>哲学者・都市計画学者の Donald Schön が『The Reflective Practitioner(省察的実践とは何か)』(1983) で提唱。技術的合理性への批判として、実践知の価値を示した。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>教師教育・看護教育・専門職教育のカリキュラム設計に世界的な影響を与え、「省察的実践」は専門職開発の中核概念として定着している。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>「行為の中の省察」はいきなりはできない。まず事後の省察を習慣化すると、次第に行為の最中にも気づけるようになる。</p>
+      </div>
+    </article>
+
+    <article class="card" data-cat="fukaku">
+      <figure class="card-fig"><span class="mon m5" aria-hidden="true">免</span></figure>
+      <div class="card-head">
+        <div>
+          <span class="card-no">No.023</span>
+          <h3>免疫マップ(変革をはばむ免疫機能)</h3>
+          <p class="latin">Immunity to Change Map</p>
+          <p class="card-time">⏱ 所要 1〜2時間(その後の実験は数週間)</p>
+        </div>
+        <span class="badge fukaku">深く掘り下げる</span>
+      </div>
+      <div class="card-body">
+        <dl>
+          <div><dt>ひとことで</dt><dd>「変わりたいのに変われない」の裏にある、自分を守る隠れた目標と固定観念を4列の表であぶり出す。</dd></div>
+          <div><dt>どんな技法か</dt><dd>改善目標に対して、自分がやってしまっている阻害行動、その裏にある「裏の目標(隠れた自己防衛)」、さらにその根っこの「強力な固定観念」を4列のマップに書き出す技法。変われないのは意志が弱いからではなく、心が別の何かを守ろうと「免疫反応」を起こしているから、という発想の転換が核心。大人の深い行動変容を扱う代表的手法。</dd></div>
+          <div><dt>やり方</dt><dd><ol class="how"><li>1列目: 心から達成したい改善目標を書く(例:「もっと権限委譲する」)</li><li>2列目: その目標に反して自分が実際にやっている/やっていない行動を正直に書く</li><li>3列目: 2列目の行動をやめたらどんな不安があるかを想像し、そこから「裏の目標」(例:「有能だと思われ続けたい」)を特定する</li><li>4列目: 裏の目標を支える「強力な固定観念」(例:「人に任せて失敗したら私の価値はない」)を言葉にする</li><li>固定観念を検証する小さく安全な実験を設計し、実行して観察する</li></ol></dd></div>
+          <div><dt>こんなときに</dt><dd>何度も同じ目標を立てては挫折している時、リーダーシップ開発、コーチング</dd></div>
+          <div><dt>由来</dt><dd>ハーバード大学教育大学院の発達心理学者 Robert Kegan と Lisa Lahey が開発。『How the Way We Talk Can Change the Way We Work』(2001) で原型を示し、『Immunity to Change(なぜ人と組織は変われないのか)』(2009) で体系化。成人発達理論に基づく。</dd></div>
+          <div><dt>たしかめられ方</dt><dd>ハーバードでの長年の研究と企業・行政での豊富な適用事例に基づく。コーチングや組織開発の分野で深い行動変容の標準的手法として普及している。</dd></div>
+        </dl>
+        <p class="card-q"><span class="card-q-label">コツ</span>3〜4列目は一人では甘くなりがちなので、ペアや伴走者と行うのが効果的。固定観念は「反証を探す実験」で扱い、意志力で否定しようとしないこと。</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== 第四章 逆引き ===== -->
+<section class="section" id="reverse">
+  <div class="sec-head"><span class="sec-no">第四章</span><h2>逆引き ─ こんなときに、この技法</h2></div>
+  <p class="sec-lead">その日の状況から、合いそうな技法を引ける。迷ったら、所要時間の短いものから試すとよい。</p>
+  <div class="rev-table-wrap">
+    <table class="rev">
+      <thead>
+        <tr><th>こんなとき</th><th>合いそうな技法</th><th>はじめの一歩</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>ひとりで、頭の中を整理したい</th>
+          <td>ジャーナリング・モーニングページ・エクスプレッシブ・ライティング</td>
+          <td>タイマーをかけ、手を止めず数分書き出す。うまく書こうとしない</td>
+        </tr>
+        <tr>
+          <th>気持ちがざわついて、動けない</th>
+          <td>セルフコンパッション・レター・セルフトーク距離化・認知的再評価</td>
+          <td>自分を友人のように扱う。別の見方を、最低3つ考えてみる</td>
+        </tr>
+        <tr>
+          <th>チームの経験を、次に活かしたい</th>
+          <td>KPT・YWT・レトロスペクティブ・AAR</td>
+          <td>「人ではなく出来事」を見る。次の一手を1〜3個に絞る</td>
+        </tr>
+        <tr>
+          <th>大事な計画の、失敗を防ぎたい</th>
+          <td>プレモーテム</td>
+          <td>「もう失敗した」と仮定して、その理由を先に洗い出す</td>
+        </tr>
+        <tr>
+          <th>同じ失敗を、くり返してしまう</th>
+          <td>ダブルループ学習・免疫マップ・経験学習サイクル</td>
+          <td>対処ではなく、その裏にある前提そのものを問い直す</td>
+        </tr>
+        <tr>
+          <th>人に、助言を贈りたい</th>
+          <td>フィードフォワード・GROWモデルの問い</td>
+          <td>過去の批評ではなく、これからできる提案を渡す</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>ふりかえりは、ひとりでも。深まるのは、対話の中で。</h2>
+    <p>技法を知っただけでは、学びは深まらない。深まるのは、実際に安心して話し、問い、ふりかえる場の中でだ。その練習の場を、この工房は用意しています。</p>
+    <div class="cta-check">
+      ・本音を出し、ふりかえる筋肉を鍛えるなら → デモクラシーフィットネス<br>
+      ・話し合いそのものの技法を知るなら → 世界の対話の技法図鑑<br>
+      ・成長のしくみと対にして読むなら → 学びと成長の法則図鑑へ
+    </div>
+    <div class="cta-btns">
+      <a class="btn btn-primary" href="./democracy-fitness.html">デモクラシーフィットネスを見る</a>
+      <a class="btn btn-ghost" href="./growth-laws-zukan.html">学びと成長の法則図鑑を見る</a>
+    </div>
+  </div>
+</section>
+
+<details class="sources" style="margin-top:48px">
+  <summary>出典・参考(主なもの)</summary>
+  <p>ジェームズ・ペネベイカー（筆記開示）/ロバート・エモンズ＆マイケル・マカロー（感謝日記）/ジュリア・キャメロン（モーニングページ）/文化事業協会ICA、ブライアン・スタンフィールド（ORID）/ジョン・ウィットモア（GROWモデル）/テリー・ボートン、ゲイリー・ロルフ（What/So What/Now What）/ロジャー・グリーナウェイ（4F）/クリスティン・ネフ（セルフコンパッション）/イーサン・クロス（セルフトーク距離化）/ジェームズ・グロス（認知的再評価）/スティーブン・ヘイズ（脱フュージョン・ACT）/平鍋健児、アリスター・コーバーン（KPT）/日本能率協会コンサルティング（YWT）/ノーマン・カース、エスター・ダービー＆ダイアナ・ラーセン（レトロスペクティブ）/米陸軍（AAR）/ゲイリー・クライン（プレモーテム）/マーシャル・ゴールドスミス（フィードフォワード）/デイヴィッド・コルブ（経験学習サイクル）/グラハム・ギブス（リフレクティブ・サイクル）/クリス・アージリス、ドナルド・ショーン（ダブルループ学習・行為の中の省察）/ロバート・キーガン＆リサ・ラスコウ・レイヒー（免疫マップ）ほか。各カードの記述は公開された書籍・研究をもとに、きづきくみたて工房が要約・再構成したものです。</p>
+</details>
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.tab');
+  var cards = document.querySelectorAll('.card');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var f = tab.getAttribute('data-filter');
+      cards.forEach(function(c){
+        if(f === 'all' || c.getAttribute('data-cat') === f){ c.classList.remove('hidden'); }
+        else{ c.classList.add('hidden'); }
+      });
+    });
+  });
+})();
+</script>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./growth-laws-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">学びと成長の法則図鑑</span><span class="kaiyu-desc">テスト効果・忘却曲線・成長マインドセット・心理的安全性……科学が確かめた学びと成長の法則23種を、根拠と但し書きと今日ためせる一手つきで収蔵。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-zukan.html"><span class="kaiyu-tag">図鑑・実践編</span><span class="kaiyu-name">世界の対話の技法図鑑</span><span class="kaiyu-desc">世界中で発明されてきた対話の技法を、出典つきで集めた図鑑。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./systems-thinking-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">図鑑・見る技術</span><span class="kaiyu-name">システム思考図鑑</span><span class="kaiyu-desc">因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+  /* グローバルナビ開閉（standard variant・台帳生成対象外なので各ページに持つ） */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if (hamburger && mobileMenu) {
+    function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  }
+</script>
+
+</body>
+</html>
