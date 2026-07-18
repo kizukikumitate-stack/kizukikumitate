@@ -6,6 +6,7 @@ on:
     paths:
       - 'data/nav.json'
       - 'scripts/update-nav.py'
+      - 'scripts/update-rocket-map.py'
       - '**/*.html'
   workflow_dispatch:          # 手動実行も可能
 
@@ -27,6 +28,12 @@ jobs:
       # 台帳の検証も兼ねる。台帳に未登録のページがあると、ここで失敗して気づける。
       - name: Regenerate nav & footer (ナビ・フッターを台帳から再生成)
         run: python3 scripts/update-nav.py
+
+      # サイト全体図（ロケット）の扉リンクも同じ台帳から再生成する。
+      # 図鑑・ソリューション・計算機などにページを足して nav.json を更新すれば、
+      # ロケット図の該当区画の扉も自動で追従する。
+      - name: Regenerate rocket-map doors (ロケット全体図の扉を台帳から再生成)
+        run: python3 scripts/update-rocket-map.py
 
       - name: Commit if changed
         run: |
