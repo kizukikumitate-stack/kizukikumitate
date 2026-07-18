@@ -58,6 +58,7 @@
           { "label": "社会の仕組み図鑑", "href": "shikumi-zukan.html" },
           { "label": "世界の貧困解決アイデア図鑑", "href": "poverty-zukan.html" },
           { "label": "合意形成図鑑", "href": "goikeisei-zukan.html" },
+          { "label": "システム思考図鑑", "href": "https://kizukikumitate-stack.github.io/systems-thinking-zukan/", "external": true },
           { "label": "おすすめTED集", "href": "ted-collection.html" },
           { "label": "ノーベル平和賞", "href": "nobel-peace.html" },
           { "label": "連載・気づきから組み立てる", "href": "series/" }
