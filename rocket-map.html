@@ -866,6 +866,15 @@
   .rocket-map .rkt-ws{position:fixed; inset:0; z-index:410}
   .rocket-map .rkt-ws[hidden]{display:none}
   .rocket-map .rkt-ws-veil{position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(10,8,24,.18), rgba(10,8,24,.6) 90%)}
+  .rocket-map .rkt-ws.q-mode .rkt-ws-veil{background:rgba(10,8,24,.18)}
+  .rocket-map .rkt-ws-card.edge{width:min(370px, 28vw); padding:22px 24px 24px}
+  .rocket-map .rkt-ws-card.edge .rkt-ws-q{font-size:clamp(17px, 1.8vw, 26px); line-height:1.85}
+  .rocket-map .rkt-ws-card.edge-l{left:18px; right:auto; top:50%; transform:translateY(-50%)}
+  .rocket-map .rkt-ws-card.edge-r{left:auto; right:18px; top:50%; transform:translateY(-50%)}
+  .rocket-map .sky-wide{transition:transform .45s ease}
+  body.rkt-ws-shift-l .rocket-map .sky-wide{transform:translateX(-160px) scale(.94)}
+  body.rkt-ws-shift-r .rocket-map .sky-wide{transform:translateX(160px) scale(.94)}
+  @media (prefers-reduced-motion: reduce){ .rocket-map .sky-wide{transition:none} }
   .rocket-map .rkt-ws-card{position:fixed; z-index:420; left:50%; top:40%; transform:translate(-50%,-50%); width:min(680px, 88vw); background:#16132a; border:2.5px solid var(--gold); border-radius:20px; padding:26px 30px 28px; box-shadow:0 18px 60px rgba(0,0,0,.55); color:var(--washi)}
   .rocket-map .rkt-ws-card.anchored{transform:none}
   .rocket-map .rkt-ws-card::before{content:""; position:absolute; width:0; height:0; border:14px solid transparent; display:none}
@@ -892,7 +901,7 @@
   .rocket-map .spot.ws-glow .halo{opacity:.55}
   body.rkt-ws-on nav, body.rkt-ws-on .mobile-menu{display:none}
   @media (max-width: 860px){
-    .rocket-map .rkt-ws-card, .rocket-map .rkt-ws-card.anchored{left:12px; right:12px; top:auto; bottom:78px; width:auto; transform:none; padding:18px 18px 20px}
+    .rocket-map .rkt-ws-card, .rocket-map .rkt-ws-card.anchored, .rocket-map .rkt-ws-card.edge, .rocket-map .rkt-ws-card.edge-l, .rocket-map .rkt-ws-card.edge-r{left:12px; right:12px; top:auto; bottom:78px; width:auto; transform:none; padding:18px 18px 20px}
     .rocket-map .rkt-ws-card.tail-left::before, .rocket-map .rkt-ws-card.tail-right::before{display:none}
     .rocket-map .rkt-ws-ctrl .rkt-ws-keys{display:none}
   }
@@ -2064,20 +2073,22 @@
     if (!key){ return; }
     document.querySelectorAll('.spot[data-spot="' + key + '"]').forEach(function(s){ s.classList.add("ws-glow"); });
   }
-  function wsPlace(anchorKey){
-    wsCard.classList.remove("anchored", "tail-left", "tail-right");
+  function wsPlace(anchorKey, mode){
+    /* mode "edge": 吹き出しを左右の端に置き、ロケット図を反対側へ寄せて全体を見せたままにする */
+    wsCard.classList.remove("anchored", "tail-left", "tail-right", "edge", "edge-l", "edge-r");
     wsCard.style.left = ""; wsCard.style.top = ""; wsCard.style.right = "";
-    if (!anchorKey || window.innerWidth < 860){ return; }
-    var sp = wsVisibleSpot(anchorKey);
-    if (!sp){ return; }
-    var r = sp.getBoundingClientRect();
-    var cw = Math.min(680, window.innerWidth * 0.88);
-    var onRight = (r.left + r.width / 2) < window.innerWidth / 2;
-    var left = onRight ? Math.min(r.right + 30, window.innerWidth - cw - 16) : Math.max(16, r.left - cw - 30);
-    var top = Math.max(76, Math.min(r.top + r.height / 2 - 90, window.innerHeight - 320));
-    wsCard.classList.add("anchored", onRight ? "tail-left" : "tail-right");
-    wsCard.style.left = left + "px";
-    wsCard.style.top = top + "px";
+    document.body.classList.remove("rkt-ws-shift-l", "rkt-ws-shift-r");
+    wsRoot.classList.remove("q-mode");
+    if (mode !== "edge" || window.innerWidth < 860){ return; }
+    wsRoot.classList.add("q-mode");
+    var side = "r";
+    var sp = anchorKey ? wsVisibleSpot(anchorKey) : null;
+    if (sp){
+      var r = sp.getBoundingClientRect();
+      if (r.left + r.width / 2 > window.innerWidth / 2){ side = "l"; }
+    }
+    wsCard.classList.add("edge", side === "l" ? "edge-l" : "edge-r", side === "l" ? "tail-right" : "tail-left");
+    document.body.classList.add(side === "l" ? "rkt-ws-shift-r" : "rkt-ws-shift-l");
   }
   function wsDots(){
     var total = wsQs.length + 1;
@@ -2125,13 +2136,13 @@
     }
     if (wsStep < wsQs.length){
       var anchor = WS_ANCHORS[wsStep % WS_ANCHORS.length];
-      wsGlow(anchor); wsPlace(anchor);
+      wsGlow(anchor); wsPlace(anchor, "edge");
       wsCard.appendChild(el("p", "rkt-ws-kicker", "問い " + (wsStep + 1) + " / " + wsQs.length));
       wsCard.appendChild(el("p", "rkt-ws-q", wsQs[wsStep]));
       return;
     }
     if (wsStep === wsQs.length){
-      wsGlow("belt"); wsPlace("belt");
+      wsGlow("belt"); wsPlace("belt", "edge");
       wsCard.appendChild(el("p", "rkt-ws-kicker", "最後の問い"));
       wsCard.appendChild(el("p", "rkt-ws-q", "今日は、どの小惑星を回避する対話をする?"));
       var chips = el("div", "rkt-ws-chips");
@@ -2179,7 +2190,8 @@
   }
   function wsExit(){
     wsRoot.hidden = true;
-    document.body.classList.remove("rkt-ws-on");
+    document.body.classList.remove("rkt-ws-on", "rkt-ws-shift-l", "rkt-ws-shift-r");
+    wsRoot.classList.remove("q-mode");
     wsGlow(null);
     wsStep = -1;
     if (location.search.indexOf("workshop=") !== -1){
