@@ -149,6 +149,21 @@ Democracy Fitness 等のハブ。
 - 新着枠（3枠目）は `added` が最新のページを全体から自動選出するため、有料・限定物を
   普通に追加すると全ページのフッターに勝手に露出する。有料物は必ず `auto:false` を付ける
 
+### OGP画像（台帳で生成・全ページ専用画像）
+
+各ページの og:image は `data/ogp.json`（台帳）＋ `.claude/scripts/build-ogp.sh` で
+生成・配線する。ナビ・回遊バンドと同じ「台帳が唯一の正」方式。
+
+- **新規ページ** → `data/ogp.json` の `pages` に1エントリ追加
+  （`page`/`img`/`template`=standard|calc/`theme`=paper|night/`acc`/`eyebrow`/`title`/`sub`）
+  → `./.claude/scripts/build-ogp.sh --only <img>` を実行 → 生成画像とHTMLをcommit
+- 全再生成は引数なし、確認だけは `--check`（画像未生成・台帳未登録で汎用のままを検出）
+- 意図的に汎用 `ogp.png` のままにするページ（法定表記など）は `_exclude` に理由付きで登録
+- 数字を扱うページ（未来リスク計算機）は `template:"calc"`（「簡易試算」バッジ＋
+  具体値なしの概念チャート）を使い、コピーは中立・煽らない（数字ページの原則と整合）
+- 画像は 1200×630・ルート直下 `<name>-ogp.png`。`systems-thinking-zukan` だけは
+  因果ループ図入りの専用デザイン（台帳外・`_bespoke`）
+
 ### 文言のトーン（森本さんの好み）
 
 - 「乗り越える」「倒す」等の対決・負荷感のある語を避け、「対になる」「向き合う」等の中立表現を使う
