@@ -15,8 +15,7 @@
   ],
   "_exclude": {
     "tokushoho.html": "法定表記ページ。汎用ogp.pngで可",
-    "tax-revenue-countdown.html": "一時非表示中。再公開時にcalcテンプレで作成する",
-    "rocket-map.html": "サイト全体図（ロケット）。当面は汎用ogp.png。将来ロケット図の専用画像を作れる"
+    "tax-revenue-countdown.html": "一時非表示中。再公開時にcalcテンプレで作成する"
   },
   "pages": [
     {
@@ -118,6 +117,16 @@
       "eyebrow": "VISION ／ 目指す未来",
       "title": "世界平和までの<br>ロードマップ",
       "sub": "平和は、人の認知能力から始まる。工房の全体地図となる論考。"
+    },
+    {
+      "page": "rocket-map.html",
+      "img": "rocket-map-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#d9a441",
+      "eyebrow": "目指す未来 ／ 工房の全体図",
+      "title": "平和な地球行きロケット",
+      "sub": "過去を発射台に、対話の工房と事業のエンジンを積んで、平和な地球へ。工房のすべてを一枚に。"
     },
     {
       "page": "ashimoto-map.html",
