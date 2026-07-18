@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img">
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+<rect width="800" height="600" fill="#faf8f2"/>
+<rect x="0" y="0" width="800" height="600" fill="#16132a"/>
+<rect x="0" y="0" width="800" height="600" fill="#2c3555" opacity="0.25"/>
+<g><rect x="470" y="150" width="150" height="120" rx="8" fill="#faf8f2"/><circle cx="588" cy="182" r="20" fill="#d9a441"/><path d="M470,242 Q520,208 560,236 Q590,214 620,232 L620,270 L470,270 Z" fill="#0f6e56"/><path d="M470,256 Q530,236 620,252 L620,270 L470,270 Z" fill="#3f8f79" opacity="0.7"/></g>
+<rect x="470" y="150" width="150" height="120" rx="8" fill="none" stroke="#d9a441" stroke-width="6"/>
+<rect x="470" y="150" width="150" height="120" rx="8" fill="#d9a441" opacity="0.08"/>
+<path d="M470,270 L400,600 L700,600 L620,270 Z" fill="#d9a441" opacity="0.07"/>
+<g transform="translate(540,600)"><path d="M-52,0 L-52,-185 Q-52,-232 0,-232 Q52,-232 52,-185 L52,0 Z" fill="#3a4066"/><circle cx="0" cy="-258" r="36" fill="#2a2f4e"/></g>
+<rect width="800" height="600" filter="url(#g)" opacity="0.05"/>
+</svg>

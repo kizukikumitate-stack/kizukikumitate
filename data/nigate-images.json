@@ -1,0 +1,126 @@
+{
+ "_readme": "ホモ・サピエンスの苦手図鑑のカード画像台帳。生成→create-design-from-candidate→export(png,width800)→export_urlをここに記入→scripts/fetch-nigate-images.py実行で、DL・WebP変換(q82)・nigate-zukan.htmlの紋プレースホルダー差し替えまで自動で行う。design_typeはinstagram_post、候補は1番を既定採用(Canva上で変更可)。",
+ "status": "2026-07-18: 全12カードに自作SVGイラストを実装済み(images/nigate/*.svg)。Canva版(No.001-004生成済み、design_id記載)は品質を見て差し替え判断。差し替える場合はexport_urlを記入してscripts/fetch-nigate-images.pyを実行(SVG→WebPを自動置換)。005以降のCanva生成はクォータ回復後に台帳のpromptで再開可能。",
+ "cards": [
+  {
+   "no": "001",
+   "mon": "今",
+   "slug": "ima",
+   "title": "現在バイアス",
+   "alt": "目の前の金色の果実に手を伸ばす人。遠くの地平線には嵐と高潮が静かに迫っている",
+   "design_id": "DAHPiULMXhE",
+   "export_url": "https://export-download.canva.com/LMXhE/DAHPiULMXhE/-1/0/0001-5172893838192961200.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260715%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260715T200134Z&X-Amz-Expires=53787&X-Amz-Signature=5561a850f09a25bbbd19f1821b8e500ffecad6454b72dc9c6ee0c84b3e65fa06&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Thu%2C%2016%20Jul%202026%2010%3A58%3A01%20GMT",
+   "prompt": "Flat illustration, no text at all. A person in muted clothing reaching eagerly for a ripe golden fruit on a branch right in front of them, while behind them on the far horizon, dark storm clouds and rising flood water slowly approach, ignored. Metaphor for present bias: the near reward outweighs the distant threat. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "002",
+   "mon": "惜",
+   "slug": "oshimi",
+   "title": "損失回避",
+   "alt": "古い包みを胸に抱きしめる人のそばを、金色の鳥が通り過ぎていく",
+   "design_id": "DAHPjtqzOKs",
+   "export_url": "https://export-download.canva.com/qzOKs/DAHPjtqzOKs/-1/0/0001-7222031686396382642.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260716%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260716T012047Z&X-Amz-Expires=51569&X-Amz-Signature=00e4c3f045123a6203f158135c62901f43a5f15ea0dbed9b7213c3e8261fb4fb&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Thu%2C%2016%20Jul%202026%2015%3A40%3A16%20GMT",
+   "prompt": "Flat illustration, no text at all. A person tightly clutching a worn old bundle to their chest with both arms, eyes closed, while a radiant golden bird flies past just out of reach, offering something better. Metaphor for loss aversion: the pain of losing outweighs the joy of gaining. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "003",
+   "mon": "据",
+   "slug": "sue",
+   "title": "現状維持バイアス",
+   "alt": "深く踏み固められた道を歩く人。脇には誰も歩いていない明るい小道が分かれている",
+   "design_id": "DAHPowVU5XA",
+   "export_url": "https://export-download.canva.com/VU5XA/DAHPowVU5XA/-1/0/0001-4409533812702852473.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T095620Z&X-Amz-Expires=12807&X-Amz-Signature=2e92eb29f152da7a5990884c202d94ea93a6e5b1f1923e3ce117babb342bb9e7&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Fri%2C%2017%20Jul%202026%2013%3A29%3A47%20GMT",
+   "prompt": "Flat illustration, no text at all. A lone walker on a deeply worn, groove-like path pressed into a grassy field by countless footsteps, while a fresh untrodden side path branches off toward warm golden light, unnoticed. Metaphor for status quo bias: the familiar route is chosen by default. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "004",
+   "mon": "顔",
+   "slug": "kao",
+   "title": "ダンバー数",
+   "alt": "焚き火を囲む十数人の輪。光の外では無数の影が藍色の闇に溶けていく",
+   "design_id": "DAHPtr7x-Pk",
+   "export_url": "https://export-download.canva.com/7x-Pk/DAHPtr7x-Pk/-1/0/0001-7029502976520331286.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUH5AO7UJ26%2F20260717%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260717T171609Z&X-Amz-Expires=55277&X-Amz-Signature=deec0228e967b8283d1192f17c464758472188926434cee6aa57cc7a8b096e93&X-Amz-SignedHeaders=host%3Bx-amz-expected-bucket-owner&response-expires=Sat%2C%2018%20Jul%202026%2008%3A37%3A26%20GMT",
+   "prompt": "Flat illustration, no text at all. A small warm circle of about twelve people sitting around a campfire at night, their faces lit and distinct, while beyond the firelight countless faceless silhouettes fade into deep indigo darkness. Metaphor for Dunbar's number: faces are visible only up to 150 people. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "005",
+   "mon": "数",
+   "slug": "kazu",
+   "title": "統計的被害者への無関心",
+   "alt": "手前に一人の子どもの姿がはっきりと描かれ、背後では群衆が無数の点に溶けていく",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. In the foreground, one small child rendered clearly and warmly in detail; behind them, an enormous crowd gradually dissolves into abstract identical dots stretching to the horizon. Metaphor for psychic numbing: one visible person moves the heart, a million become statistics. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "006",
+   "mon": "共",
+   "slug": "tomo",
+   "title": "共有地の悲劇",
+   "alt": "水位の下がった湖で、たくさんの小舟がいっせいに網を引いている",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. A shared lake with visibly lowered water level, ringed by many small fishing boats all pulling nets at once, only a few fish left in the teal water. No villain, everyone acting reasonably. Metaphor for the tragedy of the commons. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "007",
+   "mon": "垣",
+   "slug": "kaki",
+   "title": "内集団びいき",
+   "alt": "生け垣をはさんで向き合う二つの人の群れ。両側の人々はよく似ている",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. Two groups of people facing each other across a low hedge fence; the people on both sides look almost identical, but one side is rendered in warm gold and orange tones, the other in cool indigo and teal. Metaphor for in-group favoritism: the fence creates the difference. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "008",
+   "mon": "奪",
+   "slug": "ubai",
+   "title": "ゼロサム直感",
+   "alt": "一つのパンを両側から引っ張り合う二人。背後では麦畑が豊かに実っている",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. Two people pulling opposite ends of a single loaf of bread, straining, while directly behind them a vast golden wheat field grows abundant and unnoticed. Metaphor for zero-sum thinking: fighting over a fixed pie while the pie could grow. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "009",
+   "mon": "較",
+   "slug": "kurabe",
+   "title": "地位への敏感さ",
+   "alt": "高さの違うはしごを登る人々。みな一段上ばかりを見上げている",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. Several people climbing separate ladders of different heights reaching into the sky, each person looking up enviously at the next taller ladder, nobody noticing the beautiful landscape below. Metaphor for status competition: an endless upward comparison. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "010",
+   "mon": "信",
+   "slug": "shin",
+   "title": "確証バイアス",
+   "alt": "広大な風景のうち、小さな窓から見える一部分だけを眺めている人",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. A person contentedly gazing through one small warm-lit window in a large dark wall; through the window only a tiny golden slice of an enormous varied landscape is visible. Metaphor for confirmation bias: seeing only what one already believes. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "011",
+   "mon": "空",
+   "slug": "kuuki",
+   "title": "多元的無知",
+   "alt": "円卓を囲む人々。全員が同じ穏やかな仮面を顔の少し手前に掲げている",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. People seated around a round meeting table, every one of them holding up an identical calm smiling mask slightly in front of their face; behind the masks their true expressions differ. Metaphor for pluralistic ignorance: everyone privately doubts, everyone publicly agrees. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  },
+  {
+   "no": "012",
+   "mon": "従",
+   "slug": "shitagai",
+   "title": "権威勾配",
+   "alt": "大きな影に向かって列をなして歩く小さな人々。一人だけ立ち止まって振り返っている",
+   "design_id": null,
+   "export_url": null,
+   "prompt": "Flat illustration, no text at all. Rows of small figures walking in an orderly line toward one very tall dark silhouette on a hill; one single small figure has stopped and turned around, hesitating. Metaphor for authority gradient: following the tall figure is easy, questioning is hard. Style: flat organic shapes, paper-grain washi texture, Japanese picture-book aesthetic, muted palette of cream washi #faf8f2 background, deep indigo #16132a, muted gold #d9a441, teal #0f6e56, burnt orange #d85a30. Absolutely no text, no letters, no words, no typography, no captions, no logos."
+  }
+ ]
+}

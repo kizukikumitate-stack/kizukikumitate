@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img">
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+<rect width="800" height="600" fill="#faf8f2"/>
+<path d="M0,600 L0,455 Q400,425 800,455 L800,600 Z" fill="#efe9da"/>
+<rect x="384" y="330" width="32" height="180" fill="#7a6a45"/>
+<circle cx="400" cy="315" r="52" fill="#0f6e56"/>
+<circle cx="392" cy="307" r="28.6" fill="#3f8f79" opacity="0.5"/>
+<circle cx="400" cy="268" r="42" fill="#0f6e56"/>
+<circle cx="392" cy="260" r="23.1" fill="#3f8f79" opacity="0.5"/>
+<circle cx="368" cy="340" r="34" fill="#0f6e56"/>
+<circle cx="360" cy="332" r="18.700000000000003" fill="#3f8f79" opacity="0.5"/>
+<circle cx="432" cy="340" r="34" fill="#0f6e56"/>
+<circle cx="424" cy="332" r="18.700000000000003" fill="#3f8f79" opacity="0.5"/>
+<g transform="translate(265,520) rotate(3)"><path d="M-31.5,0 L-31.5,-99.6 Q-31.5,-121.2 0,-121.2 Q31.5,-121.2 31.5,-99.6 L31.5,0 Z" fill="#d85a30"/><circle cx="0" cy="-136.8" r="24.0" fill="#f0dcc0"/></g>
+<g transform="translate(180,520) rotate(3)"><path d="M-28.56,0 L-28.56,-90.304 Q-28.56,-109.888 0,-109.888 Q28.56,-109.888 28.56,-90.304 L28.56,0 Z" fill="#d9a441"/><circle cx="0" cy="-124.032" r="21.76" fill="#f0dcc0"/></g>
+<g transform="translate(95,520) rotate(3)"><path d="M-25.619999999999997,0 L-25.619999999999997,-81.00800000000001 Q-25.619999999999997,-98.576 0,-98.576 Q25.619999999999997,-98.576 25.619999999999997,-81.00800000000001 L25.619999999999997,0 Z" fill="#d85a30"/><circle cx="0" cy="-111.264" r="19.52" fill="#f0dcc0"/></g>
+<g transform="translate(535,520) rotate(-3)"><path d="M-31.5,0 L-31.5,-99.6 Q-31.5,-121.2 0,-121.2 Q31.5,-121.2 31.5,-99.6 L31.5,0 Z" fill="#16132a"/><circle cx="0" cy="-136.8" r="24.0" fill="#f0dcc0"/></g>
+<g transform="translate(620,520) rotate(-3)"><path d="M-28.56,0 L-28.56,-90.304 Q-28.56,-109.888 0,-109.888 Q28.56,-109.888 28.56,-90.304 L28.56,0 Z" fill="#0f6e56"/><circle cx="0" cy="-124.032" r="21.76" fill="#f0dcc0"/></g>
+<g transform="translate(705,520) rotate(-3)"><path d="M-25.619999999999997,0 L-25.619999999999997,-81.00800000000001 Q-25.619999999999997,-98.576 0,-98.576 Q25.619999999999997,-98.576 25.619999999999997,-81.00800000000001 L25.619999999999997,0 Z" fill="#2c3555"/><circle cx="0" cy="-111.264" r="19.52" fill="#f0dcc0"/></g>
+<rect width="800" height="600" filter="url(#g)" opacity="0.05"/>
+</svg>

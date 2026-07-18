@@ -665,6 +665,36 @@
         "bellmark",
         "pta-dialogue-kit"
       ]
+    },
+    {
+      "id": "nigate-zukan",
+      "path": "nigate-zukan.html",
+      "title": "ホモ・サピエンスの苦手図鑑",
+      "tag": "世界の知恵",
+      "desc": "20万年前の脳で現代を生きる私たちの、人類共通の「苦手」12種を、進化の由来と処方箋つきで収蔵。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "chie-zukan",
+        "democracy-fitness"
+      ]
+    },
+    {
+      "id": "chie-zukan",
+      "path": "chie-zukan.html",
+      "title": "ホモ・サピエンスの知恵図鑑",
+      "tag": "世界の知恵",
+      "desc": "効力感・心理的安全性・メタ認知……人がもともと持ち、育てられる力を50種収蔵。『苦手図鑑』と対になる一冊。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "nigate-zukan",
+        "dialogue-zukan"
+      ]
     }
   ]
 }

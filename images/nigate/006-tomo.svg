@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img">
+<filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+<rect width="800" height="600" fill="#faf8f2"/>
+<ellipse cx="400" cy="360" rx="360" ry="185" fill="#cbb98f"/>
+<ellipse cx="400" cy="368" rx="300" ry="150" fill="#b7a276"/>
+<ellipse cx="400" cy="375" rx="250" ry="120" fill="#0f6e56"/>
+<ellipse cx="400" cy="375" rx="250" ry="120" fill="#3f8f79" opacity="0.3"/>
+<path d="M375,392 Q390,384 402,392 Q390,400 375,392 Z M402,392 L412,386 L412,398 Z" fill="#d9a441" opacity="0.85"/>
+<g transform="translate(215,330) scale(1,1)"><path d="M-52,0 Q0,26 52,0 L38,16 Q0,34 -38,16 Z" fill="#16132a"/><g transform="translate(-8,4) rotate(0)"><path d="M-10.92,0 L-10.92,-34.528 Q-10.92,-42.016 0,-42.016 Q10.92,-42.016 10.92,-34.528 L10.92,0 Z" fill="#d85a30"/><circle cx="0" cy="-47.424" r="8.32" fill="#f0dcc0"/></g>
+<path d="M6,-24 Q40,-6 58,26" stroke="#16132a" stroke-width="5" fill="none"/><path d="M58,26 q-8,18 8,30 q16,-8 10,-28 Z" fill="none" stroke="#16132a" stroke-width="3.5"/><path d="M52,36 l18,10 M56,46 l14,-6" stroke="#16132a" stroke-width="2.5"/></g>
+<g transform="translate(400,288) scale(1,1)"><path d="M-52,0 Q0,26 52,0 L38,16 Q0,34 -38,16 Z" fill="#16132a"/><g transform="translate(-8,4) rotate(0)"><path d="M-10.92,0 L-10.92,-34.528 Q-10.92,-42.016 0,-42.016 Q10.92,-42.016 10.92,-34.528 L10.92,0 Z" fill="#d85a30"/><circle cx="0" cy="-47.424" r="8.32" fill="#f0dcc0"/></g>
+<path d="M6,-24 Q40,-6 58,26" stroke="#16132a" stroke-width="5" fill="none"/><path d="M58,26 q-8,18 8,30 q16,-8 10,-28 Z" fill="none" stroke="#16132a" stroke-width="3.5"/><path d="M52,36 l18,10 M56,46 l14,-6" stroke="#16132a" stroke-width="2.5"/></g>
+<g transform="translate(575,330) scale(-1,1)"><path d="M-52,0 Q0,26 52,0 L38,16 Q0,34 -38,16 Z" fill="#16132a"/><g transform="translate(-8,4) rotate(0)"><path d="M-10.92,0 L-10.92,-34.528 Q-10.92,-42.016 0,-42.016 Q10.92,-42.016 10.92,-34.528 L10.92,0 Z" fill="#d85a30"/><circle cx="0" cy="-47.424" r="8.32" fill="#f0dcc0"/></g>
+<path d="M6,-24 Q40,-6 58,26" stroke="#16132a" stroke-width="5" fill="none"/><path d="M58,26 q-8,18 8,30 q16,-8 10,-28 Z" fill="none" stroke="#16132a" stroke-width="3.5"/><path d="M52,36 l18,10 M56,46 l14,-6" stroke="#16132a" stroke-width="2.5"/></g>
+<g transform="translate(250,430) scale(1,1)"><path d="M-52,0 Q0,26 52,0 L38,16 Q0,34 -38,16 Z" fill="#16132a"/><g transform="translate(-8,4) rotate(0)"><path d="M-10.92,0 L-10.92,-34.528 Q-10.92,-42.016 0,-42.016 Q10.92,-42.016 10.92,-34.528 L10.92,0 Z" fill="#d85a30"/><circle cx="0" cy="-47.424" r="8.32" fill="#f0dcc0"/></g>
+<path d="M6,-24 Q40,-6 58,26" stroke="#16132a" stroke-width="5" fill="none"/><path d="M58,26 q-8,18 8,30 q16,-8 10,-28 Z" fill="none" stroke="#16132a" stroke-width="3.5"/><path d="M52,36 l18,10 M56,46 l14,-6" stroke="#16132a" stroke-width="2.5"/></g>
+<g transform="translate(545,435) scale(-1,1)"><path d="M-52,0 Q0,26 52,0 L38,16 Q0,34 -38,16 Z" fill="#16132a"/><g transform="translate(-8,4) rotate(0)"><path d="M-10.92,0 L-10.92,-34.528 Q-10.92,-42.016 0,-42.016 Q10.92,-42.016 10.92,-34.528 L10.92,0 Z" fill="#d85a30"/><circle cx="0" cy="-47.424" r="8.32" fill="#f0dcc0"/></g>
+<path d="M6,-24 Q40,-6 58,26" stroke="#16132a" stroke-width="5" fill="none"/><path d="M58,26 q-8,18 8,30 q16,-8 10,-28 Z" fill="none" stroke="#16132a" stroke-width="3.5"/><path d="M52,36 l18,10 M56,46 l14,-6" stroke="#16132a" stroke-width="2.5"/></g>
+<g transform="translate(400,468) scale(1,1)"><path d="M-52,0 Q0,26 52,0 L38,16 Q0,34 -38,16 Z" fill="#16132a"/><g transform="translate(-8,4) rotate(0)"><path d="M-10.92,0 L-10.92,-34.528 Q-10.92,-42.016 0,-42.016 Q10.92,-42.016 10.92,-34.528 L10.92,0 Z" fill="#d85a30"/><circle cx="0" cy="-47.424" r="8.32" fill="#f0dcc0"/></g>
+<path d="M6,-24 Q40,-6 58,26" stroke="#16132a" stroke-width="5" fill="none"/><path d="M58,26 q-8,18 8,30 q16,-8 10,-28 Z" fill="none" stroke="#16132a" stroke-width="3.5"/><path d="M52,36 l18,10 M56,46 l14,-6" stroke="#16132a" stroke-width="2.5"/></g>
+<rect width="800" height="600" filter="url(#g)" opacity="0.05"/>
+</svg>

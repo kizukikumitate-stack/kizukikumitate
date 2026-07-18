@@ -317,6 +317,26 @@
       "eyebrow": "未来のリスク計算機 ／ 老後",
       "title": "老後のお金の見取り図",
       "sub": "寿命の目安から、いまの資産が何歳まで持つかを試算する。"
+    },
+    {
+      "page": "nigate-zukan.html",
+      "img": "nigate-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#96502F",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "ホモ・サピエンスの苦手図鑑",
+      "sub": "20万年前の脳で、現代を生きている。人類共通の「苦手」12種を処方箋つきで。"
+    },
+    {
+      "page": "chie-zukan.html",
+      "img": "chie-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1E4466",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "ホモ・サピエンスの知恵図鑑",
+      "sub": "人がもともと持ち、育てられる力を50種。『苦手図鑑』と対になる一冊。"
     }
   ]
 }

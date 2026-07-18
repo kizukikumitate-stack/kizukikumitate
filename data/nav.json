@@ -13,7 +13,6 @@
     "ディレクトリは 'yokai/' のように末尾スラッシュ付きで書く。",
     "外部リンク（http/mailto）はそのまま出力される。"
   ],
-
   "nav": {
     "logo": {
       "href": "index.html",
@@ -22,74 +21,190 @@
       "text": "きづきくみたて工房"
     },
     "items": [
-      { "label": "Home", "href": "index.html" },
+      {
+        "label": "Home",
+        "href": "index.html"
+      },
       {
         "label": "目指す未来",
         "children": [
-          { "label": "世界平和までのロードマップ", "href": "roadmap.html" },
-          { "label": "足元からの地図（展開編）", "href": "ashimoto-map.html" },
-          { "label": "平和な地球行きロケット", "href": "rocket-map.html" }
+          {
+            "label": "世界平和までのロードマップ",
+            "href": "roadmap.html"
+          },
+          {
+            "label": "足元からの地図（展開編）",
+            "href": "ashimoto-map.html"
+          },
+          {
+            "label": "平和な地球行きロケット",
+            "href": "rocket-map.html"
+          }
         ]
       },
       {
         "label": "ソリューション",
         "children": [
-          { "label": "研修設計プログラム", "href": "education-program.html" },
-          { "label": "組織開発プログラム", "href": "od-program.html" },
-          { "label": "対話力向上プログラム", "href": "dialogue-program.html" },
-          { "label": "リーダー向けコーチング", "href": "social-leader-coaching.html" },
-          { "label": "離職防止プログラム", "href": "taiwa-teichaku.html" }
+          {
+            "label": "研修設計プログラム",
+            "href": "education-program.html"
+          },
+          {
+            "label": "組織開発プログラム",
+            "href": "od-program.html"
+          },
+          {
+            "label": "対話力向上プログラム",
+            "href": "dialogue-program.html"
+          },
+          {
+            "label": "リーダー向けコーチング",
+            "href": "social-leader-coaching.html"
+          },
+          {
+            "label": "離職防止プログラム",
+            "href": "taiwa-teichaku.html"
+          }
         ]
       },
       {
         "label": "手法・ワークショップ",
         "children": [
-          { "label": "Democracy Fitness", "href": "democracy-fitness.html" },
-          { "label": "LSP", "href": "lsp.html" },
-          { "label": "対話用カード", "href": "topaasia.html" },
-          { "label": "会社の妖怪診断", "href": "yokai/" },
-          { "label": "社会の妖怪診断", "href": "shakai-yokai/" },
-          { "label": "妖怪と式神ワークショップ", "href": "yokai/workshop.html" }
+          {
+            "label": "Democracy Fitness",
+            "href": "democracy-fitness.html"
+          },
+          {
+            "label": "LSP",
+            "href": "lsp.html"
+          },
+          {
+            "label": "対話用カード",
+            "href": "topaasia.html"
+          },
+          {
+            "label": "会社の妖怪診断",
+            "href": "yokai/"
+          },
+          {
+            "label": "社会の妖怪診断",
+            "href": "shakai-yokai/"
+          },
+          {
+            "label": "妖怪と式神ワークショップ",
+            "href": "yokai/workshop.html"
+          }
         ]
       },
       {
         "label": "世界の知恵",
         "children": [
-          { "label": "世界の対話の技法図鑑", "href": "dialogue-zukan.html" },
-          { "label": "社会の仕組み図鑑", "href": "shikumi-zukan.html" },
-          { "label": "世界の貧困解決アイデア図鑑", "href": "poverty-zukan.html" },
-          { "label": "合意形成図鑑", "href": "goikeisei-zukan.html" },
-          { "label": "システム思考図鑑", "href": "systems-thinking-zukan.html" },
-          { "label": "おすすめTED集", "href": "ted-collection.html" },
-          { "label": "ノーベル平和賞", "href": "nobel-peace.html" },
-          { "label": "連載・気づきから組み立てる", "href": "series/" }
+          {
+            "label": "世界の対話の技法図鑑",
+            "href": "dialogue-zukan.html"
+          },
+          {
+            "label": "社会の仕組み図鑑",
+            "href": "shikumi-zukan.html"
+          },
+          {
+            "label": "世界の貧困解決アイデア図鑑",
+            "href": "poverty-zukan.html"
+          },
+          {
+            "label": "合意形成図鑑",
+            "href": "goikeisei-zukan.html"
+          },
+          {
+            "label": "システム思考図鑑",
+            "href": "systems-thinking-zukan.html"
+          },
+          {
+            "label": "ホモ・サピエンスの苦手図鑑",
+            "href": "nigate-zukan.html"
+          },
+          {
+            "label": "ホモ・サピエンスの知恵図鑑",
+            "href": "chie-zukan.html"
+          },
+          {
+            "label": "おすすめTED集",
+            "href": "ted-collection.html"
+          },
+          {
+            "label": "ノーベル平和賞",
+            "href": "nobel-peace.html"
+          },
+          {
+            "label": "連載・気づきから組み立てる",
+            "href": "series/"
+          }
         ]
       },
       {
         "label": "未来のリスク計算機",
         "children": [
-          { "label": "このシリーズについて", "href": "risk-calculators.html" },
-          { "label": "顧客の平均年齢時限爆弾", "href": "customer-age-timebomb.html" },
-          { "label": "採用市場消滅計算機", "href": "recruitment-extinction.html" },
-          { "label": "技能承継時限爆弾", "href": "skill-succession-timebomb.html" },
-          { "label": "学校の分岐点", "href": "school-consolidation-countdown.html" },
-          { "label": "介護の支え手計算機", "href": "caregiving-capacity-calculator.html" },
-          { "label": "老後のお金の見取り図", "href": "longevity-money-map.html" }
+          {
+            "label": "このシリーズについて",
+            "href": "risk-calculators.html"
+          },
+          {
+            "label": "顧客の平均年齢時限爆弾",
+            "href": "customer-age-timebomb.html"
+          },
+          {
+            "label": "採用市場消滅計算機",
+            "href": "recruitment-extinction.html"
+          },
+          {
+            "label": "技能承継時限爆弾",
+            "href": "skill-succession-timebomb.html"
+          },
+          {
+            "label": "学校の分岐点",
+            "href": "school-consolidation-countdown.html"
+          },
+          {
+            "label": "介護の支え手計算機",
+            "href": "caregiving-capacity-calculator.html"
+          },
+          {
+            "label": "老後のお金の見取り図",
+            "href": "longevity-money-map.html"
+          }
         ]
       },
       {
         "label": "コンタクト",
         "children": [
-          { "label": "お問い合わせ", "href": "mailto:y.morimoto@kizukikumitate.com" },
-          { "label": "note（ブログ）", "href": "https://note.com/kizukikumitate", "external": true },
-          { "label": "Facebook", "href": "https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP", "external": true },
-          { "label": "X（旧Twitter）", "href": "https://x.com/c_mory_", "external": true },
-          { "label": "LinkedIn", "href": "https://www.linkedin.com/in/yasuhito-morimoto-10039b158/", "external": true }
+          {
+            "label": "お問い合わせ",
+            "href": "mailto:y.morimoto@kizukikumitate.com"
+          },
+          {
+            "label": "note（ブログ）",
+            "href": "https://note.com/kizukikumitate",
+            "external": true
+          },
+          {
+            "label": "Facebook",
+            "href": "https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP",
+            "external": true
+          },
+          {
+            "label": "X（旧Twitter）",
+            "href": "https://x.com/c_mory_",
+            "external": true
+          },
+          {
+            "label": "LinkedIn",
+            "href": "https://www.linkedin.com/in/yasuhito-morimoto-10039b158/",
+            "external": true
+          }
         ]
       }
     ]
   },
-
   "footer": {
     "logo": "きづきくみたて工房",
     "copy": "&copy; 2026 Yasuhito Morimoto. All rights reserved.",
@@ -100,74 +215,268 @@
       }
     }
   },
-
   "pages": [
-    { "path": "index.html", "variant": "standard" },
-    { "path": "ashimoto-map.html", "variant": "standard" },
-    { "path": "caregiving-capacity-calculator.html", "variant": "standard" },
-    { "path": "customer-age-timebomb.html", "variant": "standard" },
-    { "path": "democracy-fitness.html", "variant": "standard" },
-    { "path": "dialogue-program-trial.html", "variant": "standard" },
-    { "path": "dialogue-program.html", "variant": "standard" },
-    { "path": "dialogue-zukan.html", "variant": "standard" },
-    { "path": "education-program.html", "variant": "standard" },
-    { "path": "goikeisei-zukan.html", "variant": "standard" },
-    { "path": "longevity-money-map.html", "variant": "standard" },
-    { "path": "lsp.html", "variant": "standard", "footer_copy_prefix": "LEGO® and SERIOUS PLAY® are trademarks of the LEGO Group.　" },
-    { "path": "mirai-risk-kit.html", "variant": "standard" },
-    { "path": "nobel-peace.html", "variant": "standard" },
-    { "path": "od-program.html", "variant": "standard" },
-    { "path": "poverty-zukan.html", "variant": "standard" },
-    { "path": "recruitment-extinction.html", "variant": "standard" },
-    { "path": "roadmap.html", "variant": "standard" },
-    { "path": "rocket-map.html", "variant": "standard" },
-    { "path": "risk-calculators.html", "variant": "standard" },
-    { "path": "school-consolidation-countdown.html", "variant": "standard" },
-    { "path": "shikumi-zukan.html", "variant": "standard" },
-    { "path": "skill-succession-timebomb.html", "variant": "standard" },
-    { "path": "social-leader-coaching.html", "variant": "standard" },
-    { "path": "systems-thinking-zukan.html", "variant": "standard" },
-    { "path": "taiwa-teichaku.html", "variant": "standard" },
-    { "path": "tax-revenue-countdown.html", "variant": "standard" },
-    { "path": "ted-collection.html", "variant": "standard" },
-    { "path": "shakai-yokai/index.html", "variant": "standard" },
-    { "path": "yokai/index.html", "variant": "standard" },
-    { "path": "yokai/gallery.html", "variant": "standard" },
-    { "path": "yokai/ranking.html", "variant": "standard" },
-    { "path": "yokai/workshop.html", "variant": "standard" },
-    { "path": "yokai/zukan.html", "variant": "standard" },
-
-    { "path": "democracy-fitness-camp-0811.html", "variant": "event", "logo_priority": true },
-    { "path": "democracy-fitness-camp-0811-signup.html", "variant": "event" },
-    { "path": "democracy-fitness-event-0427.html", "variant": "event" },
-    { "path": "democracy-fitness-event-0626-signup.html", "variant": "event" },
-    { "path": "democracy-fitness-event-0707.html", "variant": "event" },
-
-    { "path": "topaasia.html", "variant": "topaasia", "lang_toggle": true, "footer": "topaasia" },
-    { "path": "topaasia-data-notes.html", "variant": "topaasia" }
+    {
+      "path": "index.html",
+      "variant": "standard"
+    },
+    {
+      "path": "ashimoto-map.html",
+      "variant": "standard"
+    },
+    {
+      "path": "caregiving-capacity-calculator.html",
+      "variant": "standard"
+    },
+    {
+      "path": "customer-age-timebomb.html",
+      "variant": "standard"
+    },
+    {
+      "path": "democracy-fitness.html",
+      "variant": "standard"
+    },
+    {
+      "path": "dialogue-program-trial.html",
+      "variant": "standard"
+    },
+    {
+      "path": "dialogue-program.html",
+      "variant": "standard"
+    },
+    {
+      "path": "dialogue-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "education-program.html",
+      "variant": "standard"
+    },
+    {
+      "path": "goikeisei-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "longevity-money-map.html",
+      "variant": "standard"
+    },
+    {
+      "path": "lsp.html",
+      "variant": "standard",
+      "footer_copy_prefix": "LEGO® and SERIOUS PLAY® are trademarks of the LEGO Group.　"
+    },
+    {
+      "path": "mirai-risk-kit.html",
+      "variant": "standard"
+    },
+    {
+      "path": "nobel-peace.html",
+      "variant": "standard"
+    },
+    {
+      "path": "od-program.html",
+      "variant": "standard"
+    },
+    {
+      "path": "poverty-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "recruitment-extinction.html",
+      "variant": "standard"
+    },
+    {
+      "path": "roadmap.html",
+      "variant": "standard"
+    },
+    {
+      "path": "rocket-map.html",
+      "variant": "standard"
+    },
+    {
+      "path": "risk-calculators.html",
+      "variant": "standard"
+    },
+    {
+      "path": "school-consolidation-countdown.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shikumi-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "skill-succession-timebomb.html",
+      "variant": "standard"
+    },
+    {
+      "path": "social-leader-coaching.html",
+      "variant": "standard"
+    },
+    {
+      "path": "systems-thinking-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "taiwa-teichaku.html",
+      "variant": "standard"
+    },
+    {
+      "path": "tax-revenue-countdown.html",
+      "variant": "standard"
+    },
+    {
+      "path": "ted-collection.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shakai-yokai/index.html",
+      "variant": "standard"
+    },
+    {
+      "path": "yokai/index.html",
+      "variant": "standard"
+    },
+    {
+      "path": "yokai/gallery.html",
+      "variant": "standard"
+    },
+    {
+      "path": "yokai/ranking.html",
+      "variant": "standard"
+    },
+    {
+      "path": "yokai/workshop.html",
+      "variant": "standard"
+    },
+    {
+      "path": "yokai/zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "democracy-fitness-camp-0811.html",
+      "variant": "event",
+      "logo_priority": true
+    },
+    {
+      "path": "democracy-fitness-camp-0811-signup.html",
+      "variant": "event"
+    },
+    {
+      "path": "democracy-fitness-event-0427.html",
+      "variant": "event"
+    },
+    {
+      "path": "democracy-fitness-event-0626-signup.html",
+      "variant": "event"
+    },
+    {
+      "path": "democracy-fitness-event-0707.html",
+      "variant": "event"
+    },
+    {
+      "path": "topaasia.html",
+      "variant": "topaasia",
+      "lang_toggle": true,
+      "footer": "topaasia"
+    },
+    {
+      "path": "topaasia-data-notes.html",
+      "variant": "topaasia"
+    },
+    {
+      "path": "nigate-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "chie-zukan.html",
+      "variant": "standard"
+    }
   ],
-
   "exclude": [
-    { "path": "pta-dialogue-kit.html", "reason": "PTA対話キット系＝独自ブランドバー＋独自フッターの別LP（2026-07-15 森本さん確認）" },
-    { "path": "pta-kit-text.html", "reason": "PTA対話キット系（有料進行テキスト）＝独自デザイン" },
-    { "path": "pta-muda.html", "reason": "PTA対話キット系の記事ページ＝独自デザイン" },
-    { "path": "minna-no-koe.html", "reason": "PTA対話キット系＝独自デザイン" },
-    { "path": "yarigai-list.html", "reason": "PTA対話キット系の付属資料＝独自デザイン" },
-    { "path": "bellmark-calculator.html", "reason": "PTA対話キット系の付属ツール＝独自デザイン" },
-    { "path": "tokushoho.html", "reason": "特定商取引法表記＝独自デザイン" },
-    { "path": "facilitator-training.html", "reason": "ファシリテーター養成＝独自デザインLP" },
-    { "path": "democracy-fitness-career.html", "reason": "Democracy Fitness × Career＝独自デザインLP" },
-    { "path": "democracy-fitness-intern.html", "reason": "インターン募集＝独自デザインLP" },
-    { "path": "series/index.html", "reason": "連載シリーズ＝独自デザイン（site-footer）" },
-    { "path": "series/diagnostic.html", "reason": "連載シリーズ＝独自デザイン（site-footer）" },
-    { "path": "series/_pdf-build/template.html", "reason": "PDF組版用テンプレート＝ページではない" },
-    { "path": "series/_reference/BEM-diagnostic-form.html", "reason": "参考資料＝ページではない" },
-    { "path": "yokai/taiwa.html", "reason": "妖怪と式神ワークショップ（ソロ）＝没入型アプリ画面。ナビ・フッターを出さない" },
-    { "path": "yokai/yoriai.html", "reason": "妖怪と式神ワークショップ（複数人）＝没入型アプリ画面。ナビ・フッターを出さない" },
-    { "path": "ogp-generator.html", "reason": "作業用ツール（非公開導線）" },
-    { "path": "shimon-mockup.html", "reason": "作業用モックアップ" },
-    { "path": "structure-mockup.html", "reason": "作業用モックアップ" },
-    { "path": "themes-mockup.html", "reason": "作業用モックアップ" },
-    { "path": "404.html", "reason": "神隠し404ページ＝独自フルスクリーンデザイン（グローバルナビ非搭載・playful-touch yokai-404）" }
+    {
+      "path": "pta-dialogue-kit.html",
+      "reason": "PTA対話キット系＝独自ブランドバー＋独自フッターの別LP（2026-07-15 森本さん確認）"
+    },
+    {
+      "path": "pta-kit-text.html",
+      "reason": "PTA対話キット系（有料進行テキスト）＝独自デザイン"
+    },
+    {
+      "path": "pta-muda.html",
+      "reason": "PTA対話キット系の記事ページ＝独自デザイン"
+    },
+    {
+      "path": "minna-no-koe.html",
+      "reason": "PTA対話キット系＝独自デザイン"
+    },
+    {
+      "path": "yarigai-list.html",
+      "reason": "PTA対話キット系の付属資料＝独自デザイン"
+    },
+    {
+      "path": "bellmark-calculator.html",
+      "reason": "PTA対話キット系の付属ツール＝独自デザイン"
+    },
+    {
+      "path": "tokushoho.html",
+      "reason": "特定商取引法表記＝独自デザイン"
+    },
+    {
+      "path": "facilitator-training.html",
+      "reason": "ファシリテーター養成＝独自デザインLP"
+    },
+    {
+      "path": "democracy-fitness-career.html",
+      "reason": "Democracy Fitness × Career＝独自デザインLP"
+    },
+    {
+      "path": "democracy-fitness-intern.html",
+      "reason": "インターン募集＝独自デザインLP"
+    },
+    {
+      "path": "series/index.html",
+      "reason": "連載シリーズ＝独自デザイン（site-footer）"
+    },
+    {
+      "path": "series/diagnostic.html",
+      "reason": "連載シリーズ＝独自デザイン（site-footer）"
+    },
+    {
+      "path": "series/_pdf-build/template.html",
+      "reason": "PDF組版用テンプレート＝ページではない"
+    },
+    {
+      "path": "series/_reference/BEM-diagnostic-form.html",
+      "reason": "参考資料＝ページではない"
+    },
+    {
+      "path": "yokai/taiwa.html",
+      "reason": "妖怪と式神ワークショップ（ソロ）＝没入型アプリ画面。ナビ・フッターを出さない"
+    },
+    {
+      "path": "yokai/yoriai.html",
+      "reason": "妖怪と式神ワークショップ（複数人）＝没入型アプリ画面。ナビ・フッターを出さない"
+    },
+    {
+      "path": "ogp-generator.html",
+      "reason": "作業用ツール（非公開導線）"
+    },
+    {
+      "path": "shimon-mockup.html",
+      "reason": "作業用モックアップ"
+    },
+    {
+      "path": "structure-mockup.html",
+      "reason": "作業用モックアップ"
+    },
+    {
+      "path": "themes-mockup.html",
+      "reason": "作業用モックアップ"
+    },
+    {
+      "path": "404.html",
+      "reason": "神隠し404ページ＝独自フルスクリーンデザイン（グローバルナビ非搭載・playful-touch yokai-404）"
+    }
   ]
 }
