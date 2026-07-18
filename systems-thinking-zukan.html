@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>システム思考図鑑 | きづきくみたて工房</title>
+<meta name="description" content="因果ループ図・システム原型・氷山モデルなど、ものごとの「つながり」と「全体の動き」を見るための28の図を、中学生にもわかる言葉で図解した図鑑。">
+<link rel="canonical" href="https://kizukikumitate.com/systems-thinking-zukan.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="システム思考図鑑｜つながりを見るための28の図">
+<meta property="og:description" content="因果ループ図・システム原型・氷山モデルなど、世界の「システムの見方」を28枚の図に。中学生にもわかる言葉で。">
+<meta property="og:url" content="https://kizukikumitate.com/systems-thinking-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="システム思考図鑑｜つながりを見るための28の図">
+<meta name="twitter:description" content="因果ループ図・システム原型・氷山モデルなど、世界の「システムの見方」を28枚の図に。中学生にもわかる言葉で。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#f9f9f7; --card:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --ink3:#898781;
+  --hair:#e1e0d9; --bd:rgba(11,11,11,.10);
+  --blue:#2a78d6; --green:#008300; --aqua:#1baf7a; --orange:#eb6834;
+  --red:#e34948; --violet:#4a3aa7; --yellow:#c98500;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    color-scheme: dark;
+    --bg:#0d0d0d; --card:#1a1a19; --ink:#ffffff; --ink2:#c3c2b7; --ink3:#898781;
+    --hair:#2c2c2a; --bd:rgba(255,255,255,.12);
+    --blue:#3987e5; --aqua:#1fbd87; --orange:#f07a48; --red:#e66767;
+    --violet:#9085e9; --green:#2aa32a; --yellow:#d99a1a;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI","Hiragino Sans","Yu Gothic UI","Yu Gothic","Noto Sans JP",sans-serif;
+  line-height:1.8; font-size:15.5px;
+}
+.wrap{max-width:840px; margin:0 auto; padding:0 20px 80px}
+
+/* ---------- header ---------- */
+header.hero{padding:56px 0 8px; text-align:center}
+.hero .kicker{font-size:13.5px; letter-spacing:.35em; color:var(--ink3); font-weight:700}
+.hero h1{font-size:44px; margin:10px 0 6px; letter-spacing:.08em; line-height:1.3}
+.hero h1 .zu{color:var(--blue)}
+.hero .sub{color:var(--ink2); font-size:16px; margin:0 0 22px}
+.ribbon{display:flex; height:6px; border-radius:3px; overflow:hidden; max-width:420px; margin:0 auto}
+.ribbon i{flex:1}
+.ribbon i:nth-child(1){background:var(--blue)}
+.ribbon i:nth-child(2){background:var(--red)}
+.ribbon i:nth-child(3){background:var(--aqua)}
+.ribbon i:nth-child(4){background:var(--violet)}
+
+/* ---------- intro / legend ---------- */
+.card{background:var(--card); border:1px solid var(--bd); border-radius:16px; padding:26px 28px; margin:26px 0}
+.card h2{font-size:19px; margin:0 0 10px}
+.card p{margin:8px 0; color:var(--ink2)}
+.card p strong{color:var(--ink)}
+.legendfig{border:1px solid var(--hair); border-radius:12px; padding:8px 10px; margin-top:14px; background:var(--bg)}
+
+/* ---------- toc ---------- */
+.toc{margin:30px 0}
+.toc .tgrp{margin:16px 0}
+.toc .tgrp h3{font-size:15px; margin:0 0 8px; display:flex; align-items:center; gap:8px}
+.toc .tgrp h3 .bar{width:14px; height:14px; border-radius:4px; display:inline-block}
+.toc .chips{display:flex; flex-wrap:wrap; gap:8px}
+.toc a.chip{
+  text-decoration:none; color:var(--ink2); background:var(--card);
+  border:1px solid var(--bd); border-radius:999px; padding:4px 12px; font-size:13px;
+}
+.toc a.chip b{color:var(--ink); font-weight:600}
+.toc a.chip:hover{border-color:var(--ink3)}
+
+/* ---------- sections ---------- */
+section.chapter{margin-top:56px}
+.chead{display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--hair); padding-bottom:10px}
+.chead h2{font-size:26px; margin:0; display:flex; align-items:center; gap:12px}
+.chead h2 .bar{width:10px; height:26px; border-radius:5px; display:inline-block}
+.chead .cnt{color:var(--ink3); font-size:14px}
+.clead{color:var(--ink2); margin:12px 0 4px}
+
+/* ---------- entry card ---------- */
+article.entry{
+  background:var(--card); border:1px solid var(--bd); border-radius:16px;
+  padding:26px 28px 22px; margin:26px 0; scroll-margin-top:24px;
+  break-inside:avoid;
+}
+.ehead{display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:6px}
+.eno{color:#fff; font-weight:800; font-size:12.5px; border-radius:7px; padding:3px 9px; letter-spacing:.06em}
+.ehead h3{font-size:23px; margin:0; letter-spacing:.03em}
+.een{color:var(--ink3); font-size:12.5px}
+.stars{margin-left:auto; color:var(--ink3); font-size:12.5px; white-space:nowrap}
+.stars b{color:var(--yellow); letter-spacing:.15em; font-weight:600}
+figure.fig{margin:14px 0 6px; border:1px solid var(--hair); border-radius:12px; background:var(--bg); padding:12px 12px 6px}
+figure.fig svg{width:100%; height:auto; display:block}
+figure.fig figcaption{text-align:center; color:var(--ink3); font-size:12.5px; padding:4px 0 6px}
+dl.facts{margin:14px 0 0}
+dl.facts > div{display:grid; grid-template-columns:110px minmax(0, 1fr); gap:14px; padding:9px 0; border-top:1px dashed var(--hair)}
+dl.facts dt{font-weight:700; font-size:13.5px; color:var(--ink); display:flex; align-items:baseline; gap:7px}
+dl.facts dt::before{content:""; width:8px; height:8px; border-radius:2.5px; flex:none; position:relative; top:0; background:var(--ink3)}
+dl.facts dd{margin:0; font-size:15px; color:var(--ink2)}
+dl.facts dd b, dl.facts dd strong{color:var(--ink)}
+.rel{margin-top:12px; font-size:13px; color:var(--ink3)}
+.rel a{color:var(--blue); text-decoration:none; border-bottom:1px dotted var(--blue); margin-right:8px}
+
+/* category colors */
+.cat-basic .eno{background:var(--blue)} .cat-basic dl.facts dt::before{background:var(--blue)}
+.cat-arch  .eno{background:var(--red)}  .cat-arch  dl.facts dt::before{background:var(--red)}
+.cat-act   .eno{background:var(--aqua)} .cat-act   dl.facts dt::before{background:var(--aqua)}
+.cat-wide  .eno{background:var(--violet)} .cat-wide dl.facts dt::before{background:var(--violet)}
+
+.foot{margin-top:70px; text-align:center; color:var(--ink3); font-size:12.5px; border-top:1px solid var(--hair); padding-top:24px}
+
+/* ---------- SVG parts ---------- */
+svg text{font-family:inherit}
+.ln{stroke:var(--ink2); stroke-width:2; fill:none !important; stroke-linecap:round}
+.thin{stroke-width:1.4}
+.ah{fill:var(--ink2); stroke:none !important}
+.c-b{stroke:var(--blue); fill:var(--blue)}
+.c-g{stroke:var(--green); fill:var(--green)}
+.c-a{stroke:var(--aqua); fill:var(--aqua)}
+.c-o{stroke:var(--orange); fill:var(--orange)}
+.c-r{stroke:var(--red); fill:var(--red)}
+.c-v{stroke:var(--violet); fill:var(--violet)}
+.c-i3{stroke:var(--ink3); fill:var(--ink3)}
+.nd{fill:var(--ink); font-size:15px; font-weight:600; text-anchor:middle; dominant-baseline:central}
+.sm{fill:var(--ink3); font-size:12px; font-weight:500; text-anchor:middle; dominant-baseline:central}
+.lb{fill:var(--ink2); font-size:13px; font-weight:600; text-anchor:middle; dominant-baseline:central}
+.elb{fill:var(--ink3); font-size:12px; font-weight:600; text-anchor:middle; dominant-baseline:central;
+     stroke:var(--bg); stroke-width:5; paint-order:stroke; stroke-linejoin:round}
+.sg circle{fill:var(--card); stroke:var(--ink3); stroke-width:1.5}
+.sg text{fill:var(--ink); font-size:13px; font-weight:800; text-anchor:middle; dominant-baseline:central}
+.lpt{font-size:15px; font-weight:800; text-anchor:middle; dominant-baseline:central; stroke:none !important}
+.dl{stroke:var(--ink2); stroke-width:2.2}
+.bx{fill:var(--card); stroke:var(--ink3); stroke-width:1.5}
+.bx.f-b{fill:color-mix(in srgb, var(--blue) 13%, var(--card)); stroke:var(--blue)}
+.bx.f-a{fill:color-mix(in srgb, var(--aqua) 15%, var(--card)); stroke:var(--aqua)}
+.bx.f-o{fill:color-mix(in srgb, var(--orange) 14%, var(--card)); stroke:var(--orange)}
+.bx.f-v{fill:color-mix(in srgb, var(--violet) 13%, var(--card)); stroke:var(--violet)}
+.bx.f-r{fill:color-mix(in srgb, var(--red) 12%, var(--card)); stroke:var(--red)}
+.bx.dash{stroke-dasharray:5 4}
+.grid{stroke:var(--hair); stroke-width:1}
+.axis{stroke:var(--ink3); stroke-width:1.6}
+
+@media print{
+  body{background:#fff}
+  article.entry{page-break-inside:avoid}
+}
+@media (max-width:560px){
+  .hero h1{font-size:32px}
+  dl.facts > div{grid-template-columns:minmax(0, 1fr); gap:2px}
+}
+
+/* ===== サイト共通 ナビ / フッター（他ページと統一・ブランド色をリテラル指定） ===== */
+body{padding-top:74px}
+nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  padding:0.7rem 2rem; display:flex; align-items:center;
+  background:rgba(255,255,255,0.97); backdrop-filter:blur(12px);
+  border-bottom:3px solid #3C3489;
+}
+.nav-logo{display:flex; align-items:center; gap:0.7rem; text-decoration:none; flex-shrink:0; margin-right:4rem}
+.nav-logo img{height:36px; width:auto; object-fit:contain}
+.nav-logo-text{font-family:'Shippori Mincho',serif; font-size:1.1rem; font-weight:800; white-space:nowrap; color:#1a5fad; letter-spacing:0.06em}
+.nav-links{display:flex; gap:1.2rem; list-style:none; align-items:center; margin-left:auto; flex-wrap:wrap}
+.nav-links a{font-family:'Jost','Noto Serif JP',sans-serif; font-size:0.82rem; color:#1e1e1e; text-decoration:none; letter-spacing:0.04em}
+.nav-links a:hover, .nav-links a.active{color:#1a5fad}
+.nav-dropdown{position:relative; display:flex; align-items:center}
+.nav-dropdown-toggle{
+  font-family:'Jost','Noto Serif JP',sans-serif; font-size:0.82rem; font-weight:400;
+  letter-spacing:0.04em; color:#1e1e1e;
+  background:none; border:none; cursor:pointer; padding:0.4rem 0;
+  display:inline-flex; align-items:center; gap:0.35em; white-space:nowrap; transition:color 0.3s;
+}
+.nav-caret{font-size:0.6em; transition:transform 0.25s}
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle{color:#1a5fad}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{
+  position:absolute; top:100%; left:50%; transform:translateX(-50%) translateY(8px);
+  min-width:210px; background:#fff; border:1px solid #eee;
+  box-shadow:0 14px 34px rgba(38,33,92,0.14); border-radius:12px;
+  padding:0.5rem 0; display:flex; flex-direction:column;
+  opacity:0; visibility:hidden; transition:opacity 0.2s, transform 0.2s; z-index:300;
+}
+.nav-dropdown-menu::before{content:''; position:absolute; top:-10px; left:0; right:0; height:10px}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1; visibility:visible; transform:translateX(-50%) translateY(4px)}
+.nav-dropdown-menu a{
+  font-family:'Noto Sans JP',sans-serif; font-size:0.84rem; font-weight:500;
+  letter-spacing:0.02em; text-transform:none; color:#333; text-decoration:none;
+  padding:0.6rem 1.5rem; white-space:nowrap; transition:background 0.15s, color 0.15s;
+}
+.nav-dropdown-menu a:hover, .nav-dropdown-menu a.active{background:#f4f3fb; color:#1a5fad}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto; right:0; transform:translateX(0) translateY(8px)}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,
+.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
+.nav-hamburger{display:none; margin-left:auto; background:none; border:0; cursor:pointer; padding:8px}
+.nav-hamburger span{display:block; width:24px; height:2px; background:#1e1e1e; margin:5px 0; transition:0.3s}
+.mobile-menu{display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:199; background:rgba(255,255,255,0.98); backdrop-filter:blur(12px); flex-direction:column; justify-content:flex-start; overflow-y:auto; align-items:center; gap:0; padding:5rem 1.5rem 3rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Shippori Mincho',serif; font-size:1.12rem; font-weight:600; color:#222; text-decoration:none; padding:0.75rem 0; width:100%; text-align:center; border-bottom:1px solid #e8e8e8; transition:color 0.15s}
+.mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+.mobile-menu a:hover, .mobile-menu a.active{color:#3C3489}
+.mobile-menu-close{position:absolute; top:1.2rem; right:1.5rem; background:none; border:none; font-size:1.6rem; cursor:pointer; color:#666; line-height:1; padding:0.3rem}
+.mobile-acc{width:100%; border-bottom:1px solid #e8e8e8}
+.mobile-acc-toggle{width:100%; display:flex; justify-content:center; align-items:center; gap:0.5em; background:none; border:none; cursor:pointer; font-family:'Jost','Zen Kaku Gothic New',sans-serif; font-size:1.15rem; font-weight:700; letter-spacing:0.1em; color:#3C3489; padding:1.15rem 0}
+.mobile-acc-caret{font-size:0.75em; color:#b0a8d8; transition:transform 0.25s}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
+.mobile-acc-panel{display:none; flex-direction:column; padding-bottom:0.7rem}
+.mobile-acc.open .mobile-acc-panel{display:flex}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif; font-size:1.02rem; font-weight:600; color:#333; text-decoration:none; padding:0.6rem 0; width:100%; text-align:center; border:none; transition:color 0.15s}
+.mobile-acc-panel a:hover, .mobile-acc-panel a.active{color:#3C3489}
+a.mobile-cat-link{display:flex; justify-content:center; align-items:center; width:100%; border-bottom:1px solid #e8e8e8; font-family:'Jost','Zen Kaku Gothic New',sans-serif; font-size:1.15rem; font-weight:700; letter-spacing:0.1em; color:#3C3489; text-decoration:none; padding:1.15rem 0; transition:color 0.15s}
+a.mobile-cat-link:hover, a.mobile-cat-link.active{color:#26215C}
+@media (max-width:1250px){
+  .nav-links{display:none}
+  .nav-hamburger{display:block}
+  .nav-logo{margin-right:0}
+}
+footer{padding:3rem 2rem; text-align:center; background:#fff; border-top:1px solid #e8e3d6}
+.footer-logo{font-family:'Shippori Mincho',serif; font-weight:800; color:#1a5fad; letter-spacing:0.08em}
+.footer-copy{margin-top:0.6rem; font-family:'Jost',sans-serif; font-size:0.72rem; color:#5a6a7a; letter-spacing:0.06em}
+/* ダークモードでも回遊バンドの見出しが読めるように（本文はダーク・カードは明色のまま） */
+@media (prefers-color-scheme: dark){
+  .kaiyu[data-kaiyu-theme=paper]{background:rgba(255,255,255,0.035)}
+  .kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:var(--ink)}
+  .kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:var(--ink3)}
+}
+</style>
+</head>
+<body>
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html" class="active">システム思考図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html" class="active">システム思考図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+<div class="wrap">
+
+<header class="hero">
+  <div class="kicker">SYSTEMS THINKING ENCYCLOPEDIA</div>
+  <h1>システム思考 <span class="zu">図鑑</span></h1>
+  <p class="sub">ものごとの「つながり」を見るための、28の図をあつめました。</p>
+  <div class="ribbon"><i></i><i></i><i></i><i></i></div>
+</header>
+
+<div class="card">
+  <h2>この図鑑について</h2>
+  <p><strong>システム思考</strong>とは、ものごとを一つひとつバラバラに見るのではなく、<strong>「つながり」と「全体の動き」</strong>で見る考え方です。テストの点も、クラスの人間関係も、地球の環境も、たくさんの要素が矢印でつながり合った「システム」としてながめると、いままで見えなかった原因や解決の糸口が見えてきます。</p>
+  <p>この図鑑には、そのための道具となる図を <strong>基本の図(第1章)</strong>、世界中でくり返し現れる困りごとのパターン <strong>システム原型(第2章)</strong>、手の打ちどころを考える <strong>分析の図(第3章)</strong>、知っていると便利な <strong>まわりの図(第4章)</strong> の4章に分けて収録しています。どこから読んでもOKです。</p>
+</div>
+
+<div class="card">
+  <h2>図の読み方(共通ルール)</h2>
+  <p>この図鑑のループ図では、次の記号を使います。</p>
+  <div class="legendfig" id="legend"></div>
+</div>
+
+<div class="toc card" id="toc" aria-label="目次">
+  <h2>もくじ</h2>
+</div>
+
+<main id="main"></main>
+
+<div class="foot">
+  システム思考 図鑑 — 全28種収録。<br>
+  参考:ドネラ・メドウズ『世界はシステムで動く』、ピーター・センゲ『学習する組織』ほか
+</div>
+
+</div>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./shikumi-zukan.html"><span class="kaiyu-tag">図鑑・構造編</span><span class="kaiyu-name">社会の仕組み図鑑</span><span class="kaiyu-desc">お金・民意・土台。社会を作り直す世界の発明を集めた構造編。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-zukan.html"><span class="kaiyu-tag">図鑑・実践編</span><span class="kaiyu-name">世界の対話の技法図鑑</span><span class="kaiyu-desc">世界中で発明されてきた対話の技法を、出典つきで集めた図鑑。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./longevity-money-map.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">老後のお金の見取り図</span><span class="kaiyu-desc">「いつまで生きるか分からない」不安は、統計で目安が引けます。平均・2人に1人・10人に1人の寿命で、いまの資産が何歳まで持つかを試算する無料ツール。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+/* ============ SVG helpers ============ */
+const r1 = n => Math.round(n*10)/10;
+
+function svgWrap(w,h,inner){
+  return `<svg viewBox="0 0 ${w} ${h}" role="img" xmlns="http://www.w3.org/2000/svg">${inner}</svg>`;
+}
+function txt(x,y,s,cls='nd'){
+  const lines=String(s).split('\n'), lh=17;
+  const y0=y-(lines.length-1)*lh/2;
+  return `<text x="${r1(x)}" y="${r1(y0)}" class="${cls}">`+
+    lines.map((l,i)=>`<tspan x="${r1(x)}" dy="${i?lh:0}">${l}</tspan>`).join('')+`</text>`;
+}
+function ahead(x,y,a,cls=''){
+  const s=9,q=0.46;
+  return `<path class="ah ${cls}" d="M${r1(x)} ${r1(y)} L${r1(x-s*Math.cos(a-q))} ${r1(y-s*Math.sin(a-q))} L${r1(x-s*Math.cos(a+q))} ${r1(y-s*Math.sin(a+q))} Z"/>`;
+}
+function sgn(x,y,s){
+  const m=(s==='-');
+  return `<g class="sg"><circle cx="${r1(x)}" cy="${r1(y)}" r="9.5"/><text x="${r1(x)}" y="${r1(y+0.5)}">${m?'−':'＋'}</text></g>`;
+}
+function dmark(x,y,a){
+  const n=a+Math.PI/2, l=9;
+  const tick=d=>{
+    const cx=x+Math.cos(a)*d, cy=y+Math.sin(a)*d;
+    return `<line class="dl" x1="${r1(cx-Math.cos(n)*l)}" y1="${r1(cy-Math.sin(n)*l)}" x2="${r1(cx+Math.cos(n)*l)}" y2="${r1(cy+Math.sin(n)*l)}"/>`;
+  };
+  return tick(-4.5)+tick(4.5);
+}
+/* curved arrow: bend>0 bulges toward normal(-dy,dx) */
+function arrow(x1,y1,x2,y2,o={}){
+  const b=o.bend||0;
+  const dx=x2-x1, dy=y2-y1, L=Math.hypot(dx,dy)||1;
+  const nx=-dy/L, ny=dx/L;
+  const cx=(x1+x2)/2+nx*b, cy=(y1+y2)/2+ny*b;
+  const cls=o.cls||'';
+  let out=`<path class="ln ${cls}"${o.dash?' stroke-dasharray="5 4"':''} d="M${r1(x1)} ${r1(y1)} Q${r1(cx)} ${r1(cy)} ${r1(x2)} ${r1(y2)}"/>`;
+  out+=ahead(x2,y2,Math.atan2(y2-cy,x2-cx),cls);
+  const q=t=>[(1-t)*(1-t)*x1+2*(1-t)*t*cx+t*t*x2,(1-t)*(1-t)*y1+2*(1-t)*t*cy+t*t*y2];
+  const tang=t=>Math.atan2(2*(1-t)*(cy-y1)+2*t*(y2-cy),2*(1-t)*(cx-x1)+2*t*(x2-cx));
+  if(o.sign){
+    const t=(o.st!==undefined)?o.st:0.5, p=q(t), s=(b>=0?1:-1)*13;
+    out+=sgn(p[0]+nx*s,p[1]+ny*s,o.sign);
+  }
+  if(o.delay){
+    const t=(o.dt!==undefined)?o.dt:0.55, p=q(t);
+    out+=dmark(p[0],p[1],tang(t));
+  }
+  return out;
+}
+/* loop badge: R (orange) / B (blue) with circular arrow */
+function loopB(x,y,type,cap){
+  const R=(type==='R');
+  const cls=R?'c-o':'c-b', r=14;
+  const a0=115*Math.PI/180, a1=65*Math.PI/180;
+  const sx=x+r*Math.cos(a0), sy=y+r*Math.sin(a0);
+  const ex=x+r*Math.cos(a1), ey=y+r*Math.sin(a1);
+  let out=`<path class="ln thin ${cls}" d="M${r1(sx)} ${r1(sy)} A${r} ${r} 0 1 1 ${r1(ex)} ${r1(ey)}"/>`;
+  out+=ahead(ex,ey,a1+Math.PI/2,cls);
+  out+=`<text x="${r1(x)}" y="${r1(y+1)}" class="lpt ${cls}">${type}</text>`;
+  if(cap) out+=txt(x,y+r+14,cap,'sm');
+  return out;
+}
+function box(x,y,w,h,s,cls='',tcls='nd'){
+  return `<rect class="bx ${cls}" x="${r1(x)}" y="${r1(y)}" rx="9" width="${w}" height="${h}"/>`+txt(x+w/2,y+h/2,s,tcls);
+}
+function cloud(x,y){
+  return `<g class="ln thin c-i3" fill="none">
+    <path d="M${x-22} ${y+8} a10 10 0 0 1 2-19 12 12 0 0 1 22-6 10 10 0 0 1 16 8 9 9 0 0 1-4 17 z" />
+  </g>`;
+}
+function valve(x,y,label){
+  let out=`<path class="bx" d="M${x-11} ${y-9} L${x-11} ${y+9} L${x} ${y} Z M${x+11} ${y-9} L${x+11} ${y+9} L${x} ${y} Z"/>`;
+  if(label) out+=txt(x,y-24,label,'lb');
+  return out;
+}
+
+/* ============ data ============ */
+const CATS=[
+  {id:'basic', t:'きほんの図',        num:'第1章', cvar:'--blue',
+   lead:'まずはここから。システム思考の「ことば」になる、いちばんよく使う図たちです。'},
+  {id:'arch',  t:'システム原型',      num:'第2章', cvar:'--red',
+   lead:'学校でも会社でも国でも、まったく同じ形の「困りごと」がくり返し起きています。その代表パターン9種。図の形ごと覚えると、世の中のニュースが違って見えてきます。'},
+  {id:'act',   t:'分析ととりくみの図', num:'第3章', cvar:'--aqua',
+   lead:'問題をほぐして、「どこに・誰と・どう手を打つか」を考えるための図です。'},
+  {id:'wide',  t:'まわりに広がる図',   num:'第4章', cvar:'--violet',
+   lead:'システム思考のとなりで活躍している図たち。組み合わせて使うと効果ばつぐんです。'},
+];
+const ENTRIES=[];
+const E=o=>ENTRIES.push(o);
+
+/* ---- No.01 因果ループ図 ---- */
+E({k:'cld', cat:'basic', name:'因果ループ図', en:'Causal Loop Diagram', stars:1,
+cap:'例:勉強のやる気がぐるぐる回るループ',
+what:'ものごとを「原因→結果」の矢印でつなぎ、ぐるっと一周する<b>ループ(輪)</b>を見つける図。システム思考でいちばん使われる基本の図です。',
+see:'「Aが増えるとBも増える(＋)」「Aが増えるとBは減る(−)」というつながりがひと目でわかります。輪になっていれば、結果がまわりまわって自分に返ってくることが見えます。',
+use:'「なぜか同じ問題がくり返し起きる」とき。犯人さがしを始める前に、まず全体のつながりを描いてみましょう。',
+ex:'勉強時間が増える → 成績が上がる → 自信がつく → やる気が出る → さらに勉強時間が増える…。',
+trap:'矢印は「時間の順番」ではなく「影響」を表します。あれもこれもと描きすぎると読めなくなるので、まずは5〜8個の要素から。',
+rel:['r','b','circle'],
+svg(){
+  let s='';
+  s+=txt(95,140,'勉強時間')+txt(230,52,'成績')+txt(365,140,'自信')+txt(230,228,'やる気');
+  s+=arrow(128,112,196,62,{bend:-28,sign:'+'});
+  s+=arrow(262,60,342,114,{bend:-28,sign:'+'});
+  s+=arrow(350,168,266,220,{bend:-28,sign:'+'});
+  s+=arrow(196,220,116,168,{bend:-28,sign:'+'});
+  s+=loopB(230,138,'R','まわるほど増える');
+  return svgWrap(460,280,s);
+}});
+
+/* ---- No.02 強化ループ ---- */
+E({k:'r', cat:'basic', name:'強化ループ(R)', en:'Reinforcing Loop', stars:1,
+cap:'例:SNSで人気が人気を呼ぶ「雪だるま式」',
+what:'一周まわるたびに変化がどんどん大きくなるループ。「雪だるま式」の正体です。Rは reinforcing(強化)の頭文字。',
+see:'成長が急に加速する理由も、悪いことが止まらなくなる理由も、じつは同じ形をしていることがわかります。',
+use:'流行・うわさ・人気・借金などが「急に増えた/どんどん悪化した」とき、その裏で回っているエンジンをさがすのに使います。',
+ex:'フォロワーが増える → 投稿がたくさんの人に届く → シェアされる → さらにフォロワーが増える。',
+trap:'強化ループは永遠には続きません。いつか必ず「限界」にぶつかります(No.09 成長の限界)。良いループも、向きが変われば悪循環になります。',
+rel:['limits','esc'],
+svg(){
+  let s='';
+  s+=txt(130,62,'フォロワー数')+txt(255,132,'投稿を\n見る人の数')+txt(130,202,'シェア・紹介');
+  s+=arrow(172,74,222,110,{bend:-16,sign:'+'});
+  s+=arrow(228,158,172,192,{bend:-16,sign:'+'});
+  s+=arrow(116,180,116,86,{bend:-24,sign:'+'});
+  s+=loopB(158,132,'R');
+  // inset: exponential growth
+  s+=`<line class="axis" x1="322" y1="212" x2="448" y2="212"/><line class="axis" x1="322" y1="212" x2="322" y2="66"/>`;
+  s+=`<path class="ln c-o" d="M326 206 C 360 202 396 178 428 84"/>`;
+  s+=txt(385,232,'時間 →','sm')+txt(376,60,'どんどん加速!','sm');
+  return svgWrap(460,260,s);
+}});
+
+/* ---- No.03 平衡ループ ---- */
+E({k:'b', cat:'basic', name:'平衡ループ(B)', en:'Balancing Loop', stars:1,
+cap:'例:エアコンが部屋の温度を一定にたもつ',
+what:'目標とのズレを打ち消して、つり合い(バランス)に戻そうとするループ。Bは balancing(平衡)の頭文字です。',
+see:'変えようとしても元に戻ってしまう「見えない抵抗」の正体がわかります。体温・貯金・毎日の習慣が一定にたもたれるのも、このループのしわざです。',
+use:'「がんばっているのに、なぜか変わらない」とき。どこかに現状維持のループがかくれていないか探してみましょう。',
+ex:'部屋が暑くなる → 設定温度との差が大きくなる → エアコンが強く冷やす → 部屋の温度が下がる(差が縮む)。',
+trap:'平衡ループは敵ではありません。安全や安定を守っていることも多いので、こわす前に「このループは何を守っているのか」を考えましょう。',
+rel:['delay','goal'],
+svg(){
+  let s='';
+  s+=txt(140,62,'部屋の温度')+txt(330,110,'設定温度との差')+txt(190,208,'エアコンの\n冷やす力');
+  s+=arrow(190,70,286,98,{bend:-14,sign:'+'});
+  s+=arrow(316,132,238,190,{bend:-16,sign:'+'});
+  s+=arrow(158,182,132,86,{bend:-22,sign:'-'});
+  s+=loopB(222,124,'B','つり合いへ');
+  s+=txt(352,224,'暑いほど強く冷えて、\nちょうどよさに落ち着く','sm');
+  return svgWrap(460,256,s);
+}});
+
+/* ---- No.04 遅れ ---- */
+E({k:'delay', cat:'basic', name:'遅れ(ディレイ)', en:'Delay', stars:2,
+cap:'例:シャワーの温度調節で「あちち!」となるわけ',
+what:'原因から結果が出るまでの<b>時間差</b>を、矢印の上の2本線(=)で表します。図の小さな部品ですが、システムの動きを大きく変える主役です。',
+see:'反応の遅いシステムでは、やりすぎ → 行きすぎ → 反対にやりすぎ…という「振動」が起きる理由がわかります。',
+use:'「対策の効果が出ない!」とあせったとき。効果が出るまでの遅れを考えに入れると、あわてて余計な手を打たずにすみます。',
+ex:'シャワーが冷たい → 蛇口を熱い方へ回す → (数秒の遅れ) → 急に熱くなる → あわてて戻す → 今度は冷たすぎる…。',
+trap:'遅れが長いほど、人は「効いていない」と思って対策を積み増ししがち。結果が行きすぎてから、やっと気づくのです。',
+rel:['b','fix'],
+svg(){
+  let s='';
+  s+=txt(130,60,'お湯の温度')+txt(320,60,'感じる熱さ')+txt(130,192,'蛇口の操作');
+  s+=arrow(180,60,272,60,{bend:-10,sign:'+'});
+  s+=arrow(296,80,180,178,{bend:-18,sign:'-',st:.45});
+  s+=arrow(130,172,130,80,{bend:-24,sign:'+',st:.22,delay:true,dt:.6});
+  s+=loopB(196,116,'B');
+  s+=txt(84,100,'遅れ','sm');
+  // inset: oscillation settling to target
+  s+=`<line class="axis" x1="320" y1="248" x2="450" y2="248"/><line class="axis" x1="320" y1="248" x2="320" y2="140"/>`;
+  s+=`<line class="grid" x1="320" y1="196" x2="450" y2="196" stroke-dasharray="4 4"/>`;
+  s+=`<path class="ln c-b" d="M324 244 C 340 150 352 152 366 186 C 378 214 388 212 398 196 C 408 184 424 192 446 196"/>`;
+  s+=txt(388,264,'時間 →','sm')+txt(388,132,'行きすぎてゆれる','sm');
+  return svgWrap(460,280,s);
+}});
+
+/* ---- No.05 ストック&フロー図 ---- */
+E({k:'sf', cat:'basic', name:'ストック&フロー図', en:'Stock and Flow Diagram', stars:2,
+cap:'例:浴槽の水で考える「たまる」と「流れる」',
+what:'たまっているもの(<b>ストック</b>=箱)と、出入りする流れ(<b>フロー</b>=バルブつきの矢印)を分けて描く図。雲マークは「図の外」を表します。',
+see:'「今どれだけあるか」と「どれだけ増減しているか」は別物だとわかります。流入を止めても、ストックはすぐには減りません。',
+use:'お金・水・ごみ・宿題・信頼・CO₂など「たまるもの」の問題全般に。増減の計算をしたいときにも使います。',
+ex:'浴槽の水(ストック)は、蛇口からの流入と排水口への流出の差で決まります。「たまった宿題」もストック。出す量より増える量が多ければ、たまる一方です。',
+trap:'ストックとフローの混同は、システム思考でいちばん多いミス。「CO₂の排出を減らす=大気中のCO₂が減る」ではありません(流入が流出より多ければ、まだ増え続けます)。',
+rel:['cld','bot'],
+svg(){
+  let s='';
+  s+=cloud(72,118)+cloud(400,118);
+  s+=`<line class="ln" x1="88" y1="115" x2="128" y2="115"/>`;
+  s+=valve(143,115,'流入(蛇口)');
+  s+=`<line class="ln" x1="158" y1="115" x2="185" y2="115"/>`+ahead(191,115,0);
+  s+=box(193,85,120,60,'浴槽の水\n(ストック)','f-b');
+  s+=`<line class="ln" x1="313" y1="115" x2="330" y2="115"/>`;
+  s+=valve(345,115,'流出(排水口)');
+  s+=`<line class="ln" x1="360" y1="115" x2="376" y2="115"/>`+ahead(382,115,0);
+  s+=txt(253,178,'ストックの増減 = 流入 − 流出','lb');
+  s+=txt(253,203,'雲マーク=図の外(今は考えない場所)','sm');
+  return svgWrap(460,220,s);
+}});
+
+/* ---- No.06 時系列変化パターングラフ ---- */
+E({k:'bot', cat:'basic', name:'時系列変化パターングラフ', en:'Behavior Over Time Graph', stars:1,
+cap:'よく出会う3つの変化パターン',
+what:'気になる量が、時間とともにどう変わってきたか(これからどうなりそうか)を1本の線で描くグラフ。「BOTグラフ」とも呼ばれます。',
+see:'出来事を「点」ではなく「パターン」として見られるようになります。線の形(右肩上がり・S字・振動など)は、裏で回っているループの種類を教えてくれます。',
+use:'問題を考え始めるときの最初の一歩に。「この問題、昔からどう変化してきた?」と手描きしてみると、構造さがしのヒントになります。',
+ex:'ずっと右肩上がり=強化ループ(R)。目標に落ち着く=平衡ループ(B)。上下にゆれる=平衡ループ+遅れ。',
+trap:'正確なデータがなくても手描きでOKの図です。逆に「きれいなグラフを作ること」が目的になったら本末転倒。',
+rel:['r','b','delay'],
+svg(){
+  let s='';
+  s+=`<line class="axis" x1="60" y1="230" x2="435" y2="230"/><line class="axis" x1="60" y1="230" x2="60" y2="45"/>`;
+  s+=txt(247,252,'時間 →','sm')+txt(38,52,'量','sm');
+  s+=`<path class="ln c-o" d="M70 216 C 160 208 280 160 380 66"/>`;
+  s+=txt(388,52,'右肩上がり(R)','sm');
+  s+=`<path class="ln c-a" d="M70 222 C 180 218 220 120 300 106 C 340 100 380 100 420 100"/>`;
+  s+=txt(388,86,'S字(RからBへ)','sm');
+  s+=`<path class="ln c-b" d="M70 224 C 96 150 116 148 136 176 C 154 200 170 198 186 180 C 200 168 216 172 236 178 C 260 184 300 181 340 180"/>`;
+  s+=txt(290,207,'ゆれて落ち着く(B+遅れ)','sm');
+  return svgWrap(460,270,s);
+}});
+
+/* ---- No.07 氷山モデル ---- */
+E({k:'ice', cat:'basic', name:'氷山モデル', en:'Iceberg Model', stars:1,
+cap:'見えている「出来事」は氷山の一角',
+what:'目に見える「出来事」の下に、「パターン」「構造」「意識・前提(メンタルモデル)」の3層がかくれている、と考えるための図。',
+see:'同じ出来事がくり返されるとき、その下にパターンがあり、パターンを生む構造があり、構造を支えるものの見方があることに気づけます。深い層に手を打つほど、変化は大きく長続きします。',
+use:'トラブルやニュースに「またか」と思ったとき。出来事に反応する前に、氷山の下をのぞいてみましょう。',
+ex:'月曜の朝また遅刻(出来事)→ 遅刻は月曜に多い(パターン)→ 日曜夜ふかしを生む塾と部活の詰まった予定(構造)→「日曜くらい夜ふかししてもいい」という思い(意識・前提)。',
+trap:'下の層ほど見えにくく、変えるのに時間がかかります。出来事への応急処置が必要なときもあるので、「上にも下にも」両方手を打つのがコツ。',
+rel:['bot','lever'],
+svg(){
+  let s='';
+  // iceberg body
+  s+=`<path class="bx" style="stroke:var(--blue)" d="M196 38 L252 56 L272 96 L156 96 Z"/>`;
+  s+=`<path class="bx" style="stroke:var(--blue)" d="M146 100 L284 100 L316 150 L268 240 L182 262 L122 168 Z"/>`;
+  // waterline
+  s+=`<line class="ln c-b" stroke-dasharray="7 5" x1="40" y1="98" x2="440" y2="98"/>`;
+  s+=txt(414,112,'水面','sm');
+  // labels with leaders
+  const lead=(x1,y1,x2,y2)=>`<line class="grid" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"/>`;
+  s+=txt(370,58,'出来事','nd')+txt(370,75,'何が起きた?','sm')+lead(292,64,336,62);
+  s+=txt(376,130,'パターン','nd')+txt(376,147,'くり返していない?','sm')+lead(300,134,330,132);
+  s+=txt(370,185,'構造','nd')+txt(370,202,'何がそうさせている?','sm')+lead(296,188,338,186);
+  s+=txt(348,245,'意識・前提','nd')+txt(348,262,'どんな思いこみが\n支えている?','sm')+lead(252,248,296,246);
+  // depth arrow
+  s+=`<line class="ln c-i3" x1="66" y1="120" x2="66" y2="250"/>`+ahead(66,256,Math.PI/2,'c-i3');
+  s+=`<text x="50" y="188" class="sm" transform="rotate(-90 50 188)">深いほど 変えにくいが 効果大</text>`;
+  return svgWrap(460,290,s);
+}});
+
+/* ---- No.08 つながりサークル ---- */
+E({k:'circle', cat:'basic', name:'つながりサークル', en:'Connection Circle', stars:1,
+cap:'例:夜ふかしの影響は、ぐるっと一周して返ってくる',
+what:'関係する要素を円の上に並べ、影響の矢印を円の中に引いていく図。因果ループ図のかんたん版で、授業でもよく使われます。',
+see:'矢印がたくさん集まる要素は、そのシステムの中心人物。意外なつながりや、ぐるっと一周するループも見つかります。',
+use:'因果ループ図をいきなり描くのがむずかしいとき、最初の下書きとして。みんなで矢印を引き合うグループワークにも向いています。',
+ex:'夜のゲーム時間・睡眠時間・授業の集中・成績・イライラを円に並べて矢印を引くと、「イライラするからまたゲーム」という悪循環が見えてきます。',
+trap:'矢印を引くこと自体が目的になりがち。引き終わったら「どのループが一番効いている?」まで話し合いましょう。',
+rel:['cld'],
+svg(){
+  let s='';
+  s+=`<circle class="grid" cx="230" cy="145" r="106" fill="none" stroke-width="1.6"/>`;
+  s+=txt(230,26,'夜のゲーム時間')+txt(352,80,'睡眠時間')+txt(352,212,'授業の集中')+txt(230,266,'成績')+txt(108,212,'イライラ')+txt(104,80,'自由時間');
+  const P={game:[230,57],sleep:[306,101],focus:[306,189],grade:[230,233],ira:[154,189],free:[154,101]};
+  s+=arrow(P.game[0]+8,P.game[1],P.sleep[0]-6,P.sleep[1]-8,{bend:-8,sign:'-'});
+  s+=arrow(P.sleep[0],P.sleep[1]+10,P.focus[0],P.focus[1]-10,{bend:-8,sign:'+'});
+  s+=arrow(P.focus[0]-6,P.focus[1]+8,P.grade[0]+10,P.grade[1]-4,{bend:-8,sign:'+'});
+  s+=arrow(P.grade[0]-10,P.grade[1]-4,P.ira[0]+6,P.ira[1]+8,{bend:-8,sign:'-'});
+  s+=arrow(P.ira[0]-2,P.ira[1]-10,P.game[0]-10,P.game[1]+4,{bend:16,sign:'+',st:.45});
+  s+=arrow(P.sleep[0]-6,P.sleep[1]+6,P.ira[0]+10,P.ira[1]-4,{bend:6,sign:'-',st:.35});
+  s+=loopB(230,145,'R','悪循環のループ発見!');
+  return svgWrap(460,290,s);
+}});
+
+/* ---- No.09 成長の限界 ---- */
+E({k:'limits', cat:'arch', name:'成長の限界', en:'Limits to Growth', stars:2,
+cap:'例:急成長した部活が、なぜか伸び悩む',
+what:'成長のエンジン(R)と、成長にブレーキをかける限界(B)がセットになった型。あらゆる「成長物語」の基本形です。',
+see:'伸び悩みの原因は、アクセルの弱さではなく<b>ブレーキ(限界)側</b>にあることが多い、とわかります。',
+use:'順調だったことが頭打ちになったとき。「もっとがんばる」の前に、限界要因をさがしましょう。',
+ex:'部の評判が上がる → 入部者が増える(R)。でも練習場所はそのまま → 一人あたりの練習時間が減る → 実力が伸びず評判も頭打ち(B)。',
+trap:'限界が見えたときにアクセルを踏み込むのは逆効果。先にブレーキの元(場所・時間・人数などの限界)をゆるめるのが正解です。',
+rel:['r','invest'],
+svg(){
+  let s='';
+  s+=txt(92,135,'取り組み\n(募集・練習)')+txt(230,135,'成果・評判')+txt(374,135,'限界への\n近づき');
+  s+=arrow(122,106,196,106,{bend:-16,sign:'+'});
+  s+=arrow(198,164,124,164,{bend:-16,sign:'+'});
+  s+=loopB(160,135,'R');
+  s+=arrow(268,106,340,106,{bend:-16,sign:'+'});
+  s+=arrow(342,164,270,164,{bend:-16,sign:'-'});
+  s+=loopB(305,135,'B');
+  s+=box(300,24,150,38,'限界(場所・時間)','bx dash','lb');
+  s+=arrow(375,64,375,96,{dash:true});
+  s+=txt(160,196,'成長のエンジン','sm')+txt(305,196,'見えないブレーキ','sm');
+  return svgWrap(460,230,s);
+}});
+
+/* ---- No.10 問題のすり替わり ---- */
+E({k:'shift', cat:'arch', name:'問題のすり替わり', en:'Shifting the Burden', stars:3,
+cap:'例:答えを写すか、質問して理解するか',
+what:'手軽な対症療法(上のB)と、時間のかかる根本解決(下のB)。対症療法に頼るほど根本解決の力が弱っていく(R)という型です。',
+see:'ラクな解決策が、本当の解決をどんどん遠ざけていくしくみが見えます。',
+use:'同じ問題に、何度も同じ「その場しのぎ」をしていると気づいたとき。',
+ex:'宿題がわからない → 答えを写す(すぐ終わる!)。でも自力で解く力が育たないので、次の宿題はもっとわからない → ますます写すしかなくなる。',
+trap:'対症療法を全部やめる必要はありません。根本解決が育つまでの「つなぎ」と割り切って、根本側への取り組みを止めないことが大事です。',
+rel:['fix','delay'],
+svg(){
+  let s='';
+  s+=txt(165,50,'対症療法\n(答えを写す)')+txt(165,160,'問題\n(宿題がわからない)')+txt(165,272,'根本解決\n(質問して理解する)');
+  s+=arrow(206,138,206,74,{bend:22,sign:'+',st:.4});
+  s+=arrow(124,74,124,138,{bend:22,sign:'-'});
+  s+=loopB(165,106,'B','すぐ効く');
+  s+=arrow(124,182,124,248,{bend:22,sign:'+'});
+  s+=arrow(206,248,206,182,{bend:22,sign:'-',st:.7,delay:true,dt:.3});
+  s+=loopB(165,215,'B','ゆっくり効く');
+  s+=txt(382,160,'自力で\n解く力');
+  s+=arrow(230,56,368,132,{bend:-26,sign:'-',st:.55});
+  s+=arrow(368,186,248,262,{bend:-26,sign:'+',st:.35});
+  s+=loopB(396,240,'R','たよるほど\n力が落ちる悪循環');
+  return svgWrap(460,310,s);
+}});
+
+/* ---- No.11 応急処置の失敗 ---- */
+E({k:'fix', cat:'arch', name:'応急処置の失敗', en:'Fixes that Fail', stars:2,
+cap:'例:押し入れに全部つっこむ「片づけ」',
+what:'対策がいったんは効く(B)けれど、遅れてやってくる副作用が問題をぶり返させる(R)型。英語名は「Fixes that Fail」。',
+see:'「あのときはうまくいったのに、なぜかまた…」がくり返される理由がわかります。',
+use:'同じ対策を何度も打っているのに、問題がだんだん悪化しているとき。',
+ex:'部屋が散らかる → 全部押し入れへ(見た目は解決!)→ 数週間後、何がどこにあるかわからず、前よりひどく散らかる。',
+trap:'副作用は「遅れて」来るので、あの対策のせいだと気づきにくいのです。手を打つ前に「この対策の3か月後の副作用は?」と自問しましょう。',
+rel:['shift','delay'],
+svg(){
+  let s='';
+  s+=txt(150,66,'問題\n(散らかった部屋)')+txt(150,206,'応急処置\n(押し入れへ)')+txt(368,136,'副作用\n(見つからない)');
+  s+=arrow(108,90,108,182,{bend:24,sign:'+'});
+  s+=arrow(192,182,192,90,{bend:24,sign:'-'});
+  s+=loopB(150,136,'B','いったん解決');
+  s+=arrow(216,206,330,158,{bend:22,sign:'+',st:.3,delay:true,dt:.62});
+  s+=arrow(340,110,218,70,{bend:22,sign:'+',st:.55});
+  s+=loopB(318,42,'R','あとでぶり返す');
+  return svgWrap(460,250,s);
+}});
+/* ---- No.12 目標のなし崩し ---- */
+E({k:'goal', cat:'arch', name:'目標のなし崩し', en:'Drifting Goals', stars:2,
+cap:'例:「毎日1時間」がいつのまにか15分に',
+what:'目標と現状のギャップを埋める道は2つ。がんばって現状を上げる道(遅い)と、目標を下げる道(早い)。ラクな後者が選ばれ続けると、目標がずるずる下がっていく型です。',
+see:'大きな失敗ではなく、<b>小さな妥協の積み重ね</b>で水準が下がっていくしくみが見えます。',
+use:'「前はもっとちゃんとやっていたのに」と感じたとき。組織の安全基準やサービスの質の低下にも、この型がよく現れます。',
+ex:'毎日1時間勉強する目標 → できない日が続く → 「30分でいいや」 → 30分もできない日が → 「15分で…」。',
+trap:'目標の見直し自体は悪くありません。「本来の目的」に照らして下げたのか、単にラクだから下げたのか。その区別がすべてです。',
+rel:['b'],
+svg(){
+  let s='';
+  s+=txt(112,60,'目標')+txt(230,140,'目標と現状のギャップ')+txt(112,214,'現状');
+  s+=txt(374,60,'目標を下げる')+txt(374,214,'努力して改善');
+  s+=arrow(134,74,176,124,{bend:-10,sign:'+'});
+  s+=arrow(150,204,186,158,{bend:10,sign:'-',st:.45});
+  s+=arrow(294,130,330,80,{bend:-8,sign:'+'});
+  s+=arrow(322,52,158,48,{bend:18,sign:'-',st:.5});
+  s+=loopB(240,92,'B','ラクな道(すぐ)');
+  s+=arrow(294,152,330,194,{bend:8,sign:'+',st:.45});
+  s+=arrow(320,224,160,226,{bend:-16,sign:'+',st:.3,delay:true,dt:.68});
+  s+=loopB(240,180,'B','本当の道(遅い)');
+  return svgWrap(460,280,s);
+}});
+
+/* ---- No.13 エスカレーション ---- */
+E({k:'esc', cat:'arch', name:'エスカレーション', en:'Escalation', stars:2,
+cap:'例:やり返しが、やり返しを呼ぶ',
+what:'「相手に負けまい」とする2人(2国・2社)の反応がかみ合って、全体として行動がどんどん過激になっていく型。それぞれは守っているだけのつもりなのに、合わさると巨大な強化ループ(R)になります。',
+see:'「先に仕掛けたのは向こう」とお互いが思ったまま、争いだけが拡大するしくみが見えます。',
+use:'けんか・言い合い・値下げ合戦・軍拡競争など、「相手のせい」に見える対立全般に。',
+ex:'Aが強めの一言 → Bには脅威に見える → Bが言い返す → Aにはもっと大きな脅威に見える → さらに強い言葉で…。',
+trap:'このループは「どちらかが降りる」ことでしか止まりません。一方的に見えても、自分の行動が相手の燃料になっています。',
+rel:['r','adv'],
+svg(){
+  let s='';
+  s+=txt(120,60,'Aの行動')+txt(340,60,'Bが感じる脅威')+txt(340,196,'Bの行動')+txt(120,196,'Aが感じる脅威');
+  s+=arrow(170,54,278,54,{bend:-12,sign:'+'});
+  s+=arrow(340,78,340,178,{bend:-12,sign:'+'});
+  s+=arrow(290,202,182,202,{bend:-12,sign:'+'});
+  s+=arrow(120,178,120,78,{bend:-12,sign:'+'});
+  s+=loopB(230,128,'R','どんどん過激に');
+  return svgWrap(460,240,s);
+}});
+
+/* ---- No.14 強者はますます強く ---- */
+E({k:'success', cat:'arch', name:'強者はますます強く', en:'Success to the Successful', stars:2,
+cap:'例:うまい人ほど、チャンスが回ってくる',
+what:'限られた資源(時間・チャンス・お金)の配分が「うまくいっている側」に偏り、その差がさらに配分の偏りを生む——2つの強化ループが背中合わせになった型です。',
+see:'大きな差の原因が、実力ではなく「最初のわずかな差+配分のしくみ」にあることが見えてきます。',
+use:'一人勝ち・格差・レギュラーの固定化などが気になったとき。',
+ex:'発表がうまい子が指名される → 経験を積んでさらにうまくなる → ますます指名される。いっぽう他の子は経験の機会そのものを失っていく。',
+trap:'「負けた側の努力不足」と個人のせいにしがちですが、配分のルール(構造)を変えないかぎり差は開き続けます。',
+rel:['r','commons'],
+svg(){
+  let s='';
+  s+=txt(230,135,'チャンスの配分\n(Aに多く)')+txt(88,135,'Aの実力・成果')+txt(384,135,'Bの実力・成果');
+  s+=arrow(180,104,124,104,{bend:16,sign:'+',st:.5});
+  s+=arrow(122,166,178,166,{bend:16,sign:'+',st:.5});
+  s+=loopB(152,216,'R','Aはのびる');
+  s+=arrow(286,104,344,104,{bend:-16,sign:'-'});
+  s+=arrow(346,166,288,166,{bend:-16,sign:'-'});
+  s+=loopB(316,216,'R','Bはしぼむ');
+  s+=txt(230,268,'−×−も強化ループになることに注意','sm');
+  return svgWrap(460,284,s);
+}});
+
+/* ---- No.15 共有地の悲劇 ---- */
+E({k:'commons', cat:'arch', name:'共有地の悲劇', en:'Tragedy of the Commons', stars:3,
+cap:'例:みんなで使うと、みんなが困る',
+what:'一人ひとりが自分の利益のために共有資源を使う(R)と、全体の使用量が資源の限界を超え、遅れて全員が損をする(B)型。',
+see:'全員が「ふつうに合理的」に行動した結果、全員が損をする——という不思議な現象が起きるしくみです。',
+use:'教室の備品、学校のWi-Fi、海の魚、地球の大気など、「みんなのもの」にかかわる問題全般に。',
+ex:'昼休みの体育館。各グループが場所を広く取るほど自分たちは楽しい → 全体はぎゅうぎゅう → ぶつかってけがやけんか → 結局みんなが使いにくくなる。',
+trap:'「マナーを守ろう」と呼びかけるだけでは解決しにくい型です。使用ルール・見える化・上限の設定など、しくみでの解決が必要になります。',
+rel:['limits','success'],
+svg(){
+  let s='';
+  s+=txt(128,70,'一人ひとりの利用')+txt(128,196,'それぞれの利益');
+  s+=txt(340,70,'全体の利用量')+txt(340,196,'資源の状態');
+  s+=arrow(90,90,90,176,{bend:22,sign:'+',st:.5});
+  s+=arrow(166,176,166,90,{bend:22,sign:'+',st:.5});
+  s+=loopB(128,133,'R','自分はトク');
+  s+=arrow(190,64,282,64,{bend:-10,sign:'+'});
+  s+=arrow(340,88,340,172,{bend:-16,sign:'-',st:.3,delay:true,dt:.72});
+  s+=arrow(288,202,196,202,{bend:-10,sign:'+'});
+  s+=txt(276,133,'','sm');
+  s+=loopB(258,133,'B','あとでみんなが損');
+  s+=box(300,232,160,34,'資源には限りがある','bx dash','lb');
+  return svgWrap(460,286,s);
+}});
+
+/* ---- No.16 成長と投資不足 ---- */
+E({k:'invest', cat:'arch', name:'成長と投資不足', en:'Growth and Underinvestment', stars:3,
+cap:'例:人気店が行列をさばけず、評判を落とす',
+what:'成長(R)が能力の限界にぶつかったとき(B)、能力への投資が遅れると成長そのものが止まってしまう型。「成長の限界」の発展版です。',
+see:'「人気が落ちたから投資しない」は実は逆で、「投資しなかったから人気が落ちた」のだ、ということが見えます。',
+use:'忙しさを理由に、練習・設備・仲間集めなど「力をたくわえる活動」を後回しにしているとき。',
+ex:'文化祭の模擬店が大人気 → 行列 → さばききれず味も接客も雑に → 「並ぶほどじゃないね」と客が減る → 「ほら、人を増やさなくて正解だった」…本当に?',
+trap:'投資が効くまでには遅れがあります。忙しくなってからでは遅い。成長の兆しが見えた時点で、先に能力を増やすのがコツです。',
+rel:['limits','delay'],
+svg(){
+  let s='';
+  s+=txt(120,70,'人気(お客の数)')+txt(330,70,'評判')+txt(225,178,'サービスの質')+txt(232,282,'さばく能力')+txt(388,208,'投資の必要性');
+  s+=arrow(184,56,300,56,{bend:-16,sign:'+'});
+  s+=arrow(298,84,186,84,{bend:-16,sign:'+',st:.5});
+  s+=loopB(186,24,'R');
+  s+=txt(330,24,'人気が人気を呼ぶ','sm');
+  s+=arrow(114,92,184,162,{bend:14,sign:'-',st:.5});
+  s+=arrow(268,164,324,92,{bend:14,sign:'+',st:.5});
+  s+=loopB(228,126,'B');
+  s+=arrow(282,190,338,202,{bend:8,sign:'-',st:.5});
+  s+=arrow(366,228,286,270,{bend:10,sign:'+',st:.25,delay:true,dt:.55});
+  s+=arrow(222,262,224,200,{bend:-18,sign:'+'});
+  s+=txt(366,286,'ここが遅れる!','sm');
+  return svgWrap(460,306,s);
+}});
+
+/* ---- No.17 敵対者たち ---- */
+E({k:'adv', cat:'arch', name:'敵対者たち', en:'Accidental Adversaries', stars:3,
+cap:'例:本当は協力し合える2人が、なぜかこじれる',
+what:'協力すればともに得をする2者(外側の大きな協力ループ)が、それぞれ悪気なく「自分の都合」を優先した行動で相手の足を引っぱり、いつのまにか対立してしまう型。',
+see:'「相手が悪い」のではなく、悪気のない自己都合の積み重ねが対立を生む——というしくみが見えます。',
+use:'班・委員会・部署・会社・国など、パートナー同士の関係がぎくしゃくしてきたとき。',
+ex:'文化祭の調理係と買い出し係。それぞれ自分の段取りを優先 → 相手の仕事が増える → 不満がつのって協力が減る → 両方の成果が落ちる。',
+trap:'人は「相手の行動が自分に与える影響」はよく見えても、「自分の行動が相手に与える影響」は見えにくいもの。図にして初めて気づけます。',
+rel:['esc','commons'],
+svg(){
+  let s='';
+  s+=txt(120,76,'Aの成果')+txt(340,76,'Bの成果');
+  s+=arrow(166,60,296,60,{bend:-22,sign:'+',st:.5});
+  s+=arrow(294,90,166,90,{bend:-22,sign:'+',st:.5});
+  s+=loopB(140,24,'R');
+  s+=txt(322,22,'協力の輪(本来の姿)','sm');
+  s+=txt(120,210,'Aの自分都合の行動')+txt(340,210,'Bの自分都合の行動');
+  s+=arrow(108,96,108,190,{bend:16,sign:'-',st:.5});
+  s+=arrow(196,200,320,96,{bend:-6,sign:'-',st:.62});
+  s+=arrow(352,96,352,190,{bend:-16,sign:'-'});
+  s+=arrow(264,200,140,96,{bend:6,sign:'-',st:.62});
+  s+=loopB(230,232,'R');
+  s+=txt(230,258,'悪循環の輪','sm');
+  return svgWrap(460,272,s);
+}});
+
+/* ---- No.18 レバレッジポイント ---- */
+E({k:'lever', cat:'act', name:'レバレッジポイント', en:'Leverage Points', stars:3,
+cap:'小さな力で、大きく動かせる場所はどこ?',
+what:'システムの中には「小さな変更が大きな変化を生む場所」がある——その場所の深さを整理した考え方の地図。システム思考の母、ドネラ・メドウズが12段階にまとめました。',
+see:'数字をいじる対策より、しくみ → 目的 → ものの見方を変える対策のほうが、効果が大きい(そのぶん難しい)ことがわかります。',
+use:'対策のアイデアがたくさん出たとき、「どれが一番深いところに効く?」と並べ替えるものさしとして。',
+ex:'遅刻対策なら:罰則を強める(数字)< 時間割や動線を変える(しくみ)< 「早く来たくなる朝」をつくる(目的・ものの見方)。',
+trap:'深いポイントほど強力ですが、変えるのは大変で、反発も大きくなります。浅いところで小さく試しながら、深い一手をねらいましょう。',
+rel:['ice'],
+svg(){
+  let s='';
+  // lever & rock
+  s+=`<line class="axis" x1="30" y1="232" x2="210" y2="232"/>`;
+  s+=`<path class="bx" d="M118 232 L138 232 L128 208 Z"/>`;
+  s+=`<line class="ln c-o" stroke-width="4" x1="42" y1="182" x2="196" y2="222"/>`;
+  s+=`<circle class="bx f-b" cx="196" cy="196" r="22"/>`;
+  s+=arrow(34,150,40,174,{cls:'c-o'});
+  s+=txt(56,140,'小さな力','sm')+txt(160,152,'大きな変化','sm');
+  // ladder of leverage
+  const rung=(y,label,f)=>box(258,y,186,34,label,f,'lb');
+  s+=rung(196,'数字を変える(罰則・予算)','');
+  s+=rung(150,'しくみ・ルールを変える','');
+  s+=rung(104,'目的を変える','f-a');
+  s+=rung(58,'ものの見方を変える','f-a');
+  s+=`<line class="ln c-a" x1="240" y1="222" x2="240" y2="70"/>`+ahead(240,62,-Math.PI/2,'c-a');
+  s+=`<text x="252" y="146" class="sm" transform="rotate(-90 252 146)">効果 大</text>`;
+  return svgWrap(460,258,s);
+}});
+
+/* ---- No.19 システム境界図 ---- */
+E({k:'bound', cat:'act', name:'システム境界図', en:'System Boundary', stars:1,
+cap:'どこまでを「考える範囲」にする?',
+what:'考える対象を「自分たちで変えられる」「影響を与えられる」「外の環境(いまは前提とする)」の3つの輪で区切る図。',
+see:'悩みの多くが「輪の外」のことだと気づけます。逆に、変えられるのに手つかずの場所も見つかります。',
+use:'話し合いが「国が悪い」「時代が悪い」に流れてしまったとき。エネルギーを注ぐ場所を決め直すのに使います。',
+ex:'学級会なら:席替えのルール(変えられる)/先生の方針(影響を与えられる)/学習指導要領(外の前提)。',
+trap:'境界は「事実」ではなく「選択」です。狭すぎると根本を見落とし、広すぎると何もできなくなります。',
+rel:['stake'],
+svg(){
+  let s='';
+  s+=`<rect class="bx dash" x="30" y="20" rx="18" width="400" height="230"/>`;
+  s+=`<rect class="bx" x="85" y="58" rx="14" width="290" height="158" style="stroke:var(--aqua)"/>`;
+  s+=`<rect class="bx f-a" x="140" y="96" rx="10" width="180" height="84"/>`;
+  s+=txt(230,124,'自分たちで変えられる')+txt(230,152,'例:席がえのルール','sm');
+  s+=txt(230,78,'影響を与えられる','lb')+txt(230,198,'例:先生の方針','sm');
+  s+=txt(230,38,'外の環境(いまは前提)','lb')+txt(230,234,'例:学習指導要領・天気','sm');
+  return svgWrap(460,270,s);
+}});
+
+/* ---- No.20 ステークホルダーマップ ---- */
+E({k:'stake', cat:'act', name:'ステークホルダーマップ', en:'Stakeholder Map', stars:1,
+cap:'例:文化祭にかかわる人たち',
+what:'あるテーマに関係する人や組織(ステークホルダー=利害関係者)を、関わりの深さや立場で配置した地図。',
+see:'忘れられがちな関係者や、影響力が大きいのに話を聞けていない人が見つかります。',
+use:'イベントの計画、もめごとの整理、何かを変えたいときの「誰に相談する?」の設計に。',
+ex:'文化祭なら:実行委員(中心)、生徒、先生、保護者、近所の人、出入りの業者…。近所の人を忘れると、当日騒音のクレームが来るかも。',
+trap:'「モノを言わない関係者」(将来の世代、自然環境など)は地図から抜け落ちがち。わざと1枠用意しておきましょう。',
+rel:['bound','net'],
+svg(){
+  let s='';
+  s+=`<circle class="grid" cx="230" cy="140" r="72" fill="none" stroke-dasharray="5 5" stroke-width="1.6"/>`;
+  s+=`<circle class="grid" cx="230" cy="140" r="118" fill="none" stroke-dasharray="5 5" stroke-width="1.6"/>`;
+  s+=`<circle class="bx f-b" cx="230" cy="140" r="34"/>`+txt(230,140,'文化祭');
+  const actor=(x,y,l)=>`<circle class="bx" cx="${x}" cy="${y}" r="5"/>`+txt(x,y-16,l,'lb');
+  s+=actor(230,72,'実行委員')+actor(160,190,'生徒')+actor(300,190,'先生');
+  s+=actor(112,84,'保護者')+actor(350,84,'近所の人')+actor(230,262,'業者');
+  s+=txt(80,246,'中心に近いほど\n関わりが深い','sm');
+  return svgWrap(460,286,s);
+}});
+/* ---- No.21 影響ダイアグラム ---- */
+E({k:'infl', cat:'act', name:'影響ダイアグラム', en:'Influence Diagram', stars:2,
+cap:'例:文化祭の出し物を決める',
+what:'決めること(四角)、不確かなこと(丸)、結果(ひし形)を矢印でつないで、意思決定の見取り図をつくる図。',
+see:'「自分で決められること」と「運まかせのこと」の区別がはっきりします。結果に効いているのはどれかも見えてきます。',
+use:'選択肢で迷ったとき。決断の前に、何が結果を左右するのか、考える材料は何かを整理します。',
+ex:'出し物(決める)と、天気・来場者数(不確か)が、売上と満足度(結果)にどうつながるかを1枚に描いてみる。',
+trap:'矢印は「影響の流れ」。全部をつなぐと意味がなくなるので、結果に効く線だけを残すのがコツです。',
+rel:['cld','logic'],
+svg(){
+  let s='';
+  s+=box(60,42,150,46,'出し物を\n何にするか','f-b');
+  s+=`<ellipse class="bx" cx="330" cy="52" rx="52" ry="22"/>`+txt(330,52,'天気');
+  s+=`<ellipse class="bx" cx="330" cy="128" rx="52" ry="22"/>`+txt(330,128,'来場者数');
+  s+=`<path class="bx f-o" d="M230 168 L318 196 L230 224 L142 196 Z"/>`+txt(230,196,'満足度・売上');
+  s+=arrow(150,92,208,164,{bend:-8});
+  s+=arrow(214,70,274,110,{bend:-6});
+  s+=arrow(330,74,330,104,{});
+  s+=arrow(310,152,262,180,{bend:-6});
+  s+=txt(96,208,'四角=決めること','sm')+txt(96,228,'丸=不確かなこと','sm')+txt(388,224,'ひし形=結果','sm');
+  return svgWrap(460,250,s);
+}});
+
+/* ---- No.22 ロジックモデル ---- */
+E({k:'logic', cat:'act', name:'ロジックモデル', en:'Logic Model', stars:2,
+cap:'例:募金活動の設計図',
+what:'活動を「投入 → 活動 → 直接の結果(アウトプット)→ 変化(アウトカム)→ 社会への影響(インパクト)」の一直線で描く設計図。',
+see:'「がんばった(活動)」と「変わった(アウトカム)」は別物だとわかります。行事の振り返りが「楽しかった」で終わらなくなります。',
+use:'行事・ボランティア・探究学習の計画と振り返りに。「そもそも何のためだっけ?」を確認する道具です。',
+ex:'募金箱を設置してよびかける(活動)→ 3万円集まる(アウトプット)→ 支援先の子どもが学校に通える(アウトカム)。',
+trap:'一直線はあくまで仮説です。現実にはループや思わぬ副作用があるので、因果ループ図とセットで使うと強力です。',
+rel:['infl','cld'],
+svg(){
+  let s='';
+  const bw=76,bh=52,y=52,g=17;
+  const items=[['投入','お金・時間',''],['活動','募金の\nよびかけ',''],['結果','3万円\n集まった',''],['変化','子どもが\n通学できる','f-a'],['影響','地域が\n変わる','f-a']];
+  items.forEach((it,i)=>{
+    const x=15+i*(bw+g);
+    s+=box(x,y,bw,bh,it[0],it[2],'nd');
+    s+=txt(x+bw/2,y+bh+26,it[1],'sm');
+    if(i<4){ s+=`<line class="ln" x1="${x+bw+2}" y1="${y+bh/2}" x2="${x+bw+g-6}" y2="${y+bh/2}"/>`+ahead(x+bw+g-3,y+bh/2,0); }
+  });
+  s+=`<path class="grid" d="M15 24 L293 24" stroke-width="1.6"/>`+txt(154,12,'ここまでは「がんばり」','sm');
+  s+=`<path class="grid" d="M307 24 L459 24" stroke-width="1.6"/>`+txt(383,12,'ここからが「変化」','sm');
+  return svgWrap(474,170,s);
+}});
+
+/* ---- No.23 リッチピクチャー ---- */
+E({k:'rich', cat:'wide', name:'リッチピクチャー', en:'Rich Picture', stars:1,
+cap:'例:ことばにしにくいモヤモヤを、まるごと絵にする',
+what:'状況を、人・気持ち・対立・道具までふくめて1枚の絵に描き出す図。絵のうまい下手はまったく関係なし。「ソフトシステムズ方法論」という手法の道具です。',
+see:'文章にすると抜け落ちてしまう感情・人間関係・ふんいきが見えます。描きながら「自分はこう見ていたのか」と気づくのが最大の効果。',
+use:'問題がまだモヤモヤしていて、「何が問題なのか」さえ言えない、いちばん最初の段階で。',
+ex:'「最近クラスがギスギスする」を絵にしてみる。誰と誰の間に雷マークが入る? 吹き出しには何と書いてある?',
+trap:'きれいに描こうとしないこと。矢印や記号のルールもなし。整理するのは次の段階(ループ図など)の仕事です。',
+rel:['circle','cld'],
+svg(){
+  const stick=(x,y,mood)=>{
+    let p=`<circle class="ln thin" cx="${x}" cy="${y-26}" r="9"/>`;
+    p+=`<path class="ln thin" d="M${x} ${y-17} L${x} ${y+6} M${x-12} ${y-8} L${x} ${y-13} L${x+12} ${y-8} M${x} ${y+6} L${x-10} ${y+24} M${x} ${y+6} L${x+10} ${y+24}"/>`;
+    if(mood==='x') p+=`<path class="ln thin c-r" d="M${x-5} ${y-29} l4 4 m0 -4 l-4 4 M${x+1} ${y-29} l4 4 m0 -4 l-4 4"/>`;
+    return p;
+  };
+  let s='';
+  // school
+  s+=`<path class="bx" d="M46 120 L126 120 L126 190 L46 190 Z"/><path class="bx" d="M40 120 L86 90 L132 120 Z"/>`;
+  s+=`<rect class="bx" x="60" y="140" width="16" height="16"/><rect class="bx" x="96" y="140" width="16" height="16"/>`;
+  s+=txt(86,208,'学校','sm');
+  // students with conflict
+  s+=stick(196,190,'x')+stick(268,190,'x');
+  s+=`<path class="ln c-o" d="M222 168 l8 -12 l-6 -2 l10 -14" fill="none"/>`;
+  s+=txt(232,212,'ピリピリ…','sm');
+  // speech bubble
+  s+=`<path class="bx" d="M128 58 h120 a10 10 0 0 1 10 10 v26 a10 10 0 0 1 -10 10 h-64 l-14 16 l2 -16 h-44 a10 10 0 0 1 -10 -10 v-26 a10 10 0 0 1 10 -10 Z"/>`;
+  s+=txt(193,82,'宿題多すぎ!','lb');
+  // teacher with thought bubble
+  s+=stick(376,150,'');
+  s+=txt(376,190,'先生','sm');
+  s+=`<circle class="bx" cx="352" cy="86" r="3"/><circle class="bx" cx="342" cy="72" r="5"/>`;
+  s+=`<ellipse class="bx" cx="386" cy="48" rx="58" ry="24"/>`+txt(386,48,'どう助けよう…','sm');
+  // clock
+  s+=`<circle class="bx" cx="300" cy="120" r="14"/><path class="ln thin" d="M300 112 L300 120 L306 124"/>`;
+  s+=txt(300,148,'時間がない','sm');
+  return svgWrap(460,230,s);
+}});
+
+/* ---- No.24 コンセプトマップ ---- */
+E({k:'concept', cat:'wide', name:'コンセプトマップ', en:'Concept Map', stars:1,
+cap:'例:「水」から広がる知識の地図',
+what:'概念(ことば)どうしを線でつなぎ、線の上に「〜すると」「〜に必要」など<b>関係のことば</b>を書きこむ知識の地図。',
+see:'自分がどこを理解していて、どこがあいまいかがひと目でわかります。丸暗記と理解の違いがはっきり出ます。',
+use:'テスト勉強のまとめ、探究テーマの整理、読書メモに。友だちと見せ合うと、理解の違いが面白いほど見えます。',
+ex:'水—(冷やすと)→氷、水—(生き物に)→必要。関係のことばまで書くのが、マインドマップとの大きな違いです。',
+trap:'つなぎことばをサボると、ただの単語の羅列になってしまいます。「なぜこの2つはつながる?」と自問しながら線を引きましょう。',
+rel:['net'],
+svg(){
+  let s='';
+  s+=box(192,24,76,40,'水','f-b');
+  s+=box(66,120,78,40,'氷','');
+  s+=box(192,120,86,40,'水蒸気','');
+  s+=box(322,120,84,40,'生き物','');
+  s+=box(258,206,76,40,'雨','');
+  s+=arrow(196,66,122,116,{});
+  s+=txt(140,80,'冷やすと','elb');
+  s+=arrow(232,68,234,116,{});
+  s+=txt(190,106,'あたためると','elb');
+  s+=arrow(266,60,344,116,{});
+  s+=txt(330,76,'生きるのに必要','elb');
+  s+=arrow(240,164,286,202,{});
+  s+=txt(300,180,'上空で冷えると','elb');
+  s+=arrow(254,226,120,164,{bend:20});
+  s+=txt(140,222,'こおって','elb');
+  return svgWrap(460,262,s);
+}});
+
+/* ---- No.25 ネットワーク図 ---- */
+E({k:'net', cat:'wide', name:'ネットワーク図', en:'Network Diagram', stars:2,
+cap:'例:つながりの「形」が、力の配置を映し出す',
+what:'人・生き物・モノを点(ノード)で、関係を線(リンク)で描いた図。点の大きさや線の太さで、つながりの強さも表せます。',
+see:'たくさんの線が集まる「ハブ」、グループの分かれ目、1本切れると全体が分断してしまう弱点などが見つかります。',
+use:'食物網、友だち関係、物流、Webのリンクなど、「つながりの全体像」をながめたいときに。',
+ex:'食物網でハブになっている生き物(たとえばミツバチ)がいなくなると、影響はネットワーク全体に波のように広がります。',
+trap:'線が多いこと=良いこと、ではありません。うわさも病気も、同じネットワークの上を伝わっていきます。',
+rel:['stake','circle'],
+svg(){
+  let s='';
+  const N={bee:[230,130],fa:[120,60],fb:[120,200],tree:[340,60],bird:[340,200],spider:[52,130],fruit:[416,130]};
+  const link=(a,b,w)=>`<line class="grid" stroke-width="${w||1.6}" x1="${N[a][0]}" y1="${N[a][1]}" x2="${N[b][0]}" y2="${N[b][1]}"/>`;
+  s+=link('bee','fa',2.4)+link('bee','fb',2.4)+link('bee','tree',2.4)+link('bee','bird',1.4)+link('fa','spider')+link('fb','spider')+link('tree','fruit',2.4)+link('fruit','bird')+link('fa','tree');
+  const node=(k,r,f,l,dy)=>`<circle class="bx ${f}" cx="${N[k][0]}" cy="${N[k][1]}" r="${r}"/>`+txt(N[k][0],N[k][1]+dy,l,'lb');
+  s+=node('bee',17,'f-o','ミツバチ',-30);
+  s+=node('fa',9,'','花A',-22)+node('fb',9,'','花B',22)+node('tree',9,'','リンゴの木',-22)+node('bird',9,'','鳥',24)+node('spider',9,'','クモ',24)+node('fruit',9,'','実',24);
+  s+=txt(230,242,'線が集まる点=ハブ。いなくなると全体に影響が広がる','sm');
+  return svgWrap(460,262,s);
+}});
+
+/* ---- No.26 適応サイクル ---- */
+E({k:'adapt', cat:'wide', name:'適応サイクル', en:'Adaptive Cycle', stars:3,
+cap:'例:森も部活も「成長→安定→崩壊→再生」をめぐる',
+what:'生態系や組織は「成長(r)→ 保全(K)→ 解放(Ω)→ 再編(α)」の4段階をぐるぐるめぐる、と考えるモデル。レジリエンス(回復力)研究から生まれました。',
+see:'崩壊は「終わり」ではなくサイクルの一部で、次の再生の材料になることがわかります。そして、安定しきったシステムほど実はもろい、ということも。',
+use:'長く続いた組織・伝統行事・習慣が行きづまったとき。「いま自分たちはサイクルのどこにいる?」と考えます。',
+ex:'強豪部が引退で主力を失う(解放)→ 新チームで役割を作り直す(再編)→ ぐんぐん成長(成長)→ 黄金期(保全)→ また引退…。',
+trap:'保全(K)の段階で崩壊を全力で防ぎ続けると、いざ崩れたときの被害がかえって大きくなります。山火事を防ぎすぎた森が、大火事になるように。',
+rel:['limits'],
+svg(){
+  let s='';
+  const cx=230,cy=140,r=88;
+  const P=a=>[cx+r*Math.cos(a*Math.PI/180),cy+r*Math.sin(a*Math.PI/180)];
+  // four arcs (counterclockwise: right→top→left→bottom)
+  const arc=(a0,a1)=>{
+    const p0=P(a0),p1=P(a1);
+    const mid=P((a0+a1)/2);
+    let out=`<path class="ln c-v" d="M${r1(p0[0])} ${r1(p0[1])} A${r} ${r} 0 0 0 ${r1(p1[0])} ${r1(p1[1])}"/>`;
+    const t=(a1)*Math.PI/180;
+    out+=ahead(p1[0],p1[1],Math.atan2(-Math.cos(t),Math.sin(t))+Math.PI,'c-v');
+    return out;
+  };
+  s+=arc(-12,-78)+arc(-102,-168)+arc(168,102)+arc(78,12);
+  s+=txt(352,140,'成長 r')+txt(372,164,'ぐんぐん伸びる','sm');
+  s+=txt(230,32,'保全 K')+txt(230,78,'安定・がっちり','sm');
+  s+=txt(108,140,'解放 Ω')+txt(96,164,'くずれる','sm');
+  s+=txt(230,254,'再編 α')+txt(230,276,'作り直す','sm');
+  s+=txt(230,140,'ぐるぐる\nめぐる','sm');
+  return svgWrap(460,292,s);
+}});
+
+/* ---- No.27 クネビンフレームワーク ---- */
+E({k:'cyn', cat:'wide', name:'クネビンフレームワーク', en:'Cynefin Framework', stars:3,
+cap:'問題の「種類」によって、攻め方を変える',
+what:'問題を「明らか」「煩雑」「複雑」「混沌」の4つの領域(+まん中の「不明」)に分類し、それぞれに合った動き方を教えてくれる図。',
+see:'「調べれば正解がある問題」と「やってみないとわからない問題」では、攻め方がまったく違うことがわかります。',
+use:'話し合いがかみ合わないとき。「そもそもこの問題はどの領域?」と全員の認識をそろえるのに使います。',
+ex:'自転車のパンク修理=明らか。時間割の最適化=煩雑(分析すれば解ける)。クラスの人間関係=複雑(小さく試して学ぶ)。災害直後=混沌(まず動く)。',
+trap:'複雑な問題に「正解」を求めて分析ばかりしてしまうのが定番の失敗。複雑領域では「小さく試す → 学ぶ → 直す」が正解です。',
+rel:['rich'],
+svg(){
+  let s='';
+  const q=(x,y,name,how,ex,f)=>{
+    return `<rect class="bx ${f}" x="${x}" y="${y}" rx="12" width="180" height="112"/>`+
+      txt(x+90,y+30,name,'nd')+txt(x+90,y+56,how,'lb')+txt(x+90,y+86,ex,'sm');
+  };
+  s+=q(38,28,'複雑','小さく試して学ぶ','例:人間関係','f-a');
+  s+=q(242,28,'煩雑','くわしい人が分析','例:時間割づくり','');
+  s+=q(38,156,'混沌','まず動いて安定させる','例:災害直後','');
+  s+=q(242,156,'明らか','正解のやり方を使う','例:パンク修理','');
+  s+=`<circle class="bx" cx="230" cy="148" r="30"/>`+txt(230,148,'不明','lb');
+  return svgWrap(460,296,s);
+}});
+
+/* ---- No.28 特性要因図 ---- */
+E({k:'fish', cat:'wide', name:'特性要因図', en:'Fishbone / Ishikawa Diagram', stars:1,
+cap:'例:「忘れ物が多い」の原因を骨に整理する',
+what:'結果(魚の頭)に向かう背骨に、原因のグループ(大骨)と具体的な原因(小骨)を整理していく図。形から「フィッシュボーン」とも呼ばれます。',
+see:'原因を「人・道具・やり方・環境」などの切り口でモレなく見渡せます。思いつきでない原因さがしができます。',
+use:'工場の品質管理で生まれた定番の図。行事の反省会や、くり返すミスの分析にぴったりです。',
+ex:'「忘れ物が多い」:人(夜に準備しない)/道具(連絡帳を見ない)/やり方(朝あわててつめる)/環境(置き場所が決まってない)。',
+trap:'枝分かれの図なので、ループ(原因⇄結果の相互作用)は描けません。ぐるぐる回っていそうなら、因果ループ図の出番です。',
+rel:['cld'],
+svg(){
+  let s='';
+  s+=`<line class="ln" stroke-width="2.6" x1="46" y1="140" x2="352" y2="140"/>`+ahead(360,140,0);
+  s+=`<path class="bx f-o" d="M366 108 L432 108 Q450 140 432 172 L366 172 Q378 140 366 108 Z"/>`;
+  s+=txt(406,140,'忘れ物が\n多い','nd');
+  const bone=(x0,x1,y1,label,sub)=>{
+    let o=`<line class="ln thin" x1="${x0}" y1="140" x2="${x1}" y2="${y1}"/>`;
+    o+=txt(x1,y1+(y1<140?-14:14),label,'nd');
+    o+=txt((x0+x1)/2+34,(140+y1)/2,sub,'elb');
+    return o;
+  };
+  s+=bone(140,88,52,'人','夜に準備しない');
+  s+=bone(268,216,52,'やり方','朝あわててつめる');
+  s+=bone(180,128,226,'道具','連絡帳を見ない');
+  s+=bone(308,256,226,'環境','置き場所がない');
+  return svgWrap(460,278,s);
+}});
+/* __MORE_ENTRIES__ */
+
+/* ============ legend ============ */
+function buildLegend(){
+  let s='';
+  // row1: + and -
+  s+=arrow(30,34,130,34,{sign:'+'});
+  s+=txt(196,30,'Aが増えると Bも増える','lb')+txt(196,50,'(同じ向きに動く)','sm');
+  s+=arrow(290,34,390,34,{sign:'-'});
+  s+=txt(428,30,'Aが増えると\nBは減る','sm');
+  // row2: R / B / delay
+  s+=loopB(66,102,'R');
+  s+=txt(150,102,'強化ループ\nどんどん増える(減る)','sm');
+  s+=loopB(258,102,'B');
+  s+=txt(330,102,'平衡ループ\nつり合いに向かう','sm');
+  s+=`<line class="ln" x1="390" y1="118" x2="446" y2="86"/>`+dmark(418,102,Math.atan2(-32,56));
+  s+=txt(420,136,'遅れ','sm');
+  document.getElementById('legend').innerHTML=svgWrap(470,160,s);
+}
+
+/* ============ render ============ */
+function render(){
+  const toc=document.getElementById('toc');
+  const main=document.getElementById('main');
+  const no=k=>{const i=ENTRIES.findIndex(e=>e.k===k); return String(i+1).padStart(2,'0');};
+  const nameOf=k=>{const e=ENTRIES.find(x=>x.k===k); return e?e.name:k;};
+
+  CATS.forEach(c=>{
+    const es=ENTRIES.filter(e=>e.cat===c.id);
+    // toc group
+    const g=document.createElement('div'); g.className='tgrp';
+    g.innerHTML=`<h3><span class="bar" style="background:var(${c.cvar})"></span>${c.num} ${c.t}</h3>
+      <div class="chips">`+es.map(e=>`<a class="chip" href="#e${no(e.k)}"><b>${no(e.k)}</b> ${e.name}</a>`).join('')+`</div>`;
+    toc.appendChild(g);
+    // section
+    const sec=document.createElement('section'); sec.className='chapter';
+    sec.innerHTML=`<div class="chead"><h2><span class="bar" style="background:var(${c.cvar})"></span>${c.num} ${c.t}</h2><span class="cnt">全${es.length}種</span></div><p class="clead">${c.lead}</p>`;
+    es.forEach(e=>{
+      const a=document.createElement('article');
+      a.className='entry cat-'+c.id; a.id='e'+no(e.k);
+      const rel=(e.rel&&e.rel.length)?`<div class="rel">あわせて見たい: `+e.rel.map(k=>`<a href="#e${no(k)}">No.${no(k)} ${nameOf(k)}</a>`).join('')+`</div>`:'';
+      a.innerHTML=`
+        <div class="ehead">
+          <span class="eno">No.${no(e.k)}</span>
+          <h3>${e.name}</h3><span class="een">${e.en}</span>
+          <span class="stars">むずかしさ <b>${'★'.repeat(e.stars)}${'☆'.repeat(3-e.stars)}</b></span>
+        </div>
+        <figure class="fig">${e.svg()}<figcaption>${e.cap}</figcaption></figure>
+        <dl class="facts">
+          <div><dt>どんな図?</dt><dd>${e.what}</dd></div>
+          <div><dt>何がわかる?</dt><dd>${e.see}</dd></div>
+          <div><dt>使いどころ</dt><dd>${e.use}</dd></div>
+          <div><dt>身近な例</dt><dd>${e.ex}</dd></div>
+          <div><dt>落とし穴</dt><dd>${e.trap}</dd></div>
+        </dl>${rel}`;
+      sec.appendChild(a);
+    });
+    main.appendChild(sec);
+  });
+  buildLegend();
+}
+render();
+</script>
+
+<script>
+  /* サイト共通ナビ（ハンバーガー / モバイルアコーディオン） */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if (hamburger && mobileMenu) {
+    function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+    hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  }
+</script>
+</body>
+</html>

@@ -377,6 +377,21 @@
       ]
     },
     {
+      "id": "systems-thinking-zukan",
+      "path": "systems-thinking-zukan.html",
+      "title": "システム思考図鑑",
+      "tag": "図鑑・見る技術",
+      "desc": "因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "shikumi-zukan",
+        "dialogue-zukan"
+      ]
+    },
+    {
       "id": "series",
       "path": "series/index.html",
       "title": "連載：気づきから組み立てる",
