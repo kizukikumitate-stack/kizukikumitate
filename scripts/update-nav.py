@@ -83,8 +83,18 @@ def render_desktop(items, page_path):
         out.append(f'      <button class="nav-dropdown-toggle" type="button">{item["label"]} '
                    '<span class="nav-caret">▾</span></button>')
         out.append('      <div class="nav-dropdown-menu">')
+        seen_heading = 0
         for child in item["children"]:
-            out.append(f'        <a {link_attrs(child, page_path)}>{child["label"]}</a>')
+            if "heading" in child:
+                sep = "" if seen_heading == 0 else "border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;"
+                out.append(
+                    "        <span class=\"nav-dd-heading\" style=\"display:block;"
+                    "font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;"
+                    "letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;"
+                    f"{sep}\">{child['heading']}</span>")
+                seen_heading += 1
+            else:
+                out.append(f'        <a {link_attrs(child, page_path)}>{child["label"]}</a>')
         out.append('      </div>')
         out.append('    </li>')
     out.append('  </ul>')
@@ -101,8 +111,18 @@ def render_mobile(items, page_path):
         out.append(f'    <button class="mobile-acc-toggle" type="button">{item["label"]} '
                    '<span class="mobile-acc-caret">▾</span></button>')
         out.append('    <div class="mobile-acc-panel">')
+        seen_heading = 0
         for child in item["children"]:
-            out.append(f'      <a {link_attrs(child, page_path)}>{child["label"]}</a>')
+            if "heading" in child:
+                sep = "" if seen_heading == 0 else "border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;"
+                out.append(
+                    "      <span class=\"mobile-acc-heading\" style=\"display:block;"
+                    "font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;"
+                    "letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;"
+                    f"{sep}\">{child['heading']}</span>")
+                seen_heading += 1
+            else:
+                out.append(f'      <a {link_attrs(child, page_path)}>{child["label"]}</a>')
         out.append('    </div>')
         out.append('  </div>')
     return "\n".join(out)
@@ -331,6 +351,8 @@ def validate(cfg):
     # ナビのリンク切れ
     for item in cfg["nav"]["items"]:
         for entry in ([item] if "children" not in item else item["children"]):
+            if "heading" in entry:  # 見出し行（非リンク）は検証対象外
+                continue
             href = entry["href"]
             if is_external(href):
                 continue

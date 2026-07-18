@@ -99,26 +99,7 @@
       {
         "label": "世界の知恵",
         "children": [
-          {
-            "label": "世界の対話の技法図鑑",
-            "href": "dialogue-zukan.html"
-          },
-          {
-            "label": "社会の仕組み図鑑",
-            "href": "shikumi-zukan.html"
-          },
-          {
-            "label": "世界の貧困解決アイデア図鑑",
-            "href": "poverty-zukan.html"
-          },
-          {
-            "label": "合意形成図鑑",
-            "href": "goikeisei-zukan.html"
-          },
-          {
-            "label": "システム思考図鑑",
-            "href": "systems-thinking-zukan.html"
-          },
+          { "heading": "ヒトと学びの図鑑" },
           {
             "label": "ホモ・サピエンスの苦手図鑑",
             "href": "nigate-zukan.html"
@@ -126,10 +107,6 @@
           {
             "label": "ホモ・サピエンスの知恵図鑑",
             "href": "chie-zukan.html"
-          },
-          {
-            "label": "世界のオルタナティブ教育図鑑",
-            "href": "alternative-education-zukan.html"
           },
           {
             "label": "非認知スキル図鑑",
@@ -147,6 +124,32 @@
             "label": "主な神経物質図鑑",
             "href": "shinkei-busshitsu-zukan.html"
           },
+          { "heading": "社会と世界の図鑑" },
+          {
+            "label": "世界の対話の技法図鑑",
+            "href": "dialogue-zukan.html"
+          },
+          {
+            "label": "合意形成図鑑",
+            "href": "goikeisei-zukan.html"
+          },
+          {
+            "label": "システム思考図鑑",
+            "href": "systems-thinking-zukan.html"
+          },
+          {
+            "label": "社会の仕組み図鑑",
+            "href": "shikumi-zukan.html"
+          },
+          {
+            "label": "世界の貧困解決アイデア図鑑",
+            "href": "poverty-zukan.html"
+          },
+          {
+            "label": "世界のオルタナティブ教育図鑑",
+            "href": "alternative-education-zukan.html"
+          },
+          { "heading": "読み物" },
           {
             "label": "おすすめTED集",
             "href": "ted-collection.html"
