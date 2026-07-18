@@ -785,6 +785,21 @@
         "shikumi-zukan",
         "poverty-zukan"
       ]
+    },
+    {
+      "id": "pta-korekara",
+      "path": "pta-korekara.html",
+      "title": "PTAのこれから",
+      "tag": "手法・WS",
+      "desc": "会員数の変化・5つの論点・これからのPTA像を、対話の形に整理したテーマページ。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-07-19",
+      "band": true,
+      "next": [
+        "pta-dialogue-kit",
+        "school-consolidation-countdown"
+      ]
     }
   ]
 }

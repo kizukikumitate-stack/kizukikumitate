@@ -93,13 +93,19 @@
           {
             "label": "妖怪と式神ワークショップ",
             "href": "yokai/workshop.html"
+          },
+          {
+            "label": "PTAのこれから",
+            "href": "pta-korekara.html"
           }
         ]
       },
       {
         "label": "世界の知恵",
         "children": [
-          { "heading": "ヒトと学びの図鑑" },
+          {
+            "heading": "ヒトと学びの図鑑"
+          },
           {
             "label": "ホモ・サピエンスの苦手図鑑",
             "href": "nigate-zukan.html"
@@ -124,7 +130,9 @@
             "label": "主な神経物質図鑑",
             "href": "shinkei-busshitsu-zukan.html"
           },
-          { "heading": "社会と世界の図鑑" },
+          {
+            "heading": "社会と世界の図鑑"
+          },
           {
             "label": "世界の対話の技法図鑑",
             "href": "dialogue-zukan.html"
@@ -153,7 +161,9 @@
             "label": "世界のオルタナティブ教育図鑑",
             "href": "alternative-education-zukan.html"
           },
-          { "heading": "読み物" },
+          {
+            "heading": "読み物"
+          },
           {
             "label": "おすすめTED集",
             "href": "ted-collection.html"
@@ -441,6 +451,10 @@
     },
     {
       "path": "nemuru-okane-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "pta-korekara.html",
       "variant": "standard"
     }
   ],

@@ -397,6 +397,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "眠るお金図鑑",
       "sub": "日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。12の標本と、お金を教育にめぐらせる好循環アイデア10。"
+    },
+    {
+      "page": "pta-korekara.html",
+      "img": "pta-korekara-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#d85a30",
+      "eyebrow": "PTA NO KOREKARA",
+      "title": "PTAのこれから",
+      "sub": "数字と論点を、対話の形に。どの結論も勧めない案内所。"
     }
   ]
 }
