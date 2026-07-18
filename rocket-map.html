@@ -737,22 +737,17 @@
   .rocket-map .rkt-doors a::before{content:"扉 "; color:var(--gold); font-weight:700}
   .rocket-map .rkt-doors a:hover{background:rgba(217,164,65,.2); transform:translateY(-1px)}
   .rocket-map .rkt-hint{font-size:11.5px; color:rgba(250,248,242,.45); text-align:center; margin-top:10px}
+  /* PC: 案内板は下に置いたまま（単カラム）、ロケットのチャートそのものを大きく広げる */
   @media (min-width: 860px){
-    .rocket-map{padding:64px 0 96px}
-    .rocket-map .rkt-wrap{
-      max-width:1200px; padding:34px 40px 76px;
-      display:grid; grid-template-columns:minmax(0,460px) minmax(0,1fr);
-      column-gap:56px; align-items:center;
-    }
-    .rocket-map .rkt-head{grid-column:1 / -1; margin-bottom:6px}
-    .rocket-map .rkt-head h2{font-size:27px}
-    .rocket-map .rkt-head p{font-size:14.5px}
-    .rocket-map .sky{grid-column:1; align-self:center}
-    .rocket-map .rkt-panel{grid-column:2; margin-top:0; align-self:center; min-height:300px; padding:26px 28px 30px}
-    .rocket-map .rkt-panel h2{font-size:21px}
+    .rocket-map{padding:56px 0 88px}
+    .rocket-map .rkt-wrap{max-width:760px; padding:32px 24px 76px}
+    .rocket-map .rkt-head h2{font-size:28px}
+    .rocket-map .rkt-head p{font-size:15px}
+    .rocket-map .sky{margin:6px auto 0}
+    .rocket-map .rkt-panel{max-width:640px; margin-left:auto; margin-right:auto; margin-top:22px; padding:24px 28px 28px}
+    .rocket-map .rkt-panel h2{font-size:20px}
     .rocket-map .rkt-panel p{font-size:15px; line-height:2}
     .rocket-map .rkt-doors a{font-size:14px; padding:8px 15px}
-    .rocket-map .rkt-hint{grid-column:1 / -1; margin-top:18px}
   }
 </style>
 <div class="rkt-wrap">
