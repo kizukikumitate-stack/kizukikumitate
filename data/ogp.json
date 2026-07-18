@@ -337,6 +337,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "ホモ・サピエンスの知恵図鑑",
       "sub": "人がもともと持ち、育てられる力を50種。『苦手図鑑』と対になる一冊。"
+    },
+    {
+      "page": "alternative-education-zukan.html",
+      "img": "alternative-education-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#c05f3c",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "世界のオルタナティブ教育図鑑",
+      "sub": "モンテッソーリからきのくに子どもの村まで。世界24の学びの実践を思想と風景つきで。"
     }
   ]
 }

@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>世界のオルタナティブ教育図鑑｜世界24の学びの実践｜きづきくみたて工房</title>
+<meta name="description" content="モンテッソーリ、シュタイナー、サドベリー、イエナプラン、きのくに子どもの村……100年続く教育哲学から生まれつつある新しい学校まで。世界24のオルタナティブ教育を、思想・学びの風景・日本での出会い方とともに収蔵した図鑑。">
+<link rel="canonical" href="https://kizukikumitate.com/alternative-education-zukan.html">
+<meta property="og:title" content="世界のオルタナティブ教育図鑑｜きづきくみたて工房">
+<meta property="og:description" content="モンテッソーリからサドベリー、きのくに子どもの村まで。世界24のオルタナティブ教育を、思想・学びの風景・日本での出会い方つきで収蔵。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/alternative-education-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/alternative-education-zukan-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="世界のオルタナティブ教育図鑑｜きづきくみたて工房">
+<meta name="twitter:description" content="モンテッソーリからサドベリー、きのくに子どもの村まで。世界24のオルタナティブ教育を思想と学びの風景つきで収蔵。">
+<meta name="twitter:image" content="https://kizukikumitate.com/alternative-education-zukan-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6ee; --ink:#3a3129; --sub:#7a6f61; --card:#ffffff; --line:#e8dfd2;
+    --c-phil:#c05f3c; --c-demo:#3a6ea5; --c-inq:#7b5aa6; --c-nat:#4a7c59; --c-soc:#d08c2e; --c-jpn:#b8455f;
+    --forest:#1a5fad; --charcoal:#1e1e1e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic",Meiryo,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75;overflow-x:hidden;hanging-punctuation:allow-end;}
+  p,li{word-break:keep-all;overflow-wrap:break-word;}
+  header{padding:48px 20px 28px;text-align:center;background:linear-gradient(180deg,#f3ead9,var(--bg));border-bottom:1px solid var(--line);}
+  .kicker{font-size:12px;letter-spacing:.35em;color:var(--sub);text-transform:uppercase;margin-bottom:10px;}
+  h1{font-size:clamp(26px,5vw,40px);font-weight:800;letter-spacing:.06em;}
+  h1 .accent{color:var(--c-phil);}
+  .lede{max-width:620px;margin:14px auto 0;font-size:14px;color:var(--sub);}
+  .controls{max-width:1060px;margin:26px auto 6px;padding:0 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer;color:var(--sub);transition:.15s;}
+  .chip:hover{border-color:#c9bda9;}
+  .chip.active{color:#fff;border-color:transparent;}
+  .chip.active[data-cat="all"]{background:var(--ink);}
+  .chip.active[data-cat="phil"]{background:var(--c-phil);}
+  .chip.active[data-cat="demo"]{background:var(--c-demo);}
+  .chip.active[data-cat="inq"]{background:var(--c-inq);}
+  .chip.active[data-cat="nat"]{background:var(--c-nat);}
+  .chip.active[data-cat="soc"]{background:var(--c-soc);}
+  .chip.active[data-cat="jpn"]{background:var(--c-jpn);}
+  .search{margin-left:auto;}
+  .search input{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;width:200px;background:#fff;outline:none;}
+  .search input:focus{border-color:#c9bda9;}
+  .grid{max-width:1060px;margin:18px auto 60px;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 20px 18px;cursor:pointer;transition:.18s;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px;}
+  .card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(90,70,40,.12);}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--cc);}
+  .card .no{font-size:11px;letter-spacing:.2em;color:var(--sub);}
+  .card .emoji{font-size:30px;line-height:1;}
+  .card h2{font-size:17px;font-weight:700;letter-spacing:.02em;}
+  .card .meta{font-size:12px;color:var(--sub);}
+  .card .tag{display:inline-block;font-size:11px;color:#fff;background:var(--cc);border-radius:999px;padding:2px 10px;margin-top:2px;align-self:flex-start;}
+  .card .oneline{font-size:13px;color:var(--ink);border-top:1px dashed var(--line);padding-top:10px;margin-top:4px;}
+  .empty{grid-column:1/-1;text-align:center;color:var(--sub);padding:40px 0;font-size:14px;}
+  /* ===== 共通グローバルナビ（全ページ共通・台帳自動同期） ===== */
+  nav{position:sticky;top:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem;}
+  .nav-logo img{height:36px;width:auto;object-fit:contain;}
+  .nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em;}
+  .nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto;flex-wrap:wrap;}
+  .nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em;}
+  .nav-links a:hover,.nav-links a.active{color:var(--forest);}
+  .nav-dropdown{position:relative;display:flex;align-items:center;}
+  .nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s;}
+  .nav-caret{font-size:0.6em;transition:transform 0.25s;}
+  .nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest);}
+  .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg);}
+  .nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300;}
+  .nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px);}
+  .nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s;}
+  .nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest);}
+  .nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px);}
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px);}
+  .nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px;}
+  .nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s;}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem;}
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s;}
+  .mobile-menu a:first-child{border-top:1px solid #e8e8e8;}
+  .mobile-menu a:hover,.mobile-menu a.active{color:#3C3489;}
+  .mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem;}
+  .mobile-acc{width:100%;border-bottom:1px solid #e8e8e8;}
+  .mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Noto Sans JP',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0;}
+  .mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s;}
+  .mobile-acc.open .mobile-acc-caret{transform:rotate(180deg);}
+  .mobile-acc-panel{display:none;flex-direction:column;align-items:center;padding-bottom:0.7rem;}
+  .mobile-acc.open .mobile-acc-panel{display:flex;}
+  .mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s;}
+  .mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489;}
+  @media(max-width:1250px){.nav-links{display:none;}.nav-hamburger{display:block;}.nav-logo{margin-right:0;}}
+  /* ===== 共通フッター（図鑑シリーズの明色フッター） ===== */
+  footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid var(--line);}
+  .footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--ink);letter-spacing:.08em;}
+  .footer-copy{margin-top:.6rem;font-size:12px;color:var(--sub);letter-spacing:.06em;}
+  /* modal */
+  .overlay{position:fixed;inset:0;background:rgba(40,30,20,.5);display:none;align-items:flex-start;justify-content:center;padding:4vh 16px;z-index:50;overflow-y:auto;}
+  .overlay.open{display:flex;}
+  .modal{background:#fffdf8;border-radius:20px;max-width:720px;width:100%;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.3);animation:pop .22s ease;}
+  @keyframes pop{from{transform:translateY(14px);opacity:0;}to{transform:none;opacity:1;}}
+  .m-head{padding:30px 32px 22px;color:#fff;background:var(--cc);position:relative;}
+  .m-head .no{font-size:11px;letter-spacing:.25em;opacity:.85;}
+  .m-head h2{font-size:24px;font-weight:800;margin:4px 0 2px;}
+  .m-head .meta{font-size:13px;opacity:.9;}
+  .m-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.25);border:none;color:#fff;width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;}
+  .m-body{padding:26px 32px 34px;}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:22px;}
+  .fact{background:#f6efe2;border-radius:12px;padding:10px 14px;}
+  .fact .k{font-size:11px;color:var(--sub);letter-spacing:.08em;}
+  .fact .v{font-size:13.5px;font-weight:700;}
+  .sec{margin-bottom:20px;}
+  .sec h3{font-size:14px;font-weight:800;color:var(--cc-text,var(--ink));display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .sec h3::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--cc);display:inline-block;}
+  .sec p{font-size:14px;}
+  .sec ul{list-style:none;font-size:14px;}
+  .sec li{padding-left:1.2em;position:relative;margin-bottom:4px;}
+  .sec li::before{content:"◍";position:absolute;left:0;color:var(--cc);font-size:12px;}
+  .links a{display:inline-block;margin:0 8px 8px 0;padding:6px 14px;border:1.5px solid var(--cc);border-radius:999px;color:var(--cc);font-size:13px;text-decoration:none;font-weight:600;transition:.15s;}
+  .links a:hover{background:var(--cc);color:#fff;}
+  .links a::after{content:" ↗";font-size:11px;}
+  .page-note{text-align:center;font-size:12px;color:var(--sub);padding:0 20px 50px;max-width:820px;margin:0 auto;}
+  @media(max-width:560px){.m-head,.m-body{padding-left:20px;padding-right:20px;}.search{margin-left:0;width:100%;}.search input{width:100%;}}
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./alternative-education-zukan.html" class="active">世界のオルタナティブ教育図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./alternative-education-zukan.html" class="active">世界のオルタナティブ教育図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<header>
+  <div class="kicker">Encyclopedia of Alternative Education</div>
+  <h1>世界の<span class="accent">オルタナティブ教育</span>図鑑</h1>
+  <p class="lede">100年続く教育哲学から、いま生まれつつある新しい学校まで。世界24の実践を、その思想・学びの風景・日本での出会い方とともに紹介します。カードをクリックすると詳しい解説が開きます。</p>
+</header>
+
+<div class="controls" id="chips">
+  <button class="chip active" data-cat="all">すべて</button>
+  <button class="chip" data-cat="phil">教育哲学・メソッド</button>
+  <button class="chip" data-cat="demo">民主的・自己主導</button>
+  <button class="chip" data-cat="inq">探究・プロジェクト型</button>
+  <button class="chip" data-cat="nat">自然・環境</button>
+  <button class="chip" data-cat="soc">社会変革</button>
+  <button class="chip" data-cat="jpn">日本発</button>
+  <div class="search"><input id="q" type="text" placeholder="キーワードで検索…"></div>
+</div>
+
+<main class="grid" id="grid"></main>
+<div class="overlay" id="overlay"><div class="modal" id="modal"></div></div>
+
+<div class="page-note">各項目の数値は2026年時点の公表情報等に基づく概数です。入園・入学を検討する際は各校・各団体の最新情報をご確認ください。</div>
+
+<script>
+const CATS = {
+  phil:{label:"教育哲学・メソッド", color:"var(--c-phil)"},
+  demo:{label:"民主的・自己主導", color:"var(--c-demo)"},
+  inq:{label:"探究・プロジェクト型", color:"var(--c-inq)"},
+  nat:{label:"自然・環境", color:"var(--c-nat)"},
+  soc:{label:"社会変革", color:"var(--c-soc)"},
+  jpn:{label:"日本発", color:"var(--c-jpn)"}
+};
+
+const DATA = [
+{
+ cat:"phil", emoji:"🌸", name:"モンテッソーリ教育",
+ country:"イタリア", flag:"🇮🇹", year:"1907年", founder:"マリア・モンテッソーリ", age:"0〜18歳（中心は0〜12歳）", scale:"世界約1.5万〜2万園・校",
+ oneline:"「自分でできるように手伝って」。子どもの内なる成長力を信じ、環境を整える教育の原点。",
+ what:"医師マリア・モンテッソーリがローマの貧困地区に開いた「子どもの家」から始まりました。子どもには自らを育てる力（自己教育力）が備わっており、大人の役割は教え込むことではなく、その力が発揮される「整えられた環境」を用意すること——この考え方が全ての土台です。発達段階ごとに現れる「敏感期」（言語、秩序、感覚、運動など特定の能力がぐんと伸びる時期）に合わせ、子どもが自分で選べる教具と活動を用意します。",
+ features:["「おしごと」と呼ばれる活動を子ども自身が選び、納得いくまで繰り返す","縦割り（異年齢混合）クラスで、年下は年上から学び、年上は教えることで学ぶ","円柱さしやピンクタワーなど、感覚を洗練させる体系的な教具","教師は「指導者」ではなく観察者・援助者として関わる"],
+ scene:"朝、教室に入った子どもたちは思い思いに教具棚へ向かいます。3歳の子がビーズで数の仕事に没頭する隣で、5歳の子が文字を組み立てる。教師は静かに観察し、必要なときだけそっと提示（やり方のデモ）をします。一斉授業はなく、数時間の「お仕事の時間」が流れます。",
+ japan:"日本では幼稚園・保育園・こどもの家を中心に広く普及し、小学校段階の実践も少しずつ増えています。日本モンテッソーリ教育綜合研究所などが教師養成を実施。藤井聡太棋士が幼少期に受けた教育として話題になりました。",
+ fit:"手先を使う遊びに没頭するタイプの子、自分のペースを大切にしたい子に。家庭でも「子どもサイズの道具を用意し、待つ」など取り入れやすいのも魅力です。"
+},
+{
+ cat:"phil", emoji:"🎨", name:"シュタイナー教育（ヴァルドルフ教育）",
+ country:"ドイツ", flag:"🇩🇪", year:"1919年", founder:"ルドルフ・シュタイナー", age:"幼児〜18歳", scale:"世界約1,200校＋幼稚園約2,000園",
+ oneline:"芸術としての教育。頭・心・手のバランスで、7年周期の発達に寄り添う。",
+ what:"哲学者ルドルフ・シュタイナーがシュトゥットガルトのタバコ工場「ヴァルドルフ・アストリア」の労働者の子どもたちのために開いた学校が発祥です。人間の成長を7年周期（0-7歳は意志・身体、7-14歳は感情、14-21歳は思考）で捉え、その時期に最もふさわしい形で学びを届けます。知識の詰め込みより「世界は美しい」と感じる体験を重視し、あらゆる教科を芸術的に教えるのが最大の特徴です。",
+ features:["同じテーマを数週間集中して学ぶ「エポック授業」（朝の100分前後）","文字も数も、絵を描き、体を動かし、物語を通して出会う","水彩・木工・手仕事（編み物）・音楽・オイリュトミー（動きの芸術）が正課","低学年ではテストや教科書がなく、担任が8年間持ち上がる伝統も"],
+ scene:"朝は詩の朗唱とライアー（竪琴）の音色から始まります。エポック授業で「かけ算」を学ぶ子どもたちは、リズムよく足踏みしながら数を唱え、色鉛筆で美しい模様として九九を描く。ノートは全て自分の手で作る「世界に一冊の教科書」になります。",
+ japan:"日本には学校法人シュタイナー学園（神奈川）、京田辺シュタイナー学校（京都）、北海道シュタイナー学園いずみの学校など全国に約7校の全日制校と多数の幼稚園・こども園があります。日本シュタイナー学校協会が連携組織です。",
+ fit:"感受性が豊かで、物語や手を動かすことが好きな子に。テレビ・デジタル機器を幼児期は控えるなど、家庭生活も含めた世界観への共感が大切になります。"
+},
+{
+ cat:"phil", emoji:"🔄", name:"イエナプラン教育",
+ country:"ドイツ発・オランダで発展", flag:"🇳🇱", year:"1924年", founder:"ペーター・ペーターゼン", age:"4〜12歳中心", scale:"オランダ約200校ほか",
+ oneline:"学校は「生と学びの共同体」。異年齢の根幹グループで、対話・遊び・仕事・催しが循環する。",
+ what:"イエナ大学のペーターゼンが提唱し、オランダで市民に広く受け入れられて発展しました。学校を小さな社会と捉え、3学年混合の「根幹グループ（ファミリーグループ）」で生活します。1年ごとに年少→年中→年長と立場が変わるため、誰もが「教えられる側」と「教える側」の両方を経験します。教室はリビングルームのように整えられ、サークル対話が学びの中心にあります。",
+ features:["「対話・遊び・仕事（学習）・催し」の4つの基本活動をリズミカルに循環させる","朝はサークル対話から。輪になって話し、聴くことを毎日積み重ねる","時間割の中心は「ブロックアワー」＝自分で計画を立てて進める自立学習","教科の枠を超えた「ワールドオリエンテーション」（総合的な探究）が学びの心臓部"],
+ scene:"月曜の朝、輪になった子どもたちが週末の出来事を語り合います。その後のブロックアワーでは、それぞれが自分の週計画表を開き、算数を進める子、年下に読み方を教える子、探究の調べものをする子が同じ教室に共存します。金曜には皆で「催し」を開き、学びを分かち合います。",
+ japan:"2019年、長野県佐久穂町に日本初のイエナプラン認定校「大日向小学校」が開校（後に中学校も）。広島県福山市では公立の常石ともに学園がイエナプラン教育校として開校するなど、公教育への広がりも注目されています。日本イエナプラン教育協会が普及を担います。",
+ fit:"きょうだいのような関係の中で育ってほしい家庭に。「対話する市民を育てる」という思想は、民主主義教育に関心のある方にも響くはずです。"
+},
+{
+ cat:"phil", emoji:"💡", name:"レッジョ・エミリア・アプローチ",
+ country:"イタリア", flag:"🇮🇹", year:"1945年〜", founder:"ローリス・マラグッツィと市民たち", age:"0〜6歳", scale:"レッジョ・エミリア市の市立園群＋世界中の実践園",
+ oneline:"「子どもには100の言葉がある」。表現とプロジェクトを軸にした世界最高峰の幼児教育。",
+ what:"第二次大戦後、北イタリアの街レッジョ・エミリアで、市民が瓦礫を売ったお金で幼児学校を建てたことから始まりました。教育者マラグッツィのもと、子どもを「有能で、権利を持ち、意味をつくり出す存在」と捉える哲学が育ちます。子どもの興味から生まれる長期プロジェクト（プロジェッタツィオーネ）と、光・色・素材を使った豊かな表現活動が特徴で、1991年に米誌で「世界で最も優れた学校」と紹介され世界的に有名になりました。",
+ features:["絵・粘土・光・影・音・体…あらゆる表現＝「100の言葉」を保障する","園内に「アトリエ」があり、芸術士（アトリエリスタ）が常駐する","子どもの言葉や作品を記録する「ドキュメンテーション」で学びを可視化","保護者・市民が園運営に参画する共同体としての学校"],
+ scene:"「影はどこから来るの?」という一人のつぶやきから、数か月にわたる影の探究が始まります。OHPで影を作り、影を描き、影と踊る。先生たちは毎日子どもの言葉を記録して壁に貼り出し、翌日の環境を考えます。カリキュラムは事前に決められておらず、子どもと共に生まれていきます。",
+ japan:"特定の認定校制度はありませんが、ドキュメンテーションやアトリエ活動を取り入れた保育園・こども園が全国に増えています。まちの保育園（東京）などが実践園として知られ、展覧会「驚くべき学びの世界」展をきっかけに保育界に大きな影響を与えました。",
+ fit:"「なんで?」が止まらない探究心旺盛な幼児に。子どもの作品や言葉を丁寧に残す姿勢は、家庭でもすぐ真似できる部分です。"
+},
+{
+ cat:"phil", emoji:"🖨️", name:"フレネ教育",
+ country:"フランス", flag:"🇫🇷", year:"1920年代", founder:"セレスタン・フレネ", age:"小学校中心", scale:"フランス公立校を中心に世界へ",
+ oneline:"生活から学びへ。自由作文と学校印刷で、子どもが「自分の言葉」で世界とつながる。",
+ what:"南フランスの小さな村の教師フレネが、教科書中心の授業に疑問を持ち、子どもの生活と表現から出発する教育を作り上げました。子どもたちは自分の体験を「自由テキスト（自由作文）」に書き、それを学校の印刷機で活字にして文集にし、遠くの学校と交換します。「仕事（トラバーユ）」を通して学ぶこと、学級を協同組合のように自治的に運営することも大きな柱です。",
+ features:["自由テキスト：書きたいことを書き、皆で読み合い、推敲して印刷する","学校間通信：他校とテキストや便りを交換し、書く必然性が生まれる","個別学習カードと「仕事の計画表」による自分のペースの学び","学級協同組合：係・予算・ルールを子どもたちの話し合いで決める"],
+ scene:"朝の会で、昨日書かれた自由テキストが読み上げられ、クラス投票で今週印刷する作品が決まります。活字を拾って組む係、挿絵の版画を彫る係。刷り上がった文集は、海の向こうの学校へ送られます。「読者がいる」から、子どもたちは本気で書きます。",
+ japan:"フレネ教育研究会などを通じて、公立校の教師たちが自由作文や学級づくりの実践に取り入れてきました。単独のフレネ学校は少ないものの、「生活綴方」の伝統を持つ日本の教育と響き合う思想として、教師たちに長く愛されています。",
+ fit:"書くこと・作ることが好きな子に。また「公立校の中でできるオルタナティブ」を探す教育者にとって、最も応用しやすいメソッドの一つです。"
+},
+{
+ cat:"demo", emoji:"🕊️", name:"サマーヒル・スクール",
+ country:"イギリス", flag:"🇬🇧", year:"1921年", founder:"A.S.ニイル", age:"5〜17歳（寄宿制）", scale:"1校（在籍約70名）",
+ oneline:"世界最古の自由学校。「授業に出るかどうかは子どもが決める」を100年続ける。",
+ what:"「学校を子どもに合わせる」を掲げてニイルが創設した寄宿学校で、世界中の自由教育・フリースクールの源流です。授業は時間割通りに開かれますが、出席するかどうかは完全に子どもの自由。学校のルールは週に開かれる全校ミーティングで決められ、5歳の子どもも校長も同じ1票を持ちます。「幸福こそが人生の目的」というニイルの信念のもと、遊び切ることが保障されています。",
+ features:["授業出席は自由。何年も授業に出ず遊び続けることも認められる","全校ミーティングで法（ルール）を作り、破った場合の対応も皆で決める","大人と子どもが対等な共同体としての寄宿生活","1999年に英政府から閉鎖勧告を受けるも、法廷闘争で自主性を守り抜いた"],
+ scene:"平日の昼下がり、木工室でカヌーを作る子、木に登る子、数学の授業に出る子。土曜夜の全校ミーティングでは「夜のゲームの騒音問題」が議題に。議長も子どもです。何週間も遊んでいた子がある日「読めるようになりたい」と授業に現れる——それを誰も咎めません。",
+ japan:"ニイルの思想は堀真一郎氏（きのくに子どもの村学園創設者）らを通じて日本に深く影響を与えました。日本のフリースクール運動や「子どもの村」系の学校は、サマーヒルの直系の子孫と言えます。",
+ fit:"すぐに真似できる学校ではありませんが、「子どもを信じ切るとどうなるか」の100年にわたる実証例として、図鑑の中心に置きたい存在です。"
+},
+{
+ cat:"demo", emoji:"🗳️", name:"サドベリー・バレー・スクール",
+ country:"アメリカ", flag:"🇺🇸", year:"1968年", founder:"ダニエル・グリーンバーグほか", age:"4〜19歳", scale:"世界に数十校の系列モデル",
+ oneline:"カリキュラムも学年もテストもゼロ。学校運営はすべて子どもとスタッフの直接民主制で。",
+ what:"米マサチューセッツ州で始まった、最も徹底した民主的学校のモデルです。時間割・カリキュラム・学年・成績が一切なく、子どもは登校から下校まで何をして過ごすかを完全に自分で決めます。学校の予算、ルール、スタッフの雇用までも、生徒とスタッフが1人1票で決める「スクールミーティング」で運営。「学びは、遊びと生活の中で自然に起こる」という信念を50年以上実証し続けています。",
+ features:["「授業」は子どもが望んでスタッフに依頼したときだけ生まれる","ルール違反は生徒中心の「司法委員会」が扱う","スタッフは毎年、全校投票で信任されなければ働き続けられない","卒業は「自分は責任ある大人になった」と論文で全校を説得すること"],
+ scene:"釣りに行く小学生、一日中ゲームを作る中学生、キッチンでパンを焼くグループ。ある子は4年間釣りばかりして、その後猛然と学び始めて大学へ進みました。卒業生の追跡調査では約8割が高等教育に進学。「遊び尽くした子は、自分の進路を自分で決められる」と学校は語ります。",
+ japan:"東京サドベリースクールをはじめ、デモクラティックスクールと呼ばれる実践が各地にあります（多くは法制度上フリースクールの位置づけ）。世界のデモクラティックスクールはIDEC（国際デモクラティック教育会議）でつながっており、日本でも開催実績があります。",
+ fit:"自分の興味に深く没頭するタイプの子、既存の学校の枠組みが合わなかった子の選択肢として。保護者に「待つ覚悟」が最も問われるモデルでもあります。"
+},
+{
+ cat:"demo", emoji:"🧭", name:"アゴラ（Agora）",
+ country:"オランダ", flag:"🇳🇱", year:"2014年", founder:"ルールモントの公立校教師チーム", age:"12〜18歳", scale:"オランダ国内外に拡大中（公費で運営）",
+ oneline:"時間割・教科・教室なし。中高生が自分の「チャレンジ」を設計する、公教育発の革命。",
+ what:"オランダのルールモントで生まれた中等教育モデルで、「アゴラ」は古代ギリシャの広場の意。教科の授業がなく、生徒は自分の関心から「チャレンジ」と呼ばれるプロジェクトを立ち上げ、コーチ（教員）と週1回の対話で学びを深めます。世界を「科学の窓」「芸術の窓」「社会の窓」など複数の窓から眺める枠組みを持ち、卒業資格試験の準備は最後の1〜2年で集中的に行います。公立学校として公費で運営されている点が世界的に注目されました。",
+ features:["生徒1人ひとりが自分だけの学習経路を持つ（同じ時間割の生徒は2人といない）","コーチ1人が約15人の生徒を伴走。毎週の1on1対話が学びの軸","オフィスのような大部屋で、自分の「基地（デスク）」を持って活動","中世の城を調べる、バイクを組み立てる、会社を作る…あらゆるものがチャレンジに"],
+ scene:"朝の「ダーゲスタート（チェックイン）」で今日の計画を仲間と共有。ある生徒は日本のアニメから日本語の探究へ、ある生徒は養蜂チャレンジで市役所と交渉中。コーチは教えるのではなく「次に誰に会い、何を読むといい?」と問いを重ねます。",
+ japan:"日本にアゴラの認定校はまだありませんが、オランダ教育の視察先として人気が高く、書籍やドキュメンタリーで紹介が進んでいます。「公立でここまでできる」という事例として、日本の学校改革の議論に影響を与えつつあります。",
+ fit:"「やりたいことがあるのに学校の勉強が邪魔」と感じ始めた中高生の姿を考えるうえで、最も刺激的な参照例。探究学習を本気で進めたい教育者にも。"
+},
+{
+ cat:"inq", emoji:"🛠️", name:"ハイ・テック・ハイ（High Tech High）",
+ country:"アメリカ", flag:"🇺🇸", year:"2000年", founder:"ラリー・ローゼンストックほか", age:"幼〜高校（K-12）", scale:"サンディエゴに16校・約6,400人",
+ oneline:"教科書もテストもほぼなし。すべてがプロジェクトで動く、PBLの世界的総本山。",
+ what:"サンディエゴのチャータースクール（公費で運営される自律的な学校）群で、プロジェクト型学習（PBL）の世界的モデルです。学期の学びはすべて教科横断のプロジェクトとして設計され、成果は本物の「展示会（Exhibition）」で地域の人々に公開されます。入学は郵便番号による抽選で、意図的に多様な家庭環境の生徒を集めるのも思想の核。教員が学校で学び合う大学院（HTH教育大学院)を持ち、ドキュメンタリー映画『Most Likely to Succeed』の舞台として日本でも有名になりました。",
+ features:["「本物の観客」に向けた展示会が学期のゴール。だから作品の質にこだわる","物理×芸術×歴史のような教科横断プロジェクトを教員がチームで設計","高校生全員が地域の企業・研究室での長期インターンシップを経験","成績はテストではなくポートフォリオと公開発表で示す"],
+ scene:"廊下全体がギャラリーのように生徒作品で埋め尽くされています。ある学期、生徒たちは「サンディエゴ湾の生態系」を調べ、本として出版し、研究者の前で発表しました。「テストのための勉強」の代わりに「誰かに届ける作品づくり」が学校の日常です。",
+ japan:"映画『Most Likely to Succeed』の自主上映会が全国で数百回開かれ、日本の探究学習ブームの火付け役の一つになりました。HTHの教員研修を受けた日本の教育者たちが、各地の学校で展示会型のPBLを実践し始めています。",
+ fit:"作ること・発表することが好きな子のイメージが湧く学校。「探究学習の行き着く先」を見たい保護者・教育者の必修事例です。"
+},
+{
+ cat:"inq", emoji:"🦸", name:"アクトン・アカデミー（Acton Academy）",
+ country:"アメリカ", flag:"🇺🇸", year:"2009年", founder:"ジェフ&ローラ・サンデファー", age:"幼〜高校", scale:"世界約300校のネットワーク",
+ oneline:"「ヒーローの旅」を物語の骨格に。教師のいない小さな学校が世界中に増殖中。",
+ what:"テキサス州オースティンで始まったマイクロスクール（少人数校）のネットワークです。「すべての子は、人生を変える旅の主人公（ヒーロー）になれる」という物語の枠組みを教育の中心に置き、大人は教師ではなく「ガイド」として質問だけを投げかけます。午前は自分のペースで進めるオンライン教材等での基礎学習、午後は数週間単位の「クエスト」（実践プロジェクト）。学校運営の多くの部分を子どもたち自身の契約とルールで回します。近年世界的に拡大するマイクロスクール運動の代表格です。",
+ features:["ガイドは「答えを教えてはいけない」。ソクラテス式の問いだけで進める","学習は「バッジ」制。テストの点でなく実証で次に進む","起業クエスト：実際に商品を作り、本物の市場（チルドレンズ・ビジネス・フェア）で売る","仲間同士のフィードバックと「契約」で規律を作る自治文化"],
+ scene:"朝のローンチ（対話集会）で「困難と安楽、どちらの道を選ぶ?」という問いから一日が始まります。午前中は静かな集中タイム。午後のクエストでは、チームで営む「模擬レストラン」の損益計算に頭を悩ませます。金曜は一週間の成長を仲間の前で振り返ります。",
+ japan:"日本にも系列校・類似のマイクロスクールが生まれ始めています。「小さく始められる学校」のモデルとして、地方での学校づくりや、企業内スクール構想の参考事例として注目されています。",
+ fit:"少人数で自分のペースを保ちつつ、仲間との本気のプロジェクトも欲しい子に。「小さな学校を自分で作りたい」人にとって最も再現性の高いモデルです。"
+},
+{
+ cat:"nat", emoji:"🎋", name:"グリーンスクール（Green School）",
+ country:"インドネシア（バリ島）発", flag:"🇮🇩", year:"2008年", founder:"ジョン&シンシア・ハーディ", age:"3〜18歳", scale:"バリ・ニュージーランド・南アフリカ等に展開",
+ oneline:"壁のない竹の校舎で、サステナビリティを「暮らしながら」学ぶ世界一有名なグリーン校。",
+ what:"バリ島のジャングルの中、世界最大級の竹建築の校舎で知られる国際学校です。「グリーンリーダーを育てる」ことをミッションに、カリキュラムの中心に持続可能性を据えています。電力は太陽光や水力、食事は自校の田畑から、トイレはコンポスト。環境について教科書で学ぶのではなく、学校生活そのものが環境実践になっている「ウォールレス（壁なし）」教育です。卒業生や在校生からは、バリのレジ袋禁止条例を実現させた姉妹の活動家（Bye Bye Plastic Bags）も生まれました。",
+ features:["教室に壁がない。風と鳥の声の中で学ぶ竹の建築群","米作り・養鶏・堆肥づくりが正課。キャンパス全体が生きた教材","「グリーンストーン・プロジェクト」＝地域の実課題に取り組む卒業要件","世界中から家族ごと移住してくる、国際色豊かなコミュニティ"],
+ scene:"朝、竹の橋を渡って登校した子どもたちは、裸足で「心臓部（Heart of School）」と呼ばれる螺旋状の校舎へ。数学の授業は田んぼの収穫量の計算とつながり、午後は川の水質調査。夕方、学校のカカオからチョコを作る起業チームがミーティング中です。",
+ japan:"日本からの教育移住先・視察先として特に人気が高い学校です。ニュージーランド校などへの展開も進み、「サステナビリティ×学校」のグローバルなベンチマークとして、日本の学校の校舎設計やESD（持続可能な開発のための教育）にも影響を与えています。",
+ fit:"自然の中で英語で学ばせたい家庭の憧れの的。短期プログラムもあり、教育移住の入り口としても知られます。"
+},
+{
+ cat:"nat", emoji:"🌲", name:"森のようちえん",
+ country:"デンマーク・ドイツ", flag:"🇩🇰", year:"1950年代〜", founder:"エラ・フラタウ（デンマークの一母親）ほか", age:"0〜6歳中心", scale:"独に約2,000園、日本にも200以上の団体",
+ oneline:"園舎を持たず、雨の日も雪の日も森へ。自然が保育室になる幼児教育ムーブメント。",
+ what:"デンマークの母親が子どもたちと毎日森へ出かけたことから始まり、ドイツで「ヴァルトキンダーガルテン（森の幼稚園）」として制度的に広がった幼児教育運動です。決まった園舎を持たない（または最小限にする）のが特徴で、子どもたちは季節や天候にかかわらず一日の大半を森や里山で過ごします。既製のおもちゃはなく、木の枝、泥、水たまりが遊び道具。大人は指示を最小限にし、子ども同士の関わりと挑戦を見守ります。「危ないから禁止」ではなく「危険を学ぶ」姿勢も特徴です。",
+ features:["雨でも冬でも毎日野外へ。「悪い天気はない、悪い服装があるだけ」","既製の遊具・おもちゃに頼らず、自然物で遊びを自分たちで生み出す","焚き火・ナイフ・木登りなど、リスクと付き合う力を育てる","異年齢の群れ遊びと、大人の「見守る保育」"],
+ scene:"長靴とレインウェアの子どもたちが、朝の集合場所から今日の「森の部屋」へ歩きます。倒木はバスになり、泥の斜面は滑り台に。昼は焚き火を囲んでスープ。帰り道、5歳の子が3歳の子の手を引いて歩きます。今日も誰一人、同じ遊びをしていません。",
+ japan:"日本ではNPO法人森のようちえん全国ネットワーク連盟に200以上の団体が加盟し、世界的にも活発な国の一つです。鳥取県・長野県などが独自の認証制度を設け、行政が支援する動きも。「自主保育」から認可園まで形態は多様です。",
+ fit:"体を動かすのが大好きな幼児、自然の中でたっぷり幼児期を過ごさせたい家庭に。日本全国に選択肢があり、この図鑑の中で最も「今すぐ通える」実践です。"
+},
+{
+ cat:"soc", emoji:"🌎", name:"エスクエラ・ヌエバ（Escuela Nueva）",
+ country:"コロンビア", flag:"🇨🇴", year:"1975年", founder:"ビッキー・コルベールほか", age:"小学校中心", scale:"コロンビア約2万校、世界十数か国へ",
+ oneline:"貧しい農村の複式学級を、世界が学ぶ協同学習モデルへ変えた「静かな革命」。",
+ what:"教員不足に悩むコロンビア農村部の複式学級（1人の教師が複数学年を教える教室)を変革するために生まれたモデルです。教師の一斉講義をやめ、子どもたちが自習ガイド教材を使い小グループで学び合う仕組みを設計。子どもによる学級自治（児童政府）、地域と結びついたカリキュラム、進級を柔軟にする「フレキシブル・プロモーション」（農繁期に休んでも留年しない）などを組み合わせ、農村校の学力が都市部を上回る成果を出しました。世界銀行等が「途上国教育の最重要イノベーション」の一つとして評価し、世界中に輸出されています。",
+ features:["対話型の自習ガイドで、教師がいなくても学びが進む仕組み","子どもたちの委員会が学級文庫・菜園・行事を運営する「児童政府」","家庭の農事暦に合わせて学びを中断・再開できる柔軟な進級制度","学んだことを家庭や地域に持ち帰る宿題設計（親が学びに巻き込まれる）"],
+ scene:"山あいの一室校舎。6歳から12歳が4つのテーブルに分かれ、ガイド教材を囲んで教え合っています。先生は各テーブルを回る伴走者。教室の隅には子どもが管理する図書コーナーと「提案ポスト」。学級委員会は今週、学校菜園の収穫祭を計画しています。",
+ japan:"日本ではまだ知名度が低いものの、JICAの教育協力や比較教育学の分野で研究されています。「教師が足りない場所でこそ生まれた子ども中心教育」として、教育の本質を考えさせる事例です。",
+ fit:"豊かな国の専有物と思われがちなオルタナティブ教育のイメージを覆す実践。教育格差や国際協力に関心のある読者に特に届けたい一件です。"
+},
+{
+ cat:"jpn", emoji:"🏡", name:"きのくに子どもの村学園",
+ country:"日本（和歌山発）", flag:"🇯🇵", year:"1992年", founder:"堀真一郎", age:"小・中学校（＋高等専修学校）", scale:"和歌山・福井・山梨・福岡・長崎に姉妹校",
+ oneline:"宿題なし・テストなし・「先生」と呼ばない。プロジェクトが時間割の半分を占める日本の自由学校の到達点。",
+ what:"ニイル（サマーヒル）の研究者だった堀真一郎氏が和歌山県橋本市に開いた、学校法人としての私立小中学校です。「自己決定」「個性化」「体験学習」を原則に、時間割の約半分を「プロジェクト」と呼ばれる体験学習が占めます。子どもたちは料理・建築・農業・劇などのプロジェクトを自分で選び、異年齢のグループで一年間取り組みます。宿題・チャイム・定期テストはなく、大人はニックネームで呼ばれます。ドキュメンタリー映画『夢みる小学校』の舞台として一躍全国に知られました。",
+ features:["「おいしいものをつくる会」「劇団きのくに」など、暮らしに根ざしたプロジェクト","週1回の全校ミーティングで学校のことを子どもと大人が対等に話し合う","国語や算数もプロジェクトと関連づけて学ぶ「自由学校の学力観」","寮生活も選べ、全国から子どもが集まる"],
+ scene:"「工務店」プロジェクトの子どもたちは、今年、学園内に本物の小屋を建てています。設計図を描くために縮尺を学び、材料費の計算で算数を使う。夕方の寮では小学生と中学生が一緒に夕食づくり。金曜のミーティングでは「畑の水やり当番」を巡って白熱の議論が続きます。",
+ japan:"かつやま（福井）、南アルプス（山梨)、北九州（福岡）、ながさき（長崎）に姉妹校が広がり、入学希望者は定員を大きく超えています。『夢みる小学校』の上映会は全国の保護者・教育委員会に波及し、公立校の変革論議にも影響を与えています。",
+ fit:"「学校=我慢の場所」にしたくない家庭の現実的な国内選択肢。正規の学校法人なので卒業資格の心配がない点も、保護者には重要なポイントです。"
+},
+{
+ cat:"phil", emoji:"🗂️", name:"ダルトンプラン",
+ country:"アメリカ", flag:"🇺🇸", year:"1919年", founder:"ヘレン・パーカースト", age:"小〜高校（中等教育中心）", scale:"米・蘭・日など世界各国に実践校",
+ oneline:"「自由」と「協同」の2原則。子どもが先生と結ぶ「アサインメント（学びの契約）」で自学を進める。",
+ what:"モンテッソーリの助手も務めた米国の教育家ヘレン・パーカーストが、マサチューセッツ州ドルトンでの実践をもとに体系化したメソッドです。一斉授業の代わりに、学習内容を「アサインメント」と呼ばれる課題契約として生徒に手渡し、生徒は自分の計画で「ラボラトリー（研究室）」を巡りながら学びを進めます。教科の教室は先生が常駐する実験室・図書室のような場となり、生徒は必要に応じて助けを求めに行く——学びの主導権を教師から生徒へ移した、100年前の画期的な発明でした。オランダでは公立校に広く取り入れられています。",
+ features:["アサインメント：単元の目標・課題・資料を示した「学びの地図」を生徒と契約する","ハウス：異学年の生徒が家族のように所属するホームベース","ラボ：時間割の大部分を、生徒が自分で行き先を決める自由学習時間に","進捗は生徒自身がグラフや表で「見える化」して自己管理する"],
+ scene:"朝、自分のアサインメント表を見た生徒は「今日は数学のラボで二次関数を仕上げ、午後は理科の実験を進める」と計画を立てます。数学ラボでは先生が個別の質問に応じ、隣では別学年の生徒が自分の課題に取り組んでいます。進み方は一人ひとり違って当たり前です。",
+ japan:"2019年開校のドルトン東京学園中等部・高等部（東京・調布）が本格的な実践校として注目を集めるほか、河合塾学園ドルトンスクール（幼児〜小学生）が長年活動しています。「自由進度学習」ブームの源流の一つとしても再評価されています。",
+ fit:"計画を立てて自分で進めるのが好きな子、逆に「自己管理を学ばせたい」家庭にも。受験対応と自由の両立を模索する日本の私立校の現実解として注目されています。"
+},
+{
+ cat:"demo", emoji:"🕯️", name:"エフタスコーレ（Efterskole）",
+ country:"デンマーク", flag:"🇩🇰", year:"1851年〜", founder:"グルントヴィとクリステン・コルの思想", age:"14〜18歳（8〜10年生）", scale:"デンマーク全土に約240校・約3万人",
+ oneline:"高校進学前に1年間、寄宿学校で「人生」を学ぶ。国民の3割が経験するデンマークの伝統。",
+ what:"「学校は生のための学校であれ」と説いた思想家グルントヴィの流れを汲む、デンマーク独自の寄宿制フリースクールです。中学卒業前後の1〜2年間、若者は親元を離れて全国のエフタスコーレに移り住み、音楽・スポーツ・演劇・アウトドアなど各校の特色ある活動と共同生活に浸ります。試験や成績より「自分は何者か、どう生きたいか」を見つけることが目的で、デンマークでは同世代の約3割が経験する当たり前の選択肢。国が授業料を補助し、家庭の収入に応じて負担が決まります。",
+ features:["全寮制の共同生活そのものがカリキュラム。掃除も食事も皆で運営","音楽・体操・映画・国際など、学校ごとに強烈な特色がある","「人生の学校」：進路を急がず、自分と向き合う1年が制度として保障される","対話と民主主義の文化を育む、フォルケホイスコーレ（成人版）と続く伝統"],
+ scene:"朝の集会で全校200人が歌集から一曲を歌って一日が始まります。午前は数学などの普通教科、午後は体育館で体操の練習に没頭。夜は寮の仲間と延々と語り合う。「初めて親と離れて、自分がどういう人間か分かった」と卒業生は口を揃えます。",
+ japan:"日本には同じ制度はありませんが、成人版のフォルケホイスコーレと共に「人生の寄り道を制度化した国」として教育関係者の視察が絶えません。日本の通信制高校やギャップイヤー論、地域留学（地域みらい留学など）の議論に影響を与えています。",
+ fit:"思春期に「一斉レールから降りて自分を見つける時間」を保障する社会の実例。わが子の進路を焦ってしまう時に思い出したい、図鑑の中の清涼剤のような存在です。"
+},
+{
+ cat:"demo", emoji:"🌉", name:"エスコーラ・ダ・ポンテ",
+ country:"ポルトガル", flag:"🇵🇹", year:"1976年〜", founder:"ジョゼ・パシェコと教師たち", age:"小学校〜基礎教育", scale:"公立1校（世界中の学校改革に影響）",
+ oneline:"学年なし・教室なし・時間割なし。50年前に「一斉授業」を捨てたポルトガルの公立学校。",
+ what:"ポルトガル北部の小さな公立学校が、1976年から続けている学校まるごとの変革です。学年・クラス・教科別の時間割を廃止し、子どもたちは大きなオープンスペースで、興味ごとの小グループになって学びます。子どもは「15日間の学習計画」を自分で立て、学び終えたら自己評価し、仲間と教師がそれを確認します。学校のルールは子どもたちの総会（アセンブレイア）で決め、「困った時に助けを求める掲示板」など相互扶助の仕組みが張り巡らされています。公立校がここまで変われるという証明として、世界の教育者の巡礼地になりました。",
+ features:["学年もクラスもなく、興味と課題で集まる流動的なグループで学ぶ","「15日プラン」：2週間単位の学習契約を子ども自身が設計・自己評価","全校総会で学校のルール・問題を子どもが議論して決める","「私はまだ分からない」と掲示すると、分かる子が教えに来る文化"],
+ scene:"広い学習空間のあちこちで、年齢の違う子どもたちが机を囲んでいます。壁には「手伝えます」「助けてほしい」の掲示板。7歳の子が10歳の子に混ざってポルトガル語の調べものをし、教師たちは空間を回遊しながら一人ひとりの計画表に目を通します。チャイムはどこにも鳴りません。",
+ japan:"日本では書籍や教育誌で紹介され、「公立でもここまでできる」の代表例として、自由進度学習や異年齢学習を試みる公立校・教育委員会の議論にたびたび登場します。",
+ fit:"「オルタナティブ教育は私立のもの」という思い込みを崩す一校。学校づくり・行政に関わる読者に特に見てほしい事例です。"
+},
+{
+ cat:"demo", emoji:"💻", name:"42（キャラント・ドゥ）",
+ country:"フランス", flag:"🇫🇷", year:"2013年", founder:"グザヴィエ・ニエルほか", age:"原則18歳以上（高等教育段階）", scale:"世界約30か国・50キャンパス",
+ oneline:"教師なし・授業なし・学費無料。仲間との課題解決だけでエンジニアを育てる学校の発明。",
+ what:"フランスの実業家グザヴィエ・ニエルが私財を投じてパリに開いたエンジニア養成機関です。教師も授業も教科書もなく、学生は出題される課題（プロジェクト）を、隣の仲間と教え合いながら自力で解いていきます。評価も学生同士のレビューで行う徹底したピア・ラーニング。入学試験の代わりに「ピシン（プール）」と呼ばれる4週間の課題漬け選抜があり、学歴・年齢不問、学費は完全無料です。ゲームのように課題をクリアしてレベルが上がる設計で、「学校」の常識を根底から問い直した事例として、子どもの教育を考える人々にも刺激を与え続けています。",
+ features:["教師ゼロ。分からなければ「隣の人に聞く」が公式ルール","課題クリアでレベルアップするゲーミフィケーション型カリキュラム","入試は学歴不問の4週間集中選抜「ピシン」のみ","企業スポンサー等の支援により学費は完全無料"],
+ scene:"24時間開いたフロアに、iMacがずらりと並びます。深夜、ゲーム開発の課題に詰まった学生がSlackで叫ぶと、別のフロアから「それ先週やった」と仲間が現れる。教壇はどこにもなく、あるのは課題と仲間だけ。それでも卒業生は世界中のIT企業が奪い合います。",
+ japan:"2020年に「42 Tokyo」が東京・西新宿に開校し、DMMなどの支援で学費無料を維持しています。社会人の学び直しの場としても人気で、「教えない教育」の実例が日本語で体験できる貴重な存在です。",
+ fit:"高等教育段階の事例ですが、「教えなくても人は学べるのか?」という問いへの大規模な実証実験として収録。ゲーム好きの若者の進路としても現実的な選択肢です。"
+},
+{
+ cat:"inq", emoji:"🧑‍💼", name:"ビッグ・ピクチャー・ラーニング",
+ country:"アメリカ", flag:"🇺🇸", year:"1995年", founder:"デニス・リトキー&エリオット・ウォショー", age:"高校中心", scale:"米国数十校＋豪・蘭など世界に展開",
+ oneline:"「一度に一人の生徒を」。週2日は街のプロのもとで働きながら学ぶ、インターンシップ中心の高校。",
+ what:"「One Student at a Time（一度に一人ずつ）」を合言葉に、ロードアイランド州の高校「ザ・メット」から始まった学校ネットワークです。生徒は約15人の「アドバイザリー」に所属し、4年間同じアドバイザー（担任）が伴走。学びの中心は週2日、自分の興味に合う職場に通う「LTI（興味を通じた学習）」で、獣医院、設計事務所、ラジオ局など本物の現場のメンターとプロジェクトに取り組みます。教科の学力もこの実世界プロジェクトに結びつけて習得し、評価はテストではなく学期末の公開発表（エキシビション）で行います。",
+ features:["週2日の長期インターンシップ「LTI」が時間割の中核","約15人のアドバイザリーと4年間持ち上がりの伴走者","カリキュラムは生徒の興味から個別に設計される「パーソナライズド・ラーニング」","家族・メンター・アドバイザーが同席する学習計画会議"],
+ scene:"火曜と木曜、生徒たちはバックパックを背負って街へ散っていきます。ある生徒は水族館で水質データの分析を任され、それが彼女の「科学」の学びになる。学期末には家族とメンターの前で、この半年の成長をプレゼンします。「学校が現実の人生とつながっている」と生徒は語ります。",
+ japan:"日本での認定校はまだありませんが、高校の「探究学習」や地域協働、デュアルシステムを考える際の最重要参照モデルの一つとして、教育行政・高校改革の文献で頻繁に紹介されています。",
+ fit:"「学校の勉強より、早く本物の世界に触れたい」タイプの中高生像にぴったり。キャリア教育・地域連携に関わる読者の必見事例です。"
+},
+{
+ cat:"inq", emoji:"🎯", name:"クンスカップスコーラン",
+ country:"スウェーデン", flag:"🇸🇪", year:"2000年", founder:"ペイエ・エムトリング", age:"小学校高学年〜高校", scale:"スウェーデン約30校、英・印・米などへ輸出",
+ oneline:"全教科を個人目標で。週1回のコーチングで「自分の学びのハンドル」を握らせる公費運営校。",
+ what:"スウェーデンの自由学校（公費で運営される独立学校）チェーンで、「個別化された教育（KEDプログラム）」を組織的に実現した代表例です。生徒は学期ごとに自分の到達目標を設定し、教科は一律の進度ではなく「ステップ」と「コース」の体系から自分のレベルに合うものを選んで進みます。毎週15分、担当コーチと1対1の面談があり、目標と計画を見直すのが学びの心臓部。校舎も「教室が並ぶ廊下」ではなく、講義スペース、静かな個人ブース、グループエリアが混在するオフィスのような設計です。",
+ features:["週1回・15分の個人コーチング面談を全生徒に保障","教科は無学年の「ステップ制」。自分のレベルから始めて自分の速さで進む","目標・計画・記録を一元管理する学習ログ（現在はデジタル）","講義・個人作業・協働を選べる多様な学習空間デザイン"],
+ scene:"月曜の朝、生徒はコーチとの面談で「今週は数学のステップ7と、スペイン語の発表準備」と計画を確定。その後は自分でスケジュールを組み、講義に出たり、ブースで黙々と進めたり。金曜のログには、達成できたことと来週への課題が自分の言葉で記されていきます。",
+ japan:"日本に学校はありませんが、「個別最適な学び」政策の議論で頻繁に参照されるモデルです。週1回の1on1・無学年ステップ制など、日本の学校や塾が部分的に取り入れやすい仕組みが多いのも特徴です。",
+ fit:"マイペースだけれど目標があると頑張れる子のイメージが湧く学校。「個別最適化」を看板だけで終わらせない仕組みを知りたい教育者にも。"
+},
+{
+ cat:"soc", emoji:"✋", name:"リバーサイド・スクール & Design for Change",
+ country:"インド", flag:"🇮🇳", year:"2001年", founder:"キラン・ビル・セティ", age:"幼〜高校", scale:"学校は1校、DFC運動は世界60か国以上へ",
+ oneline:"「子どもは社会を変えられる」を証明した学校。合言葉は Feel, Imagine, Do, Share。",
+ what:"デザイナーのキラン・ビル・セティがインド・アーメダバードに開いた学校で、「I Can（わたしはできる）」の精神を教育の中心に据えています。子どもたちは身の回りの課題を見つけ（Feel）、解決策を考え（Imagine）、実行し（Do）、広める（Share）というデザイン思考のサイクルを実際の社会で回します。児童労働への啓発活動や市場の清掃改革など、子どもたちの行動が実際に街を動かしてきました。この手法を世界に開放した「Design for Change」運動は60か国以上に広がり、世界最大級の子どもによる社会変革ムーブメントになっています。",
+ features:["Feel→Imagine→Do→Share の4ステップで社会課題に挑む正課「デザイン思考」","学力面でも州トップクラスの成果を出し「優しさと学力は両立する」ことを証明","市役所や商店街と本気で交渉する、実社会が教室","世界中の子どもの変革事例を共有する国際的な祭典を主催"],
+ scene:"9歳のチームが、通学路のゴミ問題を調査してヒートマップを作り、市の担当者にプレゼンしています。別のチームは高齢者施設で聞き取りをして、孤独を和らげるプログラムを設計中。廊下には「I Can」の文字と、子どもたちが変えてきたことの記録が誇らしげに並びます。",
+ japan:"Design for Change はかつて日本でもワークショップ等が実施され、デザイン思考教育やSDGs探究の文脈で実践が紹介されています。「子どもを課題解決の主体にする」授業づくりの手本として参照されています。",
+ fit:"「社会のことは大人になってから」ではなく、いま子どもとして世界に関わりたい子へ。SDGsや探究のテーマ選びに悩む先生にも具体的なヒントが詰まっています。"
+},
+{
+ cat:"soc", emoji:"☀️", name:"ベアフット・カレッジ",
+ country:"インド", flag:"🇮🇳", year:"1972年", founder:"バンカー・ロイ", age:"成人（読み書きできない農村女性ら）", scale:"90か国以上から研修生を受け入れ",
+ oneline:"文字が読めなくても、おばあちゃんはソーラーエンジニアになれる。学歴社会への最強の反証。",
+ what:"インド・ラジャスタン州の農村に建つ「裸足の大学」。学位も資格も一切発行せず、逆に「学歴のない村人こそが最高の教師であり技術者だ」という信念で運営されています。最も有名なのは、世界中の無電化村から読み書きのできない中年女性を招き、6か月でソーラー発電設備の設置・修理技術者（ソーラー・ママ）に育てるプログラム。言葉が通じなくても色分けと身振りと反復で技術は伝わることを実証しました。彼女たちは村に戻り、村の電化と収入と尊敬を自分の手にします。ガンジーの思想を継ぐ、教育の原点を問う場です。",
+ features:["学位・修了証を出さない。「村があなたを認めることが資格」","読み書き不要の技術教育：色分け部品と実物訓練で電子回路を習得","夜間学校では働く子どもたちが学び、子ども議会が学校を運営","雨水利用・手工芸など、村の自立に直結する技術に特化"],
+ scene:"回路基板を囲むのは、グアテマラ、ザンジバル、フィジーから来た女性たち。共通言語はありませんが、部品の色と番号、そして笑い声で作業は進みます。半年後、彼女たちは故郷の村で数百世帯に灯りをともす技術者として迎えられます。",
+ japan:"日本からもNGOや研究者、メディアが多数訪問し、国際協力・社会起業の分野で広く紹介されています。「教育とは何のためにあるのか」を問い直す事例として、教育書でもたびたび引用されます。",
+ fit:"偏差値や資格の外側にある「学び」の力強さを見せてくれる一件。国際協力に関心のある中高生の進路の視野を広げる話材としても。"
+},
+{
+ cat:"jpn", emoji:"🌬️", name:"軽井沢風越学園",
+ country:"日本（長野）", flag:"🇯🇵", year:"2020年", founder:"本城慎之介・岩瀬直樹", age:"3〜15歳（幼稚園＋義務教育学校）", scale:"1学園（混在校として国内最大級の挑戦）",
+ oneline:"幼児と中学生が同じ校舎で「まざる」。図書館を心臓部に置いた、日本の学校の新しい原型。",
+ what:"楽天創業メンバーの本城慎之介氏と、公立小の名物教師だった岩瀬直樹氏らが軽井沢に開いた、幼稚園と義務教育学校（小中一貫）が一体となった私立学園です。「幼稚園みたいな学校をつくりたい」を合言葉に、3歳から15歳までが同じ校舎で暮らすように学びます。校舎の中心には壁のないライブラリーが広がり、学年の壁も教科の壁も緩やか。「自由」と「自由の相互承認」を土台に、テーマプロジェクト、自己主導の「マイプロジェクト」、体験を重視した幼児教育が連続的につながります。軽井沢の森そのものも大切な学び場です。",
+ features:["3歳〜15歳の異年齢が日常的に「まざる」校舎と時間の設計","中心に教室ではなく巨大な吹き抜けのライブラリーがある校舎","自分の問いを追いかける「マイプロジェクト」の時間","スタッフも「先生」ではなくニックネームで呼ばれる文化"],
+ scene:"朝の森で遊び込む年少組の横を、理科の観察に向かう7年生が通り過ぎます。午後のライブラリーでは、小学生が図鑑を広げる隣で中学生が自分のプロジェクトの資料を探し、幼児が絵本を読んでもらっている。チャイムのない校舎に、年齢の違う声が混ざり合います。",
+ japan:"開校以来、教育関係者の視察・注目度は国内トップクラス。設立過程や実践を発信する情報公開の姿勢も特徴で、公立校教員の研修受け入れなど、日本の学校教育への還元を意識した運営がされています。入園・入学は抽選を含む選考です。",
+ fit:"「日本語で通える、いま最も注目の新設校」を知りたい保護者へ。学校づくりに関わる人には、設立プロセスの発信自体が教材になります。"
+},
+{
+ cat:"jpn", emoji:"🏠", name:"東京シューレ",
+ country:"日本（東京）", flag:"🇯🇵", year:"1985年", founder:"奥地圭子", age:"小学生〜20代", scale:"フリースクール複数拠点＋私立中学校等",
+ oneline:"不登校の子どもたちと親が作った「もう一つの学校」。日本のフリースクール運動の原点。",
+ what:"不登校の子を持つ母親で教師だった奥地圭子氏が、「学校に行かない子どもにも学び育つ場を」と東京・北区に開いた日本のフリースクールの草分けです。「子どもが主人公」を原則に、何を学ぶか・どう過ごすかはミーティングで子どもたちが決め、行かない自由・休む自由も尊重されます。40年にわたり不登校の子どもの居場所・学び場であり続けると同時に、親の会・全国ネットワークづくり・政策提言を通じて、フリースクールでの学びを制度的に認めさせる運動を牽引。2016年の教育機会確保法の成立に大きな役割を果たしました。",
+ features:["時間割は子どもたちのミーティングで決める。参加も自由","「休む・行かない」を否定しない。安心できる居場所であることが最優先","私立の東京シューレ葛飾中学校など、学校制度の内側にも展開","親の会・全国組織を通じた政策提言で、不登校支援の制度を変えてきた"],
+ scene:"昼下がりのスペースでは、ゲームを囲む小学生、バンド練習の中学生、大学受験勉強をする子が同じフロアにいます。週1回のミーティングでは、来月のキャンプの行き先を巡って議論が白熱。「ここに来て、初めて安心して息ができた」という子どもの言葉が、この場の本質を物語ります。",
+ japan:"不登校が全国で30万人を超える今、フリースクールは特別な選択肢ではなくなりつつあります。東京シューレはその歴史そのものであり、各地のフリースクール・親の会の多くがこの実践から生まれました。出席扱いの制度や自治体連携の面でも先駆例です。",
+ fit:"わが子の不登校に直面した家庭がまず知るべき歴史と選択肢。「学校に行かないこと」を欠落ではなく別の育ちとして捉え直す視点をくれます。"
+}
+];
+
+const LINKS = [
+ [{t:"国際モンテッソーリ協会（AMI）",u:"https://montessori-ami.org/"},{t:"日本モンテッソーリ教育綜合研究所",u:"https://sainou.or.jp/montessori/index.html"}],
+ [{t:"日本シュタイナー学校協会",u:"https://waldorf.jp/"},{t:"日本シュタイナー幼児教育協会",u:"https://jaswece.org/"}],
+ [{t:"日本イエナプラン教育協会",u:"https://japanjenaplan.org/"},{t:"国内認定校一覧",u:"https://japanjenaplan.org/about/schoollist/"}],
+ [{t:"Reggio Children（公式・英語）",u:"https://www.reggiochildren.it/en/"}],
+ [{t:"ICEM フレネ教育協会（仏語）",u:"https://www.icem-pedagogie-freinet.org/"}],
+ [{t:"Summerhill School（公式・英語）",u:"https://www.summerhillschool.co.uk/"}],
+ [{t:"Sudbury Valley School（公式・英語）",u:"https://sudburyvalley.org/"},{t:"東京サドベリースクール",u:"https://tokyosudbury.com/"}],
+ [{t:"HundrED紹介ページ（英語）",u:"https://hundred.org/en/innovations/agora"}],
+ [{t:"High Tech High（公式・英語）",u:"https://www.hightechhigh.org/"}],
+ [{t:"Acton Academy（公式・英語）",u:"https://www.actonacademy.org/"}],
+ [{t:"Green School（公式・英語）",u:"https://www.greenschool.org/"},{t:"Green School Bali",u:"https://bali.greenschool.org/"}],
+ [{t:"森のようちえん全国ネットワーク連盟",u:"https://morinoyouchien.org/"},{t:"全国の団体マップ",u:"https://morinoyouchien.org/map"}],
+ [{t:"Fundación Escuela Nueva（公式・英語/西語）",u:"https://escuelanueva.org/"}],
+ [{t:"きのくに子どもの村学園（公式）",u:"http://www.kinokuni.ac.jp/"}],
+ [{t:"ドルトン東京学園 中等部・高等部",u:"https://www.daltontokyo.ed.jp/"},{t:"河合塾学園ドルトンスクール",u:"https://www.dalton-school.ed.jp/"}],
+ [{t:"エフタスコーレ協会（公式・英語ページ）",u:"https://www.efterskolerne.dk/en"}],
+ [{t:"Escola da Ponte（公式・葡語）",u:"https://www.escoladaponte.pt/"}],
+ [{t:"42 Tokyo（公式）",u:"https://42tokyo.jp/"},{t:"42（本校・仏語/英語）",u:"https://42.fr/en/homepage/"}],
+ [{t:"Big Picture Learning（公式・英語）",u:"https://www.bigpicture.org/"}],
+ [{t:"Kunskapsskolan（公式・瑞語/英語）",u:"https://www.kunskapsskolan.se/"}],
+ [{t:"Riverside School（公式・英語）",u:"https://schoolriverside.com/"},{t:"Design for Change（英語）",u:"https://www.dfcworld.org/"}],
+ [{t:"Barefoot College（公式・英語）",u:"https://www.barefootcollege.org/"}],
+ [{t:"軽井沢風越学園（公式）",u:"https://kazakoshi.ed.jp/"}],
+ [{t:"フリースクール東京シューレ（公式）",u:"https://www.shure.or.jp/"}]
+];
+
+const grid = document.getElementById('grid');
+const overlay = document.getElementById('overlay');
+const modal = document.getElementById('modal');
+let activeCat = 'all';
+let query = '';
+
+function render(){
+  const q = query.trim().toLowerCase();
+  const items = DATA.filter(d =>
+    (activeCat==='all' || d.cat===activeCat) &&
+    (!q || (d.name + d.oneline + d.what + d.country + CATS[d.cat].label).toLowerCase().includes(q))
+  );
+  grid.innerHTML = items.length ? items.map(d => {
+    const i = DATA.indexOf(d);
+    return `<article class="card" style="--cc:${CATS[d.cat].color}" onclick="openModal(${i})">
+      <div class="no">No.${String(i+1).padStart(2,'0')}</div>
+      <div class="emoji">${d.emoji}</div>
+      <h2>${d.name}</h2>
+      <div class="meta">${d.flag} ${d.country}・${d.year}〜</div>
+      <span class="tag">${CATS[d.cat].label}</span>
+      <p class="oneline">${d.oneline}</p>
+    </article>`;
+  }).join('') : '<div class="empty">該当する実践が見つかりませんでした</div>';
+}
+
+function openModal(i){
+  const d = DATA[i];
+  modal.style.setProperty('--cc', CATS[d.cat].color);
+  modal.innerHTML = `
+    <div class="m-head" style="background:${CATS[d.cat].color}">
+      <button class="m-close" onclick="closeModal()">✕</button>
+      <div class="no">No.${String(i+1).padStart(2,'0')}｜${CATS[d.cat].label}</div>
+      <h2>${d.emoji} ${d.name}</h2>
+      <div class="meta">${d.flag} ${d.country}・${d.year}〜｜創始: ${d.founder}</div>
+    </div>
+    <div class="m-body">
+      <div class="facts">
+        <div class="fact"><div class="k">対象年齢</div><div class="v">${d.age}</div></div>
+        <div class="fact"><div class="k">規模・広がり</div><div class="v">${d.scale}</div></div>
+      </div>
+      <div class="sec"><h3>どんな教育?</h3><p>${d.what}</p></div>
+      <div class="sec"><h3>特徴的な実践</h3><ul>${d.features.map(f=>`<li>${f}</li>`).join('')}</ul></div>
+      <div class="sec"><h3>学びの風景</h3><p>${d.scene}</p></div>
+      <div class="sec"><h3>日本との接点・日本で出会うには</h3><p>${d.japan}</p></div>
+      <div class="sec"><h3>こんな人に</h3><p>${d.fit}</p></div>
+      <div class="sec"><h3>公式サイト・リンク</h3><p class="links">${(LINKS[i]||[]).map(l=>`<a href="${l.u}" target="_blank" rel="noopener">${l.t}</a>`).join('')}</p></div>
+    </div>`;
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+overlay.addEventListener('click', e => { if(e.target===overlay) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+document.getElementById('chips').addEventListener('click', e => {
+  const btn = e.target.closest('.chip'); if(!btn) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  activeCat = btn.dataset.cat;
+  render();
+});
+document.getElementById('q').addEventListener('input', e => { query = e.target.value; render(); });
+
+render();
+
+/* ===== 共通ナビ（ハンバーガー／モバイルアコーディオン）トグル ===== */
+(function(){
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if(!hamburger || !mobileMenu) return;
+  function openMenu(){ hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if(mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+})();
+</script>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./dialogue-zukan.html"><span class="kaiyu-tag">図鑑・実践編</span><span class="kaiyu-name">世界の対話の技法図鑑</span><span class="kaiyu-desc">世界中で発明されてきた対話の技法を、出典つきで集めた図鑑。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./chie-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">ホモ・サピエンスの知恵図鑑</span><span class="kaiyu-desc">効力感・心理的安全性・メタ認知……人がもともと持ち、育てられる力を50種収蔵。『苦手図鑑』と対になる一冊。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./systems-thinking-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">図鑑・見る技術</span><span class="kaiyu-name">システム思考図鑑</span><span class="kaiyu-desc">因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+</body>
+</html>

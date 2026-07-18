@@ -695,6 +695,21 @@
         "nigate-zukan",
         "dialogue-zukan"
       ]
+    },
+    {
+      "id": "alternative-education-zukan",
+      "path": "alternative-education-zukan.html",
+      "title": "世界のオルタナティブ教育図鑑",
+      "tag": "世界の知恵",
+      "desc": "モンテッソーリからサドベリー、きのくに子どもの村まで。世界24のオルタナティブ教育を、思想・学びの風景・日本での出会い方つきで収蔵。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "dialogue-zukan",
+        "chie-zukan"
+      ]
     }
   ]
 }
