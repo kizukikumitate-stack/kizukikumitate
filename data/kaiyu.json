@@ -710,6 +710,21 @@
         "dialogue-zukan",
         "chie-zukan"
       ]
+    },
+    {
+      "id": "hininchi-zukan",
+      "path": "hininchi-zukan.html",
+      "title": "非認知スキル図鑑",
+      "tag": "世界の知恵",
+      "desc": "自制心・レジリエンス・共感力・メタ認知……テストでは測れないけれど人生と仕事を支える25のちからを、鍛え方と研究ノートつきで収蔵。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-18",
+      "band": true,
+      "next": [
+        "chie-zukan",
+        "nigate-zukan"
+      ]
     }
   ]
 }

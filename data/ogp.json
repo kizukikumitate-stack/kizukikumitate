@@ -347,6 +347,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "世界のオルタナティブ教育図鑑",
       "sub": "モンテッソーリからきのくに子どもの村まで。世界24の学びの実践を思想と風景つきで。"
+    },
+    {
+      "page": "hininchi-zukan.html",
+      "img": "hininchi-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#E85C7E",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "非認知スキル図鑑",
+      "sub": "テストでは測れないけれど人生を支える25のちからを、鍛え方と研究ノートつきで。"
     }
   ]
 }

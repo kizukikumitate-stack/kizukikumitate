@@ -132,6 +132,10 @@
             "href": "alternative-education-zukan.html"
           },
           {
+            "label": "非認知スキル図鑑",
+            "href": "hininchi-zukan.html"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html"
           },
@@ -398,6 +402,10 @@
     },
     {
       "path": "alternative-education-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "hininchi-zukan.html",
       "variant": "standard"
     }
   ],

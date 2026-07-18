@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>非認知スキル図鑑｜テストでは測れない25のちから｜きづきくみたて工房</title>
+<meta name="description" content="自制心、レジリエンス、共感力、メタ認知……IQや学力テストでは測れないけれど人生と仕事を支える「非認知スキル（社会情動的スキル）」25種を、キャラクター・鍛え方のヒント・研究ノートつきで収蔵した図鑑。OECDの5領域をもとに再構成。">
+<link rel="canonical" href="https://kizukikumitate.com/hininchi-zukan.html">
+<meta property="og:title" content="非認知スキル図鑑｜きづきくみたて工房">
+<meta property="og:description" content="自制心・レジリエンス・共感力・メタ認知……テストでは測れないけれど人生を支える25のちからを、鍛え方と研究ノートつきで収蔵。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/hininchi-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/hininchi-zukan-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="非認知スキル図鑑｜きづきくみたて工房">
+<meta name="twitter:description" content="テストでは測れないけれど人生を支える25のちからを、キャラクター・鍛え方・研究ノートつきで収蔵。">
+<meta name="twitter:image" content="https://kizukikumitate.com/hininchi-zukan-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7F4EE; --ink:#2B2B33; --sub:#6B6B76; --card:#FFFFFF;
+  --catA:#4A7DFF; --catB:#2FA97C; --catC:#F08C2E; --catD:#8F63E8; --catE:#E85C7E;
+  --radius:20px;
+  --forest:#1a5fad; --charcoal:#1e1e1e;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:"Hiragino Maru Gothic ProN","BIZ UDPGothic","Yu Gothic","Meiryo",sans-serif;
+  background:var(--bg); color:var(--ink); line-height:1.75;
+  overflow-x:hidden; hanging-punctuation:allow-end;
+}
+p,li{word-break:keep-all; overflow-wrap:break-word;}
+header{
+  text-align:center; padding:48px 20px 20px;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(74,125,255,.10), transparent 40%),
+    radial-gradient(circle at 88% 15%, rgba(232,92,126,.10), transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(47,169,124,.08), transparent 50%);
+}
+header h1{font-size:clamp(26px,5vw,40px); letter-spacing:.06em;}
+header h1 .accent{color:var(--catE);}
+header .subtitle{color:var(--sub); margin-top:8px; font-size:14.5px;}
+header .lede{max-width:640px;margin:16px auto 0;font-size:14px;color:var(--sub);text-align:left;}
+.controls{
+  position:sticky; top:0; z-index:20; background:rgba(247,244,238,.92);
+  backdrop-filter:blur(8px); padding:12px 16px; border-bottom:1px solid #E7E2D8;
+}
+.controls-inner{max-width:1080px; margin:0 auto; display:flex; flex-wrap:wrap; gap:10px; align-items:center;}
+#search{
+  flex:1 1 220px; min-width:200px; padding:10px 16px; border:2px solid #E0DACD;
+  border-radius:999px; font-size:15px; background:#fff; outline:none; font-family:inherit;
+}
+#search:focus{border-color:var(--catA);}
+.chips{display:flex; flex-wrap:wrap; gap:8px;}
+.chip{
+  border:2px solid transparent; border-radius:999px; padding:7px 14px; font-size:13px;
+  cursor:pointer; background:#fff; color:var(--sub); font-family:inherit; font-weight:600;
+  transition:all .15s; white-space:nowrap;
+}
+.chip[data-active="true"]{color:#fff;}
+.chip:hover{transform:translateY(-1px);}
+main{max-width:1080px; margin:0 auto; padding:28px 16px 80px;}
+.count{font-size:13px; color:var(--sub); margin-bottom:14px;}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px;}
+.card{
+  background:var(--card); border-radius:var(--radius); padding:18px 14px 16px; text-align:center;
+  cursor:pointer; border:2px solid #EFEAE0; position:relative;
+  transition:transform .18s, box-shadow .18s, border-color .18s;
+}
+.card:hover{transform:translateY(-4px); box-shadow:0 10px 24px rgba(43,43,51,.10);}
+.card .no{
+  position:absolute; top:12px; left:14px; font-size:11px; font-weight:700;
+  color:#fff; border-radius:999px; padding:2px 9px; letter-spacing:.05em;
+}
+.card svg{width:104px; height:104px; margin:6px auto 2px; display:block;}
+.card .cname{font-size:12px; color:var(--sub); letter-spacing:.08em;}
+.card h3{font-size:16.5px; margin-top:2px; letter-spacing:.02em;}
+.card .en{font-size:11px; color:#A5A1B0; letter-spacing:.06em; margin-top:1px;}
+.card .catch{font-size:12px; color:var(--sub); margin-top:8px; line-height:1.5;}
+.empty{color:var(--sub); text-align:center; padding:60px 0; font-size:15px;}
+/* ===== 共通グローバルナビ（全ページ共通・台帳自動同期） ===== */
+nav{position:sticky;top:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem;}
+.nav-logo img{height:36px;width:auto;object-fit:contain;}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em;}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto;flex-wrap:wrap;}
+.nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em;}
+.nav-links a:hover,.nav-links a.active{color:var(--forest);}
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+.nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s;}
+.nav-caret{font-size:0.6em;transition:transform 0.25s;}
+.nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest);}
+.nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300;}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px);}
+.nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s;}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest);}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px);}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px);}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s;}
+.mobile-menu a:first-child{border-top:1px solid #e8e8e8;}
+.mobile-menu a:hover,.mobile-menu a.active{color:#3C3489;}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem;}
+.mobile-acc{width:100%;border-bottom:1px solid #e8e8e8;}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Noto Sans JP',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0;}
+.mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s;}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg);}
+.mobile-acc-panel{display:none;flex-direction:column;align-items:center;padding-bottom:0.7rem;}
+.mobile-acc.open .mobile-acc-panel{display:flex;}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s;}
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489;}
+@media(max-width:1250px){.nav-links{display:none;}.nav-hamburger{display:block;}.nav-logo{margin-right:0;}}
+/* ===== 共通フッター（図鑑シリーズの明色フッター） ===== */
+footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid #E7E2D8;}
+.footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--ink);letter-spacing:.08em;}
+.footer-copy{margin-top:.6rem;font-size:12px;color:var(--sub);letter-spacing:.06em;}
+/* modal */
+.overlay{
+  position:fixed; inset:0; background:rgba(30,28,40,.45); z-index:50;
+  display:none; align-items:flex-start; justify-content:center; padding:4vh 16px; overflow-y:auto;
+}
+.overlay[data-open="true"]{display:flex;}
+.modal{
+  background:#fff; border-radius:26px; max-width:680px; width:100%; margin-bottom:6vh;
+  overflow:hidden; animation:pop .22s ease;
+}
+@keyframes pop{from{transform:translateY(14px); opacity:0;} to{transform:none; opacity:1;}}
+.m-head{padding:30px 28px 22px; text-align:center; position:relative; color:#fff;}
+.m-head svg{width:132px; height:132px; margin:0 auto; display:block; filter:drop-shadow(0 6px 10px rgba(0,0,0,.14));}
+.m-head .no{font-size:12px; font-weight:700; opacity:.85; letter-spacing:.12em;}
+.m-head .cname{font-size:13px; opacity:.9; margin-top:8px; letter-spacing:.1em;}
+.m-head h2{font-size:24px; letter-spacing:.03em; margin-top:2px;}
+.m-head .en{font-size:12px; opacity:.85; letter-spacing:.08em;}
+.m-head .catch{font-size:13.5px; margin-top:10px; opacity:.95;}
+.m-close{
+  position:absolute; top:14px; right:14px; width:36px; height:36px; border:none; border-radius:50%;
+  background:rgba(255,255,255,.25); color:#fff; font-size:18px; cursor:pointer; line-height:1;
+}
+.m-body{padding:24px 28px 30px;}
+.m-sec{margin-bottom:22px;}
+.m-sec h4{
+  display:inline-flex; align-items:center; gap:7px; font-size:14px; letter-spacing:.05em;
+  border-radius:999px; padding:4px 14px; color:#fff; margin-bottom:10px;
+}
+.m-sec p{font-size:14.5px;}
+.m-sec ul{list-style:none;}
+.m-sec li{
+  font-size:14.5px; padding:9px 12px 9px 38px; position:relative; background:#F8F6F1;
+  border-radius:12px; margin-bottom:8px;
+}
+.m-sec li::before{content:attr(data-i); position:absolute; left:12px; top:9px; font-weight:700;}
+.evidence{background:#F6F4FB; border-radius:14px; padding:14px 16px; font-size:13.5px; color:#4A4756;}
+.evidence .src{display:block; margin-top:6px; font-size:12px; color:#8B8799;}
+.related{display:flex; flex-wrap:wrap; gap:8px;}
+.rel-chip{
+  border:none; border-radius:999px; padding:7px 14px; font-size:12.5px; cursor:pointer;
+  color:#fff; font-family:inherit; font-weight:600;
+}
+.rel-chip:hover{opacity:.85;}
+.page-note{
+  text-align:center; color:#A5A1B0; font-size:12px; padding:30px 16px 44px; line-height:2;
+  border-top:1px solid #E7E2D8; max-width:1080px; margin:0 auto;
+}
+@media(max-width:560px){
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;}
+  .card svg{width:84px;height:84px;}
+  .m-body{padding:20px 18px 26px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./hininchi-zukan.html" class="active">非認知スキル図鑑</a>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./hininchi-zukan.html" class="active">非認知スキル図鑑</a>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<header>
+  <h1>非認知スキル<span class="accent">図鑑</span></h1>
+  <div class="subtitle">— テストでは測れない、人生を支える25のちから —</div>
+  <p class="lede">「非認知スキル」とは、IQや学力テストでは測れない、感情・意欲・人との関わりにまつわる力のこと。OECDは「社会情動的スキル」と呼び、5つの領域に整理しています。この図鑑では、その枠組みをもとに大人の仕事や暮らしに効く25のスキルをキャラクターとともに紹介します。気になる子をタップしてみてください。</p>
+</header>
+
+<div class="controls">
+  <div class="controls-inner">
+    <input id="search" type="search" placeholder="スキル名・キーワードで検索(例: 失敗、チーム、集中)">
+    <div class="chips" id="chips"></div>
+  </div>
+</div>
+
+<main>
+  <div class="count" id="count"></div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">みつかりませんでした。別のことばで探してみてください 🔍</div>
+</main>
+
+<div class="overlay" id="overlay" data-open="false">
+  <div class="modal" id="modal" role="dialog" aria-modal="true"></div>
+</div>
+
+<div class="page-note">
+  分類はOECD「社会情動的スキル」の5領域(目標の達成/情動の制御/他者との協働/開かれた思考/複合的スキル)を参考に再構成しています。<br>
+  各スキルの研究紹介は代表的な知見の要約であり、効果の大きさには研究による幅があります。
+</div>
+
+<script>
+/* ====== データ ====== */
+const CATS = {
+  A:{name:"自分を律する力", color:"#4A7DFF", light:"#EAF0FF", desc:"目標の達成"},
+  B:{name:"心を整える力",   color:"#2FA97C", light:"#E7F6F0", desc:"情動の制御"},
+  C:{name:"人とつながる力", color:"#F08C2E", light:"#FDF1E3", desc:"他者との協働"},
+  D:{name:"世界を広げる力", color:"#8F63E8", light:"#F1EBFC", desc:"開かれた思考"},
+  E:{name:"自分を動かす力", color:"#E85C7E", light:"#FDEBF0", desc:"複合的スキル"}
+};
+const SKILLS = [
+{
+  id:"selfcontrol", no:1, cat:"A", name:"自制心", en:"Self-Control",
+  char:{name:"ガマンダー", shape:"round", face:"calm", deco:"🛡️"},
+  catch:"「あとちょっと」の誘惑に、ふみとどまる。",
+  keywords:"我慢 誘惑 衝動 集中 スマホ 先延ばし",
+  def:"目先の誘惑や衝動にブレーキをかけ、長期的に大事なことを優先する力。意志力でねじ伏せるというより、「誘惑に出会わない環境をつくる」のが上手な人ほど高い傾向があります。",
+  scene:"締め切り前についスマホを開いてしまう、会議でカッとなって言い返しそうになる——そんな瞬間に一呼吸おいて選び直せるかどうか。仕事の生産性から健康、貯蓄まで幅広く効いてきます。",
+  tips:["誘惑を意志で我慢するのではなく、視界から消す(通知オフ、スマホは別室に)。","「10分だけ待つ」ルールで衝動と行動のあいだに時間を挟む。","疲れている時ほど自制は難しくなる。重要な決断や作業は回復した時間帯に。"],
+  evidence:"ニュージーランドで約1,000人を32年間追跡したダニーデン研究では、子ども時代の自制心の高さが、成人後の健康・収入・犯罪率までを予測しました。有名な「マシュマロ・テスト」はその後の再検証で家庭環境の影響も大きいことが分かりましたが、自制心そのものの重要性は多くの研究で支持されています。",
+  refs:"Moffitt らのダニーデン研究(2011) / Mischel のマシュマロ実験と Watts らの再検証(2018)",
+  related:["grit","planning","mindfulness"]
+},
+{
+  id:"grit", no:2, cat:"A", name:"やり抜く力", en:"Grit",
+  char:{name:"ヤリヌキ", shape:"drop", face:"smile", deco:"🔥"},
+  catch:"情熱×粘り強さ。長い道のりを走りきる。",
+  keywords:"グリット 継続 粘り 挫折 長期 目標",
+  def:"長期的な目標に向けて、情熱を持ち続け、困難があっても粘り強く努力し続ける力。短距離走の速さではなく、マラソンを走りきる力にたとえられます。",
+  scene:"数年がかりのプロジェクト、資格の勉強、新規事業の立ち上げ。成果がすぐに見えない期間に淡々と続けられる人は、才能の差を努力の継続でひっくり返していきます。",
+  tips:["「なぜやるのか」を言語化する。目的とつながった努力は続きやすい。","大きな目標を「今週やること」まで分解し、小さな前進を記録する。","やめ時を決めておくのも実は大事。何にグリットを注ぐかの選択が半分。"],
+  evidence:"ダックワースは米陸軍士官学校の過酷な訓練で、脱落せず残るかどうかを入学試験の成績よりグリットのスコアがよく予測することを示しました。一方その後のメタ分析では、グリットは誠実性と重なりが大きく、効果は当初の想定より控えめだという指摘もあります。",
+  refs:"Duckworth『GRIT』(2016) / Credé らのメタ分析(2017)",
+  related:["selfcontrol","growthmind","intrinsic"]
+},
+{
+  id:"conscient", no:3, cat:"A", name:"誠実性", en:"Conscientiousness",
+  char:{name:"コツコツン", shape:"square", face:"smile", deco:"📋"},
+  catch:"約束をまもり、コツコツ積み上げる信用の土台。",
+  keywords:"まじめ 勤勉 信頼 丁寧 継続 習慣",
+  def:"物事を丁寧に、責任を持って、最後までやり遂げようとする性質。ビッグファイブ性格特性のひとつで、「勤勉さ」「几帳面さ」「計画性」を束ねた、非認知スキルの中核です。",
+  scene:"小さな約束を守る、期限を切ったら間に合わせる、雑になりがちな作業も手を抜かない。派手さはないけれど、キャリアが長くなるほど「この人に任せれば大丈夫」という信用として積み上がります。",
+  tips:["「やる気」に頼らず仕組み化する。チェックリストと定型化が誠実さを支える。","小さな約束(5分の遅刻、返信)ほど丁寧に守る。信用は細部に宿る。","完璧主義とは区別する。60点で出して改善する誠実さもある。"],
+  evidence:"職業パフォーマンスを予測する性格特性を調べた古典的メタ分析では、誠実性がほぼすべての職種で一貫して成果を予測する唯一の特性でした。学歴やIQと独立に、収入・健康・寿命まで予測することが多くの縦断研究で確認されています。",
+  refs:"Barrick & Mount のメタ分析(1991) / Roberts らの縦断研究レビュー(2007)",
+  related:["responsibility","planning","grit"]
+},
+{
+  id:"planning", no:4, cat:"A", name:"計画性", en:"Planning",
+  char:{name:"ダンドリン", shape:"bean", face:"wink", deco:"🗺️"},
+  catch:"「いつ・どこで・どうやる」を先に決めておく。",
+  keywords:"段取り 目標設定 逆算 準備 スケジュール",
+  def:"ゴールから逆算して手順を組み立て、実行のタイミングまで具体的に決めておく力。単なるスケジュール管理ではなく、「予定どおりいかない時のプランB」まで含めて考えられるのが上級者です。",
+  scene:"プロジェクトの立ち上げ、イベント運営、転職や学び直しの準備。「そのうちやる」を「金曜の朝イチにやる」に変換できる人は、同じ意志の強さでも実行率がまるで違います。",
+  tips:["「もしXになったらYする」というif-then形式で行動を予約しておく。","最初の一歩を極端に小さくする(資料を開くだけ、5分だけ)。","週に一度、計画と現実のズレを振り返って組み直す時間を持つ。"],
+  evidence:"ゴルヴィツァーらが提唱した「実行意図(if-thenプランニング)」は、目標達成率を高める手法として90以上の研究のメタ分析で中程度〜大きな効果が確認されています。「頑張る」と決意するより、「いつどこで何をするか」を決めるほうが実行されやすいのです。",
+  refs:"Gollwitzer & Sheeran のメタ分析(2006)",
+  related:["selfcontrol","conscient","metacog"]
+},
+{
+  id:"responsibility", no:5, cat:"A", name:"責任感", en:"Responsibility",
+  char:{name:"マカセテン", shape:"puff", face:"smile", deco:"💪"},
+  catch:"「自分ごと」として引き受け、最後まで運ぶ。",
+  keywords:"当事者意識 オーナーシップ 主体性 約束",
+  def:"任されたことを「自分ごと」として引き受け、結果まで責任を持つ姿勢。うまくいかなかった時に環境や他人のせいにせず、「自分に変えられることは何か」から考えられるのがこの力の本体です。",
+  scene:"誰の担当か曖昧な仕事を拾う、ミスが起きた時にまず対応から動く、チームの成果に自分の持ち場以上の関心を持つ。リーダーシップの土台であり、任される範囲がどんどん広がっていく人の共通点です。",
+  tips:["「誰かがやるだろう」と思った瞬間に、自分の名前を書き込む。","失敗した時は「原因の何%が自分の行動か」を紙に書いて切り分ける。","抱え込みとは違う。早めに助けを求めるのも責任の果たし方のひとつ。"],
+  evidence:"組織心理学では、役割を超えて自発的に貢献する「組織市民行動」や、仕事を自分ごと化する「心理的オーナーシップ」が、チーム全体の業績や職場の信頼と結びつくことが繰り返し示されています。責任の所在が明確なチームほど学習が速いことも知られています。",
+  refs:"Organ の組織市民行動研究 / Pierce らの心理的オーナーシップ理論(2001)",
+  related:["conscient","trust","collab"]
+},
+{
+  id:"resilience", no:6, cat:"B", name:"レジリエンス", en:"Resilience",
+  char:{name:"タチナオール", shape:"drop", face:"happy", deco:"🌱"},
+  catch:"へこんでも、折れない。しなやかに立ち直る。",
+  keywords:"回復 立ち直り 逆境 失敗 メンタル 折れない",
+  def:"逆境やストレス、失敗を経験しても、しなやかに回復していく力。「へこまない鋼のメンタル」ではなく、へこんだあとに戻ってこられる竹のようなしなやかさを指します。",
+  scene:"提案が通らなかった、異動で環境が激変した、大きなミスをした。落ち込むこと自体は自然な反応で、そこから「学びを拾って次に進む」までの回復プロセスを担うのがこの力です。",
+  tips:["つらい時に頼れる人・場所・習慣のリストを、元気なうちに作っておく。","出来事(事実)と解釈(思い込み)を書き分けて、解釈を疑ってみる。","小さな回復体験を覚えておく。「前も立ち直れた」は最強のお守り。"],
+  evidence:"レジリエンス研究の第一人者マステンは、逆境から回復する力は一部の特別な人の才能ではなく、支えてくれる人間関係や自己効力感など「ありふれた資源」から生まれる〈ordinary magic〉だと結論づけました。ボナーノの研究でも、大きな喪失を経験した人の多くが自然な回復力を示すことが分かっています。",
+  refs:"Masten〈Ordinary Magic〉(2001) / Bonanno の喪失・トラウマ研究(2004)",
+  related:["optimism","selfcompassion","efficacy"]
+},
+{
+  id:"emoreg", no:7, cat:"B", name:"感情調整力", en:"Emotion Regulation",
+  char:{name:"トトノン", shape:"round", face:"calm", deco:"🌊"},
+  catch:"感情に飲まれず、感情と付き合う。",
+  keywords:"アンガーマネジメント 怒り 不安 イライラ 冷静",
+  def:"怒り・不安・落ち込みなどの感情を、抑え込むのではなく、状況に合わせて上手に扱う力。感情をなくすことではなく、「感情に気づき、名前をつけ、見方を変える」一連のプロセスです。",
+  scene:"理不尽な指摘にカッとなった時、プレゼン前に不安で頭が真っ白になりそうな時。感情のままに反応するか、一拍おいて対応を選べるかは、信頼にもパフォーマンスにも直結します。",
+  tips:["感情に名前をつける(「これは焦りだ」)。ラベリングだけで強度が下がる。","「見方を変える」再評価を練習する(この失敗は次の交渉材料になる、など)。","抑え込み(平気なフリ)は逆効果になりやすい。信頼できる人に言葉で出す。"],
+  evidence:"グロスの感情調整研究では、感情を「抑え込む」戦略は生理的ストレスをむしろ高め、状況の意味を捉え直す「再評価」戦略は気分・人間関係・幸福感の面で良い結果と結びつくことが示されています。感情に名前をつける「情動ラベリング」が扁桃体の活動を鎮めることも脳画像研究で確認されています。",
+  refs:"Gross の感情調整プロセスモデル / Lieberman らの情動ラベリング研究(2007)",
+  related:["mindfulness","resilience","assertive"]
+},
+{
+  id:"optimism", no:8, cat:"B", name:"楽観性", en:"Optimism",
+  char:{name:"ラッカン", shape:"puff", face:"happy", deco:"☀️"},
+  catch:"「なんとかなる」ではなく「なんとかする」の明るさ。",
+  keywords:"ポジティブ 前向き 悲観 希望 説明スタイル",
+  def:"うまくいかない出来事を「ずっと続く自分のせい」ではなく「一時的で変えられるもの」と捉える思考の癖。根拠のない能天気さではなく、現実を見た上で打ち手があると信じられる力です。",
+  scene:"営業で断られ続けた時、「自分には向いていない」と捉えるか「今回のアプローチが合わなかった」と捉えるか。この説明の仕方の違いが、次の一歩を踏み出せるかを分けます。",
+  tips:["失敗の説明を書き換える練習:「always→今回は」「自分がダメ→この方法が」。","一日の終わりに「今日うまくいったこと3つ」とその理由を書く。","悲観は準備に活かす。「最悪のケース」を書き出すと不安は具体的な対策に変わる。"],
+  evidence:"セリグマンの研究では、楽観的な説明スタイルを持つ保険営業員は悲観的な同僚より成績が高く、離職も少ないことが示されました。楽観性は健康面でも心血管疾患リスクの低さなどと関連することが大規模なメタ分析で報告されています。学習で身につく「learned optimism」であることがポイントです。",
+  refs:"Seligman『オプティミストはなぜ成功するか』 / Rozanski らのメタ分析(2019)",
+  related:["resilience","growthmind","efficacy"]
+},
+{
+  id:"selfcompassion", no:9, cat:"B", name:"セルフコンパッション", en:"Self-Compassion",
+  char:{name:"ヨシヨシン", shape:"bean", face:"calm", deco:"🫶"},
+  catch:"親友にかける言葉を、自分にもかける。",
+  keywords:"自己批判 優しさ 完璧主義 落ち込み いたわり",
+  def:"失敗した時や苦しい時に、自分を厳しく責めるのではなく、親しい友人に接するような優しさで自分に接する力。甘やかしとは違い、「失敗を認めた上で前に進む」ための心の土台です。",
+  scene:"大事な場面でミスをして、頭の中で自分への説教が止まらない——そんな時に「人間だから失敗する。で、次はどうする?」と切り替えられるか。自己批判が強い頑張り屋さんほど効果を実感しやすいスキルです。",
+  tips:["失敗した時、「同じ状況の親友に何と言うか」を考えてそのまま自分に言う。","「苦しいのは自分だけじゃない」と共通の人間性を思い出す。","自己批判の声に気づいたら、書き出して事実と評価を切り分ける。"],
+  evidence:"ネフが提唱したセルフコンパッションは、メタ分析で不安・抑うつ・ストレスの低さと中程度以上の強い関連が示されています。「自分に甘くなると怠ける」という予想に反し、自己への思いやりが高い人ほど失敗後に再挑戦しやすいという実験結果も報告されています。",
+  refs:"Neff のセルフコンパッション研究(2003〜) / MacBeth & Gumley のメタ分析(2012)",
+  related:["resilience","emoreg","growthmind"]
+},
+{
+  id:"mindfulness", no:10, cat:"B", name:"マインドフルネス", en:"Mindfulness",
+  char:{name:"イマココン", shape:"round", face:"calm", deco:"🍃"},
+  catch:"過去でも未来でもなく、「いまここ」に戻る。",
+  keywords:"瞑想 集中 注意 呼吸 雑念 ストレス",
+  def:"「いまこの瞬間」の体験に、評価や判断を加えずに注意を向ける力。雑念を消すことではなく、「注意がそれたことに気づいて、戻す」その往復運動そのものがトレーニングです。",
+  scene:"会議中に別の心配事で上の空、休日も仕事の反省が頭を離れない——注意があちこちに飛ぶほど疲れは増えます。目の前の一つのことに戻る力は、集中力と心の回復の両方を支えます。",
+  tips:["1日3分、呼吸に注意を向ける。それだけで「気づいて戻す」筋トレになる。","食事や歩行など日常動作を「ながら」でなく味わう時間をつくる。","雑念が浮かんだら失敗ではなく気づきのチャンス。「考えてたな」と認めて戻る。"],
+  evidence:"カバットジンが開発したマインドフルネスストレス低減法(MBSR)以降、研究が急増し、メタ分析では不安・抑うつ・ストレスに対して中程度の改善効果が確認されています。万能薬ではないものの、注意制御や感情調整の基礎トレーニングとしての位置づけは確立しつつあります。",
+  refs:"Kabat-Zinn の MBSR / Goyal らのメタ分析(2014)",
+  related:["emoreg","selfcontrol","selfawareness"]
+},
+{
+  id:"empathy", no:11, cat:"C", name:"共感力", en:"Empathy",
+  char:{name:"ワカルワン", shape:"bean", face:"happy", deco:"💗"},
+  catch:"相手の靴を履いて、世界を見てみる。",
+  keywords:"気持ち 視点取得 思いやり 相手の立場",
+  def:"相手の気持ちを感じ取る「情動的共感」と、相手の立場から状況を理解する「認知的共感(視点取得)」の両方を含む力。同意することではなく、まず理解しようとする姿勢です。",
+  scene:"部下の急な退職相談、顧客のあいまいな不満、家族のため息。言葉になっていない背景を汲み取れると、対立が対話に変わります。交渉・マネジメント・商品づくり、すべての起点になる力です。",
+  tips:["相手の話を聞く時、「次に何を言うか」ではなく「相手が何を感じているか」に注意を向ける。","「この人の立場なら何が一番困るだろう?」と一日一回、視点を借りてみる。","小説や映画は視点取得の練習場。登場人物の動機を考えながら味わう。"],
+  evidence:"デイヴィスの研究以降、共感は複数の要素からなることが分かっており、特に「視点取得」は交渉の成果や職場での援助行動と関連することが示されています。文学作品を読むことが他者の心の理解(心の理論)のスコアを高めるという実験も報告されています。",
+  refs:"Davis の多次元共感性尺度(IRI) / Galinsky らの視点取得と交渉の研究(2008)",
+  related:["listening","tolerance","collab"]
+},
+{
+  id:"listening", no:12, cat:"C", name:"傾聴力", en:"Active Listening",
+  char:{name:"キキジョーズ", shape:"drop", face:"smile", deco:"👂"},
+  catch:"アドバイスの前に、まず最後まで聴く。",
+  keywords:"聞く 相槌 質問 1on1 面談 対話",
+  def:"相手の話を、さえぎらず、評価せず、関心を持って最後まで聴く力。ただ黙って聞くことではなく、問いかけや言い換えで「ちゃんと受け取っているよ」を返しながら聴く、能動的な行為です。",
+  scene:"1on1で部下が本音を話してくれない、会議で同じ議論が堂々巡りする——多くの場合、足りないのは話す力ではなく聴く力です。「この人には話せる」と思われる人のところに、重要な情報は集まってきます。",
+  tips:["相手の言葉を自分の言葉で言い換えて返す(「つまり〜ということ?」)。","沈黙を怖がらない。相手が考えている3秒を奪わない。","アドバイスしたくなったら「もう少し詳しく聞かせて」に置き換える。"],
+  evidence:"「聴くこと」は心理療法家ロジャーズが提唱して以来の古典的テーマですが、近年の組織研究では、質の高い傾聴を受けた話し手は自分の考えがより明確になり、態度の極端さが和らぐことが実験的に示されています。傾聴は話し手の心理的安全性を高める最も直接的な行動のひとつです。",
+  refs:"Rogers の来談者中心療法 / Itzchakov & Kluger の傾聴研究(2018)",
+  related:["empathy","trust","collab"]
+},
+{
+  id:"collab", no:13, cat:"C", name:"協働力", en:"Collaboration",
+  char:{name:"チームン", shape:"puff", face:"happy", deco:"🤝"},
+  catch:"「わたしの成果」を「わたしたちの成果」に。",
+  keywords:"チームワーク 協力 心理的安全性 貢献",
+  def:"多様なメンバーと役割を分担し、対立とも向き合いながら、ひとりでは出せない成果を生み出す力。自分の主張と譲歩のバランスを取り、チーム全体の目標を自分の目標として動けることが核心です。",
+  scene:"専門も立場も違うメンバーでのプロジェクト、部署をまたいだ調整。優秀な個人の寄せ集めが機能しないのはよくある話で、「気兼ねなく発言できる空気」を自分から作れる人がチームの成果を底上げします。",
+  tips:["「わからないので教えてください」を自分から言う。弱みの開示が安全性の起点。","会議で発言していない人に「どう思う?」とパスを出す。","対立したら人ではなく課題に矛先を向ける(ホワイトボードに書いて一緒に眺める)。"],
+  evidence:"Googleが自社の数百チームを分析した「プロジェクト・アリストテレス」では、チームの成果を最も左右するのはメンバーの優秀さではなく、安心して発言できる「心理的安全性」でした。この概念を提唱したエドモンドソンの研究でも、心理的安全性の高いチームほどミスから学び、成果を上げることが示されています。",
+  refs:"Edmondson の心理的安全性研究(1999) / Google Project Aristotle(2015)",
+  related:["listening","trust","responsibility"]
+},
+{
+  id:"assertive", no:14, cat:"C", name:"アサーティブネス", en:"Assertiveness",
+  char:{name:"イエルモン", shape:"square", face:"wow", deco:"📣"},
+  catch:"我慢でも攻撃でもなく、率直に伝える。",
+  keywords:"主張 断る 交渉 本音 依頼 NO",
+  def:"相手を尊重しながら、自分の意見・要望・NOを率直に伝える力。「言いたいことを飲み込む(非主張的)」でも「言い負かす(攻撃的)」でもない、第三の道です。",
+  scene:"無理のある依頼を断りたい、上司の方針に懸念がある、同僚の負担に気づいてほしい。言えずに溜め込むとある日爆発するか、静かに消耗します。健全な職場は率直さの上に成り立ちます。",
+  tips:["事実→自分の気持ち→提案の順で伝える(DESC法)。「私は」を主語にする。","断る時は、相手ではなく依頼を断る。「その日は無理ですが、来週なら」。","小さな場面(注文の変更、待ち合わせの希望)から練習して段階を上げる。"],
+  evidence:"アサーティブネスは行動療法の分野で訓練法が発展し、トレーニングによって対人不安の軽減や自己表現の改善が得られることが示されてきました。組織研究では、率直に懸念を言えるかどうか(発言行動)がチームのミス防止や改善につながる一方、それを可能にするのは聴き手側の反応だということも分かっています。",
+  refs:"Alberti & Emmons『Your Perfect Right』 / Morrison の従業員発言行動研究(2011)",
+  related:["emoreg","trust","listening"]
+},
+{
+  id:"trust", no:15, cat:"C", name:"信頼構築力", en:"Trust Building",
+  char:{name:"シンライオン", shape:"round", face:"smile", deco:"🦁"},
+  catch:"小さな約束の積み重ねが、大きな橋になる。",
+  keywords:"信用 関係構築 人脈 誠実 一貫性",
+  def:"「能力があり、善意があり、言動が一貫している」と相手に感じてもらえる関係を築く力。信頼は求めるものではなく、自分の行動の積み重ねによって相手の中に育つものです。",
+  scene:"初対面の取引先、新しいチームへの合流、リモートで顔が見えない相手との仕事。信頼があれば確認や駆け引きのコストが消え、仕事は一気に速くなります。壊すのは一瞬、築くのは毎日です。",
+  tips:["できない約束をしない。引き受けたら小さくても必ず果たす。","自分から先に開示する・任せる。信頼は先に差し出した側から生まれる。","ミスした時こそ最速で報告する。都合の悪い情報の扱いが信頼の試金石。"],
+  evidence:"組織研究で最も使われるメイヤーらの信頼モデルは、信頼が「能力・善意・誠実さ」の3要素の認知から生まれると整理しました。信頼の高い組織ほど情報共有と協力が進み、取引コストが下がることは経済学の社会関係資本研究でも裏づけられています。",
+  refs:"Mayer らの組織的信頼モデル(1995) / Putnam の社会関係資本研究",
+  related:["conscient","collab","assertive"]
+},
+{
+  id:"curiosity", no:16, cat:"D", name:"好奇心", en:"Curiosity",
+  char:{name:"ワクワクン", shape:"drop", face:"wow", deco:"🔍"},
+  catch:"「なにこれ?」が学びのエンジン。",
+  keywords:"興味 探究 質問 学び 新しいこと",
+  def:"新しいこと・わからないことに引き寄せられ、知りたい・試したいと感じる力。知識のすき間(「知ってるつもりだったのに説明できない」)に気づいた時に最も強く発動します。",
+  scene:"畑違いの部署の仕事に興味を持つ、当たり前とされている手順に「そもそもなぜ?」と問う。変化の速い時代には、学び続けられることが最大の安定であり、その燃料が好奇心です。",
+  tips:["「答えを検索する前に30秒予想する」。予想が外れた時ほど記憶に残る。","月に一度、専門外の本・人・場所に触れる「越境」の予定を入れる。","会議で一番素朴な質問をする係を買って出る。"],
+  evidence:"脳科学の研究では、好奇心が高まっている状態では報酬系(ドーパミン系)が活性化し、そのとき出会った情報は関係ない情報まで記憶に残りやすくなることが示されています。職場研究でも、好奇心の高さは学習行動や創新的な問題解決と関連することが報告されています。",
+  refs:"Gruber らの好奇心と記憶の研究(2014) / Kashdan の好奇心研究",
+  related:["creativity","openflex","intrinsic"]
+},
+{
+  id:"creativity", no:17, cat:"D", name:"創造性", en:"Creativity",
+  char:{name:"ヒラメキー", shape:"puff", face:"wow", deco:"💡"},
+  catch:"組み合わせて、ずらして、新しい価値をつくる。",
+  keywords:"アイデア 発想 イノベーション ひらめき",
+  def:"既存の知識や経験を組み合わせ、新しくて役に立つアイデアを生み出す力。ゼロから天啓が降ってくるのではなく、「たくさん出す→組み合わせる→選ぶ」という地道なプロセスの産物です。",
+  scene:"行き詰まった企画会議、コストと品質の板挟み、前例のない課題。「正解を探す」モードから「選択肢を増やす」モードへ切り替えられる人が、突破口を開きます。",
+  tips:["質より量。ブレストではまず数を出す(評価は完全に後回しにする)。","離れた分野の知識を仕入れる。アイデアは既存の要素の新しい組み合わせ。","煮詰まったら離れる。散歩や入浴中の「ぼんやり時間」が組み合わせを進める。"],
+  evidence:"創造性研究では、アイデアの量が質を生むこと、そして評価と生成を分離したほうが良いアイデアが出ることが繰り返し確認されています。アマビールの研究は、締め付けや外的な評価圧力が創造性を下げ、内発的な動機づけが高めることを示しました。軽い運動や散歩が発散的思考を高めるという実験結果もあります。",
+  refs:"Guilford の発散的思考研究 / Amabile の創造性の内発的動機づけ理論 / Oppezzo & Schwartz の歩行実験(2014)",
+  related:["curiosity","openflex","intrinsic"]
+},
+{
+  id:"openflex", no:18, cat:"D", name:"柔軟性", en:"Cognitive Flexibility",
+  char:{name:"ヤワラカン", shape:"bean", face:"happy", deco:"🪁"},
+  catch:"「こうあるべき」を、いったん脇に置ける。",
+  keywords:"切り替え 変化対応 適応 こだわり 視点転換",
+  def:"状況の変化に合わせて、考え方ややり方を切り替えられる力。自分の前提を「仮説」として扱い、うまくいかなければ別の枠組みで捉え直せることが核心です。",
+  scene:"方針の急転換、想定外のトラブル、世代や文化の違う相手とのすれ違い。「前はこうだった」に固執するか、「今回はどうする?」に切り替えるか。変化の多い環境で最も消耗を左右する力です。",
+  tips:["意見が対立したら「相手が正しいとしたら、どんな理由がありうるか」を考えてみる。","いつものやり方をあえて崩す小さな実験をする(通勤路、会議の進め方)。","「絶対」「いつも」「べき」という言葉に気づいたら、例外を1つ探す。"],
+  evidence:"認知的柔軟性は実行機能の中核要素のひとつで、切り替え能力の高さは新しい環境への適応や問題解決の成績と関連します。組織行動の研究でも、変化への適応力(アダプタビリティ)は不確実性の高い職務でのパフォーマンスを予測する重要な要素とされています。",
+  refs:"Diamond の実行機能研究(2013) / Pulakos らの適応的パフォーマンス研究(2000)",
+  related:["curiosity","tolerance","growthmind"]
+},
+{
+  id:"critical", no:19, cat:"D", name:"批判的思考", en:"Critical Thinking",
+  char:{name:"ナンデダロン", shape:"square", face:"calm", deco:"🧐"},
+  catch:"疑うためじゃなく、確かめるために問う。",
+  keywords:"論理 根拠 検証 バイアス 情報リテラシー",
+  def:"情報や主張を鵜呑みにせず、「根拠は? 別の見方は? 本当に?」と確かめながら考える力。人を批判する力ではなく、自分の思い込みにこそ矛先を向けられるのが本物です。",
+  scene:"もっともらしいデータ、SNSで流れてきた真偽不明の話、社内の「昔からこうだから」。AIが大量の文章を生成する時代、何を信じるかを自分で判断する力の価値はむしろ上がっています。",
+  tips:["主張を見たら「根拠は何か」「その根拠は主張を本当に支えるか」を2段階で確認。","自分の意見にこそ「反対の証拠」を探す(確証バイアス対策)。","即断が必要な場面と、じっくり考えるべき場面を区別する。"],
+  evidence:"バトラーらの研究では、批判的思考テストの成績が高い人ほど、日常の悪い出来事(延滞料金、衝動買いの後悔など)が少なく、その予測力はIQよりも高いことが示されました。批判的思考は訓練で伸びること、ただし領域を超えた転移には工夫が必要なことも分かっています。",
+  refs:"Butler らの批判的思考と人生の結果の研究(2017) / Halpern の批判的思考教育研究",
+  related:["metacog","openflex","curiosity"]
+},
+{
+  id:"tolerance", no:20, cat:"D", name:"寛容性", en:"Tolerance & Inclusion",
+  char:{name:"マルゴトン", shape:"round", face:"happy", deco:"🌏"},
+  catch:"「ちがう」は、間違いじゃなくて持ち味。",
+  keywords:"多様性 ダイバーシティ 受容 異文化 インクルージョン",
+  def:"自分と異なる価値観・文化・意見を、脅威ではなく持ち味として受け止める力。全部に同意することではなく、「違ったままで一緒にやっていく」ための土台です。",
+  scene:"世代の違うメンバーとの温度差、海外拠点との文化ギャップ、自分とは正反対のタイプの同僚。違いにイラっとした瞬間こそ、この力の出番。多様なチームは、寛容性があって初めて強みになります。",
+  tips:["「常識が違う」と感じたら、相手の環境ではそれが合理的だった可能性を考える。","自分と属性や意見の違う人と、仕事以外の雑談をする機会を意識的に持つ。","違和感を「排除の理由」ではなく「質問のきっかけ」にする。"],
+  evidence:"オルポート以来の「接触仮説」を検証した500以上の研究のメタ分析では、異なる集団同士の接触が偏見を減らすことが確認されています。ビジネスの分野でも、多様性のあるチームは適切に運営されれば意思決定の質が高まる一方、包摂(インクルージョン)がなければ逆効果になりうることが示されています。",
+  refs:"Allport の接触仮説 / Pettigrew & Tropp のメタ分析(2006)",
+  related:["empathy","openflex","collab"]
+},
+{
+  id:"efficacy", no:21, cat:"E", name:"自己効力感", en:"Self-Efficacy",
+  char:{name:"デキルモン", shape:"drop", face:"smile", deco:"🚀"},
+  catch:"「自分ならできそう」が、最初の一歩を生む。",
+  keywords:"自信 挑戦 できる やればできる 一歩",
+  def:"「自分はこの課題をやり遂げられそうだ」という見通しの感覚。根拠のない自信とは違い、小さな成功体験の積み重ねから育つ、行動を起こすためのエンジンです。",
+  scene:"手を挙げるか迷う新しい役割、未経験の業務への異動。能力が同じでも、「できそう」と思える人は挑戦し、練習量が増え、本当にできるようになる——という好循環に入ります。",
+  tips:["目標を「確実に達成できるサイズ」まで刻んで、成功体験を意図的に作る。","自分と似た人の成功例を探す(「あの人にできたなら」は強力な燃料)。","できたことログを残す。人は自分の成長をすぐ忘れる。"],
+  evidence:"バンデューラが提唱した自己効力感は、行動変容の研究で最も引用される概念のひとつです。禁煙、運動、学業、仕事のパフォーマンスまで、幅広い分野で「できるという信念」が実際の行動開始と継続を予測することが示されています。効力感は①達成体験②代理体験③言語的説得④生理状態の4つの源から育つと整理されています。",
+  refs:"Bandura の自己効力感理論(1977) / Stajkovic & Luthans のメタ分析(1998)",
+  related:["growthmind","resilience","grit"]
+},
+{
+  id:"growthmind", no:22, cat:"E", name:"成長マインドセット", en:"Growth Mindset",
+  char:{name:"ノビシロン", shape:"bean", face:"wow", deco:"🌿"},
+  catch:"能力は、いまの自分の「途中経過」。",
+  keywords:"マインドセット 才能 努力 まだ 伸びしろ",
+  def:"能力や才能は固定されたものではなく、努力や方法の工夫で伸ばせるという信念。失敗を「能力の証明が終わった瞬間」ではなく「まだ途中(not yet)」と捉え直すことがその中心にあります。",
+  scene:"新しいツールについていけない、若手のほうが飲み込みが早い——そんな時に「もう歳だから」と閉じるか、「やり方を変えれば伸びる」と開くか。学び直しが当たり前の時代の、学びの前提となるOSです。",
+  tips:["「できない」に「まだ(yet)」を付け足す。「まだできない」は途中の報告。","結果ではなく過程を振り返る(何を試した? 次は何を変える?)。","うまい人を「才能」で片づけず、その練習方法を観察して盗む。"],
+  evidence:"ドゥエックが提唱した概念で、米国の1万2千人超を対象とした全国規模の実験では、短時間の成長マインドセット介入が成績下位層の生徒の成績を改善しました。ただし効果の大きさは平均するとかなり小さく、「誰にでも劇的に効く」ものではないことも近年のメタ分析で明確になっています。環境がそれを支えるかが鍵です。",
+  refs:"Dweck『マインドセット』 / Yeager らの全国実験(2019) / Macnamara らのメタ分析",
+  related:["efficacy","grit","selfcompassion"]
+},
+{
+  id:"metacog", no:23, cat:"E", name:"メタ認知", en:"Metacognition",
+  char:{name:"フカンダー", shape:"square", face:"wink", deco:"🪞"},
+  catch:"考えている自分を、もうひとりの自分が見ている。",
+  keywords:"客観視 振り返り 内省 自己モニタリング 俯瞰",
+  def:"自分の考え方・感情・理解度を一段上から観察し、必要に応じて修正する力。「わかったつもり」に気づく、感情的になっている自分に気づく——あらゆる自己改善の司令塔です。",
+  scene:"勉強したのにテストで解けない(理解の監視ミス)、白熱した議論で目的を見失う(思考の脱線)。自分の認知のクセを知っている人は、学びも仕事も軌道修正が速くなります。",
+  tips:["作業の前に「どう進めるか」、後に「何がうまくいったか」を1分だけ言語化する。","「人に説明できるか」で理解度をテストする(できなければ、わかっていない)。","週次で「今週の判断で一番怪しかったもの」を振り返る。"],
+  evidence:"フラヴェルが提唱して以来、メタ認知は学習科学の中心概念です。学習方略の効果を検証した研究では、再読やマーカーより「自己テスト」や「分散学習」が有効で、その選択にはメタ認知が必要なことが示されています。メタ認知的な方略の指導は、学力への効果が大きい教育介入のひとつとされています。",
+  refs:"Flavell のメタ認知理論(1979) / Dunlosky らの学習方略レビュー(2013)",
+  related:["selfawareness","critical","planning"]
+},
+{
+  id:"intrinsic", no:24, cat:"E", name:"内発的動機づけ", en:"Intrinsic Motivation",
+  char:{name:"ムチュウン", shape:"puff", face:"wow", deco:"🎯"},
+  catch:"ごほうびのためじゃなく、それ自体が面白いから。",
+  keywords:"やる気 モチベーション 夢中 自律性 好き",
+  def:"報酬や評価のためではなく、活動そのものの面白さ・意味から生まれるやる気。「やらされ」ではなく「やりたい」で動いている状態で、持続力と創造性が最も高くなります。",
+  scene:"言われたことはこなすが熱が入らない、逆に趣味なら何時間でも没頭できる——その差を生む仕組みを知っていれば、仕事の設計も部下のマネジメントも変わります。",
+  tips:["仕事の中に「自分で決められる部分」を見つける・交渉して増やす(自律性)。","少し背伸びの難易度に調整する。簡単すぎは退屈、難しすぎは不安。","「この仕事は誰の何の役に立つか」を具体的な顔が浮かぶまで掘る。"],
+  evidence:"デシとライアンの自己決定理論では、人のやる気は「自律性・有能感・関係性」の3つの欲求が満たされると内発的になるとされ、数十年の研究で支持されています。もともと好きだった活動に外的報酬を与えると、かえって意欲が下がる「アンダーマイニング効果」の実験は特に有名です。",
+  refs:"Deci & Ryan の自己決定理論 / Deci らの報酬とやる気のメタ分析(1999)",
+  related:["curiosity","grit","efficacy"]
+},
+{
+  id:"selfawareness", no:25, cat:"E", name:"自己認識", en:"Self-Awareness",
+  char:{name:"ミツメルン", shape:"round", face:"wink", deco:"🔦"},
+  catch:"自分の取扱説明書を、自分で書ける。",
+  keywords:"自己理解 強み 弱み 価値観 フィードバック",
+  def:"自分の強み・弱み・価値観・感情のパターンを理解し(内的自己認識)、他人からどう見えているかも知っている(外的自己認識)力。すべての非認知スキルを伸ばす際の「現在地の地図」になります。",
+  scene:"キャリアの節目の選択、自分に合う働き方の設計、耳の痛いフィードバックへの向き合い。自分を知らないままの努力は、地図なしの登山になりがちです。",
+  tips:["「なぜ自分はダメなのか」ではなく「何がそうさせたのか」と問う(whyよりwhat)。","信頼できる人に「自分の強みと、直すと良い点をひとつずつ」聞いてみる。","感情が大きく動いた場面をメモする。パターンが自分の価値観を教えてくれる。"],
+  evidence:"組織心理学者ユーリックの調査では、95%の人が「自分をよく分かっている」と答える一方、基準を満たす自己認識を持つ人は10〜15%程度でした。また「なぜ?」と内省するほどかえって自己理解から遠ざかり、「何が?」と問う人のほうが正確な自己認識に至りやすいことも報告されています。",
+  refs:"Eurich『insight』(2017) / Grant らの内省と自己認識の研究",
+  related:["metacog","selfcompassion","emoreg"]
+}
+];
+
+/* ====== キャラクターSVG ====== */
+function charSVG(s, size){
+  const c = CATS[s.cat].color;
+  const bodies = {
+    round:"M60 16 C88 16 102 38 102 62 C102 90 84 106 60 106 C36 106 18 90 18 62 C18 38 32 16 60 16 Z",
+    bean:"M42 18 C70 8 100 24 102 52 C104 80 88 104 60 106 C32 108 14 92 16 66 C18 44 24 24 42 18 Z",
+    square:"M30 22 C30 16 90 16 90 22 L98 88 C100 100 88 106 60 106 C32 106 20 100 22 88 Z",
+    drop:"M60 12 C78 34 102 52 102 72 C102 92 84 106 60 106 C36 106 18 92 18 72 C18 52 42 34 60 12 Z",
+    puff:"M60 14 C74 14 80 24 92 28 C102 32 106 46 100 56 C108 68 102 84 92 90 C86 102 70 108 60 104 C50 108 34 102 28 90 C18 84 12 68 20 56 C14 46 18 32 28 28 C40 24 46 14 60 14 Z"
+  };
+  const faces = {
+    smile:'<circle cx="46" cy="60" r="5" fill="#2B2B33"/><circle cx="74" cy="60" r="5" fill="#2B2B33"/><path d="M48 76 Q60 86 72 76" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/>',
+    happy:'<path d="M40 60 Q46 53 52 60" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M68 60 Q74 53 80 60" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M48 74 Q60 86 72 74" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/>',
+    calm:'<path d="M40 60 Q46 64 52 60" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M68 60 Q74 64 80 60" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M52 78 Q60 82 68 78" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/>',
+    wow:'<circle cx="46" cy="58" r="5.5" fill="#2B2B33"/><circle cx="74" cy="58" r="5.5" fill="#2B2B33"/><ellipse cx="60" cy="78" rx="7" ry="8" fill="#2B2B33"/>',
+    wink:'<circle cx="46" cy="60" r="5" fill="#2B2B33"/><path d="M68 60 L80 60" stroke="#2B2B33" stroke-width="4" stroke-linecap="round"/><path d="M48 76 Q60 85 72 76" stroke="#2B2B33" stroke-width="4" fill="none" stroke-linecap="round"/>'
+  };
+  const cheeks = '<circle cx="38" cy="70" r="6" fill="#fff" opacity=".35"/><circle cx="82" cy="70" r="6" fill="#fff" opacity=".35"/>';
+  return `<svg viewBox="0 0 120 120" width="${size}" height="${size}" aria-hidden="true">
+    <path d="${bodies[s.char.shape]}" fill="${c}"/>
+    <path d="${bodies[s.char.shape]}" fill="#fff" opacity=".12" transform="translate(-4,-5) scale(.97)" transform-origin="60 60"/>
+    ${cheeks}${faces[s.char.face]}
+    <text x="98" y="30" font-size="22" text-anchor="middle">${s.char.deco}</text>
+  </svg>`;
+}
+
+/* ====== 一覧描画 ====== */
+const grid = document.getElementById("grid");
+const chipsEl = document.getElementById("chips");
+const searchEl = document.getElementById("search");
+const countEl = document.getElementById("count");
+const emptyEl = document.getElementById("empty");
+let activeCat = "ALL";
+
+function buildChips(){
+  const all = [["ALL","すべて","#5B5866"], ...Object.entries(CATS).map(([k,v])=>[k,v.name,v.color])];
+  chipsEl.innerHTML = all.map(([k,label,color])=>
+    `<button class="chip" data-cat="${k}" style="--c:${color}">${label}</button>`).join("");
+  chipsEl.querySelectorAll(".chip").forEach(b=>{
+    b.addEventListener("click",()=>{activeCat=b.dataset.cat; render();});
+  });
+}
+function styleChips(){
+  chipsEl.querySelectorAll(".chip").forEach(b=>{
+    const on = b.dataset.cat===activeCat;
+    b.dataset.active = on;
+    b.style.background = on ? b.style.getPropertyValue("--c") : "#fff";
+    b.style.borderColor = b.style.getPropertyValue("--c");
+    b.style.color = on ? "#fff" : "#6B6B76";
+  });
+}
+function matches(s,q){
+  if(!q) return true;
+  const hay = [s.name,s.en,s.char.name,s.catch,s.def,s.scene,s.tips.join(" "),s.keywords||""].join(" ").toLowerCase();
+  return q.toLowerCase().split(/\s+/).every(t=>hay.includes(t));
+}
+function render(){
+  styleChips();
+  const q = searchEl.value.trim();
+  const list = SKILLS.filter(s=>(activeCat==="ALL"||s.cat===activeCat)&&matches(s,q));
+  countEl.textContent = `${list.length} / ${SKILLS.length} 体のスキルを表示中`;
+  emptyEl.style.display = list.length ? "none":"block";
+  grid.innerHTML = list.map(s=>{
+    const cat = CATS[s.cat];
+    return `<div class="card" data-id="${s.id}" style="border-color:${cat.light}">
+      <span class="no" style="background:${cat.color}">No.${String(s.no).padStart(2,"0")}</span>
+      ${charSVG(s,104)}
+      <div class="cname">${s.char.name}</div>
+      <h3>${s.name}</h3>
+      <div class="en">${s.en}</div>
+      <div class="catch">${s.catch}</div>
+    </div>`;
+  }).join("");
+  grid.querySelectorAll(".card").forEach(c=>c.addEventListener("click",()=>openModal(c.dataset.id)));
+}
+
+/* ====== 詳細モーダル ====== */
+const overlay = document.getElementById("overlay");
+const modal = document.getElementById("modal");
+function openModal(id){
+  const s = SKILLS.find(x=>x.id===id);
+  const cat = CATS[s.cat];
+  const secH = (label,emoji)=>`<h4 style="background:${cat.color}">${emoji} ${label}</h4>`;
+  modal.innerHTML = `
+    <div class="m-head" style="background:linear-gradient(150deg, ${cat.color}, ${shade(cat.color,-24)})">
+      <button class="m-close" aria-label="閉じる">✕</button>
+      <div class="no">No.${String(s.no).padStart(2,"0")} ｜ ${cat.name}(${cat.desc})</div>
+      ${charSVG(s,132)}
+      <div class="cname">${s.char.name}</div>
+      <h2>${s.name}</h2>
+      <div class="en">${s.en}</div>
+      <div class="catch">${s.catch}</div>
+    </div>
+    <div class="m-body">
+      <div class="m-sec">${secH("どんなちから?","📖")}<p>${s.def}</p></div>
+      <div class="m-sec">${secH("こんな場面で","💼")}<p>${s.scene}</p></div>
+      <div class="m-sec">${secH("鍛え方のヒント","🏋️")}
+        <ul>${s.tips.map((t,i)=>`<li data-i="${i+1}" style="color:inherit"><span>${t}</span></li>`).join("")}</ul>
+      </div>
+      <div class="m-sec">${secH("研究ノート","🔬")}
+        <div class="evidence">${s.evidence}<span class="src">主な研究者・研究: ${s.refs}</span></div>
+      </div>
+      <div class="m-sec">${secH("なかまのスキル","🤝")}
+        <div class="related">${s.related.map(rid=>{
+          const r = SKILLS.find(x=>x.id===rid);
+          return `<button class="rel-chip" data-id="${r.id}" style="background:${CATS[r.cat].color}">${r.name}</button>`;
+        }).join("")}</div>
+      </div>
+    </div>`;
+  modal.querySelector(".m-close").addEventListener("click",closeModal);
+  modal.querySelectorAll(".rel-chip").forEach(b=>b.addEventListener("click",()=>openModal(b.dataset.id)));
+  overlay.dataset.open = "true";
+  overlay.scrollTop = 0;
+  document.body.style.overflow = "hidden";
+}
+function closeModal(){
+  overlay.dataset.open = "false";
+  document.body.style.overflow = "";
+}
+overlay.addEventListener("click",e=>{if(e.target===overlay) closeModal();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape") closeModal();});
+function shade(hex,amt){
+  const n = parseInt(hex.slice(1),16);
+  const f = v=>Math.max(0,Math.min(255,v+amt));
+  return "#"+[f(n>>16), f((n>>8)&255), f(n&255)].map(v=>v.toString(16).padStart(2,"0")).join("");
+}
+
+searchEl.addEventListener("input",render);
+buildChips();
+render();
+
+/* ===== 共通ナビ（ハンバーガー／モバイルアコーディオン）トグル ===== */
+(function(){
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if(!hamburger || !mobileMenu) return;
+  function openMenu(){ hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  if(mobileClose) mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+})();
+</script>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./chie-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">ホモ・サピエンスの知恵図鑑</span><span class="kaiyu-desc">効力感・心理的安全性・メタ認知……人がもともと持ち、育てられる力を50種収蔵。『苦手図鑑』と対になる一冊。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./nigate-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">ホモ・サピエンスの苦手図鑑</span><span class="kaiyu-desc">20万年前の脳で現代を生きる私たちの、人類共通の「苦手」12種を、進化の由来と処方箋つきで収蔵。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./systems-thinking-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">図鑑・見る技術</span><span class="kaiyu-name">システム思考図鑑</span><span class="kaiyu-desc">因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+</body>
+</html>
