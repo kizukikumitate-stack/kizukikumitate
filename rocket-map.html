@@ -839,6 +839,28 @@
   .rocket-map .rkt-coop-acts{display:flex; flex-wrap:wrap; justify-content:center; gap:8px}
   .rocket-map .rkt-coop-acts button, .rocket-map .rkt-coop-acts a{font-family:inherit; font-size:12.5px; text-decoration:none; color:var(--washi); background:transparent; border:1.5px solid var(--gold); border-radius:999px; padding:7px 14px; cursor:pointer; transition:background .15s ease, transform .15s ease}
   .rocket-map .rkt-coop-acts button:hover, .rocket-map .rkt-coop-acts a:hover{background:rgba(217,164,65,.18); transform:translateY(-1px)}
+  /* 航行計画(やりたいこと/期待することリスト) */
+  .rocket-map .rkt-plan{max-width:860px; margin:26px auto 0; border:2px solid var(--gold); border-radius:14px; padding:20px 20px 22px}
+  .rocket-map .rkt-plan-title{font-family:inherit; font-size:16px; font-weight:700; letter-spacing:.14em; color:var(--washi); text-align:center; margin:0 0 4px}
+  .rocket-map .rkt-plan-sub{font-size:11.5px; color:rgba(250,248,242,.5); text-align:center; margin:0 0 16px}
+  .rocket-map .rkt-plan-cols{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px}
+  .rocket-map .rkt-plan-col h4{font-family:inherit; font-size:13.5px; font-weight:700; letter-spacing:.08em; color:var(--gold); margin:0 0 6px}
+  .rocket-map .rkt-plan-note{font-size:11.5px; line-height:1.9; color:rgba(250,248,242,.6); margin:0 0 10px; word-break:keep-all; overflow-wrap:break-word}
+  .rocket-map .rkt-missions{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; align-items:stretch; gap:8px}
+  .rocket-map .rkt-missions li{border:1px solid rgba(217,164,65,.4); border-left:3px solid var(--gold); border-radius:0 10px 10px 0; padding:10px 12px; display:flex; flex-direction:column; align-items:stretch; gap:6px}
+  .rocket-map .rkt-mi-badge{display:inline-block; align-self:flex-start; font-size:10px; letter-spacing:.12em; color:var(--indigo); background:var(--gold); border-radius:999px; padding:2px 9px; font-weight:700}
+  .rocket-map .rkt-mi-text{font-size:13px; color:var(--washi); line-height:1.8; word-break:keep-all; overflow-wrap:break-word}
+  .rocket-map .rkt-mi-cta{align-self:flex-end; font-family:inherit; font-size:11px; color:var(--washi); background:transparent; border:1px solid rgba(250,248,242,.4); border-radius:999px; padding:4px 12px; cursor:pointer; transition:border-color .15s ease, color .15s ease}
+  .rocket-map .rkt-mi-cta:hover{border-color:var(--gold); color:var(--gold)}
+  .rocket-map .rkt-wishes{display:flex; flex-direction:column; align-items:stretch; gap:8px; margin:0 0 10px}
+  .rocket-map .rkt-wishes .rkt-wish{border:1px dashed rgba(217,164,65,.5); border-radius:10px; padding:9px 12px; font-size:12.5px; line-height:1.9; color:rgba(250,248,242,.88); display:flex; align-items:center; justify-content:space-between; gap:10px}
+  .rocket-map .rkt-wishes .rkt-wish .you{flex-shrink:0; font-size:10px; border:1px solid var(--gold); color:var(--gold); border-radius:999px; padding:1px 8px}
+  .rocket-map .rkt-wishes .rkt-wish-empty{font-size:12px; color:rgba(250,248,242,.5); text-align:center; border:1px dashed rgba(250,248,242,.25); border-radius:10px; padding:12px}
+  .rocket-map .rkt-wish-add{display:block; width:100%; font-family:inherit; font-size:12.5px; font-weight:700; color:var(--indigo); background:var(--gold); border:none; border-radius:999px; padding:9px 16px; cursor:pointer}
+  .rocket-map .rkt-wish-add:hover{background:#f0d9a8}
+  @media (max-width: 860px){
+    .rocket-map .rkt-plan-cols{grid-template-columns:minmax(0, 1fr)}
+  }
   .rocket-map .rkt-ws{position:fixed; inset:0; z-index:410}
   .rocket-map .rkt-ws[hidden]{display:none}
   .rocket-map .rkt-ws-veil{position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(10,8,24,.18), rgba(10,8,24,.6) 90%)}
@@ -1463,6 +1485,27 @@
     <div class="rkt-extra" id="rkt-p-extra" hidden></div>
   </section>
   <p class="rkt-hint">※ 気になった区画の「扉」から、それぞれのページへ進めます。</p>
+  <section class="rkt-plan" aria-label="航行計画">
+    <h3 class="rkt-plan-title">航行計画</h3>
+    <p class="rkt-plan-sub">目指す未来に向けて、いま企んでいること・寄せられている期待</p>
+    <div class="rkt-plan-cols">
+      <div class="rkt-plan-col">
+        <h4>操縦士のやりたいことリスト</h4>
+        <p class="rkt-plan-note">いっしょに取り組んでくれる乗組先を探しています。ピンと来たら、気軽に声をかけてください。</p>
+        <ul class="rkt-missions">
+          <li><span class="rkt-mi-badge">乗組先を探しています</span><span class="rkt-mi-text">1つの会社全体で、対話力を鍛える</span><button type="button" class="rkt-mi-cta" data-mission="1つの会社全体で、対話力を鍛える">うちでやってみたい →</button></li>
+          <li><span class="rkt-mi-badge">乗組先を探しています</span><span class="rkt-mi-text">1つの自治体の職員全体で、対話力を鍛える</span><button type="button" class="rkt-mi-cta" data-mission="1つの自治体の職員全体で、対話力を鍛える">うちでやってみたい →</button></li>
+          <li><span class="rkt-mi-badge">乗組先を探しています</span><span class="rkt-mi-text">1つの学校全体で、対話力を鍛える</span><button type="button" class="rkt-mi-cta" data-mission="1つの学校全体で、対話力を鍛える">うちでやってみたい →</button></li>
+        </ul>
+      </div>
+      <div class="rkt-plan-col">
+        <h4>みなさんの期待することリスト</h4>
+        <p class="rkt-plan-note">このプロジェクトに「やってほしいこと」を書き残せます。例:うちの職場でもやってほしい、◯◯向けの図鑑がほしい、子ども向けの体験会を開いてほしい。</p>
+        <div class="rkt-wishes" id="rkt-wishes"></div>
+        <button type="button" class="rkt-wish-add" id="rkt-wish-add">期待することを書く</button>
+      </div>
+    </div>
+  </section>
   <section class="rkt-coop" aria-label="みんなで作る">
     <h3>みんなで作る</h3>
     <p>このロケットの図は、眺めるだけのものではありません。気になる小惑星を置いたり、乗組員名簿に記帳したり、問いを立てて話し合ったり——子どもや学生のみなさんとも、ぜひこの図を囲んで対話をしてみてください。</p>
@@ -1931,6 +1974,65 @@
   if (coopRoid){ coopRoid.addEventListener("click", openRoidForm); }
   var coopCrew = document.getElementById("rkt-coop-crew");
   if (coopCrew){ coopCrew.addEventListener("click", openCrewForm); }
+
+  /* ===== 航行計画: ミッションへの立候補と「期待することリスト」 ===== */
+  var OFFICIAL_WISHES = [
+    /* メールで届いた期待を公式リストに載せるときは、この配列に { m: "内容", n: "名前(任意)" } を1行足す */
+  ];
+  var myWishes = lsGet("rktWishes", []);
+  document.querySelectorAll(".rkt-mi-cta").forEach(function(btn){
+    btn.addEventListener("click", function(){
+      var m = btn.getAttribute("data-mission");
+      location.href = "mailto:" + MAIL_TO + "?subject=" + encodeURIComponent("【平和な地球行きロケット】乗組先に立候補") + "&body=" + encodeURIComponent("気になったミッション: " + m + "\n組織名(会社・自治体・学校など): \nお名前: \nひとこと(任意): \n\n(rocket-map.html 航行計画より)");
+    });
+  });
+  function renderWishes(){
+    var host = document.getElementById("rkt-wishes");
+    if (!host){ return; }
+    host.innerHTML = "";
+    var all = OFFICIAL_WISHES.map(function(w){ return { w: w, mine: false }; }).concat(myWishes.map(function(w){ return { w: w, mine: true }; }));
+    if (!all.length){
+      host.appendChild(el("div", "rkt-wish-empty", "まだ記入はありません。最初のひとりになりませんか?"));
+      return;
+    }
+    all.forEach(function(item){
+      var row = el("div", "rkt-wish");
+      row.appendChild(el("span", null, item.w.m + (item.w.n ? "(" + item.w.n + ")" : "")));
+      if (item.mine){ row.appendChild(el("span", "you", "あなた")); }
+      host.appendChild(row);
+    });
+  }
+  function openWishForm(){
+    openModal("期待することを書く");
+    mBody.appendChild(el("p", "rkt-m-note", "このプロジェクトに「やってほしいこと」をひとつ書くと、期待することリストに載ります(あなたの端末での表示です)。メールで届けてもらえたら、操縦士が確認のうえ公式リストに掲載し、航行計画の参考にします。"));
+    var f = document.createElement("form");
+    var txt = field("やってほしいこと(40文字まで)", 40, "例:うちの職場でもやってほしい");
+    var name = field("ニックネーム(任意・10文字まで)", 10, "");
+    var submit = el("button", "rkt-m-submit", "リストに書き残す");
+    submit.type = "submit";
+    f.appendChild(txt.lab);
+    f.appendChild(name.lab);
+    f.appendChild(submit);
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var t = txt.inp.value.trim();
+      if (!t){ txt.inp.focus(); return; }
+      var entry = { m: t, n: name.inp.value.trim() };
+      myWishes.push(entry);
+      if (myWishes.length > 5){ myWishes.shift(); }
+      lsSet("rktWishes", myWishes);
+      renderWishes();
+      mBody.innerHTML = "";
+      mBody.appendChild(el("p", "rkt-m-note", "書き残しました。よければ、この期待を操縦士(森本)にも届けてください。確認のうえ公式リストに掲載し、これからの航行計画の参考にします。"));
+      mBody.appendChild(mailtoLink("【平和な地球行きロケット】期待することリスト", "やってほしいこと: " + entry.m + "\nニックネーム: " + (entry.n || "(なし)") + "\n\n(rocket-map.html 航行計画より)", "メールで操縦士に届ける"));
+      mBody.appendChild(closeBtn());
+    });
+    mBody.appendChild(f);
+    txt.inp.focus();
+  }
+  var wishAdd = document.getElementById("rkt-wish-add");
+  if (wishAdd){ wishAdd.addEventListener("click", openWishForm); }
+  renderWishes();
 
   /* ===== 投影モード(ワークショップで使う): 吹き出しが順番に現れる ===== */
   var WS_DEFAULT_QS = [
