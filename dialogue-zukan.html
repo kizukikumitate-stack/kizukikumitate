@@ -713,6 +713,118 @@
   </div>
 </section>
 
+<!-- playful:BEGIN toi-gacha -->
+<section class="pt-gacha" aria-label="今日の問いガチャ">
+  <style>
+    .pt-gacha{
+      --washi:#faf8f2; --indigo:#16132a; --gold:#d9a441;
+      --teal:#0f6e56; --dawn:#d85a30;
+      max-width:420px; margin:48px auto; padding:28px 24px 32px;
+      background:var(--washi); border:2px solid var(--indigo);
+      border-radius:18px; text-align:center;
+      font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+      box-shadow:6px 6px 0 var(--indigo);
+    }
+    .pt-gacha h3{
+      color:var(--indigo); font-size:17px; margin:0 0 6px; letter-spacing:.08em;
+    }
+    .pt-gacha .pt-sub{font-size:12px; color:#6b6558; margin:0 0 18px}
+    .pt-machine{
+      position:relative; height:96px; margin:0 auto 16px; width:120px;
+    }
+    .pt-dome{
+      position:absolute; top:0; left:10px; width:100px; height:64px;
+      border:3px solid var(--indigo); border-bottom:none;
+      border-radius:60px 60px 0 0; background:rgba(15,110,86,.08);
+    }
+    .pt-base{
+      position:absolute; bottom:0; left:0; width:120px; height:36px;
+      background:var(--teal); border-radius:8px;
+    }
+    .pt-capsule{
+      position:absolute; top:26px; left:46px; width:28px; height:28px;
+      border-radius:50%; border:3px solid var(--indigo);
+      background:linear-gradient(to bottom, var(--dawn) 50%, var(--washi) 50%);
+      opacity:0; pointer-events:none;
+    }
+    .pt-gacha.is-rolling .pt-capsule{
+      opacity:1; animation:pt-drop .9s cubic-bezier(.34,1.4,.6,1) forwards;
+    }
+    @keyframes pt-drop{
+      0%{transform:translateY(0) rotate(0)}
+      55%{transform:translateY(58px) rotate(200deg)}
+      75%{transform:translateY(48px) rotate(230deg)}
+      100%{transform:translateY(58px) rotate(260deg)}
+    }
+    .pt-btn{
+      background:var(--gold); color:var(--indigo); border:2px solid var(--indigo);
+      border-radius:999px; padding:11px 26px; font-size:15px; font-weight:700;
+      cursor:pointer; transition:transform .15s ease;
+      font-family:inherit;
+    }
+    .pt-btn:hover{transform:translateY(-2px)}
+    .pt-btn:active{transform:translateY(1px)}
+    .pt-btn:disabled{opacity:.5; cursor:wait}
+    .pt-result{
+      min-height:3.2em; margin:18px 4px 0; font-size:15px; line-height:1.8;
+      color:var(--indigo); opacity:0; transform:translateY(6px);
+      transition:opacity .5s ease, transform .5s ease;
+    }
+    .pt-result.is-open{opacity:1; transform:translateY(0)}
+    @media (prefers-reduced-motion: reduce){
+      .pt-gacha.is-rolling .pt-capsule{animation:none; opacity:1; transform:translateY(58px)}
+      .pt-result{transition:none}
+    }
+  </style>
+  <h3>今日の問いガチャ</h3>
+  <p class="pt-sub">回すと、対話のお題がひとつ出てきます。</p>
+  <div class="pt-machine" aria-hidden="true">
+    <div class="pt-dome"></div>
+    <div class="pt-capsule"></div>
+    <div class="pt-base"></div>
+  </div>
+  <button class="pt-btn" type="button">ガチャを回す</button>
+  <p class="pt-result" role="status" aria-live="polite"></p>
+  <script>
+  (function(){
+    var QUESTIONS = [
+      "「話し合いが良かった」と感じるのは、どんな瞬間ですか?",
+      "最近、意見を変えたことはありますか? きっかけは何でしたか?",
+      "「沈黙」は対話の妨げですか、支えですか?",
+      "多数決で決めてはいけないことが、もしあるとしたら何でしょう?",
+      "あなたの職場・地域に棲んでいそうな妖怪は、どんな妖怪ですか?",
+      "「反対意見をありがたい」と思えた経験はありますか?",
+      "子どもの頃の自分に、いまの働き方はどう見えると思いますか?",
+      "「全員が納得する」って、本当に必要でしょうか?",
+      "最後に誰かの話を、口を挟まず10分聞いたのはいつですか?",
+      "ルールを1つだけ発明できるなら、どんなルールを作りますか?"
+    ];
+    var root = document.currentScript.closest(".pt-gacha");
+    var btn = root.querySelector(".pt-btn");
+    var result = root.querySelector(".pt-result");
+    var last = -1;
+    btn.addEventListener("click", function(){
+      btn.disabled = true;
+      result.classList.remove("is-open");
+      root.classList.remove("is-rolling");
+      void root.offsetWidth; /* reflowでアニメを再発火 */
+      root.classList.add("is-rolling");
+      var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      setTimeout(function(){
+        var i;
+        do { i = Math.floor(Math.random()*QUESTIONS.length); } while (i === last && QUESTIONS.length > 1);
+        last = i;
+        result.textContent = QUESTIONS[i];
+        result.classList.add("is-open");
+        btn.disabled = false;
+        btn.textContent = "もう一回まわす";
+      }, reduced ? 100 : 950);
+    });
+  })();
+  </script>
+</section>
+<!-- playful:END toi-gacha -->
+
 <!-- KAIYU START -->
 <aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
 <style>

@@ -165,6 +165,7 @@
     { "path": "ogp-generator.html", "reason": "作業用ツール（非公開導線）" },
     { "path": "shimon-mockup.html", "reason": "作業用モックアップ" },
     { "path": "structure-mockup.html", "reason": "作業用モックアップ" },
-    { "path": "themes-mockup.html", "reason": "作業用モックアップ" }
+    { "path": "themes-mockup.html", "reason": "作業用モックアップ" },
+    { "path": "404.html", "reason": "神隠し404ページ＝独自フルスクリーンデザイン（グローバルナビ非搭載・playful-touch yokai-404）" }
   ]
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>ページが神隠しに遭いました | きづきくみたて工房</title>
+<style>
+  :root{
+    --washi:#faf8f2; --indigo:#16132a; --gold:#d9a441;
+    --teal:#0f6e56; --dawn:#d85a30;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--indigo); color:var(--washi);
+    min-height:100vh; display:flex; align-items:center; justify-content:center;
+    text-align:center; overflow:hidden; padding:24px;
+  }
+  .scene{max-width:560px}
+  .lantern{
+    font-size:72px; display:inline-block;
+    animation:sway 3.2s ease-in-out infinite;
+    transform-origin:top center;
+    filter:drop-shadow(0 0 24px rgba(217,164,65,.45));
+  }
+  @keyframes sway{
+    0%,100%{transform:rotate(-6deg)} 50%{transform:rotate(6deg)}
+  }
+  .code{
+    font-size:15px; letter-spacing:.4em; color:var(--gold);
+    margin-top:28px; text-indent:.4em;
+  }
+  h1{font-size:26px; margin:14px 0 18px; font-weight:700}
+  p{font-size:15px; line-height:1.9; color:rgba(250,248,242,.82)}
+  .spirits{position:fixed; inset:0; pointer-events:none}
+  .spirit{
+    position:absolute; width:10px; height:10px; border-radius:50%;
+    background:radial-gradient(circle,var(--gold),transparent 70%);
+    opacity:.7; animation:drift linear infinite;
+  }
+  .spirit:nth-child(1){left:12%; animation-duration:9s;  animation-delay:0s}
+  .spirit:nth-child(2){left:30%; animation-duration:12s; animation-delay:2s; background:radial-gradient(circle,var(--teal),transparent 70%)}
+  .spirit:nth-child(3){left:55%; animation-duration:10s; animation-delay:4s}
+  .spirit:nth-child(4){left:72%; animation-duration:13s; animation-delay:1s; background:radial-gradient(circle,var(--dawn),transparent 70%)}
+  .spirit:nth-child(5){left:88%; animation-duration:11s; animation-delay:3s}
+  @keyframes drift{
+    from{transform:translateY(105vh) scale(1)}
+    to{transform:translateY(-10vh) scale(.4)}
+  }
+  .btn{
+    display:inline-block; margin-top:30px; padding:13px 30px;
+    background:var(--gold); color:var(--indigo); text-decoration:none;
+    border-radius:999px; font-weight:700; font-size:15px;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(217,164,65,.35)}
+  .whisper{margin-top:22px; font-size:12px; color:rgba(250,248,242,.45)}
+  @media (prefers-reduced-motion: reduce){
+    .lantern,.spirit{animation:none}
+    .spirit{display:none}
+  }
+</style>
+</head>
+<body>
+  <div class="spirits" aria-hidden="true">
+    <span class="spirit"></span><span class="spirit"></span><span class="spirit"></span>
+    <span class="spirit"></span><span class="spirit"></span>
+  </div>
+  <main class="scene">
+    <span class="lantern" aria-hidden="true">🏮</span>
+    <div class="code">404</div>
+    <h1>ページが神隠しに遭いました</h1>
+    <p>
+      お探しのページは、妖怪の仕業か、引っ越しの途中か、<br>
+      いずれにせよ今この場所にはいないようです。<br>
+      灯りを頼りに、入り口までお戻りください。
+    </p>
+    <a class="btn" href="/">捜索依頼を出す(トップへ戻る)</a>
+    <p class="whisper">※ 目撃情報(リンク切れのご報告)は、お問い合わせよりお寄せください。</p>
+  </main>
+</body>
+</html>
