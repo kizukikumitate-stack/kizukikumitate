@@ -715,6 +715,479 @@
   <div class="hero-scroll fade-up">Scroll</div>
 </section>
 
+<!-- playful:BEGIN rocket-map -->
+<!-- 平和な地球行きロケット: サイト全体図セクション
+     配置: roadmap.html のヒーロー直下推奨(手動配置。inject.pyの自動注入対象外)
+     注意: 扉リンクは HANDOFF-rocket-map.md のチェックリストで実パスと突き合わせること -->
+<section class="rocket-map" id="rocket-map" aria-label="きづきくみたて工房の全体図">
+<style>
+  .rocket-map{
+    margin:0; background:#16132a; color:#faf8f2;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    padding:48px 0 64px;
+    --washi:#faf8f2; --indigo:#16132a; --gold:#d9a441;
+    --teal:#0f6e56; --dawn:#d85a30; --ink2:#4a463c;
+  }
+  .rocket-map *{box-sizing:border-box}
+  .rocket-map .rkt-wrap{max-width:520px; margin:0 auto; padding:26px 14px 60px}
+  .rocket-map .rkt-head h2{font-size:20px; letter-spacing:.1em; margin:0 0 4px; text-align:center}
+  .rocket-map .rkt-head p{font-size:12.5px; color:rgba(250,248,242,.7); text-align:center; margin:0 0 14px; line-height:1.8}
+
+  .rocket-map .sky{width:100%; display:block}
+  .rocket-map .spot{cursor:pointer}
+  .rocket-map .spot .spot-bg{transition:opacity .25s ease}
+  .rocket-map .spot:hover .halo{opacity:.35}
+  .rocket-map .spot.is-active .halo{opacity:.55}
+  .rocket-map .halo{opacity:0; transition:opacity .25s ease}
+  .rocket-map .spot:focus{outline:none}
+  .rocket-map .spot:focus .halo{opacity:.55}
+
+  .rocket-map .twinkle{animation:rkt-tw 3s ease-in-out infinite}
+  .rocket-map .twinkle.t2{animation-delay:1s}
+  .rocket-map .twinkle.t3{animation-delay:2s}
+  @keyframes rkt-tw{0%,100%{opacity:.4} 50%{opacity:1}}
+  .rocket-map .earth-float{animation:rkt-ef 6s ease-in-out infinite}
+  @keyframes rkt-ef{0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)}}
+  .rocket-map .rocket-drift{animation:rkt-rd 4s ease-in-out infinite}
+  @keyframes rkt-rd{0%,100%{transform:translate(0,0)} 50%{transform:translate(3px,-4px)}}
+  .rocket-map .flame{transform-origin:center top; transform-box:fill-box; animation:rkt-fl .5s ease-in-out infinite alternate}
+  @keyframes rkt-fl{from{transform:scaleY(.85)} to{transform:scaleY(1.15)}}
+  .rocket-map .gear-spin{animation:rkt-spin 8s linear infinite; transform-origin:center; transform-box:fill-box}
+  @keyframes rkt-spin{to{transform:rotate(360deg)}}
+  .rocket-map .coin-orbit{animation:rkt-orbit 5s linear infinite; transform-origin:center; transform-box:fill-box}
+  @keyframes rkt-orbit{to{transform:rotate(-360deg)}}
+  .rocket-map .coin-orbit text{animation:rkt-counter 5s linear infinite; transform-origin:center; transform-box:fill-box}
+  @keyframes rkt-counter{to{transform:rotate(360deg)}}
+  .rocket-map .roid{animation:rkt-drift 7s ease-in-out infinite; transform-box:fill-box; transform-origin:center}
+  .rocket-map .roid.r2{animation-duration:9s; animation-delay:1s}
+  .rocket-map .roid.r3{animation-duration:8s; animation-delay:2.5s}
+  .rocket-map .roid.r4{animation-duration:10s; animation-delay:.5s}
+  .rocket-map .roid.r5{animation-duration:6.5s; animation-delay:3s}
+  @keyframes rkt-drift{0%,100%{transform:translate(0,0) rotate(0deg)} 50%{transform:translate(-4px,3px) rotate(6deg)}}
+  .rocket-map .spark{animation:rkt-sp .4s ease-in-out infinite alternate}
+  @keyframes rkt-sp{from{opacity:.4; transform:scale(.8)} to{opacity:1; transform:scale(1.2)}}
+  .rocket-map .spark{transform-box:fill-box; transform-origin:center}
+  .rocket-map .dove-orbit{animation:rkt-dorbit 36s linear infinite; transform-box:fill-box; transform-origin:center}
+  .rocket-map .dove-upright{animation:rkt-dorbit 36s linear infinite reverse; transform-box:fill-box; transform-origin:center}
+  @keyframes rkt-dorbit{to{transform:rotate(360deg)}}
+  .rocket-map .logo-rock{animation:rkt-rock 7s ease-in-out infinite; transform-box:fill-box; transform-origin:50% 88%}
+  @keyframes rkt-rock{0%,100%{transform:rotate(-2.5deg)} 50%{transform:rotate(2.5deg)}}
+  .rocket-map .cheer{animation:rkt-ch 2.2s ease-in-out infinite}
+  .rocket-map .cheer.c2{animation-delay:.5s}
+  .rocket-map .cheer.c3{animation-delay:1.1s}
+  @keyframes rkt-ch{0%,100%{transform:translateY(0)} 50%{transform:translateY(-3px)}}
+  @media (prefers-reduced-motion: reduce){
+    .rocket-map .twinkle, .rocket-map .earth-float, .rocket-map .rocket-drift, .rocket-map .flame, .rocket-map .gear-spin, .rocket-map .coin-orbit, .rocket-map .coin-orbit text, .rocket-map .cheer, .rocket-map .roid, .rocket-map .spark, .rocket-map .logo-rock, .rocket-map .dove-orbit, .rocket-map .dove-upright{animation:none}
+  }
+
+  .rocket-map .rkt-panel{
+    margin-top:12px; border:2px solid var(--gold); border-radius:14px;
+    background:rgba(250,248,242,.05); padding:18px 18px 20px; min-height:190px;
+  }
+  .rocket-map .rkt-panel .rkt-floor-tag{
+    display:inline-block; font-size:11px; letter-spacing:.18em;
+    background:var(--gold); color:var(--indigo); font-weight:700;
+    padding:3px 10px; border-radius:999px; margin-bottom:8px;
+  }
+  .rocket-map .rkt-panel h2{font-size:17px; margin:0 0 8px; color:var(--washi)}
+  .rocket-map .rkt-panel p{font-size:13.5px; line-height:1.9; color:rgba(250,248,242,.8); margin:0 0 12px}
+  .rocket-map .rkt-doors{display:flex; flex-wrap:wrap; gap:8px}
+  .rocket-map .rkt-doors a{
+    font-size:12.5px; text-decoration:none; color:var(--washi);
+    border:1.5px solid var(--gold); border-radius:999px;
+    padding:6px 13px; background:transparent;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .rocket-map .rkt-doors a::before{content:"扉 "; color:var(--gold); font-weight:700}
+  .rocket-map .rkt-doors a:hover{background:rgba(217,164,65,.2); transform:translateY(-1px)}
+  .rocket-map .rkt-hint{font-size:11.5px; color:rgba(250,248,242,.45); text-align:center; margin-top:10px}
+</style>
+<div class="rkt-wrap">
+  <header class="rkt-head">
+    <h2>平和な地球行きロケット</h2>
+    <p>きづきくみたて工房の全体図です。<br>気になるところを押すと、案内が出ます。</p>
+  </header>
+
+  <svg class="sky" viewBox="0 0 380 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="過去の蓄積を発射台に、対話の工房と事業のエンジンを積んだロケットが、協力者に支えられ、未来リスクの小惑星帯を抜けて平和な地球へ飛ぶ図">
+    <defs>
+      <radialGradient id="earthsea" cx="38%" cy="32%" r="80%">
+        <stop offset="0%" stop-color="#63c1f5"/>
+        <stop offset="55%" stop-color="#2e8fe8"/>
+        <stop offset="100%" stop-color="#1a5fc4"/>
+      </radialGradient>
+    </defs>
+    <!-- 星空 -->
+    <circle class="twinkle"    cx="60"  cy="60"  r="1.6" fill="#faf8f2"/>
+    <circle class="twinkle t2" cx="140" cy="30"  r="1.3" fill="#d9a441"/>
+    <circle class="twinkle t3" cx="220" cy="55"  r="1.6" fill="#faf8f2"/>
+    <circle class="twinkle t2" cx="40"  cy="160" r="1.3" fill="#faf8f2"/>
+    <circle class="twinkle"    cx="330" cy="200" r="1.5" fill="#d9a441"/>
+    <circle class="twinkle t3" cx="90"  cy="250" r="1.2" fill="#faf8f2"/>
+    <circle class="twinkle t2" cx="300" cy="330" r="1.4" fill="#faf8f2"/>
+
+    <!-- 軌道(発射台→地球) -->
+    <path d="M120 400 Q 160 325 195 262 T 278 110" fill="none" stroke="#d9a441"
+      stroke-width="1.6" stroke-dasharray="2 7" opacity=".6" stroke-linecap="round"/>
+
+    <!-- ═══ 目指す未来: 平和な地球(右上) ═══ -->
+    <g class="spot" id="spot-earth" data-spot="earth" tabindex="0" role="button" aria-label="目指す未来:平和な地球">
+      <circle class="halo" cx="300" cy="72" r="56" fill="#d9a441"/>
+      <g class="earth-float">
+        <circle cx="300" cy="72" r="38" fill="url(#earthsea)" stroke="#faf8f2" stroke-width="2"/>
+        <!-- 大陸(緑) -->
+        <path d="M276 56 q8 -10 18 -6 q9 3 10 11 q1 8 -7 10 q-9 2 -15 -3 q-8 -5 -6 -12z" fill="#25c07e"/>
+        <path d="M310 78 q9 -4 15 2 q5 6 1 12 q-5 7 -13 4 q-8 -3 -8 -10 q0 -5 5 -8z" fill="#25c07e"/>
+        <path d="M283 86 q6 -3 10 1 q3 4 -1 8 q-5 4 -10 1 q-4 -3 -3 -6 q1 -3 4 -4z" fill="#25c07e"/>
+        <!-- 雲(白) -->
+        <path d="M270 68 q6 -4 13 -1 q6 2 11 0" fill="none" stroke="#faf8f2" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+        <path d="M295 98 q7 -4 14 -1 q5 2 10 -1" fill="none" stroke="#faf8f2" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+        <path d="M316 58 q5 -3 10 -1" fill="none" stroke="#faf8f2" stroke-width="2.6" stroke-linecap="round" opacity=".8"/>
+        <!-- ハイライト -->
+        <path d="M274 52 a34 34 0 0 1 20 -14" fill="none" stroke="#faf8f2" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+      </g>
+      <text x="300" y="130" text-anchor="middle" font-size="11.5" fill="#faf8f2" letter-spacing="2">目指す未来</text>
+    </g>
+
+    <!-- ═══ ノーベル平和賞の鳩(地球を回遊中) ═══ -->
+    <g class="spot" id="spot-prize" data-spot="prize" tabindex="0" role="button" aria-label="ノーベル平和賞:地球を回遊する平和の鳩">
+      <circle class="halo" cx="300" cy="72" r="52" fill="none" stroke="#d9a441" stroke-width="10"/>
+      <circle cx="300" cy="72" r="52" fill="none" stroke="#d9a441" stroke-width="1" stroke-dasharray="2 6" opacity=".45"/>
+      <text x="243" y="24" text-anchor="middle" font-size="9.5" fill="rgba(250,248,242,.75)">ノーベル平和賞</text>
+      <g class="dove-orbit">
+        <circle cx="300" cy="124" r="0.1" fill="none" opacity="0"/>
+        <g transform="translate(300,20) scale(.8)">
+          <g class="dove-upright">
+            <path d="M-8 0 L-20 -4 L-17 2 L-21 7 Z" fill="#faf8f2"/>
+            <ellipse cx="0" cy="0" rx="11" ry="5.5" fill="#faf8f2" transform="rotate(-12)"/>
+            <circle cx="10" cy="-5.5" r="4" fill="#faf8f2"/>
+            <path d="M-1 -3 Q -2 -13 -9 -19 Q 0 -16 4 -8 Q 5 -5 3 -3 Z" fill="#faf8f2"/>
+            <circle cx="11.2" cy="-6.2" r="0.9" fill="#16132a"/>
+            <path d="M13.5 -6.5 L17.5 -5.7 L13.5 -3.9 Z" fill="#d9a441"/>
+            <!-- ガラスのヘルメット -->
+            <circle cx="10" cy="-5.5" r="8.2" fill="rgba(250,248,242,.14)" stroke="#faf8f2" stroke-width="1.2" opacity=".95"/>
+            <path d="M4.5 -9.5 a6.5 6.5 0 0 1 4.5 -3.5" fill="none" stroke="#faf8f2" stroke-width=".9" opacity=".6"/>
+            <!-- 足から下がる荷物: オリーブの枝とメダル -->
+            <path d="M3 5 l1.5 8" stroke="#0f6e56" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            <ellipse cx="6" cy="15" rx="2.6" ry="1.2" fill="#25c07e" transform="rotate(40 6 15)"/>
+            <ellipse cx="8.5" cy="18" rx="2.6" ry="1.2" fill="#25c07e" transform="rotate(52 8.5 18)"/>
+            <path d="M-2 5 l-1.5 7" stroke="#d85a30" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+            <circle cx="-3.8" cy="15" r="4.2" fill="#d9a441" stroke="#faf8f2" stroke-width="1.1"/>
+            <circle cx="-3.8" cy="15" r="2" fill="none" stroke="#16132a" stroke-width=".8" opacity=".55"/>
+          </g>
+        </g>
+      </g>
+    </g>
+
+    <!-- ═══ ロールモデルの星(小惑星帯を抜けた先) ═══ -->
+    <g class="spot" id="spot-nobel" data-spot="nobel" tabindex="0" role="button" aria-label="軌道上の目印:ロールモデルの星">
+      <circle class="halo" cx="212" cy="120" r="24" fill="#d9a441"/>
+      <path d="M212 106 l4.2 8.8 9.8 1.2 -7.2 6.7 1.9 9.6 -8.7 -4.8 -8.7 4.8 1.9 -9.6 -7.2 -6.7 9.8 -1.2z" fill="#d9a441" stroke="#faf8f2" stroke-width="1.2"/>
+      <text x="212" y="146" text-anchor="middle" font-size="9.5" fill="rgba(250,248,242,.75)">ロールモデル</text>
+    </g>
+
+    <!-- ═══ 小惑星帯: 見えている未来のリスク ═══ -->
+    <g class="spot" id="spot-belt" data-spot="belt" tabindex="0" role="button" aria-label="小惑星帯:見えている未来のリスク">
+      <ellipse class="halo" cx="300" cy="200" rx="72" ry="66" fill="#d85a30"/>
+      <!-- 大きい小惑星(導火線つき時限爆弾) -->
+      <g class="roid">
+        <path d="M296 198 l14 -8 16 4 8 13 -3 15 -13 9 -16 -2 -9 -12 z"
+          fill="rgba(250,248,242,.22)" stroke="#faf8f2" stroke-width="1.6" stroke-linejoin="round"/>
+        <circle cx="310" cy="207" r="4.5" fill="rgba(22,19,42,.55)"/>
+        <circle cx="322" cy="216" r="3" fill="rgba(22,19,42,.55)"/>
+        <path d="M312 191 q4 -8 10 -10" fill="none" stroke="#faf8f2" stroke-width="1.6" stroke-linecap="round"/>
+        <path class="spark" d="M322 181 l1.6 3.2 3.4 .5 -2.5 2.4 .6 3.4 -3.1 -1.6 -3.1 1.6 .6 -3.4 -2.5 -2.4 3.4 -.5z" fill="#d9a441"/>
+      </g>
+      <!-- 中小の小惑星たち -->
+      <g class="roid r2">
+        <path d="M258 158 l9 -5 10 3 4 9 -4 9 -10 4 -9 -4 -3 -8 z"
+          fill="rgba(250,248,242,.18)" stroke="#faf8f2" stroke-width="1.4" stroke-linejoin="round"/>
+        <circle cx="266" cy="166" r="2.6" fill="rgba(22,19,42,.5)"/>
+      </g>
+      <g class="roid r3">
+        <path d="M332 148 l7 -4 8 3 3 7 -3 7 -8 3 -7 -3 -2 -6 z"
+          fill="rgba(250,248,242,.18)" stroke="#faf8f2" stroke-width="1.3" stroke-linejoin="round"/>
+      </g>
+      <g class="roid r4">
+        <path d="M252 218 l8 -4 8 2 4 8 -3 8 -9 3 -8 -3 -2 -7 z"
+          fill="rgba(250,248,242,.18)" stroke="#faf8f2" stroke-width="1.3" stroke-linejoin="round"/>
+        <circle cx="260" cy="225" r="2.2" fill="rgba(22,19,42,.5)"/>
+      </g>
+      <g class="roid r5">
+        <path d="M338 246 l6 -3 6 2 2 6 -2 6 -7 2 -5 -3 -1 -5 z"
+          fill="rgba(250,248,242,.16)" stroke="#faf8f2" stroke-width="1.2" stroke-linejoin="round"/>
+      </g>
+      <text x="298" y="266" text-anchor="middle" font-size="9.5" fill="rgba(250,248,242,.75)">見えている未来の小惑星帯</text>
+    </g>
+
+    <!-- ═══ ロケット(中央、右上へ45度) ═══ -->
+    <g class="rocket-drift">
+    <g transform="rotate(45 165 285)">
+      <!-- 炎 -->
+      <g class="flame">
+        <path d="M150 352 q15 34 15 46 q0 -12 15 -46 q-8 8 -15 8 q-7 0 -15 -8z" fill="#d85a30"/>
+        <path d="M157 352 q8 22 8 30 q0 -8 8 -30 q-4 5 -8 5 q-4 0 -8 -5z" fill="#d9a441"/>
+      </g>
+      <!-- フィン -->
+      <path d="M143 310 l-20 34 l22 -10 z" fill="#d85a30" stroke="#faf8f2" stroke-width="1.4"/>
+      <path d="M187 310 l20 34 l-22 -10 z" fill="#d85a30" stroke="#faf8f2" stroke-width="1.4"/>
+      <!-- 機体 -->
+      <path d="M165 190 q24 26 24 78 l0 66 q0 12 -24 12 q-24 0 -24 -12 l0 -66 q0 -52 24 -78z"
+        fill="#faf8f2" stroke="#16132a" stroke-width="2"/>
+      <!-- ノーズコーン -->
+      <path d="M165 190 q14 15 20 36 l-40 0 q6 -21 20 -36z" fill="#d9a441" stroke="#16132a" stroke-width="1.6"/>
+      <!-- 窓+式神クルー -->
+      <!-- 丸窓: きづきくみたて工房のロゴ(クリックでホームへ) -->
+      <a href="/index.html" aria-label="ホームへ戻る" style="cursor:pointer">
+      <circle cx="165" cy="247" r="15" fill="#faf8f2" stroke="#16132a" stroke-width="1.4"/>
+      <g class="logo-rock">
+        <image href="data:image/png;base64,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" x="152" y="234" width="26" height="26"/>
+      </g>
+      <circle cx="165" cy="247" r="15" fill="none" stroke="#d9a441" stroke-width="2.2"/>
+      </a>
+      <!-- ═ 対話の工房(中部・カットアウェイ) ═ -->
+      <g class="spot" id="spot-studio" data-spot="studio" tabindex="0" role="button" aria-label="ロケット中部:対話の工房">
+        <rect class="halo" x="143" y="262" width="44" height="38" rx="6" fill="#d9a441"/>
+        <rect x="145" y="264" width="40" height="34" rx="5" fill="none" stroke="#0f6e56" stroke-width="1.8" stroke-dasharray="4 3"/>
+        <g class="gear-spin">
+          <path fill="#0f6e56" d="M165 268l1.7 3.4 3.7-1 .5 3.8 3.8.5-1 3.7 3.4 1.7-2.1 2.9 2.1 2.9-3.4 1.7 1 3.7-3.8.5-.5 3.8-3.7-1-1.7 3.4-1.7-3.4-3.7 1-.5-3.8-3.8-.5 1-3.7-3.4-1.7 2.1-2.9-2.1-2.9 3.4-1.7-1-3.7 3.8-.5.5-3.8 3.7 1z"/>
+          <circle cx="165" cy="281" r="5.5" fill="#faf8f2"/>
+        </g>
+      </g>
+      <!-- ═ 事業のエンジン(後部) ═ -->
+      <g class="spot" id="spot-engine" data-spot="engine" tabindex="0" role="button" aria-label="ロケット後部:事業のエンジン">
+        <rect class="halo" x="141" y="304" width="48" height="34" rx="6" fill="#d9a441"/>
+        <path d="M145 306 h40 l0 24 q0 8 -20 8 q-20 0 -20 -8 z" fill="#16132a" stroke="#d9a441" stroke-width="1.6"/>
+        <circle cx="165" cy="322" r="8" fill="#d85a30" stroke="#d9a441" stroke-width="1.4"/>
+      </g>
+    </g>
+    </g>
+
+    <!-- お金の循環(エンジン脇) -->
+    <g class="spot" id="spot-cycle" data-spot="engine" aria-hidden="true">
+      <g class="coin-orbit">
+        <circle cx="252" cy="322" r="0" fill="none"/>
+        <g>
+          <circle cx="252" cy="300" r="8" fill="#d9a441" stroke="#16132a" stroke-width="1.2"/>
+          <text x="252" y="304" text-anchor="middle" font-size="9" font-weight="bold" fill="#16132a">¥</text>
+        </g>
+        <g>
+          <circle cx="252" cy="344" r="8" fill="#d9a441" stroke="#16132a" stroke-width="1.2"/>
+          <text x="252" y="348" text-anchor="middle" font-size="9" font-weight="bold" fill="#16132a">¥</text>
+        </g>
+      </g>
+      <path d="M252 292 a30 30 0 0 1 0 60 a30 30 0 0 1 0 -60" fill="none"
+        stroke="#d9a441" stroke-width="1" stroke-dasharray="3 4" opacity=".5"/>
+      <text x="252" y="372" text-anchor="middle" font-size="9.5" fill="rgba(250,248,242,.7)">稼ぎは燃料へ再投資</text>
+    </g>
+
+    <!-- ═══ 発射台: 世界の知恵図鑑(左下) ═══ -->
+    <g class="spot" id="spot-archive" data-spot="archive" tabindex="0" role="button" aria-label="発射台:世界の知恵図鑑(一覧は下の案内板に表示)">
+      <circle class="halo" cx="95" cy="415" r="66" fill="#d9a441"/>
+      <!-- 発射煙 -->
+      <circle cx="122" cy="440" r="8"  fill="#faf8f2" opacity=".12"/>
+      <circle cx="136" cy="450" r="10" fill="#faf8f2" opacity=".15"/>
+      <circle cx="112" cy="454" r="6"  fill="#faf8f2" opacity=".12"/>
+      <!-- 発射塔(背表紙が組み上がった塔・タイトルは伏せる) -->
+      <line x1="81" y1="372" x2="81" y2="360" stroke="#d9a441" stroke-width="1.6"/>
+      <circle cx="81" cy="358" r="2.4" fill="#d9a441"/>
+      <rect x="61" y="374" width="42" height="9" rx="1.5" fill="#0f6e56" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="59" y="383" width="44" height="9" rx="1.5" fill="#d85a30" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="62" y="392" width="40" height="9" rx="1.5" fill="#d9a441" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="60" y="401" width="43" height="9" rx="1.5" fill="#0f6e56" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="61" y="410" width="42" height="9" rx="1.5" fill="#d85a30" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="59" y="419" width="44" height="9" rx="1.5" fill="#d9a441" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="62" y="428" width="40" height="9" rx="1.5" fill="#0f6e56" stroke="#faf8f2" stroke-width="1"/>
+      <rect x="60" y="437" width="43" height="9" rx="1.5" fill="#d85a30" stroke="#faf8f2" stroke-width="1"/>
+      <!-- 支持アーム(塔→発射位置) -->
+      <line x1="103" y1="382" x2="122" y2="388" stroke="#d9a441" stroke-width="2" stroke-linecap="round"/>
+      <line x1="103" y1="404" x2="122" y2="410" stroke="#d9a441" stroke-width="2" stroke-linecap="round"/>
+      <!-- 発射デッキと脚 -->
+      <rect x="38" y="446" width="128" height="12" rx="2" fill="rgba(250,248,242,.25)" stroke="#faf8f2" stroke-width="1.4"/>
+      <rect x="48" y="458" width="9" height="10" fill="rgba(250,248,242,.25)"/>
+      <rect x="147" y="458" width="9" height="10" fill="rgba(250,248,242,.25)"/>
+      <text x="95" y="490" text-anchor="middle" font-size="11" fill="#faf8f2" letter-spacing="2">世界の知恵図鑑</text>
+    </g>
+
+    <!-- ═══ 協力者: デモクラ筋の応援団(下部中央〜右) ═══ -->
+    <g class="spot" id="spot-crew" data-spot="crew" tabindex="0" role="button" aria-label="協力者のみなさん:意見の声をあげる人たち">
+      <circle class="halo" cx="265" cy="440" r="56" fill="#d9a441"/>
+      <!-- 応援のパワー→ロケットへ -->
+      <path d="M228 414 L196 330" stroke="#d9a441" stroke-width="1.2" stroke-dasharray="1 6" opacity=".7" stroke-linecap="round"/>
+      <path d="M265 408 L212 322" stroke="#d9a441" stroke-width="1.2" stroke-dasharray="1 6" opacity=".7" stroke-linecap="round"/>
+      <path d="M302 414 L228 318" stroke="#d9a441" stroke-width="1.2" stroke-dasharray="1 6" opacity=".7" stroke-linecap="round"/>
+      <!-- 意見の声をあげる人 1 -->
+      <g class="cheer">
+        <circle cx="230" cy="430" r="6.5" fill="#faf8f2"/>
+        <path d="M222 455 q8 -16 16 0 z" fill="#d85a30"/>
+        <rect x="216" y="403" width="20" height="14" rx="5.5" fill="#faf8f2" stroke="#16132a" stroke-width="1.2"/>
+        <path d="M225 417 l-1 5 l6 -5 z" fill="#faf8f2" stroke="#16132a" stroke-width="1"/>
+        <text x="226" y="413.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#16132a">!</text>
+      </g>
+      <!-- 意見の声をあげる人 2 -->
+      <g class="cheer c2">
+        <circle cx="267" cy="424" r="6.5" fill="#faf8f2"/>
+        <path d="M259 449 q8 -16 16 0 z" fill="#0f6e56"/>
+        <rect x="257" y="397" width="20" height="14" rx="5.5" fill="#faf8f2" stroke="#16132a" stroke-width="1.2"/>
+        <path d="M266 411 l-1 5 l6 -5 z" fill="#faf8f2" stroke="#16132a" stroke-width="1"/>
+        <line x1="262" y1="402.5" x2="272" y2="402.5" stroke="#16132a" stroke-width="1.4" stroke-linecap="round"/><line x1="262" y1="406" x2="269" y2="406" stroke="#16132a" stroke-width="1.4" stroke-linecap="round"/>
+      </g>
+      <!-- 意見の声をあげる人 3 -->
+      <g class="cheer c3">
+        <circle cx="304" cy="430" r="6.5" fill="#faf8f2"/>
+        <path d="M296 455 q8 -16 16 0 z" fill="#d9a441"/>
+        <rect x="298" y="403" width="20" height="14" rx="5.5" fill="#faf8f2" stroke="#16132a" stroke-width="1.2"/>
+        <path d="M307 417 l-1 5 l6 -5 z" fill="#faf8f2" stroke="#16132a" stroke-width="1"/>
+        <text x="308" y="413.5" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#16132a">?</text>
+      </g>
+      <text x="265" y="490" text-anchor="middle" font-size="11" fill="#faf8f2" letter-spacing="2">協力者のみなさん</text>
+    </g>
+  </svg>
+
+  <section class="rkt-panel" id="rkt-panel" aria-live="polite">
+    <span class="rkt-floor-tag" id="rkt-p-tag">全体図</span>
+    <h2 id="rkt-p-title">このロケットについて</h2>
+    <p id="rkt-p-desc">過去の蓄積を発射台に、対話の工房と事業のエンジンを積んだロケットが、たくさんの協力者に押し上げられながら、平和な地球へ向かって飛んでいます。稼いだお金は燃料として機体に再投資され、軌道上に見えている小惑星(未来のリスク)は、計算機のレーダーで早めに見つけて対話でかわします。</p>
+    <div class="rkt-doors" id="rkt-p-doors"></div>
+  </section>
+  <p class="rkt-hint">※ 気になった区画の「扉」から、それぞれのページへ進めます。</p>
+</div>
+<script>
+(function(){
+  // 扉リンクは data/nav.json（グローバルナビの唯一の正）に突き合わせ済み。
+  // studio=手法・ワークショップ / engine=ソリューション / belt=未来のリスク計算機 /
+  // archive=世界の知恵 の各扉一覧は、ハンバーガーメニューの該当グループと項目・並び順を一致させてある。
+  // ※ このロケット図は roadmap.html 内に埋め込まれているため、同ページ内リンクはアンカー(#…)で書く。
+  var SPOTS = {
+    earth: {
+      tag: "目指す未来",
+      title: "平和な地球",
+      desc: "このロケットの行き先です。競争ではなく共創で回る社会。遠いけれど、座標ははっきり見えています。屋根裏の望遠鏡で眺めていたあの景色が、ここに描いてあります。",
+      doors: [
+        ["共創主義という仮説", "#naming"],
+        ["この地図を最初から読む", "#diagnosis"]
+      ]
+    },
+    prize: {
+      tag: "地球からの使い",
+      title: "ノーベル平和賞",
+      desc: "ガラスのヘルメットをかぶって、メダルとオリーブの枝を抱えたまま、地球のまわりを回遊している平和の鳩です。賞は取りに行くものではなく、世界が平和に近づいたとき、向こうからこちらへ飛んでくるもの。それまでは地球の周りを回りながら、その時を待っています。",
+      doors: [
+        ["ノーベル平和賞 125年の系譜", "nobel-peace.html"]
+      ]
+    },
+    nobel: {
+      tag: "軌道上の目印",
+      title: "ロールモデルの星",
+      desc: "小惑星帯を抜けた先で輝いている星は、先にこの道を飛んだ人たちの光です。デンマークの対話文化、世界の対話の実践者たち。進路に迷ったときは、この星を目印にします。",
+      doors: [
+        ["おすすめTED集", "ted-collection.html"],
+        ["ノーベル平和賞の系譜", "nobel-peace.html"]
+      ]
+    },
+    belt: {
+      tag: "小惑星帯・見えている未来",
+      title: "未来リスクの小惑星帯",
+      desc: "目指す未来までの軌道上に現れる障害物たちです。人口動態から計算できる、もう見えている未来なので、突然ではなく、いま観測できます。未来リスク計算機は、この小惑星たちを早期発見するレーダーです。ぶつかる前に見つけて、対話で軌道を調整しましょう。",
+      doors: [
+        ["このシリーズについて", "risk-calculators.html"],
+        ["顧客の平均年齢時限爆弾", "customer-age-timebomb.html"],
+        ["採用市場消滅計算機", "recruitment-extinction.html"],
+        ["技能承継時限爆弾", "skill-succession-timebomb.html"],
+        ["学校の分岐点", "school-consolidation-countdown.html"],
+        ["介護の支え手計算機", "caregiving-capacity-calculator.html"],
+        ["老後のお金の見取り図", "longevity-money-map.html"]
+      ]
+    },
+    studio: {
+      tag: "ロケット中部・手法・ワークショップ",
+      title: "対話の工房",
+      desc: "機体のまんなか、歯車が回る区画です。対話の手法とワークショップが積んであり、乗組員と一緒にデモクラ筋を鍛えたり、妖怪と式神の対話をしたり、ブロックで考えたりしています。",
+      doors: [
+        ["Democracy Fitness", "democracy-fitness.html"],
+        ["LSP", "lsp.html"],
+        ["対話用カード", "topaasia.html"],
+        ["会社の妖怪診断", "yokai/"],
+        ["社会の妖怪診断", "shakai-yokai/"],
+        ["妖怪と式神ワークショップ", "yokai/workshop.html"]
+      ]
+    },
+    engine: {
+      tag: "ロケット後部・ソリューション",
+      title: "事業のエンジン",
+      desc: "推進力を生む区画です。組織や地域の課題に向き合うソリューションの仕事で稼いだお金は、燃料としてこのロケットに再投資されます。エンジンが回るほど、地球が近づきます。",
+      doors: [
+        ["研修設計プログラム", "education-program.html"],
+        ["組織開発プログラム", "od-program.html"],
+        ["対話力向上プログラム", "dialogue-program.html"],
+        ["リーダー向けコーチング", "social-leader-coaching.html"],
+        ["離職防止プログラム", "taiwa-teichaku.html"]
+      ]
+    },
+    archive: {
+      tag: "発射台・アーカイブ",
+      title: "世界の知恵図鑑",
+      desc: "これまで集めてきた世界の知恵が、一冊ずつ積み重なって発射塔になっています。図鑑はこれからも増えていきます。現在の蔵書はこちらです。",
+      doors: [
+        ["世界の対話の技法図鑑", "dialogue-zukan.html"],
+        ["社会の仕組み図鑑", "shikumi-zukan.html"],
+        ["世界の貧困解決アイデア図鑑", "poverty-zukan.html"],
+        ["合意形成図鑑", "goikeisei-zukan.html"],
+        ["システム思考図鑑", "systems-thinking-zukan.html"],
+        ["おすすめTED集", "ted-collection.html"],
+        ["ノーベル平和賞", "nobel-peace.html"],
+        ["連載・気づきから組み立てる", "series/"]
+      ]
+    },
+    crew: {
+      tag: "地上クルー",
+      title: "協力者のみなさん",
+      desc: "このロケットは一人では飛べません。ワークショップの参加者、紹介してくださる方、一緒に企んでくれる仲間。それぞれがあげる意見の声が、機体を押し上げる推進力です。",
+      doors: [
+        ["お問い合わせ", "mailto:y.morimoto@kizukikumitate.com"]
+      ]
+    }
+  };
+
+  var tag = document.getElementById("rkt-p-tag");
+  var title = document.getElementById("rkt-p-title");
+  var desc = document.getElementById("rkt-p-desc");
+  var doors = document.getElementById("rkt-p-doors");
+  var spots = document.querySelectorAll(".spot[tabindex]");
+
+  function show(key){
+    var s = SPOTS[key];
+    if (!s) return;
+    spots.forEach(function(el){
+      el.classList.toggle("is-active", el.dataset.spot === key);
+    });
+    tag.textContent = s.tag;
+    title.textContent = s.title;
+    desc.textContent = s.desc;
+    doors.innerHTML = "";
+    s.doors.forEach(function(d){
+      var a = document.createElement("a");
+      a.textContent = d[0];
+      a.href = d[1];
+      doors.appendChild(a);
+    });
+  }
+
+  var pad = document.getElementById("spot-archive");
+  if (pad && window.matchMedia("(hover: hover)").matches){
+    pad.addEventListener("mouseenter", function(){ show("archive"); });
+  }
+
+  spots.forEach(function(el){
+    el.addEventListener("click", function(e){ e.stopPropagation(); show(el.dataset.spot); });
+    el.addEventListener("keydown", function(e){
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); show(el.dataset.spot); }
+    });
+  });
+})();
+</script>
+</section>
+<!-- playful:END rocket-map -->
+
 <nav class="page-toc" aria-label="ページ内目次">
   <a href="#diagnosis">二つのシステム不全</a>
   <a href="#naming">共創主義という仮説</a>
