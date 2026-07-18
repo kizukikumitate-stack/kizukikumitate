@@ -177,7 +177,7 @@ nav {
 .tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
 
 /* ===== 標本カード ===== */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(38,49,58,.10)}
 .card-fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:var(--washi-deep);display:flex;align-items:center;justify-content:center;position:relative}
@@ -247,6 +247,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
   .hero-title small{letter-spacing:.28em}
   .premise-grid{grid-template-columns:minmax(0,1fr)}
   .stamp-legend{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:minmax(0,1fr)}
   .stamp{width:78px;height:78px;font-size:36px}
   .section{padding:48px 20px}
   .sec-head{flex-wrap:wrap}

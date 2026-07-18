@@ -219,7 +219,7 @@ nav {
 .tab:focus-visible{outline:3px solid var(--bengara);outline-offset:2px}
 
 /* ===== 標本カード ===== */
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
 .card{
   background:#fff;border:1px solid var(--line);
   display:flex;flex-direction:column;
@@ -367,6 +367,7 @@ footer{
   .hero-title small{letter-spacing:.28em}
   .premise-grid{grid-template-columns:minmax(0,1fr)}
   .stamp-legend{grid-template-columns:minmax(0,1fr)}
+  .cards{grid-template-columns:minmax(0,1fr)}
   .stamp{width:78px;height:78px;font-size:36px}
   .mini-stamp{width:44px;height:44px;font-size:20px}
   .card-stamps{gap:7px}
