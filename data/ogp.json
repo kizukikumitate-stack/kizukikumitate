@@ -1,0 +1,312 @@
+{
+  "_readme": "OGP画像の台帳。1ページ=1エントリ。build-ogp.sh がこの台帳から <img> を生成し、各ページの og:image / twitter:image を書き換える。新規ページはここに1エントリ足して `./.claude/scripts/build-ogp.sh --only <img>` を実行する。詳細は CLAUDE.md『OGP画像』節。",
+  "_fields": {
+    "page": "HTMLの相対パス",
+    "img": "出力画像名（ルート直下・<name>-ogp.png 推奨）",
+    "template": "standard=標準カード / calc=未来リスク計算機用（簡易試算バッジ＋概念チャート）",
+    "theme": "paper=明（既定）/ night=妖怪系の夜色",
+    "acc": "アクセント色 hex",
+    "eyebrow": "カテゴリ小見出し（大文字/letterspace）",
+    "title": "見出し（<br>可）",
+    "sub": "サブコピー1〜2行"
+  },
+  "_bespoke": [
+    "systems-thinking-zukan.html（因果ループ図入りの専用デザイン。この台帳・テンプレの管理外）"
+  ],
+  "_exclude": {
+    "tokushoho.html": "法定表記ページ。汎用ogp.pngで可",
+    "tax-revenue-countdown.html": "一時非表示中。再公開時にcalcテンプレで作成する"
+  },
+  "pages": [
+    {
+      "page": "index.html",
+      "img": "index-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "きづきくみたて工房",
+      "title": "対話から、組織と社会を<br>組み立て直す",
+      "sub": "研修・組織開発・対話のプログラムと、思考の図鑑。すべての入り口。"
+    },
+    {
+      "page": "dialogue-program.html",
+      "img": "dialogue-program-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "SOLUTION ／ 対話力向上",
+      "title": "対話力向上プログラム",
+      "sub": "1on1・会議・組織の対話の質を、根本から鍛える研修。"
+    },
+    {
+      "page": "education-program.html",
+      "img": "education-program-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "SOLUTION ／ 研修設計",
+      "title": "研修設計プログラム",
+      "sub": "行動科学にもとづき、現場で行動が変わる研修を設計する。"
+    },
+    {
+      "page": "od-program.html",
+      "img": "od-program-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "SOLUTION ／ 組織開発",
+      "title": "組織開発プログラム",
+      "sub": "人を責めずに構造で解く。対立を生む仕組みを設計し直す。"
+    },
+    {
+      "page": "social-leader-coaching.html",
+      "img": "social-leader-coaching-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "SOLUTION ／ コーチング",
+      "title": "社会派リーダー<br>コーチング",
+      "sub": "社会と組織のあいだに立つリーダーの、意思決定と対話を支える。"
+    },
+    {
+      "page": "taiwa-teichaku.html",
+      "img": "taiwa-teichaku-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#0f6e56",
+      "eyebrow": "SOLUTION ／ リテンション設計",
+      "title": "対話定着デザイン",
+      "sub": "離職の真因「対話の不在」に、診断×対話×効果測定で介入する。"
+    },
+    {
+      "page": "democracy-fitness.html",
+      "img": "democracy-fitness-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#eb6834",
+      "eyebrow": "METHOD ／ 民主主義の筋トレ",
+      "title": "Democracy Fitness",
+      "sub": "話し合う力は、鍛えられる。デンマーク発の対話エクササイズ。"
+    },
+    {
+      "page": "lsp.html",
+      "img": "lsp-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#c98500",
+      "eyebrow": "METHOD ／ 手で考える",
+      "title": "レゴ®シリアスプレイ®",
+      "sub": "手で考え、ブロックで語る。全員が発言する対話の手法。"
+    },
+    {
+      "page": "topaasia.html",
+      "img": "topaasia-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1baf7a",
+      "eyebrow": "METHOD ／ 対話カードゲーム",
+      "title": "Topaasia（トパージア）",
+      "sub": "問いのカードで、チームの本音とビジョンを引き出す。"
+    },
+    {
+      "page": "roadmap.html",
+      "img": "roadmap-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#4a3aa7",
+      "eyebrow": "VISION ／ 目指す未来",
+      "title": "世界平和までの<br>ロードマップ",
+      "sub": "平和は、人の認知能力から始まる。工房の全体地図となる論考。"
+    },
+    {
+      "page": "ashimoto-map.html",
+      "img": "ashimoto-map-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#4a3aa7",
+      "eyebrow": "VISION ／ 展開編",
+      "title": "足元からの地図",
+      "sub": "個人・職場・学校・地域・制度の5層で、身近な場所から平和を育てる。"
+    },
+    {
+      "page": "dialogue-zukan.html",
+      "img": "dialogue-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1baf7a",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "世界の対話の技法図鑑",
+      "sub": "世界中で発明されてきた対話の技法を、出典つきで集めた図鑑。"
+    },
+    {
+      "page": "shikumi-zukan.html",
+      "img": "shikumi-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2a78d6",
+      "eyebrow": "図鑑 ／ 構造編",
+      "title": "社会の仕組み図鑑",
+      "sub": "お金と民意の回路をつくり直す、世界の発明を集めた構造編。"
+    },
+    {
+      "page": "poverty-zukan.html",
+      "img": "poverty-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#eb6834",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "世界の貧困解決<br>アイデア図鑑",
+      "sub": "貧困に世界はどう挑んできたか。解決アイデアの姉妹図鑑。"
+    },
+    {
+      "page": "goikeisei-zukan.html",
+      "img": "goikeisei-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#4a3aa7",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "合意形成図鑑",
+      "sub": "話し合いがうまくいく仕組みを、12の標本と5つの条件で読み解く。"
+    },
+    {
+      "page": "ted-collection.html",
+      "img": "ted-collection-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#e34948",
+      "eyebrow": "図鑑 ／ 映像で学ぶ",
+      "title": "おすすめTED集",
+      "sub": "対話と社会を考えるためのTEDトーク、昔と今の16本。"
+    },
+    {
+      "page": "nobel-peace.html",
+      "img": "nobel-peace-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#c98500",
+      "eyebrow": "図鑑 ／ 系譜",
+      "title": "ノーベル平和賞<br>125年の系譜",
+      "sub": "8人の声と歴代受賞者。平和賞が指してきたものをたどる。"
+    },
+    {
+      "page": "yokai/index.html",
+      "img": "yokai-shindan-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#d9a441",
+      "eyebrow": "3分診断 ／ 会社の妖怪",
+      "title": "会社の妖怪診断",
+      "sub": "職場のすれ違いを生む妖怪を3分で判定。対になる式神を処方。"
+    },
+    {
+      "page": "shakai-yokai/index.html",
+      "img": "shakai-yokai-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#d9a441",
+      "eyebrow": "3分診断 ／ 社会の妖怪",
+      "title": "社会の妖怪診断",
+      "sub": "世界の伝承に系譜を持つ10の妖怪と、それぞれと対になる式神。"
+    },
+    {
+      "page": "risk-calculators.html",
+      "img": "risk-calculators-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#4a3aa7",
+      "eyebrow": "未来のリスク計算機 ／ について",
+      "title": "未来のリスク計算機",
+      "sub": "6本の計算機に共通する前提・出典・免責。数字は結論ではなく、対話の入口。"
+    },
+    {
+      "page": "series/diagnostic.html",
+      "img": "series-diagnostic-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#3c3489",
+      "eyebrow": "連載 ／ BEM診断",
+      "title": "BEM診断シート",
+      "sub": "8問で、組織のボトルネックがどの構造領域にあるかを診断する。"
+    },
+    {
+      "page": "series/index.html",
+      "img": "series-index-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#3c3489",
+      "eyebrow": "連載",
+      "title": "気づきから<br>組み立てる",
+      "sub": "現場の気づきを理論で組み立て直す、工房の連載シリーズ。"
+    },
+    {
+      "page": "dialogue-program-trial.html",
+      "img": "dialogue-program-trial-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "SOLUTION ／ 体験会・説明会",
+      "title": "対話力向上研修 体験会",
+      "sub": "少人数で、対話力向上プログラムを体験できる無料の会。"
+    },
+    {
+      "page": "customer-age-timebomb.html",
+      "img": "customer-age-timebomb-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#c98500",
+      "eyebrow": "未来のリスク計算機 ／ 顧客",
+      "title": "顧客の平均年齢<br>時限爆弾",
+      "sub": "いまの年齢構成から、顧客基盤が半減する年を試算する。"
+    },
+    {
+      "page": "recruitment-extinction.html",
+      "img": "recruitment-extinction-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#eb6834",
+      "eyebrow": "未来のリスク計算機 ／ 採用",
+      "title": "採用市場消滅計算機",
+      "sub": "確定した出生数から、採用目標を割り込む年を試算する。"
+    },
+    {
+      "page": "skill-succession-timebomb.html",
+      "img": "skill-succession-timebomb-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#0f6e56",
+      "eyebrow": "未来のリスク計算機 ／ 技能承継",
+      "title": "技能承継時限爆弾",
+      "sub": "その「勘」が組織から消える年を、いまの構成から試算する。"
+    },
+    {
+      "page": "school-consolidation-countdown.html",
+      "img": "school-consolidation-countdown-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#1a5fad",
+      "eyebrow": "未来のリスク計算機 ／ 学校",
+      "title": "学校の分岐点",
+      "sub": "複式学級・統廃合が検討される規模になる年を試算する。"
+    },
+    {
+      "page": "caregiving-capacity-calculator.html",
+      "img": "caregiving-capacity-calculator-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#1baf7a",
+      "eyebrow": "未来のリスク計算機 ／ 介護",
+      "title": "介護の支え手計算機",
+      "sub": "何人の現役世代がひとりの高齢者を支えるかを試算する。"
+    },
+    {
+      "page": "longevity-money-map.html",
+      "img": "longevity-money-map-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#4a3aa7",
+      "eyebrow": "未来のリスク計算機 ／ 老後",
+      "title": "老後のお金の見取り図",
+      "sub": "寿命の目安から、いまの資産が何歳まで持つかを試算する。"
+    }
+  ]
+}
