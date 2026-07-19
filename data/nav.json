@@ -179,6 +179,23 @@
         ]
       },
       {
+        "label": "調査・データ",
+        "children": [
+          {
+            "label": "観測室について（調査・データ）",
+            "href": "research.html"
+          },
+          {
+            "label": "デモクラ筋白書2026 速報版",
+            "href": "democracy-fitness-hakusho-2026.html"
+          },
+          {
+            "label": "事実の台帳（発行者情報）",
+            "href": "jijitsu-daicho.html"
+          }
+        ]
+      },
+      {
         "label": "未来のリスク計算機",
         "children": [
           {
@@ -467,6 +484,14 @@
     }
   ],
   "exclude": [
+    {
+      "path": "research.html",
+      "reason": "調査・データ「観測室」ハブ＝Shippori Mincho基調の独自編集デザイン。グローバルナビ非搭載・自己完結（2026-07-19 追加）"
+    },
+    {
+      "path": "democracy-fitness-hakusho-2026.html",
+      "reason": "デモクラ筋白書2026 速報版＝独自の白書レイアウト。グローバルナビ非搭載・自己完結（2026-07-19 追加）"
+    },
     {
       "path": "jijitsu-daicho.html",
       "reason": "事実の台帳（AI・メディア向けFact Registry）＝和紙基調の独自レジストリデザイン。グローバルナビ非搭載・自己完結フッター（2026-07-19 追加）"

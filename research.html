@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>調査・データ｜きづきくみたて工房の観測室</title>
+<meta name="description" content="きづきくみたて工房が独自に取得・分析した調査データの発行棚。デモクラ筋白書、pre/post効果検証、対話に関する一次データを出典明示・引用可能な形で公開しています。">
+<link rel="canonical" href="https://kizukikumitate.com/research.html">
+<meta property="og:title" content="調査・データ｜きづきくみたて工房の観測室">
+<meta property="og:description" content="対話と組織に関する独自調査・一次データの発行棚">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/research.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="調査・データ｜きづきくみたて工房の観測室">
+<meta name="twitter:description" content="対話と組織に関する独自調査・一次データの発行棚">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "調査・データ｜きづきくみたて工房",
+  "url": "https://kizukikumitate.com/research.html",
+  "description": "対話と組織に関する独自調査・一次データの発行棚",
+  "publisher": { "@id": "https://kizukikumitate.com/#org" },
+  "hasPart": [
+    {
+      "@type": "Article",
+      "headline": "デモクラ筋白書2026 速報版 — 個人の筋力より、組織の環境が弱い",
+      "url": "https://kizukikumitate.com/democracy-fitness-hakusho-2026.html",
+      "datePublished": "2026-07-19",
+      "author": { "@id": "https://kizukikumitate.com/#yasuhito-morimoto" }
+    }
+  ]
+}
+</script>
+
+<style>
+:root{
+  --washi:#F7F3E9; --indigo:#22384F; --indigo-deep:#16263A;
+  --gold:#C89B3C; --teal:#3E7C74; --dawn:#B4543A;
+  --ink:#2B2B33; --ink-soft:#5C5C68; --line:#E3DCCB; --card:#FFFFFF;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--washi);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.9;font-size:16px}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Shippori Mincho',serif;letter-spacing:.04em}
+a{color:var(--teal);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+/* ヒーロー: 観測室 */
+.hero{background:var(--indigo);color:var(--washi);padding:60px 0 46px;position:relative;overflow:hidden}
+.hero .tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.22em;color:var(--gold)}
+.hero h1{font-size:clamp(28px,5.6vw,40px);font-weight:800;margin-top:12px}
+.hero p{margin-top:16px;max-width:600px;opacity:.92}
+/* レーダー装飾 */
+.radar{position:absolute;right:-40px;top:50%;transform:translateY(-50%);opacity:.16;pointer-events:none}
+@media(max-width:700px){.radar{display:none}}
+
+/* 発行物カード */
+main{padding:52px 0}
+.sec-label{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dawn);letter-spacing:.14em;margin-bottom:6px}
+main h2{font-size:clamp(20px,4.2vw,26px);font-weight:800;margin-bottom:20px}
+.pub{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:26px;margin-bottom:18px;
+  display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px;align-items:start}
+@media(max-width:600px){.pub{grid-template-columns:minmax(0,1fr)}}
+.pub .badge{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;
+  background:var(--indigo);color:var(--gold);border-radius:4px;padding:4px 10px;white-space:nowrap}
+.pub .badge.soon{background:transparent;border:1px dashed var(--ink-soft);color:var(--ink-soft)}
+.pub h3{font-size:18px;font-weight:700;line-height:1.6}
+.pub h3 a{color:var(--indigo);text-decoration:none}
+.pub h3 a:hover{text-decoration:underline}
+.pub .desc{font-size:14px;color:var(--ink-soft);margin-top:8px}
+.pub .meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);margin-top:10px}
+.pub .findings{margin-top:10px;font-size:13.5px}
+.pub .findings li{margin-left:18px;margin-bottom:4px}
+
+/* ポリシー */
+.policy{background:#F2F0E9;border:1px solid var(--line);border-radius:10px;padding:24px 26px;margin-top:40px}
+.policy h2{font-size:18px;margin-bottom:12px}
+.policy p{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
+
+/* 引用ガイド */
+.cite-box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:0 8px 8px 0;padding:20px 22px;margin-top:28px}
+.cite-box h2{font-size:17px;margin-bottom:10px}
+.cite-box p{font-size:14px;color:var(--ink-soft);margin-bottom:8px}
+.cite-box code{font-family:'IBM Plex Mono',monospace;font-size:12.5px;background:#F2F0E9;
+  padding:10px 14px;border-radius:6px;display:block;margin-top:8px;line-height:1.7;color:var(--ink)}
+
+footer{border-top:1px solid var(--line);padding:28px 0 60px;font-size:12.5px;color:var(--ink-soft)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="radar" width="320" height="320" viewBox="0 0 320 320" aria-hidden="true">
+    <circle cx="160" cy="160" r="150" fill="none" stroke="#F7F3E9" stroke-width="1.5"/>
+    <circle cx="160" cy="160" r="105" fill="none" stroke="#F7F3E9" stroke-width="1"/>
+    <circle cx="160" cy="160" r="60" fill="none" stroke="#F7F3E9" stroke-width="1"/>
+    <line x1="160" y1="160" x2="290" y2="70" stroke="#C89B3C" stroke-width="2"/>
+    <circle cx="240" cy="90" r="5" fill="#C89B3C"/>
+    <circle cx="110" cy="220" r="4" fill="#F7F3E9"/>
+    <circle cx="205" cy="200" r="3" fill="#F7F3E9"/>
+  </svg>
+  <div class="wrap">
+    <div class="tag">OBSERVATORY / 観測室</div>
+    <h1>調査・データ</h1>
+    <p>きづきくみたて工房は、対話と組織について語るとき、勘や一般論ではなく自分で取ったデータから話すことを大切にしています。ここは、その観測記録の発行棚です。すべての発行物は方法と限界を明記し、出典つきで引用できます。</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="sec-label">PUBLICATIONS</div>
+  <h2>発行物</h2>
+
+  <article class="pub">
+    <span class="badge">2026.07 公開</span>
+    <div>
+      <h3><a href="democracy-fitness-hakusho-2026.html">デモクラ筋白書 2026 速報版 — 個人の筋力より、組織の環境が弱い</a></h3>
+      <p class="desc">対話に必要な10の筋肉「デモクラ筋」診断のベースラインデータを分析。トレーニング実施前の観察報告と、これから検証する3つの仮説の事前宣言。</p>
+      <ul class="findings">
+        <li>10筋中9筋で「個人評価 &gt; 組織評価」（総合ギャップ+0.52、p&lt;0.000001）</li>
+        <li>唯一の逆転筋は「勇気」——心理的安全性があっても、人は自動では発言しない</li>
+        <li>組織の最弱点は「決め方」——声の大きさと役職が結論を決めている</li>
+      </ul>
+      <p class="meta">n=37｜法人版・意識版｜2026-03-21〜07-07</p>
+    </div>
+  </article>
+
+  <article class="pub">
+    <span class="badge soon">2026年末 予定</span>
+    <div>
+      <h3>デモクラ筋白書 2026 第1号 — 仮説検証編（pre/post）</h3>
+      <p class="desc">2026年8月の合宿型プログラムから開始する受講前後測定にもとづき、速報版で事前宣言した3つの仮説（H1:最も伸びるのは勇気筋／H2:ギャップ縮小は組織単位受講のみ／H3:「声の大きい人で決まる」は合意形成の型の導入でのみ改善）を検証します。外れた場合も、そのまま公開します。</p>
+    </div>
+  </article>
+
+  <article class="pub">
+    <span class="badge soon">構想中</span>
+    <div>
+      <h3>対話不足コスト調査</h3>
+      <p class="desc">会議の空転・認識ズレによる手戻り・離職の3経路から、組織の「見えない損失」を測る調査。<a href="taiwa-cost-calculator.html">対話不足コスト計算機</a>への入力データ（匿名・統計処理）をもとにした集計を検討しています。</p>
+    </div>
+  </article>
+
+  <div class="policy">
+    <h2>この棚の編集方針</h2>
+    <p><b>方法と限界を先に書く。</b>サンプルサイズ、偏り、測定の性質（自己評価か実測か）を、発見より前に読める場所に置きます。</p>
+    <p><b>仮説は結果を見る前に宣言する。</b>検証結果は、仮説が外れた場合も含めて公開します。</p>
+    <p><b>n が小さいことを隠さない。</b>小さなデータから断定はしません。そのかわり、誰も取っていないデータを取り続けます。</p>
+  </div>
+
+  <div class="cite-box">
+    <h2>引用について</h2>
+    <p>本棚の図表・数値は、出典（該当ページURL）を明記のうえ、非営利目的で自由に引用いただけます（CC BY-NC-SA 4.0）。メディア取材・商用利用・データに関するお問い合わせは<a href="https://kizukikumitate.com/">こちら</a>から。</p>
+    <p>引用例：</p>
+    <code>きづきくみたて工房「デモクラ筋白書2026 速報版」(2026)<br>https://kizukikumitate.com/democracy-fitness-hakusho-2026.html</code>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>発行者：森本康仁（<a href="jijitsu-daicho.html">検証可能な経歴一覧：事実の台帳</a>）｜きづきくみたて工房</p>
+  </div>
+</footer>
+
+</body>
+</html>
