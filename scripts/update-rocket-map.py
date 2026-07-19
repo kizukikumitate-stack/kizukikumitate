@@ -26,11 +26,12 @@ PAGE = os.path.join(ROOT, "rocket-map.html")
 
 # spot → (ナビのグループ label, 除外する href のセット)
 #   ノーベル平和賞は鳩(平和の使者)スポットに本籍を一本化しているので、発射台(archive)からは除外。
+#   眠るお金図鑑は未来への鉱脈(vein)スポットに本籍を一本化しているので、発射台(archive)からは除外。
 MAPPING = {
     "belt":    ("未来のリスク計算機", set()),
     "studio":  ("手法・ワークショップ", set()),
     "engine":  ("ソリューション", set()),
-    "archive": ("世界の知恵", {"nobel-peace.html"}),
+    "archive": ("世界の知恵", {"nobel-peace.html", "nemuru-okane-zukan.html"}),
 }
 
 
