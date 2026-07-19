@@ -180,6 +180,16 @@ nav {
 .card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(38,49,58,.10)}
 .card-fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:var(--washi-deep);display:flex;align-items:center;justify-content:center;position:relative}
+
+/* ===== ふりかえり図鑑・カード画像 ===== */
+.card-fig img{
+  display:block;
+  width:100%;
+  height:100%;
+  max-width:none;
+  object-fit:cover;
+  object-position:center;
+}
 .mon{
   width:104px;height:104px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -525,7 +535,17 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
   <div class="cards">
 
     <article class="card" data-cat="kaku">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">綴</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/001-reflection.webp"
+          alt="ジャーナリングを表すイラスト"
+          width="1600"
+          height="900"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.001</span>
@@ -549,7 +569,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kaku">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">筆</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/002-reflection.webp"
+          alt="エクスプレッシブ・ライティング(筆記開示)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.002</span>
@@ -573,7 +602,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kaku">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">朝</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/003-reflection.webp"
+          alt="モーニングページを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.003</span>
@@ -597,7 +635,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kaku">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">謝</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/004-reflection.webp"
+          alt="感謝日記を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.004</span>
@@ -621,7 +668,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="toi">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">焦</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/005-reflection.webp"
+          alt="ORID(焦点会話法)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.005</span>
@@ -645,7 +701,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="toi">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">導</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/006-reflection.webp"
+          alt="GROWモデルの問いを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.006</span>
@@ -669,7 +734,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="toi">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">三</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/007-reflection.webp"
+          alt="What? So What? Now What?を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.007</span>
@@ -693,7 +767,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="toi">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">四</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/008-reflection.webp"
+          alt="4F(事実・感情・発見・未来)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.008</span>
@@ -717,7 +800,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kanjo">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">慈</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/009-reflection.webp"
+          alt="セルフコンパッション・レターを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.009</span>
@@ -741,7 +833,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kanjo">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">距</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/010-reflection.webp"
+          alt="セルフトーク距離化(三人称の自己対話)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.010</span>
@@ -765,7 +866,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kanjo">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">評</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/011-reflection.webp"
+          alt="認知的再評価を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.011</span>
@@ -789,7 +899,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kanjo">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">脱</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/012-reflection.webp"
+          alt="脱フュージョンを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.012</span>
@@ -813,7 +932,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="team">
-      <figure class="card-fig"><span class="mon m4" aria-hidden="true">改</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/013-reflection.webp"
+          alt="KPT(ケプト)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.013</span>
@@ -837,7 +965,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="team">
-      <figure class="card-fig"><span class="mon m4" aria-hidden="true">得</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/014-reflection.webp"
+          alt="YWT(やったこと・わかったこと・次にやること)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.014</span>
@@ -861,7 +998,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="team">
-      <figure class="card-fig"><span class="mon m4" aria-hidden="true">顧</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/015-reflection.webp"
+          alt="レトロスペクティブ(ふりかえり)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.015</span>
@@ -885,7 +1031,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="team">
-      <figure class="card-fig"><span class="mon m4" aria-hidden="true">検</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/016-reflection.webp"
+          alt="AAR(アフター・アクション・レビュー)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.016</span>
@@ -909,7 +1064,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="team">
-      <figure class="card-fig"><span class="mon m4" aria-hidden="true">予</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/017-reflection.webp"
+          alt="プレモーテム(事前検死)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.017</span>
@@ -933,7 +1097,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="team">
-      <figure class="card-fig"><span class="mon m4" aria-hidden="true">前</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/018-reflection.webp"
+          alt="フィードフォワードを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.018</span>
@@ -957,7 +1130,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="fukaku">
-      <figure class="card-fig"><span class="mon m5" aria-hidden="true">環</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/019-reflection.webp"
+          alt="コルブの経験学習サイクルを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.019</span>
@@ -981,7 +1163,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="fukaku">
-      <figure class="card-fig"><span class="mon m5" aria-hidden="true">巡</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/020-reflection.webp"
+          alt="ギブスのリフレクティブ・サイクルを表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.020</span>
@@ -1005,7 +1196,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="fukaku">
-      <figure class="card-fig"><span class="mon m5" aria-hidden="true">疑</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/021-reflection.webp"
+          alt="ダブルループ学習を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.021</span>
@@ -1029,7 +1229,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="fukaku">
-      <figure class="card-fig"><span class="mon m5" aria-hidden="true">察</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/022-reflection.webp"
+          alt="行為の中の省察/行為についての省察を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.022</span>
@@ -1053,7 +1262,16 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="fukaku">
-      <figure class="card-fig"><span class="mon m5" aria-hidden="true">免</span></figure>
+      <figure class="card-fig">
+        <img
+          src="./images/reflection/023-reflection.webp"
+          alt="免疫マップ(変革をはばむ免疫機能)を表すイラスト"
+          width="1600"
+          height="900"
+          loading="lazy"
+          decoding="async"
+        >
+      </figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.023</span>
