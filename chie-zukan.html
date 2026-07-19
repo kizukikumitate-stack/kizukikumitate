@@ -181,6 +181,7 @@ nav {
 .card{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;transition:transform .18s ease, box-shadow .18s ease}
 .card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(38,49,58,.10)}
 .card-fig{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:1px solid var(--line);background:var(--washi-deep);display:flex;align-items:center;justify-content:center;position:relative}
+.card-fig img{display:block;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center}
 .mon{
   width:104px;height:104px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -462,7 +463,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 <!-- ===== 第二章 三系統 ===== -->
 <section class="section" id="families">
   <div class="sec-head"><span class="sec-no">第二章</span><h2>知恵の三系統 ─ 焼印の読み方</h2></div>
-  <p class="sec-lead">この図鑑の50種は、大きく三つの系統に分かれる。自分の内側の力、人と人のあいだに生まれる力、そして考え方そのものを育てる力。各カードの焼印が、その系統を示している。</p>
+  <p class="sec-lead">この図鑑の50種は、大きく三つの系統に分かれる。自分の内側の力、人と人のあいだに生まれる力、そして考え方そのものを育てる力。各カードの色（バッジ）が、その系統を示している。</p>
   <div class="stamp-legend">
     <div class="legend-item">
       <span class="stamp s1">個</span>
@@ -500,7 +501,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
   <div class="cards">
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">自</span></figure>
+      <figure class="card-fig"><img src="./images/chie/001-chie.webp" alt="自己効力感を表すイラスト" width="1600" height="900" loading="eager" fetchpriority="high" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.001</span>
@@ -521,7 +522,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">努</span></figure>
+      <figure class="card-fig"><img src="./images/chie/002-chie.webp" alt="努力効力感を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.002</span>
@@ -542,7 +543,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">組</span></figure>
+      <figure class="card-fig"><img src="./images/chie/003-chie.webp" alt="組織効力感を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.003</span>
@@ -563,7 +564,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">無</span></figure>
+      <figure class="card-fig"><img src="./images/chie/004-chie.webp" alt="学習性無力感を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.004</span>
@@ -584,7 +585,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">楽</span></figure>
+      <figure class="card-fig"><img src="./images/chie/005-chie.webp" alt="学習性楽観を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.005</span>
@@ -605,7 +606,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">制</span></figure>
+      <figure class="card-fig"><img src="./images/chie/006-chie.webp" alt="統制の所在を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.006</span>
@@ -626,7 +627,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">粘</span></figure>
+      <figure class="card-fig"><img src="./images/chie/007-chie.webp" alt="グリットを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.007</span>
@@ -647,7 +648,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">伸</span></figure>
+      <figure class="card-fig"><img src="./images/chie/008-chie.webp" alt="成長マインドセットを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.008</span>
@@ -668,7 +669,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">望</span></figure>
+      <figure class="card-fig"><img src="./images/chie/009-chie.webp" alt="希望理論を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.009</span>
@@ -689,7 +690,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">資</span></figure>
+      <figure class="card-fig"><img src="./images/chie/010-chie.webp" alt="心理的資本を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.010</span>
@@ -710,7 +711,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">決</span></figure>
+      <figure class="card-fig"><img src="./images/chie/011-chie.webp" alt="自己決定理論を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.011</span>
@@ -731,7 +732,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">主</span></figure>
+      <figure class="card-fig"><img src="./images/chie/012-chie.webp" alt="エージェンシーを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.012</span>
@@ -752,7 +753,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="kojin">
-      <figure class="card-fig"><span class="mon m1" aria-hidden="true">没</span></figure>
+      <figure class="card-fig"><img src="./images/chie/013-chie.webp" alt="フローを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.013</span>
@@ -773,7 +774,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">安</span></figure>
+      <figure class="card-fig"><img src="./images/chie/014-chie.webp" alt="心理的安全性を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.014</span>
@@ -794,7 +795,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">衆</span></figure>
+      <figure class="card-fig"><img src="./images/chie/015-chie.webp" alt="集合知を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.015</span>
@@ -815,7 +816,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">協</span></figure>
+      <figure class="card-fig"><img src="./images/chie/016-chie.webp" alt="集団的知性のc因子を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.016</span>
@@ -836,7 +837,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">同</span></figure>
+      <figure class="card-fig"><img src="./images/chie/017-chie.webp" alt="集団思考を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.017</span>
@@ -857,7 +858,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">怠</span></figure>
+      <figure class="card-fig"><img src="./images/chie/018-chie.webp" alt="社会的手抜きを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.018</span>
@@ -878,7 +879,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">傍</span></figure>
+      <figure class="card-fig"><img src="./images/chie/019-chie.webp" alt="傍観者効果を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.019</span>
@@ -899,7 +900,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">憶</span></figure>
+      <figure class="card-fig"><img src="./images/chie/020-chie.webp" alt="トランザクティブ・メモリーを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.020</span>
@@ -920,7 +921,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">散</span></figure>
+      <figure class="card-fig"><img src="./images/chie/021-chie.webp" alt="分散認知を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.021</span>
@@ -941,7 +942,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">意</span></figure>
+      <figure class="card-fig"><img src="./images/chie/022-chie.webp" alt="センスメイキングを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.022</span>
@@ -962,7 +963,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">学</span></figure>
+      <figure class="card-fig"><img src="./images/chie/023-chie.webp" alt="学習する組織を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.023</span>
@@ -983,7 +984,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">環</span></figure>
+      <figure class="card-fig"><img src="./images/chie/024-chie.webp" alt="ダブルループ学習を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.024</span>
@@ -1004,7 +1005,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">解</span></figure>
+      <figure class="card-fig"><img src="./images/chie/025-chie.webp" alt="アンラーニングを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.025</span>
@@ -1025,7 +1026,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">暗</span></figure>
+      <figure class="card-fig"><img src="./images/chie/026-chie.webp" alt="SECIモデル(暗黙知と形式知)を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.026</span>
@@ -1046,7 +1047,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">徳</span></figure>
+      <figure class="card-fig"><img src="./images/chie/027-chie.webp" alt="組織市民行動を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.027</span>
@@ -1067,7 +1068,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">支</span></figure>
+      <figure class="card-fig"><img src="./images/chie/028-chie.webp" alt="フォロワーシップを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.028</span>
@@ -1088,7 +1089,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">共</span></figure>
+      <figure class="card-fig"><img src="./images/chie/029-chie.webp" alt="シェアド・リーダーシップを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.029</span>
@@ -1109,7 +1110,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">縁</span></figure>
+      <figure class="card-fig"><img src="./images/chie/030-chie.webp" alt="ソーシャル・キャピタルを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.030</span>
@@ -1130,7 +1131,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">越</span></figure>
+      <figure class="card-fig"><img src="./images/chie/031-chie.webp" alt="越境学習を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.031</span>
@@ -1151,7 +1152,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">進</span></figure>
+      <figure class="card-fig"><img src="./images/chie/032-chie.webp" alt="ティール組織を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.032</span>
@@ -1172,7 +1173,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="shu">
-      <figure class="card-fig"><span class="mon m2" aria-hidden="true">当</span></figure>
+      <figure class="card-fig"><img src="./images/chie/033-chie.webp" alt="心理的オーナーシップを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.033</span>
@@ -1193,7 +1194,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">多</span></figure>
+      <figure class="card-fig"><img src="./images/chie/034-chie.webp" alt="多重知能理論を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.034</span>
@@ -1214,7 +1215,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">情</span></figure>
+      <figure class="card-fig"><img src="./images/chie/035-chie.webp" alt="EQ(感情知能)を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.035</span>
@@ -1235,7 +1236,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">異</span></figure>
+      <figure class="card-fig"><img src="./images/chie/036-chie.webp" alt="CQ(文化的知性)を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.036</span>
@@ -1256,7 +1257,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">晶</span></figure>
+      <figure class="card-fig"><img src="./images/chie/037-chie.webp" alt="流動性知能と結晶性知能を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.037</span>
@@ -1277,7 +1278,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">観</span></figure>
+      <figure class="card-fig"><img src="./images/chie/038-chie.webp" alt="メタ認知を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.038</span>
@@ -1298,7 +1299,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">践</span></figure>
+      <figure class="card-fig"><img src="./images/chie/039-chie.webp" alt="実践知を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.039</span>
@@ -1319,7 +1320,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">慧</span></figure>
+      <figure class="card-fig"><img src="./images/chie/040-chie.webp" alt="知恵(ウィズダム)を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.040</span>
@@ -1340,7 +1341,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">謙</span></figure>
+      <figure class="card-fig"><img src="./images/chie/041-chie.webp" alt="知的謙虚さを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.041</span>
@@ -1361,7 +1362,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">過</span></figure>
+      <figure class="card-fig"><img src="./images/chie/042-chie.webp" alt="ダニング=クルーガー効果を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.042</span>
@@ -1382,7 +1383,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">速</span></figure>
+      <figure class="card-fig"><img src="./images/chie/043-chie.webp" alt="システム1とシステム2を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.043</span>
@@ -1403,7 +1404,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">吟</span></figure>
+      <figure class="card-fig"><img src="./images/chie/044-chie.webp" alt="批判的思考を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.044</span>
@@ -1424,7 +1425,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">系</span></figure>
+      <figure class="card-fig"><img src="./images/chie/045-chie.webp" alt="システム思考を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.045</span>
@@ -1445,7 +1446,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">耐</span></figure>
+      <figure class="card-fig"><img src="./images/chie/046-chie.webp" alt="ネガティブ・ケイパビリティを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.046</span>
@@ -1466,7 +1467,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">熟</span></figure>
+      <figure class="card-fig"><img src="./images/chie/047-chie.webp" alt="成人発達理論を表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.047</span>
@@ -1487,7 +1488,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">復</span></figure>
+      <figure class="card-fig"><img src="./images/chie/048-chie.webp" alt="レジリエンスを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.048</span>
@@ -1508,7 +1509,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">慈</span></figure>
+      <figure class="card-fig"><img src="./images/chie/049-chie.webp" alt="セルフ・コンパッションを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.049</span>
@@ -1529,7 +1530,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     </article>
 
     <article class="card" data-cat="chi">
-      <figure class="card-fig"><span class="mon m3" aria-hidden="true">幸</span></figure>
+      <figure class="card-fig"><img src="./images/chie/050-chie.webp" alt="ウェルビーイングとPERMAを表すイラスト" width="1600" height="900" loading="lazy" decoding="async"></figure>
       <div class="card-head">
         <div>
           <span class="card-no">No.050</span>
