@@ -781,6 +781,149 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
   </div>
 </section>
 
+<!-- ═══════════ 掘り出しくらべ（桁ビジュアライズ） ═══════════ -->
+<section class="layer" id="dig-summary" style="background:var(--bedrock);">
+  <style>
+    .dig-badge{display:inline-block;font-family:'M PLUS 1 Code',monospace;font-size:10.5px;letter-spacing:.06em;color:var(--bedrock);background:var(--ore-soft);border-radius:6px;padding:3px 10px;margin-bottom:18px;font-weight:500;}
+    .dig-controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:26px;}
+    .dig-controls .lab{font-size:12.5px;color:rgba(255,249,240,.72);}
+    .dig-toggle{font-family:'Zen Kaku Gothic New',sans-serif;font-size:12.5px;font-weight:700;color:var(--paper);background:transparent;border:1.5px solid rgba(245,184,65,.5);border-radius:999px;padding:6px 15px;cursor:pointer;transition:background .18s ease,color .18s ease,border-color .18s ease;}
+    .dig-toggle:hover{border-color:var(--ore);}
+    .dig-toggle.on{background:var(--ore);color:var(--ink);border-color:var(--ore);}
+    .dig-rows{display:flex;flex-direction:column;gap:16px;}
+    .dig-meta{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:7px;}
+    .dig-name{font-size:13px;color:var(--white);font-weight:500;}
+    .dig-name .no{font-family:'M PLUS 1 Code',monospace;font-size:10px;color:var(--ore-soft);margin-right:6px;border:1px solid rgba(245,184,65,.4);border-radius:4px;padding:1px 4px;}
+    .dig-name .amt{font-family:'M PLUS 1 Code',monospace;color:var(--ore-soft);margin-left:5px;}
+    .dig-conv{font-size:11.5px;color:rgba(255,249,240,.58);}
+    .dig-conv b{color:var(--ore-soft);font-weight:700;}
+    .dig-track{position:relative;height:36px;overflow:hidden;border-radius:8px;}
+    .dig-rail{position:absolute;top:50%;left:0;transform:translateY(-50%);height:15px;width:100%;background:rgba(255,249,240,.07);border-radius:8px;}
+    .dig-fill{position:absolute;top:50%;left:0;transform:translateY(-50%);height:15px;background:linear-gradient(90deg,#B87A16,var(--ore));border-radius:8px;box-shadow:0 0 10px rgba(245,184,65,.25);transition:width 1.05s cubic-bezier(.5,0,.2,1);}
+    .dig-car{position:absolute;top:50%;margin-top:-15px;left:0;transform:translateX(-49px);transition:left 1.05s cubic-bezier(.5,0,.2,1);}
+    .dig-ore{position:absolute;top:50%;margin-top:-16px;left:0;transform:translateX(-6px);transition:left 1.05s cubic-bezier(.5,0,.2,1);}
+    .dig-caption{margin-top:24px;font-size:13.5px;color:rgba(255,249,240,.82);line-height:1.9;}
+    .dig-note{margin-top:12px;font-size:10.8px;color:rgba(255,249,240,.48);line-height:1.85;}
+    @keyframes dig-aug{to{transform:translateX(6px)}}
+    @keyframes dig-wh{to{transform:rotate(360deg)}}
+    @keyframes dig-halo{0%,100%{opacity:.16;transform:scale(.9)}50%{opacity:.34;transform:scale(1.08)}}
+    @keyframes dig-vein{0%,100%{opacity:.72}50%{opacity:1}}
+    @keyframes dig-spark{0%,100%{opacity:0;transform:scale(.4)}50%{opacity:1;transform:scale(1)}}
+    .dig-wh{transform-box:fill-box;transform-origin:center;animation:dig-wh .6s linear infinite;}
+    .dig-aug{animation:dig-aug .18s linear infinite;}
+    .dig-halo{transform-box:fill-box;transform-origin:center;animation:dig-halo 1.9s ease-in-out infinite;}
+    .dig-glow{animation:dig-vein 1.5s ease-in-out infinite;}
+    .dig-spark{transform-box:fill-box;transform-origin:center;animation:dig-spark 1.9s ease-in-out infinite;}
+    @media (prefers-reduced-motion:reduce){
+      .dig-wh,.dig-aug,.dig-halo,.dig-glow,.dig-spark{animation:none;}
+      .dig-fill,.dig-car,.dig-ore{transition:none;}
+    }
+  </style>
+  <div class="layer-inner">
+    <div class="depth-tag"><span class="gl">採掘サマリー</span><span class="rule"></span></div>
+    <h2>⛏️ 掘り出しくらべ｜「桁」を目で見る</h2>
+    <p class="lede">ここまで見てきた鉱脈のうち、金額のわかるものを並べました。同じ「兆円」でも、掘り進む深さ＝トンネルの長さはこれほど違います。ボタンで<strong style="color:var(--ore-soft)">目盛</strong>を切り替えると、脳が圧縮していた本当の桁差が、ドリルカーとともに姿を現します。</p>
+    <span class="dig-badge">簡易試算：奨学金換算つき</span>
+    <div class="dig-controls">
+      <span class="lab">トンネルの長さ：</span>
+      <button class="dig-toggle on" id="dig-log" type="button">脳の感じ方（対数）</button>
+      <button class="dig-toggle" id="dig-lin" type="button">本当の桁差（線形）</button>
+    </div>
+    <div class="dig-rows" id="dig-rows" aria-label="眠るお金の埋蔵量くらべ"></div>
+    <p class="dig-caption" id="dig-caption"></p>
+    <p class="dig-note">※「1人あたり」＝金額 ÷ 人口1.24億人。「奨学金◯人分」＝返済不要・大学4年間（月5万円＝240万円）で1人分に換算した簡易試算です。金額は各標本カードの出典に基づく概数で、時点により変動します。特定の金融商品や使途を勧めるものではありません。</p>
+  </div>
+  <script>
+  (function(){
+    var POP=1.24e8, SCH=2.4e6, MAX=1100, mode="log", revealed=false;
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+    var data=[
+      {no:"02",name:"現預金（置きっぱなし）",cho:1100},
+      {no:"09",name:"内部留保",cho:600},
+      {no:"05",name:"放置株・未受領配当",cho:317},
+      {no:"07",name:"認知症凍結マネー",cho:200},
+      {no:"01",name:"タンス預金",cho:47},
+      {no:"03",name:"休眠預金（毎年）",cho:0.12}
+    ];
+    function perPerson(cho){var y=cho*1e12/POP;return y>=1e4?Math.round(y/1e4).toLocaleString()+"万円":Math.round(y).toLocaleString()+"円";}
+    function scholars(cho){var n=cho*1e12/SCH;if(n>=1e8)return "約"+(n/1e8).toFixed(1).replace(/\.0$/,"")+"億人分";if(n>=1e4)return "約"+Math.round(n/1e4).toLocaleString()+"万人分";return Math.round(n).toLocaleString()+"人分";}
+    function pct(cho){if(mode==="lin")return Math.max(cho/MAX*88,1.5);var lo=Math.log10(0.12),hi=Math.log10(MAX);return 16+((Math.log10(cho)-lo)/(hi-lo))*72;}
+    function car(i){
+      return '<svg class="dig-car-svg" width="54" height="30" viewBox="0 0 54 30" style="overflow:visible;display:block;" aria-hidden="true">'+
+        '<g class="dig-wh"><circle cx="15" cy="24" r="5" fill="#2A2118"/><circle cx="15" cy="24" r="1.6" fill="#F5B841"/><rect x="14.2" y="19.5" width="1.6" height="9" fill="#6B5C4C"/><rect x="10.5" y="23.2" width="9" height="1.6" fill="#6B5C4C"/></g>'+
+        '<g class="dig-wh"><circle cx="30" cy="24" r="5" fill="#2A2118"/><circle cx="30" cy="24" r="1.6" fill="#F5B841"/><rect x="29.2" y="19.5" width="1.6" height="9" fill="#6B5C4C"/><rect x="25.5" y="23.2" width="9" height="1.6" fill="#6B5C4C"/></g>'+
+        '<rect x="6" y="9" width="34" height="12" rx="3" fill="#2A2118"/>'+
+        '<path d="M13 9 L18 3 L30 3 L33 9 Z" fill="#3d3226"/>'+
+        '<rect x="19" y="4.5" width="9" height="4" rx="1" fill="#BFE3EF"/>'+
+        '<rect x="8" y="12" width="4" height="4" rx="1" fill="#F5B841"/>'+
+        '<rect x="38" y="12.5" width="4" height="5" rx="1" fill="#6B5C4C"/>'+
+        '<clipPath id="digc'+i+'"><path d="M41 8 L41 22 L54 15 Z"/></clipPath>'+
+        '<path d="M41 8 L41 22 L54 15 Z" fill="#8f8578"/>'+
+        '<g clip-path="url(#digc'+i+')" class="dig-aug"><line x1="40" y1="6" x2="46" y2="24" stroke="#D8CCB8" stroke-width="1.6"/><line x1="44" y1="6" x2="50" y2="24" stroke="#D8CCB8" stroke-width="1.6"/><line x1="48" y1="6" x2="54" y2="24" stroke="#D8CCB8" stroke-width="1.6"/></g>'+
+        '</svg>';
+    }
+    function ore(){
+      return '<svg width="32" height="32" viewBox="0 0 32 32" style="overflow:visible;display:block;" aria-hidden="true">'+
+        '<ellipse class="dig-halo" cx="16" cy="17" rx="15" ry="12" fill="#F5B841"/>'+
+        '<polygon points="7,14 12,7 22,8 27,15 22,25 11,24 5,18" fill="#241f2b" stroke="#100c18" stroke-width="1"/>'+
+        '<polygon points="12,7 22,8 18,15 12,14" fill="#332b3a"/>'+
+        '<polygon points="5,18 12,14 13,21 8,23" fill="#2b2533"/>'+
+        '<g class="dig-glow">'+
+          '<path d="M12 7 L14 15 L11 23 M14 15 L20 13 L24 18 M14 15 L18 22" fill="none" stroke="#F5B841" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" opacity=".4"/>'+
+          '<path d="M12 7 L14 15 L11 23 M14 15 L20 13 L24 18 M14 15 L18 22" fill="none" stroke="#FFF3D6" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>'+
+          '<circle cx="14" cy="15" r="1.7" fill="#FFF3D6"/>'+
+        '</g>'+
+        '<line x1="12" y1="7" x2="22" y2="8" stroke="#FFD98A" stroke-width="1" opacity=".55"/>'+
+        '<line x1="7" y1="14" x2="12" y2="7" stroke="#FFD98A" stroke-width="1" opacity=".45"/>'+
+        '<path class="dig-spark" d="M26 5 l1.1 2.2 2.2 1.1 -2.2 1.1 -1.1 2.2 -1.1 -2.2 -2.2 -1.1 2.2 -1.1 z" fill="#FFF9F0"/>'+
+        '</svg>';
+    }
+    var rowsEl=document.getElementById("dig-rows"), capEl=document.getElementById("dig-caption");
+    var bLog=document.getElementById("dig-log"), bLin=document.getElementById("dig-lin");
+    data.forEach(function(d,i){
+      var amt=d.cho>=1?Math.round(d.cho).toLocaleString()+"兆円":"1,200億円";
+      var row=document.createElement("div");
+      row.innerHTML=
+        '<div class="dig-meta">'+
+          '<span class="dig-name"><span class="no">No.'+d.no+'</span>'+d.name+'<span class="amt">'+amt+'</span></span>'+
+          '<span class="dig-conv">1人あたり '+perPerson(d.cho)+' ／ 奨学金 <b>'+scholars(d.cho)+'</b></span>'+
+        '</div>'+
+        '<div class="dig-track">'+
+          '<div class="dig-rail"></div>'+
+          '<div class="dig-fill" id="digfill'+i+'"></div>'+
+          '<div class="dig-car" id="digcar'+i+'">'+car(i)+'</div>'+
+          '<div class="dig-ore" id="digore'+i+'">'+ore()+'</div>'+
+        '</div>';
+      rowsEl.appendChild(row);
+    });
+    function apply(){
+      data.forEach(function(d,i){
+        var p=pct(d.cho).toFixed(2)+"%";
+        document.getElementById("digfill"+i).style.width=p;
+        document.getElementById("digcar"+i).style.left=p;
+        document.getElementById("digore"+i).style.left=p;
+      });
+      bLog.classList.toggle("on",mode==="log");
+      bLin.classList.toggle("on",mode==="lin");
+      capEl.textContent = mode==="log"
+        ? "対数＝私たちの脳の見え方。どのトンネルも似た長さに見えますが、これは桁を圧縮した錯覚です。線形に切り替えると、ドリルカーが本当の深さまで掘り進みます。"
+        : "線形＝本当の桁差。現預金のトンネルは、毎年生まれる休眠預金の約9,000倍の長さ。現預金だけで奨学金4.6億人分、毎年の休眠預金でも5万人分──同じ「眠るお金」でも、掘り出せる未来の数がまるで違います。";
+    }
+    bLog.addEventListener("click",function(){mode="log";apply();});
+    bLin.addEventListener("click",function(){mode="lin";apply();});
+    apply();
+    if(!reduce && "IntersectionObserver" in window){
+      var ob=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting && !revealed){ revealed=true; setTimeout(function(){mode="lin";apply();},900); ob.disconnect(); }
+        });
+      },{threshold:.4});
+      ob.observe(document.getElementById("dig-rows"));
+    }
+  })();
+  </script>
+</section>
+
 <!-- ═══════════ 精錬所 ═══════════ -->
 <section class="layer refine" id="refine">
   <div class="layer-inner">
