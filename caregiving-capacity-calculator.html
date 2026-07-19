@@ -189,8 +189,9 @@
   .scene-head h2 { margin-bottom: 0; }
   .scene-read { font-size: 0.8rem; color: var(--ink-soft); }
   .scene-year { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.4rem; color: var(--dawn); margin-right: 0.6rem; }
-  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.9rem; }
-  .scene-frame svg { display: block; width: 100%; height: auto; }
+  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.55rem; background: #f4f1e8; }
+  .scene-frame img { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 571; object-fit: cover; }
+  .scene-caption { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1rem; color: var(--ink); margin-bottom: 0.7rem; text-align: center; word-break: keep-all; overflow-wrap: break-word; }
   .scrub-label { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
   .scrub-label strong { color: var(--ink); font-weight: 600; }
   #scrub { width: 100%; accent-color: var(--dawn); }
@@ -546,8 +547,9 @@
         </div>
       </div>
       <div class="scene-frame">
-        <svg id="scene" viewBox="0 0 760 300" role="img" aria-label="支え手の様子"></svg>
+        <img id="scene" src="./images/caregiving/scene-4.webp" width="1000" height="571" alt="支え手の様子: 肩車 ― たった一人で背負う" decoding="async">
       </div>
+      <p class="scene-caption" id="sceneStage">—</p>
       <p class="scrub-label">年をスライドすると、支え合いのかたちが変わります → <strong id="scrubYearText">2071年</strong></p>
       <input type="range" id="scrub" min="2026" max="2120" step="1" value="2071" aria-label="表示する年">
     </div>
@@ -842,62 +844,27 @@ function drawChart(rows, targetYear, effScrub){
   document.getElementById('chart').innerHTML = s;
 }
 
-/* ===== scene（支え合いのかたち） ===== */
-function elderSVG(cx, cy, sc){
-  return '<circle cx="' + cx + '" cy="' + cy + '" r="' + (7 * sc) + '" fill="' + C.gold + '"/>'
-    + '<rect x="' + (cx - 6 * sc) + '" y="' + (cy + 5 * sc) + '" width="' + (12 * sc) + '" height="' + (16 * sc) + '" rx="' + (5 * sc) + '" fill="' + C.dawn + '"/>'
-    + '<line x1="' + (cx + 8 * sc) + '" y1="' + (cy + 6 * sc) + '" x2="' + (cx + 11 * sc) + '" y2="' + (cy + 22 * sc) + '" stroke="#7a6a4e" stroke-width="1.6"/>';
-}
-function workerSVG(cx, cy){
-  return '<circle cx="' + cx + '" cy="' + cy + '" r="7" fill="' + C.indigo + '"/>'
-    + '<rect x="' + (cx - 6) + '" y="' + (cy + 5) + '" width="12" height="20" rx="5" fill="' + C.teal + '"/>'
-    + '<line x1="' + (cx - 5) + '" y1="' + (cy + 7) + '" x2="' + (cx - 11) + '" y2="' + (cy - 4) + '" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round"/>'
-    + '<line x1="' + (cx + 5) + '" y1="' + (cy + 7) + '" x2="' + (cx + 11) + '" y2="' + (cy - 4) + '" stroke="' + C.teal + '" stroke-width="3" stroke-linecap="round"/>';
-}
+/* ===== scene（支え合いのかたち） =====
+   支え手比率で「支え合いのかたち」を表す5枚のイラストを切り替える。
+   絵は Gemini 生成のフラットイラスト（images/caregiving/scene-1〜5.webp）。
+   1=支え手が最も多い（胴上げ）〜 5=一人でも支えきれない、の順。 */
+const SCENES = [
+  { min: 5,    src: './images/caregiving/scene-1.webp', label: '胴上げの時代 ― 大勢で、軽々と' },
+  { min: 2.5,  src: './images/caregiving/scene-2.webp', label: '騎馬戦のように、数人で' },
+  { min: 1.5,  src: './images/caregiving/scene-3.webp', label: '少ない人数で、担ぐ' },
+  { min: 1.05, src: './images/caregiving/scene-4.webp', label: '肩車 ― たった一人で背負う' },
+  { min: 0,    src: './images/caregiving/scene-5.webp', label: '一人でも、支えきれない' },
+];
+// 全カットを先読みしておき、スライダー操作時の切り替えを瞬時にする
+SCENES.forEach(s => { const im = new Image(); im.src = s.src; });
 
 function drawScene(ratio, year){
-  const warm = ratio >= 1.5;
-  const supporters = Math.max(1, Math.min(9, Math.round(ratio)));
-  const mode = warm ? 'lift' : 'shoulder';
-
-  const stage =
-    ratio >= 5    ? '胴上げの時代 ― 大勢で、軽々と' :
-    ratio >= 2.5  ? '騎馬戦のように、数人で' :
-    ratio >= 1.5  ? '少ない人数で、担ぐ' :
-    ratio >= 1.05 ? '肩車 ― たった一人で背負う' :
-                    '一人でも、支えきれない';
-
-  let s = '';
-  s += '<rect x="0" y="0" width="760" height="300" fill="' + (warm ? '#f2efe6' : '#e9e3d7') + '"/>';
-  s += '<rect x="0" y="272" width="760" height="28" fill="' + (warm ? '#e0d6bd' : '#cfc7b4') + '"/>';
-
-  if (mode === 'lift') {
-    // 胴上げ台
-    s += '<rect x="250" y="150" width="260" height="8" rx="4" fill="#8a7f66"/>';
-    s += elderSVG(380, 118, 1.4);
-    for (let i = 0; i < supporters; i++) {
-      const spread = Math.min(260, supporters * 40);
-      const x = 380 - spread / 2 + (supporters === 1 ? 0 : (spread / (supporters - 1)) * i);
-      s += '<line x1="' + x + '" y1="225" x2="' + x + '" y2="158" stroke="' + C.teal + '" stroke-width="2.5" opacity="0.5"/>';
-      s += workerSVG(x, 225);
-    }
-  } else {
-    // 肩車
-    const cx = 380, strain = ratio < 1.1;
-    s += '<line x1="' + (cx - 5) + '" y1="252" x2="' + (cx - (strain ? 12 : 8)) + '" y2="272" stroke="' + C.teal + '" stroke-width="4" stroke-linecap="round"/>';
-    s += '<line x1="' + (cx + 5) + '" y1="252" x2="' + (cx + (strain ? 12 : 8)) + '" y2="272" stroke="' + C.teal + '" stroke-width="4" stroke-linecap="round"/>';
-    s += '<rect x="' + (cx - 8) + '" y="220" width="16" height="34" rx="7" fill="' + C.teal + '"/>';
-    s += '<circle cx="' + cx + '" cy="212" r="8" fill="' + C.indigo + '"/>';
-    s += elderSVG(cx, 190, 1.3);
-    if (strain) s += '<text x="' + (cx + 24) + '" y="230" font-size="18" fill="' + C.dawn + '" font-weight="800">!</text>';
-  }
-
-  s += '<text x="380" y="26" text-anchor="middle" font-size="15" font-family="\'Shippori Mincho\',serif" font-weight="800" fill="' + (warm ? C.indigo : C.dawn) + '">' + stage + '</text>';
-  s += '<text x="380" y="292" text-anchor="middle" font-size="12" fill="' + C.inkSoft + '">' + year + '年 ・ 現役世代 ' + ratio.toFixed(2) + ' 人で高齢者1人を支える</text>';
-
-  const svg = document.getElementById('scene');
-  svg.innerHTML = s;
-  svg.setAttribute('aria-label', '支え手の様子: ' + stage);
+  const sc = SCENES.find(s => ratio >= s.min) || SCENES[SCENES.length - 1];
+  const img = document.getElementById('scene');
+  if (img.getAttribute('src') !== sc.src) img.setAttribute('src', sc.src);
+  img.alt = '支え手の様子: ' + sc.label;
+  const stage = document.getElementById('sceneStage');
+  if (stage) stage.textContent = sc.label;
 }
 
 /* ===== render ===== */
