@@ -162,6 +162,10 @@
             "href": "alternative-education-zukan.html"
           },
           {
+            "label": "教育の費用対効果図鑑",
+            "href": "education-roi-zukan.html"
+          },
+          {
             "heading": "読み物"
           },
           {
@@ -480,6 +484,10 @@
     },
     {
       "path": "taiwa-cost-calculator.html",
+      "variant": "standard"
+    },
+    {
+      "path": "education-roi-zukan.html",
       "variant": "standard"
     }
   ],

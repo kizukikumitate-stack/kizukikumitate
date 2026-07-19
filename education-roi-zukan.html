@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教育の費用対効果図鑑 | きづきくみたて工房</title>
+<meta name="description" content="この対象に、この投資をしたら、何が返ってきたか——ペリー就学前計画から虫下し薬、FAFSA伴走、Scared Straightまで。世界で厳密に検証された教育投資のリターンを、エビデンス水準ラベルと原典リンク付きで集めた図鑑。毒キノコ（効かなかった例）も収載。随時更新。">
+<link rel="canonical" href="https://kizukikumitate.com/education-roi-zukan.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="教育の費用対効果図鑑｜1ドルの学びは、いくらで返ってくるか">
+<meta property="og:description" content="幼児教育、虫下し薬、習熟度別指導、FAFSA伴走、職業訓練——世界で測られてきた教育投資のリターンと、効かなかった毒キノコの記録。原典リンク付き、随時更新。">
+<meta property="og:url" content="https://kizukikumitate.com/education-roi-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/education-roi-zukan-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="教育の費用対効果図鑑｜1ドルの学びは、いくらで返ってくるか">
+<meta name="twitter:description" content="幼児教育、虫下し薬、習熟度別指導、FAFSA伴走、職業訓練——世界で測られてきた教育投資のリターンと、効かなかった毒キノコの記録。原典リンク付き、随時更新。">
+<meta name="twitter:image" content="https://kizukikumitate.com/education-roi-zukan-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --charcoal:   #1e1e1e;
+    --mid-gray:   #5a6a7a;
+    --forest:     #1a5fad;
+    --purple:     #3c3489;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; line-break: strict; hanging-punctuation: allow-end; }
+  h1, h2, h3 { text-wrap: pretty; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+
+  /* ===== NAV DROPDOWN (desktop hover) ===== */
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  /* mobile accordion */
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
+  .mobile-acc.open .mobile-acc-panel { display: flex; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
+  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
+  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
+  @media (max-width: 1250px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+      .nav-logo { margin-right: 0; }
+  }
+
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.78rem; letter-spacing: 0.35em; text-transform: uppercase; }
+  .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .fade-up.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .fade-up { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  #zhero {
+    padding: 10rem 2rem 5rem; text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 0%, rgba(60,52,137,0.12), transparent 70%),
+      radial-gradient(ellipse 50% 40% at 10% 10%, rgba(216,90,48,0.08), transparent 70%),
+      var(--paper);
+  }
+  #zhero .eyebrow { color: var(--dawn); margin-bottom: 1.4rem; }
+  #zhero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.8rem, 4.6vw, 3rem); letter-spacing: 0.08em; }
+  #zhero .zhero-sub { max-width: 660px; margin: 2rem auto 0; font-size: 0.95rem; line-height: 2.3; font-weight: 300; color: #4a4652; }
+  .update-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 2rem; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.78rem; letter-spacing: 0.14em; color: var(--gold-deep); border: 1px solid rgba(217,164,65,0.6); border-radius: 999px; padding: 0.5rem 1.3rem; background: rgba(217,164,65,0.08); }
+  .update-badge::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--dawn); animation: pulse 2.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 0.35; } 50% { opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .update-badge::before { animation: none; } }
+
+  #toc { padding: 0 2rem 3rem; background: var(--paper); }
+  .toc-inner { max-width: 860px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; }
+  .toc-inner a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.8rem; letter-spacing: 0.08em; text-decoration: none; color: var(--charcoal); border: 1px solid #ded8c8; border-radius: 999px; padding: 0.45rem 1.15rem; background: #fff; transition: border-color 0.2s ease, color 0.2s ease; }
+  .toc-inner a:hover { border-color: var(--dawn); color: var(--dawn); }
+
+  .zcat { padding: 4.5rem 2rem 2rem; }
+  .zcat:nth-of-type(even) { background: #f3efe4; }
+  .zcat-head { max-width: 860px; margin: 0 auto 2.4rem; }
+  .zcat-head .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .zcat-head h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.8rem); letter-spacing: 0.06em; }
+  .zcat-head p { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.1; font-weight: 300; color: #4a4652; }
+  .entry-list { max-width: 860px; margin: 0 auto; display: grid; gap: 1.1rem; padding-bottom: 3rem; }
+  .entry { background: #fff; border: 1px solid #e6e0d0; border-radius: 14px; padding: 1.7rem 1.8rem 1.6rem; scroll-margin-top: 90px; }
+    .entry.has-art { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: 1.6rem; align-items: center; }
+    .entry-art { border-radius: 10px; overflow: hidden; background: #faf6ea; aspect-ratio: 4 / 5; }
+    .entry-art img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    @media (max-width: 640px) { .entry.has-art { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; } .entry-art { max-width: 280px; margin: 0 auto; } }
+    .entry.has-fig { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+    .entry-fig { width: 92px; height: 92px; }
+    .entry-fig svg { width: 100%; height: 100%; display: block; }
+    @media (max-width: 640px) { .entry.has-fig { grid-template-columns: 58px minmax(0, 1fr); gap: 1rem; } .entry-fig { width: 58px; height: 58px; } }
+  .entry-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+  .entry h3 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.15rem; letter-spacing: 0.05em; }
+  .entry .origin { font-family: 'Jost', sans-serif; font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dawn); white-space: nowrap; }
+  .entry p.desc { margin-top: 0.9rem; font-size: 0.88rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .entry .sources { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; }
+  .entry .sources .src-label { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.66rem; letter-spacing: 0.22em; color: #8d8877; text-transform: uppercase; margin-right: 0.8rem; }
+  .entry .sources a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1.1rem; letter-spacing: 0.03em; }
+  .entry .sources a:hover { border-bottom-color: var(--forest); }
+  .entry.ours { border-color: var(--gold); background: #fffdf4; }
+  .entry .ours-tag { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.64rem; letter-spacing: 0.14em; background: var(--gold); color: #fff; border-radius: 999px; padding: 0.2rem 0.7rem; vertical-align: 3px; margin-left: 0.6rem; }
+
+  #contribute { padding: 6rem 2rem; background: var(--ink-deep); text-align: center; color: var(--paper); }
+  #contribute .eyebrow { color: var(--gold); margin-bottom: 1.2rem; }
+  #contribute h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.3rem, 3vw, 1.9rem); letter-spacing: 0.06em; }
+  #contribute p { max-width: 620px; margin: 1.8rem auto 0; font-size: 0.92rem; line-height: 2.2; font-weight: 300; color: rgba(250,248,242,0.82); }
+  .cta-row { display: flex; justify-content: center; gap: 0.9rem; flex-wrap: wrap; margin-top: 2.4rem; }
+  .cta-row a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.84rem; letter-spacing: 0.1em; text-decoration: none; border-radius: 999px; padding: 0.75rem 1.8rem; transition: opacity 0.2s ease; }
+  .cta-row a:hover { opacity: 0.85; }
+  .cta-row a.primary { background: var(--gold); color: var(--ink-deep); }
+  .cta-row a.ghost { border: 1px solid rgba(240,217,168,0.5); color: var(--gold); }
+
+  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
+  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+
+  /* ===== 収載基準・エビデンスラベル ===== */
+  #criteria { padding: 0 2rem 3.5rem; background: var(--paper); }
+  .criteria-box { max-width: 860px; margin: 0 auto; background: #fff; border: 1px solid #ded8c8; border-radius: 14px; padding: 2rem 2rem 1.8rem; }
+  .criteria-box .eyebrow { color: var(--purple); margin-bottom: 0.8rem; }
+  .criteria-box h2 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 0.05em; margin-bottom: 1rem; }
+  .criteria-box p { font-size: 0.86rem; line-height: 2.15; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol { margin: 1rem 0 1.2rem 1.4em; font-size: 0.86rem; line-height: 2.1; font-weight: 300; color: #3b3a42; }
+  .criteria-box ol li { margin-bottom: 0.3rem; }
+  .criteria-legend { display: flex; flex-wrap: wrap; gap: 0.7rem 1.4rem; margin: 1.1rem 0 1.2rem; padding: 1rem 1.1rem; background: #f7f4ea; border-radius: 10px; font-size: 0.8rem; line-height: 1.9; }
+  .criteria-legend > div { display: flex; align-items: baseline; gap: 0.5rem; }
+  .criteria-db { margin-top: 0.4rem; font-size: 0.78rem; line-height: 2.2; }
+  .criteria-db a { font-family: 'Jost', 'Noto Serif JP', sans-serif; color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35); margin-right: 1rem; }
+  .criteria-db a:hover { border-bottom-color: var(--forest); }
+  .criteria-note { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed #e0dac8; font-size: 0.78rem; color: #6b6656; }
+  .ev { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.62rem; letter-spacing: 0.1em; font-weight: 500; border-radius: 4px; padding: 0.14rem 0.5rem; margin-right: 0.7rem; vertical-align: 1px; letter-spacing: 0.14em; }
+  .ev-a { background: var(--teal, #0f6e56); background: #0f6e56; color: #fff; }
+  .ev-b { background: #1a5fad; color: #fff; }
+  .ev-c { background: #8d8877; color: #fff; }
+  .ev-x { background: var(--gold); color: #fff; }
+  .entry-art svg { width: 100%; height: 100%; display: block; }
+</style>
+<!-- ===== AI・検索エンジン向け構造化データ（Article） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "教育の費用対効果図鑑",
+  "url": "https://kizukikumitate.com/education-roi-zukan.html",
+  "image": "https://kizukikumitate.com/education-roi-zukan-ogp.png",
+  "datePublished": "2026-07-19",
+  "dateModified": "2026-07-19",
+  "author": {
+    "@type": "Person",
+    "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
+    "name": "森本康仁",
+    "url": "https://kizukikumitate.com/jijitsu-daicho.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://kizukikumitate.com/#org",
+    "name": "きづきくみたて工房",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kizukikumitate.com/logotype.png"
+    }
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html">PTAのこれから</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./education-roi-zukan.html" class="active">教育の費用対効果図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html">PTAのこれから</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html" class="active">教育の費用対効果図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<section id="zhero">
+  <div class="eyebrow fade-up">Returns on Learning</div>
+  <h1 class="fade-up">教育の費用対効果図鑑</h1>
+  <p class="zhero-sub fade-up">
+    この対象に、この投資をしたら、何が返ってきたのか。世界には、教育投資のリターンをランダム化比較試験と数十年の追跡で厳密に測ってきた記録が蓄積されています。この図鑑はその代表例を、<strong>対象 × 介入 × コスト × リターン × 経路</strong>の軸で一枚ずつ収めたものです。効いた話だけでなく、効かなかった・逆効果だった「毒キノコ」も同じ棚に並べます。姉妹編の<a href="./shikumi-zukan.html" style="color: inherit; border-bottom: 1px solid rgba(216,90,48,0.5); text-decoration: none;">社会の仕組み図鑑</a>が「回路」を集めた地図なら、こちらは回路に流した1ドルの行方を追う帳簿です。各項目にエビデンス水準ラベルと原典リンクを添えています。
+  </p>
+  <div class="update-badge fade-up">この図鑑は随時更新していきます</div>
+</section>
+
+<section id="toc">
+  <div class="toc-inner fade-up">
+    <a href="#howto">読み方</a>
+    <a href="#cat-early">幼児期に蒔く</a>
+    <a href="#cat-dollar">1ドルの使い道</a>
+    <a href="#cat-school">教室と教員</a>
+    <a href="#cat-wall">紙一枚の壁</a>
+    <a href="#cat-adult">大人への投資</a>
+    <a href="#cat-nudge">数ドルで動くもの</a>
+    <a href="#cat-poison">毒キノコの頁</a>
+    <a href="#japan">日本の空白</a>
+  </div>
+</section>
+
+<section id="criteria">
+  <div class="criteria-box fade-up" id="howto">
+    <div class="eyebrow">How to Read</div>
+    <h2>この図鑑の読み方</h2>
+    <p>各カードは共通の軸で書かれています——<strong>誰に（対象）、何を（介入）、いくらで（コスト）、何が・いつ返ってきたか（リターン）、なぜ効いたか（経路）</strong>。金額や効果量は原典の代表値で、通貨・物価の換算方法により幅があります。正確な値は必ず原典をあたってください。</p>
+    <p>あわせて、裏付けの種類を示すラベルを付けています。挿絵にはどの一枚にも、金貨がひとつ描かれています。最初に投じられた1ドルの行方を、探してみてください。</p>
+    <div class="criteria-legend">
+      <div><span class="ev ev-a">A</span><span>ランダム化比較試験（RCT）で検証され、おおむね10年以上の長期追跡または複数地域での再現がある</span></div>
+      <div><span class="ev ev-b">B</span><span>RCTまたは大規模データによる強力な準実験で検証されている</span></div>
+      <div><span class="ev ev-x">X</span><span>厳密な検証の結果、「効果なし」または「逆効果」が確認された（毒キノコ）</span></div>
+    </div>
+    <p class="criteria-db"><strong>主に依拠しているデータベース・評価機関：</strong><br>
+      <a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL（MIT貧困アクションラボ）</a>
+      <a href="https://heckmanequation.org/" target="_blank" rel="noopener">Heckman Equation</a>
+      <a href="https://evidencebasedprograms.org/" target="_blank" rel="noopener">Social Programs That Work</a>
+      <a href="https://www.mdrc.org/" target="_blank" rel="noopener">MDRC</a>
+      <a href="https://www.campbellcollaboration.org/" target="_blank" rel="noopener">Campbell Collaboration</a>
+    </p>
+    <p class="criteria-note">※図鑑ファミリーの位置づけ——社会の回路の全体像は<a href="./shikumi-zukan.html" style="color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35);">社会の仕組み図鑑</a>、対話のミクロな技法は<a href="./dialogue-zukan.html" style="color: var(--forest); text-decoration: none; border-bottom: 1px solid rgba(26,95,173,0.35);">世界の対話技法図鑑</a>へ。この図鑑は「学びへの投資の帳簿」を受け持ちます。</p>
+  </div>
+</section>
+
+<section class="zcat" id="cat-early">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Sowing Early</div>
+    <h2>幼児期に蒔く</h2>
+    <p>最も早い投資が、最も高く返る。教育経済学が半世紀かけてたどり着いた、いちばん頑健な結論です。しかもリターンの多くは学力テストではなく、犯罪の減少や就労の安定——「非認知」の経路を通って返ってきます。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="perry">
+      <div class="entry-art"><img src="./assets/img/education-roi/01-perry.webp" alt="ペリー就学前計画の挿絵。積み木で遊ぶ幼児と、その塔が金貨の柱になって伸びていく様子" loading="eager" fetchpriority="high" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>ペリー就学前プロジェクト</h3><span class="origin"><span class="ev ev-a">A</span>USA / 1962</span></div>
+      <p class="desc">ミシガン州の低所得家庭の3〜4歳児123人に、質の高いプレスクールと家庭訪問を2年間提供した実験。40年の追跡で、投資1ドルあたり約12.9ドルが社会に返り、ヘックマンらの再分析でも年率7〜10%の収益率が確認されました。興味深いのは経路です。IQの差はやがて消えたのに、犯罪の減少・高卒率・就労の安定はずっと残った。返ってきたのは点数ではなく人生の側だった——非認知能力研究の原点であり、この図鑑の一枚目にふさわしい記録です。シカゴの公立校版（Child-Parent Centers）でも同水準の便益が追認されています。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://highscope.org/project/perry-preschool-study/" target="_blank" rel="noopener">HighScope（原研究）</a><a href="https://heckmanequation.org/resource/the-rate-of-return-to-the-highscope-perry-preschool-program/" target="_blank" rel="noopener">Heckman Equation（収益率の再分析）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="abecedarian">
+      <div class="entry-art"><img src="./assets/img/education-roi/02-abecedarian.webp" alt="アベセダリアン・プロジェクトの挿絵。夜明けの揺りかごに眠る乳児と、傍らに伸びる金貨の茎" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>アベセダリアン・プロジェクト</h3><span class="origin"><span class="ev ev-a">A</span>USA / 1972</span></div>
+      <p class="desc">生後数週間の乳児から5年間、フルタイムの保育・教育を提供した実験。ペリーより早く、より長く。40年後の追跡では学力や所得に加えて、30代の血圧や生活習慣病リスクまで下がっていました。健康効果まで含めた収益率をヘックマンは年率13%と推計しています。母親が働けるようになった効果も大きく、「子どもへの投資」は同時に「親への投資」でもある、と教えてくれる一枚です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://heckmanequation.org/" target="_blank" rel="noopener">Heckman Equation（ABC/CARE 13%分析）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="jamaica">
+      <div class="entry-art"><img src="./assets/img/education-roi/03-jamaica.webp" alt="ジャマイカ家庭訪問の挿絵。家庭で親子に遊び方を伝える保健員と、戸口から続く金貨の小径" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>ジャマイカ家庭訪問</h3><span class="origin"><span class="ev ev-a">A</span>Jamaica / 1986</span></div>
+      <p class="desc">発育阻害のある1〜2歳児の家庭を、地域の保健ワーカーが週1回・2年間訪ね、親子の遊び方と関わり方を伝えた——介入はそれだけです。20年後、参加者の賃金は対照群より25%高く、栄養状態の良かった比較集団の水準にほぼ追いついていました。高価な施設ではなく「親の関わり」への投資が国の貧困を越えて効く。Science誌に載ったこの研究は、途上国の幼児政策の流れを変えました。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.science.org/doi/10.1126/science.1251178" target="_blank" rel="noopener">Science（2014）</a><a href="https://www.nber.org/papers/w19185" target="_blank" rel="noopener">NBER w19185</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="headstart">
+      <div class="entry-art"><img src="./assets/img/education-roi/04-headstart.webp" alt="ヘッドスタートの挿絵。点線になって消えていく上昇曲線と、その先に立つ大人が手に持つ金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>ヘッドスタート</h3><span class="origin"><span class="ev ev-b">B</span>USA / 1965</span></div>
+      <p class="desc">低所得家庭の就学前児童に保育・健康・栄養・親支援を届ける、米国の全国プログラム。テストスコアの改善が小学校の間に薄れてしまう「フェードアウト」で有名ですが、長期の追跡では高卒率や健康など、大人になってからの改善が残ります。点数は消えるのに、人生は変わる——ペリーと同じ謎が全国規模でも現れました。測るものを間違えると、効いている投資を「効かない」と誤診してしまう、という教訓でもあります。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://acf.gov" target="_blank" rel="noopener">米保健福祉省ACF（運営官庁）</a><a href="https://evidencebasedprograms.org/" target="_blank" rel="noopener">Social Programs That Work（エビデンスレビュー）</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="cat-dollar">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">One Dollar, Two Orbits</div>
+    <h2>1ドルの使い道で、桁が変わる</h2>
+    <p>同じ1ドルでも、注ぎ込む場所しだいでリターンは桁ごと変わります。途上国での実験の蓄積は、教育投資の「単価表」を初めて可視化しました。最良の投資が薬だったり、情報一枚だったりするのがこの章の面白さです。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="deworming">
+      <div class="entry-art"><img src="./assets/img/education-roi/05-deworming.webp" alt="ケニアの虫下し薬の挿絵。巨大な一粒のカプセルと、学校へ向かう子どもたちの列、足元の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>虫下し薬の配布</h3><span class="origin"><span class="ev ev-a">A</span>Kenya / 1998</span></div>
+      <p class="desc">寄生虫の流行地域の小学校で、年1〜2回・1人あたり約0.5ドルの駆虫薬を配った実験。欠席が大きく減り、20年後には時給が13%、消費が14%高くなっていました。社会的収益率は控えめに見積もって年率37%。「教育のための最良の投資」が教室の外側——健康——にあった例です。ただし再分析をめぐる「Worm Wars」論争も有名で、エビデンス自体が戦場になりうることまで教えてくれます。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.povertyactionlab.org/evaluation/long-run-and-intergenerational-impacts-child-health-gains-deworming-kenya" target="_blank" rel="noopener">J-PAL（20年追跡の評価）</a><a href="https://www.pnas.org/doi/10.1073/pnas.2023185118" target="_blank" rel="noopener">PNAS（2021）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="tarl">
+      <div class="entry-art"><img src="./assets/img/education-roi/06-tarl.webp" alt="TaRL習熟度別指導の挿絵。本を積んだ階段の、それぞれに合う段に立って読む子どもたち" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>TaRL：習熟度に合わせて教える</h3><span class="origin"><span class="ev ev-a">A</span>India / 2001</span></div>
+      <p class="desc">学年ではなく「いまの習熟度」でグループを組み直し、基礎の読み書き計算に集中する。インドのNGOプラサムが開発したこの方法は、15年にわたるRCTの反復で、厳密に検証された教育プログラムの中で最大級の学力効果と費用対効果を示し続け、インドとアフリカで8,000万人以上に届いています。高価な機材も追加の教員も要らない。「並べ替える」だけで学びが動き出すという、設計の発明です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.povertyactionlab.org/evidence-effect/teaching-at-the-right-level" target="_blank" rel="noopener">J-PAL（エビデンス総説）</a><a href="https://teachingattherightlevel.org/evidence/" target="_blank" rel="noopener">TaRL Africa（評価一覧）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="progresa">
+      <div class="entry-art"><img src="./assets/img/education-roi/07-progresa.webp" alt="プログレサの挿絵。金貨を差し出す掌から、点線が学校へと伸びていく様子" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>プログレサ：条件付き現金給付</h3><span class="origin"><span class="ev ev-a">A</span>Mexico / 1997</span></div>
+      <p class="desc">子どもの就学と健診を条件に、貧困世帯の母親へ現金を給付する制度。導入時からRCTでの検証が制度設計に組み込まれ、中等教育の就学率が約8ポイント上がることが確認されました。効果が数字で示されていたため政権交代を生き延び、いまや60カ国以上に広がる標準政策に。「検証が制度を守る」ことを示した政策評価史の金字塔です。<a href="./shikumi-zukan.html#cct" style="color:var(--forest);text-decoration:none;border-bottom:1px solid rgba(26,95,173,0.35);">仕組み図鑑のCCTの項</a>と対になっています。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.ifpri.org/publication/impact-progresa-school-enrollments" target="_blank" rel="noopener">IFPRI（原評価報告）</a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0304387803001858" target="_blank" rel="noopener">Schultz 2004（JDE）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="jensen">
+      <div class="entry-art"><img src="./assets/img/education-roi/08-jensen.webp" alt="教育のリターンを伝える介入の挿絵。吹き出しの中の高さの違う二本の棒と、その上の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>「教育のリターン」を伝えるだけ</h3><span class="origin"><span class="ev ev-b">B</span>Dominican Rep. / 2001</span></div>
+      <p class="desc">中学生の男子に「中卒と高卒で実際の賃金がどれだけ違うか」を伝えた——介入はほぼそれだけ、費用はほぼゼロです。生徒たちは賃金差を大幅に過小評価しており、正しい情報を得た生徒は就学年数が0.2〜0.35年延びました。J-PALの費用対効果比較では、100ドルあたり0.23年分の就学という最上位クラス。足りなかったのはお金でも意欲でもなく、情報だったという発見です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://academic.oup.com/qje/article-abstract/125/2/515/1882172" target="_blank" rel="noopener">QJE（Jensen 2010）</a><a href="https://www.povertyactionlab.org/evaluation/impact-information-returns-education-demand-schooling-dominican-republic" target="_blank" rel="noopener">J-PAL（評価要約）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="textbooks">
+      <div class="entry-art"><img src="./assets/img/education-roi/09-textbooks.webp" alt="ケニアの教科書配布の挿絵。高く積まれた未開封の教科書と、届かない子どもたち、隅に落ちた金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>教科書の無償配布</h3><span class="origin"><span class="ev ev-x">X</span>Kenya / 1990s</span></div>
+      <p class="desc">「本さえ配れば学べるはず」という直感を、RCTは裏切りました。ケニア農村部での公式教科書の配布は平均的な学力を上げず、もともと成績上位の生徒だけを伸ばした。教科書は英語——多くの子にとって第三言語——で書かれ、大半の子には難しすぎたのです。カリキュラム自体が上位層向けにできているというこの発見が、のちのTaRLにつながりました。失敗が次の発明の親になった、毒キノコ章の先触れです。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.aeaweb.org/articles?id=10.1257/app.1.1.112" target="_blank" rel="noopener">AEJ: Applied（2009）</a><a href="https://www.nber.org/papers/w13300" target="_blank" rel="noopener">NBER w13300</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="cat-school">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Who Teaches Matters</div>
+    <h2>教室と教員</h2>
+    <p>先進国の学校の内側では、何にお金を使うと効くのか。この章の三枚が示すのは、箱（教室・機材）より人（教員・伴走者）に投資したほうが利回りが高い、という一貫したパターンです。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="star">
+      <div class="entry-art"><img src="./assets/img/education-roi/10-star.webp" alt="STAR実験の挿絵。すし詰めの教室とゆとりある教室、その間に積まれた金貨の柱" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>少人数学級（STAR実験）</h3><span class="origin"><span class="ev ev-a">A</span>USA / 1985</span></div>
+      <p class="desc">テネシー州で1万人超の子どもを、幼稚園〜小3の間だけ13〜17人の少人数学級へランダムに割り当てた大実験。学力は約0.2SD改善し、追跡では大学進学率も上がりました。ただしコストは高く、成人後の所得への効果は統計的にはっきりしません。さらにカリフォルニア州が一斉導入した際には教員の質が追いつかず、効果が薄れた。「効く」「割に合う」「広げられる」は全部別の問題だと教えてくれる、教育政策の基準点です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.nber.org/papers/w16381" target="_blank" rel="noopener">NBER w16381（Chetty et al.）</a><a href="https://www.povertyactionlab.org/evaluation/effects-kindergarten-classroom-earnings-united-states" target="_blank" rel="noopener">J-PAL（評価要約）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="teacher-va">
+      <div class="entry-art"><img src="./assets/img/education-roi/11-teacher-va.webp" alt="教員の質の経済価値の挿絵。ひとりの教師から広がる同心円の波紋と、対岸で待つ金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>教員の質の経済価値</h3><span class="origin"><span class="ev ev-b">B</span>USA / 2011</span></div>
+      <p class="desc">NYの小中学生250万人の学校記録を納税記録につないだ研究。付加価値の低い教員（下位5%）を平均的な教員に置き換えるだけで、1クラスあたり生涯所得の現在価値が約25万ドル増えると推計されました。良い教員は大学進学率を上げ、10代での出産を減らす。校舎でも教材でもなく「誰が教えるか」こそ教育投資の最大級の変数だという、巨大データの証言です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.aeaweb.org/articles?id=10.1257%2Faer.104.9.2633" target="_blank" rel="noopener">AER（Chetty, Friedman & Rockoff 2014）</a><a href="https://opportunityinsights.org/paper/teachersii/" target="_blank" rel="noopener">Opportunity Insights</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="tutoring">
+      <div class="entry-art"><img src="./assets/img/education-roi/12-tutoring.webp" alt="高濃度チュータリングの挿絵。小さな机をはさんで向き合う二人と、机上の本と金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>高濃度チュータリング</h3><span class="origin"><span class="ev ev-b">B</span>USA / 2010s</span></div>
+      <p class="desc">遅れのある生徒に1対1〜2の個別指導を、放課後ではなく正課の時間内に週数回。複数のRCTで数学0.3SD前後という大きな効果が繰り返し確認され、コロナ後の学習損失対策の本命になりました。ただし年間数千ドル/人と安くはありません。TaRLが「安くて効く」なら、こちらは「高いが確実に効く」。財布と緊急度に応じて選ぶ、処方箋の関係にあります。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL（個別化指導の総説）</a><a href="https://evidencebasedprograms.org/" target="_blank" rel="noopener">Social Programs That Work</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="cat-wall">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Paper Walls</div>
+    <h2>紙一枚の壁</h2>
+    <p>能力もお金も足りているのに、書類一枚・手続き一つで進路が閉ざされることがあります。この章は「壁を低くする投資」の記録。伴走すれば数十ドルで人生が動き、送り手の顔が見えなければ80万通のSMSも空を切ります。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="fafsa">
+      <div class="entry-art"><img src="./assets/img/education-roi/13-fafsa.webp" alt="FAFSA記入支援の挿絵。長い申請書に記入する手と、その先に少し開いた扉、隅の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>FAFSA記入支援：8分の伴走</h3><span class="origin"><span class="ev ev-a">A</span>USA / 2008</span></div>
+      <p class="desc">米国の奨学金申請書FAFSAは100問超。低所得家庭が確定申告支援の窓口に来たその場で記入を約8分手伝い、受給見込み額を見せた実験です。費用は1人あたり約88ドルで、大学進学・継続が8ポイント上昇。決定的なのは、情報だけ渡して手を動かさなかった群では効果がゼロだったこと。壁は「知らないこと」ではなく「書類そのもの」だった——伴走の価値を示した行動経済学の古典です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://scholar.harvard.edu/btl/hr-block-fafsa-experiment" target="_blank" rel="noopener">Harvard（Long研究室・研究概要）</a><a href="https://evidencebasedprograms.org/programs/hr-block-college-financial-aid-application-assistance/" target="_blank" rel="noopener">Social Programs That Work</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="asap">
+      <div class="entry-art"><img src="./assets/img/education-roi/14-asap.webp" alt="CUNY ASAPの挿絵。歩く学生にさしかけられた傘と、その先の学士帽、足元の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>CUNY ASAP：支援の束</h3><span class="origin"><span class="ev ev-a">A</span>USA / 2007</span></div>
+      <p class="desc">NY市立大学の2年制課程で、専任アドバイザー・授業料の穴埋め・交通費・チュータリングを「束」にして3年間提供したプログラム。単品では効かなかった支援が、束になると3年卒業率を22%から40%へほぼ倍増させました。1人あたり約1.4万ドルの追加費用をかけても、卒業生1人あたりの費用はむしろ下がった。オハイオ州での追試でも再現。「決め手をひとつ探す」のをやめた設計が効いた例です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.mdrc.org/news/press-release/new-study-shows-cuny-s-asap-program-nearly-doubles-three-year-graduation-rate" target="_blank" rel="noopener">MDRC（評価報告）</a><a href="https://www.mdrc.org/work/publications/eight-year-cost-analysis-randomized-controlled-trial-cunys-accelerated-study" target="_blank" rel="noopener">MDRC（8年コスト分析）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="nudge-scale">
+      <div class="entry-art"><img src="./assets/img/education-roi/15-nudge-scale.webp" alt="ナッジのスケール失敗の挿絵。同じ文面を映す無数のスマートフォンと、外にひとつ落ちた金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>ナッジのスケールアップ</h3><span class="origin"><span class="ev ev-x">X</span>USA / 2015</span></div>
+      <p class="desc">小規模実験で有望だったFAFSA提出リマインダーを、80万人超の全国規模で展開したところ——効果はゼロでした。文面、タイミング、個別相談の追加、どの工夫も効かなかった。地元の高校やカウンセラーという「顔の見える送り手」を失うと、同じ文面でも届かなくなる。パイロットの効果量には実施者の熱量が含まれている、というスケールアップ問題の代表例です。上のFAFSA伴走との対比でお読みください。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.nber.org/papers/w26158" target="_blank" rel="noopener">NBER w26158</a><a href="https://www.sciencedirect.com/science/article/abs/pii/S0167268120304819" target="_blank" rel="noopener">J. Economic Behavior & Org.（2021）</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="cat-adult">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Grown-ups Can Grow</div>
+    <h2>大人への投資</h2>
+    <p>教育投資は子どもで終わりません。ただし大人の学びの世界は、公教育に比べて検証が驚くほど手薄です。厳密に測られた数少ない例と、その隣に広がる巨大な空白を、この章に置きます。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="yearup">
+      <div class="entry-art"><img src="./assets/img/education-roi/16-yearup.webp" alt="セクター特化型職業訓練の挿絵。オフィスビルに立てかけた梯子を登る人と、一段目の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>セクター特化型職業訓練</h3><span class="origin"><span class="ev ev-a">A</span>USA / 2011</span></div>
+      <p class="desc">低所得の若者に、IT・金融など採用意欲の高い業界へ絞った訓練6ヶ月と企業実習6ヶ月を提供するYear Up。RCTで年収+30%（約8,000ドル）が7年後も持続し、米国の職業訓練で過去最大級の効果とされます。社会全体では投資1ドルにつき2.46ドルの純便益。一般的な公的職業訓練の効果が小さく消えやすいのと対照的で、「何でも教える」より「出口から逆算して教える」設計が効いた例です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://evidencebasedprograms.org/programs/year-up-program-workforce-training-for-economically-disadvantaged-young-adults/" target="_blank" rel="noopener">Social Programs That Work</a><a href="https://acf.gov/opre/report/summary-and-insights-ten-pace-and-hpog-10-job-training-evaluations-three-year-cross" target="_blank" rel="noopener">米ACF（PACE横断評価）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="bloom">
+      <div class="entry-art"><img src="./assets/img/education-roi/17-bloom.webp" alt="経営指導RCTの挿絵。工場とチェックリスト、そして中心に金貨を抱いた歯車" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>経営の教え方を、測る</h3><span class="origin"><span class="ev ev-b">B</span>India / 2008</span></div>
+      <p class="desc">インドの大手繊維工場に、品質管理や在庫管理などの経営手法をコンサルタントが約5ヶ月指導するRCT。生産性は初年度で17%上がり、数年内の工場新設にまでつながりました。示唆は二つあります。大人への教育投資も厳密に測れること。そして、日本を含む企業研修の世界には、これに匹敵する検証がほとんど存在しないこと。KirkpatrickやPhillipsの「枠組み」はあっても「実験」がない——この空白こそ、この図鑑が指さしたい場所です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://academic.oup.com/qje/article/128/1/1/1838606" target="_blank" rel="noopener">QJE（Bloom et al. 2013）</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="cat-nudge">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Nudges Under a Dollar</div>
+    <h2>数ドルで動くもの</h2>
+    <p>リターンの分子を大きくする代わりに、分母（コスト）を極限まで小さくする道もあります。効果量は小さくても、費用が1ドルなら費用対効果は跳ね上がる——「安さは正義」の章です。ただし前章のスケール失敗と併せてどうぞ。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="parent-texts">
+      <div class="entry-art"><img src="./assets/img/education-roi/18-parent-texts.webp" alt="保護者へのテキストメッセージの挿絵。ひとつの吹き出しが出た電話と、下で本を読む親子" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>保護者へのテキストメッセージ</h3><span class="origin"><span class="ev ev-b">B</span>USA / 2013</span></div>
+      <p class="desc">「今日のお風呂で、シャンプーの文字を探してみて」。幼児の親に週3回こんな一言をSMSで送るREADY4Kは、費用が年1ドル程度なのに、読み書きの基礎力を約0.1SD、家庭での関わりを0.2〜0.3SD改善しました。高校生版（教師から保護者への近況ひとこと）でも単位の取り落としが大きく減った報告があります。親の愛情は足りている。足りないのは、忙しさの中の「きっかけ」だったという発見です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://cepa.stanford.edu/content/one-step-time-effects-early-literacy-text-messaging-program-parents-preschoolers" target="_blank" rel="noopener">Stanford CEPA（READY4K原論文）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="mindset">
+      <div class="entry-art"><img src="./assets/img/education-roi/19-mindset.webp" alt="成長マインドセットの挿絵。横顔の頭から芽が伸び、傍らに小さなダンベル、頭の中に金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>成長マインドセット介入</h3><span class="origin"><span class="ev ev-b">B</span>USA / 2015</span></div>
+      <p class="desc">「知能は筋肉のように鍛えられる」と学ぶ25分×2回のオンライン教材を、全米代表サンプルの高校1年生に届けたRCT。低学力層のGPAが+0.1、費用は1人1ドル未満。効果量は小さいのに費用が極小なので、費用対効果では上位に入ります。ただし効果が出たのは、挑戦を歓迎する仲間文化のある学校だけ。心の持ちようは土壌があって初めて芽を出す——環境との相互作用まで示した、事前登録済みの大規模実験です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.nature.com/articles/s41586-019-1466-y" target="_blank" rel="noopener">Nature（Yeager et al. 2019）</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="cat-poison">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">Poison Pages</div>
+    <h2>毒キノコの頁</h2>
+    <p>きのこ図鑑に毒キノコの頁があるように、この図鑑にも「効かなかった・逆効果だった」記録が要ります。直感的に効きそうなものほど危ない。ここに並ぶ失敗はどれも、次の発明の親になりました。</p>
+  </div>
+  <div class="entry-list">
+
+    <div class="entry has-art fade-up" id="olpc">
+      <div class="entry-art"><img src="./assets/img/education-roi/20-olpc.webp" alt="One Laptop Per Childの挿絵。開いたノートPCと、その脇でうなだれる萎れた芽、転がる金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>One Laptop Per Child</h3><span class="origin"><span class="ev ev-x">X</span>Peru / 2008</span></div>
+      <p class="desc">「子ども1人に1台のノートPCを」。理想に世界が沸き、ペルーは大規模導入に踏み切りました。318校のRCTの結果は、数学も国語も効果なし。パソコンの操作は上達したものの、学びには変換されませんでした。機材があっても「使い方の指導」という配管がなければ水は流れない。教科書配布（ケニア）と同じ構造の失敗を、最先端のテクノロジーがなぞった例です。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.aeaweb.org/articles?id=10.1257%2Fapp.20150385" target="_blank" rel="noopener">AEJ: Applied（2017）</a><a href="https://publications.iadb.org/en/technology-and-child-development-evidence-one-laptop-child-program" target="_blank" rel="noopener">IDB（原評価）</a></div>
+    </div>
+    </div>
+
+    <div class="entry has-art fade-up" id="scared-straight">
+      <div class="entry-art"><img src="./assets/img/education-roi/21-scared-straight.webp" alt="Scared Straightの挿絵。刑務所の鉄格子と、跳ね返って逆向きに曲がる矢印、床の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>Scared Straight</h3><span class="origin"><span class="ev ev-x">X</span>USA / 1978</span></div>
+      <p class="desc">非行少年に刑務所を見学させ、受刑者に「脅して」もらう更生プログラム。テレビ番組にもなり人気を博しましたが、9本のRCTを統合した系統的レビューの結論は「非行がむしろ1〜28%増える」でした。恐怖は行動を変えない、どころか逆流する。「直感的に効きそう」と「効く」の距離を測るためにこそ検証がある——この図鑑に毒キノコの章を設けた理由そのものです。</p>
+      <div class="sources"><span class="src-label">原典・参考</span><a href="https://www.campbellcollaboration.org/review/juvenile-delinquency-scared-straight-etc-programmes/" target="_blank" rel="noopener">Campbell Collaboration（レビュー要約）</a><a href="https://onlinelibrary.wiley.com/doi/10.4073/csr.2013.5" target="_blank" rel="noopener">系統的レビュー全文（2013）</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+<section class="zcat" id="japan">
+  <div class="zcat-head fade-up">
+    <div class="eyebrow">The Blank Page</div>
+    <h2>補記：日本の空白</h2>
+    <p>ここまでの21枚に、日本発の研究は一枚もありません。</p>
+  </div>
+  <div class="entry-list">
+    <div class="entry has-art fade-up" id="japan-blank">
+      <div class="entry-art"><img src="./assets/img/education-roi/22-japan-blank.webp" alt="日本の空白の挿絵。開いた本の、まだ何も書かれていない罫線だけの白い頁と、隅の金貨" loading="lazy" decoding="async" width="800" height="1029"></div>
+      <div class="entry-body">
+      <div class="entry-top"><h3>まだ書かれていない頁</h3><span class="origin">Japan / ????</span></div>
+      <p class="desc">日本には、この図鑑の収載水準——ランダム化比較試験と長期追跡——を満たす教育投資の検証が、ほぼ存在しません。少人数学級の準実験研究や、自治体と研究者による実証の萌芽はありますが、年間十数兆円の公教育投資と数千億円規模の企業研修市場の大半は、「測らないまま」動いています。この白紙は批判ではなく、招待状のつもりです。あなたの現場の一クラス、一研修からでも、検証は始められます。この頁がカードで埋まっていく未来を、この図鑑は待っています。</p>
+      <div class="sources"><span class="src-label">はじめの一歩に</span><a href="https://www.povertyactionlab.org/" target="_blank" rel="noopener">J-PAL（評価の方法論）</a></div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="contribute">
+  <div class="eyebrow fade-up">Contribute</div>
+  <h2 class="fade-up">この図鑑は、随時更新していきます。</h2>
+  <p class="fade-up">
+    ここに載っているのは、測られてきた教育投資のほんの一部です。あなたの知っている「厳密に検証された教育・学習・育成への投資」を、ぜひ教えてください。国、対象、スケールは問いません。毒キノコの情報も大歓迎です。いただいた情報をもとに、この帳簿を一緒に育てていけたら嬉しいです。
+  </p>
+  <div class="cta-row fade-up">
+    <a class="primary" href="./index.html#contact">事例を教える・コラボする</a>
+    <a class="ghost" href="./shikumi-zukan.html">構造編：社会の仕組み図鑑を見る</a>
+    <a class="ghost" href="./roadmap.html">戦略編：ロードマップを見る</a>
+  </div>
+</section>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./alternative-education-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">世界のオルタナティブ教育図鑑</span><span class="kaiyu-desc">モンテッソーリからサドベリー、きのくに子どもの村まで。世界24のオルタナティブ教育を、思想・学びの風景・日本での出会い方つきで収蔵。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./shikumi-zukan.html"><span class="kaiyu-tag">図鑑・構造編</span><span class="kaiyu-name">社会の仕組み図鑑</span><span class="kaiyu-desc">お金・民意・土台。社会を作り直す世界の発明を集めた構造編。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./nemuru-okane-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">眠るお金図鑑</span><span class="kaiyu-desc">日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。タンス預金47兆円から内部留保600兆円まで、12の標本と、お金を教育にめぐらせる好循環アイデア10。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

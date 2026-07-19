@@ -815,6 +815,21 @@
         "taiwa-teichaku",
         "dialogue-program"
       ]
+    },
+    {
+      "id": "education-roi-zukan",
+      "path": "education-roi-zukan.html",
+      "title": "教育の費用対効果図鑑",
+      "tag": "世界の知恵",
+      "desc": "この対象に、この投資をしたら何が返ってきたか。ペリー就学前計画から虫下し薬、FAFSA伴走まで、世界で厳密に測られた教育投資のリターンを、原典と毒キノコ（効かなかった例）つきで収蔵。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-19",
+      "band": true,
+      "next": [
+        "alternative-education-zukan",
+        "shikumi-zukan"
+      ]
     }
   ]
 }

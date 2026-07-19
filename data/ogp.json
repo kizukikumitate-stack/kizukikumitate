@@ -427,6 +427,16 @@
       "eyebrow": "未来のリスク計算機 ／ 対話不足コスト",
       "title": "対話不足コスト計算機",
       "sub": "会議の空転・手戻り・離職。対話不足の損失を自社の数字で概算する。"
+    },
+    {
+      "page": "education-roi-zukan.html",
+      "img": "education-roi-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#d9a441",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "教育の費用対効果図鑑",
+      "sub": "1ドルの学びは、いくらで返ってくるか。世界で測られた教育投資のリターンと、効かなかった毒キノコの記録。"
     }
   ]
 }
