@@ -2026,10 +2026,37 @@
   var myWishes = lsGet("rktWishes", []);
   document.querySelectorAll(".rkt-mi-cta").forEach(function(btn){
     btn.addEventListener("click", function(){
-      var m = btn.getAttribute("data-mission");
-      location.href = "mailto:" + MAIL_TO + "?subject=" + encodeURIComponent("【平和な地球行きロケット】乗組先に立候補") + "&body=" + encodeURIComponent("気になったミッション: " + m + "\n組織名(会社・自治体・学校など): \nお名前: \nひとこと(任意): \n\n(rocket-map.html 航行計画より)");
+      openMissionForm(btn.getAttribute("data-mission"));
     });
   });
+  function openMissionForm(m){
+    openModal("うちでやってみたい");
+    mBody.appendChild(el("p", "rkt-m-note", "気になったミッション「" + m + "」について、お名前と組織を教えてください。書き終えたら「メールで操縦士に届ける」から送れます(いきなり送信はされません)。確認のうえ、操縦士(森本)から折り返しご連絡します。"));
+    var f = document.createElement("form");
+    var org = field("組織名(会社・自治体・学校など)", 40, "例:〇〇株式会社 / 〇〇市 / 〇〇小学校");
+    var name = field("お名前", 20, "");
+    var note = field("ひとこと(任意・40文字まで)", 40, "");
+    var submit = el("button", "rkt-m-submit", "内容を確認する");
+    submit.type = "submit";
+    f.appendChild(org.lab);
+    f.appendChild(name.lab);
+    f.appendChild(note.lab);
+    f.appendChild(submit);
+    f.addEventListener("submit", function(e){
+      e.preventDefault();
+      var o = org.inp.value.trim();
+      var nm = name.inp.value.trim();
+      if (!o){ org.inp.focus(); return; }
+      if (!nm){ name.inp.focus(); return; }
+      var body = "気になったミッション: " + m + "\n組織名(会社・自治体・学校など): " + o + "\nお名前: " + nm + "\nひとこと(任意): " + (note.inp.value.trim() || "(なし)") + "\n\n(rocket-map.html 航行計画より)";
+      mBody.innerHTML = "";
+      mBody.appendChild(el("p", "rkt-m-note", "ありがとうございます。下のボタンから、この内容をメールで操縦士(森本)に届けてください。確認のうえ、折り返しご連絡します。"));
+      mBody.appendChild(mailtoLink("【平和な地球行きロケット】乗組先に立候補", body, "メールで操縦士に届ける"));
+      mBody.appendChild(closeBtn());
+    });
+    mBody.appendChild(f);
+    org.inp.focus();
+  }
   function renderWishes(){
     var host = document.getElementById("rkt-wishes");
     if (!host){ return; }
