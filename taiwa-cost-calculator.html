@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>対話不足コスト計算機｜組織から漏れている見えない損失を概算する | きづきくみたて工房</title>
+<meta name="description" content="会議の空転・認識ズレによる手戻り・離職。対話不足が生む3つの損失経路を、あなたの会社の数字で概算できる無料ツール。出典明示・幅表示の誠実設計。">
+<link rel="canonical" href="https://kizukikumitate.com/taiwa-cost-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="対話不足コスト計算機｜組織から漏れている見えない損失を概算する">
+<meta property="og:description" content="会議の空転・認識ズレによる手戻り・離職。対話不足が生む3つの損失経路を、あなたの会社の数字で概算できる無料ツール。出典明示・幅表示の誠実設計。">
+<meta property="og:url" content="https://kizukikumitate.com/taiwa-cost-calculator.html">
+<meta property="og:image" content="https://kizukikumitate.com/taiwa-cost-calculator-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="対話不足コスト計算機｜組織から漏れている見えない損失を概算する">
+<meta name="twitter:description" content="対話不足が生む「会議の空転」「手戻り」「離職」の3つの損失を、あなたの会社の数字で概算する無料ツール。出典明示・幅表示の誠実設計。">
+<meta name="twitter:image" content="https://kizukikumitate.com/taiwa-cost-calculator-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@500&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "対話不足コスト計算機",
+  "url": "https://kizukikumitate.com/taiwa-cost-calculator.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "description": "組織の対話不足が生む損失を「会議の空転」「認識ズレによる手戻り」「離職」の3経路から概算するツール。",
+  "author": {
+    "@type": "Person",
+    "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
+    "name": "森本康仁",
+    "url": "https://kizukikumitate.com/jijitsu-daicho.html"
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+
+<style>
+:root{
+  --washi:#F7F3E9;
+  --indigo:#22384F;
+  --indigo-deep:#16263A;
+  --gold:#C89B3C;
+  --teal:#3E7C74;
+  --dawn:#B4543A;      /* 損失・漏れの色 */
+  --ink:#2B2B33;
+  --ink-soft:#5C5C68;
+  --line:#E3DCCB;
+  --card:#FFFFFF;
+  --navh:62px;         /* 固定グローバルナビの高さ */
+  --forest:#1a5fad;    /* サイト共通ナビ用 */
+  --charcoal:#1e1e1e;  /* サイト共通ナビ用 */
+  --purple:#3c3489;    /* サイト共通ナビ用 */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto} .drip{animation:none!important}}
+body{background:var(--washi);color:var(--ink);font-family:'Zen Kaku Gothic New',sans-serif;line-height:1.85;font-size:16px;padding-top:var(--navh);word-break:keep-all;overflow-wrap:break-word;hanging-punctuation:allow-end;line-break:strict}
+.wrap{max-width:880px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:'Shippori Mincho',serif;letter-spacing:.04em}
+a{color:var(--teal)}
+a:focus-visible,input:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+/* ===== サイト共通グローバルナビ（data/nav.json が生成） ===== */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+.nav-logo img{height:36px;width:auto;object-fit:contain}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto;flex-wrap:wrap}
+.nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em}
+.nav-links a:hover,.nav-links a.active{color:var(--forest)}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
+.nav-caret{font-size:0.6em;transition:transform 0.25s}
+.nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest)}
+.nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest)}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px)}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+.mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+.mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+.mobile-acc{width:100%;border-bottom:1px solid #e8e8e8}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0}
+.mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
+.mobile-acc-panel{display:none;flex-direction:column;align-items:center;padding-bottom:0.7rem}
+.mobile-acc.open .mobile-acc-panel{display:flex}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s}
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489}
+@media (max-width:1250px){.nav-links{display:none}.nav-hamburger{display:block}.nav-logo{margin-right:0}}
+
+/* ===== サイト共通フッター（data/nav.json が生成） ===== */
+footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9)}
+.footer-copy{font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.55)}
+@media(max-width:768px){footer{padding:2.4rem 1.5rem}}
+
+/* ヒーロー */
+.hero{background:var(--indigo);color:var(--washi);padding:56px 0 40px}
+.hero .tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:14px}
+.hero h1{font-weight:800;font-size:clamp(28px,5.6vw,42px);line-height:1.4}
+.hero p{margin-top:16px;max-width:640px;opacity:.92}
+.hero .disclaimer{font-size:13px;opacity:.75;margin-top:10px}
+
+/* 合計バー（常時表示） */
+.totalbar{position:sticky;top:var(--navh);z-index:50;background:var(--indigo-deep);color:var(--washi);
+  box-shadow:0 2px 12px rgba(22,38,58,.35)}
+.totalbar .inner{max-width:880px;margin:0 auto;padding:10px 20px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.totalbar .lbl{font-size:12px;letter-spacing:.08em;opacity:.8}
+.totalbar .num{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(20px,4.5vw,30px);color:var(--gold)}
+.totalbar .range{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.75}
+
+/* 漏水パイプSVG */
+.pipe-wrap{background:var(--indigo);padding:8px 0 48px}
+.pipe-wrap svg{display:block;width:100%;height:auto;max-width:880px;margin:0 auto}
+
+/* セクション共通 */
+section.calc{padding:52px 0 8px}
+.sec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.sec-head .no{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--dawn);letter-spacing:.12em}
+.sec-head h2{font-size:clamp(21px,4vw,27px);font-weight:800}
+.evidence{font-size:12px;font-family:'IBM Plex Mono',monospace;letter-spacing:.06em;
+  display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 12px;
+  color:var(--ink-soft);background:var(--card);margin-bottom:14px}
+.evidence b{color:var(--teal);font-weight:500}
+.sec-intro{color:var(--ink-soft);max-width:640px;margin-bottom:22px;font-size:15px}
+
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media(max-width:700px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px}
+.panel h3{font-size:15px;font-weight:600;margin-bottom:16px;color:var(--indigo)}
+
+.field{margin-bottom:18px}
+.field label{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;font-weight:500;gap:8px}
+.field .val{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--indigo);white-space:nowrap}
+.field .val small{font-size:11px;color:var(--ink-soft);margin-left:2px}
+input[type=range]{width:100%;margin-top:8px;accent-color:var(--teal);height:28px}
+.hint{font-size:12px;color:var(--ink-soft);line-height:1.6;margin-top:4px}
+.hint a{text-underline-offset:3px}
+
+.res{border-radius:8px;padding:16px 18px;margin-bottom:12px;background:#FBF6EC;border:1px solid var(--line)}
+.res .lbl{font-size:12px;letter-spacing:.06em;color:var(--ink-soft)}
+.res .num{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(24px,5vw,32px);color:var(--dawn)}
+.res .num small{font-size:13px;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;color:var(--ink-soft);margin-left:4px}
+.res .sub{font-size:12px;color:var(--ink-soft);margin-top:4px}
+.res.conf .lbl{color:var(--teal)}
+.confbar{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink-soft);margin-top:6px}
+
+.cta-inline{margin:20px 0 4px;font-size:14px}
+.cta-inline a{font-weight:700}
+
+/* 合計セクション */
+.total-sec{background:var(--indigo);color:var(--washi);margin-top:56px;padding:56px 0}
+.total-sec h2{font-size:clamp(22px,4.5vw,30px);font-weight:800;margin-bottom:8px}
+.total-sec .bignum{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(40px,9vw,64px);color:var(--gold);line-height:1.2}
+.total-sec .bignum small{font-size:18px;color:var(--washi);opacity:.8;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400}
+.total-sec .range-line{font-family:'IBM Plex Mono',monospace;font-size:14px;opacity:.85;margin-top:6px}
+.breakdown{margin-top:24px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media(max-width:700px){.breakdown{grid-template-columns:minmax(0,1fr)}}
+.bd{background:rgba(255,255,255,.07);border-radius:8px;padding:14px 16px}
+.bd .l{font-size:12px;opacity:.8}
+.bd .n{font-family:'Shippori Mincho',serif;font-size:20px;font-weight:600;color:var(--gold)}
+.total-sec .honest{margin-top:26px;font-size:14px;opacity:.85;max-width:680px;border-left:3px solid var(--gold);padding-left:16px}
+
+/* 適応課題の締め（シリーズ共通の型） */
+.adaptive{padding:56px 0}
+.adaptive h2{font-size:clamp(20px,4vw,26px);font-weight:800;margin-bottom:14px}
+.adaptive p{max-width:660px;color:var(--ink-soft);margin-bottom:14px}
+.adaptive .cta{display:inline-block;background:var(--dawn);color:#fff;border-radius:6px;
+  padding:14px 26px;font-weight:700;text-decoration:none;margin-top:8px}
+.adaptive .cta.sub{background:transparent;color:var(--teal);border:2px solid var(--teal);margin-left:10px}
+@media(max-width:520px){.adaptive .cta.sub{margin-left:0;margin-top:12px}}
+
+/* 出典・ライセンス注記（サイト共通フッターとは別物。update-nav.py の locate_footer に
+   誤認されないよう footer 要素ではなく div にする） */
+.pagenote{border-top:1px solid var(--line);padding:32px 0 64px;font-size:12px;color:var(--ink-soft)}
+.pagenote a{color:var(--teal)}
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html">PTAのこれから</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./taiwa-cost-calculator.html" class="active">対話不足コスト計算機</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html">PTAのこれから</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./taiwa-cost-calculator.html" class="active">対話不足コスト計算機</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<div class="totalbar" aria-live="polite">
+  <div class="inner">
+    <span class="lbl">現在の対話不足コスト概算</span>
+    <span class="num" id="barTotal">—</span>
+    <span class="range" id="barRange"></span>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="tag">ORGANIZATIONAL RISK CALCULATOR</div>
+    <h1>対話不足コスト計算機</h1>
+    <p>会議の空転、認識ズレによる手戻り、離職——。組織の見えない損失の多くは、対話の筋力不足から静かに漏れ出しています。3つの穴を、あなたの会社の数字でふさぐ前に、まず測ってみましょう。</p>
+    <p class="disclaimer">※ 本ツールは概算です。推定が必要な数値はすべてあなた自身の入力にもとづき、参照した外部調査には出典を明示しています。</p>
+  </div>
+</header>
+
+<!-- 漏水パイプ：3つの穴からの漏れが入力に連動 -->
+<div class="pipe-wrap" aria-hidden="true">
+<svg viewBox="0 0 880 190" xmlns="http://www.w3.org/2000/svg">
+  <!-- パイプ本体 -->
+  <rect x="40" y="52" width="800" height="34" rx="17" fill="#3A567A"/>
+  <rect x="40" y="56" width="800" height="8" rx="4" fill="#4E6D95" opacity=".7"/>
+  <!-- 継ぎ目 -->
+  <rect x="270" y="46" width="14" height="46" rx="4" fill="#2C4363"/>
+  <rect x="560" y="46" width="14" height="46" rx="4" fill="#2C4363"/>
+  <!-- 穴と漏れ（幅=推定精度、太さ=金額） -->
+  <g id="leak1">
+    <ellipse cx="160" cy="88" rx="10" ry="4" fill="#16263A"/>
+    <path id="drip1" class="drip" d="M160 90 C158 120 162 140 160 168" stroke="#C89B3C" stroke-width="6" fill="none" stroke-linecap="round" opacity=".9"/>
+    <text x="160" y="185" text-anchor="middle" font-size="12" fill="#F7F3E9" opacity=".85" font-family="'Zen Kaku Gothic New',sans-serif">会議の空転</text>
+  </g>
+  <g id="leak2">
+    <ellipse cx="440" cy="88" rx="10" ry="4" fill="#16263A"/>
+    <path id="drip2" class="drip" d="M440 90 C438 120 442 140 440 168" stroke="#C89B3C" stroke-width="4" fill="none" stroke-linecap="round" opacity=".65" stroke-dasharray="10 6"/>
+    <text x="440" y="185" text-anchor="middle" font-size="12" fill="#F7F3E9" opacity=".85" font-family="'Zen Kaku Gothic New',sans-serif">手戻り</text>
+  </g>
+  <g id="leak3">
+    <ellipse cx="720" cy="88" rx="10" ry="4" fill="#16263A"/>
+    <path id="drip3" class="drip" d="M720 90 C718 120 722 140 720 168" stroke="#C89B3C" stroke-width="4" fill="none" stroke-linecap="round" opacity=".55" stroke-dasharray="4 8"/>
+    <text x="720" y="185" text-anchor="middle" font-size="12" fill="#F7F3E9" opacity=".85" font-family="'Zen Kaku Gothic New',sans-serif">離職</text>
+  </g>
+  <!-- 水流方向 -->
+  <text x="52" y="45" font-size="11" fill="#F7F3E9" opacity=".6" font-family="'IBM Plex Mono',monospace">PAYROLL →</text>
+</svg>
+</div>
+
+<main class="wrap">
+
+  <!-- 共通入力 -->
+  <section class="calc" id="kihon">
+    <div class="sec-head"><span class="no">BASE</span><h2>まず、会社の基本数値</h2></div>
+    <p class="sec-intro">3つの経路すべてで使う土台の数字です。</p>
+    <div class="panel">
+      <div class="field">
+        <label for="inEmp"><span>従業員数</span><span class="val"><span id="vEmp">100</span><small>人</small></span></label>
+        <input type="range" id="inEmp" min="10" max="1000" step="10" value="100">
+      </div>
+      <div class="field">
+        <label for="inSalary"><span>平均年収</span><span class="val"><span id="vSalary">450</span><small>万円</small></span></label>
+        <input type="range" id="inSalary" min="250" max="1200" step="10" value="450">
+        <p class="hint">時給換算は「年収÷2,000時間」で自動計算します（現在：<span id="vWage">2,250</span>円/時）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 経路1 会議 -->
+  <section class="calc" id="kaigi">
+    <div class="sec-head"><span class="no">LEAK-01</span><h2>会議の空転コスト</h2></div>
+    <span class="evidence">推定の固さ：<b>●●●</b>（時間・人件費は実測、空転率のみ自己申告）</span>
+    <p class="sec-intro">社内会議の時間は役職平均で年間150〜430時間超に達するという大規模調査があります。そのうち何%が「空転」していたかだけを、あなたの実感で入力してください。</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>入力</h3>
+        <div class="field">
+          <label for="inMeetH"><span>1人あたり週の社内会議時間</span><span class="val"><span id="vMeetH">4.0</span><small>時間</small></span></label>
+          <input type="range" id="inMeetH" min="0.5" max="15" step="0.5" value="4">
+          <p class="hint">参考：メンバー層で週3時間超、部長級で8.6時間（パーソル総合研究所・中原淳 2017-18）</p>
+        </div>
+        <div class="field">
+          <label for="inWaste"><span>会議の空転率（実感値）</span><span class="val"><span id="vWaste">30</span><small>%</small></span></label>
+          <input type="range" id="inWaste" min="5" max="80" step="5" value="30">
+          <p class="hint">「議題と関係ない時間」「決まらず持ち越した時間」「出る必要がなかった会議」の割合。直近1週間の会議を思い出して入力してください。</p>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>この穴からの漏れ</h3>
+        <div class="res">
+          <div class="lbl">会議空転コスト（年間）</div>
+          <div class="num"><span id="outKaigi">—</span><small>/年</small></div>
+          <div class="sub">従業員数 × 年間会議時間 × 時給換算 × 空転率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 経路2 手戻り -->
+  <section class="calc" id="temodori">
+    <div class="sec-head"><span class="no">LEAK-02</span><h2>認識ズレによる手戻りコスト</h2></div>
+    <span class="evidence">推定の固さ：<b>●●○</b>（発生時間は自己申告、防止可能率も自己申告）</span>
+    <p class="sec-intro">「指示の解釈違いで資料を作り直した」「仕様のすり合わせ不足で差し戻された」「伝達漏れで二度手間になった」——先月を思い出しながら入力してください。</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>入力</h3>
+        <div class="field">
+          <label for="inRework"><span>1人あたり月の手戻り時間</span><span class="val"><span id="vRework">5</span><small>時間</small></span></label>
+          <input type="range" id="inRework" min="0" max="30" step="1" value="5">
+          <p class="hint">認識ズレ・伝達不足が原因で発生した「やり直し・差し戻し・二度手間」の合計時間。</p>
+        </div>
+        <div class="field">
+          <label for="inPrevent"><span>事前・途中の対話で防げた割合</span><span class="val"><span id="vPrevent">50</span><small>%</small></span></label>
+          <input type="range" id="inPrevent" min="10" max="90" step="10" value="50">
+          <p class="hint">着手前のすり合わせ5分、途中の確認1本があれば防げたと思う割合。迷ったら控えめに。</p>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>この穴からの漏れ</h3>
+        <div class="res">
+          <div class="lbl">手戻りコスト（年間・対話起因分）</div>
+          <div class="num"><span id="outRework">—</span><small>/年</small></div>
+          <div class="sub">従業員数 × 月間手戻り時間 × 12 × 時給換算 × 防止可能率</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 経路3 離職 -->
+  <section class="calc" id="rishoku">
+    <div class="sec-head"><span class="no">LEAK-03</span><h2>離職コスト（対話起因分）</h2></div>
+    <span class="evidence">推定の固さ：<b>●○○</b>（コスト係数・起因割合ともに推定。最も控えめに）</span>
+    <p class="sec-intro">1人の離職には採用費・引き継ぎロス・立ち上がり期間の生産性低下が伴い、一般に年収の50〜200%とされます。そのうち人間関係・コミュニケーション起因の割合だけを計上します。</p>
+    <div class="grid">
+      <div class="panel">
+        <h3>入力</h3>
+        <div class="field">
+          <label for="inTurn"><span>年間離職率</span><span class="val"><span id="vTurn">15</span><small>%</small></span></label>
+          <input type="range" id="inTurn" min="1" max="40" step="1" value="15">
+          <p class="hint">日本の平均は約15%（厚生労働省・雇用動向調査）</p>
+        </div>
+        <div class="field">
+          <label for="inCoef"><span>1人あたり離職コスト係数</span><span class="val"><span id="vCoef">80</span><small>%（年収比）</small></span></label>
+          <input type="range" id="inCoef" min="50" max="200" step="10" value="80">
+        </div>
+        <div class="field">
+          <label for="inAttr"><span>うち対話・人間関係起因の割合</span><span class="val"><span id="vAttr">30</span><small>%</small></span></label>
+          <input type="range" id="inAttr" min="10" max="60" step="5" value="30">
+          <p class="hint">退職理由調査では人間関係・上司との関係が常に上位。エン・ジャパン「本当の退職理由」調査（2024・回答5,168名）では、本当の退職理由トップが「人間関係が悪い」で46%でした。既定値はそれより控えめの30%に置いています。<a href="https://corp.en-japan.com/newsrelease/2024/38267.html" target="_blank" rel="noopener">出典</a></p>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>この穴からの漏れ</h3>
+        <div class="res">
+          <div class="lbl">離職コスト（年間・対話起因分）</div>
+          <div class="num"><span id="outTurn">—</span><small>/年</small></div>
+          <div class="sub">従業員数 × 離職率 × 平均年収 × コスト係数 × 起因割合</div>
+        </div>
+        <p class="cta-inline">この損失を止める具体策 → <a href="taiwa-teichaku.html">離職防止プログラム（詳細な損益分岐シミュレーター付き）</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 合計 -->
+</main>
+
+<section class="total-sec" id="goukei">
+  <div class="wrap">
+    <h2>3つの穴からの流出、合計</h2>
+    <div class="bignum"><span id="outTotal">—</span><small> /年</small></div>
+    <div class="range-line">概算の幅：<span id="outRange">—</span></div>
+    <div class="breakdown">
+      <div class="bd"><div class="l">会議の空転</div><div class="n" id="bdKaigi">—</div></div>
+      <div class="bd"><div class="l">手戻り（対話起因）</div><div class="n" id="bdRework">—</div></div>
+      <div class="bd"><div class="l">離職（対話起因）</div><div class="n" id="bdTurn">—</div></div>
+    </div>
+    <p class="honest">この数字は「測定値」ではなく、あなたの自己申告と公開調査の係数にもとづく構造化された概算です。幅は経路ごとの推定の固さ（会議±20%・手戻り±50%・離職±50%）を反映しています。正確な数字が欲しい場合は、会議後の1問サーベイを2週間まわすだけで、貴社固有の空転率が実測できます。</p>
+  </div>
+</section>
+
+<section class="adaptive">
+  <div class="wrap">
+    <h2>これは「技術的問題」ではなく「適応課題」です</h2>
+    <p>会議のルールを変える、ツールを入れる——それだけで解決するなら、とっくに解決しています。対話不足コストの根っこには、「意見を主張する」「異なる意見を聴く」「合意を形成する」という筋肉の訓練不足があります。筋肉は、知識では育ちません。トレーニングで育ちます。</p>
+    <p>対話は贅沢ではなく、コスト削減です。まず漏れを測ったあなたの次の一歩に。</p>
+    <a class="cta" href="dialogue-program.html">対話不足コストの実測診断について相談する</a>
+    <a class="cta sub" href="risk-calculators.html">計算機シリーズ一覧へ</a>
+  </div>
+</section>
+
+<div class="pagenote">
+  <div class="wrap">
+    <p>出典：パーソル総合研究所・中原淳（2017-18）「長時間労働に関する実態調査」／厚生労働省「雇用動向調査」／エン・ジャパン「本当の退職理由」調査（2024）／離職コスト係数は一般的な人事実務の相場（年収比50〜200%）による。</p>
+    <p style="margin-top:8px">© きづきくみたて工房（<a href="jijitsu-daicho.html">著者情報：事実の台帳</a>）｜本ツールは CC BY-NC-SA 4.0 で提供。商用利用のご相談は別途ライセンスにて。前提・出典・免責の詳細は <a href="risk-calculators.html">未来のリスク計算機について</a> にまとめています。</p>
+  </div>
+</div>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./taiwa-teichaku.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">離職防止プログラム</span><span class="kaiyu-desc">離職の真因「対話の不在」に、診断・対話介入・効果測定を一気通貫で行うリテンション設計。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./nemuru-okane-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">眠るお金図鑑</span><span class="kaiyu-desc">日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。タンス預金47兆円から内部留保600兆円まで、12の標本と、お金を教育にめぐらせる好循環アイデア10。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+/* ===== nav ===== */
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+</script>
+
+<script>
+(function(){
+  const $=id=>document.getElementById(id);
+  // 万円を受け取り、単位まで含めた文字列を返す（1億=10000万円で桁上げ）。
+  // 呼び出し側で単位を足すと「億万円」の二重付与になるため、単位はここに一元化する。
+  const fmt=n=>{
+    n=Math.round(n);
+    if(n<10000) return n.toLocaleString()+'万円';
+    const oku=n/10000;
+    return (oku>=10?Math.round(oku).toLocaleString():(Math.round(oku*10)/10))+'億円';
+  };
+  const unit=n=>n>=10000?'':''; // 万円ベース表示（億換算はfmt内）
+  const ids=['inEmp','inSalary','inMeetH','inWaste','inRework','inPrevent','inTurn','inCoef','inAttr'];
+
+  function calc(){
+    const emp=+$('inEmp').value, salary=+$('inSalary').value;
+    const wage=salary*10000/2000; // 円/時
+    $('vEmp').textContent=emp; $('vSalary').textContent=salary;
+    $('vWage').textContent=Math.round(wage).toLocaleString();
+
+    // 経路1 会議
+    const meetH=+$('inMeetH').value, waste=+$('inWaste').value/100;
+    $('vMeetH').textContent=meetH.toFixed(1); $('vWaste').textContent=Math.round(waste*100);
+    const kaigi=emp*meetH*48*wage*waste/10000; // 万円/年（48週）
+
+    // 経路2 手戻り
+    const rw=+$('inRework').value, pv=+$('inPrevent').value/100;
+    $('vRework').textContent=rw; $('vPrevent').textContent=Math.round(pv*100);
+    const rework=emp*rw*12*wage*pv/10000;
+
+    // 経路3 離職
+    const turn=+$('inTurn').value/100, coef=+$('inCoef').value/100, attr=+$('inAttr').value/100;
+    $('vTurn').textContent=Math.round(turn*100); $('vCoef').textContent=Math.round(coef*100); $('vAttr').textContent=Math.round(attr*100);
+    const risyoku=emp*turn*salary*coef*attr;
+
+    const total=kaigi+rework+risyoku;
+    // 幅：会議±20%、手戻り±50%、離職±50%
+    const lo=kaigi*0.8+rework*0.5+risyoku*0.5;
+    const hi=kaigi*1.2+rework*1.5+risyoku*1.5;
+
+    $('outKaigi').textContent=fmt(kaigi);
+    $('outRework').textContent=fmt(rework);
+    $('outTurn').textContent=fmt(risyoku);
+    $('outTotal').textContent=fmt(total);
+    $('outRange').textContent=fmt(lo)+' 〜 '+fmt(hi)+'/年';
+    $('bdKaigi').textContent=fmt(kaigi);
+    $('bdRework').textContent=fmt(rework);
+    $('bdTurn').textContent=fmt(risyoku);
+    $('barTotal').textContent='約'+fmt(total)+'/年';
+    $('barRange').textContent='('+fmt(lo)+'〜'+fmt(hi)+')';
+
+    // 漏水SVG連動：太さは金額比、破線密度は推定の固さ
+    const maxW=14, base=2;
+    const w1=base+maxW*Math.min(1,kaigi/Math.max(1,total));
+    const w2=base+maxW*Math.min(1,rework/Math.max(1,total));
+    const w3=base+maxW*Math.min(1,risyoku/Math.max(1,total));
+    $('drip1').setAttribute('stroke-width',w1.toFixed(1));
+    $('drip2').setAttribute('stroke-width',w2.toFixed(1));
+    $('drip3').setAttribute('stroke-width',w3.toFixed(1));
+  }
+  ids.forEach(id=>$(id).addEventListener('input',calc));
+  calc();
+})();
+</script>
+</body>
+</html>

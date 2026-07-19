@@ -417,6 +417,16 @@
       "eyebrow": "FACT REGISTRY ／ 事実の台帳",
       "title": "検証可能な事実を、<br>出典つきで。",
       "sub": "森本康仁・きづきくみたて工房の資格・経歴・実績の公式レジストリ。"
+    },
+    {
+      "page": "taiwa-cost-calculator.html",
+      "img": "taiwa-cost-calculator-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#B4543A",
+      "eyebrow": "未来のリスク計算機 ／ 対話不足コスト",
+      "title": "対話不足コスト計算機",
+      "sub": "会議の空転・手戻り・離職。対話不足の損失を自社の数字で概算する。"
     }
   ]
 }
