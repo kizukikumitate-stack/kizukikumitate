@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ダイアグラム配置 プレビュー</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Shippori+Mincho:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: #0a0820; color: white; }
+
+    /* ── ラベル ── */
+    .preview-section { margin-bottom: 0; }
+    .preview-label {
+      background: rgba(255,255,255,0.06);
+      border-left: 3px solid #7c3aed;
+      padding: 10px 24px;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    /* ── 共通NAV ── */
+    .fake-nav {
+      background: rgba(10,8,30,0.97);
+      border-bottom: 3px solid #3d2b7a;
+      padding: 14px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    .nav-logo { font-family: 'Shippori Mincho', serif; font-size: 15px; font-weight: 800; letter-spacing: 0.06em; }
+    .nav-items { display: flex; gap: 28px; font-size: 11px; color: rgba(255,255,255,0.55); letter-spacing: 0.08em; }
+    .nav-active { color: #a78bfa; font-weight: 700; }
+
+    /* ── 共通ヒーロー背景 ── */
+    .hero-bg {
+      background: linear-gradient(135deg, #2d1b69 0%, #1a1550 60%, #0d0d2e 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg::before {
+      content: ''; position: absolute;
+      top: -20%; right: -5%; width: 50vw; height: 50vw;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,0.05);
+      pointer-events: none;
+    }
+
+    /* ── ヒーローコンテンツ ── */
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(110,80,185,0.55);
+      border-radius: 20px; padding: 5px 16px;
+      font-size: 11px; letter-spacing: 0.1em;
+      margin-bottom: 20px;
+    }
+    .hero-h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 42px; font-weight: 800;
+      line-height: 1.3; margin-bottom: 20px;
+      letter-spacing: 0.01em;
+    }
+    .hero-h1 em { font-style: normal; color: #c4b5fd; }
+    .hero-sub {
+      font-size: 14px; color: rgba(255,255,255,0.7);
+      line-height: 1.9; margin-bottom: 28px; max-width: 480px;
+    }
+    .hero-cta {
+      background: white; color: #3730a3;
+      border: none; border-radius: 8px;
+      padding: 14px 32px; font-size: 14px;
+      font-weight: 600; cursor: pointer;
+    }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       A案: ヒーロー左パネル
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .hero-a {
+      padding: 48px 48px 56px;
+      display: flex;
+      align-items: flex-start;
+      gap: 48px;
+      min-height: 480px;
+    }
+
+    /* ダイアグラム（縦型） */
+    .diag-a {
+      flex-shrink: 0;
+      width: 200px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 20px 16px;
+      margin-top: 8px;
+    }
+    .diag-a-title {
+      font-size: 9px; letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    /* レベル3（HRD/OD/HRBP） */
+    .lv3-row {
+      display: flex; flex-direction: column; gap: 6px;
+      margin-bottom: 10px;
+    }
+    .lv3-label {
+      font-size: 9px; color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em; text-align: center;
+    }
+    .lv3-tags {
+      display: flex; gap: 5px; justify-content: center; flex-wrap: wrap;
+    }
+    .lv3-tag {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 5px; padding: 5px 9px;
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+    }
+
+    /* 矢印 */
+    .diag-arrow {
+      text-align: center;
+      font-size: 18px;
+      margin: 6px 0;
+      color: rgba(255,255,255,0.2);
+    }
+    .diag-arrow.bright {
+      color: #7c3aed;
+      font-size: 22px;
+    }
+
+    /* レベル2（このプログラム） */
+    .lv2-box {
+      background: rgba(110,80,185,0.45);
+      border: 1px solid rgba(160,130,240,0.6);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 4px;
+    }
+    .lv2-main { font-size: 13px; font-weight: 700; color: white; text-align: center; }
+    .lv2-badge {
+      text-align: center;
+      font-size: 9px; color: #c4b5fd;
+      margin-top: 4px; letter-spacing: 0.05em;
+    }
+
+    /* レベル1 */
+    .lv1-box {
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 9px 12px;
+    }
+    .lv1-main { font-size: 12px; color: rgba(255,255,255,0.5); text-align: center; }
+
+    /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+       B案: 横バンド（共通スタイル）
+    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+    .band {
+      background: rgba(3,1,18,0.9);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 14px 48px;
+    }
+    .band-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    /* 中央揃え */
+    .band-inner.center { justify-content: center; }
+    /* 左揃え */
+    .band-inner.left   { justify-content: flex-start; }
+    /* 右揃え */
+    .band-inner.right  { justify-content: flex-end; }
+
+    /* ステップ共通 */
+    .bs { display: flex; align-items: center; }
+    .bs-node {
+      display: flex; flex-direction: column;
+      padding: 8px 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+    }
+    .bs-lv { font-size: 9px; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; margin-bottom: 3px; }
+    .bs-name { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.6); white-space: nowrap; }
+
+    /* ①スタート */
+    .bs-start .bs-node {
+      border-color: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.03);
+    }
+    .bs-start .bs-name { color: rgba(255,255,255,0.5); }
+
+    /* ②ハイライト */
+    .bs-goal .bs-node {
+      border-color: rgba(160,130,240,0.65);
+      background: rgba(110,80,185,0.45);
+    }
+    .bs-goal .bs-name { color: white; font-size: 15px; }
+    .bs-goal .bs-lv { color: #c4b5fd; }
+    .bs-badge {
+      font-size: 9px; color: #c4b5fd;
+      margin-top: 3px; letter-spacing: 0.05em;
+    }
+
+    /* 矢印 */
+    .band-arrow {
+      font-size: 20px;
+      color: rgba(255,255,255,0.25);
+      margin: 0 6px;
+      flex-shrink: 0;
+    }
+    .band-arrow.bright {
+      color: #7c3aed;
+      font-size: 22px;
+    }
+
+    /* ③分岐エリア */
+    .bs-branches {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding-left: 8px;
+    }
+    .bs-branch-label {
+      font-size: 9px; color: rgba(255,255,255,0.25);
+      letter-spacing: 0.08em; margin-bottom: 3px;
+    }
+    .bs-branch-tags { display: flex; gap: 6px; }
+    .bs-branch-tag {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 5px; padding: 5px 11px;
+      font-size: 12px; color: rgba(255,255,255,0.38);
+      white-space: nowrap;
+    }
+
+    /* ③分岐への矢印（分岐ライン） */
+    .branch-arrow {
+      display: flex; flex-direction: column;
+      align-items: center;
+      margin: 0 8px;
+      gap: 6px;
+    }
+    .branch-arrow-line {
+      width: 1px; height: 20px;
+      background: rgba(255,255,255,0.15);
+    }
+    .branch-arrow-tri {
+      font-size: 14px; color: rgba(255,255,255,0.2);
+    }
+
+    /* ヒーロー (B案用) */
+    .hero-b {
+      padding: 40px 48px 52px;
+      min-height: 420px;
+    }
+
+    /* セパレータ */
+    .section-sep {
+      height: 32px;
+      background: rgba(255,255,255,0.03);
+      display: flex; align-items: center;
+      padding: 0 48px;
+      font-size: 10px; color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     A案: ヒーロー左パネル（縦型ダイアグラム）
+════════════════════════════════════════ -->
+<div class="preview-section">
+  <div class="preview-label">A案 ／ ヒーロー左側に縦型パネル</div>
+
+  <div class="fake-nav">
+    <div class="nav-logo">きづきくみたて工房</div>
+    <div class="nav-items">
+      <span>ABOUT</span><span>VISION</span><span>WORKSHOP</span>
+      <span>DEMOCRACY FITNESS</span><span>LSP</span>
+      <span class="nav-active">教育担当者向けプログラム</span>
+      <span>CONTACT</span>
+    </div>
+  </div>
+
+  <div class="hero-bg">
+    <div class="hero-a">
+
+      <!-- 左パネル：ダイアグラム -->
+      <div class="diag-a">
+        <div class="diag-a-title">人材・組織開発の全体像</div>
+
+        <!-- レベル③ -->
+        <div class="lv3-row">
+          <div class="lv3-label">③ この先の専門領域</div>
+          <div class="lv3-tags">
+            <div class="lv3-tag">HRD</div>
+            <div class="lv3-tag">OD</div>
+            <div class="lv3-tag">HRBP</div>
+          </div>
+        </div>
+
+        <div class="diag-arrow">↑</div>
+
+        <!-- レベル② -->
+        <div class="lv2-box">
+          <div class="lv2-main">研修設計専門家</div>
+          <div class="lv2-badge">← このプログラムの到達点</div>
+        </div>
+
+        <div class="diag-arrow bright">↑</div>
+
+        <!-- レベル① -->
+        <div class="lv1-box">
+          <div class="lv1-main">研修担当者</div>
+        </div>
+      </div>
+
+      <!-- 右：ヒーローコンテンツ -->
+      <div class="hero-content">
+        <div class="hero-badge">教育担当者向けプログラム　全6日間</div>
+        <h1 class="hero-h1">「とにかく研修を回す人」から<br><em>組織課題を解決する設計者</em>へ</h1>
+        <p class="hero-sub">成人発達理論・HPI・適応課題・生成AIという4つの革新的な技法を軸に、課題診断から育成計画まで一気通貫で設計できる思考の型を身につける研修設計プログラムです。</p>
+        <button class="hero-cta">プログラム詳細を見る →</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section-sep">─────────────────────────────────</div>
+
+<!-- ════════════════════════════════════════
+     B案-1: 横バンド ／ 中央揃え
+════════════════════════════════════════ -->
+<div class="preview-section">
+  <div class="preview-label">B案-1 ／ 横バンド・中央揃え</div>
+
+  <div class="fake-nav">
+    <div class="nav-logo">きづきくみたて工房</div>
+    <div class="nav-items">
+      <span>ABOUT</span><span>VISION</span><span>WORKSHOP</span>
+      <span>DEMOCRACY FITNESS</span><span>LSP</span>
+      <span class="nav-active">教育担当者向けプログラム</span>
+      <span>CONTACT</span>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="band-inner center">
+      <!-- ① -->
+      <div class="bs bs-start">
+        <div class="bs-node">
+          <div class="bs-lv">① 現在地</div>
+          <div class="bs-name">研修担当者</div>
+        </div>
+      </div>
+
+      <div class="band-arrow bright">→</div>
+
+      <!-- ② このプログラム -->
+      <div class="bs bs-goal">
+        <div class="bs-node">
+          <div class="bs-lv">② このプログラムの到達点</div>
+          <div class="bs-name">研修設計専門家</div>
+          <div class="bs-badge">← 6日間で到達</div>
+        </div>
+      </div>
+
+      <div class="band-arrow">→</div>
+
+      <!-- ③ 分岐 -->
+      <div class="bs">
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div class="bs-branch-label">③ この先の複数の道</div>
+          <div class="bs-branch-tags">
+            <div class="bs-branch-tag">HRD</div>
+            <div class="bs-branch-tag">OD</div>
+            <div class="bs-branch-tag">HRBP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bg">
+    <div class="hero-b">
+      <div class="hero-content">
+        <div class="hero-badge">教育担当者向けプログラム　全6日間</div>
+        <h1 class="hero-h1">「とにかく研修を回す人」から<br><em>組織課題を解決する設計者</em>へ</h1>
+        <p class="hero-sub">成人発達理論・HPI・適応課題・生成AIという4つの革新的な技法を軸に、課題診断から育成計画まで一気通貫で設計できる思考の型を身につける研修設計プログラムです。</p>
+        <button class="hero-cta">プログラム詳細を見る →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-sep">─────────────────────────────────</div>
+
+<!-- ════════════════════════════════════════
+     B案-2: 横バンド ／ 左揃え
+════════════════════════════════════════ -->
+<div class="preview-section">
+  <div class="preview-label">B案-2 ／ 横バンド・左揃え</div>
+
+  <div class="fake-nav">
+    <div class="nav-logo">きづきくみたて工房</div>
+    <div class="nav-items">
+      <span>ABOUT</span><span>VISION</span><span>WORKSHOP</span>
+      <span>DEMOCRACY FITNESS</span><span>LSP</span>
+      <span class="nav-active">教育担当者向けプログラム</span>
+      <span>CONTACT</span>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="band-inner left">
+      <div class="bs bs-start">
+        <div class="bs-node">
+          <div class="bs-lv">① 現在地</div>
+          <div class="bs-name">研修担当者</div>
+        </div>
+      </div>
+      <div class="band-arrow bright">→</div>
+      <div class="bs bs-goal">
+        <div class="bs-node">
+          <div class="bs-lv">② このプログラムの到達点</div>
+          <div class="bs-name">研修設計専門家</div>
+          <div class="bs-badge">← 6日間で到達</div>
+        </div>
+      </div>
+      <div class="band-arrow">→</div>
+      <div class="bs">
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div class="bs-branch-label">③ この先の複数の道</div>
+          <div class="bs-branch-tags">
+            <div class="bs-branch-tag">HRD</div>
+            <div class="bs-branch-tag">OD</div>
+            <div class="bs-branch-tag">HRBP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bg">
+    <div class="hero-b">
+      <div class="hero-content">
+        <div class="hero-badge">教育担当者向けプログラム　全6日間</div>
+        <h1 class="hero-h1">「とにかく研修を回す人」から<br><em>組織課題を解決する設計者</em>へ</h1>
+        <p class="hero-sub">成人発達理論・HPI・適応課題・生成AIという4つの革新的な技法を軸に、課題診断から育成計画まで一気通貫で設計できる思考の型を身につける研修設計プログラムです。</p>
+        <button class="hero-cta">プログラム詳細を見る →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-sep">─────────────────────────────────</div>
+
+<!-- ════════════════════════════════════════
+     B案-3: 横バンド ／ 右揃え
+════════════════════════════════════════ -->
+<div class="preview-section">
+  <div class="preview-label">B案-3 ／ 横バンド・右揃え</div>
+
+  <div class="fake-nav">
+    <div class="nav-logo">きづきくみたて工房</div>
+    <div class="nav-items">
+      <span>ABOUT</span><span>VISION</span><span>WORKSHOP</span>
+      <span>DEMOCRACY FITNESS</span><span>LSP</span>
+      <span class="nav-active">教育担当者向けプログラム</span>
+      <span>CONTACT</span>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="band-inner right">
+      <div class="bs bs-start">
+        <div class="bs-node">
+          <div class="bs-lv">① 現在地</div>
+          <div class="bs-name">研修担当者</div>
+        </div>
+      </div>
+      <div class="band-arrow bright">→</div>
+      <div class="bs bs-goal">
+        <div class="bs-node">
+          <div class="bs-lv">② このプログラムの到達点</div>
+          <div class="bs-name">研修設計専門家</div>
+          <div class="bs-badge">← 6日間で到達</div>
+        </div>
+      </div>
+      <div class="band-arrow">→</div>
+      <div class="bs">
+        <div style="display:flex; flex-direction:column; gap:5px;">
+          <div class="bs-branch-label">③ この先の複数の道</div>
+          <div class="bs-branch-tags">
+            <div class="bs-branch-tag">HRD</div>
+            <div class="bs-branch-tag">OD</div>
+            <div class="bs-branch-tag">HRBP</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bg">
+    <div class="hero-b">
+      <div class="hero-content">
+        <div class="hero-badge">教育担当者向けプログラム　全6日間</div>
+        <h1 class="hero-h1">「とにかく研修を回す人」から<br><em>組織課題を解決する設計者</em>へ</h1>
+        <p class="hero-sub">成人発達理論・HPI・適応課題・生成AIという4つの革新的な技法を軸に、課題診断から育成計画まで一気通貫で設計できる思考の型を身につける研修設計プログラムです。</p>
+        <button class="hero-cta">プログラム詳細を見る →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

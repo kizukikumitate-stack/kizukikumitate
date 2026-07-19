@@ -183,23 +183,6 @@
         ]
       },
       {
-        "label": "調査・データ",
-        "children": [
-          {
-            "label": "観測室について（調査・データ）",
-            "href": "research.html"
-          },
-          {
-            "label": "デモクラ筋白書2026 速報版",
-            "href": "democracy-fitness-hakusho-2026.html"
-          },
-          {
-            "label": "事実の台帳（発行者情報）",
-            "href": "jijitsu-daicho.html"
-          }
-        ]
-      },
-      {
         "label": "未来のリスク計算機",
         "children": [
           {
@@ -233,6 +216,23 @@
           {
             "label": "対話不足コスト計算機",
             "href": "taiwa-cost-calculator.html"
+          }
+        ]
+      },
+      {
+        "label": "調査・データ",
+        "children": [
+          {
+            "label": "観測室について（調査・データ）",
+            "href": "research.html"
+          },
+          {
+            "label": "デモクラ筋白書2026 速報版",
+            "href": "democracy-fitness-hakusho-2026.html"
+          },
+          {
+            "label": "事実の台帳（発行者情報）",
+            "href": "jijitsu-daicho.html"
           }
         ]
       },
