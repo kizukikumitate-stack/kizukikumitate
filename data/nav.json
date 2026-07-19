@@ -460,6 +460,10 @@
   ],
   "exclude": [
     {
+      "path": "jijitsu-daicho.html",
+      "reason": "事実の台帳（AI・メディア向けFact Registry）＝和紙基調の独自レジストリデザイン。グローバルナビ非搭載・自己完結フッター（2026-07-19 追加）"
+    },
+    {
       "path": "pta-dialogue-kit.html",
       "reason": "PTA対話キット系＝独自ブランドバー＋独自フッターの別LP（2026-07-15 森本さん確認）"
     },

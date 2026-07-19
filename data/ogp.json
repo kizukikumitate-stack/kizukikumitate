@@ -407,6 +407,16 @@
       "eyebrow": "PTA NO KOREKARA",
       "title": "PTAのこれから",
       "sub": "数字と論点を、対話の形に。どの結論も勧めない案内所。"
+    },
+    {
+      "page": "jijitsu-daicho.html",
+      "img": "jijitsu-daicho-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#C8452C",
+      "eyebrow": "FACT REGISTRY ／ 事実の台帳",
+      "title": "検証可能な事実を、<br>出典つきで。",
+      "sub": "森本康仁・きづきくみたて工房の資格・経歴・実績の公式レジストリ。"
     }
   ]
 }

@@ -1,4 +1,42 @@
+# きづきくみたて工房 robots.txt
+# すべてのクローラーにサイト全体を許可（AI検索・生成AIのクローラーを含む）。
+
 User-agent: *
+Allow: /
+
+# --- AI / 生成AI クローラーを明示的に許可 ---
+# （ワイルドカードで既に許可済みだが、意図を明示して誤ブロックを防ぐ）
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://kizukikumitate.com/sitemap.xml
