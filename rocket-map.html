@@ -866,7 +866,16 @@
   .rocket-map .rkt-ws{position:fixed; inset:0; z-index:410}
   .rocket-map .rkt-ws[hidden]{display:none}
   .rocket-map .rkt-ws-veil{position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 40%, rgba(10,8,24,.18), rgba(10,8,24,.6) 90%)}
-  .rocket-map .rkt-ws.q-mode .rkt-ws-veil{background:rgba(10,8,24,.18)}
+  .rocket-map .rkt-ws.q-mode .rkt-ws-veil{background:rgba(10,8,24,.14)}
+  /* 問い表示中: オーバーレイはマウスを素通しにして、図のホバー探索を可能にする(吹き出しと操作バーだけ操作可) */
+  .rocket-map .rkt-ws.q-mode{pointer-events:none}
+  .rocket-map .rkt-ws.q-mode .rkt-ws-card, .rocket-map .rkt-ws.q-mode .rkt-ws-ctrl{pointer-events:auto}
+  /* 投影モード中は下の箱を整理: 案内板はホバーで初めて現れ、航行計画・みんなで作るは隠す */
+  body.rkt-ws-on .rocket-map .rkt-panel{display:none}
+  body.rkt-ws-on .rocket-map .rkt-hint, body.rkt-ws-on .rocket-map .rkt-plan, body.rkt-ws-on .rocket-map .rkt-coop{display:none}
+  body.rkt-ws-on .rocket-map .rkt-wrap{padding-bottom:96px}
+  .rocket-map .rkt-ws-next{font-family:inherit; font-size:12px; font-weight:700; color:var(--indigo); background:var(--gold); border:none; border-radius:999px; padding:4px 14px; cursor:pointer}
+  .rocket-map .rkt-ws-next:hover{background:#f0d9a8}
   .rocket-map .rkt-ws-card.edge{width:min(370px, 28vw); padding:22px 24px 24px}
   .rocket-map .rkt-ws-card.edge .rkt-ws-q{font-size:clamp(17px, 1.8vw, 26px); line-height:1.85}
   .rocket-map .rkt-ws-card.edge-l{left:18px; right:auto; top:50%; transform:translateY(-50%)}
@@ -1717,6 +1726,10 @@
     });
     renderExtra(key);
     markVisited(key);
+    /* 投影モード中: 隠している案内板を、ホバー/クリックで初めて表示する */
+    if (document.body.classList.contains("rkt-ws-on")){
+      document.getElementById("rkt-panel").style.display = "block";
+    }
   }
 
   var canHover = window.matchMedia("(hover: hover)").matches;
@@ -2103,7 +2116,13 @@
   function wsRenderCtrl(){
     wsCtrl.innerHTML = "";
     if (wsStep >= 0){ wsCtrl.appendChild(wsDots()); }
-    wsCtrl.appendChild(el("span", "rkt-ws-keys", "クリック / → 次へ ・ ← 前へ ・ Esc 終了"));
+    wsCtrl.appendChild(el("span", "rkt-ws-keys", "図にカーソルで案内表示 ・ ← 前へ ・ Esc 終了"));
+    if (wsStep >= 0){
+      var nxt = el("button", "rkt-ws-next", "次へ →");
+      nxt.type = "button";
+      nxt.addEventListener("click", wsNext);
+      wsCtrl.appendChild(nxt);
+    }
     var quit = el("button", "rkt-ws-quit", "終了");
     quit.type = "button";
     quit.addEventListener("click", wsExit);
@@ -2185,6 +2204,7 @@
   function wsStart(){
     wsStep = -1; wsTheme = null;
     document.body.classList.add("rkt-ws-on");
+    document.getElementById("rkt-panel").style.display = "";
     wsRoot.hidden = false;
     wsRender();
   }
@@ -2192,6 +2212,7 @@
     wsRoot.hidden = true;
     document.body.classList.remove("rkt-ws-on", "rkt-ws-shift-l", "rkt-ws-shift-r");
     wsRoot.classList.remove("q-mode");
+    document.getElementById("rkt-panel").style.display = "";
     wsGlow(null);
     wsStep = -1;
     if (location.search.indexOf("workshop=") !== -1){
