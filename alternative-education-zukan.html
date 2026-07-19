@@ -58,6 +58,11 @@
   .card .meta{font-size:12px;color:var(--sub);}
   .card .tag{display:inline-block;font-size:11px;color:#fff;background:var(--cc);border-radius:999px;padding:2px 10px;margin-top:2px;align-self:flex-start;}
   .card .oneline{font-size:13px;color:var(--ink);border-top:1px dashed var(--line);padding-top:10px;margin-top:4px;}
+  .card .cardimg{margin:-20px -20px 6px;overflow:hidden;background:var(--line);}
+  .card .cardimg img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;}
+  .m-hero{margin:0 -32px 20px;overflow:hidden;background:var(--line);}
+  .m-hero img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block;}
+  @media(max-width:560px){.m-hero{margin:0 -20px 18px;}}
   .empty{grid-column:1/-1;text-align:center;color:var(--sub);padding:40px 0;font-size:14px;}
   /* ===== 共通グローバルナビ（全ページ共通・台帳自動同期） ===== */
   nav{position:sticky;top:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;}
@@ -619,6 +624,7 @@ function render(){
   grid.innerHTML = items.length ? items.map(d => {
     const i = DATA.indexOf(d);
     return `<article class="card" style="--cc:${CATS[d.cat].color}" onclick="openModal(${i})">
+      <div class="cardimg"><img src="images/alt-edu/${String(i+1).padStart(3,'0')}-altedu.webp" alt="${d.name}の学びの風景" width="1600" height="900" loading="lazy" decoding="async"></div>
       <div class="no">No.${String(i+1).padStart(2,'0')}</div>
       <div class="emoji">${d.emoji}</div>
       <h2>${d.name}</h2>
@@ -640,6 +646,7 @@ function openModal(i){
       <div class="meta">${d.flag} ${d.country}・${d.year}〜｜創始: ${d.founder}</div>
     </div>
     <div class="m-body">
+      <div class="m-hero"><img src="images/alt-edu/${String(i+1).padStart(3,'0')}-altedu.webp" alt="${d.name}の学びの風景" width="1600" height="900" loading="lazy" decoding="async"></div>
       <div class="facts">
         <div class="fact"><div class="k">対象年齢</div><div class="v">${d.age}</div></div>
         <div class="fact"><div class="k">規模・広がり</div><div class="v">${d.scale}</div></div>
