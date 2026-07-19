@@ -188,8 +188,9 @@
   .scene-head h2 { margin-bottom: 0; }
   .scene-read { font-size: 0.8rem; color: var(--ink-soft); }
   .scene-year { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.4rem; color: var(--dawn); margin-right: 0.6rem; }
-  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.9rem; }
-  .scene-frame svg { display: block; width: 100%; height: auto; }
+  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.55rem; background: #f4f1e8; }
+  .scene-frame img { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 571; object-fit: cover; }
+  .scene-caption { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1rem; color: var(--ink); margin-bottom: 0.7rem; text-align: center; word-break: keep-all; overflow-wrap: break-word; }
   .scrub-label { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
   .scrub-label strong { color: var(--ink); font-weight: 600; }
   #scrub { width: 100%; accent-color: var(--dawn); }
@@ -351,6 +352,14 @@
       </div>
     </li>
     <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./risk-calculators.html">このシリーズについて</a>
@@ -433,6 +442,14 @@
       <a href="./ted-collection.html">おすすめTED集</a>
       <a href="./nobel-peace.html">ノーベル平和賞</a>
       <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -542,15 +559,11 @@
         </div>
       </div>
       <div class="scene-frame">
-        <svg id="scene" viewBox="0 0 760 300" role="img" aria-label="学校の様子"></svg>
+        <img id="scene" src="./images/school/scene-3.webp" width="1000" height="571" alt="学校の様子" decoding="async">
       </div>
+      <p class="scene-caption" id="sceneStage">—</p>
       <p class="scrub-label">年をスライドすると、学校の様子が変わります → <strong id="scrubYearText">2038年</strong></p>
       <input type="range" id="scrub" min="2026" max="2056" step="1" value="2038" aria-label="表示する年">
-      <div class="legend">
-        <span><i class="sq" style="background:var(--gold)"></i>通常学級</span>
-        <span><i class="sq" style="background:var(--teal)"></i>少人数・複式</span>
-        <span><i class="sq" style="background:#3a3550"></i>その学年の子がいない</span>
-      </div>
     </div>
   </div>
 </section>
@@ -857,88 +870,27 @@ function drawChart(rows, touhaigouYear, alreadyTouhaigou){
   document.getElementById('chart').innerHTML = s;
 }
 
-/* ===== scene（その年の学校の様子） ===== */
+/* ===== scene（その年の学校の様子） =====
+   全校児童数（total）で「学校の様子」を表す5枚のイラストを切り替える。
+   絵は Gemini 生成のフラットイラスト（images/school/scene-1〜5.webp）。
+   1=声が響く 〜 5=灯りが消える、の順。しきい値は元コードと同一。 */
+const SCENES = [
+  { min: FUKUSHIKI, src: './images/school/scene-1.webp', label: '校庭に、子どもたちの声が響く' },
+  { min: 34,        src: './images/school/scene-2.webp', label: '1クラスずつ、静かになっていく' },
+  { min: TOUHAIGOU, src: './images/school/scene-3.webp', label: '学年をまたいで、ひとつの教室に' },
+  { min: 10,        src: './images/school/scene-4.webp', label: '統廃合が検討される規模に' },
+  { min: -1,        src: './images/school/scene-5.webp', label: 'この校舎から、灯りが消える' },
+];
+SCENES.forEach(s => { const im = new Image(); im.src = s.src; });
+
 function drawScene(row){
   const total = row.total;
-  const grades = row.grades;
-  const closing = total < 10;
-  const warm = total >= TOUHAIGOU;
-
-  const skyTop = warm ? '#dfeaf0' : '#d3ccc2';
-  const ground = warm ? '#cdd6ad' : '#c2bda8';
-  const wall   = warm ? '#eef0ef' : '#d9d6cf';
-
-  const stage =
-    total >= FUKUSHIKI ? '校庭に、子どもたちの声が響く' :
-    total >= 34        ? '1クラスずつ、静かになっていく' :
-    total >= TOUHAIGOU ? '学年をまたいで、ひとつの教室に' :
-    total >= 10        ? '統廃合が検討される規模に' :
-                         'この校舎から、灯りが消える';
-
-  let s = '';
-  s += '<defs><linearGradient id="ssky" x1="0" y1="0" x2="0" y2="1">'
-    + '<stop offset="0%" stop-color="' + skyTop + '"/>'
-    + '<stop offset="100%" stop-color="' + (warm ? '#f2efe6' : '#c8c1b6') + '"/>'
-    + '</linearGradient></defs>';
-  s += '<rect x="0" y="0" width="760" height="300" fill="url(#ssky)"/>';
-  s += '<rect x="0" y="272" width="760" height="28" fill="' + ground + '"/>';
-
-  // 校舎
-  s += '<rect x="440" y="150" width="270" height="122" fill="' + wall + '"/>';
-  s += '<rect x="440" y="138" width="270" height="16" fill="' + (warm ? '#5a6f88' : '#8a8578') + '"/>';
-  s += '<circle cx="575" cy="130" r="10" fill="' + wall + '" stroke="' + C.inkSoft + '" stroke-width="1.5"/>';
-  // 教室の窓＝6学年
-  grades.forEach((g, i) => {
-    const wx = 452 + i * 42;
-    const combined = g > 0 && g < 8;
-    const empty = g < 1;
-    const fill = empty ? '#3a3550' : combined ? C.teal : C.gold;
-    const op = empty ? 0.55 : 1;
-    s += '<rect x="' + wx + '" y="168" width="32" height="34" rx="2" fill="' + fill + '" opacity="' + op + '"/>';
-    s += '<line x1="' + (wx + 16) + '" y1="168" x2="' + (wx + 16) + '" y2="202" stroke="' + wall + '" stroke-width="1.5"/>';
-    s += '<line x1="' + wx + '" y1="185" x2="' + (wx + 32) + '" y2="185" stroke="' + wall + '" stroke-width="1.5"/>';
-    s += '<text x="' + (wx + 16) + '" y="214" text-anchor="middle" font-size="8" fill="' + C.inkSoft + '">' + (i + 1) + '年</text>';
-    if (combined) s += '<text x="' + (wx + 16) + '" y="163" text-anchor="middle" font-size="9" fill="' + C.teal + '" font-weight="700">複</text>';
-  });
-  // 昇降口
-  s += '<rect x="558" y="236" width="34" height="36" fill="' + (closing ? '#4a4636' : '#6e6555') + '"/>';
-  if (closing) s += '<text x="575" y="260" text-anchor="middle" font-size="12" fill="#faf8f2" font-weight="800">閉</text>';
-
-  // 校門
-  const gate = closing ? '#7a715c' : '#8a7f66';
-  s += '<rect x="40" y="228" width="6" height="44" fill="' + gate + '"/>';
-  s += '<rect x="120" y="228" width="6" height="44" fill="' + gate + '"/>';
-  s += '<rect x="40" y="224" width="86" height="6" fill="' + gate + '"/>';
-  if (closing) s += '<line x1="46" y1="272" x2="120" y2="234" stroke="#7a715c" stroke-width="3"/>';
-
-  // 桜の木
-  s += '<rect x="180" y="222" width="7" height="50" fill="#7a6a4e"/>';
-  s += '<circle cx="183" cy="212" r="26" fill="' + C.sakura + '" opacity="' + (warm ? 0.9 : 0.55) + '"/>';
-  s += '<circle cx="168" cy="220" r="16" fill="' + C.sakura + '" opacity="' + (warm ? 0.85 : 0.5) + '"/>';
-  s += '<circle cx="200" cy="220" r="16" fill="' + C.sakura + '" opacity="' + (warm ? 0.85 : 0.5) + '"/>';
-
-  // 掲揚ポール（閉校時は旗なし）
-  s += '<rect x="410" y="180" width="3" height="92" fill="#8a8578"/>';
-  if (!closing) s += '<path d="M413,182 L440,188 L413,196 Z" fill="' + C.dawn + '" opacity="0.85"/>';
-
-  // 校庭の子ども（最大28体まで表示）
-  const shown = Math.min(total, 28);
-  const kidColors = [C.dawn, C.teal, C.gold, C.indigo];
-  for (let i = 0; i < shown; i++) {
-    const row2 = Math.floor(i / 14);
-    const x = 70 + (i % 14) * 45 + row2 * 22;
-    const y = 250 + row2 * 16;
-    s += '<circle cx="' + x + '" cy="' + y + '" r="3.4" fill="' + C.indigo + '"/>';
-    s += '<rect x="' + (x - 2.6) + '" y="' + (y + 3) + '" width="5.2" height="9" rx="2.2" fill="' + kidColors[i % 4] + '"/>';
-  }
-  if (total > 28) s += '<text x="70" y="242" font-size="11" fill="' + C.inkSoft + '">ほか ' + (total - 28) + ' 人</text>';
-
-  // 見出し
-  s += '<text x="380" y="26" text-anchor="middle" font-size="15" font-family="\'Shippori Mincho\',serif" font-weight="800" fill="' + (warm ? C.indigo : C.dawn) + '">' + stage + '</text>';
-
-  const svg = document.getElementById('scene');
-  svg.innerHTML = s;
-  svg.setAttribute('aria-label', '学校の様子: ' + stage);
+  const sc = SCENES.find(s => total >= s.min) || SCENES[SCENES.length - 1];
+  const img = document.getElementById('scene');
+  if (img.getAttribute('src') !== sc.src) img.setAttribute('src', sc.src);
+  img.alt = '学校の様子: ' + sc.label;
+  const stage = document.getElementById('sceneStage');
+  if (stage) stage.textContent = sc.label;
 }
 
 /* ===== render ===== */

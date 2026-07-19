@@ -224,8 +224,9 @@
   .scene-head h2 { margin-bottom: 0; }
   .scene-read { font-size: 0.8rem; color: var(--ink-soft); }
   .scene-year { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1.4rem; color: var(--dawn); margin-right: 0.6rem; }
-  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.9rem; }
-  .scene-frame svg { display: block; width: 100%; height: auto; }
+  .scene-frame { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-bottom: 0.55rem; background: #f4f1e8; }
+  .scene-frame img { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 571; object-fit: cover; }
+  .scene-caption { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: 1rem; color: var(--ink); margin-bottom: 0.7rem; text-align: center; word-break: keep-all; overflow-wrap: break-word; }
   .scrub-label { font-size: 0.8rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
   .scrub-label strong { color: var(--ink); font-weight: 600; }
   #scrub { width: 100%; accent-color: var(--dawn); }
@@ -380,6 +381,14 @@
       </div>
     </li>
     <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./risk-calculators.html">このシリーズについて</a>
@@ -462,6 +471,14 @@
       <a href="./ted-collection.html">おすすめTED集</a>
       <a href="./nobel-peace.html">ノーベル平和賞</a>
       <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -593,8 +610,9 @@
         </div>
       </div>
       <div class="scene-frame">
-        <svg id="scene" viewBox="0 0 760 300" role="img" aria-label="工房の様子"></svg>
+        <img id="scene" src="./images/skill-succession/scene-3.webp" width="1000" height="571" alt="工房の様子" decoding="async">
       </div>
+      <p class="scene-caption" id="sceneStage">—</p>
       <p class="scrub-label">年をスライドすると、現場の様子が変わります → <strong id="scrubYearText">2036年</strong></p>
       <input type="range" id="scrub" min="2026" max="2056" step="1" value="2036" aria-label="表示する年">
       <div class="ends" style="color:var(--ink-soft);opacity:1"><span>2026</span><span>2056</span></div>
@@ -906,112 +924,27 @@ function drawChart(rows, lossYear, initialKnowledge){
   document.getElementById('chart').innerHTML = s;
 }
 
-/* ===== scene ===== */
-function figureSVG(f, cx){
-  const y = 250;
-  if (f.type === 'gone') {
-    return '<g opacity="0.5">'
-      + '<rect x="' + (cx - 16) + '" y="' + (y - 6) + '" width="32" height="6" fill="#a89d84"/>'
-      + '<line x1="' + (cx - 12) + '" y1="' + y + '" x2="' + (cx - 12) + '" y2="' + (y + 18) + '" stroke="#a89d84" stroke-width="2"/>'
-      + '<line x1="' + (cx + 12) + '" y1="' + y + '" x2="' + (cx + 12) + '" y2="' + (y + 18) + '" stroke="#a89d84" stroke-width="2"/>'
-      + '<text x="' + cx + '" y="' + (y + 34) + '" text-anchor="middle" font-size="9" fill="#9a9080">退職</text>'
-      + '</g>';
-  }
-  const auraR = 14 + f.aura * 16;
-  const isMaster = f.type === 'veteran' || f.type === 'master';
-  const bodyColor = f.type === 'apprentice' ? C.teal : C.indigo;
-  let g = '<g>';
-  if (f.aura > 0.02) {
-    g += '<circle cx="' + cx + '" cy="' + (y - 10) + '" r="' + auraR + '" fill="' + C.gold + '" opacity="' + (0.13 * f.aura) + '"/>';
-    g += '<circle cx="' + cx + '" cy="' + (y - 10) + '" r="' + (auraR * 0.62) + '" fill="' + C.gold + '" opacity="' + (0.16 * f.aura) + '"/>';
-  }
-  g += '<rect x="' + (cx - 7) + '" y="' + (y - 14) + '" width="14" height="22" rx="6" fill="' + bodyColor + '"/>';
-  g += '<circle cx="' + cx + '" cy="' + (y - 20) + '" r="6" fill="' + bodyColor + '"/>';
-  if (isMaster) {
-    g += '<rect x="' + (cx + 7) + '" y="' + (y - 16) + '" width="3" height="18" rx="1" fill="#7a6a4e"/>';
-    g += '<rect x="' + (cx + 5) + '" y="' + (y - 17) + '" width="7" height="4" rx="1" fill="#8a8070"/>';
-  }
-  const label = f.type === 'veteran' ? '熟練' : f.type === 'master' ? '継承◎' : '見習い';
-  g += '<text x="' + cx + '" y="' + (y + 24) + '" text-anchor="middle" font-size="9" fill="' + C.inkSoft + '">' + label + ' ' + f.label + '</text>';
-  g += '</g>';
-  return g;
-}
+/* ===== scene =====
+   技能保有力（knowledgeRatio）で「工房の様子」を表す5枚のイラストを切り替える。
+   絵は Gemini 生成のフラットイラスト（images/skill-succession/scene-1〜5.webp）。
+   1=熟練の灯りがある 〜 5=誰もやり方を知らない、の順。 */
+const SCENES = [
+  { min: 0.85, src: './images/skill-succession/scene-1.webp', label: '現場に、熟練の灯りがある' },
+  { min: 0.6,  src: './images/skill-succession/scene-2.webp', label: 'ベテランが一人、また一人と去っていく' },
+  { min: 0.35, src: './images/skill-succession/scene-3.webp', label: '現場から、熟練の勘が失われはじめる' },
+  { min: 0.15, src: './images/skill-succession/scene-4.webp', label: '手順書は残っても、勘は戻らない' },
+  { min: -1,   src: './images/skill-succession/scene-5.webp', label: '誰も、この仕事のやり方を知らない' },
+];
+SCENES.forEach(s => { const im = new Image(); im.src = s.src; });
 
 function drawScene(row, year){
   const r = row.knowledgeRatio;
-  const warm = r > 0.45;
-  const stage =
-    r > 0.85 ? '現場に、熟練の灯りがある' :
-    r > 0.6  ? 'ベテランが一人、また一人と去っていく' :
-    r > 0.35 ? '現場から、熟練の勘が失われはじめる' :
-    r > 0.15 ? '手順書は残っても、勘は戻らない' :
-               '誰も、この仕事のやり方を知らない';
-
-  const flameH = 8 + r * 46;
-  const glow = Math.max(0.05, r);
-  const t = year - START_YEAR;
-
-  const figs = [];
-  holders.forEach((age, i) => {
-    figs.push({
-      type: row.holderActive[i] ? 'veteran' : 'gone',
-      aura: row.holderActive[i] ? 1 : 0,
-      label: (age + t) + '歳',
-    });
-  });
-  row.succLevels.forEach(lv => {
-    figs.push({ type: lv >= 1 ? 'master' : 'apprentice', aura: lv, label: Math.round(lv * 100) + '%' });
-  });
-  const n = Math.max(figs.length, 1);
-  const slotW = 700 / n;
-
-  let s = '';
-  s += '<defs>'
-    + '<linearGradient id="wall" x1="0" y1="0" x2="0" y2="1">'
-    + '<stop offset="0%" stop-color="' + (warm ? '#efe0c6' : '#cdc6ba') + '"/>'
-    + '<stop offset="100%" stop-color="' + (warm ? '#e4d3b3' : '#b9b2a4') + '"/>'
-    + '</linearGradient>'
-    + '<radialGradient id="lantern" cx="50%" cy="50%" r="50%">'
-    + '<stop offset="0%" stop-color="' + C.gold + '" stop-opacity="' + glow + '"/>'
-    + '<stop offset="100%" stop-color="' + C.gold + '" stop-opacity="0"/>'
-    + '</radialGradient>'
-    + '</defs>';
-  s += '<rect x="0" y="0" width="760" height="300" fill="url(#wall)"/>';
-  s += '<rect x="0" y="270" width="760" height="30" fill="' + (warm ? '#d8cba8' : '#bdb298') + '"/>';
-
-  // 上部の道具棚
-  s += '<rect x="60" y="42" width="640" height="8" fill="#8a7f66"/>';
-  [110, 200, 300, 400, 500, 600].forEach(tx => {
-    s += '<g opacity="0.85">'
-      + '<rect x="' + tx + '" y="30" width="4" height="12" fill="' + (warm ? '#7a6a4e' : '#8f877a') + '"/>'
-      + '<circle cx="' + (tx + 2) + '" cy="26" r="6" fill="' + (warm ? C.teal : '#8f877a') + '" opacity="0.8"/>'
-      + '</g>';
-  });
-  // 埃・クモの巣
-  if (r < 0.6) {
-    const op = Math.min(1, (0.6 - r) * 2);
-    [90, 340, 620].forEach(wx => {
-      s += '<path d="M' + wx + ',50 l14,10 M' + (wx + 14) + ',50 l-14,10 M' + (wx + 7) + ',50 l0,14" stroke="#9a9080" stroke-width="0.8" opacity="' + op + '"/>';
-    });
-  }
-
-  // 中央のランタン＝技の灯り
-  s += '<circle cx="380" cy="110" r="' + (40 + r * 30) + '" fill="url(#lantern)"/>';
-  s += '<rect x="374" y="78" width="12" height="6" fill="#6e6555"/>';
-  s += '<path d="M370,84 L390,84 L387,120 L373,120 Z" fill="' + (warm ? '#2a2540' : '#3a352f') + '" opacity="0.85"/>';
-  s += '<path d="M380,120 Q' + (380 - 6) + ',' + (120 - flameH * 0.6) + ' 380,' + (120 - flameH) + ' Q' + (380 + 6) + ',' + (120 - flameH * 0.6) + ' 380,120 Z" fill="' + (r > 0.15 ? C.dawn : '#7a715c') + '" opacity="' + Math.max(0.3, glow) + '"/>';
-  if (r > 0.3) {
-    s += '<path d="M380,120 Q377,' + (120 - flameH * 0.4) + ' 380,' + (120 - flameH * 0.65) + ' Q383,' + (120 - flameH * 0.4) + ' 380,120 Z" fill="' + C.gold + '" opacity="' + glow + '"/>';
-  }
-  s += '<text x="380" y="140" text-anchor="middle" font-size="12" font-family="\'Shippori Mincho\',serif" font-weight="800" fill="' + (warm ? C.indigo : '#8f877a') + '">技</text>';
-
-  figs.forEach((f, i) => { s += figureSVG(f, slotW * (i + 0.5) + 30); });
-
-  s += '<text x="380" y="24" text-anchor="middle" font-size="15" font-family="\'Shippori Mincho\',serif" font-weight="800" fill="' + (r > 0.35 ? C.indigo : C.dawn) + '">' + stage + '</text>';
-
-  const svg = document.getElementById('scene');
-  svg.innerHTML = s;
-  svg.setAttribute('aria-label', '工房の様子: ' + stage);
+  const sc = SCENES.find(s => r > s.min) || SCENES[SCENES.length - 1];
+  const img = document.getElementById('scene');
+  if (img.getAttribute('src') !== sc.src) img.setAttribute('src', sc.src);
+  img.alt = '工房の様子: ' + sc.label;
+  const stage = document.getElementById('sceneStage');
+  if (stage) stage.textContent = sc.label;
 }
 
 /* ===== render ===== */
