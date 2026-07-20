@@ -5,6 +5,7 @@
  *   node scripts/ga-report.mjs            … 過去28日 vs その前の28日
  *   node scripts/ga-report.mjs --days 7   … 過去7日 vs その前の7日
  *   node scripts/ga-report.mjs --stdout   … ファイルに書かず標準出力へ
+ *   node scripts/ga-report.mjs --live     … 直近30分の実況（タグが動いているかの確認用）
  *
  * ★ネットワーク: oauth2.googleapis.com / analyticsdata.googleapis.com は
  *   サンドボックス不許可。Claude Code から実行するときは
@@ -130,6 +131,28 @@ async function runReport(token, propertyId, body) {
   return j;
 }
 
+/**
+ * 直近30分の実況。集計レポートは「昨日まで」なので、
+ * タグを入れ替えた直後に「ちゃんと届いているか」を確かめるのに使う。
+ */
+async function runRealtime(token, propertyId) {
+  const res = await fetch(
+    `https://analyticsdata.googleapis.com/v1beta/properties/${propertyId}:runRealtimeReport`,
+    {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        dimensions: [{ name: 'unifiedScreenName' }],
+        metrics: [{ name: 'activeUsers' }, { name: 'screenPageViews' }],
+        limit: 20,
+      }),
+    },
+  );
+  const j = await res.json();
+  if (j.error) fail(`GA4 API エラー: ${j.error.message}`);
+  return j;
+}
+
 /** レスポンスを [{dims:[...], mets:[数値...]}] に整形する。 */
 function rows(res) {
   return (res.rows || []).map((r) => ({
@@ -176,6 +199,22 @@ async function main() {
   const cred = loadCredentials();
   const propertyId = loadPropertyId();
   const token = await getAccessToken(cred);
+
+  if (args.includes('--live')) {
+    const rt = rows(await runRealtime(token, propertyId));
+    const total = rt.reduce((s, r) => s + r.mets[0], 0);
+    console.log(`直近30分（プロパティ ${propertyId}）: アクティブユーザー ${total}人`);
+    if (!total) {
+      console.log('\n0人です。タグが届いていないか、単に誰も見ていないだけかもしれません。');
+      console.log('自分でサイトを開いてから、もう一度実行して確かめてください。');
+      return;
+    }
+    console.log('');
+    for (const r of rt) console.log(`  ${r.mets[0]}人 / ${r.mets[1]}表示  ${r.dims[0]}`);
+    console.log('\n✓ 計測タグは動いています');
+    return;
+  }
+
   const ranges = dateRanges(days);
 
   const [pagesRes, chanRes, evRes, totalRes] = await Promise.all([
