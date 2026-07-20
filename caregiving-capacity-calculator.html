@@ -204,9 +204,10 @@
   .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 3rem 1.5rem 3.2rem; }
   .series-inner { max-width: 880px; margin: 0 auto; }
   .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
-  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
-  @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-group { font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: #9a9382; margin: 1.4rem 0 0.5rem; }
+  .series-head + .series-group { margin-top: 0; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  @media (max-width: 560px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
   .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
   .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
   .series-list .now { background: var(--ink); border-color: var(--ink); }
@@ -348,13 +349,16 @@
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./risk-calculators.html">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">社会のリスク</span>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html" class="active">介護の支え手計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織のリスク</span>
         <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
         <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
         <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
-        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
-        <a href="./caregiving-capacity-calculator.html" class="active">介護の支え手計算機</a>
-        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
         <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">個人のリスク</span>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
         <a href="./salary-negotiation-calculator.html">昇給交渉しない計算機</a>
       </div>
     </li>
@@ -445,13 +449,16 @@
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./risk-calculators.html">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html" class="active">介護の支え手計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織のリスク</span>
       <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
       <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
       <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
-      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
-      <a href="./caregiving-capacity-calculator.html" class="active">介護の支え手計算機</a>
-      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
       <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">個人のリスク</span>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
       <a href="./salary-negotiation-calculator.html">昇給交渉しない計算機</a>
     </div>
   </div>
@@ -636,14 +643,21 @@
 <aside class="series-band" aria-label="未来のリスク計算機シリーズ">
   <div class="series-inner">
     <p class="series-head">未来のリスク計算機（全8本）</p>
+    <p class="series-group">社会のリスク</p>
+    <ul class="series-list">
+        <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校の分岐点</span></a></li>
+        <li><span class="now" aria-current="page"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></span></li>
+    </ul>
+    <p class="series-group">組織のリスク</p>
     <ul class="series-list">
         <li><a href="./customer-age-timebomb.html"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></a></li>
         <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
         <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
-        <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校の分岐点</span></a></li>
-        <li><span class="now" aria-current="page"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></span></li>
-        <li><a href="./longevity-money-map.html"><span class="series-no">07</span><span class="series-name">老後のお金の見取り図</span></a></li>
         <li><a href="./taiwa-cost-calculator.html"><span class="series-no">08</span><span class="series-name">対話不足コスト計算機</span></a></li>
+    </ul>
+    <p class="series-group">個人のリスク</p>
+    <ul class="series-list">
+        <li><a href="./longevity-money-map.html"><span class="series-no">07</span><span class="series-name">老後のお金の見取り図</span></a></li>
         <li><a href="./salary-negotiation-calculator.html"><span class="series-no">09</span><span class="series-name">昇給交渉しない計算機</span></a></li>
     </ul>
     <p class="series-foot"><a href="./risk-calculators.html">このシリーズについて（前提・出典・免責・変更履歴）</a></p>

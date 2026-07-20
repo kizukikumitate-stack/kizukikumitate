@@ -198,6 +198,20 @@
             "href": "risk-calculators.html"
           },
           {
+            "heading": "社会のリスク"
+          },
+          {
+            "label": "学校の分岐点",
+            "href": "school-consolidation-countdown.html"
+          },
+          {
+            "label": "介護の支え手計算機",
+            "href": "caregiving-capacity-calculator.html"
+          },
+          {
+            "heading": "組織のリスク"
+          },
+          {
             "label": "顧客の平均年齢時限爆弾",
             "href": "customer-age-timebomb.html"
           },
@@ -210,20 +224,15 @@
             "href": "skill-succession-timebomb.html"
           },
           {
-            "label": "学校の分岐点",
-            "href": "school-consolidation-countdown.html"
+            "label": "対話不足コスト計算機",
+            "href": "taiwa-cost-calculator.html"
           },
           {
-            "label": "介護の支え手計算機",
-            "href": "caregiving-capacity-calculator.html"
+            "heading": "個人のリスク"
           },
           {
             "label": "老後のお金の見取り図",
             "href": "longevity-money-map.html"
-          },
-          {
-            "label": "対話不足コスト計算機",
-            "href": "taiwa-cost-calculator.html"
           },
           {
             "label": "昇給交渉しない計算機",

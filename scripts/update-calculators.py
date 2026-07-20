@@ -348,25 +348,40 @@ SERIES_END = "<!-- SERIES END -->"
 #   ページ自体は PAGES/DEADLINE/SENS に残してあるので共通パーツは維持される。
 #   復帰時はこの行を戻すこと。ただし03は公共系なので、上の方針に従い中立の名前に
 #   改名して戻す（例:「まちの固定費の分岐点」。「カウントダウン」は使わない）
-SERIES = [
-    ("customer-age-timebomb.html", "01", "顧客の平均年齢時限爆弾"),
-    ("recruitment-extinction.html", "02", "採用市場消滅計算機"),
-    ("skill-succession-timebomb.html", "04", "技能承継時限爆弾"),
-    ("school-consolidation-countdown.html", "05", "学校の分岐点"),
-    ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
-    ("longevity-money-map.html", "07", "老後のお金の見取り図"),
-    # 08・09 は独自デザインの納品物ベースで CALC-COMMON の対象外（帯・一覧にだけ載せる）
-    ("taiwa-cost-calculator.html", "08", "対話不足コスト計算機"),
-    ("salary-negotiation-calculator.html", "09", "昇給交渉しない計算機"),
+# ★3層の分け方（2026-07-20 森本さん確定）: 軸は「打ち手を持っているのは誰か」。
+#   社会＝自治体・議会・地域の当事者 / 組織＝経営・人事・現場 / 個人＝自分と家族。
+#   ハブ risk-calculators.html の一覧と、data/nav.json のドロップダウン見出しも同じ順・
+#   同じ名前で並べている。3箇所とも揃えること（片方だけ直すと読者が迷子になる）。
+#   層はきれいに分かれない（06は社会でも家族の話、02は地域の人口減少の裏返し）ので、
+#   断定ではなく「まず誰と話すか」の目安として置いている。
+SERIES_GROUPS = [
+    ("社会のリスク", [
+        ("school-consolidation-countdown.html", "05", "学校の分岐点"),
+        ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
+    ]),
+    ("組織のリスク", [
+        ("customer-age-timebomb.html", "01", "顧客の平均年齢時限爆弾"),
+        ("recruitment-extinction.html", "02", "採用市場消滅計算機"),
+        ("skill-succession-timebomb.html", "04", "技能承継時限爆弾"),
+        # 08・09 は独自デザインの納品物ベースで CALC-COMMON の対象外（帯・一覧にだけ載せる）
+        ("taiwa-cost-calculator.html", "08", "対話不足コスト計算機"),
+    ]),
+    ("個人のリスク", [
+        ("longevity-money-map.html", "07", "老後のお金の見取り図"),
+        ("salary-negotiation-calculator.html", "09", "昇給交渉しない計算機"),
+    ]),
 ]
+
+SERIES = [entry for _, entries in SERIES_GROUPS for entry in entries]
 
 SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
   .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 3rem 1.5rem 3.2rem; }
   .series-inner { max-width: 880px; margin: 0 auto; }
   .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
-  .series-list { list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.7rem; }
-  @media (max-width: 760px) { .series-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  @media (max-width: 420px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-group { font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: #9a9382; margin: 1.4rem 0 0.5rem; }
+  .series-head + .series-group { margin-top: 0; }
+  .series-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  @media (max-width: 560px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
   .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
   .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
   .series-list .now { background: var(--ink); border-color: var(--ink); }
@@ -406,13 +421,19 @@ def put_series_css(s, anchor):
 
 def series_band(current, prefix="./"):
     """current = 現在のページのファイル名。ハブなら 'hub'。"""
-    items = []
-    for path, num, name in SERIES:
-        inner = f'<span class="series-no">{num}</span><span class="series-name">{name}</span>'
-        if path == current:
-            items.append(f'        <li><span class="now" aria-current="page">{inner}</span></li>')
-        else:
-            items.append(f'        <li><a href="{prefix}{path}">{inner}</a></li>')
+    blocks = []
+    for group, entries in SERIES_GROUPS:
+        items = []
+        for path, num, name in entries:
+            inner = f'<span class="series-no">{num}</span><span class="series-name">{name}</span>'
+            if path == current:
+                items.append(f'        <li><span class="now" aria-current="page">{inner}</span></li>')
+            else:
+                items.append(f'        <li><a href="{prefix}{path}">{inner}</a></li>')
+        blocks.append(f'    <p class="series-group">{group}</p>\n'
+                      '    <ul class="series-list">\n'
+                      + "\n".join(items) + '\n'
+                      '    </ul>')
     hub = ('<span class="now-hub">このシリーズについて（前提・出典・免責・変更履歴）― いまご覧のページです</span>'
            if current == "hub" else
            f'<a href="{prefix}{HUB}">このシリーズについて（前提・出典・免責・変更履歴）</a>')
@@ -420,9 +441,7 @@ def series_band(current, prefix="./"):
             '<aside class="series-band" aria-label="未来のリスク計算機シリーズ">\n'
             '  <div class="series-inner">\n'
             f'    <p class="series-head">未来のリスク計算機（全{len(SERIES)}本）</p>\n'
-            '    <ul class="series-list">\n'
-            + "\n".join(items) + '\n'
-            '    </ul>\n'
+            + "\n".join(blocks) + '\n'
             f'    <p class="series-foot">{hub}</p>\n'
             '  </div>\n'
             '</aside>\n' + SERIES_END)
