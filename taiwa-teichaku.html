@@ -273,6 +273,9 @@ nav {
   list-style: none;
   align-items: center;
   margin-left: auto;
+  /* 1251〜1310px は横ナビが2段になる（全ページ共通の既存事象）。
+     wrap が無いと nav の右padding を突き抜けるので必須 */
+  flex-wrap: wrap;
 }
 .nav-links a {
   font-family: 'Noto Sans JP', sans-serif;
@@ -295,7 +298,9 @@ nav {
     display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
   }
   .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
   .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--teal-600); }
+  .nav-dropdown:hover .nav-caret,
   .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
   .nav-dropdown-menu {
     position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
@@ -305,6 +310,7 @@ nav {
     opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
   }
   .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
   .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
   .nav-dropdown-menu a {
     font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
@@ -313,6 +319,7 @@ nav {
   }
   .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--teal-600); }
   .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
   .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
 .nav-hamburger {
   display: none;
@@ -348,15 +355,6 @@ nav {
   .mobile-acc.open .mobile-acc-panel { display: flex; }
   .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
   .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
-  nav { padding: 1rem 1.5rem; }
-  .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
-  .nav-logo { margin-right: 0; }
-  .nav-hamburger { margin-left: auto; flex-shrink: 0; }
-    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .nav-links { gap: 1rem; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
 @media (max-width: 1250px) {
   html, body { overflow-x: hidden; }
   nav { padding: 1rem 1.5rem; }
