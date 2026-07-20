@@ -69,7 +69,7 @@ function loadPropertyId() {
   if (!/^\d+$/.test(id)) {
     fail('GA4のプロパティID(数字)が未設定です',
       `GA4 → 管理 → プロパティの詳細 で確認し:\n  echo <ID> > "${PROP_FILE}"\n`
-      + '★計測ID(G-2ECK6163X4)ではなく、9桁程度の数字の方です');
+      + '★計測ID(G-E3YZKY8DQG)ではなく、9桁程度の数字の方です');
   }
   return id;
 }

@@ -2,12 +2,12 @@
 <html lang="ja">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-2ECK6163X4');
+  gtag('config', 'G-E3YZKY8DQG');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -220,7 +220,44 @@ footer{padding:3rem 2rem;text-align:center;background:var(--white);border-top:2p
 .footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--forest);letter-spacing:0.08em}
 .footer-copy{margin-top:0.6rem;font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--mid-gray);letter-spacing:0.06em}
 
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.plan .cta:hover{transform:none}}
+/* ---------- approach (差別化：エンプロイアビリティ) ---------- */
+.contrast{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:8px}
+@media(max-width:720px){.contrast{grid-template-columns:minmax(0,1fr)}}
+.contrast-card{border:1.5px solid var(--line);border-radius:12px;padding:24px 22px;background:var(--white);display:flex;flex-direction:column}
+.contrast-card.core{border:2px solid var(--ink);background:var(--ink);color:var(--paper)}
+.contrast-card .tag{font-family:var(--en);font-size:12px;letter-spacing:.2em;color:var(--steel);margin-bottom:10px}
+.contrast-card.core .tag{color:#FF8DA0}
+.contrast-card .lbl{font-family:var(--jp-heavy);font-weight:900;font-size:18px;line-height:1.5;margin-bottom:10px}
+.contrast-card p.txt{font-size:14px;line-height:1.8}
+.contrast-card.core p.txt strong{font-weight:900}
+.contrast-card .foot{margin-top:14px;font-size:12.5px;color:var(--steel)}
+.contrast-card.core .foot{color:#AAB4C6}
+
+/* ---------- career system (無敗キャリアの設計図) ---------- */
+.csys{display:flex;flex-direction:column;gap:14px;max-width:760px;margin-top:8px}
+.layer{border:1.5px solid var(--line);border-radius:12px;background:var(--white);padding:20px 22px}
+.layer .role{font-family:var(--en);font-size:11px;letter-spacing:.18em;color:var(--red);margin-bottom:6px}
+.layer .lname{font-family:var(--jp-heavy);font-weight:900;font-size:18px;line-height:1.5;margin-bottom:8px}
+.layer .ldesc{font-size:14px;color:var(--ink);line-height:1.85}
+.layer .ldesc strong{background:linear-gradient(transparent 62%,rgba(200,16,46,.18) 62%)}
+.layer.core{border:2px solid var(--red);box-shadow:0 6px 22px rgba(200,16,46,.08)}
+.layer .pill{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--red);border-radius:999px;padding:3px 12px;margin-left:6px;vertical-align:middle;letter-spacing:.02em}
+.cycle{display:flex;align-items:stretch;gap:8px;margin-top:16px;flex-wrap:wrap}
+.cycle .node{flex:1;min-width:120px;border:1.5px solid var(--ink);border-radius:10px;padding:12px 10px;text-align:center;background:var(--paper)}
+.cycle .node .num{font-family:var(--en);font-size:12px;color:var(--red)}
+.cycle .node .nt{display:block;font-family:var(--jp-heavy);font-weight:700;font-size:14px;margin-top:4px;line-height:1.5}
+.cycle .arw{align-self:center;color:var(--red);font-weight:700;font-size:18px}
+@media(max-width:560px){.cycle{flex-direction:column}.cycle .arw{transform:rotate(90deg)}}
+.xtable-wrap{overflow-x:auto;margin-top:16px}
+.xtable{width:100%;border-collapse:collapse;font-size:13.5px}
+.xtable th,.xtable td{border:1px solid var(--line);padding:10px 12px;text-align:left;line-height:1.6}
+.xtable th{background:var(--ink);color:var(--paper);font-family:var(--jp-heavy);font-weight:700;font-size:12.5px;letter-spacing:.03em;white-space:nowrap}
+.xtable td:first-child{font-weight:700;white-space:nowrap;color:var(--red);width:40%}
+.sys-cta{margin-top:32px}
+.cta-line{display:inline-block;font-weight:700;font-size:15px;text-decoration:none;background:var(--red);color:#fff;border-radius:999px;padding:14px 28px;transition:transform .15s}
+.cta-line:hover{transform:translateY(-2px)}
+
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.plan .cta:hover{transform:none}.cta-line:hover{transform:none}}
 </style>
 </head>
 <body>
@@ -439,6 +476,92 @@ footer{padding:3rem 2rem;text-align:center;background:var(--white);border-top:2p
     </div>
   </div>
 </div>
+
+<!-- APPROACH（差別化：エンプロイアビリティ） -->
+<section id="approach">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">APPROACH</span><span class="bar"></span></div>
+    <h2>自己分析で終わる「キャリア開発」を、<br>超えていく。</h2>
+    <div class="sec-body">
+      <p>世の中のキャリア開発の多くは、キャリア理論をベースにした「自己分析」でできています。それは大切ですし、本やAIでもある程度たどり着けます。けれど、自己分析はあくまで<strong>「どこへ行くか」を決める地図</strong>。地図を持っていても、走る力がなければ、行った先で成果は出ません。</p>
+      <p>転職しても、会社に残っても、最後にものを言うのは<strong>「入った先で成果を出し、それを市場価値に変える力」＝エンプロイアビリティ</strong>です。これは自己分析ではなく、自分を一つの事業として動かす<strong>事業開発的なものの見方</strong>から育ちます。ここが、このプログラムがふつうのキャリア支援と決定的に違うところです。</p>
+    </div>
+    <div class="contrast">
+      <div class="contrast-card">
+        <p class="tag">GENERAL CAREER DEV</p>
+        <p class="lbl">世間のキャリア開発</p>
+        <p class="txt">キャリア理論と自己分析で「どこへ行くか」を決める。方向は見えるが、行った先で意見を通し、成果を出す力までは扱わない。</p>
+        <p class="foot">— 地図をつくって、終わり。</p>
+      </div>
+      <div class="contrast-card core">
+        <p class="tag">OUR APPROACH</p>
+        <p class="lbl">きづきくみたてのキャリア開発</p>
+        <p class="txt">方向を決めたうえで、行った先で<strong>成果を出し、望む役割と条件を勝ち取る</strong>力＝エンプロイアビリティまで鍛える。</p>
+        <p class="foot">— 地図をつくって、走り切るまで。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM（無敗キャリアの設計図） -->
+<section id="system" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">CAREER SYSTEM</span><span class="bar"></span></div>
+    <h2>「無敗キャリア」の設計図。</h2>
+    <div class="sec-body" style="margin-bottom:28px">
+      <p>このプログラムは、単発の手法ではありません。<strong>失敗を最小化しながら、市場価値を上げ続ける</strong>ための、5つの層でできた一つの体系です。デモクラシーフィットネスは、その体系を現場で動かすための「実装手段」として位置づいています。</p>
+    </div>
+    <div class="csys">
+      <div class="layer">
+        <p class="role">STRATEGY — 全体の構え</p>
+        <p class="lname">無敗キャリア戦略</p>
+        <p class="ldesc">一発逆転を狙わない。<strong>ポータブルスキルとセーフティネット</strong>を備え、どんな環境変化でも「負けない」ようにキャリアを設計する。</p>
+      </div>
+      <div class="layer">
+        <p class="role">FOUNDATION — 土台</p>
+        <p class="lname">心理的資本（HERO）</p>
+        <p class="ldesc">Hope（希望）・Efficacy（自己効力感）・Resilience（レジリエンス）・Optimism（楽観性）。<strong>折れずに動き続けるための、心のエンジン。</strong></p>
+      </div>
+      <div class="layer core">
+        <p class="role">ENGINE — 差別化の核</p>
+        <p class="lname">価値創造のサイクル<span class="pill">＝エンプロイアビリティ</span></p>
+        <p class="ldesc">自分のスキルを高め、成果に変え、市場価値へと転換する。この<strong>「翻訳と交渉」の工程</strong>こそ、ふつうのキャリア理論が扱わない主戦場です。</p>
+        <div class="cycle">
+          <div class="node"><span class="num">01</span><span class="nt">人的資本の向上</span></div>
+          <span class="arw">→</span>
+          <div class="node"><span class="num">02</span><span class="nt">事業価値の創出</span></div>
+          <span class="arw">→</span>
+          <div class="node"><span class="num">03</span><span class="nt">金融資本への転換</span></div>
+        </div>
+        <div class="xtable-wrap">
+          <table class="xtable">
+            <thead><tr><th>事業開発の視点</th><th>あなたのキャリアでは</th></tr></thead>
+            <tbody>
+              <tr><td>顧客</td><td>上司・他部門・市場・採用担当</td></tr>
+              <tr><td>提供価値</td><td>自分が出す成果 / 解決する課題</td></tr>
+              <tr><td>営業・交渉</td><td>評価面談・企画通し・条件交渉</td></tr>
+              <tr><td>事業計画</td><td>キャリアの軸と打ち手</td></tr>
+              <tr><td>検証・ピボット</td><td>小さく試して、振り返って修正する</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="layer">
+        <p class="role">METHOD — 実装手段</p>
+        <p class="lname">デモクラシーフィットネス</p>
+        <p class="ldesc">サイクルを回すには、提案し・交渉し・巻き込む対人筋が要る。デンマーク発の筋トレで、<strong>その実装力を反復して鍛える。</strong></p>
+      </div>
+      <div class="layer">
+        <p class="role">MEANING — 何のために</p>
+        <p class="lname">第3の時間 × DIE WITH ZERO</p>
+        <p class="ldesc">仕事でも家庭でもない「第3の時間」で立ち止まり、内省する。そして稼ぐこと自体を目的にせず、<strong>人生の充実に投資する</strong>——80歳まで続く探究の道として。</p>
+      </div>
+    </div>
+    <div class="sys-cta">
+      <a class="cta-line" href="#program">自分の設計図を、一緒に描く →</a>
+    </div>
+  </div>
+</section>
 
 <!-- CHECK -->
 <section class="check" id="check">

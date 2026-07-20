@@ -12,7 +12,7 @@ description: |
 # アクセス解析の定例レビュー
 
 計測基盤の詳細は `~/kizukikumitate-ops/analytics/looker-dashboard-setup.md`。
-GA4プロパティ `G-2ECK6163X4`、**全75ページ計測済み（2026-07-20開始）**。
+GA4プロパティ `G-E3YZKY8DQG`、**全75ページ計測済み（2026-07-20開始）**。
 
 ## 実行
 
