@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昇給交渉しない計算機 ｜ きづきくみたて工房</title>
+<meta name="description" content="昇給交渉を先延ばしにすると、その差額は以後すべての昇給の元本に組み込まれ複利で開きます。定年までの期待損失、同業の相場との比較、交渉材料の組み立てまでできる簡易試算ツール。">
+<link rel="canonical" href="https://kizukikumitate.com/salary-negotiation-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="昇給交渉しない計算機">
+<meta property="og:description" content="たった30分の気まずい対話を先延ばしにする値段を、定年まで複利で計算します。相場比較と交渉材料の組み立てつき。">
+<meta property="og:url" content="https://kizukikumitate.com/salary-negotiation-calculator.html">
+<meta property="og:image" content="https://kizukikumitate.com/salary-negotiation-calculator-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="昇給交渉しない計算機">
+<meta name="twitter:description" content="30分の気まずさの複利コストを、定年まで試算する簡易ツール。">
+<meta name="twitter:image" content="https://kizukikumitate.com/salary-negotiation-calculator-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@700;800&family=Jost:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  .viz-root {
+    color-scheme: light;
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --series-no: #2a78d6;    /* 交渉しない: blue slot1 */
+    --series-ask: #008300;   /* 交渉する: green slot2 */
+    --good-text: #006300;
+    --forest: #1a5fad;
+    --charcoal: #1e1e1e;
+    --mid-gray: #5a6a7a;
+    --navh: 62px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body.viz-root {
+    padding-top: var(--navh);
+    overflow-x: hidden;
+    line-break: strict;
+    hanging-punctuation: allow-end;
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+
+/* ---------- global nav (台帳生成・data/nav.json が正) ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+.nav-logo img{height:36px;width:auto;object-fit:contain}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;flex-wrap:wrap}
+.nav-links a{font-family:'Jost','Noto Sans JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em}
+.nav-links a:hover,.nav-links a.active{color:var(--forest)}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-toggle{font-family:'Jost','Noto Sans JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
+.nav-caret{font-size:0.6em;transition:transform 0.25s}
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest)}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest)}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px)}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,
+.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+.mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+.mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+.mobile-menu-label{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;width:100%;text-align:center;margin:2rem 0 0.4rem}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+.mobile-acc{width:100%;border-bottom:1px solid #e8e8e8}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0}
+.mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
+.mobile-acc-panel{display:none;flex-direction:column;padding-bottom:0.7rem}
+.mobile-acc.open .mobile-acc-panel{display:flex}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s}
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489}
+a.mobile-cat-link{display:flex;justify-content:center;align-items:center;width:100%;border-bottom:1px solid #e8e8e8;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;text-decoration:none;padding:1.15rem 0;transition:color 0.15s}
+a.mobile-cat-link:hover,a.mobile-cat-link.active{color:#26215C}
+/* 1251〜1310px は横ナビが2段になる（全ページ共通の既存事象）ので本文の逃げを厚くする */
+@media(max-width:1310px){body.viz-root{padding-top:112px}}
+@media(max-width:1250px){
+  body.viz-root{padding-top:68px}
+  .nav-links{display:none}
+  .nav-hamburger{display:block}
+  .nav-logo{margin-right:0}
+}
+
+
+
+  header.hero { padding: 16px 0 24px; }
+  header.hero h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
+  header.hero p { color: var(--text-secondary); font-size: 14.5px; margin-top: 6px; max-width: 640px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 14px; letter-spacing: 0.01em; }
+
+  .controls { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px 32px; }
+  @media (max-width: 640px) { .controls { grid-template-columns: minmax(0, 1fr); } }
+  .ctl label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; font-weight: 600; margin-bottom: 6px; }
+  .ctl label .val { font-weight: 700; font-size: 15px; }
+  .ctl .hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .ctl input[type="range"] { width: 100%; accent-color: var(--series-no); height: 24px; cursor: pointer; }
+
+  /* market comparison */
+  select#in-job {
+    font: inherit; font-size: 13.5px; width: 100%;
+    padding: 8px 10px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary);
+  }
+  .mkt-vis { margin-top: 16px; }
+  .mkt-scale { position: relative; height: 54px; }
+  .mkt-band { position: absolute; top: 20px; height: 14px; background: var(--series-no); opacity: 0.15; border-radius: 4px; }
+  .mkt-avg { position: absolute; top: 16px; width: 2px; height: 22px; background: var(--series-no); }
+  .mkt-avg-label { position: absolute; top: 0; transform: translateX(-50%); font-size: 11px; color: var(--text-secondary); white-space: nowrap; }
+  .mkt-you { position: absolute; top: 23px; width: 8px; height: 8px; border-radius: 50%; background: var(--text-primary); border: 2px solid var(--surface-1); transform: translateX(-50%); }
+  .mkt-you-label { position: absolute; top: 40px; transform: translateX(-50%); font-size: 11px; font-weight: 700; color: var(--text-primary); white-space: nowrap; }
+  .mkt-text { font-size: 13.5px; color: var(--text-secondary); margin-top: 8px; }
+  .mkt-text strong { color: var(--text-primary); }
+  .mkt-note { font-size: 11.5px; color: var(--text-muted); margin-top: 6px; }
+
+  /* materials builder */
+  .mat-list { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 8px 20px; }
+  @media (max-width: 640px) { .mat-list { grid-template-columns: minmax(0, 1fr); } }
+  .mat-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13.5px; padding: 7px 9px; border-radius: 8px; cursor: pointer; }
+  .mat-item:hover { background: color-mix(in srgb, var(--text-primary) 4%, transparent); }
+  .mat-item input { margin-top: 3px; accent-color: var(--series-ask); cursor: pointer; }
+  .mat-item .mat-w { color: var(--text-muted); font-size: 12px; white-space: nowrap; margin-left: auto; padding-left: 8px; }
+  .mat-result { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--grid); font-size: 13.5px; }
+  .mat-result .mat-p { font-size: 20px; font-weight: 700; }
+  .mat-apply {
+    font: inherit; font-size: 13px; font-weight: 600;
+    padding: 7px 16px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--text-primary); background: transparent; color: var(--text-primary);
+  }
+  .mat-apply:hover { background: color-mix(in srgb, var(--text-primary) 7%, transparent); }
+  .mat-script { margin-top: 14px; }
+  .mat-script textarea {
+    width: 100%; min-height: 120px; resize: vertical;
+    font: inherit; font-size: 13px; line-height: 1.7;
+    padding: 12px 14px; border-radius: 10px;
+    border: 1px solid var(--border); background: var(--page); color: var(--text-primary);
+  }
+  .mat-script .mat-copy {
+    font: inherit; font-size: 12.5px; margin-top: 8px;
+    padding: 6px 14px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--border); background: transparent; color: var(--text-secondary);
+  }
+
+  .result { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+  .result .big { font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .result .big small { font-size: 24px; font-weight: 600; }
+  .result .desc { font-size: 14.5px; color: var(--text-secondary); max-width: 440px; }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: minmax(0, 1fr); } }
+  .tile { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .tile .t-label { font-size: 12.5px; color: var(--text-secondary); }
+  .tile .t-value { font-size: 23px; font-weight: 650; margin-top: 3px; }
+  .tile .t-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .tile .t-sub.save { color: var(--good-text); font-weight: 600; }
+
+  .chart-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .legend { display: flex; gap: 18px; font-size: 13px; color: var(--text-secondary); }
+  .legend .item { display: flex; align-items: center; gap: 7px; }
+  .legend .key { width: 18px; height: 2.5px; border-radius: 2px; }
+  .chart-box { position: relative; }
+  svg#chart { display: block; width: 100%; height: auto; }
+  .tooltip {
+    position: absolute; pointer-events: none; z-index: 5;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 9px; padding: 9px 12px; font-size: 12.5px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    min-width: 200px; display: none;
+  }
+  .tooltip .tt-day { color: var(--text-muted); font-size: 11.5px; margin-bottom: 4px; }
+  .tooltip .tt-row { display: flex; align-items: center; gap: 7px; margin-top: 2px; }
+  .tooltip .tt-key { width: 12px; height: 2.5px; border-radius: 2px; flex: none; }
+  .tooltip .tt-val { font-weight: 700; margin-left: auto; font-variant-numeric: tabular-nums; }
+  .tooltip .tt-name { color: var(--text-secondary); }
+  .tooltip .tt-diff { border-top: 1px solid var(--grid); margin-top: 5px; padding-top: 4px; }
+
+  details.tableview { margin-top: 14px; }
+  details.tableview summary { font-size: 13px; color: var(--text-secondary); cursor: pointer; }
+  details.tableview table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12.5px; }
+  details.tableview th, details.tableview td { text-align: right; padding: 5px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  details.tableview th { color: var(--text-muted); font-weight: 600; }
+  details.tableview th:first-child, details.tableview td:first-child { text-align: left; }
+
+  .prompts li { margin: 8px 0 8px 1.2em; font-size: 14px; color: var(--text-secondary); }
+
+  details.model { font-size: 13.5px; color: var(--text-secondary); }
+  details.model summary { cursor: pointer; font-weight: 600; font-size: 13.5px; }
+  details.model .m-body { margin-top: 10px; }
+  details.model p { margin: 8px 0; }
+  details.model ul { margin: 8px 0 8px 1.3em; }
+  details.model li { margin: 6px 0; }
+  details.model code { font-size: 12.5px; background: color-mix(in srgb, var(--text-primary) 6%, transparent); padding: 1px 6px; border-radius: 5px; }
+  details.model a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+  footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9)}
+  .footer-copy{font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.55)}
+  @media(max-width:768px){footer{padding:2.4rem 1.5rem}}
+
+  .approx { display: inline-block; font-size: 11px; letter-spacing: 0.1em; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-secondary); white-space: nowrap; align-self: center; }
+  .series-foot { text-align: center; }
+  .series-foot a { color: var(--series-no); }
+  .series-foot .sbtn { display: inline-block; font-weight: 700; font-size: 13.5px; padding: 10px 24px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-primary); text-decoration: none; }
+  .series-foot .slicense { font-size: 11.5px; color: var(--text-muted); margin-top: 14px; line-height: 1.7; }
+
+  .pagenote { font-size: 12px; color: var(--text-muted); margin-top: 26px; max-width: 680px; }
+</style>
+</head>
+<body class="viz-root">
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+        <a href="./democracy-fitness-career.html">個人向けキャリア開発</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html">PTAのこれから</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+        <a href="./salary-negotiation-calculator.html" class="active">昇給交渉しない計算機</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      <a href="./democracy-fitness-career.html">個人向けキャリア開発</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html">PTAのこれから</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+      <a href="./salary-negotiation-calculator.html" class="active">昇給交渉しない計算機</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1>昇給交渉しない計算機</h1>
+    <p>昇給や年収の交渉は、たった30分の気まずい対話です。でも先延ばしにすると、その差額は以後のすべての昇給・賞与の「元本」に組み込まれ、複利で雪だるま式に開いていきます。定年までの期待損失を計算します。</p>
+    <p style="margin-top:10px;font-size:13.5px;color:var(--text-secondary)">そして給料交渉は、単なるお金の話ではありません。「自分」という価値を労働市場に差し出し、会社とwin-winの関係を結ぶ——自立した社会人として当たり前の状態に立つための、大きな第一歩です。</p>
+  </header>
+
+  <section class="card">
+    <h2>あなたの条件</h2>
+    <div class="controls">
+      <div class="ctl">
+        <label for="in-sal">現在の年収 <span class="val" id="v-sal">500万円</span></label>
+        <input type="range" id="in-sal" min="300" max="1500" step="25" value="500">
+      </div>
+      <div class="ctl">
+        <label for="in-age">現在の年齢 <span class="val" id="v-age">35歳</span></label>
+        <input type="range" id="in-age" min="22" max="58" step="1" value="35">
+        <div class="hint">65歳まで働く前提で計算します</div>
+      </div>
+      <div class="ctl">
+        <label for="in-b">交渉で狙う上げ幅 <span class="val" id="v-b">5%</span></label>
+        <input type="range" id="in-b" min="3" max="15" step="1" value="5">
+        <div class="hint">評価面談・転職オファーでの上乗せ要求。5%は控えめな相場</div>
+      </div>
+      <div class="ctl">
+        <label for="in-p">通る確率(自己見積り) <span class="val" id="v-p">50%</span></label>
+        <input type="range" id="in-p" min="10" max="90" step="10" value="50">
+        <div class="hint">米調査では「求めた人」の82%が何らかの昇給を得ている</div>
+      </div>
+      <div class="ctl">
+        <label for="in-g">ベースの昇給率 <span class="val" id="v-g">2%/年</span></label>
+        <input type="range" id="in-g" min="0" max="5" step="0.5" value="2">
+        <div class="hint">交渉してもしなくても毎年かかる自然な伸び (2025年春闘は5.25%)</div>
+      </div>
+      <div class="ctl">
+        <label for="in-st">交渉のスタイル <span class="val" id="v-st">3年ごとに交渉</span></label>
+        <input type="range" id="in-st" min="0" max="2" step="1" value="1">
+        <div class="hint">今回だけ / 3年ごと / 毎年 (累計プレミアムは+30%で頭打ちと仮定)</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>同業の相場と比べる</h2>
+    <div class="controls">
+      <div class="ctl">
+        <label for="in-job">職種分類</label>
+        <select id="in-job"></select>
+        <div class="hint">doda「平均年収ランキング2025」(2024年9月〜2025年8月調査) のスナップショット</div>
+      </div>
+    </div>
+    <div class="mkt-vis">
+      <div class="mkt-scale" id="mkt-scale"></div>
+      <div class="mkt-text" id="mkt-text"></div>
+      <div class="mkt-note" id="mkt-note"></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>交渉の材料を組み立てる</h2>
+    <div class="mat-list" id="mat-list"></div>
+    <div class="mat-result">
+      <span>材料 <strong id="mat-count">0</strong>個 → 通る確率の目安 <span class="mat-p" id="mat-p">30%</span></span>
+      <button class="mat-apply" id="mat-apply">この確率をスライダーに反映</button>
+    </div>
+    <p class="mkt-note">※ 各材料の加点幅は当工房の経験則にもとづく目安であり、調査に基づく確率ではありません。「材料が多いほど通りやすい」という順番を掴むために使ってください。</p>
+    <div class="mat-script" id="mat-script" style="display:none">
+      <div style="font-size:13px; font-weight:600; color:var(--text-secondary); margin-bottom:6px">交渉トークの骨子 (編集して使ってください)</div>
+      <textarea id="mat-text"></textarea>
+      <button class="mat-copy" id="mat-copy">コピー</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>先延ばしの値段 (65歳までの期待損失)</h2>
+    <div class="result" id="result">
+      <div class="big" id="r-big">—</div>
+      <span class="approx">簡易試算</span>
+      <div class="desc" id="r-desc"></div>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="t-label">最初の1年の差はたった</div>
+        <div class="t-value" id="tile-first">—</div>
+        <div class="t-sub" id="tile-first-sub"></div>
+      </div>
+      <div class="tile">
+        <div class="t-label">10年後の年収差</div>
+        <div class="t-value" id="tile-ten">—</div>
+        <div class="t-sub" id="tile-ten-sub"></div>
+      </div>
+      <div class="tile">
+        <div class="t-label">交渉時間の時給換算</div>
+        <div class="t-value" id="tile-rate">—</div>
+        <div class="t-sub" id="tile-rate-sub"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="chart-head">
+      <h2 style="margin-bottom:0">累積収入の比較 (期待値)</h2>
+      <div class="legend">
+        <div class="item"><span class="key" style="background:var(--series-no)"></span>交渉しない</div>
+        <div class="item"><span class="key" style="background:var(--series-ask)"></span>交渉する</div>
+      </div>
+    </div>
+    <div class="chart-box" id="chart-box">
+      <svg id="chart" viewBox="0 0 840 400" role="img" aria-label="交渉しない場合と交渉する場合の累積収入比較チャート"></svg>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+    <details class="tableview">
+      <summary>表で見る</summary>
+      <table>
+        <thead><tr><th>年齢</th><th>交渉しない (累積)</th><th>交渉する (累積)</th><th>差額</th></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>この結果をもとに考えてみる</h2>
+    <ul class="prompts">
+      <li>「時給換算」の数字を見てください。準備を含めても数時間で、これほど時給の高い時間はそう多くありません。それでも避けたい気まずさの正体は何でしょう?</li>
+      <li>交渉が「通らなかった場合」に実際に失うものを書き出してみてください。関係の悪化? 評価への影響? それは本当に起きそうですか?</li>
+      <li>金額を求める交渉が難しければ、「評価の基準を教えてほしい」という対話から始めるとしたら、いつやりますか?</li>
+      <li>この交渉は「わがまま」ではなく、自分という価値を労働市場に差し出し、会社とwin-winの関係を結ぶ、自立した社会人としての第一歩です。今のあなたは、その一歩をどれくらい踏み出せていますか?</li>
+      <li>業界標準〜少し上の給与を求めることは、会社にとっても健全な新陳代謝を保つ正しい判断です(人が辞めて採用・育成コストで現場が疲弊するより、適正に処遇する方が安い)。あなたの会社は今、どちら側にいますか?</li>
+    </ul>
+  </section>
+
+  <section class="card" style="text-align:center">
+    <h2 style="margin-bottom:8px">さらに踏み込みたい人へ</h2>
+    <p style="font-size:14px;color:var(--text-secondary);max-width:580px;margin:2px auto 16px;line-height:1.75">計算で「損失」が見えたら、次は行動です。<strong>昇給交渉キット</strong>には、動ける心をつくるマインドセット編・日本の事例集・上司に渡すワンページャーが入っています。1対1で伴走してほしい方には、<strong>個人向けキャリア開発</strong>。「『自分』という事業の経営」として、意見を持ち・伝え・巻き込む&ldquo;対人筋&rdquo;を反復トレーニングし、実際に「上げられる状態」を一緒に作ります。</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="./salary-negotiation-kit.html" style="display:inline-block;font-weight:700;font-size:14.5px;padding:12px 28px;border-radius:999px;background:var(--series-no);color:#fff;text-decoration:none">昇給交渉キットを見る →</a>
+      <a href="./democracy-fitness-career.html" style="display:inline-block;font-weight:700;font-size:14.5px;padding:12px 28px;border-radius:999px;border:1px solid var(--border);color:var(--text-primary);text-decoration:none">個人向けキャリア開発を見る →</a>
+    </div>
+  </section>
+
+  <section class="card">
+    <details class="model">
+      <summary>計算モデルと出典 (係数の根拠)</summary>
+      <div class="m-body">
+        <p>両シナリオとも年収はベース昇給率で毎年伸びます。交渉シナリオでは、交渉のたびに <code>上げ幅 × 通る確率</code> の期待値プレミアムが年収に乗り、以後のすべての昇給の元本になります (これが複利の正体です)。市場価値を無限に超えては上げられないため、累計プレミアムは+30%で頭打ちにしています。</p>
+        <ul>
+          <li><strong>初任給交渉の生涯価値</strong> — Babcock &amp; Laschever (カーネギーメロン大)の試算では、最初の給与交渉をしないと60歳までに50万ドル以上を失う。</li>
+          <li><strong>「求めれば通る」率</strong> — LendingTree調査(2024)では、直近1年に昇給を求めた労働者の82%が何らかの昇給を獲得。「交渉は危険」という直感は過大評価されがち。</li>
+          <li><strong>ベース昇給率</strong> — 連合の2025年春闘最終集計は5.25% (定昇込み・34年ぶり高水準)。本ツールの初期値2%は定昇のみの保守的な想定。</li>
+        </ul>
+        <p><strong>出典:</strong>
+          <a href="https://www.amazon.com/Women-Dont-Ask-Negotiation-Gender/dp/069108940X">Babcock &amp; Laschever, Women Don't Ask</a> /
+          <a href="https://www.lendingtree.com/debt-consolidation/pay-raises-survey/">LendingTree Pay Raise Survey 2024</a> /
+          <a href="https://www.jil.go.jp/kokunai/blt/backnumber/2025/10/shuntou_01.html">JILPT 2025春闘 賃上げ状況</a> /
+          <a href="https://doda.jp/guide/heikin/syokusyu/">doda 平均年収ランキング2025 (職種別)</a>
+        </p>
+        <p>相場比較の年収データはdoda 2025年版 (2024年9月〜2025年8月調査) のスナップショットで、自動更新はされません。「*」付きの職種は年代別データが公開されていないため、職種平均に全体の年代カーブを掛けた推定値です。青い帯 (平均±15%) は分布の実測ではなく目安表示です。</p>
+        <p>このモデルは期待値の思考実験です。実際の交渉結果は業界・企業の賃金制度・タイミング・交渉の質に依存し、複利が同じ率で続く保証もありません。数字の絶対値より「構造」— 早いほど効く、先延ばしの損失は見えないだけで大きい — を掴むために使ってください。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="card series-foot">
+    <p style="font-size:13.5px;color:var(--text-secondary);margin-bottom:14px">この計算機は「未来のリスク計算機」シリーズの1本です。前提・出典・免責の考え方はシリーズ共通のページにまとめています。</p>
+    <a class="sbtn" href="./risk-calculators.html">計算機シリーズ一覧へ</a>
+    <p class="slicense">© きづきくみたて工房（<a href="./jijitsu-daicho.html">著者情報：事実の台帳</a>）｜本ツールは CC BY-NC-SA 4.0 で提供。商用利用のご相談は別途ライセンスにて。前提・出典・免責の詳細は <a href="./risk-calculators.html">未来のリスク計算機について</a> にまとめています。</p>
+  </section>
+
+  <div class="pagenote">
+    ⚠️ このツールは教育目的の思考実験であり、キャリア・財務のアドバイスではありません。実際の交渉判断は、ご自身の状況・組織の制度・信頼できる相談相手の意見も踏まえて行ってください。
+  </div>
+</div>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="white" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./salary-negotiation-kit.html"><span class="kaiyu-tag">キット（有料）</span><span class="kaiyu-name">昇給交渉キット</span><span class="kaiyu-desc">マインドセット・状態構築編、日本の事例集、上司に渡すワンページャー。対決ではなく、共に壁を越えるための道具一式。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./democracy-fitness-career.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">個人向けキャリア開発</span><span class="kaiyu-desc">キャリア開発は「自分」という事業の経営。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニング。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./1on1-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">1on1の成功と失敗の図鑑</span><span class="kaiyu-desc">進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  var RETIRE = 65;
+  var PREMIUM_CAP = 1.30;     // 累計プレミアム上限
+  var NEG_HOURS = 5.5;        // 1回の交渉あたり準備5h + 面談30分
+  var STYLE = [
+    { label: '今回だけ', interval: Infinity },
+    { label: '3年ごとに交渉', interval: 3 },
+    { label: '毎年交渉', interval: 1 }
+  ];
+
+  // doda 平均年収ランキング2025 (調査: 2024年9月〜2025年8月)。値は [20代,30代,40代,50代以上] 平均(万円)
+  // est=true は職種分類の平均値に全体の年代カーブを掛けた推定値
+  var JOBS = [
+    { name: '職種を指定しない (全体)', ages: [365, 454, 517, 601] },
+    { name: '営業系', ages: [406, 528, 618, 683] },
+    { name: '企画/管理系', ages: [424, 565, 686, 833] },
+    { name: '技術系 (IT/通信)', ages: [398, 519, 649, 716] },
+    { name: '技術系 (電気/電子/機械)', ages: [396, 490, 568, 648] },
+    { name: '技術系 (建築/土木)', ages: [384, 481, 513, 578] },
+    { name: '技術系 (メディカル/化学/食品)', ages: [358, 429, 475, 543] },
+    { name: '専門職 (コンサル/監査法人等)', ages: [515, 698, 724, 765] },
+    { name: '金融系専門職', ages: [393, 517, 561, 631] },
+    { name: 'クリエイティブ系', ages: [337, 419, 477, 555], est: true },
+    { name: '事務/アシスタント系', ages: [300, 374, 425, 494], est: true },
+    { name: '販売/サービス系', ages: [289, 360, 410, 476], est: true }
+  ];
+
+  var MATERIALS = [
+    { id: 'market', label: '同職種・同年代の相場データを持っている', w: 10,
+      s: function (ctx) { return '・doda調査では同職種・同年代の平均は' + ctx.avg + '万円です。現在の年収との差について、根拠を持ってご相談したいです。'; } },
+    { id: 'results', label: '成果を数字で示せる (売上・削減額・工数など)', w: 15,
+      s: function () { return '・この1年の成果を数字でまとめました: (例: 売上◯◯% / コスト◯◯万円削減 / リードタイム◯◯%短縮)'; } },
+    { id: 'scope', label: 'この1年で担当範囲・責任が広がった', w: 10,
+      s: function () { return '・担当範囲がこの1年で広がっています: (具体的に: 新たに引き受けた業務・役割を書く)'; } },
+    { id: 'offer', label: '他社からのオファー・スカウトがある', w: 15,
+      s: function () { return '・市場からの評価として、実際に他社から声がかかっている事実があります (脅しではなく事実として静かに)。'; } },
+    { id: 'skill', label: '資格・スキルを新たに取得した', w: 5,
+      s: function () { return '・◯◯の資格/スキルを取得し、対応できる業務の幅が広がりました。'; } },
+    { id: 'praise', label: '上司・顧客から高評価のコメントをもらっている', w: 10,
+      s: function () { return '・直近の評価面談/顧客からいただいたフィードバック (引用できる言葉をメモしておく) を踏まえてご相談です。'; } },
+    { id: 'timing', label: '会社の業績が良い・昇給原資のあるタイミング', w: 5,
+      s: function () { return '・会社として良い流れの今期のうちに、来期の役割と処遇について話したいです。'; } },
+    { id: 'successor', label: '自分が抜けると困る業務を担っている', w: 5,
+      s: function () { return '・長期的にチームへ貢献し続けたいからこそ、納得感のある条件を整えたいと考えています。'; } }
+  ];
+  var MAT_BASE = 30, MAT_CAP = 90;
+
+  var els = {};
+  ['in-sal','in-age','in-b','in-p','in-g','in-st','in-job',
+   'v-sal','v-age','v-b','v-p','v-g','v-st',
+   'r-big','r-desc','tile-first','tile-first-sub','tile-ten','tile-ten-sub',
+   'tile-rate','tile-rate-sub','chart','chart-box','tooltip','table-body',
+   'mkt-scale','mkt-text','mkt-note','mat-list','mat-count','mat-p','mat-apply',
+   'mat-script','mat-text','mat-copy'
+  ].forEach(function (id) { els[id.replace(/-/g, '_')] = document.getElementById(id); });
+
+  var state = { sal: 500, age: 35, b: 5, p: 50, g: 2, st: 1, job: 0 };
+
+  function ageBandIndex() {
+    if (state.age < 30) return 0;
+    if (state.age < 40) return 1;
+    if (state.age < 50) return 2;
+    return 3;
+  }
+  function ageBandLabel() {
+    return ['20代', '30代', '40代', '50代以上'][ageBandIndex()];
+  }
+  function marketAvg() {
+    return JOBS[state.job].ages[ageBandIndex()];
+  }
+
+  function compute() {
+    var m = {};
+    m.S0 = state.sal;                       // 万円
+    m.years = RETIRE - state.age;
+    m.g = state.g / 100;
+    m.bump = (state.b / 100) * (state.p / 100);  // 期待値プレミアム/回
+    m.interval = STYLE[state.st].interval;
+
+    // 年ごとの年収とプレミアム乗数 (year 0 = 今年、交渉は year 0 から)
+    m.salNo = [];   // 年収 (万円)
+    m.salAsk = [];
+    m.cumNo = [0];  // cum[i] = i年経過時点の累積
+    m.cumAsk = [0];
+    m.negCount = 0;
+    var mult = 1;
+    for (var y = 0; y < m.years; y++) {
+      var base = m.S0 * Math.pow(1 + m.g, y);
+      var negotiatesThisYear = (m.interval === Infinity) ? (y === 0) : (y % m.interval === 0);
+      if (negotiatesThisYear && mult < PREMIUM_CAP) {
+        mult = Math.min(PREMIUM_CAP, mult * (1 + m.bump));
+        m.negCount++;
+      }
+      m.salNo.push(base);
+      m.salAsk.push(base * mult);
+      m.cumNo.push(m.cumNo[y] + base);
+      m.cumAsk.push(m.cumAsk[y] + base * mult);
+    }
+    m.totalDiff = m.cumAsk[m.years] - m.cumNo[m.years];
+    m.firstYearDiff = m.salAsk[0] - m.salNo[0];
+    var i10 = Math.min(10, m.years - 1);
+    m.tenYearDiff = m.salAsk[i10] - m.salNo[i10];
+    m.negHoursTotal = m.negCount * NEG_HOURS;
+    m.hourlyRate = m.totalDiff / m.negHoursTotal; // 万円/h
+    return m;
+  }
+  function cumNoAt(t, m) { return interp(m.cumNo, t); }
+  function cumAskAt(t, m) { return interp(m.cumAsk, t); }
+  function interp(arr, t) {
+    var i = Math.floor(t);
+    if (i >= arr.length - 1) return arr[arr.length - 1];
+    return arr[i] + (arr[i + 1] - arr[i]) * (t - i);
+  }
+
+  function fmt(n, d) {
+    return n.toLocaleString('ja-JP', { maximumFractionDigits: d === undefined ? 0 : d });
+  }
+  function yen(man) {
+    if (man >= 10000) return fmt(man / 10000, man >= 100000 ? 0 : 1) + '億円';
+    if (man >= 100) return fmt(man) + '万円';
+    return fmt(man, 1) + '万円';
+  }
+  function yenShort(man) {
+    if (man >= 10000) return fmt(man / 10000, 1) + '億';
+    return fmt(man) + '万';
+  }
+
+  function renderText(m) {
+    els.v_sal.textContent = fmt(state.sal) + '万円';
+    els.v_age.textContent = state.age + '歳';
+    els.v_b.textContent = state.b + '%';
+    els.v_p.textContent = state.p + '%';
+    els.v_g.textContent = state.g + '%/年';
+    els.v_st.textContent = STYLE[state.st].label;
+
+    els.r_big.textContent = '';
+    els.r_big.appendChild(document.createTextNode(yen(m.totalDiff)));
+    els.r_desc.textContent = '交渉を' + (m.interval === Infinity ? '一度もしない' : 'し続けない') + '場合、' + RETIRE + '歳までに期待値でこれだけの収入差がつきます。差の大半は「最初の上げ幅」ではなく、それが複利で増えた部分です。';
+
+    els.tile_first.textContent = yen(m.firstYearDiff);
+    els.tile_first_sub.textContent = '上げ幅' + state.b + '% × 確率' + state.p + '%の期待値。ここから雪だるまが始まる';
+    els.tile_ten.textContent = yen(m.tenYearDiff);
+    els.tile_ten_sub.textContent = '月あたり約' + fmt(m.tenYearDiff / 12 * 10000 / 10000, 1) + '万円の差';
+    els.tile_rate.textContent = yen(m.hourlyRate) + '/時';
+    els.tile_rate_sub.textContent = '準備込み1回' + NEG_HOURS + '時間（準備5時間＋面談30分）× ' + m.negCount + '回で割った値';
+    els.tile_rate_sub.classList.add('save');
+  }
+
+  // ---- market comparison ----
+  function renderMarket() {
+    var job = JOBS[state.job];
+    var avg = marketAvg();
+    var lo = avg * 0.85, hi = avg * 1.15;
+    var sMin = Math.min(avg * 0.7, state.sal * 0.9);
+    var sMax = Math.max(avg * 1.3, state.sal * 1.1);
+    var pos = function (v) { return ((v - sMin) / (sMax - sMin) * 100).toFixed(1) + '%'; };
+
+    var sc = els.mkt_scale;
+    sc.textContent = '';
+    var band = document.createElement('div');
+    band.className = 'mkt-band';
+    band.style.left = pos(lo);
+    band.style.width = ((hi - lo) / (sMax - sMin) * 100).toFixed(1) + '%';
+    sc.appendChild(band);
+    var avgTick = document.createElement('div');
+    avgTick.className = 'mkt-avg';
+    avgTick.style.left = pos(avg);
+    sc.appendChild(avgTick);
+    var avgLbl = document.createElement('div');
+    avgLbl.className = 'mkt-avg-label';
+    avgLbl.style.left = pos(avg);
+    avgLbl.textContent = '平均 ' + fmt(avg) + '万円';
+    sc.appendChild(avgLbl);
+    var you = document.createElement('div');
+    you.className = 'mkt-you';
+    you.style.left = pos(state.sal);
+    sc.appendChild(you);
+    var youLbl = document.createElement('div');
+    youLbl.className = 'mkt-you-label';
+    youLbl.style.left = pos(state.sal);
+    youLbl.textContent = 'あなた ' + fmt(state.sal) + '万円';
+    sc.appendChild(youLbl);
+
+    var diff = state.sal - avg;
+    var pct = (diff / avg * 100);
+    var t = els.mkt_text;
+    t.textContent = '';
+    var s1 = document.createElement('span');
+    s1.textContent = job.name.replace(' (全体)', '') + '・' + ageBandLabel() + 'の平均は ';
+    var s2 = document.createElement('strong');
+    s2.textContent = fmt(avg) + '万円';
+    var s3 = document.createElement('span');
+    if (diff < -5) {
+      s3.textContent = '。あなたは平均より ' + fmt(-diff) + '万円 (' + fmt(-pct, 1) + '%) 低い水準です。この差額そのものが、交渉の一番強い根拠になります。';
+    } else if (diff > 5) {
+      s3.textContent = '。あなたは平均より ' + fmt(diff) + '万円 (' + fmt(pct, 1) + '%) 高い水準です。それでも、成果や責任に見合っているかは別の問いです。';
+    } else {
+      s3.textContent = '。あなたはほぼ平均どおりの水準です。「平均並み」があなたの貢献に見合うかを考えてみてください。';
+    }
+    t.appendChild(s1); t.appendChild(s2); t.appendChild(s3);
+    els.mkt_note.textContent = '青い帯は平均±15%の目安ゾーン (分布データではなく参考表示)。' + (job.est ? 'この職種の年代別値は全体の年代カーブからの推定です。' : '') + '出典: doda 平均年収ランキング2025';
+  }
+
+  // ---- materials builder ----
+  var matChecked = {};
+  function initMaterials() {
+    var jobSel = els.in_job;
+    JOBS.forEach(function (j, i) {
+      var o = document.createElement('option');
+      o.value = i;
+      o.textContent = j.name + (j.est ? ' *' : '');
+      jobSel.appendChild(o);
+    });
+    jobSel.addEventListener('change', function () {
+      state.job = +jobSel.value;
+      renderMarket();
+      renderMaterials();
+    });
+
+    MATERIALS.forEach(function (mat) {
+      var lab = document.createElement('label');
+      lab.className = 'mat-item';
+      var cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.addEventListener('change', function () {
+        matChecked[mat.id] = cb.checked;
+        renderMaterials();
+      });
+      var span = document.createElement('span');
+      span.textContent = mat.label;
+      var w = document.createElement('span');
+      w.className = 'mat-w';
+      w.textContent = '+' + mat.w + '%';
+      lab.appendChild(cb); lab.appendChild(span); lab.appendChild(w);
+      els.mat_list.appendChild(lab);
+    });
+
+    els.mat_apply.addEventListener('click', function () {
+      els.in_p.value = suggestedP();
+      readInputs();
+      update();
+    });
+    els.mat_copy.addEventListener('click', function () {
+      var txt = els.mat_text.value;
+      function done() {
+        els.mat_copy.textContent = 'コピーしました';
+        setTimeout(function () { els.mat_copy.textContent = 'コピー'; }, 1500);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(txt).then(done, function () { els.mat_text.select(); done(); });
+      } else {
+        els.mat_text.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        done();
+      }
+    });
+  }
+  function suggestedP() {
+    var p = MAT_BASE;
+    MATERIALS.forEach(function (mat) { if (matChecked[mat.id]) p += mat.w; });
+    p = Math.min(MAT_CAP, p);
+    return Math.round(p / 10) * 10;
+  }
+  function renderMaterials() {
+    var count = MATERIALS.filter(function (mat) { return matChecked[mat.id]; }).length;
+    els.mat_count.textContent = count;
+    els.mat_p.textContent = suggestedP() + '%';
+    if (count === 0) {
+      els.mat_script.style.display = 'none';
+      return;
+    }
+    els.mat_script.style.display = 'block';
+    var ctx = { avg: fmt(marketAvg()) };
+    var lines = ['【切り出し】お時間をいただきありがとうございます。今日は私の役割と処遇について相談させてください。'];
+    MATERIALS.forEach(function (mat) {
+      if (matChecked[mat.id]) lines.push(mat.s(ctx));
+    });
+    lines.push('【お願い】以上を踏まえて、年収を' + fmt(state.sal * (1 + state.b / 100)) + '万円 (現在+' + state.b + '%) に見直していただけないでしょうか。難しい場合は、何がどうなれば実現できるかを教えてください。');
+    els.mat_text.value = lines.join('\n');
+  }
+
+  // ---- chart ----
+  var NS = 'http://www.w3.org/2000/svg';
+  var W = 840, H = 400, PAD = { l: 66, r: 118, t: 24, b: 44 };
+  var chartGeom = null;
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function niceTicks(max, count) {
+    var raw = max / count;
+    var mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    var norm = raw / mag;
+    var step = (norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag;
+    var ticks = [];
+    for (var v = 0; v <= max + 1e-9; v += step) ticks.push(v);
+    return ticks;
+  }
+
+  function renderChart(m) {
+    var svg = els.chart;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    var xmax = m.years;
+    var ymax = m.cumAsk[m.years] * 1.06 || 10;
+    var x = function (t) { return PAD.l + (t / xmax) * (W - PAD.l - PAD.r); };
+    var y = function (v) { return H - PAD.b - (v / ymax) * (H - PAD.t - PAD.b); };
+    chartGeom = { x: x, y: y, xmax: xmax, m: m };
+
+    niceTicks(ymax, 5).forEach(function (v) {
+      if (v > ymax) return;
+      svg.appendChild(el('line', { x1: PAD.l, x2: W - PAD.r, y1: y(v), y2: y(v), stroke: 'var(--grid)', 'stroke-width': 1 }));
+      var t = el('text', { x: PAD.l - 8, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--text-muted)', 'font-variant-numeric': 'tabular-nums' });
+      t.textContent = yenShort(v);
+      svg.appendChild(t);
+    });
+    svg.appendChild(el('line', { x1: PAD.l, x2: W - PAD.r, y1: y(0), y2: y(0), stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    // x軸は年齢で表示
+    var tickStep = m.years > 20 ? 10 : 5;
+    for (var age = state.age; age <= RETIRE; age++) {
+      if (age !== state.age && age !== RETIRE && (age - state.age) % tickStep !== 0) continue;
+      var yr = age - state.age;
+      if (age !== state.age && age !== RETIRE && (RETIRE - age) < tickStep / 2) continue;
+      var t = el('text', { x: x(yr), y: H - PAD.b + 18, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--text-muted)', 'font-variant-numeric': 'tabular-nums' });
+      t.textContent = age === state.age ? '今' : age + '歳';
+      svg.appendChild(t);
+    }
+
+    var N = 160;
+    function pathFor(fn, close) {
+      var d = '';
+      for (var i = 0; i <= N; i++) {
+        var t = (i / N) * xmax;
+        d += (i === 0 ? 'M' : 'L') + x(t).toFixed(1) + ',' + y(fn(t, m)).toFixed(1);
+      }
+      if (close) d += 'L' + x(xmax).toFixed(1) + ',' + y(0) + 'L' + x(0) + ',' + y(0) + 'Z';
+      return d;
+    }
+    svg.appendChild(el('path', { d: pathFor(cumAskAt, true), fill: 'var(--series-ask)', opacity: 0.08 }));
+    svg.appendChild(el('path', { d: pathFor(cumNoAt, true), fill: 'var(--series-no)', opacity: 0.08 }));
+    svg.appendChild(el('path', { d: pathFor(cumNoAt, false), fill: 'none', stroke: 'var(--series-no)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    svg.appendChild(el('path', { d: pathFor(cumAskAt, false), fill: 'none', stroke: 'var(--series-ask)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+
+    // 末端の差額アノテーション
+    var yNo = y(m.cumNo[m.years]), yAsk = y(m.cumAsk[m.years]);
+    if (yNo - yAsk > 24) {
+      var bx = x(xmax) + 6;
+      svg.appendChild(el('line', { x1: bx, x2: bx, y1: yAsk, y2: yNo, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+      svg.appendChild(el('line', { x1: bx - 3, x2: bx + 3, y1: yAsk, y2: yAsk, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+      svg.appendChild(el('line', { x1: bx - 3, x2: bx + 3, y1: yNo, y2: yNo, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+      var gap = el('text', { x: bx + 6, y: (yAsk + yNo) / 2 + 4, 'font-size': 12, 'font-weight': 700, fill: 'var(--text-primary)' });
+      gap.textContent = '差 ' + yenShort(m.totalDiff) + '円';
+      svg.appendChild(gap);
+    }
+
+    // 直接ラベル
+    var labels = [
+      { text: '交渉する', y: yAsk, color: 'var(--series-ask)' },
+      { text: '交渉しない', y: yNo, color: 'var(--series-no)' }
+    ];
+    labels.sort(function (a, b) { return a.y - b.y; });
+    if (labels[1].y - labels[0].y < 16) { labels[0].ly = labels[0].y - 8; labels[1].ly = labels[1].y + 8; }
+    else { labels[0].ly = labels[0].y; labels[1].ly = labels[1].y; }
+    labels.forEach(function (L) {
+      L.ly = L.ly + 0;
+      var lx = W - PAD.r + 58; // 差額アノテーションの右
+      svg.appendChild(el('line', { x1: lx - 8, x2: lx - 2, y1: L.ly, y2: L.ly, stroke: L.color, 'stroke-width': 2, 'stroke-linecap': 'round' }));
+      var t = el('text', { x: lx + 2, y: L.ly + 4, 'font-size': 11.5, fill: 'var(--text-secondary)', 'font-weight': 600 });
+      t.textContent = L.text;
+      svg.appendChild(t);
+    });
+
+    var crosshair = el('line', { x1: 0, x2: 0, y1: PAD.t, y2: H - PAD.b, stroke: 'var(--baseline)', 'stroke-width': 1, visibility: 'hidden' });
+    crosshair.id = 'crosshair';
+    svg.appendChild(crosshair);
+    var dotA = el('circle', { r: 4.5, fill: 'var(--series-no)', stroke: 'var(--surface-1)', 'stroke-width': 2, visibility: 'hidden' });
+    dotA.id = 'dot-a';
+    var dotT = el('circle', { r: 4.5, fill: 'var(--series-ask)', stroke: 'var(--surface-1)', 'stroke-width': 2, visibility: 'hidden' });
+    dotT.id = 'dot-t';
+    svg.appendChild(dotA); svg.appendChild(dotT);
+
+    var capture = el('rect', { x: PAD.l, y: PAD.t, width: W - PAD.l - PAD.r, height: H - PAD.t - PAD.b, fill: 'transparent' });
+    capture.style.cursor = 'crosshair';
+    capture.addEventListener('pointermove', onHover);
+    capture.addEventListener('pointerleave', hideHover);
+    svg.appendChild(capture);
+  }
+
+  function onHover(ev) {
+    if (!chartGeom) return;
+    var g = chartGeom, m = g.m;
+    var rect = els.chart.getBoundingClientRect();
+    var px = (ev.clientX - rect.left) * (W / rect.width);
+    var frac = Math.max(0, Math.min(1, (px - PAD.l) / (W - PAD.l - PAD.r)));
+    var t = frac * g.xmax;
+    var xs = g.x(t);
+    var no = cumNoAt(t, m), ask = cumAskAt(t, m);
+
+    document.getElementById('crosshair').setAttribute('x1', xs);
+    document.getElementById('crosshair').setAttribute('x2', xs);
+    document.getElementById('crosshair').setAttribute('visibility', 'visible');
+    var da = document.getElementById('dot-a'), dt = document.getElementById('dot-t');
+    da.setAttribute('cx', xs); da.setAttribute('cy', g.y(no)); da.setAttribute('visibility', 'visible');
+    dt.setAttribute('cx', xs); dt.setAttribute('cy', g.y(ask)); dt.setAttribute('visibility', 'visible');
+
+    var tt = els.tooltip;
+    tt.textContent = '';
+    var dayEl = document.createElement('div');
+    dayEl.className = 'tt-day';
+    dayEl.textContent = fmt(state.age + t) + '歳時点';
+    tt.appendChild(dayEl);
+    [
+      { name: '交渉しない', val: no, color: 'var(--series-no)' },
+      { name: '交渉する', val: ask, color: 'var(--series-ask)' }
+    ].forEach(function (r) {
+      var row = document.createElement('div'); row.className = 'tt-row';
+      var key = document.createElement('span'); key.className = 'tt-key'; key.style.background = r.color;
+      var name = document.createElement('span'); name.className = 'tt-name'; name.textContent = r.name;
+      var val = document.createElement('span'); val.className = 'tt-val'; val.textContent = yen(r.val);
+      row.appendChild(key); row.appendChild(name); row.appendChild(val);
+      tt.appendChild(row);
+    });
+    var diffRow = document.createElement('div'); diffRow.className = 'tt-row tt-diff';
+    var dn = document.createElement('span'); dn.className = 'tt-name'; dn.textContent = '差額';
+    var dv = document.createElement('span'); dv.className = 'tt-val'; dv.textContent = yen(ask - no);
+    diffRow.appendChild(dn); diffRow.appendChild(dv);
+    tt.appendChild(diffRow);
+
+    tt.style.display = 'block';
+    var boxRect = els.chart_box.getBoundingClientRect();
+    var left = (xs / W) * boxRect.width + 14;
+    if (left + 210 > boxRect.width) left = (xs / W) * boxRect.width - 224;
+    tt.style.left = left + 'px';
+    tt.style.top = '30px';
+  }
+  function hideHover() {
+    els.tooltip.style.display = 'none';
+    ['crosshair', 'dot-a', 'dot-t'].forEach(function (id) {
+      var e = document.getElementById(id);
+      if (e) e.setAttribute('visibility', 'hidden');
+    });
+  }
+
+  function renderTable(m) {
+    var tbody = els.table_body;
+    tbody.textContent = '';
+    var ages = [];
+    for (var a = state.age + 5; a < RETIRE; a += 5) ages.push(a);
+    ages.push(RETIRE);
+    ages.forEach(function (a) {
+      var t = a - state.age;
+      var no = cumNoAt(t, m), ask = cumAskAt(t, m);
+      var tr = document.createElement('tr');
+      [a + '歳', yen(no), yen(ask), yen(ask - no)].forEach(function (txt) {
+        var td = document.createElement('td');
+        td.textContent = txt;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  function readInputs() {
+    state.sal = +els.in_sal.value;
+    state.age = +els.in_age.value;
+    state.b = +els.in_b.value;
+    state.p = +els.in_p.value;
+    state.g = +els.in_g.value;
+    state.st = +els.in_st.value;
+  }
+  function update() {
+    var m = compute();
+    renderText(m);
+    renderChart(m);
+    renderTable(m);
+    renderMarket();
+    renderMaterials();
+  }
+  ['in_sal','in_age','in_b','in_p','in_g','in_st'].forEach(function (k) {
+    els[k].addEventListener('input', function () { readInputs(); update(); });
+  });
+
+  initMaterials();
+  update();
+})();
+</script>
+</body>
+</html>

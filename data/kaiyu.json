@@ -832,6 +832,37 @@
       ]
     },
     {
+      "id": "salary-negotiation-calculator",
+      "path": "salary-negotiation-calculator.html",
+      "title": "昇給交渉しない計算機",
+      "tag": "未来のリスク計算機",
+      "desc": "たった30分の気まずい対話を先延ばしにすると、差額は複利で開き続ける。定年までの期待損失と、同業の相場との距離を試算。",
+      "theme": "white",
+      "category": "mirai",
+      "added": "2026-07-20",
+      "band": true,
+      "next": [
+        "salary-negotiation-kit",
+        "democracy-fitness-career"
+      ]
+    },
+    {
+      "id": "salary-negotiation-kit",
+      "path": "salary-negotiation-kit.html",
+      "title": "昇給交渉キット",
+      "tag": "キット（有料）",
+      "desc": "マインドセット・状態構築編、日本の事例集、上司に渡すワンページャー。対決ではなく、共に壁を越えるための道具一式。",
+      "theme": "white",
+      "category": "mirai",
+      "added": "2026-07-20",
+      "band": true,
+      "auto": false,
+      "next": [
+        "salary-negotiation-calculator",
+        "democracy-fitness-career"
+      ]
+    },
+    {
       "id": "education-roi-zukan",
       "path": "education-roi-zukan.html",
       "title": "教育の費用対効果図鑑",

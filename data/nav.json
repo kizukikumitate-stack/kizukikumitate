@@ -224,6 +224,10 @@
           {
             "label": "対話不足コスト計算機",
             "href": "taiwa-cost-calculator.html"
+          },
+          {
+            "label": "昇給交渉しない計算機",
+            "href": "salary-negotiation-calculator.html"
           }
         ]
       },
@@ -499,6 +503,10 @@
       "variant": "standard"
     },
     {
+      "path": "salary-negotiation-calculator.html",
+      "variant": "standard"
+    },
+    {
       "path": "education-roi-zukan.html",
       "variant": "standard"
     },
@@ -607,6 +615,10 @@
     {
       "path": "preview-diagram.html",
       "reason": "作業用のプレビュー図ページ（ナビ非掲載・CLAUDE.md 記載）"
+    },
+    {
+      "path": "salary-negotiation-kit.html",
+      "reason": "昇給交渉キット（有料LP）＝独自デザイン。無料の計算機・キャリアLPからのみ到達"
     }
   ]
 }

@@ -439,6 +439,26 @@
       "sub": "会議の空転・手戻り・離職。対話不足の損失を自社の数字で概算する。"
     },
     {
+      "page": "salary-negotiation-calculator.html",
+      "img": "salary-negotiation-calculator-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#2a78d6",
+      "eyebrow": "未来のリスク計算機",
+      "title": "昇給交渉しない計算機",
+      "sub": "30分の気まずさを先延ばしにする値段を、定年まで複利で試算。"
+    },
+    {
+      "page": "salary-negotiation-kit.html",
+      "img": "salary-negotiation-kit-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2a78d6",
+      "eyebrow": "KIT ／ 昇給交渉",
+      "title": "昇給交渉キット",
+      "sub": "対決ではなく、共に壁を越える。動ける心と型の道具一式。"
+    },
+    {
       "page": "education-roi-zukan.html",
       "img": "education-roi-zukan-ogp.png",
       "template": "standard",

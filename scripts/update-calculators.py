@@ -26,9 +26,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-VERSION = "1.2"
-VERSION_DATE = "2026-07-18"
-VERSION_DATE_JA = "2026年7月18日"
+VERSION = "1.3"
+VERSION_DATE = "2026-07-20"
+VERSION_DATE_JA = "2026年7月20日"
 HUB = "risk-calculators.html"
 
 # 出典はすべて到達確認済みのURLのみ。リンク切れを載せるのは本末転倒なので、
@@ -355,6 +355,9 @@ SERIES = [
     ("school-consolidation-countdown.html", "05", "学校の分岐点"),
     ("caregiving-capacity-calculator.html", "06", "介護の支え手計算機"),
     ("longevity-money-map.html", "07", "老後のお金の見取り図"),
+    # 08・09 は独自デザインの納品物ベースで CALC-COMMON の対象外（帯・一覧にだけ載せる）
+    ("taiwa-cost-calculator.html", "08", "対話不足コスト計算機"),
+    ("salary-negotiation-calculator.html", "09", "昇給交渉しない計算機"),
 ]
 
 SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
