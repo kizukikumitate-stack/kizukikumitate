@@ -122,6 +122,21 @@
       ]
     },
     {
+      "id": "democracy-fitness-career",
+      "path": "democracy-fitness-career.html",
+      "title": "個人向けキャリア開発",
+      "tag": "ソリューション",
+      "desc": "キャリア開発は「自分」という事業の経営。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニング。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-07-14",
+      "band": true,
+      "next": [
+        "democracy-fitness",
+        "dialogue-program"
+      ]
+    },
+    {
       "id": "dialogue-program-trial",
       "path": "dialogue-program-trial.html",
       "title": "対話力向上研修 体験会・説明会",

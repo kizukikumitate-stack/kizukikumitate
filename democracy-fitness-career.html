@@ -7,19 +7,19 @@
 <meta name="description" content="キャリア開発とは「自分」という事業の経営。意見を持ち、伝え、巻き込む力を、デンマーク発デモクラシーフィットネスで鍛える。転職しても、残っても効く。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="デモクラシーフィットネス × キャリア開発">
-<meta property="og:description" content="飲み込んだ意見は、キャリアの機会損失。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニングプログラム。">
+<meta property="og:description" content="キャリア開発とは「自分」という事業の経営。だから、飲み込んだ意見はキャリアの機会損失になる。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニングプログラム。">
 <meta property="og:url" content="https://kizukikumitate.com/democracy-fitness-career.html">
-<meta property="og:image" content="https://kizukikumitate.com/democracy-fitness-ogp.png">
+<meta property="og:image" content="https://kizukikumitate.com/democracy-fitness-career-ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="デモクラシーフィットネス × キャリア開発">
 <meta name="twitter:description" content="意見を持ち、伝え、巻き込む筋肉を鍛える。転職しても、残っても効くキャリアの基礎トレーニング。">
-<meta name="twitter:image" content="https://kizukikumitate.com/democracy-fitness-ogp.png">
+<meta name="twitter:image" content="https://kizukikumitate.com/democracy-fitness-career-ogp.png">
 <link rel="canonical" href="https://kizukikumitate.com/democracy-fitness-career.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=M+PLUS+1p:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=M+PLUS+1p:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Shippori+Mincho:wght@700;800&family=Jost:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --paper:#EFF2F1;
@@ -31,19 +31,80 @@
   --jp:'Zen Kaku Gothic New',sans-serif;
   --jp-heavy:'M PLUS 1p',sans-serif;
   --en:'Anton',sans-serif;
+  --forest:#1a5fad;
+  --charcoal:#1e1e1e;
+  --mid-gray:#5a6a7a;
+  --navh:62px;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:var(--jp);background:var(--paper);color:var(--ink);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased}
+body{font-family:var(--jp);background:var(--paper);color:var(--ink);line-height:1.9;font-size:16px;-webkit-font-smoothing:antialiased;padding-top:var(--navh);overflow-x:hidden;line-break:strict;hanging-punctuation:allow-end}
 img{max-width:100%}
 a{color:inherit}
 .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* ---------- global nav (台帳生成・data/nav.json が正) ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+.nav-logo img{height:36px;width:auto;object-fit:contain}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;flex-wrap:wrap}
+.nav-links a{font-family:'Jost','Noto Sans JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em}
+.nav-links a:hover,.nav-links a.active{color:var(--forest)}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-dropdown-toggle{font-family:'Jost','Noto Sans JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
+.nav-caret{font-size:0.6em;transition:transform 0.25s}
+.nav-dropdown:hover .nav-dropdown-toggle,
+.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest)}
+.nav-dropdown:hover .nav-caret,
+.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest)}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px)}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,
+.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+.mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+.mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+.mobile-menu-label{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;width:100%;text-align:center;margin:2rem 0 0.4rem}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+.mobile-acc{width:100%;border-bottom:1px solid #e8e8e8}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0}
+.mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
+.mobile-acc-panel{display:none;flex-direction:column;padding-bottom:0.7rem}
+.mobile-acc.open .mobile-acc-panel{display:flex}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s}
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489}
+a.mobile-cat-link{display:flex;justify-content:center;align-items:center;width:100%;border-bottom:1px solid #e8e8e8;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;text-decoration:none;padding:1.15rem 0;transition:color 0.15s}
+a.mobile-cat-link:hover,a.mobile-cat-link.active{color:#26215C}
+/* 1251〜1310px は横ナビが2段になる（全ページ共通の既存事象）ので本文の逃げを厚くする */
+@media(max-width:1310px){body{padding-top:112px}}
+@media(max-width:1250px){
+  body{padding-top:68px}
+  .nav-links{display:none}
+  .nav-hamburger{display:block}
+  .nav-logo{margin-right:0}
+}
 
 /* ---------- header ---------- */
 .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:2px solid var(--ink)}
 .topbar .brand{font-family:var(--en);font-size:15px;letter-spacing:.12em}
 .topbar .brand span{color:var(--red)}
-.topbar .kizuki{font-size:12px;letter-spacing:.1em;color:var(--steel)}
+.topbar .kizuki{font-size:12px;letter-spacing:.1em;color:var(--steel);white-space:nowrap}
+@media(max-width:600px){
+  .topbar{padding:14px 24px}
+  .topbar .brand{font-size:13px}
+  .topbar .kizuki{display:none}
+}
 
 /* ---------- hero ---------- */
 .hero{padding:72px 0 64px;position:relative;overflow:hidden}
@@ -139,21 +200,221 @@ h2{font-family:var(--jp-heavy);font-weight:900;font-size:clamp(24px,4.4vw,36px);
 .trainer-box p{font-size:14.5px}
 @media(max-width:600px){.trainer-box{flex-direction:column}}
 
-/* ---------- footer ---------- */
-footer{padding:48px 0 40px;text-align:center}
-footer .f-brand{font-family:var(--en);font-size:14px;letter-spacing:.16em;margin-bottom:8px}
-footer .f-brand span{color:var(--red)}
-footer p{font-size:12px;color:var(--steel)}
-footer a{color:var(--steel)}
+/* ---------- page note（旧フッター相当・連絡先） ---------- */
+.pagenote{padding:48px 0 8px;text-align:center}
+.pagenote .f-brand{font-family:var(--en);font-size:14px;letter-spacing:.16em;margin-bottom:8px}
+.pagenote .f-brand span{color:var(--red)}
+.pagenote p{font-size:12px;color:var(--steel)}
+.pagenote a{color:var(--steel)}
+
+/* ---------- site footer（台帳生成） ---------- */
+footer{padding:3rem 2rem;text-align:center;background:var(--white);border-top:2px solid var(--ink)}
+.footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--forest);letter-spacing:0.08em}
+.footer-copy{margin-top:0.6rem;font-family:'Jost',sans-serif;font-size:0.72rem;color:var(--mid-gray);letter-spacing:0.06em}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.plan .cta:hover{transform:none}}
 </style>
 </head>
 <body>
 
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+        <a href="./democracy-fitness-career.html" class="active">個人向けキャリア開発</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html">PTAのこれから</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      <a href="./democracy-fitness-career.html" class="active">個人向けキャリア開発</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html">PTAのこれから</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
 <header class="topbar">
   <div class="brand">DEMOCRACY FITNESS <span>×</span> CAREER</div>
-  <div class="kizuki">きづきくみたて工房</div>
+  <div class="kizuki">個人向けキャリア開発</div>
 </header>
 
 <!-- HERO -->
@@ -161,8 +422,8 @@ footer a{color:var(--steel)}
   <div class="wrap">
     <div class="bigword">VOICE</div>
     <div class="eyebrow">DEMOCRACY FITNESS × CAREER DEVELOPMENT</div>
-    <h1>会議で飲み込んだ<br>その意見は、<br><span class="strike">キャリアの機会損失</span>です。</h1>
-    <p class="lead">キャリア開発とは、資格を取ることでも、転職サイトに登録することでもありません。<strong>「自分」という事業を、自分で経営すること</strong>。そのために必要なのは、意見を持ち、伝え、周囲を巻き込む筋肉です。</p>
+    <h1>キャリア開発とは、<br>「自分」という事業の<br><span class="strike">経営</span>である。</h1>
+    <p class="lead">資格を取ることでも、転職サイトに登録することでもありません。スキルを磨くのは、いわば商品開発。しかし事業は、商品だけでは成立しません。<strong>より良い契約を獲得するには、交渉し、提案し、関係者を巻き込む必要があります。</strong></p>
     <div class="hero-tags">
       <span>転職する人にも</span><span>会社に残る人にも</span><span>デンマーク発・認定トレーナーが実施</span>
     </div>
@@ -177,7 +438,7 @@ footer a{color:var(--steel)}
     <p class="check-note">当てはまるものをタップしてください。</p>
     <div class="check-list" id="checkList">
       <div class="check-item"><span class="box"></span>会議で違和感を覚えても、その場では飲み込んでしまう</div>
-      <div class="check-item"><span class="box"></span>「あなたはどうしたい?」と聞かれると、言葉に詰まる</div>
+      <div class="check-item"><span class="box"></span>「あなたはどうしたい？」と聞かれると、言葉に詰まる</div>
       <div class="check-item"><span class="box"></span>評価面談で、自分の成果をうまく主張できない</div>
       <div class="check-item"><span class="box"></span>反対意見を言われると、正しいと思っていても引いてしまう</div>
       <div class="check-item"><span class="box"></span>転職か残留か、判断の「軸」が自分の中にない</div>
@@ -191,9 +452,9 @@ footer a{color:var(--steel)}
 <section id="concept">
   <div class="wrap">
     <div class="sec-label"><span class="en">CONCEPT</span><span class="bar"></span></div>
-    <h2>キャリア開発は、<br>「自分」という事業の経営である。</h2>
+    <h2>だから、会議で飲み込んだ<br>その意見は、キャリアの機会損失です。</h2>
     <div class="sec-body">
-      <p>スキルを磨くことは、いわば商品開発。しかし事業は商品だけでは成立しません。<strong>より良い契約を獲得するには、交渉し、提案し、関係者を巻き込む必要があります。</strong></p>
+      <p>言わなかった提案は、誰の記憶にも残りません。<strong>飲み込むたびに、「自分」という事業は、商談の機会をひとつ失っている</strong>。それが積み重なると、任される仕事も、声のかかる場も、静かに狭くなっていきます。</p>
       <p>「自分の意見を持つ」「異論があるときに伝える」「対立を恐れず落とし所を探る」——これらは、民主主義に参加するための筋肉と、まったく同じ筋肉です。だから、キャリアの悩みは筋トレで解決できる。</p>
     </div>
     <div class="concept-frame">
@@ -248,7 +509,48 @@ footer a{color:var(--steel)}
 <section id="program" style="padding-top:0">
   <div class="wrap">
     <div class="sec-label"><span class="en">PROGRAM</span><span class="bar"></span></div>
+    <h2>まずは、あなたの経営会議から。</h2>
+    <div class="dual">
+      <div class="plan wide">
+        <p class="who">FOR INDIVIDUALS — PERSONAL SUPPORT</p>
+        <h3>あなたのキャリアに、伴走する。<br>個別コーチング &amp; キャリア表現コンサルティング</h3>
+        <p class="lead-line">「自分」という事業の経営を、一人で抱えないための個別サポートです。まだ言葉になっていない意見を、<strong>企業側から求められる人材としての表現</strong>に翻訳するところまで伴走します。自分という商品の、営業資料と商談設計です。はじめての方も、体験会・合宿の参加者も歓迎。トレーニングと並行しても構いません。</p>
+        <div class="wide-cols">
+          <div>
+            <h5>コーチング — 軸を、意思決定に</h5>
+            <ul>
+              <li>自分の意見を、転職か残留かの判断軸に落とし込む</li>
+              <li>次の交渉・面談に向けた作戦会議と振り返り</li>
+              <li>飲み込み癖が戻らないための継続トレーニング設計</li>
+            </ul>
+          </div>
+          <div>
+            <h5>コンサルティング — 強みを、商品に</h5>
+            <ul>
+              <li>職務経歴書を「自分という事業の企画書」として再設計</li>
+              <li>企業が採用したくなる言葉への翻訳（求人票の読み解き込み）</li>
+              <li>面接・評価面談・条件交渉での主張のシナリオ設計</li>
+            </ul>
+          </div>
+        </div>
+        <a class="cta" href="mailto:y.morimoto@kizukikumitate.com?subject=個別コーチング・コンサルティングの相談">個別サポートについて相談する →</a>
+      </div>
+    </div>
+
+    <!-- TODO: ここに「給料交渉をしないリスク計算機」と「給料交渉キット（販売）」のカードを入れる。
+         想定順は 個別コーチング → 交渉リスク計算機（無料ツール） → 交渉キット（有料）→ 下のトレーニング。
+         有料商品は data/kaiyu.json で "auto": false を付けること（無料版の先でだけ見せる確定方針）。 -->
+  </div>
+</section>
+
+<!-- TRAINING（デモクラシーフィットネス） -->
+<section id="training" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-label"><span class="en">TRAINING</span><span class="bar"></span></div>
     <h2>会社の外で、こっそり鍛える。</h2>
+    <div class="sec-body" style="margin-bottom:28px">
+      <p>作戦を立てたら、あとは反復です。使うのは、デンマーク発の<strong>デモクラシーフィットネス（民主主義の筋トレ）</strong>。職場の利害から離れた場所で、実際に声を出して練習します。</p>
+    </div>
     <div class="dual">
       <div class="plan">
         <p class="who">FOR BEGINNERS</p>
@@ -266,37 +568,13 @@ footer a{color:var(--steel)}
         <p class="who">INTENSIVE CAMP</p>
         <h3>キャンプ2026 in 軽井沢<br>〜2日間で全10筋肉〜</h3>
         <ul>
-          <li>2026年8月11日(火)・12日(水)の1泊2日集中合宿</li>
+          <li>2026年8月11日（火）・12日（水）の1泊2日集中合宿</li>
           <li>全10の筋肉を2日間で一気にトレーニング</li>
           <li>会場は北軽井沢・TAKIVIVA。日常から離れ、焚き火を囲んで語る</li>
           <li>キャリアの転機にいる人にこそ、まとまった時間を</li>
-          <li>申込締切:7月31日(金)</li>
+          <li>申込締切：7月31日（金）</li>
         </ul>
         <a class="cta" href="democracy-fitness-camp-0811.html">合宿の詳細を見る →</a>
-      </div>
-      <div class="plan wide">
-        <p class="who">FOR PARTICIPANTS — PERSONAL SUPPORT</p>
-        <h3>鍛えた筋肉を、実戦へ。<br>個別コーチング &amp; キャリア表現コンサルティング</h3>
-        <p class="lead-line">体験会・合宿の参加者向けの個別サポートです。トレーニングで手に入れた「自分の意見」を、<strong>企業側から求められる人材としての表現</strong>に翻訳するところまで伴走します。自分という商品の、営業資料と商談設計です。</p>
-        <div class="wide-cols">
-          <div>
-            <h5>コーチング — 軸を、意思決定に</h5>
-            <ul>
-              <li>育てた意見を、転職か残留かの判断軸に落とし込む</li>
-              <li>次の交渉・面談に向けた作戦会議と振り返り</li>
-              <li>飲み込み癖が戻らないための継続トレーニング設計</li>
-            </ul>
-          </div>
-          <div>
-            <h5>コンサルティング — 強みを、商品に</h5>
-            <ul>
-              <li>職務経歴書を「自分という事業の企画書」として再設計</li>
-              <li>企業が採用したくなる言葉への翻訳(求人票の読み解き込み)</li>
-              <li>面接・評価面談・条件交渉での主張のシナリオ設計</li>
-            </ul>
-          </div>
-        </div>
-        <a class="cta" href="mailto:y.morimoto@kizukikumitate.com?subject=個別コーチング・コンサルティングの相談">個別サポートについて相談する →</a>
       </div>
     </div>
   </div>
@@ -333,18 +611,99 @@ footer a{color:var(--steel)}
       <div>
         <p class="t-name">森本 康仁</p>
         <p class="t-title">きづきくみたて工房 代表 / デモクラシーフィットネス認定トレーナー</p>
-        <p>元小学校教員(9年)。人材開発・組織開発コンサルタントとして、HPI/BEMに基づくパフォーマンス改善、企業研修、ファシリテーションに従事。デンマークの認定を受けたデモクラシーフィットネストレーナーとして、東京・大阪・名古屋・福岡など各地でトレーニングを実施。</p>
+        <p>元小学校教員（9年）。人材開発・組織開発コンサルタントとして、HPI/BEMに基づくパフォーマンス改善、企業研修、ファシリテーションに従事。デンマークの認定を受けたデモクラシーフィットネストレーナーとして、東京・大阪・名古屋・福岡など各地でトレーニングを実施。</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer>
+<div class="pagenote">
   <div class="wrap">
     <p class="f-brand">DEMOCRACY FITNESS <span>×</span> CAREER</p>
     <p>きづきくみたて工房 | <a href="https://kizukikumitate.com">kizukikumitate.com</a> | <a href="mailto:y.morimoto@kizukikumitate.com">y.morimoto@kizukikumitate.com</a></p>
   </div>
+</div>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="white" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./democracy-fitness.html"><span class="kaiyu-tag">手法・WS</span><span class="kaiyu-name">Democracy Fitness</span><span class="kaiyu-desc">デンマーク発、対話の筋肉を30分ずつ鍛えるトレーニング。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./1on1-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">1on1の成功と失敗の図鑑</span><span class="kaiyu-desc">進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
 </footer>
+<!-- FOOTER END -->
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
+  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+  mobileClose.addEventListener('click', closeMenu);
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+</script>
 
 <script>
 (function(){

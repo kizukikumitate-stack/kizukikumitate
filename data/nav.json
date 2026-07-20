@@ -64,6 +64,10 @@
           {
             "label": "離職防止プログラム",
             "href": "taiwa-teichaku.html"
+          },
+          {
+            "label": "個人向けキャリア開発",
+            "href": "democracy-fitness-career.html"
           }
         ]
       },
@@ -388,6 +392,10 @@
       "variant": "standard"
     },
     {
+      "path": "democracy-fitness-career.html",
+      "variant": "standard"
+    },
+    {
       "path": "tax-revenue-countdown.html",
       "variant": "standard"
     },
@@ -543,10 +551,6 @@
     {
       "path": "facilitator-training.html",
       "reason": "ファシリテーター養成＝独自デザインLP"
-    },
-    {
-      "path": "democracy-fitness-career.html",
-      "reason": "Democracy Fitness × Career＝独自デザインLP"
     },
     {
       "path": "democracy-fitness-intern.html",
