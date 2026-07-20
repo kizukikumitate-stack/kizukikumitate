@@ -24,6 +24,7 @@
   body {
     font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
     background: var(--page); color: var(--text-primary); line-height: 1.75; -webkit-font-smoothing: antialiased;
+    hanging-punctuation: allow-end; line-break: strict;
   }
   .wrap { max-width: 720px; margin: 0 auto; padding: 56px 20px 72px; }
   .brand { font-size: 12px; font-weight: 800; letter-spacing: 0.14em; color: var(--accent); }
@@ -34,10 +35,12 @@
 
   .files { margin-top: 34px; display: grid; gap: 14px; }
   .file {
-    display: grid; grid-template-columns: 54px 1fr auto; align-items: center; gap: 18px;
+    display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; align-items: center; gap: 18px;
     background: var(--surface-1); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; box-shadow: var(--shadow);
   }
-  @media (max-width: 560px) { .file { grid-template-columns: 44px 1fr; } .file .dl { grid-column: 1 / -1; } }
+  @media (max-width: 560px) { .file { grid-template-columns: 44px minmax(0, 1fr); } .file .dl { grid-column: 1 / -1; } }
+  .file > div { min-width: 0; }
+  .file h3, .file p { overflow-wrap: break-word; word-break: auto-phrase; }
   .file .ic { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; background: color-mix(in srgb, var(--accent) 12%, transparent); }
   .file .step { font-size: 11.5px; font-weight: 700; letter-spacing: 0.08em; color: var(--accent); }
   .file h3 { font-size: 16.5px; font-weight: 700; margin-top: 2px; }
