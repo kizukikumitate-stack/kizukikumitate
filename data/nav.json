@@ -619,6 +619,10 @@
     {
       "path": "salary-negotiation-kit.html",
       "reason": "昇給交渉キット（有料LP）＝独自デザイン。無料の計算機・キャリアLPからのみ到達"
+    },
+    {
+      "path": "salary-kit-dl-92kf7m/index.html",
+      "reason": "昇給交渉キット 購入者専用ダウンロードページ（noindex・推測不可URL・Stripe決済後のリダイレクト先）。ナビ非掲載（2026-07-20 追加）"
     }
   ]
 }
