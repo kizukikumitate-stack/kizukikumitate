@@ -201,6 +201,29 @@ input[type=range]{width:100%;margin-top:8px;accent-color:var(--teal);height:28px
    誤認されないよう footer 要素ではなく div にする） */
 .pagenote{border-top:1px solid var(--line);padding:32px 0 64px;font-size:12px;color:var(--ink-soft)}
 .pagenote a{color:var(--teal)}
+  /* シリーズ帯（scripts/update-calculators.py の生成物） */
+  /* ★全セレクタを .series-band 配下に閉じ込め、色は変数ではなくリテラルで書くこと。
+     この帯は独自パレットのページ（08 対話不足コスト・09 昇給交渉）にも出すため、
+     var(--ink) 等はページごとに違う色になり、.series-foot は 09 が自前で持っている。
+     素の .series-foot に書くと 09 のフッターカードを巻き込んで壊す（2026-07-20 実害）。 */
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid #e5e0d3; padding: 3rem 1.5rem 3.2rem; }
+  .series-band .series-inner { max-width: 880px; margin: 0 auto; }
+  .series-band .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
+  .series-band .series-group { font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: #9a9382; margin: 1.4rem 0 0.5rem; }
+  .series-band .series-head + .series-group { margin-top: 0; }
+  .series-band .series-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  @media (max-width: 560px) { .series-band .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-band .series-list a, .series-band .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-band .series-list a:hover { border-color: #d9a441; transform: translateY(-2px); }
+  .series-band .series-list .now { background: #16132a; border-color: #16132a; }
+  .series-band .series-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; color: #8a651f; flex-shrink: 0; }
+  .series-band .series-list .now .series-no { color: #d9a441; }
+  .series-band .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.98rem; font-weight: 700; color: #16132a; line-height: 1.6; }
+  .series-band .series-list .now .series-name { color: #faf8f2; }
+  .series-band .series-foot { font-size: 0.8rem; margin-top: 1.1rem; text-align: left; }
+  .series-band .series-foot a { color: #0f6e56; }
+  .series-band .series-foot .now-hub { color: #4a4660; }
+  @media print { .series-band { display: none !important; } }
 </style>
 </head>
 <body>
@@ -602,6 +625,32 @@ input[type=range]{width:100%;margin-top:8px;accent-color:var(--teal);height:28px
     <p style="margin-top:8px">© きづきくみたて工房（<a href="jijitsu-daicho.html">著者情報：事実の台帳</a>）｜本ツールは CC BY-NC-SA 4.0 で提供。商用利用のご相談は別途ライセンスにて。前提・出典・免責の詳細は <a href="risk-calculators.html">未来のリスク計算機について</a> にまとめています。</p>
   </div>
 </div>
+
+<!-- SERIES START -->
+<aside class="series-band" aria-label="未来のリスク計算機シリーズ">
+  <div class="series-inner">
+    <p class="series-head">未来のリスク計算機（全8本）</p>
+    <p class="series-group">社会のリスク</p>
+    <ul class="series-list">
+        <li><a href="./school-consolidation-countdown.html"><span class="series-no">05</span><span class="series-name">学校の分岐点</span></a></li>
+        <li><a href="./caregiving-capacity-calculator.html"><span class="series-no">06</span><span class="series-name">介護の支え手計算機</span></a></li>
+    </ul>
+    <p class="series-group">組織のリスク</p>
+    <ul class="series-list">
+        <li><a href="./customer-age-timebomb.html"><span class="series-no">01</span><span class="series-name">顧客の平均年齢時限爆弾</span></a></li>
+        <li><a href="./recruitment-extinction.html"><span class="series-no">02</span><span class="series-name">採用市場消滅計算機</span></a></li>
+        <li><a href="./skill-succession-timebomb.html"><span class="series-no">04</span><span class="series-name">技能承継時限爆弾</span></a></li>
+        <li><span class="now" aria-current="page"><span class="series-no">08</span><span class="series-name">対話不足コスト計算機</span></span></li>
+    </ul>
+    <p class="series-group">個人のリスク</p>
+    <ul class="series-list">
+        <li><a href="./longevity-money-map.html"><span class="series-no">07</span><span class="series-name">老後のお金の見取り図</span></a></li>
+        <li><a href="./salary-negotiation-calculator.html"><span class="series-no">09</span><span class="series-name">昇給交渉しない計算機</span></a></li>
+    </ul>
+    <p class="series-foot"><a href="./risk-calculators.html">このシリーズについて（前提・出典・免責・変更履歴）</a></p>
+  </div>
+</aside>
+<!-- SERIES END -->
 
 <!-- KAIYU START -->
 <aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">

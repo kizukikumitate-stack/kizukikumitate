@@ -374,24 +374,28 @@ SERIES_GROUPS = [
 
 SERIES = [entry for _, entries in SERIES_GROUPS for entry in entries]
 
-SERIES_CSS = """  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */
-  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid var(--line); padding: 3rem 1.5rem 3.2rem; }
-  .series-inner { max-width: 880px; margin: 0 auto; }
-  .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
-  .series-group { font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: #9a9382; margin: 1.4rem 0 0.5rem; }
-  .series-head + .series-group { margin-top: 0; }
-  .series-list { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
-  @media (max-width: 560px) { .series-list { grid-template-columns: minmax(0, 1fr); } }
-  .series-list a, .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
-  .series-list a:hover { border-color: var(--gold); transform: translateY(-2px); }
-  .series-list .now { background: var(--ink); border-color: var(--ink); }
-  .series-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; color: var(--gold-deep); flex-shrink: 0; }
-  .series-list .now .series-no { color: var(--gold); }
-  .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.98rem; font-weight: 700; color: var(--ink); line-height: 1.6; }
-  .series-list .now .series-name { color: var(--paper); }
-  .series-foot { font-size: 0.8rem; margin-top: 1.1rem; }
-  .series-foot a { color: var(--teal); }
-  .series-foot .now-hub { color: var(--ink-soft); }
+SERIES_CSS = """  /* シリーズ帯（scripts/update-calculators.py の生成物） */
+  /* ★全セレクタを .series-band 配下に閉じ込め、色は変数ではなくリテラルで書くこと。
+     この帯は独自パレットのページ（08 対話不足コスト・09 昇給交渉）にも出すため、
+     var(--ink) 等はページごとに違う色になり、.series-foot は 09 が自前で持っている。
+     素の .series-foot に書くと 09 のフッターカードを巻き込んで壊す（2026-07-20 実害）。 */
+  .series-band { background: rgba(60,52,20,0.045); border-top: 1px solid #e5e0d3; padding: 3rem 1.5rem 3.2rem; }
+  .series-band .series-inner { max-width: 880px; margin: 0 auto; }
+  .series-band .series-head { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.24em; color: #b8862d; margin-bottom: 1.2rem; }
+  .series-band .series-group { font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; color: #9a9382; margin: 1.4rem 0 0.5rem; }
+  .series-band .series-head + .series-group { margin-top: 0; }
+  .series-band .series-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.7rem; }
+  @media (max-width: 560px) { .series-band .series-list { grid-template-columns: minmax(0, 1fr); } }
+  .series-band .series-list a, .series-band .series-list .now { display: flex; align-items: baseline; gap: 0.6rem; padding: 0.9rem 1rem; border-radius: 11px; border: 1px solid #ddd6c4; background: #fffdf7; text-decoration: none; transition: border-color 0.18s, transform 0.18s; }
+  .series-band .series-list a:hover { border-color: #d9a441; transform: translateY(-2px); }
+  .series-band .series-list .now { background: #16132a; border-color: #16132a; }
+  .series-band .series-no { font-family: 'Jost', sans-serif; font-size: 0.8rem; color: #8a651f; flex-shrink: 0; }
+  .series-band .series-list .now .series-no { color: #d9a441; }
+  .series-band .series-name { font-family: 'Shippori Mincho', serif; font-size: 0.98rem; font-weight: 700; color: #16132a; line-height: 1.6; }
+  .series-band .series-list .now .series-name { color: #faf8f2; }
+  .series-band .series-foot { font-size: 0.8rem; margin-top: 1.1rem; text-align: left; }
+  .series-band .series-foot a { color: #0f6e56; }
+  .series-band .series-foot .now-hub { color: #4a4660; }
   @media print { .series-band { display: none !important; } }"""
 
 
@@ -407,12 +411,25 @@ def put_css(s, css, anchor):
     return s.replace(anchor, anchor + "\n" + css, 1)
 
 
-SERIES_CSS_START = "  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */"
+SERIES_CSS_START = "  /* シリーズ帯（scripts/update-calculators.py の生成物） */"
 SERIES_CSS_END = "  @media print { .series-band { display: none !important; } }"
+
+
+# 旧マーカー。SERIES_CSS_START を書き換えると、既存ページの古いブロックが見つからず
+# 二重挿入になるため、見つけたら新マーカー扱いで差し替える。マーカーを変えるときは
+# ここに旧文字列を1行足すこと（全ページ更新後も、消さずに残しておいて害はない）。
+SERIES_CSS_START_LEGACY = [
+    "  /* シリーズ6本のフッター帯（scripts/update-calculators.py の生成物） */",
+]
 
 
 def put_series_css(s, anchor):
     """帯のCSSを流し込む。すでにあれば丸ごと差し替える（サイズ調整が全ページに効くように）。"""
+    for legacy in SERIES_CSS_START_LEGACY:
+        if legacy in s:
+            s = re.sub(re.escape(legacy) + r".*?" + re.escape(SERIES_CSS_END),
+                       lambda m: SERIES_CSS, s, count=1, flags=re.S)
+            return s
     if SERIES_CSS_START in s:
         return re.sub(re.escape(SERIES_CSS_START) + r".*?" + re.escape(SERIES_CSS_END),
                       lambda m: SERIES_CSS, s, count=1, flags=re.S)
@@ -698,21 +715,40 @@ def process(path, num, title, source):
     return None
 
 
-def process_hub(check):
-    """ハブページ（risk-calculators.html）にも同じ帯を出す。
-    ハブは計算機ではないので PAGES のループには乗せず、帯とCSSだけ入れる。"""
-    p = ROOT / HUB
+# 帯だけを入れるページ（CALC-COMMON の対象外）。
+#   path -> (帯の中での現在位置, CSSを差し込む直前の行)
+# ハブは計算機ではないので PAGES のループに乗せない。08・09 は独自デザインの納品物ベースで
+# 共通パーツ（意思決定期限・感度レンジ・対話シート）を持たないが、帯がないと他の8本から
+# 来た人が戻れない片道になるため、帯だけは出す（2026-07-20 追加）。
+# CSSアンカーは各ページの <style> 内で一意な1行。デザインを触るときに消さないこと。
+BAND_ONLY = {
+    HUB: ("hub", "  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }"),
+    "taiwa-cost-calculator.html": (
+        "taiwa-cost-calculator.html", ".pagenote a{color:var(--teal)}"),
+    "salary-negotiation-calculator.html": (
+        "salary-negotiation-calculator.html",
+        "  .pagenote { font-size: 12px; color: var(--text-muted); margin-top: 26px; max-width: 680px; }"),
+}
+
+
+def process_band_only(path, check):
+    """帯とCSSだけを入れる（共通パーツは触らない）。"""
+    current, css_anchor = BAND_ONLY[path]
+    p = ROOT / path
     s = orig = p.read_text(encoding="utf-8")
-    s = put_series_css(s, "  .note { font-size: 0.72rem; line-height: 1.95; color: var(--ink-soft); }")
-    s = put_series(s, HUB, "hub")
+    if css_anchor not in s and SERIES_CSS_START not in s \
+            and not any(x in s for x in SERIES_CSS_START_LEGACY):
+        raise SystemExit(f"{path}: CSSアンカーが見つかりません（デザイン変更で消えた？）: {css_anchor}")
+    s = put_series_css(s, css_anchor)
+    s = put_series(s, path, current)
     if s == orig:
-        print(f"  ✅ {HUB}: 変更なし")
+        print(f"  ✅ {path}: 変更なし")
         return 0
     if check:
-        print(f"  ⚠️  {HUB}: 差分あり（--check のため書き込みません）")
+        print(f"  ⚠️  {path}: 差分あり（--check のため書き込みません）")
     else:
         p.write_text(s, encoding="utf-8")
-        print(f"  ✏️  {HUB}: シリーズ帯を更新")
+        print(f"  ✏️  {path}: シリーズ帯を更新")
     return 1
 
 
@@ -730,8 +766,9 @@ def main():
         else:
             (ROOT / path).write_text(out, encoding="utf-8")
             print(f"  ✏️  {path}: 共通パーツを更新（{num} {title} / ver {VERSION}）")
-    changed += process_hub(check)
-    print(f"完了: {changed} ページ（対象 {len(PAGES)} ページ＋ハブ / ver {VERSION}）")
+    for path in BAND_ONLY:
+        changed += process_band_only(path, check)
+    print(f"完了: {changed} ページ（対象 {len(PAGES)} ページ＋帯のみ {len(BAND_ONLY)} ページ / ver {VERSION}）")
     if check and changed:
         sys.exit(1)
 
