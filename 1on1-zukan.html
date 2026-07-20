@@ -179,6 +179,8 @@
   .card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(43,42,38,.08);}
   .card.good{border-top:4px solid var(--good);}
   .card.bad{border-top:4px solid var(--bad);}
+  .card-fig{background:#f2eee2;border-bottom:1px solid var(--line);}
+  .card-fig img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
   .card-head{padding:16px 18px 12px;}
   .card-meta{
     display:flex;
@@ -803,7 +805,10 @@ DATA.forEach(d=>{
   card.dataset.text = (d.name+d.alias+d.desc+d.scene+d.fix+d.cat+d.quote).toLowerCase();
   const starLabel = d.type === 'bad' ? '遭遇率' : '習得難度';
   const fixLabel = d.type === 'bad' ? '対処法' : '習得のコツ';
+  const imgId = d.no.toLowerCase();
+  const eager = (d.type === 'bad' ? gridBad : gridGood).children.length === 0;
   card.innerHTML = `
+    <div class="card-fig"><img src="./images/1on1/${imgId}.webp" alt="${d.name}（${d.alias}）の様子のイラスト" width="1600" height="900" decoding="async"${eager ? ' loading="eager" fetchpriority="high"' : ' loading="lazy"'}></div>
     <div class="card-head">
       <div class="card-meta">
         <span class="no">No.${d.no}</span>
