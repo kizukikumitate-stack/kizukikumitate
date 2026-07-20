@@ -382,6 +382,35 @@ nav {
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
   }
+
+/* ===== 日本語の禁則処理・自然な文節改行（モバイル） =====
+   - word-break: auto-phrase … CJK文節境界で改行。「点検しませんか」を
+     「点検しませ/んか」のように割らない（未対応ブラウザは normal に自動フォールバック）
+   - line-break: strict … 、。」）等を行頭に置かない（禁則処理）
+   - text-wrap: pretty … 段落末の1文字孤立を防ぐ
+   - 見出しも pretty（balance は日本語だと行頭に句読点を呼び込むため使わない）
+   ページ固有クラスは列挙漏れがあるとそこだけ汚い改行になるため全部並べる */
+@media (max-width: 768px) {
+  body,
+  p, li, dd, dt, blockquote, figcaption, th, td,
+  .lede, .intro, .note, .hint, .sub, .punch, .thesis, .redef,
+  .honne, .tatemae, .sw-honne, .sw-tatemae, .verdict, .cred,
+  .lbl, .val, .key, .num, .tag, .tags, .bar-tag, .gc-label, .gc-legend,
+  .gap-quote, .gain, .loss, .leak, .invest, .now, .was, .q, .a,
+  .kaiyu-title, .kaiyu-name, .kaiyu-desc, .kaiyu-tag, .kaiyu-badge {
+    word-break: auto-phrase;
+    overflow-wrap: break-word;
+    line-break: strict;
+    text-wrap: pretty;
+    hanging-punctuation: allow-end;
+  }
+  h1, h2, h3, h4, .hero-res, .kaiyu-head {
+    word-break: auto-phrase;
+    line-break: strict;
+    text-wrap: pretty;
+    hanging-punctuation: allow-end;
+  }
+}
 </style>
 </head>
 <body>

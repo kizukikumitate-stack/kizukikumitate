@@ -513,21 +513,21 @@
     {
       "path": "1on1-zukan.html",
       "variant": "standard"
-    }
-  ],
-  "exclude": [
+    },
     {
       "path": "research.html",
-      "reason": "調査・データ「観測室」ハブ＝Shippori Mincho基調の独自編集デザイン。グローバルナビ非搭載・自己完結（2026-07-19 追加）"
+      "variant": "standard"
     },
     {
       "path": "democracy-fitness-hakusho-2026.html",
-      "reason": "デモクラ筋白書2026 速報版＝独自の白書レイアウト。グローバルナビ非搭載・自己完結（2026-07-19 追加）"
+      "variant": "standard"
     },
     {
       "path": "jijitsu-daicho.html",
-      "reason": "事実の台帳（AI・メディア向けFact Registry）＝和紙基調の独自レジストリデザイン。グローバルナビ非搭載・自己完結フッター（2026-07-19 追加）"
-    },
+      "variant": "standard"
+    }
+  ],
+  "exclude": [
     {
       "path": "pta-dialogue-kit.html",
       "reason": "PTA対話キット系＝独自ブランドバー＋独自フッターの別LP（2026-07-15 森本さん確認）"
