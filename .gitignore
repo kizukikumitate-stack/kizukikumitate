@@ -1,5 +1,9 @@
 _img-backup/
 
+# 図鑑イラストの生成原本PNG（本番はWebPのみコミットする）
+# 手元に残しておくと画風の再調整・部分的な引き直しが効く
+.art-raw/
+
 # mobile-preflight skill の生成物（コミットしない）
 .claude/screenshots/
 .claude/scripts/node_modules/
