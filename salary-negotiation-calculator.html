@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>昇給交渉しない計算機 ｜ きづきくみたて工房</title>
@@ -1180,6 +1188,19 @@ a.mobile-cat-link:hover,a.mobile-cat-link.active{color:#26215C}
   initMaterials();
   update();
 })();
+</script>
+<script>
+  // 無料計算機から有料キットLPへの送客数を計測する。
+  // 計算機の閲覧数と対にすることで、集客はできているのに送客できていないのか、
+  // そもそも計算機に人が来ていないのかを切り分けられる。
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="salary-negotiation-kit"]');
+    if (!a) return;
+    gtag('event', 'select_item', {
+      item_list_id: 'salary_calculator',
+      items: [{ item_id: 'salary-negotiation-kit', item_name: '昇給交渉キット' }],
+    });
+  });
 </script>
 </body>
 </html>

@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2ECK6163X4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2ECK6163X4');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>昇給交渉キット ｜ きづきくみたて工房</title>
@@ -565,6 +573,20 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+<script>
+  // 購入ボタンの押下を計測する。LPの閲覧数と対にすることで「見た→押した」の
+  // 離脱率が分かり、直すべきがLPの中身か集客かを切り分けられる。
+  // 委譲リスナーなのでボタンの位置や個数が変わっても追随する。
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href*="buy.stripe.com"]');
+    if (!a) return;
+    gtag('event', 'begin_checkout', {
+      currency: 'JPY',
+      value: 2700,
+      items: [{ item_id: 'salary-negotiation-kit', item_name: '昇給交渉キット', price: 2700, quantity: 1 }],
+    });
+  });
 </script>
 </body>
 </html>

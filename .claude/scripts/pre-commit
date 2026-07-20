@@ -1,0 +1,22 @@
+#!/bin/sh
+# きづきくみたて工房 pre-commit フック
+#
+# 設置:  ln -sf ../../.claude/scripts/pre-commit .git/hooks/pre-commit
+# （.git/hooks は Git 管理外のため、リポジトリを clone し直したら再設置が必要）
+#
+# 緊急時のスキップ:  git commit --no-verify
+
+set -e
+
+# HTMLに変更が無いコミット（画像追加・ドキュメント更新など）は素通しする
+if ! git diff --cached --name-only --diff-filter=ACM | grep -q '\.html$'; then
+  exit 0
+fi
+
+echo "▸ 公開前チェック: アクセス解析タグ"
+if ! node .claude/scripts/analytics.mjs check; then
+  echo ""
+  echo "計測できないページを公開しようとしています。"
+  echo "上記を修復してから、もう一度 git add してください。"
+  exit 1
+fi
