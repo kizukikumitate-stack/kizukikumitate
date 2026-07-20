@@ -131,6 +131,10 @@
             "href": "shinkei-busshitsu-zukan.html"
           },
           {
+            "label": "1on1の成功と失敗の図鑑",
+            "href": "1on1-zukan.html"
+          },
+          {
             "heading": "社会と世界の図鑑"
           },
           {
@@ -489,6 +493,10 @@
     {
       "path": "education-roi-zukan.html",
       "variant": "standard"
+    },
+    {
+      "path": "1on1-zukan.html",
+      "variant": "standard"
     }
   ],
   "exclude": [
@@ -587,6 +595,14 @@
     {
       "path": "404.html",
       "reason": "神隠し404ページ＝独自フルスクリーンデザイン（グローバルナビ非搭載・playful-touch yokai-404）"
+    },
+    {
+      "path": "od-overflow-check.html",
+      "reason": "作業用の表示崩れ確認ページ（ナビ非掲載・CLAUDE.md 記載）"
+    },
+    {
+      "path": "preview-diagram.html",
+      "reason": "作業用のプレビュー図ページ（ナビ非掲載・CLAUDE.md 記載）"
     }
   ]
 }

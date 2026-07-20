@@ -31,6 +31,7 @@ ARTICLE_PAGES = [
     "chie-zukan.html",
     "alternative-education-zukan.html",
     "education-roi-zukan.html",
+    "1on1-zukan.html",
     "hininchi-zukan.html",
     "growth-laws-zukan.html",
     "reflection-zukan.html",

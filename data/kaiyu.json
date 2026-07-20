@@ -830,6 +830,21 @@
         "alternative-education-zukan",
         "shikumi-zukan"
       ]
+    },
+    {
+      "id": "1on1-zukan",
+      "path": "1on1-zukan.html",
+      "title": "1on1の成功と失敗の図鑑",
+      "tag": "世界の知恵",
+      "desc": "進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-20",
+      "band": true,
+      "next": [
+        "reflection-zukan",
+        "dialogue-program"
+      ]
     }
   ]
 }
