@@ -116,8 +116,8 @@ a.mobile-cat-link:hover,a.mobile-cat-link.active{color:#26215C}
 
 
   header.hero { padding: 16px 0 24px; }
-  header.hero h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.01em; }
-  header.hero p { color: var(--text-secondary); font-size: 14.5px; margin-top: 6px; max-width: 640px; }
+  header.hero h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; }
+  header.hero p { color: var(--text-secondary); font-size: 14.5px; margin-top: 6px; max-width: 780px; }
 
   .card {
     background: var(--surface-1);
@@ -183,7 +183,7 @@ a.mobile-cat-link:hover,a.mobile-cat-link.active{color:#26215C}
   .result { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
   .result .big { font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
   .result .big small { font-size: 24px; font-weight: 600; }
-  .result .desc { font-size: 14.5px; color: var(--text-secondary); max-width: 440px; }
+  .result .desc { font-size: 14.5px; color: var(--text-secondary); max-width: 680px; }
 
   .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
   @media (max-width: 640px) { .tiles { grid-template-columns: minmax(0, 1fr); } }
