@@ -17,6 +17,18 @@
       ]
     },
     {
+      "id": "store",
+      "path": "store.html",
+      "title": "ストア",
+      "tag": "ストア",
+      "desc": "持ち帰って使える実践キットと、対話力を深めるおすすめの本を一箇所に。",
+      "theme": "paper",
+      "category": "store",
+      "added": "2026-07-21",
+      "band": false,
+      "auto": false
+    },
+    {
       "id": "roadmap",
       "path": "roadmap.html",
       "title": "世界平和までのロードマップ",

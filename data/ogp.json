@@ -30,6 +30,16 @@
       "sub": "研修・組織開発・対話のプログラムと、思考の図鑑。すべての入り口。"
     },
     {
+      "page": "store.html",
+      "img": "store-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#d9a441",
+      "eyebrow": "STORE",
+      "title": "持ち帰って、<br>使えるものだけ。",
+      "sub": "実践キットと、対話力を深めるおすすめの本を一箇所に。"
+    },
+    {
       "page": "dialogue-program.html",
       "img": "dialogue-program-ogp.png",
       "template": "standard",

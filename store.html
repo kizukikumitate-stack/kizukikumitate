@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<!--
+  きづきくみたて工房 ストア
+  (c) 2026 きづきくみたて工房 森本康仁 (kizukikumitate.com)
+  自社の実践キット・おすすめの本などを一箇所に集めた販売／紹介ハブ。
+  ナビ／フッターは data/nav.json 台帳から自動生成（手で書き換えない）。
+-->
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ストア｜実践キットとおすすめの本 | きづきくみたて工房</title>
+<meta name="description" content="きづきくみたて工房が薦める、持ち帰って使える実践アイテムを一箇所に。PTA・昇給交渉・未来リスクの対話キットと、対話力を深めるためのおすすめの本。今後、道具やプログラム、旅の行き先も少しずつ加えていきます。">
+<link rel="canonical" href="https://kizukikumitate.com/store.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="ストア｜実践キットとおすすめの本">
+<meta property="og:description" content="持ち帰って使える実践キットと、対話力を深めるおすすめの本を一箇所に。工房が本当に薦めるものだけを並べています。">
+<meta property="og:url" content="https://kizukikumitate.com/store.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ストア｜実践キットとおすすめの本">
+<meta name="twitter:description" content="持ち帰って使える実践キットと、対話力を深めるおすすめの本を一箇所に。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@400;500&family=Shippori+Mincho:wght@400;600;700;800&family=Jost:wght@300;400;500&family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:        #16132a;
+    --ink-deep:   #0e0c1e;
+    --ink-soft:   #4a4660;
+    --gold:       #d9a441;
+    --gold-deep:  #8a651f;
+    --teal:       #0f6e56;
+    --dawn:       #d85a30;
+    --paper:      #faf8f2;
+    --line:       #e5e0d3;
+    --charcoal:   #1e1e1e;
+    --forest:     #1a5fad;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Serif JP', serif; color: var(--charcoal); background: var(--paper); overflow-x: hidden; word-break: keep-all; overflow-wrap: break-word; hanging-punctuation: allow-end; line-break: strict; line-height: 2.0; }
+  img { max-width: 100%; }
+  a { color: inherit; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 1.6rem; }
+  .eyebrow { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold-deep); }
+  h2 { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: clamp(1.45rem, 3.4vw, 1.9rem); letter-spacing: 0.05em; line-height: 1.7; margin: 0.7rem 0 1.6rem; color: var(--ink); }
+  .prose { font-size: 0.96rem; font-weight: 300; color: var(--ink-soft); margin-bottom: 1.1rem; }
+  .prose strong { font-weight: 600; color: var(--ink); }
+  section { padding: 4.4rem 0; }
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* ===== nav（サイト共通） ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 0.7rem 2rem; display: flex; align-items: center;
+    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
+    border-bottom: 3px solid #3C3489;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
+  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
+  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
+  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; flex-wrap: wrap; }
+  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
+  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+  .nav-dropdown { position: relative; display: flex; align-items: center; }
+  .nav-dropdown-toggle {
+    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
+    letter-spacing: 0.04em; color: var(--charcoal);
+    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
+    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
+  }
+  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
+  .nav-dropdown:hover .nav-dropdown-toggle,
+  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
+  .nav-dropdown:hover .nav-caret,
+  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
+  .nav-dropdown-menu {
+    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
+    min-width: 210px; background: #fff; border: 1px solid #eee;
+    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
+    padding: 0.5rem 0; display: flex; flex-direction: column;
+    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
+  }
+  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
+  .nav-dropdown-menu a {
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
+    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
+    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
+  }
+  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
+  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,
+  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
+  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
+  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
+  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
+  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
+  .mobile-acc-caret { font-size: 0.65em; transition: transform 0.25s; }
+  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
+  .mobile-acc-panel { display: none; padding-bottom: 0.6rem; }
+  .mobile-acc.open .mobile-acc-panel { display: block; }
+  .mobile-acc-panel a { font-size: 0.98rem; font-weight: 500; border-bottom: none !important; border-top: none !important; padding: 0.55rem 0; color: #444; }
+  @media (max-width: 1250px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: block; }
+    .nav-logo { margin-right: 0; }
+  }
+
+  /* ===== hero ===== */
+  .hero { background: var(--ink); color: var(--paper); padding: 10.5rem 0 5rem; position: relative; overflow: hidden; }
+  .hero::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 55% 45% at 88% 8%, rgba(217,164,65,0.12), transparent 65%),
+      radial-gradient(ellipse 50% 40% at 6% 96%, rgba(216,90,48,0.10), transparent 60%);
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero .eyebrow { color: var(--gold); }
+  .hero h1 { font-family: 'Shippori Mincho', serif; font-weight: 800; font-size: clamp(1.75rem, 5vw, 2.9rem); line-height: 1.85; letter-spacing: 0.04em; margin: 1.3rem 0 1.6rem; }
+  .hero h1 em { font-style: normal; color: var(--gold); }
+  .hero .lede { max-width: 680px; font-size: clamp(0.92rem, 1.7vw, 1.02rem); font-weight: 300; color: rgba(250,248,242,0.80); line-height: 2.2; }
+
+  /* ===== カテゴリチップ（ページ内アンカー） ===== */
+  .cat-nav { background: #fffdf7; border-bottom: 1px solid var(--line); padding: 1.5rem 0; position: sticky; top: 0; z-index: 90; }
+  .cat-nav-inner { display: flex; flex-wrap: wrap; gap: 0.7rem; align-items: center; justify-content: center; }
+  .cat-chip { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.06em; text-decoration: none; color: var(--ink); border: 1px solid var(--line); background: var(--paper); border-radius: 999px; padding: 0.5rem 1.3rem; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+  .cat-chip:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .cat-chip.soon { color: #b0a88f; border-style: dashed; cursor: default; }
+
+  /* ===== セクション見出し ===== */
+  .sec-head { text-align: center; margin-bottom: 2.6rem; }
+  .sec-head .eyebrow { display: block; margin-bottom: 0.6rem; }
+  .sec-head p.sub { font-size: 0.9rem; font-weight: 300; color: var(--ink-soft); max-width: 640px; margin: 0.4rem auto 0; line-height: 2.0; }
+
+  /* ===== 実践キット ===== */
+  .kits-sec { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .kit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.4rem; }
+  .kit-card { position: relative; display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; background: #fffdf7; border: 1px solid var(--line); border-radius: 14px; padding: 1.7rem 1.6rem 1.5rem; box-shadow: 0 2px 10px rgba(90,75,30,0.06); transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease; }
+  .kit-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(90,75,30,0.13); border-color: rgba(217,164,65,0.55); }
+  .kit-theme { align-self: flex-start; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); background: rgba(217,164,65,0.12); padding: 0.28rem 0.8rem; border-radius: 999px; }
+  .kit-name { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 1.18rem; letter-spacing: 0.04em; line-height: 1.6; color: var(--ink); }
+  .kit-sub { font-family: 'Shippori Mincho', serif; font-size: 0.86rem; font-weight: 500; color: var(--ink-soft); line-height: 1.7; }
+  .kit-desc { font-size: 0.85rem; font-weight: 300; color: var(--ink-soft); line-height: 1.95; flex: 1; margin-top: 0.2rem; }
+  .kit-price { display: flex; align-items: baseline; gap: 0.5em; margin-top: 0.5rem; }
+  .kit-price .amt { font-family: 'Shippori Mincho', serif; font-size: 1.5rem; font-weight: 800; color: var(--gold-deep); letter-spacing: 0.03em; }
+  .kit-price .tax { font-size: 0.72rem; color: var(--ink-soft); letter-spacing: 0.06em; }
+  .kit-price .free { font-family: 'Shippori Mincho', serif; font-size: 1.3rem; font-weight: 800; color: var(--teal); }
+  .kit-cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem; margin-top: 0.9rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+  .kit-btn { display: inline-block; font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; letter-spacing: 0.1em; text-decoration: none; color: var(--ink); background: var(--gold); border-radius: 999px; padding: 0.7rem 1.6rem; transition: transform 0.2s, background 0.25s; }
+  .kit-btn:hover { transform: translateY(-2px); background: #e6b558; }
+  .kit-free-link { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.78rem; letter-spacing: 0.04em; color: var(--teal); text-decoration: none; border-bottom: 1px solid rgba(15,110,86,0.35); padding-bottom: 1px; }
+  .kit-free-link:hover { border-bottom-color: var(--teal); }
+  .kits-note { text-align: center; font-size: 0.8rem; font-weight: 300; color: var(--ink-soft); margin-top: 2.2rem; line-height: 1.95; }
+  .kits-note a { color: var(--teal); }
+
+  /* ===== おすすめの本 ===== */
+  .books-sec { background: #fffdf7; border-bottom: 1px solid var(--line); }
+  .books-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 1.4rem; }
+  .book-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 1.6rem 1.6rem 1.4rem; display: flex; flex-direction: column; gap: 0.55rem; min-width: 0; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .book-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(90,75,30,0.10); border-color: rgba(217,164,65,0.5); }
+  .book-card-cover-wrap { display: flex; align-items: flex-end; justify-content: center; height: 180px; margin: -0.2rem 0 0.6rem; }
+  .book-card-cover { max-height: 180px; max-width: 130px; width: auto; height: auto; box-shadow: 0 6px 18px rgba(0,0,0,0.18), 0 2px 4px rgba(0,0,0,0.08); border-radius: 2px; transition: transform 0.25s; }
+  .book-card:hover .book-card-cover { transform: translateY(-2px) scale(1.02); }
+  .book-card-theme { display: inline-block; align-self: flex-start; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold-deep); background: rgba(217,164,65,0.12); padding: 0.25rem 0.7rem; border-radius: 999px; font-weight: 500; margin-bottom: 0.1rem; }
+  .book-card-title { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 800; line-height: 1.55; color: var(--ink); word-break: keep-all; overflow-wrap: break-word; }
+  .book-card-subtitle { font-family: 'Shippori Mincho', serif; font-size: 0.83rem; font-weight: 500; color: var(--ink-soft); line-height: 1.6; word-break: keep-all; overflow-wrap: break-word; }
+  .book-card-author { font-size: 0.8rem; color: #8f8873; margin-top: 0.1rem; word-break: keep-all; overflow-wrap: break-word; }
+  .book-card-desc { font-size: 0.84rem; line-height: 1.85; color: var(--ink-soft); flex: 1; word-break: keep-all; overflow-wrap: break-word; margin-top: 0.3rem; font-weight: 300; }
+  .book-card-links { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.6rem; padding-top: 0.8rem; border-top: 1px solid var(--line); }
+  .book-card-link { font-size: 0.76rem; padding: 0.4rem 0.85rem; border-radius: 6px; text-decoration: none; transition: background 0.15s, color 0.15s, border-color 0.15s; letter-spacing: 0.02em; }
+  .book-card-link-amazon { background: transparent; color: var(--gold-deep); border: 1px solid rgba(217,164,65,0.5); }
+  .book-card-link-amazon:hover { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .book-card-link-note-pending { background: transparent; color: #a89f86; border: 1px dashed #d8d0bd; cursor: default; }
+  .aff-note { font-size: 0.78rem; color: var(--ink-soft); font-weight: 300; margin-top: 2rem; line-height: 1.95; max-width: 820px; }
+
+  /* ===== 準備中（今後のカテゴリ） ===== */
+  .soon-sec { background: var(--paper); }
+  .soon-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.2rem; }
+  .soon-card { border: 1px dashed #d8d0bd; border-radius: 12px; padding: 1.6rem 1.4rem; background: #fffdf7; text-align: center; }
+  .soon-badge { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b0a88f; }
+  .soon-name { font-family: 'Shippori Mincho', serif; font-weight: 700; font-size: 1.02rem; letter-spacing: 0.04em; color: var(--ink); margin: 0.6rem 0 0.4rem; }
+  .soon-desc { font-size: 0.8rem; font-weight: 300; color: var(--ink-soft); line-height: 1.9; }
+
+  /* ===== 日本語の禁則処理・文節改行（モバイル） ===== */
+  @media (max-width: 768px) {
+    body, p, li, dd, dt, blockquote, figcaption,
+    .prose, .lede, .kit-desc, .book-card-desc, .soon-desc, .sec-head p.sub, .kits-note, .aff-note {
+      word-break: auto-phrase;
+      overflow-wrap: break-word;
+      line-break: strict;
+      text-wrap: pretty;
+    }
+    .hero h1, section h2 { text-wrap: balance; }
+    .cat-nav { position: static; }
+    section { padding: 3.6rem 0; }
+  }
+
+  /* ===== footer ===== */
+  footer { background: var(--ink-deep); color: rgba(250,248,242,0.6); text-align: center; padding: 2.6rem 1.5rem; }
+  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 700; letter-spacing: 0.1em; color: var(--paper); margin-bottom: 0.5rem; }
+  .footer-copy { font-family: 'Jost', sans-serif; font-size: 0.72rem; letter-spacing: 0.08em; }
+</style>
+</head>
+<body>
+
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+        <a href="./democracy-fitness-career.html">個人向けキャリア開発</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html">PTAのこれから</a>
+      </div>
+    </li>
+    <li><a href="./store.html" class="active">ストア</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">社会のリスク</span>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織のリスク</span>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">個人のリスク</span>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./salary-negotiation-calculator.html">昇給交渉しない計算機</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      <a href="./democracy-fitness-career.html">個人向けキャリア開発</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html">PTAのこれから</a>
+    </div>
+  </div>
+  <a href="./store.html" class="active">ストア</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織のリスク</span>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">個人のリスク</span>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./salary-negotiation-calculator.html">昇給交渉しない計算機</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<!-- hero -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Store</p>
+    <h1>持ち帰って、<em>使える</em>ものだけ。</h1>
+    <p class="lede">きづきくみたて工房が、実際に現場で使い、本当に薦められるものだけを一箇所に集めました。対話をひらくための実践キット、考えを深めるためのおすすめの本。これから、道具やプログラム、旅の行き先も少しずつ加えていきます。</p>
+  </div>
+</header>
+
+<!-- カテゴリチップ -->
+<nav class="cat-nav" aria-label="ストアのカテゴリ">
+  <div class="wrap cat-nav-inner">
+    <a class="cat-chip" href="#kits">実践キット</a>
+    <a class="cat-chip" href="#books">おすすめの本</a>
+    <span class="cat-chip soon">デジタルガジェット（準備中）</span>
+    <span class="cat-chip soon">おすすめプログラム（準備中）</span>
+    <span class="cat-chip soon">おすすめの旅先（準備中）</span>
+  </div>
+</nav>
+
+<!-- 実践キット -->
+<section class="kits-sec" id="kits">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Practice Kits</span>
+      <h2>実践キット</h2>
+      <p class="sub">読んで終わりにしない、その場で使える対話の道具箱。進行台本・ワークシート・スライドまで、はじめての方が迷わず進められる形にしてあります。</p>
+    </div>
+    <div class="kit-grid">
+
+      <article class="kit-card">
+        <span class="kit-theme">はたらく・交渉</span>
+        <h3 class="kit-name">昇給交渉キット</h3>
+        <p class="kit-sub">対決ではなく、共に壁を越える</p>
+        <p class="kit-desc">交渉した人の9割が年収アップ。それでも多くの人は「言えないまま」でいます。日本のはたらく現場の実態に接地した、動ける心のつくり方と、上司に渡せる型のキットです。</p>
+        <div class="kit-price"><span class="amt">¥2,700</span><span class="tax">税込・買い切り</span></div>
+        <div class="kit-cta-row">
+          <a class="kit-btn" href="./salary-negotiation-kit.html" data-item-id="salary-negotiation-kit" data-item-name="昇給交渉キット" data-item-price="2700">詳しく見る・購入 →</a>
+          <a class="kit-free-link" href="./salary-negotiation-calculator.html">まず無料の計算機で試す</a>
+        </div>
+      </article>
+
+      <article class="kit-card">
+        <span class="kit-theme">対話・意思決定</span>
+        <h3 class="kit-name">未来リスク対話キット</h3>
+        <p class="kit-sub">数字を、対話と決断に変える</p>
+        <p class="kit-desc">ファシリテーションの経験がなくても、90分の対話の場をひらけます。進行台本・ワークシート4種・反発への受けとめ方までそろえた、未来のリスク計算機の先にある完全キットです。</p>
+        <div class="kit-price"><span class="amt">¥4,980</span><span class="tax">税込・買い切りPDF</span></div>
+        <div class="kit-cta-row">
+          <a class="kit-btn" href="./mirai-risk-kit.html" data-item-id="mirai-risk-kit" data-item-name="未来リスク対話キット" data-item-price="4980">詳しく見る・購入 →</a>
+          <a class="kit-free-link" href="./risk-calculators.html">まず無料の計算機で試す</a>
+        </div>
+      </article>
+
+      <article class="kit-card">
+        <span class="kit-theme">PTA・保護者と先生</span>
+        <h3 class="kit-name">PTA対話 進行テキスト＋当日セット</h3>
+        <p class="kit-sub">無料キットを、当日そのまま進行できる</p>
+        <p class="kit-desc">無料のPTA対話キットを、そのまま当日進行できる詳細テキスト＋スライド＋ワークシートのセット。日程が合わない方、独学で始めたい方のための、準備のいらない一式です。</p>
+        <div class="kit-price"><span class="amt">3,000円</span><span class="tax">税込</span></div>
+        <div class="kit-cta-row">
+          <a class="kit-btn" href="./pta-kit-text.html" data-item-id="pta-kit-text" data-item-name="PTA対話 進行テキスト+当日セット" data-item-price="3000">詳しく見る・購入 →</a>
+          <a class="kit-free-link" href="./pta-dialogue-kit.html">まず無料のPTA対話キットを見る</a>
+        </div>
+      </article>
+
+    </div>
+    <p class="kits-note">どのキットも、まず無料の計算機やキットで試してから、必要な方だけに有料版をご用意しています。導入のご相談は<a href="mailto:y.morimoto@kizukikumitate.com">メール</a>でお気軽に。特定商取引法に基づく表記は<a href="./tokushoho.html">こちら</a>。</p>
+  </div>
+</section>
+
+<!-- おすすめの本 -->
+<section class="books-sec" id="books">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Reading List</span>
+      <h2>おすすめの本</h2>
+      <p class="sub">対話力・心理的安全性・組織文化を深く理解するために、対話力向上プログラムで引用している厳選7冊。工房の考えの土台になっている本たちです。</p>
+    </div>
+
+    <div class="books-grid">
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4862762883.jpg" alt="恐れのない組織 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">心理的安全性</span>
+        <h3 class="book-card-title">恐れのない組織</h3>
+        <div class="book-card-subtitle">「心理的安全性」が学習・イノベーション・成長をもたらす</div>
+        <div class="book-card-author">エイミー・C・エドモンドソン 著／野津智子 訳（英治出版, 2021）</div>
+        <p class="book-card-desc">心理的安全性研究の決定版。Googleの調査が裏付けたこの概念を、ハーバード大学教授であるエドモンドソンが20年以上の研究をもとに体系化。組織で本音の対話を実現するための土台を理解するための必読書。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862762883/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4862760171.jpg" alt="ダイアローグ 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">対話の哲学</span>
+        <h3 class="book-card-title">ダイアローグ</h3>
+        <div class="book-card-subtitle">対立から共生へ、議論から対話へ</div>
+        <div class="book-card-author">デヴィッド・ボーム 著／金井真弓 訳（英治出版, 2007）</div>
+        <p class="book-card-desc">「対話（dialogue）」と「議論（discussion）」を哲学的に区別した古典。物理学者ボームによる本書は、対話の本質を「意味が流れる場」と捉え、現代の対話実践のすべての源流となっている思想書。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862760171/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4761527439.jpg" alt="問いのデザイン 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">対話設計の実践</span>
+        <h3 class="book-card-title">問いのデザイン</h3>
+        <div class="book-card-subtitle">創造的対話のファシリテーション</div>
+        <div class="book-card-author">安斎勇樹・塩瀬隆之 著（学芸出版社, 2020）</div>
+        <p class="book-card-desc">日本の組織で対話を立ち上げるための、最も実践的な手引書。問題の本質を捉え、解くべき課題を設定し、関係者を巻き込み、ワークショップとして対話を設計する手順が体系化されている。本研修のインターバル設計とも親和性が高い。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4761527439/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4910063013.jpg" alt="他者と働く 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">適応課題と対話</span>
+        <h3 class="book-card-title">他者と働く</h3>
+        <div class="book-card-subtitle">「わかりあえなさ」から始める組織論</div>
+        <div class="book-card-author">宇田川元一 著（NewsPicksパブリッシング, 2019）</div>
+        <p class="book-card-desc">ハイフェッツの「適応課題」理論を、日本の組織の現実に翻案した名著。「わかりあえなさ」を前提に、ナラティヴ・アプローチで他者との関係を編みなおす。「日本では本音対話が特に難しい」という実感に直結する一冊。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4910063013/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4862762085.jpg" alt="異文化理解力 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">カルチャーマップ</span>
+        <h3 class="book-card-title">異文化理解力</h3>
+        <div class="book-card-subtitle">相手と自分の真意がわかる ビジネスパーソン必須の教養</div>
+        <div class="book-card-author">エリン・メイヤー 著／田岡恵 監訳（英治出版, 2015）</div>
+        <p class="book-card-desc">カルチャーマップ8軸モデルの本書。INSEADのメイヤー教授が膨大なインタビュー研究をもとに、コミュニケーション・フィードバック・対立の表明など、対話に決定的な影響を与える文化次元を整理した教養書。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862762085/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4641173893.jpg" alt="多文化世界 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">文化6次元モデル</span>
+        <h3 class="book-card-title">多文化世界（原書第3版）</h3>
+        <div class="book-card-subtitle">違いを学び未来への道を探る</div>
+        <div class="book-card-author">G・ホフステード ほか 著（有斐閣, 2013）</div>
+        <p class="book-card-desc">文化6次元モデルの原典。ホフステードが IBM の70ヶ国調査を出発点に半世紀かけて構築した文化次元論を、自ら解説した決定版。日本の不確実性回避や男性性が世界最高クラスである理由を学術的に理解できる。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4641173893/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+
+      <article class="book-card">
+        <div class="book-card-cover-wrap">
+          <img src="./book-covers/4862761011.jpg" alt="学習する組織 表紙" class="book-card-cover" loading="lazy">
+        </div>
+        <span class="book-card-theme">組織学習・システム思考</span>
+        <h3 class="book-card-title">学習する組織</h3>
+        <div class="book-card-subtitle">システム思考で未来を創造する</div>
+        <div class="book-card-author">ピーター・M・センゲ 著／枝廣淳子・小田理一郎・中小路佳代子 訳（英治出版, 2011）</div>
+        <p class="book-card-desc">組織開発の現代的古典。システム思考、メンタルモデル、共有ビジョン、チーム学習、自己マスタリーの「5つのディシプリン」を提示。対話を組織の継続的な変容のエンジンとして位置づけた一冊。</p>
+        <div class="book-card-links">
+          <span class="book-card-link book-card-link-note-pending">note記事 公開予定</span>
+          <a href="https://www.amazon.co.jp/dp/4862761011/?tag=kizukikumitate-22" target="_blank" rel="noopener nofollow sponsored" class="book-card-link book-card-link-amazon">Amazonで見る →</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="aff-note">※ 「Amazonで見る」リンクは Amazon アソシエイトのアフィリエイトリンクを含みます（tag=kizukikumitate-22）。リンク経由でご購入いただいた場合、当工房に紹介料が支払われる仕組みです。書籍の選定は内容の良さに基づくもので、報酬の有無に影響されていません。</p>
+  </div>
+</section>
+
+<!-- 準備中（今後のカテゴリ） -->
+<section class="soon-sec">
+  <div class="wrap reveal">
+    <div class="sec-head">
+      <span class="eyebrow">Coming Soon</span>
+      <h2>これから並べていくもの</h2>
+      <p class="sub">工房が実際に使って良かったものを、少しずつ紹介していきます。「これは薦めたい」と思ったものだけを、理由とともに。</p>
+    </div>
+    <div class="soon-grid">
+      <div class="soon-card">
+        <span class="soon-badge">Coming soon</span>
+        <div class="soon-name">デジタルガジェット</div>
+        <p class="soon-desc">対話やふりかえり、集中のために工房が愛用している道具たち。</p>
+      </div>
+      <div class="soon-card">
+        <span class="soon-badge">Coming soon</span>
+        <div class="soon-name">おすすめプログラム</div>
+        <p class="soon-desc">工房以外の学びの場で、心から薦められる講座やプログラム。</p>
+      </div>
+      <div class="soon-card">
+        <span class="soon-badge">Coming soon</span>
+        <div class="soon-name">おすすめの旅先</div>
+        <p class="soon-desc">対話と学びが深まる、行ってよかった土地や訪ね先の紹介。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+/* ===== nav ===== */
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+/* ===== reveal ===== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+/* ===== GA4: 有料LPへの送客を select_item で計測（委譲リスナー） ===== */
+document.addEventListener('click', (ev) => {
+  const el = ev.target.closest('a[data-item-id]');
+  if (!el) return;
+  gtag('event', 'select_item', {
+    item_list_id: 'store',
+    item_list_name: 'ストア（実践キット）',
+    items: [{
+      item_id: el.dataset.itemId,
+      item_name: el.dataset.itemName,
+      price: Number(el.dataset.itemPrice) || undefined
+    }]
+  });
+});
+</script>
+</body>
+</html>

@@ -105,6 +105,10 @@
         ]
       },
       {
+        "label": "ストア",
+        "href": "store.html"
+      },
+      {
         "label": "世界の知恵",
         "children": [
           {
@@ -301,6 +305,10 @@
   "pages": [
     {
       "path": "index.html",
+      "variant": "standard"
+    },
+    {
+      "path": "store.html",
       "variant": "standard"
     },
     {
