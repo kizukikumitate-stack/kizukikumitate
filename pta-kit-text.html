@@ -269,8 +269,14 @@ footer{border-top:3px solid var(--ink);background:var(--ink);color:var(--paper);
       <div class="b-price">PTA対話 進行テキスト+当日セット ── 3,000円(税込)</div>
       <p class="b-note">ご購入後、教材一式(進行テキストPDF・当日スライド・A4ワークシート)をまとめた<mark>ダウンロードフォルダのリンク</mark>をメールでお送りします。教材は随時改訂しており、同じリンクからいつでも最新版をご利用いただけます(追加費用はかかりません)。</p>
       <div class="b-cta">
-        <!-- TODO: 森本さんの本番Stripe決済URL(product=text_set)に差し替え。現在は税務・本番移行待ちのため暫定でメール受注 -->
+        <!-- 販売一時停止中（内容見直しのため）。再開時はこのコメントを外してボタンを戻す。↓再開時ボタン
         <a class="btn-main" href="mailto:y.morimoto@kizukikumitate.com?subject=PTA%E5%AF%BE%E8%A9%B1%20%E9%80%B2%E8%A1%8C%E3%83%86%E3%82%AD%E3%82%B9%E3%83%88%2B%E5%BD%93%E6%97%A5%E3%82%BB%E3%83%83%E3%83%88%20%E8%B3%BC%E5%85%A5%E5%B8%8C%E6%9C%9B">進行テキスト+当日セットを購入する</a>
+        ↑再開時ボタン -->
+        <span class="btn-main" style="background:#8a8a8a;cursor:not-allowed;pointer-events:none;opacity:.9;" aria-disabled="true">現在、販売を一時停止しています</span>
+        <p class="b-fine" style="color:#8a5a00;font-weight:700;">内容の見直しのため、現在この商品の販売を一時停止しています。再開までいましばらくお待ちください。</p>
+        <!-- 再開時フロー（#1 メール購入フロー明記・改訂版）：停止解除時に、購入ボックスに下記の流れを表示する。
+        <p class="b-fine"><b>お申し込みの流れ：</b> ① 上のボタンでメール作成画面が開きます（お名前と学校名を書いて送信。本文は空のままでも大丈夫です） → ② 通常1営業日以内に、お支払い方法（銀行振込またはカード決済リンク）をご返信します → ③ ご入金の確認後、◯営業日以内に教材フォルダのリンクをお送りします。メールソフトが開かない場合は y.morimoto@kizukikumitate.com 宛に「PTA進行テキスト購入希望」とお送りください。</p>
+        -->
         <p class="b-fine">養成プログラムの受講者には、プログラム内で配布されます(重複購入は不要です)。</p>
         <p class="b-fine">お支払い・返品等の条件は<a href="./tokushoho.html">特定商取引法に基づく表記</a>をご確認ください。</p>
       </div>
