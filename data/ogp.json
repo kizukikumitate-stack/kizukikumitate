@@ -498,6 +498,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "1on1の成功と失敗の図鑑",
       "sub": "うちの1on1、どれ? 職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで。"
+    },
+    {
+      "page": "tenshoku-no-sho.html",
+      "img": "tenshoku-no-sho-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#ffd76a",
+      "eyebrow": "キャリア教材 ／ 世界の知恵",
+      "title": "転職の書",
+      "sub": "はたらく職業をRPGの転職チャートに一覧化。学べば学ぶほど、進める道が増える。"
     }
   ]
 }

@@ -1,0 +1,497 @@
+{
+ "name": "tenshoku",
+ "aspect_ratio": "1:1",
+ "anchors": [
+  "images/tenshoku/nurse.webp",
+  "images/tenshoku/engineer.webp"
+ ],
+ "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one 'magical' / tool element glows softly in the specified family accent color; everything else stays gold line-art. This is a sword-and-sorcery fantasy 'job class' that embodies the profession with the tools of the trade. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. GENERIC fantasy only: no recognizable existing characters, monsters, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs (any 'runes' must be abstract dots/shapes, never actual characters), no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+ "out_dir": "images/tenshoku",
+ "file_pattern": "{id}.webp",
+ "webp": {
+  "width": 800,
+  "quality": 82
+ },
+ "items": [
+  {
+   "id": "sales",
+   "prompt": "Profession (Japanese job title): 営業. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "retail",
+   "prompt": "Profession (Japanese job title): 販売・接客. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "craft",
+   "prompt": "Profession (Japanese job title): 製造・技能職. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "engineer",
+   "prompt": "Profession (Japanese job title): エンジニア. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "analyst",
+   "prompt": "Profession (Japanese job title): データアナリスト. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "accounting",
+   "prompt": "Profession (Japanese job title): 経理・財務. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "hr",
+   "prompt": "Profession (Japanese job title): 人事. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cs",
+   "prompt": "Profession (Japanese job title): カスタマーサポート. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "teacher",
+   "prompt": "Profession (Japanese job title): 教育・講師. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "marketer",
+   "prompt": "Profession (Japanese job title): マーケター. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "planner",
+   "prompt": "Profession (Japanese job title): 企画. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "admin",
+   "prompt": "Profession (Japanese job title): 事務・アシスタント. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "designer",
+   "prompt": "Profession (Japanese job title): デザイナー. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "writer",
+   "prompt": "Profession (Japanese job title): ライター・編集. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "salesengineer",
+   "prompt": "Profession (Japanese job title): セールスエンジニア. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "bizdev",
+   "prompt": "Profession (Japanese job title): 事業開発 (BizDev). Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "csuccess",
+   "prompt": "Profession (Japanese job title): カスタマーサクセス. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "datascientist",
+   "prompt": "Profession (Japanese job title): データサイエンティスト. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "pm",
+   "prompt": "Profession (Japanese job title): プロダクトマネージャー. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "fpa",
+   "prompt": "Profession (Japanese job title): FP&Aアナリスト. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "peopleanalytics",
+   "prompt": "Profession (Japanese job title): ピープルアナリティクス. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "contentmarketer",
+   "prompt": "Profession (Japanese job title): コンテンツマーケター. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "uxdesigner",
+   "prompt": "Profession (Japanese job title): UX/プロダクトデザイナー. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "bpr",
+   "prompt": "Profession (Japanese job title): 業務改善スペシャリスト. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "learningdesigner",
+   "prompt": "Profession (Japanese job title): ラーニングデザイナー. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "ecproducer",
+   "prompt": "Profession (Japanese job title): EC/店舗プロデューサー. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "qualityeng",
+   "prompt": "Profession (Japanese job title): 生産技術・品質マネージャー. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "keiei",
+   "prompt": "Profession (Japanese job title): 事業責任者・経営企画. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "founder",
+   "prompt": "Profession (Japanese job title): 起業家. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cto",
+   "prompt": "Profession (Japanese job title): テクノロジー統括 (CTO/VPoE). Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cro",
+   "prompt": "Profession (Japanese job title): セールス統括 (CRO/営業本部長). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cmo",
+   "prompt": "Profession (Japanese job title): マーケティング統括 (CMO). Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "chro",
+   "prompt": "Profession (Japanese job title): 人事統括 (CHRO). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cdo",
+   "prompt": "Profession (Japanese job title): クリエイティブディレクター. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "coo",
+   "prompt": "Profession (Japanese job title): オペレーション統括 (COO/工場長). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "listedceo",
+   "prompt": "Profession (Japanese job title): 上場企業CEO・グループ経営者. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cxo",
+   "prompt": "Profession (Japanese job title): 大企業CxO (執行役員). Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "politician",
+   "prompt": "Profession (Japanese job title): 政治家 (国会議員・知事). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "authority",
+   "prompt": "Profession (Japanese job title): 世界的専門家・教授 (第一人者). Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "social",
+   "prompt": "Profession (Japanese job title): 社会事業リーダー (NPO・国際NGO代表). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "megaceo",
+   "prompt": "Profession (Japanese job title): グローバルメガ企業CEO. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "leader",
+   "prompt": "Profession (Japanese job title): 国家指導者 (総理大臣・大統領). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "intlhead",
+   "prompt": "Profession (Japanese job title): 国際機関の代表. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "nobel",
+   "prompt": "Profession (Japanese job title): 世界的権威の頂 (ノーベル賞級・世界的巨匠). Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "nurse",
+   "prompt": "Profession (Japanese job title): 看護師. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "biyoshi",
+   "prompt": "Profession (Japanese job title): 美容師. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "tobi",
+   "prompt": "Profession (Japanese job title): 鳶職. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "doctor",
+   "prompt": "Profession (Japanese job title): 医師. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "lawyer",
+   "prompt": "Profession (Japanese job title): 弁護士. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kenchikushi",
+   "prompt": "Profession (Japanese job title): 一級建築士. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "sekokan",
+   "prompt": "Profession (Japanese job title): 施工管理技士 (現場監督). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "cnurse",
+   "prompt": "Profession (Japanese job title): 専門看護師・認定看護師. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "stylist",
+   "prompt": "Profession (Japanese job title): トップスタイリスト. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "senmonI",
+   "prompt": "Profession (Japanese job title): 専門医・指導医. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "partner",
+   "prompt": "Profession (Japanese job title): パートナー弁護士. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kenchikuka",
+   "prompt": "Profession (Japanese job title): 建築家・設計部長. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kangobucho",
+   "prompt": "Profession (Japanese job title): 看護部長. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "salonowner",
+   "prompt": "Profession (Japanese job title): サロンオーナー (多店舗経営). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "genbashocho",
+   "prompt": "Profession (Japanese job title): 現場所長・工事部長. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "douga",
+   "prompt": "Profession (Japanese job title): 動画クリエイター. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "mangaka",
+   "prompt": "Profession (Japanese job title): 漫画家 (新人・アシスタント). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "animator",
+   "prompt": "Profession (Japanese job title): アニメーター. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "dentou",
+   "prompt": "Profession (Japanese job title): 伝統芸能の修行者. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "tsuyaku",
+   "prompt": "Profession (Japanese job title): 通訳・翻訳者. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "chouri",
+   "prompt": "Profession (Japanese job title): 調理師. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "npo",
+   "prompt": "Profession (Japanese job title): NPO職員. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "nougyo",
+   "prompt": "Profession (Japanese job title): 農業従事者 (一次産業). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "eizoudir",
+   "prompt": "Profession (Japanese job title): 映像ディレクター. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "rensai",
+   "prompt": "Profession (Japanese job title): 連載漫画家. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "sakuga",
+   "prompt": "Profession (Japanese job title): 作画監督・キャラクターデザイナー. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "dentoupro",
+   "prompt": "Profession (Japanese job title): 真打・名題 (プロの継承者). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "bunka",
+   "prompt": "Profession (Japanese job title): 日本文化翻訳家. Draw this real-world profession as a \"mage / wizard\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses arcane blue light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "chef",
+   "prompt": "Profession (Japanese job title): シェフ・料理長. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "fundraiser",
+   "prompt": "Profession (Japanese job title): ファンドレイザー・事業マネージャー. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "nouke",
+   "prompt": "Profession (Japanese job title): 農業経営者 (認定農業者). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "filmdir",
+   "prompt": "Profession (Japanese job title): 映画監督. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "hitmangaka",
+   "prompt": "Profession (Japanese job title): ヒット漫画家. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "animedir",
+   "prompt": "Profession (Japanese job title): アニメ監督. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shishou",
+   "prompt": "Profession (Japanese job title): 師匠・家元 (一門を率いる). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "ownerchef",
+   "prompt": "Profession (Japanese job title): オーナーシェフ・総料理長. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "jimukyokucho",
+   "prompt": "Profession (Japanese job title): NPO事務局長. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "nouhoujin",
+   "prompt": "Profession (Japanese job title): 農業法人経営・6次産業化. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kyoshou",
+   "prompt": "Profession (Japanese job title): 国民的巨匠 (人間国宝・国民的作家・国民的スター). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "consul",
+   "prompt": "Profession (Japanese job title): コンサルタント (アナリスト). Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "komuin",
+   "prompt": "Profession (Japanese job title): 公務員 (行政職). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shosha",
+   "prompt": "Profession (Japanese job title): 総合商社パーソン. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kinyu",
+   "prompt": "Profession (Japanese job title): 金融パーソン (銀行・証券). Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "senryaku",
+   "prompt": "Profession (Japanese job title): 戦略・専門コンサルタント. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kanryou",
+   "prompt": "Profession (Japanese job title): キャリア官僚 (国家総合職). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kaigai",
+   "prompt": "Profession (Japanese job title): 海外事業・トレーダー. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "fundmgr",
+   "prompt": "Profession (Japanese job title): 証券アナリスト・ファンドマネージャー. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "gamecreator",
+   "prompt": "Profession (Japanese job title): ゲームクリエイター. Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "conpartner",
+   "prompt": "Profession (Japanese job title): コンサルファーム パートナー. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shokan",
+   "prompt": "Profession (Japanese job title): 幹部官僚 (課長・審議官級). Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "invpro",
+   "prompt": "Profession (Japanese job title): 投資銀行MD・ファンド運用責任者. Draw this real-world profession as a \"merchant / strategist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses warm amber light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "jimujikan",
+   "prompt": "Profession (Japanese job title): 事務次官・局長級. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "keisatsu",
+   "prompt": "Profession (Japanese job title): 警察官. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shobo",
+   "prompt": "Profession (Japanese job title): 消防士. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "jieitai",
+   "prompt": "Profession (Japanese job title): 自衛官. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kaigo",
+   "prompt": "Profession (Japanese job title): 介護職員. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "ongakuka",
+   "prompt": "Profession (Japanese job title): 音楽家 (ミュージシャン・演奏家). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "geijutsuka",
+   "prompt": "Profession (Japanese job title): 芸術家 (画家・彫刻家). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "panya",
+   "prompt": "Profession (Japanese job title): パン職人・パティシエ. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "athlete",
+   "prompt": "Profession (Japanese job title): アスリート (育成年代・実業団). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "keiji",
+   "prompt": "Profession (Japanese job title): 刑事・専門捜査官. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kyujo",
+   "prompt": "Profession (Japanese job title): レスキュー隊員・救急救命士. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "jieikanbu",
+   "prompt": "Profession (Japanese job title): 幹部自衛官. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "kaigofukushi",
+   "prompt": "Profession (Japanese job title): 介護福祉士・ケアマネジャー. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "puroartist",
+   "prompt": "Profession (Japanese job title): プロアーティスト (音楽・美術). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "jyui",
+   "prompt": "Profession (Japanese job title): 獣医師. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "insyokuowner",
+   "prompt": "Profession (Japanese job title): 飲食店オーナー (パン屋・ケーキ屋・食堂). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "proathlete",
+   "prompt": "Profession (Japanese job title): プロアスリート. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shocho",
+   "prompt": "Profession (Japanese job title): 警察署長・管理官. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shobocho",
+   "prompt": "Profession (Japanese job title): 消防署長・救助統括. Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shikikan",
+   "prompt": "Profession (Japanese job title): 部隊指揮官 (佐官・連隊長). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "shisetsucho",
+   "prompt": "Profession (Japanese job title): 介護施設長・事業経営. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "staratist",
+   "prompt": "Profession (Japanese job title): 著名アーティスト (メジャー契約・受賞作家). Draw this real-world profession as a \"bard / artist\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses rose-magenta light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "jyuincho",
+   "prompt": "Profession (Japanese job title): 動物病院院長・専門獣医. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "topathlete",
+   "prompt": "Profession (Japanese job title): トップアスリート (日本代表・タイトルホルダー). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  },
+  {
+   "id": "seifuku",
+   "prompt": "Profession (Japanese job title): 制服組トップ (警視監・将官・消防司監). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+  }
+ ]
+}

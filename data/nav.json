@@ -139,6 +139,10 @@
             "href": "1on1-zukan.html"
           },
           {
+            "label": "転職の書（キャリアチャート）",
+            "href": "tenshoku-no-sho.html"
+          },
+          {
             "heading": "社会と世界の図鑑"
           },
           {
@@ -537,6 +541,10 @@
     },
     {
       "path": "1on1-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "tenshoku-no-sho.html",
       "variant": "standard"
     },
     {
