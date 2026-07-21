@@ -105,10 +105,6 @@
         ]
       },
       {
-        "label": "ストア",
-        "href": "store.html"
-      },
-      {
         "label": "世界の知恵",
         "children": [
           {
@@ -243,6 +239,10 @@
             "href": "salary-negotiation-calculator.html"
           }
         ]
+      },
+      {
+        "label": "ストア",
+        "href": "store.html"
       },
       {
         "label": "調査・データ",
