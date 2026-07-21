@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>対話回避コスト計算機｜言わないコストと言うコストの逆転点 | きづきくみたて工房</title>
+<meta name="description" content="言いにくいことを「言わないままでいるコスト」は毎日積み上がり、「言うコスト」は一度払えば減っていく。その2つが逆転する日を概算する無料ツール。作業仮説を明示した誠実設計。">
+<link rel="canonical" href="https://kizukikumitate.com/taiwa-avoidance-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="きづきくみたて工房">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:title" content="対話回避コスト計算機｜言わないコストと言うコストの逆転点">
+<meta property="og:description" content="言いにくいことを黙っている「しないコスト」と、切り出す「するコスト」が逆転する日を概算する無料ツール。作業仮説を明示した誠実設計。">
+<meta property="og:url" content="https://kizukikumitate.com/taiwa-avoidance-calculator.html">
+<meta property="og:image" content="https://kizukikumitate.com/taiwa-avoidance-calculator-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="対話回避コスト計算機｜言わないコストと言うコストの逆転点">
+<meta name="twitter:description" content="言いにくいことを黙っている「しないコスト」と、切り出す「するコスト」が逆転する日を概算する無料ツール。作業仮説を明示した誠実設計。">
+<meta name="twitter:image" content="https://kizukikumitate.com/taiwa-avoidance-calculator-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@500&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "対話回避コスト計算機",
+  "url": "https://kizukikumitate.com/taiwa-avoidance-calculator.html",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
+  "description": "言いにくいことを「言わないままでいるコスト」と「言うコスト」が逆転する日を概算する思考実験ツール。",
+  "author": {
+    "@type": "Person",
+    "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
+    "name": "森本康仁",
+    "url": "https://kizukikumitate.com/jijitsu-daicho.html"
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+
+<style>
+  .viz-root {
+    color-scheme: light;
+    --navh: 62px;         /* 固定グローバルナビの高さ */
+    --forest: #1a5fad;    /* サイト共通ナビ用 */
+    --charcoal: #1e1e1e;  /* サイト共通ナビ用 */
+    --purple: #3c3489;    /* サイト共通ナビ用 */
+    --surface-1: #fcfcfb;
+    --page: #f9f9f7;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --series-avoid: #2a78d6;  /* しないコスト: blue slot1 */
+    --series-talk:  #008300;  /* するコスト: green slot2 */
+    --good-text: #006300;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) .viz-root {
+      color-scheme: dark;
+      --surface-1: #1a1a19;
+      --page: #0d0d0d;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --series-avoid: #3987e5;
+      --series-talk:  #008300;
+      --good-text: #0ca30c;
+    }
+  }
+  :root[data-theme="dark"] .viz-root {
+    color-scheme: dark;
+    --surface-1: #1a1a19;
+    --page: #0d0d0d;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255,255,255,0.10);
+    --series-avoid: #3987e5;
+    --series-talk:  #008300;
+    --good-text: #0ca30c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body.viz-root {
+    font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--page);
+    color: var(--text-primary);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    padding-top: var(--navh);
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    hanging-punctuation: allow-end;
+    line-break: strict;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 64px; }
+
+  /* ===== サイト共通グローバルナビ（data/nav.json が生成） ===== */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489}
+  .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+  .nav-logo img{height:36px;width:auto;object-fit:contain}
+  .nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em}
+  .nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto;flex-wrap:wrap}
+  .nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em}
+  .nav-links a:hover,.nav-links a.active{color:var(--forest)}
+  .nav-dropdown{position:relative;display:flex;align-items:center}
+  .nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
+  .nav-caret{font-size:0.6em;transition:transform 0.25s}
+  .nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest)}
+  .nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
+  .nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300}
+  .nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+  .nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+  .nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s}
+  .nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest)}
+  .nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px)}
+  .nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
+  .nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+  .nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s}
+  .mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem}
+  .mobile-menu.open{display:flex}
+  .mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s}
+  .mobile-menu a:first-child{border-top:1px solid #e8e8e8}
+  .mobile-menu a:hover,.mobile-menu a.active{color:#3C3489}
+  .mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem}
+  .mobile-acc{width:100%;border-bottom:1px solid #e8e8e8}
+  .mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0}
+  .mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s}
+  .mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
+  .mobile-acc-panel{display:none;flex-direction:column;align-items:center;padding-bottom:0.7rem}
+  .mobile-acc.open .mobile-acc-panel{display:flex}
+  .mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:1.02rem;font-weight:600;color:#333;text-decoration:none;padding:0.6rem 0;width:100%;text-align:center;border:none;transition:color 0.15s}
+  .mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489}
+  @media (max-width:1250px){.nav-links{display:none}.nav-hamburger{display:block}.nav-logo{margin-right:0}}
+
+  /* ===== サイト共通フッター（data/nav.json が生成） ===== */
+  footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+  .footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9)}
+  .footer-copy{font-family:'Jost',sans-serif;font-size:0.72rem;color:rgba(255,255,255,0.55)}
+  @media(max-width:768px){footer{padding:2.4rem 1.5rem}}
+
+  header.hero { padding: 74px 0 32px; }
+  header.hero h1 { font-size: clamp(2rem, 4vw, 4.8rem); font-weight: 700; letter-spacing: -0.01em; line-height: 1.25; margin: 0.7rem 0 1rem; }
+  @media (max-width: 768px) { header.hero { padding-top: 44px; } header.hero h1 { font-size: 1.8rem; } }
+  @media (max-width: 540px) { header.hero h1 { font-size: 1.4rem; } }
+  header.hero p { color: var(--text-secondary); font-size: 14.5px; margin-top: 6px; max-width: 780px; }
+
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin-bottom: 18px;
+  }
+  .card h2 { font-size: 14px; font-weight: 600; color: var(--text-secondary); margin-bottom: 14px; letter-spacing: 0.01em; }
+
+  /* presets */
+  .presets { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .presets button {
+    font: inherit; font-size: 13px;
+    padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--border);
+    background: transparent; color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .presets button:hover { background: color-mix(in srgb, var(--text-primary) 5%, transparent); }
+  .presets button.active { border-color: var(--text-primary); color: var(--text-primary); font-weight: 600; }
+
+  /* sliders */
+  .controls { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 20px 32px; }
+  @media (max-width: 640px) { .controls { grid-template-columns: minmax(0,1fr); } }
+  .ctl label { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; font-weight: 600; margin-bottom: 6px; }
+  .ctl label .val { font-weight: 700; font-size: 15px; }
+  .ctl .hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+  .ctl input[type="range"] {
+    width: 100%; accent-color: var(--series-avoid); height: 24px; cursor: pointer;
+  }
+
+  /* hero result */
+  .result { text-align: left; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px; }
+  .result .big { font-size: 52px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+  .result .big small { font-size: 24px; font-weight: 600; }
+  .result .desc { font-size: 14.5px; color: var(--text-secondary); max-width: 460px; }
+  .result.no-cross .big { font-size: 30px; }
+
+  /* stat tiles */
+  .tiles { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 12px; margin-top: 20px; }
+  @media (max-width: 640px) { .tiles { grid-template-columns: minmax(0,1fr); } }
+  .tile { border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+  .tile .t-label { font-size: 12.5px; color: var(--text-secondary); display: flex; align-items: center; gap: 7px; }
+  .tile .t-label .key { width: 14px; height: 3px; border-radius: 2px; flex: none; }
+  .tile .t-value { font-size: 24px; font-weight: 650; margin-top: 3px; }
+  .tile .t-value small { font-size: 13px; font-weight: 500; color: var(--text-muted); }
+  .tile .t-sub { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+  .tile .t-sub.save { color: var(--good-text); font-weight: 600; }
+
+  /* chart */
+  .chart-head { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 4px; }
+  .legend { display: flex; gap: 18px; font-size: 13px; color: var(--text-secondary); }
+  .legend .item { display: flex; align-items: center; gap: 7px; }
+  .legend .key { width: 18px; height: 2.5px; border-radius: 2px; }
+  .chart-box { position: relative; }
+  svg#chart { display: block; width: 100%; height: auto; }
+  .tooltip {
+    position: absolute; pointer-events: none; z-index: 5;
+    background: var(--surface-1); border: 1px solid var(--border);
+    border-radius: 9px; padding: 9px 12px; font-size: 12.5px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    min-width: 168px; display: none;
+  }
+  .tooltip .tt-day { color: var(--text-muted); font-size: 11.5px; margin-bottom: 4px; }
+  .tooltip .tt-row { display: flex; align-items: center; gap: 7px; margin-top: 2px; }
+  .tooltip .tt-key { width: 12px; height: 2.5px; border-radius: 2px; flex: none; }
+  .tooltip .tt-val { font-weight: 700; margin-left: auto; font-variant-numeric: tabular-nums; }
+  .tooltip .tt-name { color: var(--text-secondary); }
+
+  /* table view */
+  details.tableview { margin-top: 14px; }
+  details.tableview summary { font-size: 13px; color: var(--text-secondary); cursor: pointer; }
+  details.tableview table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12.5px; }
+  details.tableview th, details.tableview td { text-align: right; padding: 5px 10px; border-bottom: 1px solid var(--grid); font-variant-numeric: tabular-nums; }
+  details.tableview th { color: var(--text-muted); font-weight: 600; }
+  details.tableview th:first-child, details.tableview td:first-child { text-align: left; }
+
+  /* prompts + model note */
+  .prompts li { margin: 8px 0 8px 1.2em; font-size: 14px; color: var(--text-secondary); }
+  details.model { font-size: 13.5px; color: var(--text-secondary); }
+  details.model summary { cursor: pointer; font-weight: 600; color: var(--text-secondary); font-size: 13.5px; }
+  details.model .m-body { margin-top: 10px; }
+  details.model p { margin: 8px 0; }
+  details.model code { font-size: 12.5px; background: color-mix(in srgb, var(--text-primary) 6%, transparent); padding: 1px 6px; border-radius: 5px; }
+
+  .pagenote { font-size: 12px; color: var(--text-muted); margin-top: 26px; max-width: 640px; }
+</style>
+</head>
+<body class="viz-root">
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html">平和な地球行きロケット</a>
+        <a href="./roadmap.html">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html">研修設計プログラム</a>
+        <a href="./od-program.html">組織開発プログラム</a>
+        <a href="./dialogue-program.html">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+        <a href="./democracy-fitness-career.html">個人向けキャリア開発</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html">Democracy Fitness</a>
+        <a href="./lsp.html">LSP</a>
+        <a href="./topaasia.html">対話用カード</a>
+        <a href="./yokai/">会社の妖怪診断</a>
+        <a href="./shakai-yokai/">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html">PTAのこれから</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+        <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+        <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+        <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html">おすすめTED集</a>
+        <a href="./nobel-peace.html">ノーベル平和賞</a>
+        <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">社会のリスク</span>
+        <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織のリスク</span>
+        <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+        <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">個人のリスク</span>
+        <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+        <a href="./salary-negotiation-calculator.html">昇給交渉しない計算機</a>
+        <a href="./taiwa-avoidance-calculator.html" class="active">対話回避コスト計算機</a>
+      </div>
+    </li>
+    <li><a href="./store.html">ストア</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html">平和な地球行きロケット</a>
+      <a href="./roadmap.html">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html">研修設計プログラム</a>
+      <a href="./od-program.html">組織開発プログラム</a>
+      <a href="./dialogue-program.html">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html">離職防止プログラム</a>
+      <a href="./democracy-fitness-career.html">個人向けキャリア開発</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html">Democracy Fitness</a>
+      <a href="./lsp.html">LSP</a>
+      <a href="./topaasia.html">対話用カード</a>
+      <a href="./yokai/">会社の妖怪診断</a>
+      <a href="./shakai-yokai/">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html">PTAのこれから</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html">教育の費用対効果図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html">おすすめTED集</a>
+      <a href="./nobel-peace.html">ノーベル平和賞</a>
+      <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
+      <a href="./school-consolidation-countdown.html">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html">介護の支え手計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織のリスク</span>
+      <a href="./customer-age-timebomb.html">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html">技能承継時限爆弾</a>
+      <a href="./taiwa-cost-calculator.html">対話不足コスト計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">個人のリスク</span>
+      <a href="./longevity-money-map.html">老後のお金の見取り図</a>
+      <a href="./salary-negotiation-calculator.html">昇給交渉しない計算機</a>
+      <a href="./taiwa-avoidance-calculator.html" class="active">対話回避コスト計算機</a>
+    </div>
+  </div>
+  <a href="./store.html">ストア</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html">事実の台帳（発行者情報）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+<div class="wrap">
+
+  <header class="hero">
+    <h1>対話回避コスト計算機</h1>
+    <p>言いにくいことを「言わないままでいるコスト」は毎日すこしずつ積み上がり、「言うコスト」は一度大きく払えばあとは減っていく。その2つの曲線が逆転する日を計算します。</p>
+  </header>
+
+  <section class="card">
+    <h2>あなたの状況</h2>
+    <div class="presets" id="presets">
+      <button data-p="workload">例: 業務量を相談したい</button>
+      <button data-p="eval">例: 評価に納得がいかない</button>
+      <button data-p="vacation">例: 休暇を切り出したい</button>
+    </div>
+    <div class="controls">
+      <div class="ctl">
+        <label for="in-s">モヤモヤの強度 <span class="val" id="v-s">5</span></label>
+        <input type="range" id="in-s" min="1" max="10" step="1" value="5">
+        <div class="hint">思い出したときの嫌さ (1 = かすかに気になる / 10 = 胃が痛い)</div>
+      </div>
+      <div class="ctl">
+        <label for="in-h">1日に頭を占める時間 <span class="val" id="v-h">30分</span></label>
+        <input type="range" id="in-h" min="5" max="240" step="5" value="30">
+        <div class="hint">通勤中・寝る前などに考えてしまう時間の合計</div>
+      </div>
+      <div class="ctl">
+        <label for="in-t">状況が自然に消えるまで <span class="val" id="v-t">12ヶ月</span></label>
+        <input type="range" id="in-t" min="1" max="36" step="1" value="12">
+        <div class="hint">上司の異動・プロジェクト終了など、放置しても終わる時期</div>
+      </div>
+      <div class="ctl">
+        <label for="in-a">対話の気まずさ <span class="val" id="v-a">5</span></label>
+        <input type="range" id="in-a" min="1" max="10" step="1" value="5">
+        <div class="hint">切り出す勇気・その場の緊張・直後の気まずさの大きさ</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>逆転点(クロスオーバー)</h2>
+    <div class="result" id="result">
+      <div class="big" id="r-big">—</div>
+      <div class="desc" id="r-desc"></div>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="t-label"><span class="key" style="background:var(--series-avoid)"></span>言わないまま期間満了</div>
+        <div class="t-value" id="tile-avoid">— <small>mp</small></div>
+        <div class="t-sub" id="tile-avoid-sub"></div>
+      </div>
+      <div class="tile">
+        <div class="t-label"><span class="key" style="background:var(--series-talk)"></span>今日対話した場合の総コスト</div>
+        <div class="t-value" id="tile-talk">— <small>mp</small></div>
+        <div class="t-sub" id="tile-talk-sub"></div>
+      </div>
+      <div class="tile">
+        <div class="t-label">差し引き</div>
+        <div class="t-value" id="tile-diff">—</div>
+        <div class="t-sub" id="tile-diff-sub"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="chart-head">
+      <h2 style="margin-bottom:0">累積ストレスコストの推移</h2>
+      <div class="legend">
+        <div class="item"><span class="key" style="background:var(--series-avoid)"></span>言わないコスト(累積)</div>
+        <div class="item"><span class="key" style="background:var(--series-talk)"></span>言うコスト(累積)</div>
+      </div>
+    </div>
+    <div class="chart-box" id="chart-box">
+      <svg id="chart" viewBox="0 0 840 400" role="img" aria-label="言わないコストと言うコストの累積比較チャート"></svg>
+      <div class="tooltip" id="tooltip"></div>
+    </div>
+    <details class="tableview">
+      <summary>表で見る</summary>
+      <table>
+        <thead><tr><th>経過</th><th>言わないコスト (mp)</th><th>言うコスト (mp)</th></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>この結果をもとに考えてみる</h2>
+    <ul class="prompts">
+      <li>逆転点を見て、直感と比べてどうでしたか? 早い? 遅い?</li>
+      <li>「気まずさ」を1つ下げるには何ができそうですか (伝え方の工夫、場所、第三者の同席など)?</li>
+      <li>もし相手の立場だったら、この話を「早く聞きたい」と思いますか?</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <details class="model">
+      <summary>計算モデルの中身 (前提と式)</summary>
+      <div class="m-body">
+        <p>単位は <strong>mp (モヤモヤポイント)</strong> = 強度1のモヤモヤに1時間頭を占められる量、としています。</p>
+        <p><strong>言わないコスト</strong>は毎日一定量たまります: <code>強度 × 時間(h/日) × 経過日数</code>。状況が自然消滅する日で積み上げは止まります。</p>
+        <p><strong>言うコスト</strong>は、切り出す瞬間の一時的スパイク <code>気まずさ × 2 mp</code> に、その後の気まずい余韻 (1日あたり <code>気まずさ × 0.5 mp</code> から始まり、約10日で薄れる指数減衰) を足したものです。合計はやがて <code>気まずさ × 7 mp</code> に収束します。</p>
+        <p>係数 (スパイク2、余韻0.5、半減期約10日) は心理学の厳密な測定値ではなく、「対話の痛みは大きいが一時的、回避の痛みは小さいが恒常的」という構造を体感するための作業仮説です。ワークショップでは係数そのものを疑って議論するのも面白いはずです。</p>
+      </div>
+    </details>
+  </section>
+
+  <div class="pagenote">
+    ⚠️ このツールは意思決定を助ける思考実験であり、科学的な測定ではありません。パワハラなど安全が脅かされる状況では「対話するかどうか」より先に、信頼できる相談窓口の利用を検討してください。
+  </div>
+</div>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="white" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./taiwa-cost-calculator.html"><span class="kaiyu-tag">未来リスク計算機</span><span class="kaiyu-name">対話不足コスト計算機</span><span class="kaiyu-desc">会議の空転・手戻り・離職。対話不足が生む3つの見えない損失を、自社の数字で概算する無料ツール。数字は結論ではなく対話の入口です。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./salary-negotiation-calculator.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">未来のリスク計算機</span><span class="kaiyu-name">昇給交渉しない計算機</span><span class="kaiyu-desc">たった30分の気まずい対話を先延ばしにすると、差額は複利で開き続ける。定年までの期待損失と、同業の相場との距離を試算。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+<script>
+/* ===== nav ===== */
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('mobileMenu').classList.add('open'));
+document.getElementById('mobileClose').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
+  btn.addEventListener('click', () => btn.parentElement.classList.toggle('open'));
+});
+</script>
+
+<script>
+(function () {
+  'use strict';
+
+  // ---- model constants (作業仮説) ----
+  var SPIKE_PER_A = 2.0;   // mp per awkwardness point (one-time)
+  var AFTER_PER_A = 0.5;   // mp/day per point at t=0
+  var TAU = 10;            // days, decay constant of aftermath
+  var DAYS_PER_MONTH = 30;
+
+  var els = {
+    s: document.getElementById('in-s'),
+    h: document.getElementById('in-h'),
+    t: document.getElementById('in-t'),
+    a: document.getElementById('in-a'),
+    vs: document.getElementById('v-s'),
+    vh: document.getElementById('v-h'),
+    vt: document.getElementById('v-t'),
+    va: document.getElementById('v-a'),
+    rBig: document.getElementById('r-big'),
+    rDesc: document.getElementById('r-desc'),
+    result: document.getElementById('result'),
+    tileAvoid: document.getElementById('tile-avoid'),
+    tileAvoidSub: document.getElementById('tile-avoid-sub'),
+    tileTalk: document.getElementById('tile-talk'),
+    tileTalkSub: document.getElementById('tile-talk-sub'),
+    tileDiff: document.getElementById('tile-diff'),
+    tileDiffSub: document.getElementById('tile-diff-sub'),
+    svg: document.getElementById('chart'),
+    box: document.getElementById('chart-box'),
+    tooltip: document.getElementById('tooltip'),
+    tableBody: document.getElementById('table-body'),
+    presets: document.getElementById('presets')
+  };
+
+  var PRESETS = {
+    workload: { s: 6, h: 45, t: 12, a: 5 },
+    eval:     { s: 7, h: 60, t: 8,  a: 7 },
+    vacation: { s: 4, h: 20, t: 6,  a: 3 }
+  };
+
+  var state = { s: 5, h: 30, t: 12, a: 5 };
+  var model = null; // computed
+
+  // ---- math ----
+  function avoidCost(t, m) { // cumulative mp at day t
+    var eff = Math.min(t, m.Tdays);
+    return m.perDay * eff;
+  }
+  function talkCost(t, m) {
+    if (t <= 0) return m.spike;
+    return m.spike + m.a * AFTER_PER_A * TAU * (1 - Math.exp(-t / TAU));
+  }
+  function compute() {
+    var m = {
+      s: state.s, a: state.a,
+      perDay: state.s * (state.h / 60),
+      Tdays: state.t * DAYS_PER_MONTH,
+      spike: state.a * SPIKE_PER_A
+    };
+    m.talkAsym = m.spike + m.a * AFTER_PER_A * TAU;
+    // find crossover: smallest t where avoid >= talk
+    m.cross = null;
+    var step = 0.05;
+    for (var t = 0; t <= m.Tdays; t += step) {
+      if (avoidCost(t, m) >= talkCost(t, m)) { m.cross = t; break; }
+    }
+    m.avoidTotal = avoidCost(m.Tdays, m);
+    m.talkTotal = talkCost(m.Tdays, m);
+    return m;
+  }
+
+  // ---- formatting ----
+  function fmt(n, digits) {
+    var d = (digits === undefined) ? 0 : digits;
+    return n.toLocaleString('ja-JP', { maximumFractionDigits: d, minimumFractionDigits: 0 });
+  }
+  function fmtDays(d) {
+    if (d < 60) return fmt(Math.ceil(d)) + '日';
+    return fmt(d / DAYS_PER_MONTH, 1) + 'ヶ月';
+  }
+  function fmtDayLabel(d) {
+    if (d < 60) return Math.round(d) + '日目';
+    return (Math.round(d / DAYS_PER_MONTH * 10) / 10) + 'ヶ月目';
+  }
+
+  // ---- render: readouts, hero, tiles ----
+  function renderText(m) {
+    els.vs.textContent = state.s;
+    els.vh.textContent = state.h < 60 ? state.h + '分' : (state.h / 60).toLocaleString('ja-JP', { maximumFractionDigits: 1 }) + '時間';
+    els.vt.textContent = state.t + 'ヶ月';
+    els.va.textContent = state.a;
+
+    if (m.cross !== null) {
+      var cd = Math.max(1, Math.ceil(m.cross));
+      els.result.classList.remove('no-cross');
+      els.rBig.textContent = '';
+      var n1 = document.createTextNode(fmt(cd));
+      var sm = document.createElement('small');
+      sm.textContent = ' 日目に逆転';
+      els.rBig.appendChild(n1); els.rBig.appendChild(sm);
+      els.rDesc.textContent = cd <= 3
+        ? 'ほぼ即座に「言わないコスト」が上回ります。先延ばしの利益はほとんどありません。'
+        : 'この日を境に、黙っているほうが高くつきます。逆転日より手前で対話できれば、コスト面では「する」が有利です。';
+    } else {
+      els.result.classList.add('no-cross');
+      els.rBig.textContent = '期間内に逆転しません';
+      els.rDesc.textContent = '状況が自然に消えるまでの累積ストレスが、対話の総コストを下回ります。この条件なら「言わずにやり過ごす」のも合理的な選択かもしれません。';
+    }
+
+    var hoursLost = (state.h / 60) * m.Tdays;
+    setTileValue(els.tileAvoid, fmt(m.avoidTotal), 'mp');
+    els.tileAvoidSub.textContent = '頭を占められる時間 約' + fmt(hoursLost) + '時間 (映画約' + fmt(hoursLost / 2) + '本分)';
+    setTileValue(els.tileTalk, fmt(m.talkTotal), 'mp');
+    els.tileTalkSub.textContent = 'スパイク ' + fmt(m.spike) + ' mp + 余韻 ' + fmt(m.talkTotal - m.spike) + ' mp';
+
+    var diff = m.avoidTotal - m.talkTotal;
+    els.tileDiffSub.classList.remove('save');
+    if (diff > 0) {
+      setTileValue(els.tileDiff, '−' + fmt(diff), 'mp');
+      els.tileDiffSub.textContent = '対話すればモヤモヤを' + fmt(diff / m.avoidTotal * 100) + '%減らせる計算';
+      els.tileDiffSub.classList.add('save');
+    } else {
+      setTileValue(els.tileDiff, '+' + fmt(-diff), 'mp');
+      els.tileDiffSub.textContent = 'この条件では対話のほうが高くつきます';
+    }
+  }
+  function setTileValue(el, text, unit) {
+    el.textContent = '';
+    el.appendChild(document.createTextNode(text + ' '));
+    var sm = document.createElement('small');
+    sm.textContent = unit;
+    el.appendChild(sm);
+  }
+
+  // ---- chart ----
+  var NS = 'http://www.w3.org/2000/svg';
+  var W = 840, H = 400, PAD = { l: 58, r: 118, t: 24, b: 44 };
+  var chartGeom = null;
+
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function niceTicks(max, count) {
+    var raw = max / count;
+    var mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    var norm = raw / mag;
+    var step = (norm <= 1 ? 1 : norm <= 2 ? 2 : norm <= 5 ? 5 : 10) * mag;
+    var ticks = [];
+    for (var v = 0; v <= max + 1e-9; v += step) ticks.push(v);
+    return ticks;
+  }
+
+  function renderChart(m) {
+    var svg = els.svg;
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    var xmax = m.Tdays;
+    var ymax = Math.max(m.avoidTotal, m.talkTotal, m.talkAsym) * 1.08;
+    if (ymax <= 0) ymax = 10;
+    var x = function (d) { return PAD.l + (d / xmax) * (W - PAD.l - PAD.r); };
+    var y = function (v) { return H - PAD.b - (v / ymax) * (H - PAD.t - PAD.b); };
+    chartGeom = { x: x, y: y, xmax: xmax, m: m };
+
+    // gridlines + y ticks
+    var yticks = niceTicks(ymax, 5);
+    yticks.forEach(function (v) {
+      if (v > ymax) return;
+      svg.appendChild(el('line', { x1: PAD.l, x2: W - PAD.r, y1: y(v), y2: y(v), stroke: 'var(--grid)', 'stroke-width': 1 }));
+      var t = el('text', { x: PAD.l - 8, y: y(v) + 4, 'text-anchor': 'end', 'font-size': 11, fill: 'var(--text-muted)', 'font-variant-numeric': 'tabular-nums' });
+      t.textContent = fmt(v);
+      svg.appendChild(t);
+    });
+    // baseline
+    svg.appendChild(el('line', { x1: PAD.l, x2: W - PAD.r, y1: y(0), y2: y(0), stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    // x ticks
+    var useMonths = xmax > 60;
+    var xtickMax = useMonths ? xmax / DAYS_PER_MONTH : xmax;
+    var xticks = niceTicks(xtickMax, 6);
+    xticks.forEach(function (v) {
+      if (v > xtickMax) return;
+      var d = useMonths ? v * DAYS_PER_MONTH : v;
+      var t = el('text', { x: x(d), y: H - PAD.b + 18, 'text-anchor': 'middle', 'font-size': 11, fill: 'var(--text-muted)', 'font-variant-numeric': 'tabular-nums' });
+      t.textContent = v === 0 ? '今日' : fmt(v) + (useMonths ? 'ヶ月' : '日');
+      svg.appendChild(t);
+    });
+
+    // series paths
+    var N = 160;
+    function pathFor(fn, close) {
+      var d = '';
+      for (var i = 0; i <= N; i++) {
+        var t = (i / N) * xmax;
+        d += (i === 0 ? 'M' : 'L') + x(t).toFixed(1) + ',' + y(fn(t, m)).toFixed(1);
+      }
+      if (close) d += 'L' + x(xmax).toFixed(1) + ',' + y(0) + 'L' + x(0) + ',' + y(0) + 'Z';
+      return d;
+    }
+    // area washes (~10%)
+    svg.appendChild(el('path', { d: pathFor(avoidCost, true), fill: 'var(--series-avoid)', opacity: 0.08 }));
+    svg.appendChild(el('path', { d: pathFor(talkCost, true), fill: 'var(--series-talk)', opacity: 0.08 }));
+    // lines 2px
+    svg.appendChild(el('path', { d: pathFor(avoidCost, false), fill: 'none', stroke: 'var(--series-avoid)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+    svg.appendChild(el('path', { d: pathFor(talkCost, false), fill: 'none', stroke: 'var(--series-talk)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+
+    // crossover marker
+    if (m.cross !== null) {
+      var cx = x(m.cross), cy = y(avoidCost(m.cross, m));
+      svg.appendChild(el('line', { x1: cx, x2: cx, y1: cy, y2: y(0), stroke: 'var(--baseline)', 'stroke-width': 1, 'stroke-dasharray': 'none', opacity: 0.9 }));
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 7, fill: 'var(--surface-1)' }));
+      svg.appendChild(el('circle', { cx: cx, cy: cy, r: 5, fill: 'var(--text-primary)' }));
+      var lbl = el('text', { x: cx, y: Math.max(PAD.t + 10, cy - 14), 'text-anchor': cx > W - PAD.r - 90 ? 'end' : 'middle', 'font-size': 12, 'font-weight': 700, fill: 'var(--text-primary)' });
+      lbl.textContent = '逆転 ' + fmtDayLabel(m.cross);
+      svg.appendChild(lbl);
+    }
+
+    // direct end labels (leader-separated if colliding)
+    var endAvoidY = y(avoidCost(xmax, m));
+    var endTalkY = y(talkCost(xmax, m));
+    var labels = [
+      { text: '言わないコスト', y: endAvoidY, color: 'var(--series-avoid)' },
+      { text: '言うコスト', y: endTalkY, color: 'var(--series-talk)' }
+    ];
+    labels.sort(function (a, b) { return a.y - b.y; });
+    if (labels[1].y - labels[0].y < 16) { labels[0].ly = labels[0].y - 8; labels[1].ly = labels[1].y + 8; }
+    else { labels[0].ly = labels[0].y; labels[1].ly = labels[1].y; }
+    labels.forEach(function (L) {
+      svg.appendChild(el('line', { x1: W - PAD.r + 2, x2: W - PAD.r + 12, y1: L.y, y2: L.ly, stroke: L.color, 'stroke-width': 2, 'stroke-linecap': 'round' }));
+      var t = el('text', { x: W - PAD.r + 17, y: L.ly + 4, 'font-size': 12, fill: 'var(--text-secondary)', 'font-weight': 600 });
+      t.textContent = L.text;
+      svg.appendChild(t);
+    });
+
+    // hover crosshair + capture rect
+    var crosshair = el('line', { x1: 0, x2: 0, y1: PAD.t, y2: H - PAD.b, stroke: 'var(--baseline)', 'stroke-width': 1, visibility: 'hidden' });
+    crosshair.id = 'crosshair';
+    svg.appendChild(crosshair);
+    var dotA = el('circle', { r: 4.5, fill: 'var(--series-avoid)', stroke: 'var(--surface-1)', 'stroke-width': 2, visibility: 'hidden' });
+    dotA.id = 'dot-a';
+    var dotT = el('circle', { r: 4.5, fill: 'var(--series-talk)', stroke: 'var(--surface-1)', 'stroke-width': 2, visibility: 'hidden' });
+    dotT.id = 'dot-t';
+    svg.appendChild(dotA); svg.appendChild(dotT);
+
+    var capture = el('rect', { x: PAD.l, y: PAD.t, width: W - PAD.l - PAD.r, height: H - PAD.t - PAD.b, fill: 'transparent' });
+    capture.style.cursor = 'crosshair';
+    capture.addEventListener('pointermove', onHover);
+    capture.addEventListener('pointerleave', hideHover);
+    svg.appendChild(capture);
+  }
+
+  function onHover(ev) {
+    if (!chartGeom) return;
+    var g = chartGeom, m = g.m;
+    var rect = els.svg.getBoundingClientRect();
+    var px = (ev.clientX - rect.left) * (W / rect.width);
+    var frac = (px - PAD.l) / (W - PAD.l - PAD.r);
+    frac = Math.max(0, Math.min(1, frac));
+    var day = frac * g.xmax;
+    var xs = g.x(day);
+    var av = avoidCost(day, m), tk = talkCost(day, m);
+
+    var ch = document.getElementById('crosshair');
+    ch.setAttribute('x1', xs); ch.setAttribute('x2', xs); ch.setAttribute('visibility', 'visible');
+    var da = document.getElementById('dot-a'), dt = document.getElementById('dot-t');
+    da.setAttribute('cx', xs); da.setAttribute('cy', g.y(av)); da.setAttribute('visibility', 'visible');
+    dt.setAttribute('cx', xs); dt.setAttribute('cy', g.y(tk)); dt.setAttribute('visibility', 'visible');
+
+    var tt = els.tooltip;
+    tt.textContent = '';
+    var dayEl = document.createElement('div');
+    dayEl.className = 'tt-day';
+    dayEl.textContent = day < 1 ? '今日' : fmtDayLabel(day);
+    tt.appendChild(dayEl);
+    [
+      { name: '言わない', val: av, color: 'var(--series-avoid)' },
+      { name: '言う', val: tk, color: 'var(--series-talk)' }
+    ].forEach(function (r) {
+      var row = document.createElement('div'); row.className = 'tt-row';
+      var key = document.createElement('span'); key.className = 'tt-key'; key.style.background = r.color;
+      var name = document.createElement('span'); name.className = 'tt-name'; name.textContent = r.name;
+      var val = document.createElement('span'); val.className = 'tt-val'; val.textContent = fmt(r.val) + ' mp';
+      row.appendChild(key); row.appendChild(name); row.appendChild(val);
+      tt.appendChild(row);
+    });
+    tt.style.display = 'block';
+    var boxRect = els.box.getBoundingClientRect();
+    var left = (xs / W) * boxRect.width + 14;
+    if (left + 180 > boxRect.width) left = (xs / W) * boxRect.width - 194;
+    tt.style.left = left + 'px';
+    tt.style.top = '30px';
+  }
+  function hideHover() {
+    els.tooltip.style.display = 'none';
+    ['crosshair', 'dot-a', 'dot-t'].forEach(function (id) {
+      var e = document.getElementById(id);
+      if (e) e.setAttribute('visibility', 'hidden');
+    });
+  }
+
+  // ---- table view ----
+  function renderTable(m) {
+    var tbody = els.tableBody;
+    tbody.textContent = '';
+    var steps = 8;
+    for (var i = 1; i <= steps; i++) {
+      var d = (i / steps) * m.Tdays;
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td'); td1.textContent = fmtDays(d);
+      var td2 = document.createElement('td'); td2.textContent = fmt(avoidCost(d, m));
+      var td3 = document.createElement('td'); td3.textContent = fmt(talkCost(d, m));
+      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+      tbody.appendChild(tr);
+    }
+  }
+
+  // ---- wiring ----
+  function update() {
+    model = compute();
+    renderText(model);
+    renderChart(model);
+    renderTable(model);
+  }
+  function readInputs() {
+    state.s = +els.s.value;
+    state.h = +els.h.value;
+    state.t = +els.t.value;
+    state.a = +els.a.value;
+  }
+  ['s', 'h', 't', 'a'].forEach(function (k) {
+    els[k].addEventListener('input', function () {
+      readInputs();
+      clearPresetActive();
+      update();
+    });
+  });
+  els.presets.addEventListener('click', function (ev) {
+    var btn = ev.target.closest('button[data-p]');
+    if (!btn) return;
+    var p = PRESETS[btn.dataset.p];
+    els.s.value = p.s; els.h.value = p.h; els.t.value = p.t; els.a.value = p.a;
+    readInputs();
+    clearPresetActive();
+    btn.classList.add('active');
+    update();
+  });
+  function clearPresetActive() {
+    els.presets.querySelectorAll('button').forEach(function (b) { b.classList.remove('active'); });
+  }
+
+  update();
+})();
+</script>
+</body>
+</html>

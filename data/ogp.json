@@ -460,6 +460,16 @@
       "sub": "30分の気まずさを先延ばしにする値段を、定年まで複利で試算。"
     },
     {
+      "page": "taiwa-avoidance-calculator.html",
+      "img": "taiwa-avoidance-calculator-ogp.png",
+      "template": "calc",
+      "theme": "paper",
+      "acc": "#2a78d6",
+      "eyebrow": "未来のリスク計算機 ／ 対話回避コスト",
+      "title": "対話回避コスト計算機",
+      "sub": "言わないコストと言うコストが逆転する日を概算する。"
+    },
+    {
       "page": "salary-negotiation-kit.html",
       "img": "salary-negotiation-kit-ogp.png",
       "template": "standard",

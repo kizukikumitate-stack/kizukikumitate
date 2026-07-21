@@ -237,6 +237,10 @@
           {
             "label": "昇給交渉しない計算機",
             "href": "salary-negotiation-calculator.html"
+          },
+          {
+            "label": "対話回避コスト計算機",
+            "href": "taiwa-avoidance-calculator.html"
           }
         ]
       },
@@ -521,6 +525,10 @@
     },
     {
       "path": "salary-negotiation-calculator.html",
+      "variant": "standard"
+    },
+    {
+      "path": "taiwa-avoidance-calculator.html",
       "variant": "standard"
     },
     {

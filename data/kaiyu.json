@@ -859,6 +859,21 @@
       ]
     },
     {
+      "id": "taiwa-avoidance-calculator",
+      "path": "taiwa-avoidance-calculator.html",
+      "title": "対話回避コスト計算機",
+      "tag": "未来のリスク計算機",
+      "desc": "言いにくいことを黙っている「しないコスト」は毎日積み上がり、切り出す「するコスト」は一度で減っていく。その2つが逆転する日を概算する思考実験。",
+      "theme": "white",
+      "category": "mirai",
+      "added": "2026-07-21",
+      "band": true,
+      "next": [
+        "taiwa-cost-calculator",
+        "dialogue-program"
+      ]
+    },
+    {
       "id": "salary-negotiation-kit",
       "path": "salary-negotiation-kit.html",
       "title": "昇給交渉キット",
