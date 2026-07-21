@@ -120,6 +120,11 @@
 
   .nav-links a:hover { color: var(--blue); }
 
+  /* トップレベルの素リンク（Home / ストア）をドロップダウンのボタンと同じ箱に揃える */
+  .nav-links > li > a {
+    display: inline-flex; align-items: center; padding: 0.4rem 0;
+  }
+
   /* ===== NAV DROPDOWN (desktop hover) ===== */
   .nav-dropdown { position: relative; display: flex; align-items: center; }
   .nav-dropdown-toggle {

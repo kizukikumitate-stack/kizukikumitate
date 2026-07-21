@@ -194,6 +194,8 @@
   .nav-links a:hover,.nav-links a.active{color:#1a5fad}
   /* ===== NAV DROPDOWN (desktop hover) ===== */
   .nav-dropdown{position:relative;display:flex;align-items:center}
+  /* トップレベルの素リンク（Home / ストア等）をドロップダウンのボタンと同じ箱に揃える */
+  .nav-links > li > a { display: inline-flex; align-items: center; padding: 0.4rem 0; }
   .nav-dropdown-toggle{font-family:'Noto Sans JP','Jost',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:#5a6a7a;background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
   .nav-caret{font-size:0.6em;transition:transform 0.25s}
   .nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:#1a5fad}

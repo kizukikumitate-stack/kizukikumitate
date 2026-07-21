@@ -173,6 +173,8 @@ nav{position:sticky;top:0;z-index:100;padding:0.7rem 2rem;display:flex;align-ite
 .nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em;}
 .nav-links a:hover,.nav-links a.active{color:var(--forest);}
 .nav-dropdown{position:relative;display:flex;align-items:center;}
+/* トップレベルの素リンク（Home / ストア等）をドロップダウンのボタンと同じ箱に揃える */
+.nav-links > li > a { display: inline-flex; align-items: center; padding: 0.4rem 0; }
 .nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s;}
 .nav-caret{font-size:0.6em;transition:transform 0.25s;}
 .nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest);}
