@@ -156,12 +156,31 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .node.legend-tier .nm{color:var(--gold);}
 .chart-hint{color:var(--ink-muted);font-size:12px;text-align:center;margin-top:14px;}
 
+/* ---- 冒険の道（右スクロール誘導） ---- */
+.chart-frame{position:relative;}
+.adventure-road{position:relative;z-index:2;display:flex;gap:38px;align-items:flex-end;height:52px;margin:2px 4px 14px;padding:0 2px;}
+.adventure-road .road-seg{flex:1 1 0;min-width:250px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;}
+.adventure-road .flag{font-size:15px;line-height:1;color:var(--gold);text-shadow:0 0 8px rgba(255,215,106,.35);}
+.adventure-road .rt{font-size:10px;letter-spacing:.12em;color:var(--ink-muted);white-space:nowrap;}
+.adventure-road::before{content:"";position:absolute;left:10px;right:-30px;bottom:5px;border-top:2px dashed var(--hairline);z-index:0;}
+.adventure-walker{position:absolute;bottom:1px;left:0;z-index:3;animation:advWalk 13s linear infinite;will-change:left;filter:drop-shadow(0 0 5px rgba(255,215,106,.4));}
+.adventure-walker .body{animation:advBob .62s ease-in-out infinite;transform-origin:bottom center;}
+@keyframes advWalk{0%{left:0}92%{left:calc(100% - 34px)}100%{left:calc(100% - 34px)}}
+@keyframes advBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+
+/* ---- 右端フェード＆ヒント ---- */
+.chart-edge-hint{position:absolute;top:0;right:0;bottom:8px;width:88px;pointer-events:none;z-index:4;display:flex;align-items:flex-start;justify-content:flex-end;padding-right:6px;background:linear-gradient(to right, rgba(9,10,28,0), var(--page) 72%);opacity:1;transition:opacity .35s;}
+.chart-edge-hint.hide{opacity:0;}
+.chart-edge-hint .pill{position:sticky;top:calc(var(--navh) + 26px);writing-mode:vertical-rl;font-size:11px;letter-spacing:.16em;color:var(--gold);background:var(--surface-2);border:1px solid var(--gold);border-radius:20px;padding:10px 5px;box-shadow:0 0 12px rgba(255,215,106,.25);animation:edgePulse 1.7s ease-in-out infinite;}
+@keyframes edgePulse{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(4px);opacity:1}}
+@media (prefers-reduced-motion: reduce){.adventure-walker,.adventure-walker .body,.chart-edge-hint .pill{animation:none;}.adventure-walker{left:2%;}}
+
 /* ---- job cards (zukan) ---- */
 .zukan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;padding:4px;}
 .jobcard{padding:16px 18px;font-size:13px;}
 .card-fig{margin:-16px -18px 12px;background:#0e1024;border-bottom:2px solid var(--hairline);border-radius:6px 6px 0 0;overflow:hidden;}
-.card-fig img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:center 42%;}
-.card-fig-ph{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--fc,var(--hairline));background:radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--fc,#31355e) 26%, #0e1024), #0e1024);}
+.card-fig img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:contain;}
+.card-fig-ph{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--fc,var(--hairline));background:radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--fc,#31355e) 26%, #0e1024), #0e1024);}
 .card-fig-ph span{font-size:40px;opacity:.9;}
 .jobcard h3{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;letter-spacing:.06em;}
 .tier-badge{font-size:10px;letter-spacing:.1em;padding:2px 7px;border:1px solid currentColor;border-radius:4px;}
@@ -533,8 +552,26 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <div class="fam-legend dq" id="famLegend"></div>
 
   <section id="p-chart" class="panel active" role="tabpanel">
-    <div class="chart-scroller">
+    <div class="chart-frame">
+    <div class="chart-scroller" id="chartScroller">
       <div class="chart-wrap" id="chartWrap">
+        <div class="adventure-road" id="advRoad" aria-hidden="true">
+          <div class="road-seg"><span class="flag">⚑</span><span class="rt">基本職</span></div>
+          <div class="road-seg"><span class="flag">⚑</span><span class="rt">上位職</span></div>
+          <div class="road-seg"><span class="flag">⚑</span><span class="rt">英雄職</span></div>
+          <div class="road-seg"><span class="flag">⚑</span><span class="rt">覇者職</span></div>
+          <div class="road-seg"><span class="flag">⚑</span><span class="rt">伝説職</span></div>
+          <svg class="adventure-walker" width="30" height="34" viewBox="0 0 30 34" fill="none" stroke="var(--gold)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <g class="body">
+              <path d="M9 3 Q14 1 17 5 L15 11 Z" fill="rgba(255,215,106,.18)"/>
+              <circle cx="13.5" cy="6" r="3.4"/>
+              <path d="M13.5 9.4 L13.5 21"/>
+              <path d="M13.5 12.5 L19 16"/>
+              <path d="M13.5 21 L9.5 32 M13.5 21 L18.5 31"/>
+              <path d="M22 7 L22 32"/>
+            </g>
+          </svg>
+        </div>
         <svg class="edges" id="edgeSvg"></svg>
         <div class="cols">
           <div class="col" id="colBase"><div class="col-title">基本職<small>いまの職業からスタート / 数十万〜数百万人</small></div></div>
@@ -544,6 +581,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
           <div class="col" id="colLegend"><div class="col-title">伝説職<small>地球上に数人〜数十人</small></div></div>
         </div>
       </div>
+    </div>
+    <div class="chart-edge-hint" id="edgeHint" aria-hidden="true"><span class="pill">右に道が続く →</span></div>
     </div>
     <p class="chart-hint">▶ 職業をクリックするとジョブカードが開きます / カーソルを合わせると転職ルートが光ります / 🔥=人手不足(求人倍率高)・🔥🔥=深刻な不足<br>
     ▶ 線の太さ=そのルートの通りやすさの目安 <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="3.5"/></svg> 王道(条件を満たせば多くが通る) <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="1.8"/></svg> 努力次第 <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="1.1" stroke-dasharray="5 5"/></svg> 狭き門(実例はあるが少数)。覇者職・伝説職へ入る線はすべて狭き門です</p>
@@ -2177,7 +2216,7 @@ document.querySelectorAll(".tab-btn").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".tab-btn").forEach(b=>b.setAttribute("aria-selected", b===btn ? "true":"false"));
     document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active", p.id===btn.dataset.panel));
-    if(btn.dataset.panel==="p-chart") requestAnimationFrame(drawEdges);
+    if(btn.dataset.panel==="p-chart") requestAnimationFrame(()=>{drawEdges();updateChartHints();});
   });
 });
 
@@ -2352,6 +2391,24 @@ renderUserList();
 requestAnimationFrame(drawEdges);
 window.addEventListener("resize",()=>requestAnimationFrame(drawEdges));
 if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>drawEdges());
+
+/* ---- 冒険の道：横幅が収まりきらない時だけ右スクロール誘導を出す ---- */
+function updateChartHints(){
+  const sc=document.getElementById('chartScroller');
+  if(!sc) return;
+  const hint=document.getElementById('edgeHint');
+  const road=document.getElementById('advRoad');
+  const overflow = sc.scrollWidth - sc.clientWidth > 8;
+  const atEnd = sc.scrollLeft >= (sc.scrollWidth - sc.clientWidth - 8);
+  if(hint) hint.classList.toggle('hide', !overflow || atEnd);
+  if(road) road.style.display = overflow ? '' : 'none';
+}
+(function(){
+  const sc=document.getElementById('chartScroller');
+  if(sc) sc.addEventListener('scroll',()=>requestAnimationFrame(updateChartHints),{passive:true});
+  window.addEventListener('resize',()=>requestAnimationFrame(updateChartHints));
+  requestAnimationFrame(updateChartHints);
+})();
 </script>
 </body>
 </html>
