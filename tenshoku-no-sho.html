@@ -160,12 +160,14 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .chart-frame{position:relative;}
 .adventure-road{position:relative;z-index:2;display:flex;gap:38px;align-items:flex-end;height:52px;margin:2px 4px 14px;padding:0 2px;}
 .adventure-road .road-seg{flex:1 1 0;min-width:250px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px;}
-.adventure-road .flag{font-size:15px;line-height:1;color:var(--gold);text-shadow:0 0 8px rgba(255,215,106,.35);}
+.adventure-road .flag{display:block;filter:drop-shadow(0 0 5px rgba(255,215,106,.4));}
 .adventure-road .rt{font-size:10px;letter-spacing:.12em;color:var(--ink-muted);white-space:nowrap;}
 .adventure-road::before{content:"";position:absolute;left:10px;right:-30px;bottom:5px;border-top:2px dashed var(--hairline);z-index:0;}
-.adventure-walker{position:absolute;bottom:1px;left:0;z-index:3;animation:advWalk 13s linear infinite;will-change:left;filter:drop-shadow(0 0 5px rgba(255,215,106,.4));}
-.adventure-walker .body{animation:advBob .62s ease-in-out infinite;transform-origin:bottom center;}
-@keyframes advWalk{0%{left:0}92%{left:calc(100% - 34px)}100%{left:calc(100% - 34px)}}
+.adventure-walker{position:absolute;bottom:0;left:0;z-index:3;animation:advWalk 26s linear infinite;will-change:left;filter:drop-shadow(0 0 5px rgba(255,215,106,.45));}
+.adventure-walker .body{animation:advBob 1s ease-in-out infinite;transform-origin:bottom center;}
+.adventure-walker .cape{animation:advCape 1s ease-in-out infinite;transform-origin:16px 14px;}
+@keyframes advWalk{0%{left:0}94%{left:calc(100% - 32px)}100%{left:calc(100% - 32px)}}
+@keyframes advCape{0%,100%{transform:skewX(0deg)}50%{transform:skewX(5deg)}}
 @keyframes advBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
 
 /* ---- 右端フェード＆ヒント ---- */
@@ -173,7 +175,7 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .chart-edge-hint.hide{opacity:0;}
 .chart-edge-hint .pill{position:sticky;top:calc(var(--navh) + 26px);writing-mode:vertical-rl;font-size:11px;letter-spacing:.16em;color:var(--gold);background:var(--surface-2);border:1px solid var(--gold);border-radius:20px;padding:10px 5px;box-shadow:0 0 12px rgba(255,215,106,.25);animation:edgePulse 1.7s ease-in-out infinite;}
 @keyframes edgePulse{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(4px);opacity:1}}
-@media (prefers-reduced-motion: reduce){.adventure-walker,.adventure-walker .body,.chart-edge-hint .pill{animation:none;}.adventure-walker{left:2%;}}
+@media (prefers-reduced-motion: reduce){.adventure-walker,.adventure-walker .body,.adventure-walker .cape,.chart-edge-hint .pill{animation:none;}.adventure-walker{left:2%;}}
 
 /* ---- job cards (zukan) ---- */
 .zukan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;padding:4px;}
@@ -556,19 +558,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <div class="chart-scroller" id="chartScroller">
       <div class="chart-wrap" id="chartWrap">
         <div class="adventure-road" id="advRoad" aria-hidden="true">
-          <div class="road-seg"><span class="flag">⚑</span><span class="rt">基本職</span></div>
-          <div class="road-seg"><span class="flag">⚑</span><span class="rt">上位職</span></div>
-          <div class="road-seg"><span class="flag">⚑</span><span class="rt">英雄職</span></div>
-          <div class="road-seg"><span class="flag">⚑</span><span class="rt">覇者職</span></div>
-          <div class="road-seg"><span class="flag">⚑</span><span class="rt">伝説職</span></div>
-          <svg class="adventure-walker" width="30" height="34" viewBox="0 0 30 34" fill="none" stroke="var(--gold)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <div class="road-seg"><svg class="flag" width="15" height="22" viewBox="0 0 15 22" aria-hidden="true"><path d="M3.4 1.2 V20.8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/><path d="M3.4 2.4 L13 5.4 Q10.5 6.7 13 8 L3.4 8.9 Z" fill="var(--gold)"/></svg><span class="rt">基本職</span></div>
+          <div class="road-seg"><svg class="flag" width="15" height="22" viewBox="0 0 15 22" aria-hidden="true"><path d="M3.4 1.2 V20.8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/><path d="M3.4 2.4 L13 5.4 Q10.5 6.7 13 8 L3.4 8.9 Z" fill="var(--gold)"/></svg><span class="rt">上位職</span></div>
+          <div class="road-seg"><svg class="flag" width="15" height="22" viewBox="0 0 15 22" aria-hidden="true"><path d="M3.4 1.2 V20.8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/><path d="M3.4 2.4 L13 5.4 Q10.5 6.7 13 8 L3.4 8.9 Z" fill="var(--gold)"/></svg><span class="rt">英雄職</span></div>
+          <div class="road-seg"><svg class="flag" width="15" height="22" viewBox="0 0 15 22" aria-hidden="true"><path d="M3.4 1.2 V20.8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/><path d="M3.4 2.4 L13 5.4 Q10.5 6.7 13 8 L3.4 8.9 Z" fill="var(--gold)"/></svg><span class="rt">覇者職</span></div>
+          <div class="road-seg"><svg class="flag" width="15" height="22" viewBox="0 0 15 22" aria-hidden="true"><path d="M3.4 1.2 V20.8" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round"/><path d="M3.4 2.4 L13 5.4 Q10.5 6.7 13 8 L3.4 8.9 Z" fill="var(--gold)"/></svg><span class="rt">伝説職</span></div>
+          <svg class="adventure-walker" width="32" height="40" viewBox="0 0 32 40" aria-hidden="true">
             <g class="body">
-              <path d="M9 3 Q14 1 17 5 L15 11 Z" fill="rgba(255,215,106,.18)"/>
-              <circle cx="13.5" cy="6" r="3.4"/>
-              <path d="M13.5 9.4 L13.5 21"/>
-              <path d="M13.5 12.5 L19 16"/>
-              <path d="M13.5 21 L9.5 32 M13.5 21 L18.5 31"/>
-              <path d="M22 7 L22 32"/>
+              <path class="cape" d="M15 12 C7 17 4.5 26 3.5 35 L14 27 Z" fill="var(--gold)" opacity="0.2"/>
+              <path d="M17 4 C21 4 22.2 7.6 20.4 10.4 L22.6 30 L10.4 30 L12.6 10.4 C10.8 7.6 13 4 17 4 Z" fill="var(--gold)"/>
+              <path d="M13.4 6.4 C11.8 7.4 11.3 9 12 10.4" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.55"/>
+              <path d="M14.5 29 L11.6 39" stroke="var(--gold)" stroke-width="2.3" stroke-linecap="round"/>
+              <path d="M19.2 29 L22.6 38" stroke="var(--gold)" stroke-width="2.3" stroke-linecap="round"/>
+              <path d="M25.5 6.5 V39" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" opacity="0.85"/>
             </g>
           </svg>
         </div>
