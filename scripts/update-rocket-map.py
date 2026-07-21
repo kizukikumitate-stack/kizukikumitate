@@ -47,15 +47,24 @@ def build_doors(nav):
     out = {}
     for spot, (group, exclude) in MAPPING.items():
         rows = []
+        pending_heading = None  # 見出しは、その配下に実際に載る扉が1つ出るまで保留する
         for child in nav_group_children(nav, group):
+            if "heading" in child:
+                # 中カテゴリの見出し（{"heading": ...}）→ 単一要素の行として扉に載せる。
+                # 配下が全部除外されて空になる見出しは出さない（保留して次の見出しで捨てる）。
+                pending_heading = child["heading"]
+                continue
             if "href" not in child:
-                continue  # 見出し行（{"heading": ...}）は扉にしない
+                continue
             href = child["href"]
             if href.startswith(("http://", "https://", "mailto:")):
                 continue  # 外部リンクは扉にしない
             if href in exclude:
                 continue
             label = child["label"]
+            if pending_heading is not None:
+                rows.append('        [%s]' % json.dumps(pending_heading, ensure_ascii=False))
+                pending_heading = None
             rows.append('        [%s, %s]' % (
                 json.dumps(label, ensure_ascii=False),
                 json.dumps(href, ensure_ascii=False),

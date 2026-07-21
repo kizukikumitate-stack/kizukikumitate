@@ -803,6 +803,13 @@
   }
   .rocket-map .rkt-doors a::before{content:"扉 "; color:var(--gold); font-weight:700}
   .rocket-map .rkt-doors a:hover{background:rgba(217,164,65,.2); transform:translateY(-1px)}
+  .rocket-map .rkt-doors .rkt-door-head{
+    flex-basis:100%; width:100%; margin:8px 0 -1px;
+    font-size:10.5px; letter-spacing:.16em; font-weight:700; color:var(--gold);
+    display:flex; align-items:center; gap:8px;
+  }
+  .rocket-map .rkt-doors .rkt-door-head::after{content:""; flex:1; height:1px; background:rgba(217,164,65,.28)}
+  .rocket-map .rkt-doors .rkt-door-head:first-child{margin-top:0}
   .rocket-map .rkt-hint{font-size:11.5px; color:rgba(250,248,242,.45); text-align:center; margin-top:10px}
   /* PC: 横長ワイド版のロケット図(.sky-wide)を表示。図＋案内板が1画面に収まるよう高さ基準でコンパクトに */
   @media (min-width: 860px){
@@ -1652,12 +1659,15 @@
         /* AUTO:belt — data/nav.json「未来のリスク計算機」から自動生成（scripts/update-rocket-map.py）。手で編集しない */
 
         ["このシリーズについて", "risk-calculators.html"],
+        ["社会のリスク"],
         ["学校の分岐点", "school-consolidation-countdown.html"],
         ["介護の支え手計算機", "caregiving-capacity-calculator.html"],
+        ["組織のリスク"],
         ["顧客の平均年齢時限爆弾", "customer-age-timebomb.html"],
         ["採用市場消滅計算機", "recruitment-extinction.html"],
         ["技能承継時限爆弾", "skill-succession-timebomb.html"],
         ["対話不足コスト計算機", "taiwa-cost-calculator.html"],
+        ["個人のリスク"],
         ["老後のお金の見取り図", "longevity-money-map.html"],
         ["昇給交渉しない計算機", "salary-negotiation-calculator.html"]
         /* /AUTO:belt */
@@ -1704,6 +1714,7 @@
       doors: [
         /* AUTO:archive — data/nav.json「世界の知恵」から自動生成（scripts/update-rocket-map.py）。ノーベル平和賞は鳩(平和の使者)に集約するため除外。手で編集しない */
 
+        ["ヒトと学びの図鑑"],
         ["ホモ・サピエンスの苦手図鑑", "nigate-zukan.html"],
         ["ホモ・サピエンスの知恵図鑑", "chie-zukan.html"],
         ["非認知スキル図鑑", "hininchi-zukan.html"],
@@ -1711,6 +1722,7 @@
         ["ふりかえりの技法図鑑", "reflection-zukan.html"],
         ["主な神経物質図鑑", "shinkei-busshitsu-zukan.html"],
         ["1on1の成功と失敗の図鑑", "1on1-zukan.html"],
+        ["社会と世界の図鑑"],
         ["世界の対話の技法図鑑", "dialogue-zukan.html"],
         ["合意形成図鑑", "goikeisei-zukan.html"],
         ["システム思考図鑑", "systems-thinking-zukan.html"],
@@ -1718,6 +1730,7 @@
         ["世界の貧困解決アイデア図鑑", "poverty-zukan.html"],
         ["世界のオルタナティブ教育図鑑", "alternative-education-zukan.html"],
         ["教育の費用対効果図鑑", "education-roi-zukan.html"],
+        ["読み物"],
         ["おすすめTED集", "ted-collection.html"],
         ["連載・気づきから組み立てる", "series/"]
         /* /AUTO:archive */
@@ -1768,6 +1781,13 @@
     desc.textContent = s.desc;
     doors.innerHTML = "";
     s.doors.forEach(function(d){
+      if (d.length === 1){  // 見出し行（中カテゴリ）＝ data/nav.json の {"heading": …} 由来
+        var h = document.createElement("div");
+        h.className = "rkt-door-head";
+        h.textContent = d[0];
+        doors.appendChild(h);
+        return;
+      }
       var a = document.createElement("a");
       a.textContent = d[0];
       a.href = d[1];
@@ -2250,6 +2270,7 @@
       wsCard.appendChild(el("p", "rkt-ws-q", "今日は、どの小惑星を回避する対話をする?"));
       var chips = el("div", "rkt-ws-chips");
       SPOTS.belt.doors.forEach(function(d){
+        if (d.length === 1){ return; }  // 見出し行（中カテゴリ）はチップにしない
         if (d[1] === "risk-calculators.html"){ return; }
         var b = el("button", null, d[0]);
         b.type = "button";
