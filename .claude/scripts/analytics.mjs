@@ -34,6 +34,9 @@ const EXCLUDE = new Set([
   // 読み物として公開しているページではないので計測対象外。
   'series/_reference/BEM-diagnostic-form.html',
   'series/_pdf-build/template.html',
+  // OEM（ホワイトラベル）配布版。クライアントが自分のサイトで使う想定なので、
+  // きづきくみたてのGAには意図的に接続しない（計測タグを入れない）。
+  'oem/1on1-zukan.html',
 ]);
 
 const GA_BLOCK = `<!-- Google tag (gtag.js) -->

@@ -640,6 +640,10 @@
     {
       "path": "salary-kit-dl-92kf7m/index.html",
       "reason": "昇給交渉キット 購入者専用ダウンロードページ（noindex・推測不可URL・Stripe決済後のリダイレクト先）。ナビ非掲載（2026-07-20 追加）"
+    },
+    {
+      "path": "oem/1on1-zukan.html",
+      "reason": "1on1図鑑のOEM（ホワイトラベル）配布版。ナビ・フッター・回遊・GAを外した自己完結HTML（画像埋め込み）。クレジット『Directed by Yasuhito Morimoto』のみ。サイトからはリンクしない（scripts/build-oem-zukan.py で生成）"
     }
   ]
 }
