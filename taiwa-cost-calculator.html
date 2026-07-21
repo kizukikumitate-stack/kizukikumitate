@@ -124,9 +124,11 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 /* ヒーロー */
 .hero{background:var(--indigo);color:var(--washi);padding:56px 0 40px}
 .hero .tag{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.2em;color:var(--gold);margin-bottom:14px}
-.hero h1{font-weight:800;font-size:clamp(28px,5.6vw,42px);line-height:1.4}
+.hero h1{font-weight:800;font-size:clamp(2rem,4vw,4.8rem);line-height:1.25}
 .hero p{margin-top:16px;max-width:640px;opacity:.92}
 .hero .disclaimer{font-size:13px;opacity:.75;margin-top:10px}
+@media(max-width:768px){.hero h1{font-size:1.8rem}}
+@media(max-width:540px){.hero h1{font-size:1.4rem}}
 
 /* 合計バー（常時表示） */
 .totalbar{position:sticky;top:var(--navh);z-index:50;background:var(--indigo-deep);color:var(--washi);
