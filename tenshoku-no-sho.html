@@ -148,6 +148,15 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .node:hover{transform:translateX(3px);border-color:var(--gold);color:var(--gold);}
 .node.dim{opacity:.25;}
 .node.lit{border-color:var(--gold);box-shadow:0 0 0 2px rgba(255,215,106,.35);}
+/* ホバー時の「転職先」ポップアップ（縦に離れていても一覧で見える） */
+.route-tip{position:fixed;z-index:120;display:none;max-width:270px;background:var(--surface);border:2px solid var(--gold);border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.55);padding:9px 11px;pointer-events:none;}
+.route-tip .rt-name{color:var(--gold);font-weight:700;font-size:13px;margin-bottom:2px;}
+.route-tip .rt-name small{color:var(--ink-muted);font-weight:400;font-size:10px;margin-left:5px;}
+.route-tip .rt-lbl{color:var(--ink-muted);font-size:10px;letter-spacing:.08em;margin:7px 0 3px;}
+.route-tip .rt-chips{display:flex;flex-wrap:wrap;gap:4px;}
+.route-tip .rt-chip{border:1px solid var(--hairline);border-left-width:3px;border-radius:4px;padding:2px 7px;font-size:11px;color:var(--ink);background:var(--surface-2);white-space:nowrap;}
+.route-tip .rt-chip.pre{color:var(--ink-2);}
+.route-tip .rt-none{color:var(--ink-muted);font-size:11px;margin-top:2px;}
 .node .bar{position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:4px 0 0 4px;}
 .node .ico{font-size:16px;margin-left:6px;}
 .node .nm{flex:1;}
@@ -2198,12 +2207,45 @@ document.addEventListener("click",e=>{
   const t = e.target.closest("[data-job]");
   if(t && !t.matches("th")) openModal(t.dataset.job);
 });
+/* ホバーで転職先/前提をポップアップ表示（縦に離れた候補も一覧で見える） */
+const routeTip = document.createElement("div");
+routeTip.className = "route-tip"; routeTip.setAttribute("aria-hidden","true");
+document.body.appendChild(routeTip);
+function showRouteTip(node, id){
+  const j = JOB_MAP[id]; if(!j) return;
+  const kids = childrenOf(id);
+  const prereq = (j.from||[]).map(p=>JOB_MAP[p]).filter(Boolean);
+  let h = '<div class="rt-name">'+esc(j.name)+'<small>'+TIER_NAMES[j.tier]+'</small></div>';
+  if(kids.length){
+    h += '<div class="rt-lbl">▶ この職からの転職先</div><div class="rt-chips">'+
+      kids.map(k=>'<span class="rt-chip" style="border-left-color:'+FAMILIES[k.family].color+'">'+esc(k.name)+'</span>').join('')+'</div>';
+  }else{
+    h += '<div class="rt-none">この先はチャートの終着点（この職より上はまだありません）</div>';
+  }
+  if(prereq.length){
+    h += '<div class="rt-lbl">◀ なるための前提</div><div class="rt-chips">'+
+      prereq.map(p=>'<span class="rt-chip pre" style="border-left-color:'+FAMILIES[p.family].color+'">'+esc(p.name)+'</span>').join('')+'</div>';
+  }
+  h += '<div class="rt-none" style="margin-top:6px">クリックで詳細カード</div>';
+  routeTip.innerHTML = h;
+  routeTip.style.display = "block";
+  const r = node.getBoundingClientRect();
+  const tw = routeTip.offsetWidth, th = routeTip.offsetHeight;
+  let left = r.right + 10;
+  if(left + tw > window.innerWidth - 8) left = r.left - tw - 10;
+  left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
+  let top = r.top + r.height/2 - th/2;
+  top = Math.max(70, Math.min(top, window.innerHeight - th - 8));
+  routeTip.style.left = left+"px"; routeTip.style.top = top+"px";
+}
+function hideRouteTip(){ routeTip.style.display = "none"; }
 document.addEventListener("mouseover",e=>{
   const n = e.target.closest(".node");
-  if(n) highlight(n.dataset.job);
+  if(n){ highlight(n.dataset.job); showRouteTip(n, n.dataset.job); }
 });
 document.addEventListener("mouseout",e=>{
-  if(e.target.closest(".node")) highlight(null);
+  const n = e.target.closest(".node");
+  if(n && (!e.relatedTarget || !n.contains(e.relatedTarget))){ highlight(null); hideRouteTip(); }
 });
 
 document.querySelectorAll(".tab-btn").forEach(btn=>{
