@@ -400,7 +400,7 @@
       "band": true,
       "next": [
         "dialogue-zukan",
-        "shikumi-zukan"
+        "jirei-shotengai"
       ]
     },
     {
@@ -705,7 +705,7 @@
       "band": true,
       "next": [
         "chie-zukan",
-        "democracy-fitness"
+        "jirei"
       ]
     },
     {
@@ -901,7 +901,7 @@
       "band": true,
       "next": [
         "alternative-education-zukan",
-        "shikumi-zukan"
+        "jirei-kenshu"
       ]
     },
     {
@@ -920,6 +920,81 @@
       ]
     },
     {
+      "id": "career-theory-zukan",
+      "path": "career-theory-zukan.html",
+      "title": "キャリア理論図鑑",
+      "tag": "世界の知恵",
+      "desc": "パーソンズからサビカスまで、定番のキャリア理論21種を、根拠・言い過ぎを戒める但し書き・今日ためせる一手つきで収蔵。迷いから引ける逆引き表も。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "tenshoku-no-sho",
+        "democracy-fitness-career"
+      ]
+    },
+    {
+      "id": "jirei",
+      "path": "jirei.html",
+      "title": "世界の成功と失敗事例集",
+      "tag": "事例集",
+      "desc": "世に出回るのは成功事例ばかり。成功と失敗を必ず併記し、両者を分けた「分岐点」を見極めるケースブック。個人・組織・社会の実例から、苦手と知恵を逆引きします。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "jirei-kenshu",
+        "nigate-zukan"
+      ]
+    },
+    {
+      "id": "jirei-shotengai",
+      "path": "jirei-shotengai.html",
+      "title": "事例 No.001 商店街の立て直し",
+      "tag": "事例集",
+      "desc": "再開発した街と、アーケードだけ替えた街。分岐点は「建物より先に、地権者の対話に時間を使ったか」。高松丸亀町の実名事例と失敗の典型パターンを併記します。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "goikeisei-zukan",
+        "jirei"
+      ]
+    },
+    {
+      "id": "jirei-kenshu",
+      "path": "jirei-kenshu.html",
+      "title": "事例 No.002 研修の成功と失敗",
+      "tag": "事例集",
+      "desc": "行動が変わった研修と、感想文で終わった研修。分岐点は「研修の前後を設計したか、当日だけを設計したか」。研修転移の研究知見から読み解きます。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "education-roi-zukan",
+        "jirei"
+      ]
+    },
+    {
+      "id": "jirei-career",
+      "path": "jirei-career.html",
+      "title": "事例 No.003 キャリアの転機",
+      "tag": "事例集",
+      "desc": "降りて幸せになった人と、しがみついて消耗した人。分岐点は「評価軸を一本から多本に組み替えられたか」。公知の転身事例と失敗の典型パターンを併記します。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "tenshoku-no-sho",
+        "jirei"
+      ]
+    },
+    {
       "id": "tenshoku-no-sho",
       "path": "tenshoku-no-sho.html",
       "title": "みんなで作る 生涯キャリア図鑑",
@@ -930,7 +1005,7 @@
       "added": "2026-07-22",
       "band": true,
       "next": [
-        "democracy-fitness-career",
+        "jirei-career",
         "1on1-zukan"
       ]
     }

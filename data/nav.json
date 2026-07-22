@@ -139,6 +139,10 @@
             "href": "1on1-zukan.html"
           },
           {
+            "label": "キャリア理論図鑑",
+            "href": "career-theory-zukan.html"
+          },
+          {
             "label": "生涯キャリア図鑑",
             "href": "tenshoku-no-sho.html"
           },
@@ -191,6 +195,36 @@
           {
             "label": "連載・気づきから組み立てる",
             "href": "series/"
+          }
+        ]
+      },
+      {
+        "label": "世界の成功と失敗事例集",
+        "children": [
+          {
+            "label": "このシリーズについて",
+            "href": "jirei.html"
+          },
+          {
+            "heading": "個人の事例"
+          },
+          {
+            "label": "キャリアの転機",
+            "href": "jirei-career.html"
+          },
+          {
+            "heading": "組織の事例"
+          },
+          {
+            "label": "研修の成功と失敗",
+            "href": "jirei-kenshu.html"
+          },
+          {
+            "heading": "社会の事例"
+          },
+          {
+            "label": "商店街の立て直し",
+            "href": "jirei-shotengai.html"
           }
         ]
       },
@@ -541,6 +575,26 @@
     },
     {
       "path": "1on1-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "career-theory-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-career.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-kenshu.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-shotengai.html",
       "variant": "standard"
     },
     {

@@ -500,6 +500,56 @@
       "sub": "うちの1on1、どれ? 職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで。"
     },
     {
+      "page": "career-theory-zukan.html",
+      "img": "career-theory-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2F6B4C",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "キャリア理論図鑑",
+      "sub": "先人が引いた、はたらくことの地図。定番のキャリア理論21種を、根拠と但し書きと今日ためせる一手つきで。"
+    },
+    {
+      "page": "jirei.html",
+      "img": "jirei-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9E4A33",
+      "eyebrow": "ケースブック ／ 世界の成功と失敗事例集",
+      "title": "世界の成功と失敗事例集",
+      "sub": "成功と失敗の分岐点を見極める。両方の航路から読み解くケースブック。"
+    },
+    {
+      "page": "jirei-shotengai.html",
+      "img": "jirei-shotengai-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2E7D6B",
+      "eyebrow": "事例 No.001 ／ 社会",
+      "title": "商店街の立て直し",
+      "sub": "再開発した街と、アーケードだけ替えた街。分岐点は「建物より先に、地権者の対話に時間を使ったか」。"
+    },
+    {
+      "page": "jirei-kenshu.html",
+      "img": "jirei-kenshu-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.002 ／ 組織",
+      "title": "研修の成功と失敗",
+      "sub": "行動が変わった研修と、感想文で終わった研修。分岐点は「前後を設計したか、当日だけか」。"
+    },
+    {
+      "page": "jirei-career.html",
+      "img": "jirei-career-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#2E5E86",
+      "eyebrow": "事例 No.003 ／ 個人",
+      "title": "キャリアの転機",
+      "sub": "降りて幸せになった人と、しがみついて消耗した人。分岐点は「評価軸を多本に組み替えられたか」。"
+    },
+    {
       "page": "tenshoku-no-sho.html",
       "img": "tenshoku-no-sho-ogp.png",
       "template": "standard",

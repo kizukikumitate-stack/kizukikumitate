@@ -19,6 +19,8 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kizukikumitate.com/research.html">
 <meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="調査・データ｜きづきくみたて工房の観測室">
 <meta name="twitter:description" content="対話と組織に関する独自調査・一次データの発行棚">
@@ -183,6 +185,16 @@ a.mobile-cat-link:hover,a.mobile-cat-link.active{color:var(--teal)}
 footer{border-top:0;padding:3rem 2rem;text-align:center}
 .footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;font-size:15px;color:var(--indigo);letter-spacing:.08em}
 .footer-copy{margin-top:.6rem;font-family:'Jost',sans-serif;font-size:.72rem;color:var(--ink-soft);letter-spacing:.06em}
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1501px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1500px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -237,6 +249,7 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
         <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
         <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
         <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+        <a href="./career-theory-zukan.html">キャリア理論図鑑</a>
         <a href="./tenshoku-no-sho.html">生涯キャリア図鑑</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
         <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
@@ -251,6 +264,18 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
         <a href="./ted-collection.html">おすすめTED集</a>
         <a href="./nobel-peace.html">ノーベル平和賞</a>
         <a href="./series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の成功と失敗事例集 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./jirei.html">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">個人の事例</span>
+        <a href="./jirei-career.html">キャリアの転機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織の事例</span>
+        <a href="./jirei-kenshu.html">研修の成功と失敗</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会の事例</span>
+        <a href="./jirei-shotengai.html">商店街の立て直し</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -340,6 +365,7 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
       <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
       <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
       <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+      <a href="./career-theory-zukan.html">キャリア理論図鑑</a>
       <a href="./tenshoku-no-sho.html">生涯キャリア図鑑</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
       <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
@@ -354,6 +380,18 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
       <a href="./ted-collection.html">おすすめTED集</a>
       <a href="./nobel-peace.html">ノーベル平和賞</a>
       <a href="./series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の成功と失敗事例集 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./jirei.html">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">個人の事例</span>
+      <a href="./jirei-career.html">キャリアの転機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織の事例</span>
+      <a href="./jirei-kenshu.html">研修の成功と失敗</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会の事例</span>
+      <a href="./jirei-shotengai.html">商店街の立て直し</a>
     </div>
   </div>
   <div class="mobile-acc">

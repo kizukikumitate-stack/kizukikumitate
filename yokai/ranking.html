@@ -18,11 +18,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて">
 <meta property="og:url" content="https://kizukikumitate.com/yokai/ranking.html">
-<meta property="og:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<meta property="og:image" content="https://kizukikumitate.com/yokai-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="日本の組織の妖怪ランキング">
 <meta name="twitter:description" content="会社の妖怪診断の集計結果。日本の組織に、どの妖怪が多く棲んでいるのか。">
-<meta name="twitter:image" content="https://kizukikumitate.com/yokai/assets/img/yokai-01-hitotsume.jpg">
+<meta name="twitter:image" content="https://kizukikumitate.com/yokai-ogp.png">
 <link rel="canonical" href="https://kizukikumitate.com/yokai/ranking.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Noto+Sans+JP:wght@400&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
@@ -147,6 +149,16 @@
     .nav-links{display:none}
     .nav-hamburger{display:flex}
   }
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1501px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1500px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
+  }
 </style>
 </head>
 <body>
@@ -202,6 +214,7 @@
         <a href="../reflection-zukan.html">ふりかえりの技法図鑑</a>
         <a href="../shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
         <a href="../1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+        <a href="../career-theory-zukan.html">キャリア理論図鑑</a>
         <a href="../tenshoku-no-sho.html">生涯キャリア図鑑</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
         <a href="../dialogue-zukan.html">世界の対話の技法図鑑</a>
@@ -216,6 +229,18 @@
         <a href="../ted-collection.html">おすすめTED集</a>
         <a href="../nobel-peace.html">ノーベル平和賞</a>
         <a href="../series/">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の成功と失敗事例集 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="../jirei.html">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">個人の事例</span>
+        <a href="../jirei-career.html">キャリアの転機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織の事例</span>
+        <a href="../jirei-kenshu.html">研修の成功と失敗</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会の事例</span>
+        <a href="../jirei-shotengai.html">商店街の立て直し</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -305,6 +330,7 @@
       <a href="../reflection-zukan.html">ふりかえりの技法図鑑</a>
       <a href="../shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
       <a href="../1on1-zukan.html">1on1の成功と失敗の図鑑</a>
+      <a href="../career-theory-zukan.html">キャリア理論図鑑</a>
       <a href="../tenshoku-no-sho.html">生涯キャリア図鑑</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
       <a href="../dialogue-zukan.html">世界の対話の技法図鑑</a>
@@ -319,6 +345,18 @@
       <a href="../ted-collection.html">おすすめTED集</a>
       <a href="../nobel-peace.html">ノーベル平和賞</a>
       <a href="../series/">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の成功と失敗事例集 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="../jirei.html">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">個人の事例</span>
+      <a href="../jirei-career.html">キャリアの転機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織の事例</span>
+      <a href="../jirei-kenshu.html">研修の成功と失敗</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会の事例</span>
+      <a href="../jirei-shotengai.html">商店街の立て直し</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -450,7 +488,7 @@
   <div class="kaiyu-grid">
     <a class="kaiyu-card" href="./index.html"><span class="kaiyu-tag">3分診断</span><span class="kaiyu-name">会社の妖怪診断</span><span class="kaiyu-desc">職場のすれ違いを生む妖怪を3分で判定。対になる式神を処方。</span><span class="kaiyu-arw">→</span></a>
     <a class="kaiyu-card" href="./gallery.html"><span class="kaiyu-tag">育つ図鑑</span><span class="kaiyu-name">職場の妖怪 投稿ギャラリー</span><span class="kaiyu-desc">図鑑にまだない職場の妖怪を投稿で集める、育っていく図鑑。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="../tenshoku-no-sho.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">みんなで作る 生涯キャリア図鑑</span><span class="kaiyu-desc">はたらく職業をRPGの転職チャートに一覧化した、みんなで作る生涯キャリアの図鑑。上るだけでなく降りる・留まるも道。★の根拠は公的統計を明記。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="../career-theory-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">キャリア理論図鑑</span><span class="kaiyu-desc">パーソンズからサビカスまで、定番のキャリア理論21種を、根拠・言い過ぎを戒める但し書き・今日ためせる一手つきで収蔵。迷いから引ける逆引き表も。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
 </aside>

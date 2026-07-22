@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 グローバルナビ（8リンク）が中間幅で右に切れる問題への対策。
-収まらない幅（<=1400px）ではハンバーガーメニューに切り替える。
+収まらない幅（<=1500px）ではハンバーガーメニューに切り替える。
 ナビは2系統（標準 nav / .global-nav）あるので、ページごとに正しいセレクタの
 override ブロックを </style> 直前に追記する。文言・フォントは変更しない。
 
@@ -13,11 +13,11 @@ MARKER = 'グローバルナビ折返し対策'
 
 STANDARD = """
   /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
-  @media (min-width: 1401px) {
+  @media (min-width: 1501px) {
     nav { padding-left: 1.25rem; padding-right: 1.25rem; }
     .nav-links { gap: 1rem; }
   }
-  @media (max-width: 1400px) {
+  @media (max-width: 1500px) {
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
   }
@@ -25,11 +25,11 @@ STANDARD = """
 
 GLOBAL = """
   /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
-  @media (min-width: 1401px) {
+  @media (min-width: 1501px) {
     .global-nav { padding-left: 1.5rem; padding-right: 1.5rem; }
     .global-nav .nav-links { gap: 1rem; }
   }
-  @media (max-width: 1400px) {
+  @media (max-width: 1500px) {
     .global-nav .nav-links { display: none; }
     .global-nav-hamburger { display: flex; }
   }
@@ -48,7 +48,7 @@ def main():
             continue
         is_global = 'global-nav-links' in text or 'class="global-nav"' in text
         block = GLOBAL if is_global else STANDARD
-        idx = text.rfind('</style>')
+        idx = text.find('</style>')  # 先頭のstyle（回遊バンド内のstyleに入れると自動再生成で消える）
         if idx == -1:
             print(f'WARN (no </style>): {f}')
             continue
