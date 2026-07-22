@@ -128,16 +128,15 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 .chart-tools{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin:0 6px 8px;}
 .zoom-btn{font-family:inherit;font-size:13px;letter-spacing:.06em;cursor:pointer;color:var(--gold);background:var(--surface-2);border:2px solid var(--gold);border-radius:8px;padding:7px 16px;}
 .zoom-btn:hover{background:#26294e;}
-.zoom-btn.on{color:#8fe3b3;border-color:#5ec896;background:#16321f;}
-/* ウェルビーイング・レンズ：❤️やりがい＋⏳時間の自由 が高いほど明るい緑に光る */
-.chart-wrap.wb .node{transition:box-shadow .25s,border-color .25s,opacity .25s;}
-.chart-wrap.wb .node[data-wb="5"]{border-color:#7fe3ad;box-shadow:0 0 22px rgba(110,224,168,.6);}
-.chart-wrap.wb .node[data-wb="4"]{border-color:#5ec896;box-shadow:0 0 14px rgba(94,200,150,.42);}
-.chart-wrap.wb .node[data-wb="3"]{border-color:#3f8f6a;box-shadow:0 0 7px rgba(63,143,106,.3);}
-.chart-wrap.wb .node[data-wb="2"]{border-color:#3a4a5e;opacity:.72;}
-.chart-wrap.wb .node[data-wb="1"]{border-color:#33405c;opacity:.5;}
-.wb-note{display:none;color:var(--ink-2);font-size:12.5px;line-height:1.65;background:rgba(94,154,126,.12);border:1px solid rgba(94,200,150,.35);border-radius:8px;padding:9px 13px;margin:0 6px 10px;}
-.wb-note.show{display:block;}
+/* よりみちの広場への入り口（たき火バナー）と、よりみちカード */
+.camp-banner{display:block;margin:16px auto 0;font-family:inherit;font-size:13.5px;letter-spacing:.06em;cursor:pointer;color:var(--gold);background:var(--surface-2);border:2px dashed var(--gold);border-radius:10px;padding:10px 22px;}
+.camp-banner:hover{background:#26294e;}
+.yori-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;padding:4px;margin-top:20px;}
+.yori-card{padding:16px 18px;font-size:13px;border-style:dashed;}
+.yori-card h3{display:flex;align-items:center;gap:8px;font-size:16.5px;font-weight:700;letter-spacing:.05em;}
+.yori-xp{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+.yori-xp span{border:1px dashed var(--gold);border-radius:999px;padding:2px 10px;font-size:11px;color:var(--gold);white-space:nowrap;}
+.yori-card p.step{color:var(--ink-2);margin-top:2px;}
 /* 全体表示（ズームアウト）: chart-wrap 全体を縮小＝線と職業が一緒に縮むのでズレない */
 .chart-scroller.fit{overflow:hidden;height:calc(var(--wrapH,4000px) * var(--zoom,1));}
 .chart-scroller.fit .chart-wrap{transform:scale(var(--zoom,1));transform-origin:top left;}
@@ -582,6 +581,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-chart">転職チャート</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-zukan">ジョブずかん</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-table">ほうしゅう比較</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-yorimichi">よりみちの広場</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-usage">つかいかた</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-make">みんなでつくる</button>
   </nav>
@@ -590,10 +590,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
   <section id="p-chart" class="panel active" role="tabpanel">
     <div class="chart-tools">
-      <button id="wbToggle" class="zoom-btn" type="button">❤️ しあわせ視点で見る</button>
       <button id="zoomToggle" class="zoom-btn" type="button">🔍 全体を見る</button>
     </div>
-    <div id="wbNote" class="wb-note">💚 <b style="color:var(--ink)">しあわせ視点</b>で表示中：明るいほど <b style="color:var(--ink)">❤️やりがい＋⏳時間の自由</b> が高い職業です。<b style="color:var(--gold)">上の階層ほど明るいとは限りません</b>——基本職のライターや講師が、覇者職より明るく光ります。上るだけでなく、留まる・降りる・軸を変えることも、しあわせに働くための立派な道です。</div>
     <div class="chart-frame">
     <div class="chart-scroller" id="chartScroller">
       <div class="chart-wrap" id="chartWrap">
@@ -618,6 +616,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     </div>
     <div class="chart-edge-hint" id="edgeHint" aria-hidden="true"><span class="pill">右に道が続く →</span></div>
     </div>
+    <button class="camp-banner" id="campLink" type="button">🏕 はしごの外にも、道がある —— よりみちの広場へ ▶</button>
     <p class="chart-hint">▶ 職業をクリックするとジョブカードが開きます / カーソルを合わせると転職ルートが光ります / 🔥=人手不足(求人倍率高)・🔥🔥=深刻な不足・<span class="flame-cool">🔥</span>=人手があまり気味(なりたい人が多い狭き門)<br>
     ▶ 線の太さ=そのルートの通りやすさの目安 <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="3.5"/></svg> 王道(条件を満たせば多くが通る) <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="1.8"/></svg> 努力次第 <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="1.1" stroke-dasharray="5 5"/></svg> 狭き門(実例はあるが少数)。覇者職・伝説職へ入る線はすべて狭き門です</p>
   </section>
@@ -640,6 +639,76 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <table id="cmpTable" aria-label="職業ごとの報酬比較表"></table>
     </div>
     <p class="tbl-note">▶ 列見出し(💰❤️⏳⭐)をクリックすると並べ替えができます。「合計」は4つの報酬の総和です。</p>
+  </section>
+
+  <section id="p-yorimichi" class="panel" role="tabpanel">
+    <div class="dq usage">
+      <h3>◆ よりみちの広場 — はしごの外にも、道がある</h3>
+      <p>キャリアは多様化し、道草や充電期間（バッファ）があってしかるべき時代になりました。引退後に部分的に働く人も増えています。ここは、<b style="color:var(--ink)">フルタイムで上を目指すフェーズにいない人</b>のための広場——セカンドキャリア・パートタイム・充電期間の選択肢を集めました。</p>
+      <p>よりみちは離脱ではなく、<b style="color:var(--gold)">別の種類の経験値がたまる時間</b>です。そして多くのよりみちには「もどり道」があり、転職チャートの職業へつながっています。<b style="color:var(--ink)">どの職からでも、いつでも出入り自由</b>——だからチャートには、あえて線を引いていません。ここに載っていないよりみちも、もちろん無数にあります。</p>
+    </div>
+    <div class="yori-grid">
+      <div class="dq yori-card"><h3>🏕 NPO・ボランティア</h3>
+        <p class="catch">「誰かの困りごとに、腕を貸す時間。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>つながり</span><span>現場感</span><span>感謝の循環</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">地元のNPOの活動を1日手伝ってみる。仕事のスキルを活かすプロボノ登録も入口。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="npo">▶ NPO職員</button><button class="link-chip" data-job="fundraiser">▶ ファンドレイザー</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🏘 地域コミュニティ活動</h3>
+        <p class="catch">「ご近所という、いちばん近い社会に関わる。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>調整力</span><span>地元の信頼</span><span>多世代のつながり</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">自治会・こども食堂・消防団・PTAなど、月1回の役割から。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="komuin">▶ 公務員</button><button class="link-chip" data-job="teacher">▶ 教育・講師</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🌍 海外放浪・長期の旅</h3>
+        <p class="catch">「地図の外へ。世界がものさしを増やしてくれる。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>視野</span><span>語学</span><span>身軽さ</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">期限と予算を決めて1〜3ヶ月から。帰る日を決めると、出発できます。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="tsuyaku">▶ 通訳・翻訳者</button><button class="link-chip" data-job="bunka">▶ 日本文化翻訳家</button><button class="link-chip" data-job="kaigai">▶ 海外事業</button></div>
+      </div>
+      <div class="dq yori-card"><h3>📚 留学・学び直し</h3>
+        <p class="catch">「肩書を一度置いて、学ぶ人に戻る。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>専門知識</span><span>学ぶ体力</span><span>新しい仲間</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">大学院・職業訓練・リスキリング講座の説明会に1つ申し込む。週5時間の学習枠の確保から。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="engineer">▶ エンジニア</button><button class="link-chip" data-job="lawyer">▶ 弁護士</button><button class="link-chip" data-job="learningdesigner">▶ ラーニングデザイナー</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🏪 スモールビジネス・週末起業</h3>
+        <p class="catch">「小さく商う。値札を自分でつける練習。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>商いの全工程</span><span>値付けの度胸</span><span>自由</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">まず1人に、1つ売ってみる。週末の小さな出店やネット販売から。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="founder">▶ 起業家</button><button class="link-chip" data-job="insyokuowner">▶ 飲食店オーナー</button><button class="link-chip" data-job="ecproducer">▶ EC/店舗プロデューサー</button></div>
+      </div>
+      <div class="dq yori-card"><h3>⏳ パートタイム・短時間勤務</h3>
+        <p class="catch">「働く量を自分で決める。時間がもどってくる。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>時間の自由</span><span>生活の再設計</span><span>現場感の維持</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">週2〜3日・時短から。いまの職場なら、雇用形態の選択肢をまず人事に聞いてみる。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="sales">▶ 営業</button><button class="link-chip" data-job="retail">▶ 販売・接客</button><button class="link-chip" data-job="kaigo">▶ 介護職員</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🍀 介護・子育てと両立する時期</h3>
+        <p class="catch">「ケアの時間は、キャリアの空白ではない。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>段取り力</span><span>ケアの知恵</span><span>優先順位の目</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">勤務先の両立支援制度と、地域の支援窓口をまず調べる。ひとりで抱えないことが最初の技術。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="hr">▶ 人事</button><button class="link-chip" data-job="kaigo">▶ 介護職員</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🧭 顧問・メンター・アドバイザー</h3>
+        <p class="catch">「経験を、次の誰かの追い風にする。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>経験の還元</span><span>後進の成長</span><span>ゆるやかな現役</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">引退後の部分的な働き方の定番。商工会議所や顧問マッチングで「週1日・1社」から。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="teacher">▶ 教育・講師</button><button class="link-chip" data-job="consul">▶ コンサルタント</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🌾 二拠点・農的暮らし</h3>
+        <p class="catch">「土と地域に根を張る、もうひとつの拠点。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>暮らしの技術</span><span>地域との縁</span><span>回復</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">市民農園・お試し移住・ワーケーションから。いきなり移住しないのがコツ。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="nougyo">▶ 農業従事者</button><button class="link-chip" data-job="nouke">▶ 農業経営者</button></div>
+      </div>
+      <div class="dq yori-card"><h3>🎨 創作・ライフワーク</h3>
+        <p class="catch">「つくって、発表する。自分の声を育てる。」</p>
+        <div class="sec-label">たまる経験値</div><div class="yori-xp"><span>創造力</span><span>自分の声</span><span>発表の度胸</span></div>
+        <div class="sec-label">はじめの一歩</div><p class="step">週1本、小さく発表する場所を決める。noteでも朝市でも、公民館の展示でも。</p>
+        <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="writer">▶ ライター・編集</button><button class="link-chip" data-job="douga">▶ 動画クリエイター</button><button class="link-chip" data-job="geijutsuka">▶ 芸術家</button></div>
+      </div>
+    </div>
   </section>
 
   <section id="p-usage" class="panel" role="tabpanel">
@@ -2016,14 +2085,12 @@ document.getElementById("famLegend").innerHTML =
   ).join("");
 
 /* ================= チャート ================= */
-function wbScore(j){ return j.rewards ? (j.rewards.heart||0)+(j.rewards.time||0) : 0; }
-function wbBucket(j){ const s=wbScore(j); return s>=9?5 : s>=7?4 : s>=5?3 : s>=3?2 : 1; }
 function nodeHTML(j){
   const f = FAMILIES[j.family];
   const legend = j.tier==="legend" ? " legend-tier" : "";
   const sub = j.sub || (j.from ? fromNames(j, joinerOf(j)) : (f.icon+" "+f.name));
   const ico = j.tier==="legend" ? "👑" : j.tier==="king" ? "🏰" : j.tier==="hero" ? "🛡️" : f.icon;
-  return '<button class="node'+legend+'" data-job="'+j.id+'" data-wb="'+wbBucket(j)+'" id="node-'+j.id+'">'+
+  return '<button class="node'+legend+'" data-job="'+j.id+'" id="node-'+j.id+'">'+
     '<span class="bar" style="background:'+(j.tier==="legend"?"var(--tier-legend)":f.color)+'"></span>'+
     '<span class="ico">'+ico+'</span>'+
     '<span class="nm">'+(j.user?'🆕 ':'')+j.name+'<small>'+sub+'</small></span>'+
@@ -2506,15 +2573,11 @@ window.addEventListener("resize",()=>requestAnimationFrame(()=>{
   updateChartHints();
 }));
 
-/* ---- ウェルビーイング・レンズ（❤️やりがい＋⏳時間の自由で明るさを出す） ---- */
-const wbBtn = document.getElementById("wbToggle");
-const wbNote = document.getElementById("wbNote");
-if(wbBtn) wbBtn.addEventListener("click",()=>{
-  const wrap = document.getElementById("chartWrap");
-  const on = wrap.classList.toggle("wb");
-  wbBtn.classList.toggle("on", on);
-  wbBtn.textContent = on ? "❤️ しあわせ視点：ON（戻す）" : "❤️ しあわせ視点で見る";
-  if(wbNote) wbNote.classList.toggle("show", on);
+/* ---- よりみちの広場への入り口 ---- */
+const campLink = document.getElementById("campLink");
+if(campLink) campLink.addEventListener("click",()=>{
+  const btn = document.querySelector('.tab-btn[data-panel="p-yorimichi"]');
+  if(btn){ btn.click(); window.scrollTo({top:0, behavior:"smooth"}); }
 });
 
 /* ---- 冒険の道：横幅が収まりきらない時だけ右スクロール誘導を出す ---- */
