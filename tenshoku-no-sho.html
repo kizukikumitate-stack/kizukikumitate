@@ -11,20 +11,20 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>転職の書 〜はたらく者のキャリアチャート〜｜きづきくみたて工房</title>
-<meta name="description" content="学べば学ぶほど、進める道が増える。営業・エンジニア・看護師から伝説職まで、はたらく職業をRPGの転職チャートで一覧化した無料教材。★の根拠は厚労省の公的統計を明記。高校・大学のキャリア教育や若手研修向け。">
+<title>みんなで作る 生涯キャリア図鑑｜はたらく道のRPG図鑑 | きづきくみたて工房</title>
+<meta name="description" content="みんなで作る、生涯キャリアの図鑑。営業・エンジニア・看護師から伝説職まで、はたらく職業をRPGの転職チャートで一覧化した無料教材。上るだけでなく降りる・留まる・軸を変えるのも道。★の根拠は公的統計を明記。高校・大学のキャリア教育や若手研修向け。">
 <link rel="canonical" href="https://kizukikumitate.com/tenshoku-no-sho.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="転職の書 〜はたらく者のキャリアチャート〜">
+<meta property="og:title" content="みんなで作る 生涯キャリア図鑑">
 <meta property="og:description" content="はたらく職業をRPGの転職チャートで一覧化した無料のキャリア教材。★の根拠は公的統計を明記。学べば学ぶほど、進める道が増える。">
 <meta property="og:url" content="https://kizukikumitate.com/tenshoku-no-sho.html">
 <meta property="og:image" content="https://kizukikumitate.com/tenshoku-no-sho-ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="転職の書 〜はたらく者のキャリアチャート〜">
+<meta name="twitter:title" content="みんなで作る 生涯キャリア図鑑">
 <meta name="twitter:description" content="はたらく職業をRPGの転職チャートで一覧化した無料のキャリア教材。★の根拠は公的統計を明記。学べば学ぶほど、進める道が増える。">
 <meta name="twitter:image" content="https://kizukikumitate.com/tenshoku-no-sho-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +34,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "転職の書 〜はたらく者のキャリアチャート〜",
+  "name": "みんなで作る 生涯キャリア図鑑",
   "url": "https://kizukikumitate.com/tenshoku-no-sho.html",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Web",
@@ -125,9 +125,19 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 /* ---- chart ---- */
 .chart-scroller{overflow-x:auto;padding-bottom:8px;}
 .chart-wrap{position:relative;min-width:1620px;padding:10px 4px;}
-.chart-tools{display:flex;justify-content:flex-end;margin:0 6px 8px;}
+.chart-tools{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin:0 6px 8px;}
 .zoom-btn{font-family:inherit;font-size:13px;letter-spacing:.06em;cursor:pointer;color:var(--gold);background:var(--surface-2);border:2px solid var(--gold);border-radius:8px;padding:7px 16px;}
 .zoom-btn:hover{background:#26294e;}
+.zoom-btn.on{color:#8fe3b3;border-color:#5ec896;background:#16321f;}
+/* ウェルビーイング・レンズ：❤️やりがい＋⏳時間の自由 が高いほど明るい緑に光る */
+.chart-wrap.wb .node{transition:box-shadow .25s,border-color .25s,opacity .25s;}
+.chart-wrap.wb .node[data-wb="5"]{border-color:#7fe3ad;box-shadow:0 0 22px rgba(110,224,168,.6);}
+.chart-wrap.wb .node[data-wb="4"]{border-color:#5ec896;box-shadow:0 0 14px rgba(94,200,150,.42);}
+.chart-wrap.wb .node[data-wb="3"]{border-color:#3f8f6a;box-shadow:0 0 7px rgba(63,143,106,.3);}
+.chart-wrap.wb .node[data-wb="2"]{border-color:#3a4a5e;opacity:.72;}
+.chart-wrap.wb .node[data-wb="1"]{border-color:#33405c;opacity:.5;}
+.wb-note{display:none;color:var(--ink-2);font-size:12.5px;line-height:1.65;background:rgba(94,154,126,.12);border:1px solid rgba(94,200,150,.35);border-radius:8px;padding:9px 13px;margin:0 6px 10px;}
+.wb-note.show{display:block;}
 /* 全体表示（ズームアウト）: chart-wrap 全体を縮小＝線と職業が一緒に縮むのでズレない */
 .chart-scroller.fit{overflow:hidden;height:calc(var(--wrapH,4000px) * var(--zoom,1));}
 .chart-scroller.fit .chart-wrap{transform:scale(var(--zoom,1));transform-origin:top left;}
@@ -398,7 +408,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
         <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
         <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
         <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
-        <a href="./tenshoku-no-sho.html" class="active">転職の書（キャリアチャート）</a>
+        <a href="./tenshoku-no-sho.html" class="active">生涯キャリア図鑑</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
         <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
         <a href="./goikeisei-zukan.html">合意形成図鑑</a>
@@ -501,7 +511,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <a href="./reflection-zukan.html">ふりかえりの技法図鑑</a>
       <a href="./shinkei-busshitsu-zukan.html">主な神経物質図鑑</a>
       <a href="./1on1-zukan.html">1on1の成功と失敗の図鑑</a>
-      <a href="./tenshoku-no-sho.html" class="active">転職の書（キャリアチャート）</a>
+      <a href="./tenshoku-no-sho.html" class="active">生涯キャリア図鑑</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
       <a href="./dialogue-zukan.html">世界の対話の技法図鑑</a>
       <a href="./goikeisei-zukan.html">合意形成図鑑</a>
@@ -558,8 +568,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <!-- NAV END -->
 <div class="wrap">
   <header class="dq">
-    <h1><span class="deco">✦</span> 転職の書 <span class="deco">✦</span></h1>
-    <div class="sub">〜 学べば学ぶほど、進める道が増える 〜</div>
+    <div style="font-size:13px;letter-spacing:.26em;color:var(--gold);margin-bottom:4px;">みんなで作る</div>
+    <h1><span class="deco">✦</span> 生涯キャリア図鑑 <span class="deco">✦</span></h1>
+    <div class="sub">〜 はたらく道のRPG図鑑。学べば学ぶほど、進める道が増える 〜</div>
     <div class="note" style="margin-top:8px;color:var(--ink-2);">
       チャートの炎マークは「人手のバランス」の目安です：<br>
       🔥 人手不足（求人倍率が高い＝入りやすい売り手市場）／🔥🔥 深刻な不足　・　<span class="flame-cool">🔥</span> 人手があまり気味（なりたい人が多く倍率が低い＝狭き門）
@@ -578,7 +589,11 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <div class="fam-legend dq" id="famLegend"></div>
 
   <section id="p-chart" class="panel active" role="tabpanel">
-    <div class="chart-tools"><button id="zoomToggle" class="zoom-btn" type="button">🔍 全体を見る</button></div>
+    <div class="chart-tools">
+      <button id="wbToggle" class="zoom-btn" type="button">❤️ しあわせ視点で見る</button>
+      <button id="zoomToggle" class="zoom-btn" type="button">🔍 全体を見る</button>
+    </div>
+    <div id="wbNote" class="wb-note">💚 <b style="color:var(--ink)">しあわせ視点</b>で表示中：明るいほど <b style="color:var(--ink)">❤️やりがい＋⏳時間の自由</b> が高い職業です。<b style="color:var(--gold)">上の階層ほど明るいとは限りません</b>——基本職のライターや講師が、覇者職より明るく光ります。上るだけでなく、留まる・降りる・軸を変えることも、しあわせに働くための立派な道です。</div>
     <div class="chart-frame">
     <div class="chart-scroller" id="chartScroller">
       <div class="chart-wrap" id="chartWrap">
@@ -2001,12 +2016,14 @@ document.getElementById("famLegend").innerHTML =
   ).join("");
 
 /* ================= チャート ================= */
+function wbScore(j){ return j.rewards ? (j.rewards.heart||0)+(j.rewards.time||0) : 0; }
+function wbBucket(j){ const s=wbScore(j); return s>=9?5 : s>=7?4 : s>=5?3 : s>=3?2 : 1; }
 function nodeHTML(j){
   const f = FAMILIES[j.family];
   const legend = j.tier==="legend" ? " legend-tier" : "";
   const sub = j.sub || (j.from ? fromNames(j, joinerOf(j)) : (f.icon+" "+f.name));
   const ico = j.tier==="legend" ? "👑" : j.tier==="king" ? "🏰" : j.tier==="hero" ? "🛡️" : f.icon;
-  return '<button class="node'+legend+'" data-job="'+j.id+'" id="node-'+j.id+'">'+
+  return '<button class="node'+legend+'" data-job="'+j.id+'" data-wb="'+wbBucket(j)+'" id="node-'+j.id+'">'+
     '<span class="bar" style="background:'+(j.tier==="legend"?"var(--tier-legend)":f.color)+'"></span>'+
     '<span class="ico">'+ico+'</span>'+
     '<span class="nm">'+(j.user?'🆕 ':'')+j.name+'<small>'+sub+'</small></span>'+
@@ -2488,6 +2505,17 @@ window.addEventListener("resize",()=>requestAnimationFrame(()=>{
   if(isFit()) applyFit(); else drawEdges();
   updateChartHints();
 }));
+
+/* ---- ウェルビーイング・レンズ（❤️やりがい＋⏳時間の自由で明るさを出す） ---- */
+const wbBtn = document.getElementById("wbToggle");
+const wbNote = document.getElementById("wbNote");
+if(wbBtn) wbBtn.addEventListener("click",()=>{
+  const wrap = document.getElementById("chartWrap");
+  const on = wrap.classList.toggle("wb");
+  wbBtn.classList.toggle("on", on);
+  wbBtn.textContent = on ? "❤️ しあわせ視点：ON（戻す）" : "❤️ しあわせ視点で見る";
+  if(wbNote) wbNote.classList.toggle("show", on);
+});
 
 /* ---- 冒険の道：横幅が収まりきらない時だけ右スクロール誘導を出す ---- */
 function updateChartHints(){
