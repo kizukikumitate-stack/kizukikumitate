@@ -148,6 +148,8 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .node:hover{transform:translateX(3px);border-color:var(--gold);color:var(--gold);}
 .node.dim{opacity:.25;}
 .node.lit{border-color:var(--gold);box-shadow:0 0 0 2px rgba(255,215,106,.35);}
+/* 青い炎＝人手があまり気味（狭き門）。🔥を色相回転で青くする */
+.flame-cool{filter:hue-rotate(178deg) saturate(1.7) brightness(1.05);display:inline-block;}
 /* ホバー時の「転職先」ポップアップ（縦に離れていても一覧で見える） */
 .route-tip{position:fixed;z-index:120;display:none;max-width:270px;background:var(--surface);border:2px solid var(--gold);border-radius:8px;box-shadow:0 10px 30px rgba(0,0,0,.55);padding:9px 11px;pointer-events:none;}
 .route-tip .rt-name{color:var(--gold);font-weight:700;font-size:13px;margin-bottom:2px;}
@@ -549,6 +551,10 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <header class="dq">
     <h1><span class="deco">✦</span> 転職の書 <span class="deco">✦</span></h1>
     <div class="sub">〜 学べば学ぶほど、進める道が増える 〜</div>
+    <div class="note" style="margin-top:8px;color:var(--ink-2);">
+      チャートの炎マークは「人手のバランス」の目安です：<br>
+      🔥 人手不足（求人倍率が高い＝入りやすい売り手市場）／🔥🔥 深刻な不足　・　<span class="flame-cool">🔥</span> 人手があまり気味（なりたい人が多く倍率が低い＝狭き門）
+    </div>
     <div class="note">高校・大学のキャリア教育や若手研修向け教材 / ★の根拠と実データの出典は「ほうしゅう比較」タブに明記。数値は目安であり、会社・働き方・個人差で大きく変わります。</div>
   </header>
 
@@ -587,7 +593,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     </div>
     <div class="chart-edge-hint" id="edgeHint" aria-hidden="true"><span class="pill">右に道が続く →</span></div>
     </div>
-    <p class="chart-hint">▶ 職業をクリックするとジョブカードが開きます / カーソルを合わせると転職ルートが光ります / 🔥=人手不足(求人倍率高)・🔥🔥=深刻な不足<br>
+    <p class="chart-hint">▶ 職業をクリックするとジョブカードが開きます / カーソルを合わせると転職ルートが光ります / 🔥=人手不足(求人倍率高)・🔥🔥=深刻な不足・<span class="flame-cool">🔥</span>=人手があまり気味(なりたい人が多い狭き門)<br>
     ▶ 線の太さ=そのルートの通りやすさの目安 <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="3.5"/></svg> 王道(条件を満たせば多くが通る) <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="1.8"/></svg> 努力次第 <svg width="46" height="8" style="vertical-align:middle"><line x1="0" y1="4" x2="46" y2="4" stroke="#8d90b8" stroke-width="1.1" stroke-dasharray="5 5"/></svg> 狭き門(実例はあるが少数)。覇者職・伝説職へ入る線はすべて狭き門です</p>
   </section>
 
@@ -601,7 +607,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <p><b style="color:var(--ink)">💰 収入</b> — 平均年収の目安から機械的に変換:★1 300万円未満 / ★2 300〜400万 / ★3 400〜550万 / ★4 550〜800万 / ★5 800万円以上。幅のある職は中央値で判定。出典は厚労省「賃金構造基本統計調査」(職業別はjob tag=職業情報提供サイト経由)と民間転職サービスの公開データ。</p>
       <p><b style="color:var(--ink)">⏳ 時間の自由</b> — 年間休日の目安(「就労条件総合調査」。全産業の労働者平均は約117日)に、夜勤・当直・繁忙期の有無と裁量度を加味:★5 125日超えか裁量大 / ★3 110日前後 / ★1 休日が読めない・常時オンコール。</p>
       <p><b style="color:var(--ink)">⭐ 市場価値</b> — 転職市場での求人の多さ(転職求人倍率など)と、スキルが他社・他業界でも通用する汎用性から総合判定。</p>
-      <p><b style="color:var(--ink)">🔥 人手不足度</b> — 厚労省「一般職業紹介状況」の職業別有効求人倍率の水準(令和6〜7年度)と各種の将来推計から:★1 倍率1倍未満(なりたい人が多い狭き門) / ★3 1.5〜2.5倍 / ★5 4倍超か深刻な将来不足(例: 建設躯体工事 約9〜10倍、施工管理 約7倍、IT人材は2030年に最大79万人不足の経産省推計)。転職チャート上の🔥(=★4)・🔥🔥(=★5)マークと連動。統計のない英雄職以上は「—」。</p>
+      <p><b style="color:var(--ink)">🔥 人手不足度</b> — 厚労省「一般職業紹介状況」の職業別有効求人倍率の水準(令和6〜7年度)と各種の将来推計から:★1 倍率1倍未満(なりたい人が多い狭き門) / ★3 1.5〜2.5倍 / ★5 4倍超か深刻な将来不足(例: 建設躯体工事 約9〜10倍、施工管理 約7倍、IT人材は2030年に最大79万人不足の経産省推計)。転職チャート上の🔥(=★4)・🔥🔥(=★5)マークと連動。<b style="color:var(--ink)">逆に★1(倍率1倍未満＝なりたい人が多い狭き門)の職業には<span class="flame-cool">🔥</span>(青い炎)</b>を付けています。統計のない英雄職以上は「—」。</p>
       <p><b style="color:var(--ink)">❤️ やりがい</b> — これだけは統計が存在しない主観指標。裁量の大きさ・成果の見えやすさ・人に感謝される度合いから作成者が仮置きした。<b style="color:var(--gold)">この★に異議を唱えることこそ、この教材の正しい使い方。</b></p>
       <p style="color:var(--ink-muted);font-size:12px;">※統計は調査年次・区分で変わります。授業で使う際は最新の公表値への差し替えを推奨します。</p>
     </div>
@@ -1954,7 +1960,8 @@ function cardHTML(j, withLinks=true){
     h += '<div class="sec-label">げんじつのデータ</div>';
     h += '<div class="tech-item"><b>💴 平均年収の目安</b><br><span>'+j.rdata.sal+'</span>'+(j.rdata.ssrc&&j.rdata.ssrc!=="—"?'<br><span style="color:var(--ink-muted);font-size:11px;">出典: '+j.rdata.ssrc+'</span>':'')+'</div>';
     if(j.rdata.hol) h += '<div class="tech-item"><b>📅 休みの目安</b><br><span>'+j.rdata.hol+'</span></div>';
-    if(j.hitode) h += '<div class="tech-item"><b>🔥 人手不足度</b> '+stars(j.hitode.lv)+'<br><span>'+j.hitode.note+'</span></div>';
+    if(j.hitode){ const cool=j.hitode.lv<=1;
+      h += '<div class="tech-item"><b>'+(cool?'<span class="flame-cool">🔥</span> 人手はあまり気味(狭き門)':'🔥 人手不足度')+'</b> '+stars(j.hitode.lv)+'<br><span>'+j.hitode.note+'</span></div>'; }
     h += '<p style="color:var(--ink-muted);font-size:10.5px;margin-top:4px;">※★のつけかたの根拠は「ほうしゅう比較」タブに明記。数値は年次で変わる目安です</p>';
   }
   if(j.suggest && (j.suggest.name||j.suggest.comment)){
@@ -1993,7 +2000,7 @@ function nodeHTML(j){
     '<span class="bar" style="background:'+(j.tier==="legend"?"var(--tier-legend)":f.color)+'"></span>'+
     '<span class="ico">'+ico+'</span>'+
     '<span class="nm">'+(j.user?'🆕 ':'')+j.name+'<small>'+sub+'</small></span>'+
-    (j.hitode&&j.hitode.lv>=4 ? '<span title="人手不足: '+j.hitode.note+'">'+(j.hitode.lv>=5?'🔥🔥':'🔥')+'</span>' : '')+
+    (j.hitode ? (j.hitode.lv>=4 ? '<span title="人手不足: '+j.hitode.note+'">'+(j.hitode.lv>=5?'🔥🔥':'🔥')+'</span>' : j.hitode.lv<=1 ? '<span class="flame-cool" title="人手があまり気味(狭き門): '+j.hitode.note+'">🔥</span>' : '') : '')+
     '</button>';
 }
 function buildChart(){
