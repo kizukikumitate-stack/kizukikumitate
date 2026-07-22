@@ -579,7 +579,6 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-chart">転職チャート</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-zukan">ジョブずかん</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-table">ほうしゅう比較</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-yorimichi">よりみちの広場</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-usage">つかいかた</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-make">みんなでつくる</button>
   </nav>
@@ -640,6 +639,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   </section>
 
   <section id="p-yorimichi" class="panel" role="tabpanel">
+    <div class="chart-tools"><button class="zoom-btn back-to-chart" type="button">⚔ 転職チャートにもどる</button></div>
     <div class="dq usage">
       <h3>◆ よりみちの広場 — はしごの外にも、道がある</h3>
       <p>キャリアは多様化し、道草や充電期間（バッファ）があってしかるべき時代になりました。引退後に部分的に働く人も増えています。ここは、<b style="color:var(--ink)">フルタイムで上を目指すフェーズにいない人</b>のための広場——セカンドキャリア・パートタイム・充電期間の選択肢を集めました。</p>
@@ -707,6 +707,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
         <div class="sec-label">もどり道（つながる職業）</div><div class="links"><button class="link-chip" data-job="writer">▶ ライター・編集</button><button class="link-chip" data-job="douga">▶ 動画クリエイター</button><button class="link-chip" data-job="geijutsuka">▶ 芸術家</button></div>
       </div>
     </div>
+    <div class="chart-tools" style="justify-content:center;margin-top:22px;"><button class="zoom-btn back-to-chart" type="button">⚔ 転職チャートにもどる</button></div>
   </section>
 
   <section id="p-usage" class="panel" role="tabpanel">
@@ -2574,12 +2575,20 @@ window.addEventListener("resize",()=>requestAnimationFrame(()=>{
   updateChartHints();
 }));
 
-/* ---- よりみちの広場への入り口 ---- */
+/* ---- よりみちの広場との行き来（チャートのツールバーだけで往復。タブ列には出さない） ---- */
+function showPanel(id){
+  document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active", p.id===id));
+}
 const campLink = document.getElementById("campLink");
 if(campLink) campLink.addEventListener("click",()=>{
-  const btn = document.querySelector('.tab-btn[data-panel="p-yorimichi"]');
-  if(btn){ btn.click(); window.scrollTo({top:0, behavior:"smooth"}); }
+  showPanel("p-yorimichi");
+  window.scrollTo({top:0, behavior:"smooth"});
 });
+document.querySelectorAll(".back-to-chart").forEach(b=>b.addEventListener("click",()=>{
+  showPanel("p-chart");
+  requestAnimationFrame(()=>{ if(isFit()) applyFit(); else drawEdges(); updateChartHints(); });
+  window.scrollTo({top:0, behavior:"smooth"});
+}));
 
 /* ---- 冒険の道：横幅が収まりきらない時だけ右スクロール誘導を出す ---- */
 function updateChartHints(){
