@@ -185,10 +185,9 @@ p,dd,li{word-break:keep-all; overflow-wrap:break-word;}
 .cards{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:24px;}
 .card{background:#fff; border:1px solid var(--line); display:flex; flex-direction:column;}
 .card.hide{display:none;}
-.card-fig{
-  background:var(--washi-deep); border-bottom:1px solid var(--line);
-  display:flex; align-items:center; justify-content:center; height:96px; font-size:44px; position:relative;
-}
+.card-fig{background:var(--washi-deep); border-bottom:1px solid var(--line); position:relative;}
+.card-fig img{width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; display:block;}
+.card-cat-line{z-index:1;}
 .card-cat-line{position:absolute; top:0; left:0; right:0; height:4px;}
 .card.tekigo .card-cat-line{background:var(--c1);}
 .card.hattatsu .card-cat-line{background:var(--c2);}
@@ -590,7 +589,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 01 Parsons -->
     <article class="card tekigo" data-cat="tekigo">
-      <div class="card-fig"><span class="card-cat-line"></span>🧩</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/01-parsons.webp" alt="ふたつのパズルピースを重ね合わせる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.001</span><h3>特性因子理論</h3><div class="latin">Trait-and-Factor Theory</div></div>
         <span class="badge tekigo">選択と適合</span>
@@ -609,7 +608,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 02 Holland -->
     <article class="card tekigo" data-cat="tekigo">
-      <div class="card-fig"><span class="card-cat-line"></span>🎨</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/02-holland.webp" alt="六角形のタイルの上に立ち、隣のタイルを見つめる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.002</span><h3>RIASEC・六角形モデル</h3><div class="latin">Holland's Hexagonal Model</div></div>
         <span class="badge tekigo">選択と適合</span>
@@ -628,7 +627,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 03 Schein -->
     <article class="card tekigo" data-cat="tekigo">
-      <div class="card-fig"><span class="card-cat-line"></span>⚓</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/03-schein.webp" alt="小舟の上で錨につながる綱を持つ人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.003</span><h3>キャリア・アンカー</h3><div class="latin">Career Anchors</div></div>
         <span class="badge tekigo">選択と適合</span>
@@ -647,7 +646,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 04 TWA -->
     <article class="card tekigo" data-cat="tekigo">
-      <div class="card-fig"><span class="card-cat-line"></span>⚖️</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/04-twa.webp" alt="人と家が釣り合う天秤のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.004</span><h3>職業適応理論（TWA）</h3><div class="latin">Theory of Work Adjustment</div></div>
         <span class="badge tekigo">選択と適合</span>
@@ -666,7 +665,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 05 Gottfredson -->
     <article class="card tekigo" data-cat="tekigo">
-      <div class="card-fig"><span class="card-cat-line"></span>✂️</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/05-gottfredson.webp" alt="広がる道の中で明るい一本に立つ人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.005</span><h3>限界と妥協理論</h3><div class="latin">Circumscription &amp; Compromise</div></div>
         <span class="badge tekigo">選択と適合</span>
@@ -685,7 +684,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 06 Super -->
     <article class="card hattatsu" data-cat="hattatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🌈</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/06-super.webp" alt="色の重なるアーチの下を歩く人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.006</span><h3>ライフキャリア・レインボー</h3><div class="latin">Life-Span, Life-Space</div></div>
         <span class="badge hattatsu">発達と移行</span>
@@ -704,7 +703,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 07 Schlossberg -->
     <article class="card hattatsu" data-cat="hattatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🧳</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/07-schlossberg.webp" alt="4つの包みを前に旅支度を確かめる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.007</span><h3>転機との向き合い方（4S）</h3><div class="latin">Transition &amp; the 4S System</div></div>
         <span class="badge hattatsu">発達と移行</span>
@@ -723,7 +722,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 08 Bridges -->
     <article class="card hattatsu" data-cat="hattatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🌉</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/08-bridges.webp" alt="橋の中ほどで立ち止まる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.008</span><h3>トランジション</h3><div class="latin">Bridges' Transitions</div></div>
         <span class="badge hattatsu">発達と移行</span>
@@ -742,7 +741,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 09 Hall -->
     <article class="card hattatsu" data-cat="hattatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🦎</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/09-hall.webp" alt="色の変わるマントをまとう人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.009</span><h3>プロティアン・キャリア</h3><div class="latin">The Protean Career</div></div>
         <span class="badge hattatsu">発達と移行</span>
@@ -761,7 +760,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 10 Krumboltz -->
     <article class="card guhatsu" data-cat="guhatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🎲</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/10-krumboltz.webp" alt="開いた扉から舞い込む蝶と、机で顔を上げる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.010</span><h3>計画された偶発性</h3><div class="latin">Planned Happenstance</div></div>
         <span class="badge guhatsu">学習と偶発</span>
@@ -780,7 +779,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 11 SCCT -->
     <article class="card guhatsu" data-cat="guhatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🎯</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/11-scct.webp" alt="旗へ続く踏み石の最初の一歩に立つ人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.011</span><h3>社会的認知キャリア理論（SCCT）</h3><div class="latin">Social Cognitive Career Theory</div></div>
         <span class="badge guhatsu">学習と偶発</span>
@@ -799,7 +798,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 12 Bandura -->
     <article class="card guhatsu" data-cat="guhatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>💪</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/12-bandura.webp" alt="踏み台の上に立ち、続く階段を見る人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.012</span><h3>自己効力感</h3><div class="latin">Self-Efficacy</div></div>
         <span class="badge guhatsu">学習と偶発</span>
@@ -818,7 +817,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 13 Gelatt -->
     <article class="card guhatsu" data-cat="guhatsu">
-      <div class="card-fig"><span class="card-cat-line"></span>🌫️</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/13-gelatt.webp" alt="ランタンを提げて霞の中を歩く人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.013</span><h3>積極的不確実性</h3><div class="latin">Positive Uncertainty</div></div>
         <span class="badge guhatsu">学習と偶発</span>
@@ -837,7 +836,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 14 Savickas -->
     <article class="card imi" data-cat="imi">
-      <div class="card-fig"><span class="card-cat-line"></span>📖</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/14-savickas.webp" alt="開いた本から立ちのぼる金の糸をなぞる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.014</span><h3>キャリア構築理論・アダプタビリティ</h3><div class="latin">Career Construction</div></div>
         <span class="badge imi">意味と物語</span>
@@ -856,7 +855,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 15 Calling -->
     <article class="card imi" data-cat="imi">
-      <div class="card-fig"><span class="card-cat-line"></span>🔥</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/15-calling.webp" alt="小さな灯を両手に持つ人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.015</span><h3>天職（コーリング）</h3><div class="latin">Calling &amp; Vocation</div></div>
         <span class="badge imi">意味と物語</span>
@@ -875,7 +874,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 16 Hansen ILP -->
     <article class="card imi" data-cat="imi">
-      <div class="card-fig"><span class="card-cat-line"></span>🧵</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/16-hansen.webp" alt="4色の布をキルトに縫い合わせる人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.016</span><h3>統合的人生設計（ILP）</h3><div class="latin">Integrative Life Planning</div></div>
         <span class="badge imi">意味と物語</span>
@@ -894,7 +893,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 17 Job Crafting -->
     <article class="card imi" data-cat="imi">
-      <div class="card-fig"><span class="card-cat-line"></span>🛠️</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/17-crafting.webp" alt="作業台で紙の形を自分の手で整える人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.017</span><h3>ジョブ・クラフティング</h3><div class="latin">Job Crafting</div></div>
         <span class="badge imi">意味と物語</span>
@@ -913,7 +912,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 18 Granovetter -->
     <article class="card kankei" data-cat="kankei">
-      <div class="card-fig"><span class="card-cat-line"></span>🔗</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/18-granovetter.webp" alt="近くの太い糸と遠くへ伸びる細い糸のつながりのイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.018</span><h3>弱い紐帯の強み</h3><div class="latin">The Strength of Weak Ties</div></div>
         <span class="badge kankei">関係と環境</span>
@@ -932,7 +931,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 19 Boundaryless -->
     <article class="card kankei" data-cat="kankei">
-      <div class="card-fig"><span class="card-cat-line"></span>🌐</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/19-boundaryless.webp" alt="柵の切れ目から丘へ踏み出す人のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.019</span><h3>境界のないキャリア</h3><div class="latin">The Boundaryless Career</div></div>
         <span class="badge kankei">関係と環境</span>
@@ -951,7 +950,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 20 Chaos -->
     <article class="card kankei" data-cat="kankei">
-      <div class="card-fig"><span class="card-cat-line"></span>🦋</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/20-chaos.webp" alt="蝶の飛跡が大きくうねる金の糸を描くイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.020</span><h3>キャリア・カオス理論</h3><div class="latin">The Chaos Theory of Careers</div></div>
         <span class="badge kankei">関係と環境</span>
@@ -970,7 +969,7 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
 
     <!-- 21 Kram -->
     <article class="card kankei" data-cat="kankei">
-      <div class="card-fig"><span class="card-cat-line"></span>🤝</div>
+      <div class="card-fig"><span class="card-cat-line"></span><img src="./images/career-theory/21-kram.webp" alt="ベンチに並んで座る年長者と若手のイラスト" width="1200" height="686" loading="lazy"></div>
       <div class="card-head">
         <div><span class="card-no">No.021</span><h3>メンタリング理論</h3><div class="latin">Mentoring at Work</div></div>
         <span class="badge kankei">関係と環境</span>
