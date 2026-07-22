@@ -1,0 +1,57 @@
+{
+ "name": "tenshoku-yorimichi",
+ "aspect_ratio": "1:1",
+ "anchors": [
+  "images/tenshoku/nurse.webp",
+  "images/tenshoku/founder.webp"
+ ],
+ "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one element glows softly in warm amber light, like the glow of a small campfire; everything else stays gold line-art. This depicts a gentle 'side quest' scene from everyday life — a detour from the career ladder — drawn with the same calm adventure flavor as a fantasy journey. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. GENERIC scenes only: no recognizable characters, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+ "out_dir": "images/tenshoku",
+ "file_pattern": "{id}.webp",
+ "webp": {
+  "width": 800,
+  "quality": 82
+ },
+ "items": [
+  {
+   "id": "yori-npo",
+   "prompt": "Side quest: NPO volunteering (NPO・ボランティア). A figure in profile handing a relief box to outstretched hands at a small community supply table. The one warm amber glow: a small lantern on the table."
+  },
+  {
+   "id": "yori-chiiki",
+   "prompt": "Side quest: local community activity (地域コミュニティ活動). A figure from behind serving bowls at a long neighborhood table — a children's cafeteria feel, paper lanterns strung above. The one warm amber glow: one paper lantern."
+  },
+  {
+   "id": "yori-tabi",
+   "prompt": "Side quest: long backpacking journey abroad (海外放浪・長期の旅). A small backpacker figure from behind walking a winding path toward distant varied skylines (pagoda, dome, mountains far away). The one warm amber glow: the lantern hanging from the backpack."
+  },
+  {
+   "id": "yori-manabi",
+   "prompt": "Side quest: study abroad / relearning (留学・学び直し). A figure in profile at a desk stacked with open books, writing; a distant campus silhouette. The one warm amber glow: the desk lamp's light over the open book."
+  },
+  {
+   "id": "yori-small",
+   "prompt": "Side quest: small business / weekend startup (スモールビジネス・週末起業). A figure in profile at a tiny market stall, handing one small item to a customer's hand. The stall's awning and all objects are drawn ONLY as thin gold outlines (striped awning = gold line pattern, no fill, no red, no colors). The one warm amber glow: a plain coin disc (no numbers, no letters) passing between hands."
+  },
+  {
+   "id": "yori-part",
+   "prompt": "Side quest: part-time / shorter working hours (パートタイム・短時間勤務). A figure in profile calmly arranging a few large blocks beside a big hourglass — choosing how much time to give. The one warm amber glow: the sand in the hourglass."
+  },
+  {
+   "id": "yori-care",
+   "prompt": "Side quest: a season of caregiving and parenting (介護・子育てと両立する時期). A figure from behind gently walking with an elderly person using a cane on one side and holding a small child's hand on the other. The one warm amber glow: a small lantern carried by the child."
+  },
+  {
+   "id": "yori-mentor",
+   "prompt": "Side quest: advisor / mentor after retirement (顧問・メンター). An older figure in profile holding up a lantern to light a path for a younger figure walking ahead. The one warm amber glow: the lantern held out."
+  },
+  {
+   "id": "yori-nibase",
+   "prompt": "Side quest: rural second base / small farming life (二拠点・農的暮らし). A figure from behind with a hoe in a small vegetable patch, a tiny cottage and sprouting rows nearby. The one warm amber glow: the cottage window."
+  },
+  {
+   "id": "yori-sosaku",
+   "prompt": "Side quest: creative lifework (創作・ライフワーク). A figure in profile at an easel, brush raised, luminous abstract shapes (circles, arcs — no letters) drifting from the canvas. The one warm amber glow: the tip of the brush."
+  }
+ ]
+}
