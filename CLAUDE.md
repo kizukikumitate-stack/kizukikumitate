@@ -29,6 +29,12 @@ Democracy Fitness 等のハブ。
   稟議用要約PDF jirei-*-summary.pdf は scripts/gen-jirei-pdf.py で冪等再生成——
   事例を追加したら DATA に1エントリ足して再実行し、ハブの事例一覧・逆引き表・nav/kaiyu/ogp/
   sitemap/add-article-jsonld の台帳も併せて更新する）
+- **事例集のイラストは3枚1組が必須（2026-07-23 森本さん確定）**: ヒーロー1枚＋成功カット＋
+  失敗カット。これがシリーズの世界観・ブランドの核。仕様は data/art-specs/jirei.json に追記して
+  generate-zukan-art スキルで生成（アンカー=知恵図鑑の自然背景タッチ）。**視覚文法を崩さない**:
+  共通モチーフ=二股に分かれる道／成功カット=金の糸がつながり色があたたかい／失敗カット=全体を
+  ひと段だけ淡く灰がからせて霞をかけ、金の糸は途中で途切れて薄れる。構図は成功カットと対に
+  似せる。陰惨・嵐・破壊は描かない（静かな対比にとどめる）
 - risk-calculators.html — 未来のリスク計算機について（シリーズのハブ。共通の前提・出典・免責・
   ライセンス・変更履歴・フィードバック導線の**唯一の正**。各計算機からここへリンク）
 - customer-age-timebomb(01) / recruitment-extinction(02) / tax-revenue-countdown(03) /
