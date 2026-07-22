@@ -15,7 +15,7 @@
  "items": [
   {
    "id": "shukyoka",
-   "prompt": "A religious practitioner (宗教家・僧侶・神職・牧師 — keep it generic, no sect symbols): a robed figure in profile, hands together in quiet prayer beside a simple wooden altar with a single candle. Accent glow: emerald green light of the candle flame."
+   "prompt": "A religious practitioner (宗教家・僧侶・神職・牧師 — keep it generic, no sect symbols): a robed figure in profile, hands together in quiet prayer before a wooden altar dressed with a patterned cloth, small flower offerings, a tiny bell, and a single candle; gentle incense smoke curls upward in thin gold lines; behind the scene, a simple arched window with a crescent moon and a few small stars; decorative plants and leaves frame the sides of the composition. Accent glow: emerald green light of the candle flame reflected softly in the smoke. Thin gold line-art on deep navy, richly detailed yet serene."
   },
   {
    "id": "jushoku",
@@ -39,7 +39,7 @@
   },
   {
    "id": "angel",
-   "prompt": "An angel investor (エンジェル投資家): a figure in profile gently watering a small sprout that grows from a plain coin disc (no numbers, no letters) set in the ground. Accent glow: warm amber light of the sprout."
+   "prompt": "An angel investor (エンジェル投資家): a figure kneeling gently in a small terraced garden, watering a row of plain coin discs (no numbers, no letters) planted in the soil — each at a different stage of growth: one still a bare coin, one sprouting, one already a small leafy sapling. A low wooden garden fence, scattered flowers, and a few floating amber motes like fireflies decorate the scene; the figure's long cloak drapes softly like gently folded wings. Accent glow: warm amber light of the sprouts and the fireflies. Thin gold line-art on deep navy, warmly detailed."
   },
   {
    "id": "toshika",

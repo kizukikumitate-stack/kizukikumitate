@@ -47,7 +47,7 @@
   },
   {
    "id": "teacher",
-   "prompt": "Profession (Japanese job title): 教育・講師 (teacher / instructor). Draw as a gentle 'mentor / guide' fantasy job class: a robed figure in clean profile standing beside a large blank slate board on a wooden easel, pointing at the board with a long pointer stick held in one hand; a few luminous abstract shapes (circles, arcs, a spiral — never letters or numbers) float above the board. Both arms in natural, anatomically correct proportion — one arm relaxed at the side, the other extended to point. The single glowing accent element uses emerald green light at the pointer's tip and the floating shapes; everything else is thin gold line-art on deep navy. No scrolls with writing, no books with text. One calm, elegant scene."
+   "prompt": "Profession (Japanese job title): 教育・講師 (teacher / instructor). Draw as a gentle 'mentor / guide' fantasy job class: a robed figure in clean profile standing beside a large blank slate board on a wooden easel, pointing at the board with a long pointer stick; and IMPORTANTLY, two or three small children/students seated on a low bench in the foreground, seen from behind, looking up at the board attentively — the warmth of teaching comes from the listeners. A few luminous abstract shapes (circles, arcs, a spiral — never letters or numbers) float above the board. All figures with natural, anatomically correct arms and legs. The single glowing accent element uses emerald green light at the pointer's tip and the floating shapes; everything else is thin gold line-art on deep navy. No scrolls with writing, no books with text. One calm, warm scene."
   },
   {
    "id": "marketer",
@@ -411,7 +411,7 @@
   },
   {
    "id": "kaigo",
-   "prompt": "Profession (Japanese job title): 介護職員. Draw this real-world profession as a \"healer / cleric\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses emerald green light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+   "prompt": "Profession (Japanese job title): 介護職員 (care worker). Draw as a gentle 'healer / guardian' fantasy job class: a hooded caregiver figure in clean profile walking beside an elderly figure who steadies themselves on a cane — TWO clearly separate figures, each with a complete body and BOTH legs and feet clearly visible, natural anatomically correct proportions, standing on the ground. The caregiver's hand gently supports the elder's back; a small healer's satchel with a simple cross hangs at the caregiver's side. The single glowing accent element uses emerald green light of a small lantern held by the caregiver lighting their shared path. Everything else is thin gold line-art on deep navy. One calm, warm scene, a few leaves at the base."
   },
   {
    "id": "ongakuka",
