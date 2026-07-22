@@ -23,6 +23,12 @@ Democracy Fitness 等のハブ。
 - nobel-peace.html — ノーベル平和賞 125年の系譜
 - dialogue-zukan.html / shikumi-zukan.html / poverty-zukan.html / ted-collection.html
   — 図鑑シリーズ（紙背景テンプレ）
+- jirei.html ＋ jirei-{shotengai,kenshu,career}.html — 世界の成功と失敗事例集
+  （ナビ独立ドロップダウン。**このシリーズの読者向けコピーだけ「ですます調」**＝図鑑のである調と
+  意図的に別。失敗事例は匿名合成の典型パターン＋注記必須。成功事例は実名＋出典必須。
+  稟議用要約PDF jirei-*-summary.pdf は scripts/gen-jirei-pdf.py で冪等再生成——
+  事例を追加したら DATA に1エントリ足して再実行し、ハブの事例一覧・逆引き表・nav/kaiyu/ogp/
+  sitemap/add-article-jsonld の台帳も併せて更新する）
 - risk-calculators.html — 未来のリスク計算機について（シリーズのハブ。共通の前提・出典・免責・
   ライセンス・変更履歴・フィードバック導線の**唯一の正**。各計算機からここへリンク）
 - customer-age-timebomb(01) / recruitment-extinction(02) / tax-revenue-countdown(03) /
@@ -121,8 +127,12 @@ Democracy Fitness 等のハブ。
 - ロゴ: `logotype.png` + テキスト「きづきくみたて工房」を必ず両方表示
 - ロゴ文字スタイル: `font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; color: #1a5fad; letter-spacing: 0.06em;`
 - ナビ下線: `border-bottom: 3px solid #3C3489`
-- ハンバーガー切替は全ページ 1250px（7項目化でデスクトップ横ナビが欠けるため。
-  ナビ項目を増やすときは、この値も引き上がるか実測で確認する）
+- ハンバーガー切替は全ページ **1500px**（2026-07-23 に10項目化で全ページ統一。ページ本体CSSの
+  1250px 等の値に加え、style 終端の「グローバルナビ折返し対策」オーバーライドブロックが最終的な
+  切替を決める。ナビ項目を増やすときは、この値で1行に収まるか実測で確認する）
+- ⚠️ 折返し対策ブロックの挿入先は**先頭の `</style>`（ページ本体のstyle）**。最後の `</style>` に
+  入れると回遊バンド内の `<style>` に入ってしまい、update-kaiyu の再生成で黙って消える
+  （2026-07-23 に42ページで実際に発生）。`.claude/scripts/raise-nav-breakpoint.py` は修正済み
 - フッターCSS: `background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem; display: flex; justify-content: space-between; align-items: center;`
 - フッターロゴ: `font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9);`
 - フッターの例外は台帳側で表現する: lsp.html＝`footer_copy_prefix`（LEGO商標）、topaasia.html＝`footer: "topaasia"`（日英TM行）
