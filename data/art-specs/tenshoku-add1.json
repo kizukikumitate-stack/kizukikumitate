@@ -1,0 +1,20 @@
+{
+ "name": "tenshoku-add1",
+ "aspect_ratio": "1:1",
+ "anchors": ["images/tenshoku/nurse.webp", "images/tenshoku/founder.webp"],
+ "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+ "out_dir": "images/tenshoku",
+ "file_pattern": "{id}.webp",
+ "webp": { "width": 800, "quality": 82 },
+ "items": [
+  { "id": "shukyoka", "prompt": "A religious practitioner (宗教家・僧侶・神職・牧師 — keep it generic, no sect symbols): a robed figure in profile, hands together in quiet prayer beside a simple wooden altar with a single candle. Accent glow: emerald green light of the candle flame." },
+  { "id": "jushoku", "prompt": "A caretaker of one temple/shrine/church (住職・宮司・主任牧師 — generic): a robed figure from behind sweeping a quiet stone path toward a simple wooden hall, a hanging lantern by the door. Accent glow: emerald green light of the lantern." },
+  { "id": "honzan", "prompt": "A senior steward of a great religious compound (本山・教区の要職 — generic): a robed figure from behind standing on a wooden veranda of a grand hall, overlooking many small rooftops below. Accent glow: emerald green light from one distant rooftop window." },
+  { "id": "kancho", "prompt": "The head of a religious order (宗派のトップ — generic): an elder robed figure in profile addressing rows of seated robed figures in a vast quiet hall with tall pillars. Accent glow: emerald green light of a ceremonial lamp beside the elder." },
+  { "id": "sekaishukyo", "prompt": "A world-religion leader (世界宗教の頂 — generic, no real person): a small robed figure from behind on a high balcony, arms gently open toward a vast crowd of tiny figures far below. Accent glow: soft emerald green aura around the figure's open hands." },
+  { "id": "vc", "prompt": "A venture capitalist (ベンチャーキャピタリスト): a figure in profile across a small table from a younger founder figure, sliding a small pouch toward a tiny sapling in a pot between them. Accent glow: warm amber light of the sapling's leaves." },
+  { "id": "angel", "prompt": "An angel investor (エンジェル投資家): a figure in profile gently watering a small sprout that grows from a plain coin disc (no numbers, no letters) set in the ground. Accent glow: warm amber light of the sprout." },
+  { "id": "toshika", "prompt": "A renowned investor / fund founder (著名投資家): a figure from behind standing on a low hill, overlooking neat rows of young trees growing across a field. Accent glow: warm amber light on the row of nearest trees." },
+  { "id": "sekaitoshika", "prompt": "A legendary long-term investor (世界的投資家): an elder figure in profile seated on a simple bench beneath one vast old broad tree; a few plain coin discs (no numbers, no letters) hang among the branches like fruit. Accent glow: warm amber light of one coin-fruit." }
+ ]
+}
