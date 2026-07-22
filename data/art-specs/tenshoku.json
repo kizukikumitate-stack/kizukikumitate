@@ -427,7 +427,7 @@
   },
   {
    "id": "athlete",
-   "prompt": "Profession (Japanese job title): アスリート (育成年代・実業団). Draw this real-world profession as a \"warrior / front-line fighter\" fantasy job class, with the figure using the characteristic tools and gear of this job so the profession is recognizable. The single glowing accent element uses terracotta-orange light; everything else is thin gold line-art on deep navy. One calm, elegant scene."
+   "prompt": "Profession (Japanese job title): アスリート (育成年代・実業団) (athlete). Draw as a 'warrior in training' fantasy job class: a lean athlete figure in clean profile, mid-stride sprinting on a simple track lane, wearing light tunic-style training gear with one small armor shoulder piece for fantasy flavor, holding a relay baton; a faint finish-line banner ahead. The FULL figure must fit comfortably inside the frame with generous margins on all sides — do not crop the head or feet. The deep navy background must fill the ENTIRE square canvas edge to edge: no white border, no frame, no matting. The single glowing accent element uses terracotta-orange light of the baton. Everything else thin gold line-art on deep navy; no extra colored geometric shapes. Motion/speed may be suggested ONLY with plain round dots and short plain dashes — ABSOLUTELY no letters, no characters, no runes, no symbols anywhere in the image; the finish-line banner must be completely blank."
   },
   {
    "id": "keiji",
