@@ -105,6 +105,7 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 /* ---- tabs ---- */
 .tabs{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin:0 0 24px;}
 .tab-btn{
+  position:relative;
   font-family:inherit;font-size:15px;letter-spacing:.08em;cursor:pointer;
   color:var(--ink-2);background:var(--surface);
   border:2px solid var(--ink);border-radius:6px;
@@ -114,6 +115,27 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 .tab-btn[aria-selected="true"]{color:var(--gold);background:var(--surface-2);}
 .tab-btn[aria-selected="true"]::before{content:"▶ ";color:var(--gold);}
 .tab-btn:hover{color:var(--gold);}
+/* タブの説明ツールチップ（ホバーできる端末のみ） */
+@media (hover:hover){
+  .tab-btn[data-tip]:hover::after,
+  .tab-btn[data-tip]:focus-visible::after{
+    content:attr(data-tip);
+    position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%);
+    width:max-content;max-width:250px;
+    background:var(--surface-2);color:var(--ink-2);
+    border:1px solid var(--gold);border-radius:6px;
+    padding:9px 13px;font-size:12px;line-height:1.7;letter-spacing:.04em;
+    text-align:left;white-space:normal;font-weight:400;
+    box-shadow:0 6px 20px rgba(0,0,0,.5);
+    z-index:60;pointer-events:none;
+  }
+}
+/* モバイル（ホバー非対応端末）は選択中タブの説明をタブ下に表示 */
+.tab-hint{display:none;}
+@media (hover:none), (max-width:600px){
+  .tab-hint{display:block;text-align:center;color:var(--ink-muted);font-size:12px;line-height:1.7;letter-spacing:.04em;margin:-10px auto 20px;max-width:520px;padding:0 14px;}
+  .tab-hint b{color:var(--ink-2);font-weight:400;}
+}
 .panel{display:none;}
 .panel.active{display:block;}
 
@@ -580,12 +602,13 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   </header>
 
   <nav class="tabs" role="tablist">
-    <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-chart" aria-controls="p-chart">転職チャート</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-zukan" aria-controls="p-zukan">ジョブずかん</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-table" aria-controls="p-table">ほうしゅう比較</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-usage" aria-controls="p-usage">つかいかた</button>
-    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-make" aria-controls="p-make">みんなでつくる</button>
+    <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-chart" aria-controls="p-chart" data-tip="職業どうしのつながりをRPGの転職マップで一望。職業をタップするとジョブカードが開き、そこからの転職ルートが見られます">転職チャート</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-zukan" aria-controls="p-zukan" data-tip="全職業のジョブカードをずらっと一覧表示。1枚ずつじっくり読みたい人・スマホの人向け">ジョブずかん</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-table" aria-controls="p-table" data-tip="💰収入・❤️やりがい・⏳時間の自由・⭐市場価値の4つの報酬を表で見比べ。★の根拠と出典もここに明記">ほうしゅう比較</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-usage" aria-controls="p-usage" data-tip="この図鑑の遊び方と、授業・研修・ワークショップでの使い方、利用ルール">つかいかた</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-make" aria-controls="p-make" data-tip="載っていない職業を自分でジョブカードにして追加できるコーナー。AIの下書き機能つき">みんなでつくる</button>
   </nav>
+  <p class="tab-hint" id="tabHint" aria-hidden="true"></p>
 
   <div class="fam-legend dq" id="famLegend"></div>
 
@@ -2453,13 +2476,21 @@ document.addEventListener("mouseout",e=>{
   if(n && (!e.relatedTarget || (!n.contains(e.relatedTarget) && !routeTip.contains(e.relatedTarget)))){ scheduleHideTip(); }
 });
 
+const tabHint = document.getElementById("tabHint");
+function updateTabHint(){
+  if(!tabHint) return;
+  const sel = document.querySelector('.tab-btn[aria-selected="true"]');
+  tabHint.innerHTML = sel && sel.dataset.tip ? "<b>" + sel.textContent + "</b>：" + sel.dataset.tip : "";
+}
 document.querySelectorAll(".tab-btn").forEach(btn=>{
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".tab-btn").forEach(b=>b.setAttribute("aria-selected", b===btn ? "true":"false"));
     document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active", p.id===btn.dataset.panel));
+    updateTabHint();
     if(btn.dataset.panel==="p-chart") requestAnimationFrame(()=>{ if(isFit()) applyFit(); else drawEdges(); updateChartHints(); });
   });
 });
+updateTabHint();
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];
@@ -2688,6 +2719,7 @@ window.addEventListener("resize",()=>requestAnimationFrame(()=>{
 function showPanel(id){
   document.querySelectorAll(".panel").forEach(p=>p.classList.toggle("active", p.id===id));
   document.querySelectorAll(".tab-btn").forEach(b=>b.setAttribute("aria-selected", String(b.dataset.panel===id)));
+  updateTabHint();
 }
 const campLink = document.getElementById("campLink");
 if(campLink) campLink.addEventListener("click",()=>{
