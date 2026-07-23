@@ -211,6 +211,9 @@ Democracy Fitness 等のハブ。
 
 - **ナビに項目を足したら `update-nav.py` と `update-shelf.py` の両方を再実行**する。
   棚のタイトル（図鑑の棚・計算機の棚等）はスクリプト内 `TITLES`、設置除外は `EXCLUDE`（理由必須）
+- **配色は `data/kaiyu.json` の theme（paper/white/night）を再利用**して自動決定。
+  kaiyu バンド非設置で台帳に無いページはスクリプト内 `THEME_OVERRIDES` で補う（理由必須）。
+  夜色ページに手で色指定を足さないこと
 - 棚のリスト要素に `<nav>` タグを使わないこと（全ページ共通の `nav {}` グローバルCSSを
   継承してレイアウトが壊れる。実際に発生し `<div>` で解消した）
 - 開いた回数は GA4 イベント `shelf_open`（どの棚かも記録）で計測される

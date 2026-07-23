@@ -30,6 +30,47 @@ TITLES = {
     "世界の成功と失敗事例集": "事例集の棚",
 }
 
+# 配色テーマ。正は data/kaiyu.json の theme（paper/white/night）。台帳外ページはここで補う
+THEME_OVERRIDES = {
+    "rocket-map.html": "night",  # 全面が夜空のSVG（kaiyu バンド非設置のため台帳に無い）
+}
+
+THEMES = {
+    "paper": {
+        "tab_bg": "#26215C", "tab_fg": "#fff", "tab_border": "none",
+        "panel_bg": "#fffdf8", "panel_border": "#26215C",
+        "title": "#3C3489", "title_line": "#26215C",
+        "heading": "#9a95c0", "link": "#333", "hover": "#3C3489",
+        "active_fg": "#3C3489", "active_bg": "#f1eefa", "divider": "#eae4d3",
+    },
+    "white": {
+        "tab_bg": "#26215C", "tab_fg": "#fff", "tab_border": "none",
+        "panel_bg": "#ffffff", "panel_border": "#26215C",
+        "title": "#3C3489", "title_line": "#26215C",
+        "heading": "#9a95c0", "link": "#333", "hover": "#3C3489",
+        "active_fg": "#3C3489", "active_bg": "#f4f3fb", "divider": "#ececf3",
+    },
+    "night": {
+        "tab_bg": "#1f1b45", "tab_fg": "#f2d489", "tab_border": "1px solid rgba(242,212,137,0.55)",
+        "panel_bg": "#211c48", "panel_border": "rgba(242,212,137,0.65)",
+        "title": "#f2d489", "title_line": "rgba(242,212,137,0.65)",
+        "heading": "#9a95c0", "link": "#e8e6f2", "hover": "#f2d489",
+        "active_fg": "#f2d489", "active_bg": "rgba(242,212,137,0.13)", "divider": "rgba(255,255,255,0.14)",
+    },
+}
+
+
+def load_themes():
+    """data/kaiyu.json の theme を正として読み、台帳外は THEME_OVERRIDES → paper の順で補う"""
+    themes = {}
+    kaiyu_path = os.path.join(ROOT, "data", "kaiyu.json")
+    if os.path.exists(kaiyu_path):
+        for p in json.load(open(kaiyu_path, encoding="utf-8"))["pages"]:
+            themes[p["path"]] = p.get("theme", "paper")
+    themes.update(THEME_OVERRIDES)
+    return themes
+
+
 # 棚を設置しないページ（理由付き）
 EXCLUDE = {
     "topaasia.html": "日英バイリンガルの製品ページ。日本語のみの棚は世界観に合わないため",
@@ -65,8 +106,9 @@ def target_pages(children):
     return pages
 
 
-def build_block(label, children, current):
+def build_block(label, children, current, theme):
     title = esc(shelf_title(label))
+    t = THEMES.get(theme, THEMES["paper"])
     rows = []
     for c in children:
         if "heading" in c:
@@ -85,17 +127,17 @@ def build_block(label, children, current):
 
     return f"""{START}
 <style>
-.shelf-tab {{ position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }}
+.shelf-tab {{ position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: {t['tab_bg']}; color: {t['tab_fg']}; border: {t['tab_border']}; border-right: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }}
 .shelf-backdrop {{ display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }}
 .shelf.open .shelf-backdrop {{ display: block; }}
-.shelf-panel {{ position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }}
+.shelf-panel {{ position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: {t['panel_bg']}; border: 2px solid {t['panel_border']}; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }}
 .shelf.open .shelf-panel {{ transform: translateY(-50%) translateX(0); }}
 .shelf-close {{ position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }}
-.shelf-title {{ font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }}
-.shelf-heading {{ display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }}
-.shelf-list a {{ display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }}
-.shelf-list a:hover {{ color: #3C3489; }}
-.shelf-list a.active {{ color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }}
+.shelf-title {{ font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: {t['title']}; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid {t['title_line']}; margin-bottom: 0.3rem; }}
+.shelf-heading {{ display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: {t['heading']}; padding: 0.5rem 0 0.12rem; text-align: center; }}
+.shelf-list a {{ display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: {t['link']}; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid {t['divider']}; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }}
+.shelf-list a:hover {{ color: {t['hover']}; }}
+.shelf-list a.active {{ color: {t['active_fg']}; font-weight: 700; background: {t['active_bg']}; border-radius: 5px; }}
 @media (hover: hover) and (pointer: fine) {{
   .shelf:hover .shelf-panel {{ transform: translateY(-50%) translateX(0); }}
   .shelf-close {{ display: none; }}
@@ -160,6 +202,7 @@ def splice(path, block):
 def main():
     updated = 0
     seen = {}
+    themes = load_themes()
     for cat in load_categories():
         for page in target_pages(cat["children"]):
             if page in seen:
@@ -169,7 +212,8 @@ def main():
             if not os.path.exists(os.path.join(ROOT, page)):
                 print(f"  ⚠️  {page}: ファイルが存在しません")
                 continue
-            if splice(page, build_block(cat["label"], cat["children"], page)):
+            theme = themes.get(page, "paper")
+            if splice(page, build_block(cat["label"], cat["children"], page, theme)):
                 updated += 1
     print(f"完了: {updated} ページ更新（対象 {len(seen)} ページ / カテゴリ {len(load_categories())}）")
 
