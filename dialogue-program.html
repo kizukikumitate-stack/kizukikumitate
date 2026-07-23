@@ -1202,7 +1202,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   html, body { overflow-x: hidden; }
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
-  .nav-hamburger { display: flex; }
+  .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
   /* 妖怪ページと同じモバイルハンバーガー位置修正: 狭い画面でハンバーガーが画面外に潰れる問題への対策 */
   .nav-logo { margin-right: 0; }
   .nav-hamburger { margin-left: auto; flex-shrink: 0; }
@@ -1321,7 +1321,7 @@ footer { background: #26215C; border-top: 3px solid #3C3489; padding: 3rem 6rem;
   }
   @media (max-width: 1500px) {
     .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
   }
 </style>
 </head>

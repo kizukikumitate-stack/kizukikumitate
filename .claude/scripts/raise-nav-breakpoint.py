@@ -19,7 +19,7 @@ STANDARD = """
   }
   @media (max-width: 1500px) {
     .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
+    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
   }
 """
 

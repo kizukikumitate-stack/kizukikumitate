@@ -1013,7 +1013,13 @@
   .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
   a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
   a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
-  @media (max-width: 768px) { .global-nav-hamburger { display: flex; } }
+  @media (max-width: 768px) {
+    .global-nav-hamburger { display: flex; flex-shrink: 0; }
+    /* グローバルナビ: 48px padding + 64px logo margin で hamburger が画面外に出る問題 */
+    .global-nav { padding: 1rem 1.2rem; }
+    .global-nav .nav-logo { margin-right: 1rem; }
+    .global-nav .nav-logo-text { font-size: 0.95rem; }
+  }
 
   footer {
     background: #26215C;
