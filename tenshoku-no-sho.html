@@ -130,6 +130,35 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
     z-index:60;pointer-events:none;
   }
 }
+/* ---- 職業検索 ---- */
+.job-search{position:relative;max-width:460px;margin:0 auto 20px;padding:0 14px;}
+.job-search-icon{position:absolute;left:28px;top:50%;transform:translateY(-50%);font-size:15px;pointer-events:none;opacity:.85;}
+.job-search input{
+  width:100%;box-sizing:border-box;font-family:inherit;font-size:16px;letter-spacing:.05em;
+  color:var(--ink);background:var(--surface);
+  border:2px solid var(--ink);border-radius:6px;
+  box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--ink);
+  padding:10px 14px 10px 40px;
+}
+.job-search input::placeholder{color:var(--ink-muted);font-size:13px;}
+.job-search input:focus{outline:none;border-color:var(--gold);}
+.search-sug{
+  position:absolute;top:calc(100% + 10px);left:14px;right:14px;
+  background:var(--surface-2);border:2px solid var(--ink);border-radius:6px;
+  box-shadow:0 12px 32px rgba(0,0,0,.55);
+  max-height:330px;overflow-y:auto;z-index:90;
+}
+.search-sug .sug-label{display:block;padding:8px 14px 6px;font-size:11px;color:var(--gold);letter-spacing:.06em;border-bottom:1px solid var(--hairline);}
+.search-sug button{
+  display:flex;align-items:center;gap:8px;width:100%;text-align:left;cursor:pointer;
+  background:none;border:none;border-bottom:1px solid var(--hairline);
+  font-family:inherit;font-size:13px;color:var(--ink-2);letter-spacing:.04em;
+  padding:10px 14px;line-height:1.5;
+}
+.search-sug button:last-child{border-bottom:none;}
+.search-sug button:hover,.search-sug button.sel{background:var(--surface);color:var(--gold);}
+.search-sug .sug-tier{margin-left:auto;font-size:11px;color:var(--ink-muted);white-space:nowrap;flex-shrink:0;}
+.search-sug .sug-empty{display:block;padding:12px 14px;font-size:12px;color:var(--ink-muted);line-height:1.7;}
 /* モバイル（ホバー非対応端末）は選択中タブの説明をタブ下に表示 */
 .tab-hint{display:none;}
 @media (hover:none), (max-width:600px){
@@ -639,6 +668,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     </div>
     <div class="note">高校・大学のキャリア教育や若手研修向け教材 / ★の根拠と実データの出典は「ほうしゅう比較」タブに明記。数値は目安であり、会社・働き方・個人差で大きく変わります。<br>授業や個人での利用は自由に。有料での利用は事前に一声を（くわしくは「つかいかた」の利用について）。コラボ企画も大歓迎です。</div>
   </header>
+
+  <div class="job-search" id="jobSearchBox">
+    <span class="job-search-icon" aria-hidden="true">🔍</span>
+    <input id="jobSearch" type="search" placeholder="職業をさがす（例：看護師、ゲーム、ユーチューバー）" autocomplete="off" aria-label="職業をさがす" enterkeyhint="search">
+    <div id="searchSug" class="search-sug" role="listbox" hidden></div>
+  </div>
 
   <nav class="tabs" role="tablist">
     <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-chart" aria-controls="p-chart" data-tip="職業どうしのつながりをRPGの転職マップで一望。職業をタップするとジョブカードが開き、そこからの転職ルートが見られます">転職チャート</button>
@@ -2530,6 +2565,254 @@ document.querySelectorAll(".tab-btn").forEach(btn=>{
   });
 });
 updateTabHint();
+
+/* ================= 職業検索 ================= */
+/* id → 読み仮名・別名（スペース区切り）。名前そのものはJOBSから自動で拾う */
+const SEARCH_KEYS = {
+sales:"えいぎょう セールス 営業マン 不動産",
+retail:"はんばい せっきゃく 店員 販売員 ショップ店員 アパレル",
+craft:"せいぞう ぎのう 職人 工場 ものづくり 整備士",
+engineer:"えんじにあ プログラマー SE システムエンジニア ITエンジニア 開発者 プログラミング",
+analyst:"データ分析 アナリスト ぶんせき",
+accounting:"けいり ざいむ 会計 公認会計士 税理士 簿記",
+hr:"じんじ 採用 労務",
+cs:"カスタマーサポート コールセンター お客様サポート 問い合わせ対応",
+teacher:"きょういく こうし 先生 教師 教員 塾講師 保育士 学校",
+marketer:"マーケティング 広告 広報 宣伝",
+planner:"きかく プランナー",
+admin:"じむ アシスタント 秘書 一般事務 事務員",
+designer:"グラフィックデザイナー イラストレーター Webデザイナー デザイン",
+writer:"らいたー へんしゅう 編集者 記者 ジャーナリスト 作家 文章",
+salesengineer:"セールスエンジニア 技術営業",
+bizdev:"じぎょうかいはつ ビズデブ アライアンス",
+csuccess:"カスタマーサクセス",
+datascientist:"データサイエンティスト 機械学習 AIエンジニア",
+pm:"プロダクトマネージャー プロマネ プロダクトオーナー PdM",
+fpa:"エフピーアンドエー 経営分析 予実管理",
+peopleanalytics:"ピープルアナリティクス 人事データ",
+uxdesigner:"UXデザイナー UIデザイナー プロダクトデザイナー",
+contentmarketer:"コンテンツマーケター オウンドメディア SNS運用",
+bpr:"ぎょうむかいぜん 業務改善 DX推進",
+learningdesigner:"ラーニングデザイナー 研修設計 人材育成",
+ecproducer:"イーシー ネットショップ 通販 店舗プロデューサー",
+qualityeng:"せいさんぎじゅつ ひんしつ 品質管理 生産管理",
+keiei:"けいえいきかく 経営 事業責任者 部長",
+founder:"きぎょうか 社長 スタートアップ ベンチャー 創業者 起業",
+cto:"シーティーオー 技術責任者 VPoE",
+cro:"営業本部長 セールス統括",
+cmo:"マーケティング責任者",
+chro:"人事責任者 人事統括",
+cdo:"クリエイティブディレクター アートディレクター",
+coo:"オペレーション統括 工場長 シーオーオー",
+listedceo:"じょうじょうきぎょう CEO シーイーオー 経営者 上場",
+cxo:"だいきぎょう 執行役員 役員",
+politician:"せいじか 議員 国会議員 知事 市長",
+authority:"せかいてきせんもんか きょうじゅ 教授 学者 研究者 博士 大学",
+social:"しゃかいじぎょう NGO 社会起業家",
+megaceo:"グローバル企業 メガ企業",
+leader:"こっかしどうしゃ 総理大臣 大統領 首相",
+intlhead:"こくさいきかん 国連 事務総長",
+nobel:"ノーベル賞 世界的巨匠",
+nurse:"かんごし ナース 看護婦 看護",
+biyoshi:"びようし 理容師 ヘアメイク 美容",
+tobi:"とびしょく とび 建設作業員 大工 建設",
+doctor:"いし 医者 ドクター 薬剤師 医療 病院",
+lawyer:"べんごし 法律 弁護 司法",
+kenchikushi:"いっきゅうけんちくし 建築士",
+sekokan:"せこうかんり 現場監督 施工管理",
+cnurse:"せんもんかんごし にんていかんごし",
+stylist:"トップスタイリスト カリスマ美容師",
+senmonI:"せんもんい しどうい 専門医",
+partner:"パートナー弁護士",
+kenchikuka:"けんちくか 建築家 設計",
+kangobucho:"かんごぶちょう 看護部長 師長",
+salonowner:"サロンオーナー 美容室経営",
+genbashocho:"げんばしょちょう 工事部長",
+douga:"どうが ユーチューバー YouTuber 動画編集 配信者 VTuber ゆーちゅーばー 動画",
+mangaka:"まんがか 漫画 マンガ家",
+animator:"アニメーター アニメ",
+dentou:"でんとうげいのう 歌舞伎 落語家 能 狂言 伝統芸能",
+tsuyaku:"つうやく ほんやく 翻訳 通訳者 語学",
+chouri:"ちょうりし 料理人 コック 板前 料理",
+npo:"エヌピーオー 非営利",
+nougyo:"のうぎょう 農家 漁師 林業 一次産業 農業",
+eizoudir:"えいぞう 映像ディレクター テレビ",
+rensai:"れんさいまんがか 連載",
+sakuga:"さくがかんとく キャラクターデザイナー",
+dentoupro:"しんうち なだい 真打 名題",
+bunka:"にほんぶんか 文化翻訳",
+chef:"シェフ りょうりちょう 料理長",
+fundraiser:"ファンドレイザー 資金調達",
+nouke:"のうぎょうけいえいしゃ 認定農業者",
+filmdir:"えいがかんとく 映画監督 映画",
+hitmangaka:"ヒット漫画家",
+animedir:"アニメ監督",
+shishou:"ししょう いえもと 師匠 家元",
+ownerchef:"オーナーシェフ そうりょうりちょう",
+jimukyokucho:"じむきょくちょう 事務局長",
+nouhoujin:"のうぎょうほうじん 6次産業",
+kyoshou:"こくみんてききょしょう 人間国宝 巨匠",
+consul:"コンサルタント コンサル",
+komuin:"こうむいん 公務員 市役所 役所 行政 県庁",
+shosha:"そうごうしょうしゃ 商社 商社マン",
+kinyu:"きんゆう ぎんこういん ぎんこう しょうけん 銀行員 銀行 証券 保険 金融",
+senryaku:"せんりゃく 戦略コンサル",
+kanryou:"かんりょう 官僚 国家公務員 国家総合職",
+kaigai:"かいがいじぎょう トレーダー 海外駐在 貿易",
+fundmgr:"しょうけんアナリスト ファンドマネージャー 証券アナリスト",
+gamecreator:"ゲームクリエイター ゲーム開発 ゲームプログラマー ゲーム",
+conpartner:"コンサルパートナー",
+shokan:"かんぶかんりょう 幹部官僚 審議官",
+invpro:"とうしぎんこう 投資銀行 ファンド運用",
+jimujikan:"じむじかん 事務次官 局長",
+keisatsu:"けいさつかん 警察 おまわりさん ポリス",
+shobo:"しょうぼうし 消防",
+jieitai:"じえいかん 自衛隊 自衛官",
+kaigo:"かいごしょくいん 介護士 ヘルパー 介護",
+ongakuka:"おんがくか ミュージシャン 歌手 バンド 演奏家 ピアニスト 声優 音楽",
+geijutsuka:"げいじゅつか 画家 彫刻家 アーティスト 美術",
+panya:"ぱんしょくにん パティシエ パン屋 ケーキ屋 菓子職人 お菓子",
+athlete:"アスリート スポーツ選手 野球選手 サッカー選手 スポーツ",
+keiji:"けいじ 刑事 捜査官",
+kyujo:"きゅうきゅうきゅうめいし レスキュー 救急救命士 救急",
+jieikanbu:"かんぶじえいかん 幹部自衛官",
+kaigofukushi:"かいごふくしし ケアマネジャー ケアマネ 介護福祉士",
+puroartist:"プロアーティスト メジャーデビュー",
+jyui:"じゅういし 獣医 動物のお医者さん 動物",
+insyokuowner:"いんしょくてんオーナー 食堂 カフェ 飲食店 開業",
+proathlete:"プロアスリート プロ野球 Jリーガー プロ選手",
+shocho:"けいさつしょちょう 警察署長 管理官",
+shobocho:"しょうぼうしょちょう 消防署長",
+shikikan:"ぶたいしきかん 連隊長 佐官",
+shisetsucho:"かいごしせつちょう 施設長",
+staratist:"ちょめいアーティスト 著名アーティスト",
+jyuincho:"どうぶつびょういん 動物病院 院長",
+topathlete:"トップアスリート 日本代表 オリンピック",
+seifuku:"せいふくぐみ 警視監 将官",
+shukyoka:"しゅうきょうか 僧侶 お坊さん 神主 牧師 神父 宗教",
+jushoku:"じゅうしょく ぐうじ 住職 宮司",
+honzan:"ほんざん 貫主",
+kancho:"かんちょう 管長 門主 大司教",
+sekaishukyo:"ローマ教皇 ダライラマ 法王",
+vc:"ベンチャーキャピタリスト ブイシー 投資家 ベンチャーキャピタル",
+angel:"エンジェル投資家",
+toshika:"ちょめいとうしか ファンド創業者",
+sekaitoshika:"せかいてきとうしか バフェット",
+};
+const CAMP_KEYS = ["主婦","主夫","子育て","育児","フリーター","パート","ボランティア","留学","学び直し","週末起業","副業","旅","休職"];
+
+function normQ(s){
+  s = String(s||"").normalize("NFKC").toLowerCase().replace(/[\s・．.\/／()（）「」'"&]/g,"");
+  return s.replace(/[ァ-ヶ]/g, ch=>String.fromCharCode(ch.charCodeAt(0)-0x60));
+}
+function bigrams(s){ const r=new Set(); for(let i=0;i<s.length-1;i++) r.add(s.slice(i,i+2)); return r; }
+function diceSim(a,b){
+  if(a.length<2||b.length<2) return a===b?1:0;
+  const A=bigrams(a),B=bigrams(b); let m=0; A.forEach(g=>{ if(B.has(g)) m++; });
+  return 2*m/(A.size+B.size);
+}
+function jobKeys(j){
+  if(!j._skeys){
+    const extra = (SEARCH_KEYS[j.id]||"").split(/\s+/).filter(Boolean);
+    j._skeys = [j.name].concat(extra).map(normQ).filter(Boolean);
+  }
+  return j._skeys;
+}
+function searchJobs(qRaw){
+  const q = normQ(qRaw);
+  if(!q) return {list:[],mode:"none",camp:false};
+  const direct=[], fuzzy=[];
+  for(const j of JOBS){
+    const keys = jobKeys(j);
+    let sc = 0;
+    for(const k of keys){
+      if(k===q){ sc=100; break; }
+      if(k.startsWith(q)) sc=Math.max(sc,80);
+      else if(k.includes(q)) sc=Math.max(sc,60);
+      else if(q.length>=2 && k.length>=2 && q.includes(k)) sc=Math.max(sc,50);
+    }
+    if(!sc && q.length>=2){
+      const text = normQ((j.catch||"") + (j.tech||[]).map(t=>t[0]).join(""));
+      if(text.includes(q)) sc=35;
+    }
+    if(sc){ direct.push({j,sc}); }
+    else if(q.length>=2){
+      let best=0; for(const k of keys) best=Math.max(best,diceSim(q,k));
+      if(best>=0.3) fuzzy.push({j,sc:best});
+    }
+  }
+  const camp = q.length>=2 && CAMP_KEYS.some(k=>{ const n=normQ(k); return n.includes(q)||q.includes(n); });
+  if(direct.length){
+    direct.sort((a,b)=> b.sc-a.sc || TIER_IDX[a.j.tier]-TIER_IDX[b.j.tier]);
+    return {list:direct.slice(0,8).map(x=>x.j), mode:"direct", camp};
+  }
+  if(fuzzy.length){
+    fuzzy.sort((a,b)=>b.sc-a.sc);
+    return {list:fuzzy.slice(0,3).map(x=>x.j), mode:"fuzzy", camp};
+  }
+  return {list:[],mode:"empty",camp};
+}
+const searchInput = document.getElementById("jobSearch");
+const searchSug = document.getElementById("searchSug");
+let sugIndex = -1;
+function hideSug(){ searchSug.hidden = true; searchSug.innerHTML=""; sugIndex=-1; }
+function jumpToJob(id){
+  hideSug();
+  const j = JOB_MAP[id]; if(!j) return;
+  openModal(id);
+  const node = document.getElementById("node-"+id);
+  if(node){
+    highlight(id);
+    if(document.getElementById("p-chart").classList.contains("active")){
+      node.scrollIntoView({block:"center", inline:"center", behavior:"smooth"});
+    }
+  }
+}
+function renderSug(res){
+  if(res.mode==="none"){ hideSug(); return; }
+  let h = "";
+  if(res.mode==="fuzzy") h += '<span class="sug-label">ぴったりの職業はなかった…ちかい職業はこちらかも:</span>';
+  for(const j of res.list){
+    const f = FAMILIES[j.family];
+    h += '<button type="button" role="option" data-jump="'+j.id+'">'+(f?f.icon:"🆕")+' '+esc(j.name)+'<span class="sug-tier">'+(TIER_NAMES[j.tier]||"")+'</span></button>';
+  }
+  if(res.camp) h += '<button type="button" role="option" data-camp="1">🏕 よりみちの広場（はしごの外の道もあります）</button>';
+  if(!res.list.length && !res.camp){
+    h += '<span class="sug-empty">この書にはまだ載っていない職業のようです…</span>' +
+         '<button type="button" role="option" data-make="1">✍️「みんなでつくる」でこの職業を追加する ▶</button>';
+  }
+  searchSug.innerHTML = h; searchSug.hidden = false; sugIndex = -1;
+}
+function pickSug(btn){
+  if(!btn) return;
+  if(btn.dataset.jump) jumpToJob(btn.dataset.jump);
+  else if(btn.dataset.camp){ hideSug(); if(typeof showPanel==="function"){ showPanel("p-yorimichi"); window.scrollTo({top:0,behavior:"smooth"}); } }
+  else if(btn.dataset.make){
+    hideSug();
+    const mk = document.querySelector('.tab-btn[data-panel="p-make"]'); if(mk) mk.click();
+    const nm = document.getElementById("ltj-name"); if(nm){ nm.value = searchInput.value.trim(); nm.scrollIntoView({block:"center",behavior:"smooth"}); }
+  }
+}
+searchInput.addEventListener("input",()=>{ renderSug(searchJobs(searchInput.value)); });
+searchInput.addEventListener("focus",()=>{ if(searchInput.value.trim()) renderSug(searchJobs(searchInput.value)); });
+searchInput.addEventListener("keydown",e=>{
+  if(e.isComposing) return;
+  const opts = Array.from(searchSug.querySelectorAll("button"));
+  if(e.key==="ArrowDown" || e.key==="ArrowUp"){
+    if(!opts.length) return;
+    e.preventDefault();
+    sugIndex = e.key==="ArrowDown" ? (sugIndex+1)%opts.length : (sugIndex-1+opts.length)%opts.length;
+    opts.forEach((b,i)=>b.classList.toggle("sel", i===sugIndex));
+    opts[sugIndex].scrollIntoView({block:"nearest"});
+  }else if(e.key==="Enter"){
+    e.preventDefault();
+    pickSug(opts[sugIndex>=0?sugIndex:0]);
+  }else if(e.key==="Escape"){
+    hideSug();
+  }
+});
+searchSug.addEventListener("mousedown",e=>{ e.preventDefault(); pickSug(e.target.closest("button")); });
+document.addEventListener("click",e=>{ if(!e.target.closest(".job-search")) hideSug(); });
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];
