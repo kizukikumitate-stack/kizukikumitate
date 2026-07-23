@@ -1143,6 +1143,21 @@
         "tenshoku-no-sho",
         "career-theory-zukan"
       ]
+    },
+    {
+      "id": "stakeholder-diorama",
+      "path": "stakeholder-diorama.html",
+      "title": "ステークホルダー・ジオラマ",
+      "tag": "手法・WS",
+      "desc": "ひとつのテーマを、関係者みんなの視点から眺める対話ツール。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを見える化する。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-07-24",
+      "band": true,
+      "next": [
+        "goikeisei-zukan",
+        "dialogue-program"
+      ]
     }
   ]
 }

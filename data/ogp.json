@@ -648,6 +648,16 @@
       "eyebrow": "みんなで作る ／ キャリア教材",
       "title": "業界図鑑",
       "sub": "日本の16業界を「はたらく世界の大陸」に見立てた地図。生涯キャリア図鑑の対の書。"
+    },
+    {
+      "page": "stakeholder-diorama.html",
+      "img": "stakeholder-diorama-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#34618E",
+      "eyebrow": "対話ツール ／ 視点のレンズ",
+      "title": "ステークホルダー・<br>ジオラマ",
+      "sub": "ひとつのテーマを、関係者みんなの視点から眺める。誰が得して、誰が損するかを見える化。"
     }
   ]
 }
