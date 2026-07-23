@@ -2429,9 +2429,8 @@
 .shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
 .shelf-list a:hover { color: #3C3489; }
 .shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
-@media (min-width: 1360px) {
-  .shelf-tab { display: none; }
-  .shelf-panel { transform: translateY(-50%) translateX(0); z-index: 140; }
+@media (hover: hover) and (pointer: fine) {
+  .shelf:hover .shelf-panel { transform: translateY(-50%) translateX(0); }
   .shelf-close { display: none; }
   .shelf-backdrop { display: none !important; }
 }
@@ -2459,6 +2458,10 @@
     if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '目指す未来の棚', page: location.pathname });
   }
   tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
+  var hoverSent = false;
+  shelf.addEventListener('mouseenter', function() {
+    if (!hoverSent && typeof gtag === 'function') { hoverSent = true; gtag('event', 'shelf_open', { shelf: '目指す未来の棚', page: location.pathname, method: 'hover' }); }
+  });
   document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
   document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });

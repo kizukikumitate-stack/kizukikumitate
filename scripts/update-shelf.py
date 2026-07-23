@@ -3,7 +3,8 @@
 
 - 正は data/nav.json。各ドロップダウン（目指す未来／ソリューション／…）が1つの「棚」になり、
   そのカテゴリのルート直下内部ページすべてに、同じ棚が設置される。
-- 広い画面（>=1360px）では棚パネルを常時表示、狭い画面では右端中央の縦タブから開閉。
+- 右端中央の縦タブが常時ついてくる。ホバー可能な端末ではカーソルを合わせると全リストが展開、
+  タッチ端末ではタップで開閉（二段階方式・2026-07-23 森本さん確定）。
 - 各ページの <!-- SHELF START --> 〜 <!-- SHELF END --> を差し替える
   （無ければ </body> 直前に挿入）。旧 <!-- ZUKAN-SHELF START/END --> ブロックは自動撤去。
 - ナビに項目を足したら update-nav.py と本スクリプトを再実行するだけで棚にも反映される。
@@ -95,9 +96,8 @@ def build_block(label, children, current):
 .shelf-list a {{ display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }}
 .shelf-list a:hover {{ color: #3C3489; }}
 .shelf-list a.active {{ color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }}
-@media (min-width: 1360px) {{
-  .shelf-tab {{ display: none; }}
-  .shelf-panel {{ transform: translateY(-50%) translateX(0); z-index: 140; }}
+@media (hover: hover) and (pointer: fine) {{
+  .shelf:hover .shelf-panel {{ transform: translateY(-50%) translateX(0); }}
   .shelf-close {{ display: none; }}
   .shelf-backdrop {{ display: none !important; }}
 }}
@@ -123,6 +123,10 @@ def build_block(label, children, current):
     if (open && typeof gtag === 'function') gtag('event', 'shelf_open', {{ shelf: '{title}', page: location.pathname }});
   }}
   tab.addEventListener('click', function() {{ setOpen(!shelf.classList.contains('open')); }});
+  var hoverSent = false;
+  shelf.addEventListener('mouseenter', function() {{
+    if (!hoverSent && typeof gtag === 'function') {{ hoverSent = true; gtag('event', 'shelf_open', {{ shelf: '{title}', page: location.pathname, method: 'hover' }}); }}
+  }});
   document.getElementById('shelfClose').addEventListener('click', function() {{ setOpen(false); }});
   document.getElementById('shelfBackdrop').addEventListener('click', function() {{ setOpen(false); }});
   document.addEventListener('keydown', function(e) {{ if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); }});
