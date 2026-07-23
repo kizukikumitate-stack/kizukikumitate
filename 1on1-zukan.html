@@ -337,7 +337,7 @@
   .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
   .mobile-menu.open { display: flex; }
   .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
-  .mobile-menu a:first-child { border-top: 1px solid #e8e8e8; }
+  .mobile-menu > a:first-child { border-top: 1px solid #e8e8e8; }
   .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
   .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
   .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
@@ -348,7 +348,7 @@
   .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
   .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
   .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
-  .mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; }
+  .mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; max-width: 34rem; margin: 0 auto; }
 .mobile-acc-panel .mobile-acc-heading { grid-column: 1 / -1; }
   .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 0.88rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.45rem 0.1rem; width: 100%; text-align: center; border: none; transition: color 0.15s; line-height: 1.5; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; }
   .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
