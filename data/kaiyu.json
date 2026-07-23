@@ -1,1013 +1,1028 @@
 {
-  "_readme": "サイト内回遊バンドの台帳。scripts/update-kaiyu.py が読み、各ページの <!-- KAIYU START/END --> 間を再生成する。新ページを追加したら、ここに1エントリ足して push するだけで全ページの回遊ボタンが自動更新される。band=false のページは行き先としてのみ使われる（バンドは挿入しない）。next は手動キュレーションのおすすめ2枠（id指定）。3枠目は added が最新のページが自動で入る。auto=false のページは新着枠・同カテゴリ補完枠に自動掲載されない（＝どこかの next で明示指定したページからのみ到達できる）。有料テキストのように「無料版を必ず経由してから見せたい」導線に使う。",
-  "pages": [
-    {
-      "id": "index",
-      "path": "index.html",
-      "title": "きづきくみたて工房 Home",
-      "tag": "Home",
-      "desc": "研修・組織開発・対話のプログラム一覧と、工房のすべての入り口。",
-      "theme": "white",
-      "category": "home",
-      "added": "2025-01-01",
-      "band": true,
-      "next": [
-        "roadmap",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "store",
-      "path": "store.html",
-      "title": "ストア",
-      "tag": "ストア",
-      "desc": "持ち帰って使える実践キットと、対話力を深めるおすすめの本を一箇所に。",
-      "theme": "paper",
-      "category": "store",
-      "added": "2026-07-21",
-      "band": false,
-      "auto": false
-    },
-    {
-      "id": "roadmap",
-      "path": "roadmap.html",
-      "title": "世界平和までのロードマップ",
-      "tag": "目指す未来",
-      "desc": "平和は、人の認知能力から始まる。工房の全体地図となる論考。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-06",
-      "band": false,
-      "next": [
-        "ashimoto-map",
-        "dialogue-zukan"
-      ]
-    },
-    {
-      "id": "ashimoto-map",
-      "path": "ashimoto-map.html",
-      "title": "足元からの地図（展開編）",
-      "tag": "目指す未来",
-      "desc": "ロードマップを日本の足元に降ろす。地域と日常から始める展開編。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-08",
-      "band": true,
-      "next": [
-        "roadmap",
-        "shikumi-zukan"
-      ]
-    },
-    {
-      "id": "dialogue-program",
-      "path": "dialogue-program.html",
-      "title": "対話力向上プログラム",
-      "tag": "ソリューション",
-      "desc": "対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2025-06-01",
-      "band": true,
-      "next": [
-        "dialogue-program-trial",
-        "dialogue-zukan"
-      ]
-    },
-    {
-      "id": "education-program",
-      "path": "education-program.html",
-      "title": "研修設計プログラム",
-      "tag": "ソリューション",
-      "desc": "行動科学にもとづき、現場で行動が変わる研修を設計する。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2025-06-01",
-      "band": true,
-      "next": [
-        "dialogue-program",
-        "od-program"
-      ]
-    },
-    {
-      "id": "od-program",
-      "path": "od-program.html",
-      "title": "組織開発プログラム",
-      "tag": "ソリューション",
-      "desc": "人を責めずに構造で解く。対立を生む仕組みを診断し、設計し直す。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2025-06-01",
-      "band": true,
-      "next": [
-        "dialogue-program",
-        "social-leader-coaching"
-      ]
-    },
-    {
-      "id": "social-leader-coaching",
-      "path": "social-leader-coaching.html",
-      "title": "リーダー向けコーチング",
-      "tag": "ソリューション",
-      "desc": "社会と組織のあいだに立つリーダーの、意思決定と対話を支える。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2025-06-01",
-      "band": true,
-      "next": [
-        "od-program",
-        "topaasia"
-      ]
-    },
-    {
-      "id": "taiwa-teichaku",
-      "path": "taiwa-teichaku.html",
-      "title": "離職防止プログラム",
-      "tag": "ソリューション",
-      "desc": "離職の真因「対話の不在」に、診断・対話介入・効果測定を一気通貫で行うリテンション設計。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2026-07-14",
-      "band": true,
-      "next": [
-        "dialogue-program",
-        "democracy-fitness"
-      ]
-    },
-    {
-      "id": "democracy-fitness-career",
-      "path": "democracy-fitness-career.html",
-      "title": "個人向けキャリア開発",
-      "tag": "ソリューション",
-      "desc": "キャリア開発は「自分」という事業の経営。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニング。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2026-07-14",
-      "band": true,
-      "next": [
-        "democracy-fitness",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "dialogue-program-trial",
-      "path": "dialogue-program-trial.html",
-      "title": "対話力向上研修 体験会・説明会",
-      "tag": "体験会",
-      "desc": "まず一度、体験から。開催中の体験会・説明会の一覧と申し込み。",
-      "theme": "white",
-      "category": "solution",
-      "added": "2026-05-03",
-      "band": true,
-      "next": [
-        "dialogue-program",
-        "democracy-fitness"
-      ]
-    },
-    {
-      "id": "democracy-fitness",
-      "path": "democracy-fitness.html",
-      "title": "Democracy Fitness",
-      "tag": "手法・WS",
-      "desc": "デンマーク発、対話の筋肉を30分ずつ鍛えるトレーニング。",
-      "theme": "white",
-      "category": "method",
-      "added": "2025-06-01",
-      "band": true,
-      "next": [
-        "yokai-shindan",
-        "dialogue-program-trial"
-      ]
-    },
-    {
-      "id": "lsp",
-      "path": "lsp.html",
-      "title": "レゴ®シリアスプレイ®",
-      "tag": "手法・WS",
-      "desc": "手を動かして考える。ブロックで組織とチームの本音を可視化する。",
-      "theme": "white",
-      "category": "method",
-      "added": "2025-06-01",
-      "band": true,
-      "next": [
-        "education-program",
-        "topaasia"
-      ]
-    },
-    {
-      "id": "topaasia",
-      "path": "topaasia.html",
-      "title": "対話用カード Topaasia",
-      "tag": "手法・WS",
-      "desc": "フィンランド発の対話カード。チームの振り返りと対話を深める。",
-      "theme": "white",
-      "category": "method",
-      "added": "2026-05-20",
-      "band": true,
-      "next": [
-        "democracy-fitness",
-        "lsp"
-      ]
-    },
-    {
-      "id": "topaasia-data-notes",
-      "path": "topaasia-data-notes.html",
-      "title": "引用データと理論の限界について",
-      "tag": "補助資料",
-      "desc": "私たちが引用するデータ・理論の出典と限界を誠実に開示するノート。",
-      "theme": "white",
-      "category": "method",
-      "added": "2026-05-20",
-      "band": true,
-      "next": [
-        "topaasia",
-        "shikumi-zukan"
-      ]
-    },
-    {
-      "id": "yokai-shindan",
-      "path": "yokai/index.html",
-      "title": "会社の妖怪診断",
-      "tag": "3分診断",
-      "desc": "職場のすれ違いを生む妖怪を3分で判定。対になる式神を処方。",
-      "theme": "night",
-      "category": "yokai",
-      "added": "2026-07-05",
-      "band": false,
-      "next": [
-        "yokai-zukan",
-        "shakai-yokai"
-      ]
-    },
-    {
-      "id": "shakai-yokai",
-      "path": "shakai-yokai/index.html",
-      "title": "社会の妖怪診断（JA/EN）",
-      "tag": "3分診断",
-      "desc": "ニュースやSNSとのあいだに出る社会の妖怪を6問で判定。",
-      "theme": "night",
-      "category": "yokai",
-      "added": "2026-07-10",
-      "band": false,
-      "next": [
-        "yokai-shindan",
-        "roadmap"
-      ]
-    },
-    {
-      "id": "yokai-zukan",
-      "path": "yokai/zukan.html",
-      "title": "妖怪と式神の図鑑",
-      "tag": "図鑑",
-      "desc": "会社に出る10体の妖怪と、対になる式神の大判見開き図鑑。",
-      "theme": "night",
-      "category": "yokai",
-      "added": "2026-07-05",
-      "band": true,
-      "next": [
-        "yokai-shindan",
-        "yokai-workshop"
-      ]
-    },
-    {
-      "id": "yokai-workshop",
-      "path": "yokai/workshop.html",
-      "title": "妖怪と式神ワークショップ",
-      "tag": "手法・WS",
-      "desc": "妖怪の知恵で職場のすれ違いを扱う、チーム向けワークショップ。",
-      "theme": "night",
-      "category": "yokai",
-      "added": "2026-07-05",
-      "band": true,
-      "next": [
-        "yokai-zukan",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "yokai-ranking",
-      "path": "yokai/ranking.html",
-      "title": "日本の組織の妖怪ランキング",
-      "tag": "みんなの結果",
-      "desc": "診断の匿名集計から見える、日本の組織に多い妖怪ランキング。",
-      "theme": "night",
-      "category": "yokai",
-      "added": "2026-07-05",
-      "band": true,
-      "next": [
-        "yokai-shindan",
-        "yokai-gallery"
-      ]
-    },
-    {
-      "id": "yokai-gallery",
-      "path": "yokai/gallery.html",
-      "title": "職場の妖怪 投稿ギャラリー",
-      "tag": "育つ図鑑",
-      "desc": "図鑑にまだない職場の妖怪を投稿で集める、育っていく図鑑。",
-      "theme": "night",
-      "category": "yokai",
-      "added": "2026-07-05",
-      "band": true,
-      "next": [
-        "yokai-zukan",
-        "yokai-ranking"
-      ]
-    },
-    {
-      "id": "dialogue-zukan",
-      "path": "dialogue-zukan.html",
-      "title": "世界の対話の技法図鑑",
-      "tag": "図鑑・実践編",
-      "desc": "世界中で発明されてきた対話の技法を、出典つきで集めた図鑑。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-06",
-      "band": true,
-      "next": [
-        "roadmap",
-        "ted-collection"
-      ]
-    },
-    {
-      "id": "shikumi-zukan",
-      "path": "shikumi-zukan.html",
-      "title": "社会の仕組み図鑑",
-      "tag": "図鑑・構造編",
-      "desc": "お金・民意・土台。社会を作り直す世界の発明を集めた構造編。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-09",
-      "band": true,
-      "next": [
-        "poverty-zukan",
-        "roadmap"
-      ]
-    },
-    {
-      "id": "poverty-zukan",
-      "path": "poverty-zukan.html",
-      "title": "世界の貧困解決アイデア図鑑",
-      "tag": "図鑑",
-      "desc": "貧困に世界はどう挑んできたか。解決アイデアの姉妹図鑑。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-09",
-      "band": true,
-      "next": [
-        "shikumi-zukan",
-        "nobel-peace"
-      ]
-    },
-    {
-      "id": "ted-collection",
-      "path": "ted-collection.html",
-      "title": "おすすめTED集",
-      "tag": "映像で学ぶ",
-      "desc": "昔と今の16本。対話と社会を考えるためのTEDトーク集。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-09",
-      "band": true,
-      "next": [
-        "dialogue-zukan",
-        "nobel-peace"
-      ]
-    },
-    {
-      "id": "nobel-peace",
-      "path": "nobel-peace.html",
-      "title": "ノーベル平和賞 ― 125年の系譜",
-      "tag": "系譜",
-      "desc": "8人の声と歴代受賞者リスト。平和賞125年が指してきたもの。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-09",
-      "band": true,
-      "next": [
-        "roadmap",
-        "dialogue-zukan"
-      ]
-    },
-    {
-      "id": "goikeisei-zukan",
-      "path": "goikeisei-zukan.html",
-      "title": "合意形成図鑑",
-      "tag": "世界の知恵",
-      "desc": "世界と日本の「話し合いがうまくいく仕組み」を12の標本と5つの成立条件で読み解く図鑑。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-13",
-      "band": true,
-      "next": [
-        "dialogue-zukan",
-        "jirei-shotengai"
-      ]
-    },
-    {
-      "id": "systems-thinking-zukan",
-      "path": "systems-thinking-zukan.html",
-      "title": "システム思考図鑑",
-      "tag": "図鑑・見る技術",
-      "desc": "因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "shikumi-zukan",
-        "dialogue-zukan"
-      ]
-    },
-    {
-      "id": "series",
-      "path": "series/index.html",
-      "title": "連載：気づきから組み立てる",
-      "tag": "連載",
-      "desc": "現場の気づきを理論で組み立て直す、工房の連載シリーズ。",
-      "theme": "white",
-      "category": "series",
-      "added": "2026-06-20",
-      "band": true,
-      "next": [
-        "series-diagnostic",
-        "education-program"
-      ]
-    },
-    {
-      "id": "series-diagnostic",
-      "path": "series/diagnostic.html",
-      "title": "BEM診断シート",
-      "tag": "診断",
-      "desc": "あなたの組織のボトルネックはどこか。行動工学モデルで診断する。",
-      "theme": "white",
-      "category": "series",
-      "added": "2026-06-20",
-      "band": true,
-      "next": [
-        "series",
-        "od-program"
-      ]
-    },
-    {
-      "id": "pta-dialogue-kit",
-      "path": "pta-dialogue-kit.html",
-      "title": "PTA対話キット",
-      "tag": "対話キット",
-      "desc": "PTAのこれからを保護者と先生で話し合う無料の対話キット。8つの争点カードと進め方つき。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-12",
-      "band": true,
-      "next": [
-        "pta-kit-text",
-        "facilitator-training"
-      ]
-    },
-    {
-      "id": "facilitator-training",
-      "path": "facilitator-training.html",
-      "title": "対話ファシリテーター養成プログラム",
-      "tag": "養成プログラム",
-      "desc": "学校の話し合いの進行役を校内で育てる、演習中心の養成プログラム（全4回）。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-12",
-      "band": true,
-      "next": [
-        "pta-dialogue-kit",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "pta-kit-text",
-      "path": "pta-kit-text.html",
-      "title": "PTA対話 進行テキスト+当日セット",
-      "tag": "有料テキスト",
-      "desc": "無料キットを当日そのまま進行できる詳細テキスト+スライド+ワークシート（3,000円）。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-13",
-      "band": true,
-      "auto": false,
-      "next": [
-        "pta-dialogue-kit",
-        "facilitator-training"
-      ]
-    },
-    {
-      "id": "minna-no-koe",
-      "path": "minna-no-koe.html",
-      "title": "みんなの声",
-      "tag": "みんなの声",
-      "desc": "全国のPTAから届いた「やってみて、意外だったこと」。良い声もしんどい声もそのまま。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-13",
-      "band": true,
-      "next": [
-        "pta-dialogue-kit",
-        "yarigai-list"
-      ]
-    },
-    {
-      "id": "yarigai-list",
-      "path": "yarigai-list.html",
-      "title": "PTAのやりがいリスト",
-      "tag": "付属資料",
-      "desc": "負担ばかりが語られがちなPTAの、見えにくい「得たもの」を5つの面から集めたリスト。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-13",
-      "band": true,
-      "next": [
-        "pta-dialogue-kit",
-        "minna-no-koe"
-      ]
-    },
-    {
-      "id": "risk-calculators",
-      "path": "risk-calculators.html",
-      "title": "未来のリスク計算機について",
-      "tag": "前提と出典",
-      "desc": "6本の計算機に共通する前提・出典・免責・ライセンスと変更履歴。数字は結論ではなく対話の入口です。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "auto": false,
-      "next": [
-        "mirai-risk-kit",
-        "skill-succession-timebomb"
-      ]
-    },
-    {
-      "id": "mirai-risk-kit",
-      "path": "mirai-risk-kit.html",
-      "title": "未来リスク対話キット",
-      "tag": "有料キット",
-      "desc": "計算機で見えた数字を対話に変える完全キット。進行台本・ワークシート4種・反発対応ガイド（4,980円）。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-17",
-      "band": true,
-      "auto": false,
-      "next": [
-        "risk-calculators",
-        "recruitment-extinction"
-      ]
-    },
-    {
-      "id": "skill-succession-timebomb",
-      "path": "skill-succession-timebomb.html",
-      "title": "技能承継時限爆弾",
-      "tag": "未来リスク計算機",
-      "desc": "手順書には書けない「勘」は、教わる時間がなければ受け継げない。その技能が組織から消える年を試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "next": [
-        "recruitment-extinction",
-        "taiwa-teichaku"
-      ]
-    },
-    {
-      "id": "customer-age-timebomb",
-      "path": "customer-age-timebomb.html",
-      "title": "顧客の平均年齢時限爆弾",
-      "tag": "未来リスク計算機",
-      "desc": "売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "next": [
-        "recruitment-extinction",
-        "skill-succession-timebomb"
-      ]
-    },
-    {
-      "id": "recruitment-extinction",
-      "path": "recruitment-extinction.html",
-      "title": "採用市場消滅計算機",
-      "tag": "未来リスク計算機",
-      "desc": "2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "next": [
-        "customer-age-timebomb",
-        "skill-succession-timebomb"
-      ]
-    },
-    {
-      "id": "tax-revenue-countdown",
-      "path": "tax-revenue-countdown.html",
-      "title": "税収カウントダウン",
-      "tag": "未来リスク計算機",
-      "desc": "人口が入れ替わると、税収が下がりながら社会保障費が上がる。まちの財政が賄えなくなる年を試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "_hidden": "2026-07-16 測り方の見直しのため一時非表示。auto:false ＋ どのページの next からも外し、ナビ・sitemap・シリーズ帯からも削除済み。再公開するときは auto を消し、nav.json のドロップダウン・sitemap・scripts/update-calculators.py の SERIES とハブの一覧／出典表に戻す",
-      "auto": false,
-      "next": [
-        "ashimoto-map",
-        "shikumi-zukan"
-      ]
-    },
-    {
-      "id": "school-consolidation-countdown",
-      "path": "school-consolidation-countdown.html",
-      "title": "学校の分岐点",
-      "tag": "未来リスク計算機",
-      "desc": "2032年に入学する子は、もう全員生まれている。複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "next": [
-        "caregiving-capacity-calculator",
-        "ashimoto-map"
-      ]
-    },
-    {
-      "id": "caregiving-capacity-calculator",
-      "path": "caregiving-capacity-calculator.html",
-      "title": "介護の支え手計算機",
-      "tag": "未来リスク計算機",
-      "desc": "あなたが高齢期を迎える年、何人の現役世代がひとりの高齢者を支えているか。介護の担い手の不足を試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-15",
-      "band": true,
-      "next": [
-        "school-consolidation-countdown",
-        "longevity-money-map"
-      ]
-    },
-    {
-      "id": "longevity-money-map",
-      "path": "longevity-money-map.html",
-      "title": "老後のお金の見取り図",
-      "tag": "未来リスク計算機",
-      "desc": "「いつまで生きるか分からない」不安は、統計で目安が引けます。平均・2人に1人・10人に1人の寿命で、いまの資産が何歳まで持つかを試算する無料ツール。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "caregiving-capacity-calculator",
-        "risk-calculators"
-      ]
-    },
-    {
-      "id": "bellmark",
-      "path": "bellmark-calculator.html",
-      "title": "ベルマーク時給換算機",
-      "tag": "付属ツール",
-      "desc": "ベルマーク集計の作業時間を実質時給に換算する無料ツール。数字は「なんとなく大変」を事実に変える対話の入口。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-14",
-      "band": true,
-      "next": [
-        "pta-dialogue-kit",
-        "pta-muda"
-      ]
-    },
-    {
-      "id": "pta-muda",
-      "path": "pta-muda.html",
-      "title": "PTAの「無駄」はどこから生まれるのか",
-      "tag": "記事",
-      "desc": "やめられた活動・やめられなかった活動を整理し、「じゃあ、どうやめるのか」の手順まで書いた記事。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-14",
-      "band": true,
-      "next": [
-        "bellmark",
-        "pta-dialogue-kit"
-      ]
-    },
-    {
-      "id": "nigate-zukan",
-      "path": "nigate-zukan.html",
-      "title": "ホモ・サピエンスの苦手図鑑",
-      "tag": "世界の知恵",
-      "desc": "20万年前の脳で現代を生きる私たちの、人類共通の「苦手」12種を、進化の由来と処方箋つきで収蔵。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "chie-zukan",
-        "jirei"
-      ]
-    },
-    {
-      "id": "chie-zukan",
-      "path": "chie-zukan.html",
-      "title": "ホモ・サピエンスの知恵図鑑",
-      "tag": "世界の知恵",
-      "desc": "効力感・心理的安全性・メタ認知……人がもともと持ち、育てられる力を50種収蔵。『苦手図鑑』と対になる一冊。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "nigate-zukan",
-        "dialogue-zukan"
-      ]
-    },
-    {
-      "id": "alternative-education-zukan",
-      "path": "alternative-education-zukan.html",
-      "title": "世界のオルタナティブ教育図鑑",
-      "tag": "世界の知恵",
-      "desc": "モンテッソーリからサドベリー、きのくに子どもの村まで。世界24のオルタナティブ教育を、思想・学びの風景・日本での出会い方つきで収蔵。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "dialogue-zukan",
-        "chie-zukan"
-      ]
-    },
-    {
-      "id": "hininchi-zukan",
-      "path": "hininchi-zukan.html",
-      "title": "非認知スキル図鑑",
-      "tag": "世界の知恵",
-      "desc": "自制心・レジリエンス・共感力・メタ認知……テストでは測れないけれど人生と仕事を支える25のちからを、鍛え方と研究ノートつきで収蔵。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "chie-zukan",
-        "nigate-zukan"
-      ]
-    },
-    {
-      "id": "growth-laws-zukan",
-      "path": "growth-laws-zukan.html",
-      "title": "学びと成長の法則図鑑",
-      "tag": "世界の知恵",
-      "desc": "テスト効果・忘却曲線・成長マインドセット・心理的安全性……科学が確かめた学びと成長の法則23種を、根拠と但し書きと今日ためせる一手つきで収蔵。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "reflection-zukan",
-        "chie-zukan"
-      ]
-    },
-    {
-      "id": "reflection-zukan",
-      "path": "reflection-zukan.html",
-      "title": "ふりかえりの技法図鑑",
-      "tag": "世界の知恵",
-      "desc": "ジャーナリング・ORID・KPT・AAR・プレモーテム・免疫マップ……ひとりでもチームでも使えるふりかえりの技法23種を、やり方・所要時間・由来・コツつきで収蔵。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "growth-laws-zukan",
-        "dialogue-zukan"
-      ]
-    },
-    {
-      "id": "shinkei-busshitsu-zukan",
-      "path": "shinkei-busshitsu-zukan.html",
-      "title": "主な神経物質図鑑",
-      "tag": "世界の知恵",
-      "desc": "ドーパミン・セロトニン・オキシトシン……脳内で情報を受け渡す12の物質を、よくある誤解とともに正確に。対話と組織に読み替える『現場メモ』つき。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-18",
-      "band": true,
-      "next": [
-        "growth-laws-zukan",
-        "chie-zukan"
-      ]
-    },
-    {
-      "id": "nemuru-okane-zukan",
-      "path": "nemuru-okane-zukan.html",
-      "title": "眠るお金図鑑",
-      "tag": "世界の知恵",
-      "desc": "日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。タンス預金47兆円から内部留保600兆円まで、12の標本と、お金を教育にめぐらせる好循環アイデア10。",
-      "theme": "night",
-      "category": "chie",
-      "added": "2026-07-19",
-      "band": true,
-      "next": [
-        "shikumi-zukan",
-        "poverty-zukan"
-      ]
-    },
-    {
-      "id": "pta-korekara",
-      "path": "pta-korekara.html",
-      "title": "PTAのこれから",
-      "tag": "手法・WS",
-      "desc": "会員数の変化・5つの論点・これからのPTA像を、対話の形に整理したテーマページ。",
-      "theme": "paper",
-      "category": "solution",
-      "added": "2026-07-19",
-      "band": true,
-      "next": [
-        "pta-dialogue-kit",
-        "school-consolidation-countdown"
-      ]
-    },
-    {
-      "id": "taiwa-cost-calculator",
-      "path": "taiwa-cost-calculator.html",
-      "title": "対話不足コスト計算機",
-      "tag": "未来リスク計算機",
-      "desc": "会議の空転・手戻り・離職。対話不足が生む3つの見えない損失を、自社の数字で概算する無料ツール。数字は結論ではなく対話の入口です。",
-      "theme": "paper",
-      "category": "mirai",
-      "added": "2026-07-19",
-      "band": true,
-      "next": [
-        "taiwa-teichaku",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "salary-negotiation-calculator",
-      "path": "salary-negotiation-calculator.html",
-      "title": "昇給交渉しない計算機",
-      "tag": "未来のリスク計算機",
-      "desc": "たった30分の気まずい対話を先延ばしにすると、差額は複利で開き続ける。定年までの期待損失と、同業の相場との距離を試算。",
-      "theme": "white",
-      "category": "mirai",
-      "added": "2026-07-20",
-      "band": true,
-      "next": [
-        "salary-negotiation-kit",
-        "democracy-fitness-career"
-      ]
-    },
-    {
-      "id": "taiwa-avoidance-calculator",
-      "path": "taiwa-avoidance-calculator.html",
-      "title": "対話回避コスト計算機",
-      "tag": "未来のリスク計算機",
-      "desc": "言いにくいことを黙っている「しないコスト」は毎日積み上がり、切り出す「するコスト」は一度で減っていく。その2つが逆転する日を概算する思考実験。",
-      "theme": "white",
-      "category": "mirai",
-      "added": "2026-07-21",
-      "band": true,
-      "next": [
-        "taiwa-cost-calculator",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "salary-negotiation-kit",
-      "path": "salary-negotiation-kit.html",
-      "title": "昇給交渉キット",
-      "tag": "キット（有料）",
-      "desc": "マインドセット・状態構築編、日本の事例集、上司に渡すワンページャー。対決ではなく、共に壁を越えるための道具一式。",
-      "theme": "white",
-      "category": "mirai",
-      "added": "2026-07-20",
-      "band": true,
-      "auto": false,
-      "next": [
-        "salary-negotiation-calculator",
-        "democracy-fitness-career"
-      ]
-    },
-    {
-      "id": "education-roi-zukan",
-      "path": "education-roi-zukan.html",
-      "title": "教育の費用対効果図鑑",
-      "tag": "世界の知恵",
-      "desc": "この対象に、この投資をしたら何が返ってきたか。ペリー就学前計画から虫下し薬、FAFSA伴走まで、世界で厳密に測られた教育投資のリターンを、原典と毒キノコ（効かなかった例）つきで収蔵。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-19",
-      "band": true,
-      "next": [
-        "alternative-education-zukan",
-        "jirei-kenshu"
-      ]
-    },
-    {
-      "id": "1on1-zukan",
-      "path": "1on1-zukan.html",
-      "title": "1on1の成功と失敗の図鑑",
-      "tag": "世界の知恵",
-      "desc": "進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-20",
-      "band": true,
-      "next": [
-        "reflection-zukan",
-        "dialogue-program"
-      ]
-    },
-    {
-      "id": "career-theory-zukan",
-      "path": "career-theory-zukan.html",
-      "title": "キャリア理論図鑑",
-      "tag": "世界の知恵",
-      "desc": "パーソンズからサビカスまで、定番のキャリア理論21種を、根拠・言い過ぎを戒める但し書き・今日ためせる一手つきで収蔵。迷いから引ける逆引き表も。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-23",
-      "band": true,
-      "next": [
-        "tenshoku-no-sho",
-        "democracy-fitness-career"
-      ]
-    },
-    {
-      "id": "jirei",
-      "path": "jirei.html",
-      "title": "世界の成功と失敗事例集",
-      "tag": "事例集",
-      "desc": "世に出回るのは成功事例ばかり。成功と失敗を必ず併記し、両者を分けた「分岐点」を見極めるケースブック。個人・組織・社会の実例から、苦手と知恵を逆引きします。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-23",
-      "band": true,
-      "next": [
-        "jirei-kenshu",
-        "nigate-zukan"
-      ]
-    },
-    {
-      "id": "jirei-shotengai",
-      "path": "jirei-shotengai.html",
-      "title": "事例 No.001 商店街の立て直し",
-      "tag": "事例集",
-      "desc": "再開発した街と、アーケードだけ替えた街。分岐点は「建物より先に、地権者の対話に時間を使ったか」。高松丸亀町の実名事例と失敗の典型パターンを併記します。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-23",
-      "band": true,
-      "next": [
-        "goikeisei-zukan",
-        "jirei"
-      ]
-    },
-    {
-      "id": "jirei-kenshu",
-      "path": "jirei-kenshu.html",
-      "title": "事例 No.002 研修の成功と失敗",
-      "tag": "事例集",
-      "desc": "行動が変わった研修と、感想文で終わった研修。分岐点は「研修の前後を設計したか、当日だけを設計したか」。研修転移の研究知見から読み解きます。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-23",
-      "band": true,
-      "next": [
-        "education-roi-zukan",
-        "jirei"
-      ]
-    },
-    {
-      "id": "jirei-career",
-      "path": "jirei-career.html",
-      "title": "事例 No.003 キャリアの転機",
-      "tag": "事例集",
-      "desc": "降りて幸せになった人と、しがみついて消耗した人。分岐点は「評価軸を一本から多本に組み替えられたか」。公知の転身事例と失敗の典型パターンを併記します。",
-      "theme": "paper",
-      "category": "chie",
-      "added": "2026-07-23",
-      "band": true,
-      "next": [
-        "tenshoku-no-sho",
-        "jirei"
-      ]
-    },
-    {
-      "id": "tenshoku-no-sho",
-      "path": "tenshoku-no-sho.html",
-      "title": "みんなで作る 生涯キャリア図鑑",
-      "tag": "世界の知恵",
-      "desc": "はたらく職業をRPGの転職チャートに一覧化した、みんなで作る生涯キャリアの図鑑。上るだけでなく降りる・留まるも道。★の根拠は公的統計を明記。",
-      "theme": "night",
-      "category": "chie",
-      "added": "2026-07-22",
-      "band": true,
-      "next": [
-        "jirei-career",
-        "1on1-zukan"
-      ]
-    }
-  ]
+ "_readme": "サイト内回遊バンドの台帳。scripts/update-kaiyu.py が読み、各ページの <!-- KAIYU START/END --> 間を再生成する。新ページを追加したら、ここに1エントリ足して push するだけで全ページの回遊ボタンが自動更新される。band=false のページは行き先としてのみ使われる（バンドは挿入しない）。next は手動キュレーションのおすすめ2枠（id指定）。3枠目は added が最新のページが自動で入る。auto=false のページは新着枠・同カテゴリ補完枠に自動掲載されない（＝どこかの next で明示指定したページからのみ到達できる）。有料テキストのように「無料版を必ず経由してから見せたい」導線に使う。",
+ "pages": [
+  {
+   "id": "index",
+   "path": "index.html",
+   "title": "きづきくみたて工房 Home",
+   "tag": "Home",
+   "desc": "研修・組織開発・対話のプログラム一覧と、工房のすべての入り口。",
+   "theme": "white",
+   "category": "home",
+   "added": "2025-01-01",
+   "band": true,
+   "next": [
+    "roadmap",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "store",
+   "path": "store.html",
+   "title": "ストア",
+   "tag": "ストア",
+   "desc": "持ち帰って使える実践キットと、対話力を深めるおすすめの本を一箇所に。",
+   "theme": "paper",
+   "category": "store",
+   "added": "2026-07-21",
+   "band": false,
+   "auto": false
+  },
+  {
+   "id": "roadmap",
+   "path": "roadmap.html",
+   "title": "世界平和までのロードマップ",
+   "tag": "目指す未来",
+   "desc": "平和は、人の認知能力から始まる。工房の全体地図となる論考。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-06",
+   "band": false,
+   "next": [
+    "ashimoto-map",
+    "dialogue-zukan"
+   ]
+  },
+  {
+   "id": "ashimoto-map",
+   "path": "ashimoto-map.html",
+   "title": "足元からの地図（展開編）",
+   "tag": "目指す未来",
+   "desc": "ロードマップを日本の足元に降ろす。地域と日常から始める展開編。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-08",
+   "band": true,
+   "next": [
+    "roadmap",
+    "shikumi-zukan"
+   ]
+  },
+  {
+   "id": "dialogue-program",
+   "path": "dialogue-program.html",
+   "title": "対話力向上プログラム",
+   "tag": "ソリューション",
+   "desc": "対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2025-06-01",
+   "band": true,
+   "next": [
+    "dialogue-program-trial",
+    "dialogue-zukan"
+   ]
+  },
+  {
+   "id": "education-program",
+   "path": "education-program.html",
+   "title": "研修設計プログラム",
+   "tag": "ソリューション",
+   "desc": "行動科学にもとづき、現場で行動が変わる研修を設計する。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2025-06-01",
+   "band": true,
+   "next": [
+    "dialogue-program",
+    "od-program"
+   ]
+  },
+  {
+   "id": "od-program",
+   "path": "od-program.html",
+   "title": "組織開発プログラム",
+   "tag": "ソリューション",
+   "desc": "人を責めずに構造で解く。対立を生む仕組みを診断し、設計し直す。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2025-06-01",
+   "band": true,
+   "next": [
+    "dialogue-program",
+    "social-leader-coaching"
+   ]
+  },
+  {
+   "id": "social-leader-coaching",
+   "path": "social-leader-coaching.html",
+   "title": "リーダー向けコーチング",
+   "tag": "ソリューション",
+   "desc": "社会と組織のあいだに立つリーダーの、意思決定と対話を支える。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2025-06-01",
+   "band": true,
+   "next": [
+    "od-program",
+    "topaasia"
+   ]
+  },
+  {
+   "id": "taiwa-teichaku",
+   "path": "taiwa-teichaku.html",
+   "title": "離職防止プログラム",
+   "tag": "ソリューション",
+   "desc": "離職の真因「対話の不在」に、診断・対話介入・効果測定を一気通貫で行うリテンション設計。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2026-07-14",
+   "band": true,
+   "next": [
+    "dialogue-program",
+    "democracy-fitness"
+   ]
+  },
+  {
+   "id": "democracy-fitness-career",
+   "path": "democracy-fitness-career.html",
+   "title": "個人向けキャリア開発",
+   "tag": "ソリューション",
+   "desc": "キャリア開発は「自分」という事業の経営。意見を持ち、伝え、巻き込む筋肉を鍛える、個人のためのトレーニング。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2026-07-14",
+   "band": true,
+   "next": [
+    "democracy-fitness",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "dialogue-program-trial",
+   "path": "dialogue-program-trial.html",
+   "title": "対話力向上研修 体験会・説明会",
+   "tag": "体験会",
+   "desc": "まず一度、体験から。開催中の体験会・説明会の一覧と申し込み。",
+   "theme": "white",
+   "category": "solution",
+   "added": "2026-05-03",
+   "band": true,
+   "next": [
+    "dialogue-program",
+    "democracy-fitness"
+   ]
+  },
+  {
+   "id": "democracy-fitness",
+   "path": "democracy-fitness.html",
+   "title": "Democracy Fitness",
+   "tag": "手法・WS",
+   "desc": "デンマーク発、対話の筋肉を30分ずつ鍛えるトレーニング。",
+   "theme": "white",
+   "category": "method",
+   "added": "2025-06-01",
+   "band": true,
+   "next": [
+    "yokai-shindan",
+    "dialogue-program-trial"
+   ]
+  },
+  {
+   "id": "lsp",
+   "path": "lsp.html",
+   "title": "レゴ®シリアスプレイ®",
+   "tag": "手法・WS",
+   "desc": "手を動かして考える。ブロックで組織とチームの本音を可視化する。",
+   "theme": "white",
+   "category": "method",
+   "added": "2025-06-01",
+   "band": true,
+   "next": [
+    "education-program",
+    "topaasia"
+   ]
+  },
+  {
+   "id": "topaasia",
+   "path": "topaasia.html",
+   "title": "対話用カード Topaasia",
+   "tag": "手法・WS",
+   "desc": "フィンランド発の対話カード。チームの振り返りと対話を深める。",
+   "theme": "white",
+   "category": "method",
+   "added": "2026-05-20",
+   "band": true,
+   "next": [
+    "democracy-fitness",
+    "lsp"
+   ]
+  },
+  {
+   "id": "topaasia-data-notes",
+   "path": "topaasia-data-notes.html",
+   "title": "引用データと理論の限界について",
+   "tag": "補助資料",
+   "desc": "私たちが引用するデータ・理論の出典と限界を誠実に開示するノート。",
+   "theme": "white",
+   "category": "method",
+   "added": "2026-05-20",
+   "band": true,
+   "next": [
+    "topaasia",
+    "shikumi-zukan"
+   ]
+  },
+  {
+   "id": "yokai-shindan",
+   "path": "yokai/index.html",
+   "title": "会社の妖怪診断",
+   "tag": "3分診断",
+   "desc": "職場のすれ違いを生む妖怪を3分で判定。対になる式神を処方。",
+   "theme": "night",
+   "category": "yokai",
+   "added": "2026-07-05",
+   "band": false,
+   "next": [
+    "yokai-zukan",
+    "shakai-yokai"
+   ]
+  },
+  {
+   "id": "shakai-yokai",
+   "path": "shakai-yokai/index.html",
+   "title": "社会の妖怪診断（JA/EN）",
+   "tag": "3分診断",
+   "desc": "ニュースやSNSとのあいだに出る社会の妖怪を6問で判定。",
+   "theme": "night",
+   "category": "yokai",
+   "added": "2026-07-10",
+   "band": false,
+   "next": [
+    "yokai-shindan",
+    "roadmap"
+   ]
+  },
+  {
+   "id": "yokai-zukan",
+   "path": "yokai/zukan.html",
+   "title": "妖怪と式神の図鑑",
+   "tag": "図鑑",
+   "desc": "会社に出る10体の妖怪と、対になる式神の大判見開き図鑑。",
+   "theme": "night",
+   "category": "yokai",
+   "added": "2026-07-05",
+   "band": true,
+   "next": [
+    "yokai-shindan",
+    "yokai-workshop"
+   ]
+  },
+  {
+   "id": "yokai-workshop",
+   "path": "yokai/workshop.html",
+   "title": "妖怪と式神ワークショップ",
+   "tag": "手法・WS",
+   "desc": "妖怪の知恵で職場のすれ違いを扱う、チーム向けワークショップ。",
+   "theme": "night",
+   "category": "yokai",
+   "added": "2026-07-05",
+   "band": true,
+   "next": [
+    "yokai-zukan",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "yokai-ranking",
+   "path": "yokai/ranking.html",
+   "title": "日本の組織の妖怪ランキング",
+   "tag": "みんなの結果",
+   "desc": "診断の匿名集計から見える、日本の組織に多い妖怪ランキング。",
+   "theme": "night",
+   "category": "yokai",
+   "added": "2026-07-05",
+   "band": true,
+   "next": [
+    "yokai-shindan",
+    "yokai-gallery"
+   ]
+  },
+  {
+   "id": "yokai-gallery",
+   "path": "yokai/gallery.html",
+   "title": "職場の妖怪 投稿ギャラリー",
+   "tag": "育つ図鑑",
+   "desc": "図鑑にまだない職場の妖怪を投稿で集める、育っていく図鑑。",
+   "theme": "night",
+   "category": "yokai",
+   "added": "2026-07-05",
+   "band": true,
+   "next": [
+    "yokai-zukan",
+    "yokai-ranking"
+   ]
+  },
+  {
+   "id": "dialogue-zukan",
+   "path": "dialogue-zukan.html",
+   "title": "世界の対話の技法図鑑",
+   "tag": "図鑑・実践編",
+   "desc": "世界中で発明されてきた対話の技法を、出典つきで集めた図鑑。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-06",
+   "band": true,
+   "next": [
+    "roadmap",
+    "ted-collection"
+   ]
+  },
+  {
+   "id": "shikumi-zukan",
+   "path": "shikumi-zukan.html",
+   "title": "社会の仕組み図鑑",
+   "tag": "図鑑・構造編",
+   "desc": "お金・民意・土台。社会を作り直す世界の発明を集めた構造編。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-09",
+   "band": true,
+   "next": [
+    "poverty-zukan",
+    "roadmap"
+   ]
+  },
+  {
+   "id": "poverty-zukan",
+   "path": "poverty-zukan.html",
+   "title": "世界の貧困解決アイデア図鑑",
+   "tag": "図鑑",
+   "desc": "貧困に世界はどう挑んできたか。解決アイデアの姉妹図鑑。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-09",
+   "band": true,
+   "next": [
+    "shikumi-zukan",
+    "nobel-peace"
+   ]
+  },
+  {
+   "id": "ted-collection",
+   "path": "ted-collection.html",
+   "title": "おすすめTED集",
+   "tag": "映像で学ぶ",
+   "desc": "昔と今の16本。対話と社会を考えるためのTEDトーク集。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-09",
+   "band": true,
+   "next": [
+    "dialogue-zukan",
+    "nobel-peace"
+   ]
+  },
+  {
+   "id": "nobel-peace",
+   "path": "nobel-peace.html",
+   "title": "ノーベル平和賞 ― 125年の系譜",
+   "tag": "系譜",
+   "desc": "8人の声と歴代受賞者リスト。平和賞125年が指してきたもの。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-09",
+   "band": true,
+   "next": [
+    "roadmap",
+    "dialogue-zukan"
+   ]
+  },
+  {
+   "id": "goikeisei-zukan",
+   "path": "goikeisei-zukan.html",
+   "title": "合意形成図鑑",
+   "tag": "世界の知恵",
+   "desc": "世界と日本の「話し合いがうまくいく仕組み」を12の標本と5つの成立条件で読み解く図鑑。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-13",
+   "band": true,
+   "next": [
+    "dialogue-zukan",
+    "jirei-shotengai"
+   ]
+  },
+  {
+   "id": "systems-thinking-zukan",
+   "path": "systems-thinking-zukan.html",
+   "title": "システム思考図鑑",
+   "tag": "図鑑・見る技術",
+   "desc": "因果ループ図・システム原型・氷山モデルなど、つながりと全体の動きを見る28の図。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "shikumi-zukan",
+    "dialogue-zukan"
+   ]
+  },
+  {
+   "id": "series",
+   "path": "series/index.html",
+   "title": "連載：気づきから組み立てる",
+   "tag": "連載",
+   "desc": "現場の気づきを理論で組み立て直す、工房の連載シリーズ。",
+   "theme": "white",
+   "category": "series",
+   "added": "2026-06-20",
+   "band": true,
+   "next": [
+    "series-diagnostic",
+    "education-program"
+   ]
+  },
+  {
+   "id": "series-diagnostic",
+   "path": "series/diagnostic.html",
+   "title": "BEM診断シート",
+   "tag": "診断",
+   "desc": "あなたの組織のボトルネックはどこか。行動工学モデルで診断する。",
+   "theme": "white",
+   "category": "series",
+   "added": "2026-06-20",
+   "band": true,
+   "next": [
+    "series",
+    "od-program"
+   ]
+  },
+  {
+   "id": "pta-dialogue-kit",
+   "path": "pta-dialogue-kit.html",
+   "title": "PTA対話キット",
+   "tag": "対話キット",
+   "desc": "PTAのこれからを保護者と先生で話し合う無料の対話キット。8つの争点カードと進め方つき。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-12",
+   "band": true,
+   "next": [
+    "pta-kit-text",
+    "facilitator-training"
+   ]
+  },
+  {
+   "id": "facilitator-training",
+   "path": "facilitator-training.html",
+   "title": "対話ファシリテーター養成プログラム",
+   "tag": "養成プログラム",
+   "desc": "学校の話し合いの進行役を校内で育てる、演習中心の養成プログラム（全4回）。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-12",
+   "band": true,
+   "next": [
+    "pta-dialogue-kit",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "pta-kit-text",
+   "path": "pta-kit-text.html",
+   "title": "PTA対話 進行テキスト+当日セット",
+   "tag": "有料テキスト",
+   "desc": "無料キットを当日そのまま進行できる詳細テキスト+スライド+ワークシート（3,000円）。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-13",
+   "band": true,
+   "auto": false,
+   "next": [
+    "pta-dialogue-kit",
+    "facilitator-training"
+   ]
+  },
+  {
+   "id": "minna-no-koe",
+   "path": "minna-no-koe.html",
+   "title": "みんなの声",
+   "tag": "みんなの声",
+   "desc": "全国のPTAから届いた「やってみて、意外だったこと」。良い声もしんどい声もそのまま。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-13",
+   "band": true,
+   "next": [
+    "pta-dialogue-kit",
+    "yarigai-list"
+   ]
+  },
+  {
+   "id": "yarigai-list",
+   "path": "yarigai-list.html",
+   "title": "PTAのやりがいリスト",
+   "tag": "付属資料",
+   "desc": "負担ばかりが語られがちなPTAの、見えにくい「得たもの」を5つの面から集めたリスト。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-13",
+   "band": true,
+   "next": [
+    "pta-dialogue-kit",
+    "minna-no-koe"
+   ]
+  },
+  {
+   "id": "risk-calculators",
+   "path": "risk-calculators.html",
+   "title": "未来のリスク計算機について",
+   "tag": "前提と出典",
+   "desc": "6本の計算機に共通する前提・出典・免責・ライセンスと変更履歴。数字は結論ではなく対話の入口です。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "auto": false,
+   "next": [
+    "mirai-risk-kit",
+    "skill-succession-timebomb"
+   ]
+  },
+  {
+   "id": "mirai-risk-kit",
+   "path": "mirai-risk-kit.html",
+   "title": "未来リスク対話キット",
+   "tag": "有料キット",
+   "desc": "計算機で見えた数字を対話に変える完全キット。進行台本・ワークシート4種・反発対応ガイド（4,980円）。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-17",
+   "band": true,
+   "auto": false,
+   "next": [
+    "risk-calculators",
+    "recruitment-extinction"
+   ]
+  },
+  {
+   "id": "skill-succession-timebomb",
+   "path": "skill-succession-timebomb.html",
+   "title": "技能承継時限爆弾",
+   "tag": "未来リスク計算機",
+   "desc": "手順書には書けない「勘」は、教わる時間がなければ受け継げない。その技能が組織から消える年を試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "next": [
+    "recruitment-extinction",
+    "taiwa-teichaku"
+   ]
+  },
+  {
+   "id": "customer-age-timebomb",
+   "path": "customer-age-timebomb.html",
+   "title": "顧客の平均年齢時限爆弾",
+   "tag": "未来リスク計算機",
+   "desc": "売上が減る前に、顧客が市場からいなくなる。いまの年齢構成から顧客基盤が半減する年を試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "next": [
+    "recruitment-extinction",
+    "skill-succession-timebomb"
+   ]
+  },
+  {
+   "id": "recruitment-extinction",
+   "path": "recruitment-extinction.html",
+   "title": "採用市場消滅計算機",
+   "tag": "未来リスク計算機",
+   "desc": "2046年に22歳になる人は、もう全員生まれている。採用目標を割り込む年を確定した出生数から試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "next": [
+    "customer-age-timebomb",
+    "skill-succession-timebomb"
+   ]
+  },
+  {
+   "id": "tax-revenue-countdown",
+   "path": "tax-revenue-countdown.html",
+   "title": "税収カウントダウン",
+   "tag": "未来リスク計算機",
+   "desc": "人口が入れ替わると、税収が下がりながら社会保障費が上がる。まちの財政が賄えなくなる年を試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "_hidden": "2026-07-16 測り方の見直しのため一時非表示。auto:false ＋ どのページの next からも外し、ナビ・sitemap・シリーズ帯からも削除済み。再公開するときは auto を消し、nav.json のドロップダウン・sitemap・scripts/update-calculators.py の SERIES とハブの一覧／出典表に戻す",
+   "auto": false,
+   "next": [
+    "ashimoto-map",
+    "shikumi-zukan"
+   ]
+  },
+  {
+   "id": "school-consolidation-countdown",
+   "path": "school-consolidation-countdown.html",
+   "title": "学校の分岐点",
+   "tag": "未来リスク計算機",
+   "desc": "2032年に入学する子は、もう全員生まれている。複式学級になる年・統廃合が検討される規模になる年を試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "next": [
+    "caregiving-capacity-calculator",
+    "ashimoto-map"
+   ]
+  },
+  {
+   "id": "caregiving-capacity-calculator",
+   "path": "caregiving-capacity-calculator.html",
+   "title": "介護の支え手計算機",
+   "tag": "未来リスク計算機",
+   "desc": "あなたが高齢期を迎える年、何人の現役世代がひとりの高齢者を支えているか。介護の担い手の不足を試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-15",
+   "band": true,
+   "next": [
+    "school-consolidation-countdown",
+    "longevity-money-map"
+   ]
+  },
+  {
+   "id": "longevity-money-map",
+   "path": "longevity-money-map.html",
+   "title": "老後のお金の見取り図",
+   "tag": "未来リスク計算機",
+   "desc": "「いつまで生きるか分からない」不安は、統計で目安が引けます。平均・2人に1人・10人に1人の寿命で、いまの資産が何歳まで持つかを試算する無料ツール。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "caregiving-capacity-calculator",
+    "risk-calculators"
+   ]
+  },
+  {
+   "id": "bellmark",
+   "path": "bellmark-calculator.html",
+   "title": "ベルマーク時給換算機",
+   "tag": "付属ツール",
+   "desc": "ベルマーク集計の作業時間を実質時給に換算する無料ツール。数字は「なんとなく大変」を事実に変える対話の入口。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-14",
+   "band": true,
+   "next": [
+    "pta-dialogue-kit",
+    "pta-muda"
+   ]
+  },
+  {
+   "id": "pta-muda",
+   "path": "pta-muda.html",
+   "title": "PTAの「無駄」はどこから生まれるのか",
+   "tag": "記事",
+   "desc": "やめられた活動・やめられなかった活動を整理し、「じゃあ、どうやめるのか」の手順まで書いた記事。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-14",
+   "band": true,
+   "next": [
+    "bellmark",
+    "pta-dialogue-kit"
+   ]
+  },
+  {
+   "id": "nigate-zukan",
+   "path": "nigate-zukan.html",
+   "title": "ホモ・サピエンスの苦手図鑑",
+   "tag": "世界の知恵",
+   "desc": "20万年前の脳で現代を生きる私たちの、人類共通の「苦手」12種を、進化の由来と処方箋つきで収蔵。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "chie-zukan",
+    "jirei"
+   ]
+  },
+  {
+   "id": "chie-zukan",
+   "path": "chie-zukan.html",
+   "title": "ホモ・サピエンスの知恵図鑑",
+   "tag": "世界の知恵",
+   "desc": "効力感・心理的安全性・メタ認知……人がもともと持ち、育てられる力を50種収蔵。『苦手図鑑』と対になる一冊。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "nigate-zukan",
+    "dialogue-zukan"
+   ]
+  },
+  {
+   "id": "alternative-education-zukan",
+   "path": "alternative-education-zukan.html",
+   "title": "世界のオルタナティブ教育図鑑",
+   "tag": "世界の知恵",
+   "desc": "モンテッソーリからサドベリー、きのくに子どもの村まで。世界24のオルタナティブ教育を、思想・学びの風景・日本での出会い方つきで収蔵。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "dialogue-zukan",
+    "chie-zukan"
+   ]
+  },
+  {
+   "id": "hininchi-zukan",
+   "path": "hininchi-zukan.html",
+   "title": "非認知スキル図鑑",
+   "tag": "世界の知恵",
+   "desc": "自制心・レジリエンス・共感力・メタ認知……テストでは測れないけれど人生と仕事を支える25のちからを、鍛え方と研究ノートつきで収蔵。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "chie-zukan",
+    "nigate-zukan"
+   ]
+  },
+  {
+   "id": "growth-laws-zukan",
+   "path": "growth-laws-zukan.html",
+   "title": "学びと成長の法則図鑑",
+   "tag": "世界の知恵",
+   "desc": "テスト効果・忘却曲線・成長マインドセット・心理的安全性……科学が確かめた学びと成長の法則23種を、根拠と但し書きと今日ためせる一手つきで収蔵。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "reflection-zukan",
+    "chie-zukan"
+   ]
+  },
+  {
+   "id": "reflection-zukan",
+   "path": "reflection-zukan.html",
+   "title": "ふりかえりの技法図鑑",
+   "tag": "世界の知恵",
+   "desc": "ジャーナリング・ORID・KPT・AAR・プレモーテム・免疫マップ……ひとりでもチームでも使えるふりかえりの技法23種を、やり方・所要時間・由来・コツつきで収蔵。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "growth-laws-zukan",
+    "dialogue-zukan"
+   ]
+  },
+  {
+   "id": "shinkei-busshitsu-zukan",
+   "path": "shinkei-busshitsu-zukan.html",
+   "title": "主な神経物質図鑑",
+   "tag": "世界の知恵",
+   "desc": "ドーパミン・セロトニン・オキシトシン……脳内で情報を受け渡す12の物質を、よくある誤解とともに正確に。対話と組織に読み替える『現場メモ』つき。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-18",
+   "band": true,
+   "next": [
+    "growth-laws-zukan",
+    "chie-zukan"
+   ]
+  },
+  {
+   "id": "nemuru-okane-zukan",
+   "path": "nemuru-okane-zukan.html",
+   "title": "眠るお金図鑑",
+   "tag": "世界の知恵",
+   "desc": "日本の地下に眠る「使われていないお金」を鉱脈として観察する図鑑。タンス預金47兆円から内部留保600兆円まで、12の標本と、お金を教育にめぐらせる好循環アイデア10。",
+   "theme": "night",
+   "category": "chie",
+   "added": "2026-07-19",
+   "band": true,
+   "next": [
+    "shikumi-zukan",
+    "poverty-zukan"
+   ]
+  },
+  {
+   "id": "pta-korekara",
+   "path": "pta-korekara.html",
+   "title": "PTAのこれから",
+   "tag": "手法・WS",
+   "desc": "会員数の変化・5つの論点・これからのPTA像を、対話の形に整理したテーマページ。",
+   "theme": "paper",
+   "category": "solution",
+   "added": "2026-07-19",
+   "band": true,
+   "next": [
+    "pta-dialogue-kit",
+    "school-consolidation-countdown"
+   ]
+  },
+  {
+   "id": "taiwa-cost-calculator",
+   "path": "taiwa-cost-calculator.html",
+   "title": "対話不足コスト計算機",
+   "tag": "未来リスク計算機",
+   "desc": "会議の空転・手戻り・離職。対話不足が生む3つの見えない損失を、自社の数字で概算する無料ツール。数字は結論ではなく対話の入口です。",
+   "theme": "paper",
+   "category": "mirai",
+   "added": "2026-07-19",
+   "band": true,
+   "next": [
+    "taiwa-teichaku",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "salary-negotiation-calculator",
+   "path": "salary-negotiation-calculator.html",
+   "title": "昇給交渉しない計算機",
+   "tag": "未来のリスク計算機",
+   "desc": "たった30分の気まずい対話を先延ばしにすると、差額は複利で開き続ける。定年までの期待損失と、同業の相場との距離を試算。",
+   "theme": "white",
+   "category": "mirai",
+   "added": "2026-07-20",
+   "band": true,
+   "next": [
+    "salary-negotiation-kit",
+    "democracy-fitness-career"
+   ]
+  },
+  {
+   "id": "taiwa-avoidance-calculator",
+   "path": "taiwa-avoidance-calculator.html",
+   "title": "対話回避コスト計算機",
+   "tag": "未来のリスク計算機",
+   "desc": "言いにくいことを黙っている「しないコスト」は毎日積み上がり、切り出す「するコスト」は一度で減っていく。その2つが逆転する日を概算する思考実験。",
+   "theme": "white",
+   "category": "mirai",
+   "added": "2026-07-21",
+   "band": true,
+   "next": [
+    "taiwa-cost-calculator",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "salary-negotiation-kit",
+   "path": "salary-negotiation-kit.html",
+   "title": "昇給交渉キット",
+   "tag": "キット（有料）",
+   "desc": "マインドセット・状態構築編、日本の事例集、上司に渡すワンページャー。対決ではなく、共に壁を越えるための道具一式。",
+   "theme": "white",
+   "category": "mirai",
+   "added": "2026-07-20",
+   "band": true,
+   "auto": false,
+   "next": [
+    "salary-negotiation-calculator",
+    "democracy-fitness-career"
+   ]
+  },
+  {
+   "id": "education-roi-zukan",
+   "path": "education-roi-zukan.html",
+   "title": "教育の費用対効果図鑑",
+   "tag": "世界の知恵",
+   "desc": "この対象に、この投資をしたら何が返ってきたか。ペリー就学前計画から虫下し薬、FAFSA伴走まで、世界で厳密に測られた教育投資のリターンを、原典と毒キノコ（効かなかった例）つきで収蔵。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-19",
+   "band": true,
+   "next": [
+    "alternative-education-zukan",
+    "jirei-kenshu"
+   ]
+  },
+  {
+   "id": "1on1-zukan",
+   "path": "1on1-zukan.html",
+   "title": "1on1の成功と失敗の図鑑",
+   "tag": "世界の知恵",
+   "desc": "進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-20",
+   "band": true,
+   "next": [
+    "reflection-zukan",
+    "dialogue-program"
+   ]
+  },
+  {
+   "id": "career-theory-zukan",
+   "path": "career-theory-zukan.html",
+   "title": "キャリア理論図鑑",
+   "tag": "世界の知恵",
+   "desc": "パーソンズからサビカスまで、定番のキャリア理論21種を、根拠・言い過ぎを戒める但し書き・今日ためせる一手つきで収蔵。迷いから引ける逆引き表も。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-23",
+   "band": true,
+   "next": [
+    "tenshoku-no-sho",
+    "democracy-fitness-career"
+   ]
+  },
+  {
+   "id": "jirei",
+   "path": "jirei.html",
+   "title": "世界の成功と失敗事例集",
+   "tag": "事例集",
+   "desc": "世に出回るのは成功事例ばかり。成功と失敗を必ず併記し、両者を分けた「分岐点」を見極めるケースブック。個人・組織・社会の実例から、苦手と知恵を逆引きします。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-23",
+   "band": true,
+   "next": [
+    "jirei-kenshu",
+    "nigate-zukan"
+   ]
+  },
+  {
+   "id": "jirei-shotengai",
+   "path": "jirei-shotengai.html",
+   "title": "事例 No.001 商店街の立て直し",
+   "tag": "事例集",
+   "desc": "再開発した街と、アーケードだけ替えた街。分岐点は「建物より先に、地権者の対話に時間を使ったか」。高松丸亀町の実名事例と失敗の典型パターンを併記します。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-23",
+   "band": true,
+   "next": [
+    "goikeisei-zukan",
+    "jirei"
+   ]
+  },
+  {
+   "id": "jirei-kenshu",
+   "path": "jirei-kenshu.html",
+   "title": "事例 No.002 研修の成功と失敗",
+   "tag": "事例集",
+   "desc": "行動が変わった研修と、感想文で終わった研修。分岐点は「研修の前後を設計したか、当日だけを設計したか」。研修転移の研究知見から読み解きます。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-23",
+   "band": true,
+   "next": [
+    "education-roi-zukan",
+    "jirei"
+   ]
+  },
+  {
+   "id": "jirei-career",
+   "path": "jirei-career.html",
+   "title": "事例 No.003 キャリアの転機",
+   "tag": "事例集",
+   "desc": "降りて幸せになった人と、しがみついて消耗した人。分岐点は「評価軸を一本から多本に組み替えられたか」。公知の転身事例と失敗の典型パターンを併記します。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-23",
+   "band": true,
+   "next": [
+    "tenshoku-no-sho",
+    "jirei"
+   ]
+  },
+  {
+   "id": "tenshoku-no-sho",
+   "path": "tenshoku-no-sho.html",
+   "title": "みんなで作る 生涯キャリア図鑑",
+   "tag": "世界の知恵",
+   "desc": "はたらく職業をRPGの転職チャートに一覧化した、みんなで作る生涯キャリアの図鑑。上るだけでなく降りる・留まるも道。★の根拠は公的統計を明記。",
+   "theme": "night",
+   "category": "chie",
+   "added": "2026-07-22",
+   "band": true,
+   "next": [
+    "jirei-career",
+    "1on1-zukan"
+   ]
+  },
+  {
+   "id": "rest-productivity-zukan",
+   "path": "rest-productivity-zukan.html",
+   "title": "休息と生産性の図鑑",
+   "tag": "世界の知恵",
+   "desc": "「休むと業績が下がる」という思い込みを、認知科学・組織論の16の標本として展示。集中力の消耗から日本で休みにくい理由まで、休みと成果の本当の関係を眺める図鑑。",
+   "theme": "paper",
+   "category": "chie",
+   "added": "2026-07-23",
+   "band": true,
+   "next": [
+    "1on1-zukan",
+    "taiwa-cost-calculator"
+   ]
+  }
+ ]
 }

@@ -558,6 +558,16 @@
       "eyebrow": "みんなで作る ／ キャリア教材",
       "title": "生涯キャリア図鑑",
       "sub": "はたらく職業をRPGの転職チャートに一覧化。上るだけが道じゃない。"
+    },
+    {
+      "page": "rest-productivity-zukan.html",
+      "img": "rest-productivity-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#b98a2e",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "休息と生産性の図鑑",
+      "sub": "「休むと業績が下がる」という思い込みを、16の標本で眺める。休みと成果の本当の関係。"
     }
   ]
 }

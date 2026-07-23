@@ -139,6 +139,10 @@
             "href": "1on1-zukan.html"
           },
           {
+            "label": "休息と生産性の図鑑",
+            "href": "rest-productivity-zukan.html"
+          },
+          {
             "label": "キャリア理論図鑑",
             "href": "career-theory-zukan.html"
           },
@@ -611,6 +615,10 @@
     },
     {
       "path": "jijitsu-daicho.html",
+      "variant": "standard"
+    },
+    {
+      "path": "rest-productivity-zukan.html",
       "variant": "standard"
     }
   ],

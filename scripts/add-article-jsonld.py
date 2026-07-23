@@ -32,6 +32,7 @@ ARTICLE_PAGES = [
     "alternative-education-zukan.html",
     "education-roi-zukan.html",
     "1on1-zukan.html",
+    "rest-productivity-zukan.html",
     "career-theory-zukan.html",
     "jirei.html",
     "jirei-shotengai.html",
