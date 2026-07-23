@@ -590,6 +590,36 @@
       "sub": "対話とセットで変えた会社と、制度だけ差し替えた会社。分岐点は「育成の対話につくり替えたか」。"
     },
     {
+      "page": "jirei-tatewari.html",
+      "img": "jirei-tatewari-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.008 ／ 組織",
+      "title": "縦割りの解消",
+      "sub": "仕組みで橋を架けた会社と、交流に頼った会社。分岐点は「仕組みの橋を架けたか」。"
+    },
+    {
+      "page": "jirei-mokuhyo.html",
+      "img": "jirei-mokuhyo-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.009 ／ 組織",
+      "title": "目標設定と目標管理",
+      "sub": "対話の道具にした会社と、提出書類で終わった会社。分岐点は「対話の道具にしたか」。"
+    },
+    {
+      "page": "jirei-omoshiro-jinji.html",
+      "img": "jirei-omoshiro-jinji-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.010 ／ 組織",
+      "title": "おもしろ人事制度",
+      "sub": "思想から生まれた制度と、話題づくりで終わった制度。分岐点は「思想から育てたか」。"
+    },
+    {
       "page": "tenshoku-no-sho.html",
       "img": "tenshoku-no-sho-ogp.png",
       "template": "standard",
@@ -608,6 +638,16 @@
       "eyebrow": "図鑑 ／ 世界の知恵",
       "title": "休息と生産性の図鑑",
       "sub": "「休むと業績が下がる」という思い込みを、21の標本で眺める増補版。休みと成果の本当の関係。"
+    },
+    {
+      "page": "gyokai-zukan.html",
+      "img": "gyokai-zukan-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#ffd76a",
+      "eyebrow": "みんなで作る ／ キャリア教材",
+      "title": "業界図鑑",
+      "sub": "日本の16業界を「はたらく世界の大陸」に見立てた地図。生涯キャリア図鑑の対の書。"
     }
   ]
 }

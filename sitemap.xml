@@ -325,6 +325,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://kizukikumitate.com/jirei-tatewari.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kizukikumitate.com/jirei-mokuhyo.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kizukikumitate.com/jirei-omoshiro-jinji.html</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://kizukikumitate.com/career-theory-zukan.html</loc>
     <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -428,7 +446,13 @@
   </url>
   <url>
     <loc>https://kizukikumitate.com/tenshoku-no-sho.html</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://kizukikumitate.com/gyokai-zukan.html</loc>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

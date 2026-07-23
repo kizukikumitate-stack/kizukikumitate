@@ -443,6 +443,9 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
   background:var(--surface);border:1px solid var(--hairline);border-radius:5px;padding:3px 8px;
 }
 .link-chip:hover{color:var(--gold);border-color:var(--gold);}
+a.link-chip{text-decoration:none;display:inline-block;}
+header .pair-link{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--gold);text-decoration:none;border:1px solid var(--gold);border-radius:999px;padding:5px 14px;letter-spacing:.06em;}
+header .pair-link:hover{background:var(--surface-2);}
 
 /* ---- zukan card collapse (図鑑タブのみ。モーダルは常時フル表示) ---- */
 .zukan-grid{align-items:start;}
@@ -640,6 +643,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
         <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
         <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
         <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材" class="active">生涯キャリア図鑑</a>
+        <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
         <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
         <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
@@ -667,6 +671,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
         <a href="./jirei-rinen-shinto.html" title="毎日問いかけた会社と、唱和で終わった会社の分岐点">理念の浸透</a>
         <a href="./jirei-purpose.html" title="仕組みまで変えた会社と、言葉だけ替えた会社の分岐点">パーパス経営と風土改革</a>
         <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
+        <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
+        <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
+        <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会の事例</span>
         <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
       </div>
@@ -761,6 +768,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
       <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
       <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材" class="active">生涯キャリア図鑑</a>
+      <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
       <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
       <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
@@ -788,6 +796,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <a href="./jirei-rinen-shinto.html" title="毎日問いかけた会社と、唱和で終わった会社の分岐点">理念の浸透</a>
       <a href="./jirei-purpose.html" title="仕組みまで変えた会社と、言葉だけ替えた会社の分岐点">パーパス経営と風土改革</a>
       <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
+      <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
+      <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
+      <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会の事例</span>
       <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
     </div>
@@ -842,6 +853,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       なお、右の階層へ進むほど椅子の数は減りますが、<b style="color:var(--ink)">その椅子の担い手候補は常に足りていません</b>。高い能力へ育つ人が増えていくことは、社会全体にとってとても大切なことです。
     </div>
     <div class="note">高校・大学のキャリア教育や若手研修向け教材 / ★の根拠と実データの出典は「ほうしゅう比較」タブに明記。数値は目安であり、会社・働き方・個人差で大きく変わります。<br>授業や個人での利用は自由に。有料での利用は事前に一声を（くわしくは「つかいかた」の利用について）。コラボ企画も大歓迎です。</div>
+    <a class="pair-link" href="./gyokai-zukan.html">🗺 対の書: 業界図鑑（はたらく世界の16大陸）へ</a>
   </header>
 
   <div class="job-search" id="jobSearchBox">
@@ -1145,8 +1157,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <span class="kaiyu-title">次は、こちらへ。</span>
   </div>
   <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./gyokai-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">みんなで作る 業界図鑑</span><span class="kaiyu-desc">日本の16業界を「はたらく世界の大陸」に見立てた、みんなで作る業界の図鑑。はたらく人の数・追い風・人手不足度を公的統計つきで一覧。生涯キャリア図鑑の対の書。</span><span class="kaiyu-arw">→</span></a>
     <a class="kaiyu-card" href="./jirei-career.html"><span class="kaiyu-tag">事例集</span><span class="kaiyu-name">事例 No.003 キャリアの転機</span><span class="kaiyu-desc">降りて幸せになった人と、しがみついて消耗した人。分岐点は「評価軸を一本から多本に組み替えられたか」。公知の転身事例と失敗の典型パターンを併記します。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./1on1-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">1on1の成功と失敗の図鑑</span><span class="kaiyu-desc">進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。</span><span class="kaiyu-arw">→</span></a>
     <a class="kaiyu-card" href="./career-theory-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">キャリア理論図鑑</span><span class="kaiyu-desc">パーソンズからサビカスまで、定番のキャリア理論21種を、根拠・言い過ぎを戒める但し書き・今日ためせる一手つきで収蔵。迷いから引ける逆引き表も。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
@@ -2353,6 +2365,39 @@ JOBS.forEach(j=>{ j.hitode = HITODE[j.id]; });
 const JOB_MAP = Object.fromEntries(JOBS.map(j=>[j.id,j]));
 const childrenOf = id => JOBS.filter(j=>(j.from||[]).includes(id));
 
+/* ---- 対の書「業界図鑑」への逆引き（gyokai-zukan.html の GYOKAI 台帳と対で更新する） ---- */
+const GYOKAI_NAMES = {
+  nourin:"農林水産業", kensetsu:"建設業", seizo:"製造業", energy:"電気・ガス・水道",
+  it:"情報通信業", senmon:"学術研究・専門サービス", iryofukushi:"医療・福祉", kyoiku:"教育・学習支援",
+  komu:"公務", service:"その他サービス", oroshi:"卸売・小売業", kinyu:"金融・保険業",
+  fudosan:"不動産・物品賃貸", unyu:"運輸・郵便業", shukuhaku:"宿泊・飲食サービス", seikatsu:"生活関連・娯楽",
+};
+const JOB_GYOKAI = {
+  nougyo:["nourin"], nouke:["nourin"], nouhoujin:["nourin"], jyui:["nourin","iryofukushi"],
+  tobi:["kensetsu"], sekokan:["kensetsu"], kenchikushi:["kensetsu","senmon"], kenchikuka:["kensetsu"], genbashocho:["kensetsu"],
+  craft:["seizo","energy"], qualityeng:["seizo"], coo:["seizo","unyu"], salesengineer:["seizo","it"],
+  engineer:["it","seizo","energy"], datascientist:["it"], pm:["it"], gamecreator:["it"], writer:["it"], eizoudir:["it"],
+  analyst:["it","kinyu"], uxdesigner:["it"], designer:["it","seizo"], cto:["it"],
+  consul:["senmon"], senryaku:["senmon"], lawyer:["senmon"], authority:["senmon","kyoiku"], partner:["senmon"], conpartner:["senmon"],
+  nurse:["iryofukushi"], doctor:["iryofukushi"], kaigo:["iryofukushi"], kaigofukushi:["iryofukushi"],
+  cnurse:["iryofukushi"], shisetsucho:["iryofukushi"], kangobucho:["iryofukushi"], kyujo:["iryofukushi","komu"],
+  teacher:["kyoiku"], learningdesigner:["kyoiku"],
+  komuin:["komu"], kanryou:["komu"], keisatsu:["komu"], shobo:["komu"], jieitai:["komu"], politician:["komu"],
+  keiji:["komu"], jieikanbu:["komu"], shokan:["komu"], jimujikan:["komu"], shocho:["komu"], shobocho:["komu"],
+  shikikan:["komu"], seifuku:["komu"],
+  npo:["service"], fundraiser:["service"], jimukyokucho:["service"], shukyoka:["service"], jushoku:["service"],
+  honzan:["service"], kancho:["service"], bpr:["service","unyu"], social:["service"],
+  retail:["oroshi"], sales:["oroshi","fudosan"], ecproducer:["oroshi"], shosha:["oroshi"], kaigai:["oroshi"],
+  marketer:["oroshi","it"], contentmarketer:["it","oroshi"], csuccess:["it"],
+  kinyu:["kinyu"], fundmgr:["kinyu"], invpro:["kinyu"], vc:["kinyu"], angel:["kinyu"], toshika:["kinyu"], fpa:["kinyu","seizo"],
+  planner:["fudosan","oroshi"], cs:["unyu","it"], admin:["energy","unyu"], keiei:["fudosan"],
+  chouri:["shukuhaku"], chef:["shukuhaku"], ownerchef:["shukuhaku"], insyokuowner:["shukuhaku"], panya:["shukuhaku"],
+  biyoshi:["seikatsu"], stylist:["seikatsu"], salonowner:["seikatsu"], ongakuka:["seikatsu"], proathlete:["seikatsu"],
+  athlete:["seikatsu"], topathlete:["seikatsu"], puroartist:["seikatsu"], staratist:["seikatsu"], geijutsuka:["seikatsu"],
+  douga:["it"], mangaka:["it"], animator:["it"], rensai:["it"], sakuga:["it"], hitmangaka:["it"], animedir:["it"], filmdir:["it"],
+  dentou:["seikatsu"], dentoupro:["seikatsu"], shishou:["seikatsu"], bunka:["seikatsu"], tsuyaku:["senmon"],
+};
+
 /* ================= 部品 ================= */
 function stars(n, max=5){
   let s = '<span class="stars" role="img" aria-label="5段階中'+n+'">';
@@ -2438,6 +2483,12 @@ function cardHTML(j, withLinks=true, collapsible=false){
     if(j.from && j.from.length){
       h += '<div class="sec-label">前提となる職</div><div class="links">';
       for(const pid of j.from){ const p=JOB_MAP[pid]; if(p) h += '<button class="link-chip" data-job="'+p.id+'">◀ '+p.name+'</button>'; }
+      h += '</div>';
+    }
+    const conts = JOB_GYOKAI[j.id];
+    if(conts && conts.length){
+      h += '<div class="sec-label">さかえる大陸（対の書: 業界図鑑へ）</div><div class="links">';
+      for(const gid of conts){ if(GYOKAI_NAMES[gid]) h += '<a class="link-chip" href="./gyokai-zukan.html#ind-'+gid+'">🗺 '+GYOKAI_NAMES[gid]+'</a>'; }
       h += '</div>';
     }
   }
@@ -3161,6 +3212,11 @@ document.body.appendChild(tutHelpBtn);
 
 /* ================= 更新履歴（ver表示・右下） ================= */
 const VERSION_LOG = [
+  {v:"2.0", d:"2026-07-23", items:[
+    "対の書『業界図鑑』が誕生——はたらく世界の16大陸を収蔵した、もう1冊の図鑑",
+    "ジョブカードに「さかえる大陸」リンクを追加。職業から業界へ、業界から職業へ渡り歩けるように",
+    "ヘッダーに対の書への案内を設置",
+  ]},
   {v:"1.6", d:"2026-07-23", items:[
     "ジョブずかんに収蔵数を表示（全体の職数と、階層ごとの職数）",
     "ほうしゅう比較の職業列をコンパクトにして、全列を一覧しやすく",
@@ -3237,6 +3293,21 @@ document.body.appendChild(themeBtn);
 /* タブ切り替え直後に階層レールの現在地を更新 */
 document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>requestAnimationFrame(updateTierRail)));
 updateTierRail();
+
+/* ================= 回遊計測（対の書・業界図鑑へのクリック） ================= */
+document.addEventListener("click",e=>{
+  const a = e.target.closest('a[href*="gyokai-zukan.html"]');
+  if(a && typeof gtag==="function") gtag('event','zukan_pair_click',{from:'tenshoku',to:'gyokai',target:(a.hash||'').slice(1)});
+});
+
+/* ================= ディープリンク（#job-xx でジョブカードを開く。業界図鑑からの入口） ================= */
+function openJobFromHash(){
+  if(!location.hash.startsWith("#job-")) return;
+  const id = location.hash.slice(5);
+  if(JOB_MAP[id]) setTimeout(()=>openModal(id), 150);
+}
+openJobFromHash();
+window.addEventListener("hashchange", openJobFromHash);
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];
@@ -3537,6 +3608,7 @@ addEventListener('load',()=>{
       <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
       <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
       <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材" class="active">生涯キャリア図鑑</a>
+      <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
       <span class="shelf-heading">社会と世界の図鑑</span>
       <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
       <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>

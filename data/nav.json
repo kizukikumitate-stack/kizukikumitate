@@ -178,6 +178,11 @@
             "desc": "職業をRPG風の転職チャートで一覧する無料教材"
           },
           {
+            "label": "業界図鑑",
+            "href": "gyokai-zukan.html",
+            "desc": "日本の16業界を「はたらく世界の大陸」に見立てた無料教材"
+          },
+          {
             "heading": "社会と世界の図鑑"
           },
           {
@@ -283,6 +288,21 @@
             "label": "評価制度の改訂",
             "href": "jirei-hyoka.html",
             "desc": "対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点"
+          },
+          {
+            "label": "縦割りの解消",
+            "href": "jirei-tatewari.html",
+            "desc": "仕組みで橋を架けた会社と、交流に頼った会社の分岐点"
+          },
+          {
+            "label": "目標設定と目標管理",
+            "href": "jirei-mokuhyo.html",
+            "desc": "対話の道具にした会社と、書類で終わった会社の分岐点"
+          },
+          {
+            "label": "おもしろ人事制度",
+            "href": "jirei-omoshiro-jinji.html",
+            "desc": "思想から育てた制度と、話題づくりの制度の分岐点"
           },
           {
             "heading": "社会の事例"
@@ -690,6 +710,18 @@
       "variant": "standard"
     },
     {
+      "path": "jirei-tatewari.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-mokuhyo.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-omoshiro-jinji.html",
+      "variant": "standard"
+    },
+    {
       "path": "jirei-shotengai.html",
       "variant": "standard"
     },
@@ -711,6 +743,10 @@
     },
     {
       "path": "rest-productivity-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "gyokai-zukan.html",
       "variant": "standard"
     }
   ],

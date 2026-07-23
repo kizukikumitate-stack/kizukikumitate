@@ -909,7 +909,7 @@
       "path": "1on1-zukan.html",
       "title": "1on1の成功と失敗の図鑑",
       "tag": "世界の知恵",
-      "desc": "進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。",
+      "desc": "進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功24種・しくじり26種のパターンを、出没場面と対処法つきで収蔵。上司側・部下側で絞り込めます。",
       "theme": "paper",
       "category": "chie",
       "added": "2026-07-20",
@@ -1055,6 +1055,51 @@
       ]
     },
     {
+      "id": "jirei-tatewari",
+      "path": "jirei-tatewari.html",
+      "title": "事例 No.008 縦割りの解消",
+      "tag": "事例集",
+      "desc": "仕組みで橋を架けた会社と、交流イベントに頼った会社。分岐点は「部門の壁に仕組みの橋を架けたか、交流の場だけを増やしたか」。マイクロソフト・トヨタの実名事例と失敗の典型パターンを併記します。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "goikeisei-zukan",
+        "jirei"
+      ]
+    },
+    {
+      "id": "jirei-mokuhyo",
+      "path": "jirei-mokuhyo.html",
+      "title": "事例 No.009 目標設定と目標管理",
+      "tag": "事例集",
+      "desc": "対話の道具にした会社と、提出書類で終わった会社。分岐点は「目標を対話の道具にしたか、提出する書類にしたか」。花王・メルカリの実名事例と失敗の典型パターンを併記します。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "1on1-zukan",
+        "jirei"
+      ]
+    },
+    {
+      "id": "jirei-omoshiro-jinji",
+      "path": "jirei-omoshiro-jinji.html",
+      "title": "事例 No.010 おもしろ人事制度",
+      "tag": "事例集",
+      "desc": "思想から生まれた制度と、話題づくりで終わった制度。分岐点は「制度を自社の思想から育てたか、他社の話題から借りたか」。サイボウズ・カヤックの実名事例と失敗の典型パターンを併記します。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "chie-zukan",
+        "jirei"
+      ]
+    },
+    {
       "id": "tenshoku-no-sho",
       "path": "tenshoku-no-sho.html",
       "title": "みんなで作る 生涯キャリア図鑑",
@@ -1065,8 +1110,8 @@
       "added": "2026-07-22",
       "band": true,
       "next": [
-        "jirei-career",
-        "1on1-zukan"
+        "gyokai-zukan",
+        "jirei-career"
       ]
     },
     {
@@ -1082,6 +1127,21 @@
       "next": [
         "1on1-zukan",
         "taiwa-cost-calculator"
+      ]
+    },
+    {
+      "id": "gyokai-zukan",
+      "path": "gyokai-zukan.html",
+      "title": "みんなで作る 業界図鑑",
+      "tag": "世界の知恵",
+      "desc": "日本の16業界を「はたらく世界の大陸」に見立てた、みんなで作る業界の図鑑。はたらく人の数・追い風・人手不足度を公的統計つきで一覧。生涯キャリア図鑑の対の書。",
+      "theme": "night",
+      "category": "chie",
+      "added": "2026-07-23",
+      "band": true,
+      "next": [
+        "tenshoku-no-sho",
+        "career-theory-zukan"
       ]
     }
   ]
