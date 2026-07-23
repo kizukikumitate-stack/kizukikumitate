@@ -149,6 +149,10 @@ header .pair-link:hover{background:var(--surface-2);}
 .zukan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;padding:4px;align-items:start;}
 @media (max-width:359px){.zukan-grid{grid-template-columns:minmax(0,1fr);}}
 .indcard{padding:16px 18px;font-size:13px;}
+.card-fig{margin:-16px -18px 12px;background:#0e1024;border-bottom:2px solid var(--hairline);border-radius:6px 6px 0 0;overflow:hidden;}
+.card-fig img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
+.card-fig-ph{aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--fc,var(--hairline));background:radial-gradient(circle at 50% 42%, color-mix(in srgb, var(--fc,#31355e) 26%, #0e1024), #0e1024);}
+.card-fig-ph span{font-size:40px;opacity:.9;}
 .indcard h3{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:17px;font-weight:700;letter-spacing:.06em;}
 .realm-badge{font-size:10px;letter-spacing:.1em;padding:2px 7px;border:1px solid var(--gc,var(--ink-2));border-radius:4px;color:var(--gc,var(--ink-2));white-space:nowrap;}
 .rarity{font-size:11px;color:var(--ink-muted);margin-top:3px;}
@@ -213,6 +217,14 @@ html.light .tech-item b{--gc2:#1d6fb8;}
 .tier-head .th-sub{color:var(--ink-muted);font-size:11.5px;letter-spacing:.04em;}
 .zukan-total{grid-column:1/-1;text-align:center;color:var(--ink-2);font-size:13px;letter-spacing:.1em;margin:2px 4px 0;}
 .zukan-total b{color:var(--gold);font-size:16px;font-weight:700;}
+
+/* ---- world map ---- */
+.map-wrap{padding:14px;}
+.map-svg{width:100%;height:auto;display:block;}
+.map-tile{cursor:pointer;}
+.map-tile rect{transition:stroke-width .15s;}
+.map-tile:hover rect,.map-tile:focus rect{stroke-width:3;}
+.map-tile text{pointer-events:none;}
 
 /* ---- compare table ---- */
 .table-scroller{overflow-x:auto;padding:6px;}
@@ -593,21 +605,31 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <div class="wrap">
   <header class="dq">
-    <h1><span class="deco">◆</span> みんなで作る 業界図鑑 <span class="deco">◆</span></h1>
+    <div style="font-size:13px;letter-spacing:.26em;color:var(--gold);margin-bottom:4px;">みんなで作る</div>
+    <h1><span class="deco">◆</span> 業界図鑑 <span class="deco">◆</span></h1>
     <p class="sub">はたらく世界の大陸めぐり —— 「なにになるか」の次は「どこではたらくか」</p>
     <p class="note">日本の16業界を、はたらく世界の大陸に見立てた地図。★の根拠は公的統計を明記（つかいかたタブ参照）</p>
     <a class="pair-link" href="./tenshoku-no-sho.html">📖 対の書: 生涯キャリア図鑑（129職のジョブ図鑑）へ</a>
   </header>
 
   <div class="tabs" role="tablist">
-    <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-zukan">業界ずかん</button>
+    <button class="tab-btn" role="tab" aria-selected="true" data-panel="p-map">世界地図</button>
+    <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-zukan">業界ずかん</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-table">くらべる</button>
     <button class="tab-btn" role="tab" aria-selected="false" data-panel="p-usage">つかいかた</button>
   </div>
 
   <div class="dq fam-legend" id="famLegend"></div>
 
-  <section id="p-zukan" class="panel active" role="tabpanel">
+  <section id="p-map" class="panel active" role="tabpanel">
+    <p class="chart-first">大陸の<b style="color:var(--gold)">面積＝はたらく人の数</b>。日本の約6,700万人が、どの大陸にどれだけ住んでいるかの地図です。大陸をタップすると、その業界のカードが開きます。</p>
+    <div class="dq map-wrap">
+      <svg id="worldMap" class="map-svg" role="img" aria-label="業界別のはたらく人の数を面積で表した地図"></svg>
+    </div>
+    <p class="tbl-note">※ 面積は総務省「労働力調査」2024年平均の就業者数に比例。地図に描ききれない小さな島々（鉱業 約2万人・複合サービス 約50万人）もこの世界のどこかにあります。</p>
+  </section>
+
+  <section id="p-zukan" class="panel" role="tabpanel">
     <div class="tier-rail" id="tierRail" role="navigation" aria-label="系統へジャンプ">
       <button type="button" style="--tc:var(--g-tsukuru)" data-tier="tsukuru" title="つくる系へジャンプ"><span>⚒️</span><small>つくる</small></button>
       <button type="button" style="--tc:var(--g-hiraku)" data-tier="hiraku" title="ひらく系へジャンプ"><span>🔮</span><small>ひらく</small></button>
@@ -756,6 +778,17 @@ const GYOKAI = [
  kaze:{lv:3, note:"国内は成熟。半導体・EV・防衛など分野ごとに風向きが大きく違う"},
  hitode:{lv:4, note:"技能承継が大きな課題。熟練者の引退で現場の知恵が失われつつある"},
  okite:"「カイゼン」を生んだ大陸。品質への誇りが文化として根づく。工場の自動化が進むほど、機械を使いこなす人と生産全体を設計する人の価値が上がる。",
+ kingdoms:[
+   {icon:"🍞", name:"食の王国",   sub:"食料品",             workers:110},
+   {icon:"🛞", name:"車輪の王国", sub:"自動車・輸送用機械", workers:110},
+   {icon:"⚙️", name:"歯車の王国", sub:"生産用機械",         workers:60},
+   {icon:"🛡️", name:"鋼の王国",   sub:"金属製品",           workers:60},
+   {icon:"🔌", name:"電機の王国", sub:"電気機械器具",       workers:50},
+   {icon:"⚗️", name:"錬金の王国", sub:"化学工業",           workers:40},
+   {icon:"💠", name:"電子の王国", sub:"電子部品・デバイス", workers:40},
+   {icon:"🧱", name:"樹脂の王国", sub:"プラスチック製品",   workers:40},
+ ],
+ kingdomsNote:"従業者数は経済センサス‐活動調査（総務省・経済産業省）に基づく事業所ベースの概数。大陸人口（就業者ベースの約1,040万人）とは集計の基準が異なります。ほかにも印刷・繊維・窯業・パルプなど、多くの王国があります。",
  jobs:["craft","qualityeng","coo","salesengineer","engineer"]},
 {id:"energy", group:"tsukuru", name:"電気・ガス・水道", realm:"灯の国",
  catch:"すべての大陸に灯りと水を送る、小さくて要の国。",
@@ -898,6 +931,8 @@ function jobChips(ids){
 function cardHTML(g){
   const gr = GROUPS[g.group];
   let h = '<div class="dq indcard" id="ind-'+g.id+'" style="border-top:6px solid '+gr.color+';--gc:'+gr.color+';scroll-margin-top:calc(var(--navh) + 14px);">';
+  const onerr = "this.parentNode.classList.add('card-fig-ph');this.parentNode.style.setProperty('--fc','"+gr.color+"');this.parentNode.innerHTML='<span>"+gr.icon+"</span>';";
+  h += '<div class="card-fig"><img src="./images/gyokai/'+g.id+'.webp" alt="'+g.name+'（'+g.realm+'）のイメージイラスト" loading="lazy" decoding="async" onerror="'+onerr+'"></div>';
   h += '<h3>'+g.name+' <span class="realm-badge">'+g.realm+'</span></h3>';
   h += groupTag(g.group);
   h += '<div class="rarity">くにの人口: <b>約'+g.workers.toLocaleString()+'万人がはたらく</b></div>';
@@ -914,6 +949,13 @@ function cardHTML(g){
   if(g.incomeNote) h += '<div class="tech-item"><span>'+g.incomeNote+'</span></div>';
   h += '<div class="sec-label">この大陸の おきて（業界のクセ）</div>';
   h += '<div class="tech-item"><span>'+g.okite+'</span></div>';
+  if(g.kingdoms){
+    h += '<div class="sec-label">この大陸の 王国たち（業界の内訳）</div>';
+    for(const k of g.kingdoms){
+      h += '<div class="stat-row"><span class="lab">'+k.icon+' '+k.name+' <span style="color:var(--ink-muted);font-size:11px;">（'+k.sub+'）</span></span><span class="val">約'+k.workers+'万人</span></div>';
+    }
+    if(g.kingdomsNote) h += '<p class="src-note">'+g.kingdomsNote+'</p>';
+  }
   h += '<div class="sec-label">この大陸で さかえるジョブ</div>';
   h += '<div class="links">'+jobChips(g.jobs)+'</div>';
   h += '<p class="src-note">出典: 労働力調査（総務省・2024年平均）／民間給与実態統計調査（国税庁・令和5年分）。★は目安で年次により変わります。くわしくは「つかいかた」タブへ</p>';
@@ -1012,6 +1054,102 @@ function buildTable(){
 }
 buildTable();
 
+/* ================= 世界地図（面積＝就業者数のツリーマップ群島） ================= */
+function layoutTreemap(items, x, y, w, h){
+  const total = items.reduce((s,i)=>s+i.value,0);
+  if(total<=0 || w<=0 || h<=0) return [];
+  const rects = [];
+  let rest = items.slice(), rx=x, ry=y, rw=w, rh=h;
+  const scale = (w*h)/total;
+  while(rest.length){
+    const horiz = rw < rh;
+    let row = [rest[0]];
+    let best = Infinity;
+    for(let i=1;i<=rest.length;i++){
+      const cand = rest.slice(0,i);
+      const ca = cand.reduce((s,it)=>s+it.value*scale,0);
+      const side = horiz ? rw : rh;
+      const thick = ca/side;
+      let worst = 0;
+      for(const it of cand){
+        const len = (it.value*scale)/thick;
+        worst = Math.max(worst, thick/len, len/thick);
+      }
+      if(worst <= best){ best = worst; row = cand; }
+      else break;
+    }
+    const rowArea = row.reduce((s,it)=>s+it.value*scale,0);
+    const side = horiz ? rw : rh;
+    const thick = rowArea/side;
+    let off = 0;
+    for(const it of row){
+      const len = (it.value*scale)/thick;
+      if(horiz) rects.push({x:rx+off, y:ry, w:len, h:thick, item:it});
+      else rects.push({x:rx, y:ry+off, w:thick, h:len, item:it});
+      off += len;
+    }
+    if(horiz){ ry += thick; rh -= thick; } else { rx += thick; rw -= thick; }
+    rest = rest.slice(row.length);
+  }
+  return rects;
+}
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+let mapNarrow = null;
+function buildMap(){
+  const narrow = window.innerWidth < 700;
+  if(narrow === mapNarrow) return;
+  mapNarrow = narrow;
+  const W = narrow ? 640 : 1000, H = narrow ? 980 : 620, PAD = 6, GAP = 5, LABEL_H = 30;
+  const svg = document.getElementById("worldMap");
+  svg.setAttribute("viewBox", "0 0 "+W+" "+H);
+  const groups = GROUP_ORDER.map(gid=>({
+    gid, value: GYOKAI.filter(g=>g.group===gid).reduce((s,g)=>s+g.workers,0)
+  })).sort((a,b)=>b.value-a.value);
+  let out = "";
+  const gRects = layoutTreemap(groups.map(g=>({...g})), PAD, PAD, W-PAD*2, H-PAD*2);
+  for(const gr of gRects){
+    const grp = GROUPS[gr.item.gid];
+    out += '<text x="'+(gr.x+10)+'" y="'+(gr.y+20)+'" font-size="15" fill="'+grp.color.replace('var(--','var(--')+'" style="fill:'+grp.color+';font-weight:700;letter-spacing:.08em;">'+grp.icon+' '+esc(grp.name)+'</text>';
+    const inds = GYOKAI.filter(g=>g.group===gr.item.gid).map(g=>({id:g.id, value:g.workers, g}))
+      .sort((a,b)=>b.value-a.value);
+    const inner = layoutTreemap(inds, gr.x+2, gr.y+LABEL_H, gr.w-4, gr.h-LABEL_H-4);
+    for(const r of inner){
+      const g = r.item.g;
+      const x=r.x+GAP/2, y=r.y+GAP/2, w=Math.max(0,r.w-GAP), h=Math.max(0,r.h-GAP);
+      if(w<=0||h<=0) continue;
+      out += '<g class="map-tile" data-ind="'+g.id+'" tabindex="0" role="button" aria-label="'+esc(g.name)+' 約'+g.workers.toLocaleString()+'万人。タップでカードを開く">';
+      out += '<title>'+esc(g.name+'（'+g.realm+'）約'+g.workers.toLocaleString()+'万人')+'</title>';
+      out += '<rect x="'+x+'" y="'+y+'" width="'+w+'" height="'+h+'" rx="10" style="fill:color-mix(in srgb, '+GROUPS[g.group].color+' 16%, var(--surface));stroke:'+GROUPS[g.group].color+';stroke-width:1.6;"></rect>';
+      const cx = x+w/2;
+      if(w>=150 && h>=86){
+        out += '<text x="'+cx+'" y="'+(y+h/2-16)+'" text-anchor="middle" font-size="19" style="fill:var(--ink);font-weight:700;letter-spacing:.04em;">'+esc(g.name)+'</text>';
+        out += '<text x="'+cx+'" y="'+(y+h/2+6)+'" text-anchor="middle" font-size="12.5" style="fill:'+GROUPS[g.group].color+';">'+esc(g.realm)+'</text>';
+        out += '<text x="'+cx+'" y="'+(y+h/2+28)+'" text-anchor="middle" font-size="13" style="fill:var(--ink-2);">約'+g.workers.toLocaleString()+'万人</text>';
+      }else if(w>=92 && h>=46){
+        out += '<text x="'+cx+'" y="'+(y+h/2-2)+'" text-anchor="middle" font-size="14" style="fill:var(--ink);font-weight:700;">'+esc(g.name)+'</text>';
+        out += '<text x="'+cx+'" y="'+(y+h/2+16)+'" text-anchor="middle" font-size="11.5" style="fill:var(--ink-2);">約'+g.workers.toLocaleString()+'万人</text>';
+      }else if(h>=120 && w>=44){
+        out += '<text x="'+cx+'" y="'+(y+h/2)+'" text-anchor="middle" font-size="13.5" style="fill:var(--ink);font-weight:700;writing-mode:vertical-rl;letter-spacing:.1em;">'+esc(g.name)+'</text>';
+      }else{
+        out += '<text x="'+cx+'" y="'+(y+h/2+5)+'" text-anchor="middle" font-size="13" style="fill:var(--ink);">'+GROUPS[g.group].icon+'</text>';
+      }
+      out += '</g>';
+    }
+  }
+  svg.innerHTML = out;
+}
+buildMap();
+window.addEventListener("resize",()=>buildMap(),{passive:true});
+document.getElementById("worldMap").addEventListener("click",e=>{
+  const t = e.target.closest("[data-ind]");
+  if(t) openIndustry(t.dataset.ind);
+});
+document.getElementById("worldMap").addEventListener("keydown",e=>{
+  if(e.key!=="Enter" && e.key!==" ") return;
+  const t = e.target.closest("[data-ind]");
+  if(t){ e.preventDefault(); openIndustry(t.dataset.ind); }
+});
+
 /* 表の業界名クリック → ずかんタブの該当カードへ */
 document.getElementById("cmpTable").addEventListener("click",e=>{
   const a = e.target.closest("[data-ind]"); if(!a) return;
@@ -1024,7 +1162,7 @@ document.getElementById("usageBox").innerHTML = `
 <h3>◆ この図鑑はなに？ —— 対の書のつかいかた</h3>
 <p><a href="./tenshoku-no-sho.html">生涯キャリア図鑑</a>が「<b>なにになるか</b>（職業）」の地図だとすると、この業界図鑑は「<b>どこではたらくか</b>（業界）」の地図です。同じ営業でも、からくり大陸（製造業）と魔法大陸（情報通信）ではまったく違う冒険になります。</p>
 <ol>
-<li><b>現在地の大陸を1つ選ぶ(3分)</b> — いま自分がいる（または気になる）大陸のカードを開く。</li>
+<li><b>現在地の大陸を1つ選ぶ(3分)</b> — 世界地図で、いま自分がいる（または気になる）大陸をタップしてカードを開く。面積は、はたらく人の数。</li>
 <li><b>おきてを読む(3分)</b> — その大陸の「業界のクセ」が、自分の性に合うかを考えてみる。</li>
 <li><b>ジョブへ渡る(4分)</b> — 「さかえるジョブ」から生涯キャリア図鑑のカードへ飛び、しゅぎょうの書（学びかた）を確かめる。</li>
 </ol>
@@ -1044,6 +1182,7 @@ document.getElementById("usageBox").innerHTML = `
 <li><b>平均額は雇用形態の構成で大きく変わります。</b> 宿泊・飲食のように短時間ではたらく人が多い業界は平均額が低めに出ますが、それは「その業界で正社員として働く人の給与が低い」ことと同じ意味ではありません。</li>
 <li><b>国税庁の統計は一部の業界が合算区分です</b>（学術・専門サービスと教育・学習支援／農林水産と鉱業）。該当カードには注記を付けています。</li>
 <li><b>おいかぜ・不足度の★は5段階の目安</b>で、白書・業界統計・有効求人倍率などをもとに編集部が付けたものです。年次で変わります。</li>
+<li><b>製造業の「王国たち」（業界の内訳）</b>は経済センサス‐活動調査（総務省・経済産業省）に基づく事業所ベースの従業者数の概数です。就業者ベースの大陸人口とは集計の基準が異なります。</li>
 <li>分類は日本標準産業分類の大分類がベースです。規模の小さい鉱業（約2万人）・複合サービス事業（約50万人）は独立カードにせず省略しています。</li>
 <li>向かい風の大陸が「選んではいけない大陸」なのではありません。構造転換期の大陸にこそ、新しい役割と席が生まれます。</li>
 </ul>
@@ -1087,6 +1226,13 @@ window.addEventListener("hashchange",()=>{ if(location.hash.startsWith("#ind-"))
 
 /* ================= 更新履歴（ver表示・右下） ================= */
 const VERSION_LOG = [
+  {v:"1.2", d:"2026-07-23", items:[
+    "からくり大陸（製造業）に「王国たち」を追加——食の王国・車輪の王国など8つの内訳を収蔵",
+  ]},
+  {v:"1.1", d:"2026-07-23", items:[
+    "世界地図タブを新設——大陸の面積＝はたらく人の数。タップでカードが開く",
+    "16大陸すべてにイラストを付与（夜色線画・生涯キャリア図鑑と同じタッチ）",
+  ]},
   {v:"1.0", d:"2026-07-23", items:[
     "公開。16大陸×5系統の業界カード・くらべる表・つかいかた の3部屋でスタート",
     "生涯キャリア図鑑（対の書）と相互リンク——大陸からジョブへ、ジョブから大陸へ",
@@ -1096,7 +1242,7 @@ const verBg = document.getElementById("verBg");
 document.getElementById("verBody").innerHTML =
   '<div class="sec-label" style="margin-top:0;">この図鑑の あゆみ</div>' +
   VERSION_LOG.map(e=>'<h3>ver '+e.v+' <small>'+e.d+'</small></h3><ul>'+e.items.map(i=>'<li>'+i+'</li>').join("")+'</ul>').join("") +
-  '<p class="ver-note">この図鑑は「みんなで作る」教材として、これからも育っていきます。大陸のイラスト・世界地図・大陸の細分化（からくり大陸の中の王国たち）を準備中。要望はページ下部の連絡先へどうぞ。</p>';
+  '<p class="ver-note">この図鑑は「みんなで作る」教材として、これからも育っていきます。ほかの大陸の王国細分化も順次構想中。要望はページ下部の連絡先へどうぞ。</p>';
 const verBtn = document.createElement("button");
 verBtn.type = "button";
 verBtn.className = "ver-btn";
