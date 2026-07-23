@@ -748,6 +748,10 @@
     {
       "path": "gyokai-zukan.html",
       "variant": "standard"
+    },
+    {
+      "path": "genzaichi-shindan.html",
+      "variant": "standard"
     }
   ],
   "exclude": [
