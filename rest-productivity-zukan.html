@@ -12,10 +12,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>休息と生産性の図鑑 ｜ きづきくみたて工房</title>
-<meta name="description" content="「休むと業績が下がる」という思い込みを、認知科学・組織論の16の標本として展示する図鑑。集中力の消耗から日本で休みにくい理由まで、休みと成果の本当の関係を眺める。">
+<meta name="description" content="「休むと業績が下がる」という思い込みを、認知科学・組織論の21の標本として展示する図鑑・増補版。集中力の消耗から日本で休みにくい理由、国家スケールの成長と余暇の綱引きまで、出典つきデータ標本とともに眺める。">
 <link rel="canonical" href="https://kizukikumitate.com/rest-productivity-zukan.html">
 <meta property="og:title" content="休息と生産性の図鑑｜きづきくみたて工房">
-<meta property="og:description" content="「休むと業績が下がる」という思い込みを、認知科学・組織論の16の標本として展示する図鑑。">
+<meta property="og:description" content="「休むと業績が下がる」という思い込みを、認知科学・組織論の21の標本として展示する図鑑・増補版。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kizukikumitate.com/rest-productivity-zukan.html">
 <meta property="og:image" content="https://kizukikumitate.com/rest-productivity-zukan-ogp.png">
@@ -23,7 +23,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="休息と生産性の図鑑｜きづきくみたて工房">
-<meta name="twitter:description" content="「休むと業績が下がる」思い込みを16の標本で眺める図鑑。休みと成果の本当の関係。">
+<meta name="twitter:description" content="「休むと業績が下がる」思い込みを21の標本で眺める図鑑・増補版。休みと成果の本当の関係。">
 <meta name="twitter:image" content="https://kizukikumitate.com/rest-productivity-zukan-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +40,7 @@
     --c-rest:#7a9a5b;    /* 休みの効き方 */
     --c-cost:#c26b52;    /* 組織のコスト */
     --c-japan:#9a6ba0;   /* 日本の生態 */
+    --c-macro:#3f4d8a;   /* 国家の生態 */
     --shadow:0 6px 20px rgba(60,50,30,.10);
     --forest:#1a5fad;
     --charcoal:#1e1e1e;
@@ -166,19 +167,43 @@
   .fieldnote .en{font-size:12px;color:var(--gold);letter-spacing:.2em;font-weight:700;}
   .fieldnote p{font-size:14.5px;margin:12px 0 0;color:#3f3b34;}
 
+  /* ---- Data room ---- */
+  .dataroom{
+    margin-top:52px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;
+  }
+  .datacard{
+    background:var(--paper2);border:1px solid var(--line);
+    border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);
+  }
+  .datacard h3{margin:0 0 2px;font-size:17px;}
+  .datacard .unit{font-size:12px;color:var(--ink-soft);margin-bottom:16px;}
+  .bar-row{display:flex;align-items:center;gap:10px;margin:9px 0;font-size:13px;}
+  .bar-row .name{width:96px;flex:none;color:#3f3b34;}
+  .bar-row .name.hl{font-weight:700;color:var(--c-japan);}
+  .bar-track{flex:1;display:block;background:#ece3d0;border-radius:6px;height:16px;overflow:hidden;}
+  .bar-fill{display:block;height:100%;border-radius:6px;background:var(--barcolor,var(--c-macro));}
+  .bar-row .val{width:68px;flex:none;text-align:right;font-variant-numeric:tabular-nums;color:var(--ink-soft);white-space:nowrap;}
+  .datacard .note{font-size:12px;color:var(--ink-soft);margin-top:14px;line-height:1.6;}
+  .datacard .src{font-size:11px;color:var(--ink-soft);margin-top:8px;}
+  .datacard .src a{color:var(--gold);}
+
   .pagenote{
     text-align:center;margin-top:56px;color:var(--ink-soft);font-size:12.5px;
     border-top:1px solid var(--line);padding-top:22px;
   }
   .pagenote .disc{max-width:720px;margin:8px auto 0;line-height:1.7;}
 
-  /* ---- カードイラスト（Gemini生成・16標本） ---- */
+  /* ---- カードイラスト（Gemini生成・21標本） ---- */
   .card .card-fig{margin:2px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
   .card .card-fig img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
   .card .no{background:rgba(251,247,238,.88);padding:2px 8px;border-radius:999px;border:1px solid var(--line);}
-  header.book h1,.section-head h2,.fieldnote h2{text-wrap:pretty;}
+  header.book h1,.section-head h2,.fieldnote h2,.datacard h3{text-wrap:pretty;}
 
-  @media(max-width:359px){.grid{grid-template-columns:minmax(0,1fr);}}
+  @media(max-width:359px){
+    .grid{grid-template-columns:minmax(0,1fr);}
+    .dataroom{grid-template-columns:minmax(0,1fr);}
+  }
 
   @media(max-width:520px){
     .wrap{padding:28px 14px 60px;}
@@ -239,34 +264,6 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     .nav-hamburger { display: flex; }
   }
 </style>
-<!-- ===== AI・検索エンジン向け構造化データ（Article） ===== -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "休息と生産性の図鑑",
-  "url": "https://kizukikumitate.com/rest-productivity-zukan.html",
-  "image": "https://kizukikumitate.com/rest-productivity-zukan-ogp.png",
-  "datePublished": "2026-07-23",
-  "dateModified": "2026-07-23",
-  "author": {
-    "@type": "Person",
-    "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
-    "name": "森本康仁",
-    "url": "https://kizukikumitate.com/jijitsu-daicho.html"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "@id": "https://kizukikumitate.com/#org",
-    "name": "きづきくみたて工房",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://kizukikumitate.com/logotype.png"
-    }
-  },
-  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
-}
-</script>
 </head>
 <body>
 <!-- NAV START -->
@@ -508,7 +505,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 <div class="wrap">
 
   <header class="book">
-    <div class="plate-no">巻ノ壱 ／ 全16標本 収録</div>
+    <div class="plate-no">増補版 ／ 全21標本 収録</div>
     <h1>休息と生産性の図鑑</h1>
     <div class="sub">「休むと業績が下がる」という思い込みを、認知科学・組織論の“標本”として並べてみる。よく見ると、休みと成果はそんなに単純な関係ではない。</div>
     <div class="ribbon">🔎 標本をなでると少し浮きます</div>
@@ -519,11 +516,12 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
     <div class="chip"><span class="dot" style="background:var(--c-rest)"></span>休みの効き方</div>
     <div class="chip"><span class="dot" style="background:var(--c-cost)"></span>組織のコスト</div>
     <div class="chip"><span class="dot" style="background:var(--c-japan)"></span>日本の生態</div>
+    <div class="chip"><span class="dot" style="background:var(--c-macro)"></span>国家の生態</div>
   </div>
 
   <!-- ===== 区分1：脳と体のしくみ ===== -->
   <div class="section-head">
-    <span class="kanban" style="background:var(--c-brain)">区分 壱</span>
+    <span class="kanban" style="background:var(--c-brain)">区分 1</span>
     <h2>脳と体のしくみ</h2>
     <span class="en">COGNITIVE SCIENCE</span>
     <span class="rule"></span>
@@ -541,7 +539,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 
     <div class="card" style="--cardcolor:var(--c-brain)">
       <span class="no">No.02</span>
-      <figure class="card-fig"><img src="./images/rest-productivity/02-rest.webp" alt="眠る人物の上に借金のように積み上がる重い荷物" width="1600" height="900" loading="lazy"></figure>
+      <figure class="card-fig"><img src="./images/rest-productivity/02-rest.webp" alt="眠る人物のそばに借金のように積み上がる重い荷物" width="1600" height="900" loading="lazy"></figure>
       <h3>睡眠負債</h3>
       <div class="latin">Debitum somni</div>
       <p>足りない睡眠は“借金”のように積み上がり、集中・記憶・気分をじわじわ削る。本人は慣れて気づきにくいのがやっかいなところ。</p>
@@ -570,7 +568,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 
   <!-- ===== 区分2：休みの効き方 ===== -->
   <div class="section-head">
-    <span class="kanban" style="background:var(--c-rest)">区分 弐</span>
+    <span class="kanban" style="background:var(--c-rest)">区分 2</span>
     <h2>休みの効き方</h2>
     <span class="en">HOW REST WORKS</span>
     <span class="rule"></span>
@@ -617,7 +615,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 
   <!-- ===== 区分3：組織のコスト ===== -->
   <div class="section-head">
-    <span class="kanban" style="background:var(--c-cost)">区分 参</span>
+    <span class="kanban" style="background:var(--c-cost)">区分 3</span>
     <h2>組織のコスト</h2>
     <span class="en">HIDDEN COSTS</span>
     <span class="rule"></span>
@@ -664,7 +662,7 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 
   <!-- ===== 区分4：日本の生態 ===== -->
   <div class="section-head">
-    <span class="kanban" style="background:var(--c-japan)">区分 肆</span>
+    <span class="kanban" style="background:var(--c-japan)">区分 4</span>
     <h2>日本の生態 ― なぜ休みにくいのか</h2>
     <span class="en">JAPANESE HABITAT</span>
     <span class="rule"></span>
@@ -709,16 +707,152 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
 
   </div>
 
+  <!-- ===== 区分5：国家の生態 ===== -->
+  <div class="section-head">
+    <span class="kanban" style="background:var(--c-macro)">区分 5</span>
+    <h2>国家の生態 ― 成長と余暇の綱引き</h2>
+    <span class="en">MACRO ／ NATIONS</span>
+    <span class="rule"></span>
+  </div>
+  <div class="grid">
+
+    <div class="card" style="--cardcolor:var(--c-macro)">
+      <span class="no">No.17</span>
+      <figure class="card-fig"><img src="./images/rest-productivity/17-rest.webp" alt="金貨とハンモックの休息が釣り合う大きな天秤" width="1600" height="900" loading="lazy"></figure>
+      <h3>余暇への“両替”</h3>
+      <div class="latin">Permutatio otii</div>
+      <p>欧州は1970年代以降、生産性の果実を「より多い所得」ではなく「より多い休み」に振り向けた。一人あたりGDPが米国より低めなのは、失敗ではなく選択の面が大きい。</p>
+      <div class="memo"><b>生態メモ：</b>「成長できなかった」ではなく「成長の一部を自由時間に両替した」。</div>
+    </div>
+
+    <div class="card" style="--cardcolor:var(--c-macro)">
+      <span class="no">No.18</span>
+      <figure class="card-fig"><img src="./images/rest-productivity/18-rest.webp" alt="小さいが濃い金色の器と、大きいが薄い色の器" width="1600" height="900" loading="lazy"></figure>
+      <h3>時間あたりの“濃さ”</h3>
+      <div class="latin">Densitas horaria</div>
+      <p>仏・独・北欧は労働時間が短いのに、一時間あたり生産性が非常に高く米国に匹敵する。だから休みを増やしても、産出の落ち込みは素朴な計算ほど大きくならない。</p>
+      <div class="memo"><b>生態メモ：</b>「短く働くが、一時間が濃い」。休みの目減りを生産性が埋める。</div>
+    </div>
+
+    <div class="card" style="--cardcolor:var(--c-macro)">
+      <span class="no">No.19</span>
+      <figure class="card-fig"><img src="./images/rest-productivity/19-rest.webp" alt="同じ高さの金色の台の上に並んで立つ人々" width="1600" height="900" loading="lazy"></figure>
+      <h3>抜け駆け問題を法で解く</h3>
+      <div class="latin">Lex contra defectionem</div>
+      <p>EUは最低4週間の有給休暇という法の“床”を全社に一律に課す（仏は法定5週間）。全員が同じなら「うちだけ休ませると不利」という抜け駆けの心配が消える。</p>
+      <div class="memo"><b>生態メモ：</b>各社任せだと“みんな休まないから休めない”悪い均衡に落ちる。</div>
+    </div>
+
+    <div class="card" style="--cardcolor:var(--c-macro)">
+      <span class="no">No.20</span>
+      <figure class="card-fig"><img src="./images/rest-productivity/20-rest.webp" alt="扉を閉じた建物の並びと、海辺のパラソルで休む人々" width="1600" height="900" loading="lazy"></figure>
+      <h3>一斉休業（8月まるごと）</h3>
+      <div class="latin">Clausura communis</div>
+      <p>南欧に典型的な「経済ごと止まる夏」。取引先も競合も同時に休むので、「休む間に顧客を奪われる」不安が構造的に小さくなる。</p>
+      <div class="memo"><b>生態メモ：</b>全員同時に休むと、休みの調整コストが下がる。</div>
+    </div>
+
+    <div class="card" style="--cardcolor:var(--c-macro)">
+      <span class="no">No.21</span>
+      <figure class="card-fig"><img src="./images/rest-productivity/21-rest.webp" alt="成長の曲線とパラソルの間で綱を引き合う人々" width="1600" height="900" loading="lazy"></figure>
+      <h3>成長 vs 余暇のトレードオフ</h3>
+      <div class="latin">Trames incrementi</div>
+      <p>近年、欧州は米国に成長で見劣りし、高齢化も進む。2024年のドラギ報告は緩やかな衰退に警鐘を鳴らし、長い休暇が競争力の重荷では、という議論も噴出している。</p>
+      <div class="memo"><b>生態メモ：</b>「休みすぎは重荷では」という問いは、欧州でも今まさに争われている論点。</div>
+    </div>
+
+  </div>
+
+  <!-- ===== 資料室 ===== -->
+  <div class="section-head">
+    <span class="kanban" style="background:var(--gold)">資料室</span>
+    <h2>出典つきデータ標本</h2>
+    <span class="en">DATA ROOM</span>
+    <span class="rule"></span>
+  </div>
+  <div class="dataroom">
+
+    <div class="datacard">
+      <h3>① 一時間あたりの生産性</h3>
+      <div class="unit">GDP per hour worked ／ 2023年・USD（購買力平価）</div>
+
+      <div class="bar-row">
+        <span class="name">デンマーク</span>
+        <span class="bar-track"><span class="bar-fill" style="width:97%;--barcolor:var(--c-macro)"></span></span>
+        <span class="val">99.2</span>
+      </div>
+      <div class="bar-row">
+        <span class="name">アメリカ</span>
+        <span class="bar-track"><span class="bar-fill" style="width:95%;--barcolor:var(--c-macro)"></span></span>
+        <span class="val">97.1</span>
+      </div>
+      <div class="bar-row">
+        <span class="name">ドイツ</span>
+        <span class="bar-track"><span class="bar-fill" style="width:92%;--barcolor:var(--c-macro)"></span></span>
+        <span class="val">93.8</span>
+      </div>
+      <div class="bar-row">
+        <span class="name">フランス</span>
+        <span class="bar-track"><span class="bar-fill" style="width:86%;--barcolor:var(--c-macro)"></span></span>
+        <span class="val">88.2</span>
+      </div>
+      <div class="bar-row">
+        <span class="name hl">日本</span>
+        <span class="bar-track"><span class="bar-fill" style="width:55%;--barcolor:var(--c-japan)"></span></span>
+        <span class="val">56.3</span>
+      </div>
+
+      <div class="note">デンマークは労働時間が短いのに、一時間あたりでは米国をわずかに上回る。仏・独も米国の9割超の“濃さ”。一方、労働時間が長いとされる日本は米国の約6割にとどまり、「長く働く＝一時間が濃い」ではないことがうかがえます。</div>
+      <div class="src">出典：OECD／<a href="https://en.wikipedia.org/wiki/List_of_countries_by_labour_productivity" target="_blank" rel="noopener">List of countries by labour productivity（2023年値）</a></div>
+    </div>
+
+    <div class="datacard">
+      <h3>② 法定の年間有給休暇（最低）</h3>
+      <div class="unit">Statutory minimum paid annual leave ／ 祝日を除く付与日数</div>
+
+      <div class="bar-row">
+        <span class="name">フランス</span>
+        <span class="bar-track"><span class="bar-fill" style="width:100%;--barcolor:var(--c-rest)"></span></span>
+        <span class="val">25日</span>
+      </div>
+      <div class="bar-row">
+        <span class="name">EU最低基準</span>
+        <span class="bar-track"><span class="bar-fill" style="width:80%;--barcolor:var(--c-rest)"></span></span>
+        <span class="val">20日</span>
+      </div>
+      <div class="bar-row">
+        <span class="name">ドイツ</span>
+        <span class="bar-track"><span class="bar-fill" style="width:80%;--barcolor:var(--c-rest)"></span></span>
+        <span class="val">20日〜</span>
+      </div>
+      <div class="bar-row">
+        <span class="name hl">日本</span>
+        <span class="bar-track"><span class="bar-fill" style="width:40%;--barcolor:var(--c-japan)"></span></span>
+        <span class="val">10→20日</span>
+      </div>
+      <div class="bar-row">
+        <span class="name">アメリカ</span>
+        <span class="bar-track"><span class="bar-fill" style="width:2%;--barcolor:var(--c-cost)"></span></span>
+        <span class="val">0日</span>
+      </div>
+
+      <div class="note">EUは労働時間指令で最低4週間（20日）を全加盟国に義務づけ、仏は法定5週間（25日）。日本は勤続0.5年で10日、6.5年で最大20日に増える。米国は連邦・州とも法定なしで、実務上の平均は約10日。</div>
+      <div class="src">出典：EU労働時間指令／各国労働法、<a href="https://www.oysterhr.com/library/which-country-gets-the-most-vacation-days" target="_blank" rel="noopener">Oyster「Paid vacation days by country 2025」</a></div>
+    </div>
+
+  </div>
+
   <!-- ===== フィールドノート ===== -->
   <div class="fieldnote">
     <div class="en">FIELD NOTE ／ 観察者の総括</div>
     <h2>この図鑑から読めること</h2>
-    <p>並べてみると、「休むと成果が下がる」という思い込みは、人間の脳のしくみ（区分壱・弐）ともむしろ逆であることが見えてきます。休息は止まる時間ではなく、集中力を充電し、発想を熟成させるメンテナンス時間。削れば本番のパフォーマンスがかえって落ち、プレゼンティーズムや燃え尽きといった“見えないコスト”（区分参）として組織に返ってきます。</p>
-    <p>それでも日本で休みにくいのは、意志の弱さではなく、仕事の属人化・姿勢を測る評価・同調圧力という三つの生態（区分肆）が絡み合っているから。だから近年の休み方改革は「有給を取ろう」と呼びかけるだけでなく、業務の標準化やチーム化、成果ベースの評価といった“構造そのもの”の手入れとセットで語られるようになっています。休みやすさは、根性ではなく設計で作られる ― それがこの図鑑の結論です。</p>
+    <p>並べてみると、「休むと成果が下がる」という思い込みは、人間の脳のしくみ（区分1・2）ともむしろ逆であることが見えてきます。休息は止まる時間ではなく、集中力を充電し、発想を熟成させるメンテナンス時間。削れば本番のパフォーマンスがかえって落ち、プレゼンティーズムや燃え尽きといった“見えないコスト”（区分3）として組織に返ってきます。</p>
+    <p>それでも日本で休みにくいのは、意志の弱さではなく、仕事の属人化・姿勢を測る評価・同調圧力という三つの生態（区分4）が絡み合っているから。だから近年の休み方改革は「有給を取ろう」と呼びかけるだけでなく、業務の標準化やチーム化、成果ベースの評価といった“構造そのもの”の手入れとセットで語られるようになっています。休みやすさは、根性ではなく設計で作られる ― それがこの図鑑の結論です。</p>
+    <p>そして国家のスケール（区分5）まで引くと、「1か月の休み」は成長への単純な損失ではなく、生産性の果実を余暇に“両替”するという社会の選択として立ち上がってきます。欧州はその両替を法の床と一斉休業で支え、高い時間あたり生産性で埋め合わせてきました。もっとも、成長 vs 余暇の綱引きは今も決着しておらず、「休みすぎは重荷では」という直感は、欧州自身が抱える現在進行形の論争でもあります。どこで線を引くかは、正解のない価値判断 ― この図鑑は、その判断材料を並べた標本箱です。</p>
   </div>
 
   <div class="pagenote">
-    <div>📖 休息と生産性の図鑑 ／ 全16標本</div>
+    <div>📖 休息と生産性の図鑑 ／ 増補版 全21標本</div>
     <div class="disc">※本図鑑は、認知科学・労働経済・組織論で広く語られている考え方を、一般的な理解にもとづいて図鑑風にまとめた読み物です。ラテン語風の学名は雰囲気づくりの創作で、統計値の詳細は分野や調査により幅があります。特定の数字が必要な場合は出典つきで別途お調べできます。</div>
   </div>
 
