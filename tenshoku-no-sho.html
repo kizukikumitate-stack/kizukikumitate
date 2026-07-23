@@ -290,7 +290,10 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 }
 .tier-head:first-child{margin-top:0;}
 .tier-head .th-name{color:var(--gold);font-size:16px;letter-spacing:.14em;font-weight:700;}
+.tier-head .th-count{color:var(--gold);font-size:11.5px;letter-spacing:.08em;border:1px solid var(--gold);border-radius:999px;padding:1px 9px;white-space:nowrap;align-self:center;}
 .tier-head .th-sub{color:var(--ink-muted);font-size:11.5px;letter-spacing:.04em;}
+.zukan-total{grid-column:1/-1;text-align:center;color:var(--ink-2);font-size:13px;letter-spacing:.1em;margin:2px 4px 0;}
+.zukan-total b{color:var(--gold);font-size:16px;font-weight:700;}
 .tut-target{outline:3px solid var(--gold);outline-offset:6px;border-radius:8px;animation:tutPulse 1.3s ease-in-out infinite;}
 @keyframes tutPulse{0%,100%{outline-color:var(--gold);}50%{outline-color:rgba(255,215,106,.2);}}
 @media (max-width:600px){
@@ -465,7 +468,13 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 /* ---- compare table ---- */
 .table-scroller{overflow-x:auto;padding:6px;}
 table{border-collapse:collapse;width:100%;min-width:820px;font-size:13px;}
-th,td{padding:7px 10px;text-align:left;border-bottom:1px solid var(--hairline);white-space:nowrap;}
+th,td{padding:7px 8px;text-align:left;border-bottom:1px solid var(--hairline);white-space:nowrap;}
+/* 職業〜合計の列は内容幅に詰め、余白は右端の文章列（年収・学習時間）へ流す */
+#cmpTable th:not(:nth-last-child(-n+2)),
+#cmpTable td:not(.manabi-cell){width:1%;}
+/* 職業列: 長い職業名は折り返して列幅を詰める */
+#cmpTable td:first-child{white-space:normal;min-width:8.5em;}
+#cmpTable td:first-child .link-chip{white-space:normal;text-align:left;line-height:1.45;}
 th{color:var(--gold);font-weight:400;letter-spacing:.06em;font-size:12px;cursor:pointer;user-select:none;position:sticky;top:0;background:var(--surface);}
 th.nosort{cursor:default;}
 th .arrow{color:var(--ink-muted);font-size:10px;}
@@ -473,7 +482,7 @@ td .fam-mini{display:inline-flex;align-items:center;gap:5px;color:var(--ink-2);f
 td.stars-cell{letter-spacing:2px;}
 tr:hover td{background:var(--surface-2);}
 tr.tier-sep td{background:var(--surface-2);color:var(--gold);font-size:12px;letter-spacing:.15em;}
-td.manabi-cell{white-space:normal;min-width:190px;font-size:11px;color:var(--ink-2);line-height:1.5;}
+td.manabi-cell{white-space:normal;min-width:170px;font-size:11px;color:var(--ink-2);line-height:1.5;}
 
 /* ---- みんなでつくる ---- */
 .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px 16px;margin-top:10px;}
@@ -2563,10 +2572,13 @@ function highlight(id){
 /* ================= ジョブずかん ================= */
 function buildZukan(){
   const grid = document.getElementById("zukanGrid");
-  grid.innerHTML = TIER_ORDER.map(t=>
-    '<div class="tier-head" id="zk-tier-'+t+'"><span class="th-name">◆ '+TIER_NAMES[t]+'</span><span class="th-sub">'+TIER_RARITY[t]+'</span></div>'+
-    JOBS.filter(j=>j.tier===t).map(j=>cardHTML(j,true,true)).join("")
-  ).join("");
+  grid.innerHTML =
+    '<div class="zukan-total">📖 現在の収蔵数: 全 <b>'+JOBS.length+'</b> 職</div>' +
+    TIER_ORDER.map(t=>{
+      const jobs = JOBS.filter(j=>j.tier===t);
+      return '<div class="tier-head" id="zk-tier-'+t+'"><span class="th-name">◆ '+TIER_NAMES[t]+'</span><span class="th-count">'+jobs.length+'職</span><span class="th-sub">'+TIER_RARITY[t]+'</span></div>'+
+        jobs.map(j=>cardHTML(j,true,true)).join("");
+    }).join("");
 }
 /* 階層ジャンプレール: クリックで見出しへ、スクロールで現在地をハイライト */
 const tierRail = document.getElementById("tierRail");
@@ -3149,6 +3161,10 @@ document.body.appendChild(tutHelpBtn);
 
 /* ================= 更新履歴（ver表示・右下） ================= */
 const VERSION_LOG = [
+  {v:"1.6", d:"2026-07-23", items:[
+    "ジョブずかんに収蔵数を表示（全体の職数と、階層ごとの職数）",
+    "ほうしゅう比較の職業列をコンパクトにして、全列を一覧しやすく",
+  ]},
   {v:"1.5", d:"2026-07-23", items:[
     "ジョブずかんのカードを折りたたみ式に（▼くわしく見る で展開）",
     "ずかんの左端に、階層（基本〜伝説）へひとっとびできるジャンプボタンを追加",
