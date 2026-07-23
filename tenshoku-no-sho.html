@@ -168,14 +168,14 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 
 /* ---- 初回チュートリアル ---- */
 .tut-bubble{
-  position:fixed;right:18px;bottom:18px;z-index:400;max-width:350px;
+  position:fixed;left:18px;top:calc(var(--navh) + 16px);z-index:400;max-width:350px;
   background:var(--surface);color:var(--ink-2);
   border:2px solid var(--ink);border-radius:8px;
   box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--ink),0 16px 44px rgba(0,0,0,.6);
   padding:15px 18px 13px;font-size:13.5px;line-height:1.9;letter-spacing:.04em;
   animation:tutIn .45s ease;
 }
-@keyframes tutIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+@keyframes tutIn{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:none;}}
 .tut-title{color:var(--gold);font-weight:700;font-size:11.5px;letter-spacing:.16em;margin-bottom:7px;}
 .tut-body b{color:var(--ink);}
 .tut-btns{display:flex;align-items:center;gap:12px;margin-top:12px;}
@@ -190,7 +190,7 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 .tut-target{outline:3px solid var(--gold);outline-offset:6px;border-radius:8px;animation:tutPulse 1.3s ease-in-out infinite;}
 @keyframes tutPulse{0%,100%{outline-color:var(--gold);}50%{outline-color:rgba(255,215,106,.2);}}
 @media (max-width:600px){
-  .tut-bubble{left:12px;right:12px;bottom:12px;max-width:none;padding-bottom:max(13px, env(safe-area-inset-bottom));}
+  .tut-bubble{left:12px;right:12px;top:calc(var(--navh) + 10px);max-width:none;}
 }
 /* モバイル（ホバー非対応端末）は選択中タブの説明をタブ下に表示 */
 .tab-hint{display:none;}
@@ -2892,15 +2892,15 @@ document.addEventListener("click",e=>{ if(!e.target.closest(".job-search")) hide
 const TUT_FLAG = "tenshokuTutorialSeen_v1";
 const TUT_STEPS = [
   {anchor:"header.dq",
-   text:"ようこそ、<b>生涯キャリア図鑑</b>へ！ここは、はたらく道をRPGの地図にした書だよ。30秒だけ、つかいかたを案内するね。"},
+   text:"ようこそ、<b>生涯キャリア図鑑</b>へ！ここは、はたらく道をRPGの地図にした書だよ。30秒だけ、つかいかたを案内するよ。"},
   {anchor:".tabs",
-   text:"部屋は5つ。<b>▶転職チャート</b>で道をたどり、<b>ジョブずかん</b>でカードを1枚ずつ、<b>ほうしゅう比較</b>で💰❤️⏳⭐の4つの報酬を見比べられるよ。"},
+   text:"部屋は5つあるよ。<b>▶転職チャート</b>で道をたどれて、<b>ジョブずかん</b>でカードを1枚ずつ読めて、<b>ほうしゅう比較</b>で💰❤️⏳⭐の4つの報酬を見比べられるよ。"},
   {anchor:"#jobSearchBox",
-   text:"🔍<b>けんさく窓</b>に職業名を入れると、その職業のカードへひとっとび。載っていない職業は「みんなでつくる」で追加できる。"},
+   text:"🔍<b>けんさく窓</b>に職業名を入れると、その職業のカードへひとっとびだよ。載っていない職業は「みんなでつくる」で追加できるよ。"},
   {anchor:"#chartScroller",
-   text:"チャートでは、まず<b>基本職の列から自分にいちばん近い職業を1つタップ</b>。ジョブカードが開いて、そこから進める道が見えるよ。"},
+   text:"チャートでは、まず<b>基本職の列から自分にいちばん近い職業を1つタップ</b>だよ。ジョブカードが開いて、そこから進める道が見えるよ。"},
   {anchor:null,
-   text:"準備はばっちり！学べば学ぶほど、進める道は増えていく。それでは、よい旅を⚔️", last:true},
+   text:"準備はばっちりだよ！学べば学ぶほど、進める道は増えていくよ。それでは、よい旅を⚔️", last:true},
 ];
 function tutSeen(){ try{ return localStorage.getItem(TUT_FLAG)==="1"; }catch(e){ return true; } }
 function tutMarkSeen(){ try{ localStorage.setItem(TUT_FLAG,"1"); }catch(e){} }
