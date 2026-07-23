@@ -550,6 +550,46 @@
       "sub": "降りて幸せになった人と、しがみついて消耗した人。分岐点は「評価軸を多本に組み替えられたか」。"
     },
     {
+      "page": "jirei-rinen-sakutei.html",
+      "img": "jirei-rinen-sakutei-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.004 ／ 組織",
+      "title": "理念の策定",
+      "sub": "社員とつくった理念と、社員に配った理念。分岐点は「社員とつくったか、配ったか」。"
+    },
+    {
+      "page": "jirei-rinen-shinto.html",
+      "img": "jirei-rinen-shinto-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.005 ／ 組織",
+      "title": "理念の浸透",
+      "sub": "毎日問いかけた会社と、唱和で終わった会社。分岐点は「日々の判断に接続したか」。"
+    },
+    {
+      "page": "jirei-purpose.html",
+      "img": "jirei-purpose-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.006 ／ 組織",
+      "title": "パーパス経営と風土改革",
+      "sub": "仕組みまで変えた会社と、言葉だけ替えた会社。分岐点は「意思決定の仕組みまで変えたか」。"
+    },
+    {
+      "page": "jirei-hyoka.html",
+      "img": "jirei-hyoka-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#9A7A22",
+      "eyebrow": "事例 No.007 ／ 組織",
+      "title": "評価制度の改訂",
+      "sub": "対話とセットで変えた会社と、制度だけ差し替えた会社。分岐点は「育成の対話につくり替えたか」。"
+    },
+    {
       "page": "tenshoku-no-sho.html",
       "img": "tenshoku-no-sho-ogp.png",
       "template": "standard",

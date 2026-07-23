@@ -265,6 +265,26 @@
             "desc": "行動が変わる研修と、感想文で終わる研修の分岐点"
           },
           {
+            "label": "理念の策定",
+            "href": "jirei-rinen-sakutei.html",
+            "desc": "社員とつくった理念と、額縁で終わった理念の分岐点"
+          },
+          {
+            "label": "理念の浸透",
+            "href": "jirei-rinen-shinto.html",
+            "desc": "毎日問いかけた会社と、唱和で終わった会社の分岐点"
+          },
+          {
+            "label": "パーパス経営と風土改革",
+            "href": "jirei-purpose.html",
+            "desc": "仕組みまで変えた会社と、言葉だけ替えた会社の分岐点"
+          },
+          {
+            "label": "評価制度の改訂",
+            "href": "jirei-hyoka.html",
+            "desc": "対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点"
+          },
+          {
             "heading": "社会の事例"
           },
           {
@@ -651,6 +671,22 @@
     },
     {
       "path": "jirei-kenshu.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-rinen-sakutei.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-rinen-shinto.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-purpose.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-hyoka.html",
       "variant": "standard"
     },
     {
