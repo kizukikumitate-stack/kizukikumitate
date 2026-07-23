@@ -129,8 +129,9 @@
   .mobile-acc-caret { font-size: 0.65em; transition: transform 0.25s; }
   .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
   .mobile-acc-panel { display: none; padding-bottom: 0.6rem; }
-  .mobile-acc.open .mobile-acc-panel { display: block; }
-  .mobile-acc-panel a { font-size: 0.98rem; font-weight: 500; border-bottom: none !important; border-top: none !important; padding: 0.55rem 0; color: #444; }
+  .mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; }
+  .mobile-acc-panel .mobile-acc-heading { grid-column: 1 / -1; }
+  .mobile-acc-panel a { font-size: 0.88rem; font-weight: 500; border-bottom: none !important; border-top: none !important; padding: 0.45rem 0.1rem; color: #444; line-height: 1.5; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; }
   @media (max-width: 1250px) {
     .nav-links { display: none; }
     .nav-hamburger { display: block; }

@@ -355,8 +355,9 @@ nav {
   .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
   .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
   .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
-  .mobile-acc.open .mobile-acc-panel { display: flex; }
-  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 1.02rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.6rem 0; width: 100%; text-align: center; border: none; transition: color 0.15s; }
+  .mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; }
+.mobile-acc-panel .mobile-acc-heading { grid-column: 1 / -1; }
+  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 0.88rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.45rem 0.1rem; width: 100%; text-align: center; border: none; transition: color 0.15s; line-height: 1.5; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; }
   .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
 @media (max-width: 1250px) {
   html, body { overflow-x: hidden; }
