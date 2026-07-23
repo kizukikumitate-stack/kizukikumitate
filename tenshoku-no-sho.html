@@ -186,7 +186,21 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
   border:2px solid var(--gold);border-radius:6px;padding:7px 14px;
 }
 .tut-next:hover{background:var(--surface);}
+.tut-back{background:none;border:1px solid var(--hairline);border-radius:6px;color:var(--ink-2);font-size:12px;cursor:pointer;font-family:inherit;padding:6px 10px;letter-spacing:.04em;}
+.tut-back:hover{border-color:var(--gold);color:var(--gold);}
 .tut-skip{background:none;border:none;color:var(--ink-muted);font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline;padding:4px;}
+.tut-help-btn{
+  position:fixed;right:16px;bottom:16px;z-index:150;
+  width:46px;height:46px;border-radius:50%;cursor:pointer;
+  font-size:19px;line-height:1;font-family:inherit;
+  background:var(--surface);color:var(--gold);
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(0,0,0,.5);
+}
+.tut-help-btn:hover{background:var(--surface-2);}
+@media (max-width:600px){
+  .tut-help-btn{width:42px;height:42px;right:12px;bottom:12px;font-size:17px;}
+}
 .tut-target{outline:3px solid var(--gold);outline-offset:6px;border-radius:8px;animation:tutPulse 1.3s ease-in-out infinite;}
 @keyframes tutPulse{0%,100%{outline-color:var(--gold);}50%{outline-color:rgba(255,215,106,.2);}}
 @media (max-width:600px){
@@ -258,6 +272,10 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .route-tip .rt-chip:hover{background:#26294e;border-color:var(--gold);color:var(--gold);}
 .route-tip .rt-chip:hover::after{color:var(--gold);}
 .route-tip .rt-chip.pre{color:var(--ink-2);}
+.route-tip .rt-chip-main{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;}
+.route-tip .rt-rw{font-size:11px;color:var(--ink-muted);letter-spacing:.04em;white-space:nowrap;}
+.route-tip .rt-chip:hover .rt-rw{color:var(--ink-2);}
+.route-tip .rt-legend{color:var(--ink-muted);font-size:10px;letter-spacing:.03em;margin-top:6px;}
 .route-tip .rt-none{color:var(--ink-muted);font-size:12px;margin-top:2px;}
 .node .bar{position:absolute;left:0;top:0;bottom:0;width:6px;border-radius:4px 0 0 4px;}
 .node .ico{font-size:16px;margin-left:6px;}
@@ -2587,7 +2605,14 @@ document.body.appendChild(routeTip);
 let tipTimer = null, tipNodeId = null;
 function cancelHideTip(){ if(tipTimer){ clearTimeout(tipTimer); tipTimer=null; } }
 function scheduleHideTip(){ cancelHideTip(); tipTimer = setTimeout(()=>{ hideRouteTip(); highlight(null); }, 260); }
-function chipHTML(j, pre){ return '<button class="rt-chip'+(pre?' pre':'')+'" data-job="'+j.id+'" style="border-left-color:'+FAMILIES[j.family].color+'">'+j.name+'</button>'; }
+function rewardMiniHTML(j){
+  const r = j.rewards || {};
+  return '<span class="rt-rw">💰'+(r.gold||"-")+' ❤️'+(r.heart||"-")+' ⏳'+(r.time||"-")+' ⭐'+(r.exp||"-")+'</span>';
+}
+function chipHTML(j, pre){
+  return '<button class="rt-chip'+(pre?' pre':'')+'" data-job="'+j.id+'" style="border-left-color:'+FAMILIES[j.family].color+'">'+
+    '<span class="rt-chip-main"><span>'+j.name+'</span>'+(pre?'':rewardMiniHTML(j))+'</span></button>';
+}
 function showRouteTip(node, id){
   cancelHideTip();
   const j = JOB_MAP[id]; if(!j) return;
@@ -2597,6 +2622,7 @@ function showRouteTip(node, id){
   let h = '<div class="rt-name">'+j.name+'<small>'+TIER_NAMES[j.tier]+'</small></div>';
   if(kids.length){
     h += '<div class="rt-lbl">▶ この職からの転職先（クリックで開く）</div><div class="rt-chips">'+kids.map(k=>chipHTML(k,false)).join('')+'</div>';
+    h += '<div class="rt-legend">💰収入 ❤️やりがい ⏳時間の自由 ⭐市場価値（5がMAX）</div>';
   }else{
     h += '<div class="rt-none">この先はチャートの終着点（この職より上はまだありません）</div>';
   }
@@ -2931,18 +2957,30 @@ function startTutorial(){
       '<div class="tut-body">'+s.text+'</div>'+
       '<div class="tut-btns">'+
         '<span class="tut-dots">'+TUT_STEPS.map((_,k)=>k===i?"◆":"◇").join(" ")+'</span>'+
+        (i>0 ? '<button type="button" class="tut-back">◀ もどる</button>' : '')+
         (s.last ? '' : '<button type="button" class="tut-skip">とばす</button>')+
         '<button type="button" class="tut-next">'+(s.last?"▶ ぼうけんに出る":"▶ つぎへ")+'</button>'+
       '</div>';
     bub.querySelector(".tut-next").addEventListener("click",()=>{
       if(s.last) finish(true); else show(step+1);
     });
+    const bk = bub.querySelector(".tut-back");
+    if(bk) bk.addEventListener("click",()=>show(step-1));
     const sk = bub.querySelector(".tut-skip");
     if(sk) sk.addEventListener("click",()=>finish(false));
   }
   show(0);
 }
 if(!tutSeen()) setTimeout(startTutorial, 700);
+/* いつでも案内をもう一度見られる ❓ ボタン */
+const tutHelpBtn = document.createElement("button");
+tutHelpBtn.type = "button";
+tutHelpBtn.className = "tut-help-btn";
+tutHelpBtn.innerHTML = "❓";
+tutHelpBtn.title = "つかいかたの案内をもう一度見る";
+tutHelpBtn.setAttribute("aria-label","つかいかたの案内をもう一度見る");
+tutHelpBtn.addEventListener("click",()=>{ if(!document.querySelector(".tut-bubble")) startTutorial(); });
+document.body.appendChild(tutHelpBtn);
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];
