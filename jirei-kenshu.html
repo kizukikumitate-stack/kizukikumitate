@@ -155,6 +155,9 @@ p,dd,li{word-break:keep-all; overflow-wrap:break-word;}
 .pdf-btn{display:inline-block; text-decoration:none; background:var(--accent); color:#fff; font-size:14px; font-weight:700; padding:12px 20px; border:1px solid var(--accent); transition:.15s; white-space:normal; line-height:1.6;}
 .pdf-btn:hover{background:#7f3a27;}
 .pdf-note{display:block; font-size:11.5px; color:var(--sumi-soft); margin-top:6px;}
+.pdf-quiet{max-width:820px; margin:34px auto 6px; text-align:center; font-size:13px; color:var(--sumi-soft); line-height:1.9; padding:0 20px;}
+.pdf-quiet a{color:var(--accent); text-decoration:underline; text-underline-offset:3px; font-weight:600;}
+.pdf-quiet small{display:block; font-size:11.5px; opacity:.75; margin-top:2px;}
 
 /* ===== SECTIONS ===== */
 .section{padding:42px 20px; max-width:860px; margin:0 auto;}
@@ -523,11 +526,6 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
   <span class="fork-line"><b>分岐点：研修の前後を設計したか、当日だけを設計したか</b></span>
 </header>
 
-<div class="series-pdf">
-  <p>この事例の要点をA4一枚にまとめた、社内検討用の要約版（PDF）です。稟議書・企画書・会議資料への添付に、そのままお使いいただけます（無料・登録不要）。</p>
-  <span><a class="pdf-btn" href="./jirei-kenshu-summary.pdf" download>社内検討用に要約版をダウンロード（PDF・A4一枚）</a>
-  <span class="pdf-note">出典表記のままご利用ください（CC BY-NC-SA 4.0）</span></span>
-</div>
 
 
 <!-- ===== 光景 ===== -->
@@ -588,11 +586,6 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
   </div>
 </section>
 
-<div class="series-pdf">
-  <p>この事例の要点をA4一枚にまとめた、社内検討用の要約版（PDF）です。稟議書・企画書・会議資料への添付に、そのままお使いいただけます（無料・登録不要）。</p>
-  <span><a class="pdf-btn" href="./jirei-kenshu-summary.pdf" download>社内検討用に要約版をダウンロード（PDF・A4一枚）</a>
-  <span class="pdf-note">出典表記のままご利用ください（CC BY-NC-SA 4.0）</span></span>
-</div>
 
 
 <!-- ===== 処方箋の入口 ===== -->
@@ -610,6 +603,8 @@ footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1
     </div>
   </div>
 </section>
+
+<p class="pdf-quiet">この事例の要点をA4一枚にまとめた要約版（PDF）もあります：<a href="./jirei-kenshu-summary.pdf" download>社内検討用にダウンロード</a><small>無料・登録不要／出典表記のままご利用ください（CC BY-NC-SA 4.0）</small></p>
 
 <!-- ===== SOURCES ===== -->
 <details class="sources">
