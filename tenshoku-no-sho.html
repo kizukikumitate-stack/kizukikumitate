@@ -48,6 +48,8 @@
   }
 }
 </script>
+<script>/* ライトモード設定を描画前に適用（ちらつき防止） */
+try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.classList.add("light");}catch(e){}</script>
 <style>
 :root{
   color-scheme: dark;
@@ -61,6 +63,11 @@
   --gold:#ffd76a;
   --star:#eda100;
   --star-empty:#4a4e7a;
+  --t-adv:#8fd0ff;
+  --t-hero:#7ee2a0;
+  --t-king:#c9a4ff;
+  --t-tech:#9fd8ff;
+  --hover-bg:#26294e;
   --fam-warrior:#d95926;
   --fam-mage:#3987e5;
   --fam-priest:#199e70;
@@ -72,6 +79,27 @@
   --forest:#1a5fad;
   --charcoal:#1e1e1e;
 }
+/* ---- ライトモード（白背景・紙の図鑑風） ---- */
+html.light{
+  color-scheme: light;
+  --page:#f6f3ea;
+  --surface:#fffdf7;
+  --surface-2:#f0ebdd;
+  --ink:#2b2740;
+  --ink-2:#4d4968;
+  --ink-muted:#8b87a3;
+  --hairline:#d9d3c2;
+  --gold:#a67c1a;
+  --star:#d98f00;
+  --star-empty:#d8d2c2;
+  --t-adv:#1d6fb8;
+  --t-hero:#148a52;
+  --t-king:#7a4fc0;
+  --t-tech:#1d6fb8;
+  --hover-bg:#eee7d4;
+  --tier-legend:#a67c1a;
+}
+html.light body{background-image:radial-gradient(circle at 20% 10%, #efe9d9 0%, transparent 40%),radial-gradient(circle at 80% 90%, #ece4d2 0%, transparent 45%);}
 *{box-sizing:border-box;margin:0;padding:0;}
 html,body{background:var(--page);}
 body{
@@ -190,7 +218,7 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 .tut-back:hover{border-color:var(--gold);color:var(--gold);}
 .tut-skip{background:none;border:none;color:var(--ink-muted);font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline;padding:4px;}
 .tut-help-btn{
-  position:fixed;right:16px;bottom:16px;z-index:150;
+  position:fixed;left:16px;bottom:16px;z-index:150;
   width:46px;height:46px;border-radius:50%;cursor:pointer;
   font-size:19px;line-height:1;font-family:inherit;
   background:var(--surface);color:var(--gold);
@@ -199,8 +227,70 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 }
 .tut-help-btn:hover{background:var(--surface-2);}
 @media (max-width:600px){
-  .tut-help-btn{width:42px;height:42px;right:12px;bottom:12px;font-size:17px;}
+  .tut-help-btn{width:42px;height:42px;left:12px;bottom:12px;font-size:17px;}
 }
+
+/* ---- 更新履歴（ver表示・右下） ---- */
+.ver-btn{
+  position:fixed;right:16px;bottom:16px;z-index:150;cursor:pointer;font-family:inherit;
+  color:var(--gold);background:var(--surface);border:2px solid var(--gold);border-radius:999px;
+  padding:9px 15px;font-size:12.5px;letter-spacing:.1em;line-height:1;
+  box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(0,0,0,.5);
+}
+.ver-btn:hover{background:var(--surface-2);}
+.ver-log h3{color:var(--gold);font-size:14px;letter-spacing:.1em;margin:16px 0 6px;display:flex;align-items:baseline;gap:10px;}
+.ver-log h3:first-child{margin-top:4px;}
+.ver-log h3 small{color:var(--ink-muted);font-size:11px;font-weight:400;letter-spacing:.06em;}
+.ver-log ul{list-style:none;padding:0;margin:0;}
+.ver-log li{font-size:12.5px;color:var(--ink-2);padding:2px 0 2px 1.2em;text-indent:-1.2em;}
+.ver-log li::before{content:"▶ ";color:var(--gold);font-size:10px;}
+.ver-log .ver-note{color:var(--ink-muted);font-size:11.5px;margin-top:14px;border-top:1px solid var(--hairline);padding-top:10px;}
+
+/* ---- ライト/ダーク切り替え（右下・verの上） ---- */
+.theme-btn{
+  position:fixed;right:16px;bottom:62px;z-index:150;cursor:pointer;font-family:inherit;
+  width:46px;height:46px;border-radius:50%;font-size:19px;line-height:1;
+  background:var(--surface);color:var(--gold);border:2px solid var(--gold);
+  box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(0,0,0,.5);
+}
+.theme-btn:hover{background:var(--surface-2);}
+@media (max-width:600px){
+  .ver-btn{right:12px;bottom:12px;padding:8px 12px;font-size:11.5px;}
+  .theme-btn{right:12px;bottom:56px;width:42px;height:42px;font-size:17px;}
+}
+
+/* ---- 階層ジャンプレール（ジョブずかん左端） ---- */
+.tier-rail{position:fixed;left:8px;top:50%;transform:translateY(-50%);z-index:140;display:flex;flex-direction:column;align-items:stretch;gap:8px;}
+.tier-rail button{
+  font-family:inherit;cursor:pointer;width:46px;height:46px;border-radius:50%;padding:0;
+  background:var(--surface);border:2px solid var(--tc,var(--hairline));color:var(--tc,var(--ink-2));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;
+  font-size:15px;line-height:1.1;box-shadow:0 4px 12px rgba(0,0,0,.35);
+}
+.tier-rail button small{font-size:8.5px;letter-spacing:.04em;font-weight:700;color:inherit;}
+.tier-rail button:hover{border-color:var(--gold);color:var(--gold);}
+.tier-rail button.on{background:var(--surface-2);border-color:var(--gold);color:var(--gold);box-shadow:0 0 0 2px var(--surface),0 0 10px rgba(255,215,106,.35);}
+.tier-rail .tr-base{--tc:var(--ink-2);}
+.tier-rail .tr-adv{--tc:var(--t-adv);}
+.tier-rail .tr-hero{--tc:var(--t-hero);}
+.tier-rail .tr-king{--tc:var(--t-king);}
+.tier-rail .tr-legend{--tc:var(--gold);}
+@media (max-width:700px){
+  .tier-rail{left:4px;gap:6px;}
+  .tier-rail button{width:40px;height:40px;font-size:13px;}
+  .tier-rail button small{font-size:8px;}
+  /* レール(左端40px)と階層見出しテキストの重なり回避 */
+  .tier-head{padding-left:34px;}
+}
+
+/* ---- 階層見出し（ジョブずかん内） ---- */
+.tier-head{
+  grid-column:1/-1;margin:14px 4px 0;padding:6px 4px 7px;border-bottom:2px solid var(--hairline);
+  scroll-margin-top:calc(var(--navh) + 14px);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;
+}
+.tier-head:first-child{margin-top:0;}
+.tier-head .th-name{color:var(--gold);font-size:16px;letter-spacing:.14em;font-weight:700;}
+.tier-head .th-sub{color:var(--ink-muted);font-size:11.5px;letter-spacing:.04em;}
 .tut-target{outline:3px solid var(--gold);outline-offset:6px;border-radius:8px;animation:tutPulse 1.3s ease-in-out infinite;}
 @keyframes tutPulse{0%,100%{outline-color:var(--gold);}50%{outline-color:rgba(255,215,106,.2);}}
 @media (max-width:600px){
@@ -225,7 +315,7 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 .chart-wrap{position:relative;min-width:1620px;padding:10px 4px;}
 .chart-tools{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin:0 6px 8px;}
 .zoom-btn{font-family:inherit;font-size:13px;letter-spacing:.06em;cursor:pointer;color:var(--gold);background:var(--surface-2);border:2px solid var(--gold);border-radius:8px;padding:7px 16px;}
-.zoom-btn:hover{background:#26294e;}
+.zoom-btn:hover{background:var(--hover-bg);}
 /* よりみちの広場（カード） */
 .yori-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px;padding:4px;margin-top:20px;}
 .yori-card{padding:16px 18px;font-size:13px;border-style:dashed;}
@@ -269,7 +359,7 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .route-tip .rt-chips{display:flex;flex-direction:column;gap:5px;}
 .route-tip .rt-chip{font-family:inherit;text-align:left;border:1px solid var(--hairline);border-left-width:4px;border-radius:6px;padding:7px 10px;font-size:13px;line-height:1.35;color:var(--ink);background:var(--surface-2);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;transition:background .12s,border-color .12s,color .12s;}
 .route-tip .rt-chip::after{content:"›";color:var(--ink-muted);font-size:16px;flex-shrink:0;}
-.route-tip .rt-chip:hover{background:#26294e;border-color:var(--gold);color:var(--gold);}
+.route-tip .rt-chip:hover{background:var(--hover-bg);border-color:var(--gold);color:var(--gold);}
 .route-tip .rt-chip:hover::after{color:var(--gold);}
 .route-tip .rt-chip.pre{color:var(--ink-2);}
 .route-tip .rt-chip-main{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;}
@@ -325,9 +415,9 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .jobcard h3{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;letter-spacing:.06em;}
 .tier-badge{font-size:10px;letter-spacing:.1em;padding:2px 7px;border:1px solid currentColor;border-radius:4px;}
 .tier-base{color:var(--ink-2);}
-.tier-adv{color:#8fd0ff;}
-.tier-hero{color:#7ee2a0;}
-.tier-king{color:#c9a4ff;}
+.tier-adv{color:var(--t-adv);}
+.tier-hero{color:var(--t-hero);}
+.tier-king{color:var(--t-king);}
 .tier-legend-badge{color:var(--gold);}
 .rarity{font-size:11px;color:var(--ink-muted);margin-top:3px;}
 .rarity b{color:var(--gold);font-weight:400;}
@@ -340,7 +430,7 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .stars .on{color:var(--star);}
 .stars .off{color:var(--star-empty);}
 .tech-item{margin:3px 0;}
-.tech-item b{color:#9fd8ff;font-weight:400;}
+.tech-item b{color:var(--t-tech);font-weight:400;}
 .tech-item span{color:var(--ink-2);}
 .cond{color:var(--ink-2);}
 .cond b{color:var(--gold);font-weight:400;}
@@ -402,11 +492,11 @@ td.manabi-cell{white-space:normal;min-width:190px;font-size:11px;color:var(--ink
   font-family:inherit;font-size:14px;letter-spacing:.1em;cursor:pointer;color:var(--gold);
   background:var(--surface-2);border:2px solid var(--gold);border-radius:8px;padding:9px 22px;margin-top:14px;
 }
-.btn-dq:hover{background:#26294e;}
+.btn-dq:hover{background:var(--hover-bg);}
 .btn-dq.sub{color:var(--ink-2);border-color:var(--hairline);font-size:12px;padding:6px 14px;}
 .make-modes{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 14px;}
 .make-mode-btn{font-family:inherit;font-size:13px;letter-spacing:.04em;cursor:pointer;color:var(--ink-2);background:var(--surface-2);border:2px solid var(--hairline);border-radius:8px;padding:8px 16px;}
-.make-mode-btn[aria-selected="true"]{color:var(--gold);border-color:var(--gold);background:#26294e;}
+.make-mode-btn[aria-selected="true"]{color:var(--gold);border-color:var(--gold);background:var(--hover-bg);}
 .make-mode-btn:hover{color:var(--gold);}
 .make-hint{color:var(--ink-muted);font-size:12px;line-height:1.7;margin:2px 2px 8px;}
 .user-chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:6px;padding:4px 10px;margin:4px 6px 0 0;font-size:12px;}
@@ -797,6 +887,13 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   </section>
 
   <section id="p-zukan" class="panel" role="tabpanel">
+    <div class="tier-rail" id="tierRail" role="navigation" aria-label="階層へジャンプ">
+      <button type="button" class="tr-base" data-tier="base" title="基本職へジャンプ"><span>⚔️</span><small>基本</small></button>
+      <button type="button" class="tr-adv" data-tier="adv" title="上位職へジャンプ"><span>🌟</span><small>上位</small></button>
+      <button type="button" class="tr-hero" data-tier="hero" title="英雄職へジャンプ"><span>🛡️</span><small>英雄</small></button>
+      <button type="button" class="tr-king" data-tier="king" title="覇者職へジャンプ"><span>🏰</span><small>覇者</small></button>
+      <button type="button" class="tr-legend" data-tier="legend" title="伝説職へジャンプ"><span>👑</span><small>伝説</small></button>
+    </div>
     <div class="zukan-grid" id="zukanGrid"></div>
   </section>
 
@@ -975,6 +1072,13 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <div class="modal-card">
     <button class="modal-close" id="modalClose">とじる ✕</button>
     <div id="modalBody"></div>
+  </div>
+</div>
+
+<div class="modal-bg" id="verBg" role="dialog" aria-modal="true" aria-label="この図鑑の更新履歴">
+  <div class="modal-card">
+    <button class="modal-close" id="verClose">とじる ✕</button>
+    <div class="dq ver-log" id="verBody" style="padding:18px 22px;"></div>
   </div>
 </div>
 
@@ -2270,7 +2374,7 @@ function cardHTML(j, withLinks=true, collapsible=false){
   const f = FAMILIES[j.family];
   let h = '<div class="dq jobcard" style="border-top:6px solid '+f.color+'">';
   h += illustFig(j);
-  h += '<h3>'+j.name+' '+tierBadge(j.tier)+(j.user?' <span class="tier-badge" style="color:#7ee2a0">🆕 みんなの投稿</span>':'')+'</h3>';
+  h += '<h3>'+j.name+' '+tierBadge(j.tier)+(j.user?' <span class="tier-badge" style="color:var(--t-hero)">🆕 みんなの投稿</span>':'')+'</h3>';
   h += famTag(j.family);
   h += '<div class="rarity">そんざい数: <b>'+TIER_RARITY[j.tier]+'</b></div>';
   h += '<p class="catch">「'+j.catch+'」</p>';
@@ -2459,8 +2563,31 @@ function highlight(id){
 /* ================= ジョブずかん ================= */
 function buildZukan(){
   const grid = document.getElementById("zukanGrid");
-  grid.innerHTML = TIER_ORDER.flatMap(t=>JOBS.filter(j=>j.tier===t)).map(j=>cardHTML(j,true,true)).join("");
+  grid.innerHTML = TIER_ORDER.map(t=>
+    '<div class="tier-head" id="zk-tier-'+t+'"><span class="th-name">◆ '+TIER_NAMES[t]+'</span><span class="th-sub">'+TIER_RARITY[t]+'</span></div>'+
+    JOBS.filter(j=>j.tier===t).map(j=>cardHTML(j,true,true)).join("")
+  ).join("");
 }
+/* 階層ジャンプレール: クリックで見出しへ、スクロールで現在地をハイライト */
+const tierRail = document.getElementById("tierRail");
+tierRail.addEventListener("click",e=>{
+  const b = e.target.closest("button[data-tier]"); if(!b) return;
+  const head = document.getElementById("zk-tier-"+b.dataset.tier);
+  if(head) head.scrollIntoView({behavior:"smooth",block:"start"});
+});
+let railTick = false;
+function updateTierRail(){
+  railTick = false;
+  if(!document.getElementById("p-zukan").classList.contains("active")) return;
+  const mid = window.innerHeight*0.4;
+  let cur = TIER_ORDER[0];
+  for(const t of TIER_ORDER){
+    const head = document.getElementById("zk-tier-"+t);
+    if(head && head.getBoundingClientRect().top <= mid) cur = t;
+  }
+  tierRail.querySelectorAll("button").forEach(b=>b.classList.toggle("on", b.dataset.tier===cur));
+}
+window.addEventListener("scroll",()=>{ if(!railTick){ railTick=true; requestAnimationFrame(updateTierRail); } },{passive:true});
 document.getElementById("zukanGrid").addEventListener("click",e=>{
   const btn = e.target.closest(".jc-toggle"); if(!btn) return;
   const card = btn.closest(".jobcard");
@@ -3019,6 +3146,81 @@ tutHelpBtn.title = "つかいかたの案内をもう一度見る";
 tutHelpBtn.setAttribute("aria-label","つかいかたの案内をもう一度見る");
 tutHelpBtn.addEventListener("click",()=>{ if(!document.querySelector(".tut-bubble")) startTutorial(); });
 document.body.appendChild(tutHelpBtn);
+
+/* ================= 更新履歴（ver表示・右下） ================= */
+const VERSION_LOG = [
+  {v:"1.5", d:"2026-07-23", items:[
+    "ジョブずかんのカードを折りたたみ式に（▼くわしく見る で展開）",
+    "ずかんの左端に、階層（基本〜伝説）へひとっとびできるジャンプボタンを追加",
+    "この更新履歴（ver表示）を追加。❓案内ボタンは左下へ引っ越し",
+    "ライトモード（白背景）とダークモードの切り替えボタンを追加",
+  ]},
+  {v:"1.4", d:"2026-07-23", items:[
+    "職業けんさく窓を追加（よみがな・別名でもさがせる）",
+    "はじめての人向けチュートリアルと、もう一度見られる❓ボタンを追加",
+    "道ゆく猫とスライムが、旗を越えるたびに成長する演出を追加",
+  ]},
+  {v:"1.3", d:"2026-07-22", items:[
+    "宗教家ルート5職＋投資家ルート4職を追加（計129職に）",
+    "プロレビュー4本（教育者・初心者・ブランド・技術）の指摘を反映",
+    "タブに説明ツールチップを追加",
+  ]},
+  {v:"1.2", d:"2026-07-22", items:[
+    "「生涯キャリア図鑑」に改称",
+    "よりみちの広場（はしごの外の道）を新設",
+    "利用条件を明記（授業・個人利用は自由）",
+  ]},
+  {v:"1.1", d:"2026-07-22", items:[
+    "チャートのホバーで転職先・前提をポップアップ表示",
+    "人手不足の🔥と、人手が余り気味の青い炎を追加",
+    "チャートの全体表示ズームを追加",
+  ]},
+  {v:"1.0", d:"2026-07-22", items:[
+    "公開。転職チャート・ジョブずかん・ほうしゅう比較・みんなでつくる の4部屋でスタート",
+  ]},
+];
+const verBg = document.getElementById("verBg");
+document.getElementById("verBody").innerHTML =
+  '<div class="sec-label" style="margin-top:0;">この図鑑の あゆみ</div>' +
+  VERSION_LOG.map(e=>'<h3>ver '+e.v+' <small>'+e.d+'</small></h3><ul>'+e.items.map(i=>'<li>'+i+'</li>').join("")+'</ul>').join("") +
+  '<p class="ver-note">この図鑑は「みんなで作る」教材として、これからも育っていきます。職業の追加は「みんなでつくる」タブから、機能の要望はページ下部の連絡先へどうぞ。</p>';
+const verBtn = document.createElement("button");
+verBtn.type = "button";
+verBtn.className = "ver-btn";
+verBtn.textContent = "ver " + VERSION_LOG[0].v;
+verBtn.title = "更新履歴を見る";
+verBtn.setAttribute("aria-label","更新履歴を見る（現在 ver "+VERSION_LOG[0].v+"）");
+verBtn.addEventListener("click",()=>{ verBg.classList.add("open"); document.getElementById("verClose").focus(); });
+document.body.appendChild(verBtn);
+function closeVer(){ verBg.classList.remove("open"); verBtn.focus(); }
+document.getElementById("verClose").addEventListener("click",closeVer);
+verBg.addEventListener("click",e=>{ if(e.target===verBg) closeVer(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && verBg.classList.contains("open")) closeVer(); });
+
+/* ================= ライト/ダーク切り替え ================= */
+/* head の早期適用が効かなかった環境向けの保険（通常はここでは何も変わらない） */
+try{ if(localStorage.getItem("tenshokuTheme")==="light") document.documentElement.classList.add("light"); }catch(e){}
+const themeBtn = document.createElement("button");
+themeBtn.type = "button";
+themeBtn.className = "theme-btn";
+function syncThemeBtn(){
+  const light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "🌙" : "☀️";
+  const label = light ? "ダークモードに切り替える" : "ライトモード（白背景）に切り替える";
+  themeBtn.title = label;
+  themeBtn.setAttribute("aria-label",label);
+}
+themeBtn.addEventListener("click",()=>{
+  const light = document.documentElement.classList.toggle("light");
+  try{ localStorage.setItem("tenshokuTheme", light ? "light" : "dark"); }catch(e){}
+  syncThemeBtn();
+});
+syncThemeBtn();
+document.body.appendChild(themeBtn);
+
+/* タブ切り替え直後に階層レールの現在地を更新 */
+document.querySelectorAll(".tab-btn").forEach(b=>b.addEventListener("click",()=>requestAnimationFrame(updateTierRail)));
+updateTierRail();
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];
