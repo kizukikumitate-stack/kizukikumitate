@@ -143,6 +143,29 @@ Democracy Fitness 等のハブ。
 - フッターロゴ: `font-family: 'Shippori Mincho', serif; font-size: 1rem; font-weight: 800; color: rgba(255,255,255,0.9);`
 - フッターの例外は台帳側で表現する: lsp.html＝`footer_copy_prefix`（LEGO商標）、topaasia.html＝`footer: "topaasia"`（日英TM行）
 
+### モバイルメニュー（ハンバーガー展開後）の標準（2026-07-23 確定）
+
+- ハンバーガーは全ページ**右側・3本線**。`display: flex` にするときは必ず
+  `flex-direction: column; justify-content: center;` をセットで書く（columnが無いと
+  スパン3本が横に連結して「1本線」に見える事故が起きる。折返し対策ブロックの正は
+  `raise-nav-breakpoint.py` で修正済み）
+- 第一階層の直リンク（Home・ストア等）は `.mobile-menu > a` でアコーディオン見出しと同じ
+  スタイル（Jost系・700・#3C3489・padding 1.15rem 0）に揃える。サブリンクと差をつけるための
+  区別であり、明朝600のままにしない
+- 展開パネルは**2列メガメニュー**:
+  `.mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; max-width: 34rem; margin: 0 auto; }`
+  ＋ 小見出しは `.mobile-acc-panel .mobile-acc-heading { grid-column: 1 / -1; }`。
+  max-width 34rem の中央寄せが無いと、タブレット・PC幅（ハンバーガーは1500pxまで出る）で
+  2列の間が大きく空く
+- パネル内リンクは `0.88rem` ＋ `word-break: auto-phrase; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end;`
+  （長い図鑑名の3行化と「〜図/鑑」の1文字孤立を防ぐ。auto-phrase を入れると
+  mobile-preflight の D検査が hanging-punctuation の併記を要求する）
+- 先頭リンクの罫線は**子セレクタ** `.mobile-menu > a:first-child` で書く
+  （`.mobile-menu a:first-child` だとパネル内の先頭リンクにも当たり、2列時に
+  左列だけの半端な罫線が出る）
+- **例外: topaasia系2ページ**は幅280pxの右ドロワーのため、パネルは1列
+  （`display: flex`）のまま。2列にしない
+
 ### ヒーロー h1 フォントサイズ
 
 - 基準: `font-size: clamp(2rem, 4vw, 4.8rem)`
