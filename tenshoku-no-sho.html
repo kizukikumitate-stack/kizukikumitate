@@ -159,6 +159,39 @@ header .note{color:var(--ink-muted);font-size:12px;margin-top:6px;}
 .search-sug button:hover,.search-sug button.sel{background:var(--surface);color:var(--gold);}
 .search-sug .sug-tier{margin-left:auto;font-size:11px;color:var(--ink-muted);white-space:nowrap;flex-shrink:0;}
 .search-sug .sug-empty{display:block;padding:12px 14px;font-size:12px;color:var(--ink-muted);line-height:1.7;}
+/* 検索→カードを閉じたあと、チャート上の該当ノードを光らせる */
+.node.search-glow{animation:nodeGlow 1.3s ease-in-out 2;}
+@keyframes nodeGlow{
+  0%,100%{outline:3px solid rgba(255,215,106,0);outline-offset:5px;}
+  50%{outline:3px solid rgba(255,215,106,.95);outline-offset:5px;}
+}
+
+/* ---- 初回チュートリアル ---- */
+.tut-bubble{
+  position:fixed;right:18px;bottom:18px;z-index:400;max-width:350px;
+  background:var(--surface);color:var(--ink-2);
+  border:2px solid var(--ink);border-radius:8px;
+  box-shadow:0 0 0 3px var(--surface),0 0 0 5px var(--ink),0 16px 44px rgba(0,0,0,.6);
+  padding:15px 18px 13px;font-size:13.5px;line-height:1.9;letter-spacing:.04em;
+  animation:tutIn .45s ease;
+}
+@keyframes tutIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:none;}}
+.tut-title{color:var(--gold);font-weight:700;font-size:11.5px;letter-spacing:.16em;margin-bottom:7px;}
+.tut-body b{color:var(--ink);}
+.tut-btns{display:flex;align-items:center;gap:12px;margin-top:12px;}
+.tut-dots{margin-right:auto;color:var(--ink-muted);font-size:11px;letter-spacing:.25em;}
+.tut-next{
+  font-family:inherit;font-size:13px;letter-spacing:.06em;cursor:pointer;
+  color:var(--gold);background:var(--surface-2);
+  border:2px solid var(--gold);border-radius:6px;padding:7px 14px;
+}
+.tut-next:hover{background:var(--surface);}
+.tut-skip{background:none;border:none;color:var(--ink-muted);font-size:12px;cursor:pointer;font-family:inherit;text-decoration:underline;padding:4px;}
+.tut-target{outline:3px solid var(--gold);outline-offset:6px;border-radius:8px;animation:tutPulse 1.3s ease-in-out infinite;}
+@keyframes tutPulse{0%,100%{outline-color:var(--gold);}50%{outline-color:rgba(255,215,106,.2);}}
+@media (max-width:600px){
+  .tut-bubble{left:12px;right:12px;bottom:12px;max-width:none;padding-bottom:max(13px, env(safe-area-inset-bottom));}
+}
 /* モバイル（ホバー非対応端末）は選択中タブの説明をタブ下に表示 */
 .tab-hint{display:none;}
 @media (hover:none), (max-width:600px){
@@ -2489,17 +2522,64 @@ document.getElementById("usageBox").innerHTML = `
 /* ================= モーダル / タブ / 起動 ================= */
 const modalBg = document.getElementById("modalBg");
 let lastFocusEl = null;
+let pendingFocusJob = null; /* 検索から開いた職業id。カードを閉じたらチャート上のノードへ移動する */
 function openModal(id){
   const j = JOB_MAP[id]; if(!j) return;
+  if(pendingFocusJob) pendingFocusJob = id; /* カード内リンクで渡り歩いたら最後に見た職業へ */
   lastFocusEl = document.activeElement;
   document.getElementById("modalBody").innerHTML = cardHTML(j);
   modalBg.classList.add("open");
   document.getElementById("modalClose").focus();
 }
 function restoreFocus(){ if(lastFocusEl && lastFocusEl.focus){ lastFocusEl.focus(); } lastFocusEl=null; }
-document.getElementById("modalClose").addEventListener("click",()=>{modalBg.classList.remove("open");restoreFocus();});
-modalBg.addEventListener("click",e=>{ if(e.target===modalBg){ modalBg.classList.remove("open"); restoreFocus(); } });
-document.addEventListener("keydown",e=>{ if(e.key==="Escape" && modalBg.classList.contains("open")){ modalBg.classList.remove("open"); restoreFocus(); } });
+
+/* ゆっくり重みのあるスクロール（チャート横＋ページ縦を同時にイージング） */
+function easeInOutCubic(t){ return t<0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
+function animateScrollXY(scroller, targetX, targetY, dur){
+  const sx = scroller ? scroller.scrollLeft : 0, sy = window.scrollY;
+  const dx = scroller ? targetX-sx : 0, dy = targetY-sy;
+  const t0 = performance.now();
+  function step(){
+    const p = Math.min(1,(performance.now()-t0)/dur), e = easeInOutCubic(p);
+    if(scroller) scroller.scrollLeft = sx+dx*e;
+    window.scrollTo(0, sy+dy*e);
+    if(p<1) setTimeout(step, 16);
+  }
+  step();
+}
+function focusNodeInChart(id, dur){
+  dur = dur || 1300;
+  const node = document.getElementById("node-"+id); if(!node) return;
+  const sc = document.getElementById("chartScroller");
+  const nr = node.getBoundingClientRect();
+  const targetY = Math.max(0, window.scrollY + nr.top - window.innerHeight/2 + nr.height/2);
+  let targetX = sc ? sc.scrollLeft : 0;
+  if(sc && !sc.classList.contains("fit")){
+    const sr = sc.getBoundingClientRect();
+    targetX = sc.scrollLeft + (nr.left - sr.left) - sr.width/2 + nr.width/2;
+    targetX = Math.max(0, Math.min(targetX, sc.scrollWidth - sc.clientWidth));
+  }
+  animateScrollXY(sc, targetX, targetY, dur);
+  highlight(id);
+  node.classList.add("search-glow");
+  setTimeout(()=>node.classList.remove("search-glow"), 2800);
+  setTimeout(()=>{ try{ node.focus({preventScroll:true}); }catch(err){} }, dur);
+}
+function closeModal(){
+  modalBg.classList.remove("open");
+  if(pendingFocusJob){
+    const id = pendingFocusJob; pendingFocusJob = null; lastFocusEl = null;
+    if(!document.getElementById("p-chart").classList.contains("active")){
+      const ct = document.querySelector('.tab-btn[data-panel="p-chart"]'); if(ct) ct.click();
+    }
+    setTimeout(()=>focusNodeInChart(id), 60);
+  }else{
+    restoreFocus();
+  }
+}
+document.getElementById("modalClose").addEventListener("click",closeModal);
+modalBg.addEventListener("click",e=>{ if(e.target===modalBg) closeModal(); });
+document.addEventListener("keydown",e=>{ if(e.key==="Escape" && modalBg.classList.contains("open")) closeModal(); });
 /* ホバーで転職先/前提をポップアップ。そのままカーソルを移してクリックで開ける */
 const routeTip = document.createElement("div");
 routeTip.className = "route-tip"; routeTip.setAttribute("aria-hidden","true");
@@ -2759,14 +2839,8 @@ function hideSug(){ searchSug.hidden = true; searchSug.innerHTML=""; sugIndex=-1
 function jumpToJob(id){
   hideSug();
   const j = JOB_MAP[id]; if(!j) return;
+  pendingFocusJob = id; /* カードを閉じたときにチャート上のこの職業へ移動 */
   openModal(id);
-  const node = document.getElementById("node-"+id);
-  if(node){
-    highlight(id);
-    if(document.getElementById("p-chart").classList.contains("active")){
-      node.scrollIntoView({block:"center", inline:"center", behavior:"smooth"});
-    }
-  }
 }
 function renderSug(res){
   if(res.mode==="none"){ hideSug(); return; }
@@ -2813,6 +2887,62 @@ searchInput.addEventListener("keydown",e=>{
 });
 searchSug.addEventListener("mousedown",e=>{ e.preventDefault(); pickSug(e.target.closest("button")); });
 document.addEventListener("click",e=>{ if(!e.target.closest(".job-search")) hideSug(); });
+
+/* ================= 初回チュートリアル ================= */
+const TUT_FLAG = "tenshokuTutorialSeen_v1";
+const TUT_STEPS = [
+  {anchor:"header.dq",
+   text:"ようこそ、<b>生涯キャリア図鑑</b>へ！ここは、はたらく道をRPGの地図にした書だよ。30秒だけ、つかいかたを案内するね。"},
+  {anchor:".tabs",
+   text:"部屋は5つ。<b>▶転職チャート</b>で道をたどり、<b>ジョブずかん</b>でカードを1枚ずつ、<b>ほうしゅう比較</b>で💰❤️⏳⭐の4つの報酬を見比べられるよ。"},
+  {anchor:"#jobSearchBox",
+   text:"🔍<b>けんさく窓</b>に職業名を入れると、その職業のカードへひとっとび。載っていない職業は「みんなでつくる」で追加できる。"},
+  {anchor:"#chartScroller",
+   text:"チャートでは、まず<b>基本職の列から自分にいちばん近い職業を1つタップ</b>。ジョブカードが開いて、そこから進める道が見えるよ。"},
+  {anchor:null,
+   text:"準備はばっちり！学べば学ぶほど、進める道は増えていく。それでは、よい旅を⚔️", last:true},
+];
+function tutSeen(){ try{ return localStorage.getItem(TUT_FLAG)==="1"; }catch(e){ return true; } }
+function tutMarkSeen(){ try{ localStorage.setItem(TUT_FLAG,"1"); }catch(e){} }
+function startTutorial(){
+  let step = 0, target = null;
+  const bub = document.createElement("div");
+  bub.className = "tut-bubble"; bub.setAttribute("role","dialog"); bub.setAttribute("aria-label","つかいかたの案内");
+  document.body.appendChild(bub);
+  function clearTarget(){ if(target){ target.classList.remove("tut-target"); target=null; } }
+  function finish(toTop){
+    clearTarget(); bub.remove(); tutMarkSeen();
+    if(toTop) animateScrollXY(null, 0, 0, 1000);
+  }
+  function show(i){
+    step = i;
+    const s = TUT_STEPS[i];
+    clearTarget();
+    if(s.anchor){
+      target = document.querySelector(s.anchor);
+      if(target){
+        target.classList.add("tut-target");
+        const r = target.getBoundingClientRect();
+        animateScrollXY(null, 0, Math.max(0, window.scrollY + r.top - window.innerHeight/2 + Math.min(r.height, window.innerHeight*0.6)/2), 900);
+      }
+    }
+    bub.innerHTML =
+      '<div class="tut-title">✦ つかいかたの案内 ✦</div>'+
+      '<div class="tut-body">'+s.text+'</div>'+
+      '<div class="tut-btns">'+
+        '<span class="tut-dots">'+TUT_STEPS.map((_,k)=>k===i?"◆":"◇").join(" ")+'</span>'+
+        (s.last ? '' : '<button type="button" class="tut-skip">とばす</button>')+
+        '<button type="button" class="tut-next">'+(s.last?"▶ ぼうけんに出る":"▶ つぎへ")+'</button>'+
+      '</div>';
+    bub.querySelector(".tut-next").addEventListener("click",()=>{
+      if(s.last) finish(true); else show(step+1);
+    });
+    const sk = bub.querySelector(".tut-skip");
+    if(sk) sk.addEventListener("click",()=>finish(false));
+  }
+  show(0);
+}
+if(!tutSeen()) setTimeout(startTutorial, 700);
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];
