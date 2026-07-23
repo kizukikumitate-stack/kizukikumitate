@@ -295,23 +295,25 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .adventure-road .flag{display:block;filter:drop-shadow(0 0 5px rgba(255,215,106,.4));}
 .adventure-road .rt{font-size:10px;letter-spacing:.12em;color:var(--ink-muted);white-space:nowrap;}
 .adventure-road::before{content:"";position:absolute;left:10px;right:-30px;bottom:5px;border-top:2px dashed var(--hairline);z-index:0;}
-.adventure-walker{position:absolute;bottom:2px;left:0;z-index:3;width:48px;height:30px;background-image:url(images/tenshoku/cat-run.png);background-repeat:no-repeat;background-size:1152px 30px;background-position:0 0;image-rendering:auto;filter:drop-shadow(0 0 4px rgba(255,215,106,.5));animation:advWalk 28s linear infinite, catRun .95s steps(24) infinite, catEvolve 28s linear infinite;will-change:left,background-position;}
+.adventure-walker{position:absolute;bottom:2px;left:0;z-index:3;width:48px;height:30px;background-image:url(images/tenshoku/cat-run.png);background-repeat:no-repeat;background-size:1152px 30px;background-position:0 0;image-rendering:auto;filter:drop-shadow(0 0 4px rgba(255,215,106,.5));transform-origin:50% 100%;animation:advWalk 28s linear infinite, catRun .95s steps(24) infinite, catEvolve 28s linear infinite;will-change:left,background-position,transform;}
 @keyframes advWalk{0%{left:0}94%{left:calc(100% - 48px)}100%{left:calc(100% - 48px)}}
 @keyframes catRun{from{background-position-x:0}to{background-position-x:-1152px}}
 /* 道をゆく2匹目：跳ねるスライム（猫の半周ぶん後ろから追う） */
 .adventure-walker.slime{background-image:url(images/tenshoku/slime-hop.png);background-size:960px 30px;animation:advWalk 28s linear -14s infinite, slimeRun 1s steps(20) infinite, slimeEvolve 28s linear -14s infinite;}
 @keyframes slimeRun{from{background-position-x:0}to{background-position-x:-960px}}
-/* 職業ランクの旗を越えるたびにゴージャスになる（advWalkと同周期で位置に同期。
-   生成: scripts/gen-walker-stages.py / 区間境界 = 道の20%刻み ≒ タイムライン18.8%刻み） */
-@keyframes catEvolve{0%,18.7%{background-image:url(images/tenshoku/cat-run.png)}18.8%,37.5%{background-image:url(images/tenshoku/cat-run-2.png)}37.6%,56.3%{background-image:url(images/tenshoku/cat-run-3.png)}56.4%,75.1%{background-image:url(images/tenshoku/cat-run-4.png)}75.2%,100%{background-image:url(images/tenshoku/cat-run-5.png)}}
-@keyframes slimeEvolve{0%,18.7%{background-image:url(images/tenshoku/slime-hop.png)}18.8%,37.5%{background-image:url(images/tenshoku/slime-hop-2.png)}37.6%,56.3%{background-image:url(images/tenshoku/slime-hop-3.png)}56.4%,75.1%{background-image:url(images/tenshoku/slime-hop-4.png)}75.2%,100%{background-image:url(images/tenshoku/slime-hop-5.png)}}
+/* 職業ランクの旗を通り過ぎた直後にゴージャスに＋一回り大きくなる
+   （advWalkと同周期で位置に同期。旗は各区間中央=道の10/30/50/70/90%にあり、
+   上位職〜伝説職の旗の通過はタイムライン約27.5/47.2/66.8/86.4%。
+   生成: scripts/gen-walker-stages.py） */
+@keyframes catEvolve{0%,28%{background-image:url(images/tenshoku/cat-run.png);transform:scale(1)}29%,47.7%{background-image:url(images/tenshoku/cat-run-2.png);transform:scale(1.2)}48.7%,67.3%{background-image:url(images/tenshoku/cat-run-3.png);transform:scale(1.4)}68.3%,86.9%{background-image:url(images/tenshoku/cat-run-4.png);transform:scale(1.6)}87.9%,100%{background-image:url(images/tenshoku/cat-run-5.png);transform:scale(1.8)}}
+@keyframes slimeEvolve{0%,28%{background-image:url(images/tenshoku/slime-hop.png);transform:scale(1)}29%,47.7%{background-image:url(images/tenshoku/slime-hop-2.png);transform:scale(1.2)}48.7%,67.3%{background-image:url(images/tenshoku/slime-hop-3.png);transform:scale(1.4)}68.3%,86.9%{background-image:url(images/tenshoku/slime-hop-4.png);transform:scale(1.6)}87.9%,100%{background-image:url(images/tenshoku/slime-hop-5.png);transform:scale(1.8)}}
 
 /* ---- 右端フェード＆ヒント ---- */
 .chart-edge-hint{position:absolute;top:0;right:0;bottom:8px;width:88px;pointer-events:none;z-index:4;display:flex;align-items:flex-start;justify-content:flex-end;padding-right:6px;background:linear-gradient(to right, rgba(9,10,28,0), var(--page) 72%);opacity:1;transition:opacity .35s;}
 .chart-edge-hint.hide{opacity:0;}
 .chart-edge-hint .pill{position:sticky;top:calc(var(--navh) + 26px);writing-mode:vertical-rl;font-size:11px;letter-spacing:.16em;color:var(--gold);background:var(--surface-2);border:1px solid var(--gold);border-radius:20px;padding:10px 5px;box-shadow:0 0 12px rgba(255,215,106,.25);animation:edgePulse 1.7s ease-in-out infinite;}
 @keyframes edgePulse{0%,100%{transform:translateX(0);opacity:.82}50%{transform:translateX(4px);opacity:1}}
-@media (prefers-reduced-motion: reduce){.adventure-walker,.chart-edge-hint .pill{animation:none;}.adventure-walker{left:2%;background-position:0 0;}.adventure-walker.slime{left:24%;background-image:url(images/tenshoku/slime-hop-2.png);}}
+@media (prefers-reduced-motion: reduce){.adventure-walker,.chart-edge-hint .pill{animation:none;}.adventure-walker{left:2%;background-position:0 0;}.adventure-walker.slime{left:24%;background-image:url(images/tenshoku/slime-hop-2.png);transform:scale(1.2);}}
 
 /* ---- job cards (zukan) ---- */
 .zukan-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:22px;padding:4px;}
