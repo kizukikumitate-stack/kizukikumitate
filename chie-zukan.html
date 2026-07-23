@@ -1835,70 +1835,76 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
   mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
 </script>
 
-<!-- ZUKAN-SHELF START -->
+<!-- SHELF START -->
 <style>
-.zukan-shelf-fab { position: fixed; right: 1rem; bottom: 1.2rem; z-index: 150; display: flex; align-items: center; gap: 0.45em; background: #26215C; color: #fff; border: none; border-radius: 999px; padding: 0.68rem 1.15rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.08em; box-shadow: 0 4px 14px rgba(38,33,92,0.35); cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; }
-.zukan-shelf-fab:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(38,33,92,0.45); }
-.zukan-shelf-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 300; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); overflow-y: auto; padding: 4.2rem 1.5rem 3rem; }
-.zukan-shelf-overlay.open { display: block; }
-.zs-inner { max-width: 34rem; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; }
-.zs-title { grid-column: 1 / -1; text-align: center; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding-bottom: 0.6rem; }
-.zs-heading { grid-column: 1 / -1; display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.75rem 0 0.15rem; text-align: center; }
-.zs-heading + .zs-heading, .zs-heading:not(:first-of-type) { border-top: 1px solid #ececf3; margin-top: 0.35rem; padding-top: 0.65rem; }
-.zs-inner a { font-family: 'Shippori Mincho', serif; font-size: 0.88rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.45rem 0.1rem; text-align: center; line-height: 1.5; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s; }
-.zs-inner a:hover { color: #3C3489; }
-.zs-inner a.active { color: #3C3489; font-weight: 700; }
-.zukan-shelf-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
+.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
+.shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
+.shelf.open .shelf-backdrop { display: block; }
+.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
+.shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
+.shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
+.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
+.shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
+.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
+.shelf-list a:hover { color: #3C3489; }
+.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
+@media (min-width: 1360px) {
+  .shelf-tab { display: none; }
+  .shelf-panel { transform: translateY(-50%) translateX(0); z-index: 140; }
+  .shelf-close { display: none; }
+  .shelf-backdrop { display: none !important; }
+}
 </style>
-<button class="zukan-shelf-fab" id="zukanShelfFab" type="button" aria-haspopup="true" aria-expanded="false">📚 図鑑の棚</button>
-<div class="zukan-shelf-overlay" id="zukanShelfOverlay" role="dialog" aria-label="図鑑の棚">
-  <button class="zukan-shelf-close" id="zukanShelfClose" aria-label="閉じる">✕</button>
-  <div class="zs-inner">
-    <span class="zs-title">📚 図鑑の棚</span>
-    <span class="zs-heading">ヒトと学びの図鑑</span>
-    <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
-    <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種" class="active">ホモ・サピエンスの知恵図鑑</a>
-    <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
-    <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
-    <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
-    <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
-    <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
-    <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
-    <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
-    <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
-    <span class="zs-heading">社会と世界の図鑑</span>
-    <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
-    <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
-    <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
-    <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
-    <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
-    <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
-    <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
-    <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
-    <span class="zs-heading">読み物</span>
-    <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
-    <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
-    <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
-  </div>
+<div class="shelf" id="siteShelf">
+  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 図鑑の棚</button>
+  <div class="shelf-backdrop" id="shelfBackdrop"></div>
+  <aside class="shelf-panel" aria-label="図鑑の棚">
+    <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
+    <div class="shelf-title">📚 図鑑の棚</div>
+    <div class="shelf-list" role="navigation">
+      <span class="shelf-heading">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種" class="active">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
+      <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
+      <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
+      <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
+      <span class="shelf-heading">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
+      <span class="shelf-heading">読み物</span>
+      <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
+      <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
+      <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
+    </div>
+  </aside>
 </div>
 <script>
 (function() {
-  var fab = document.getElementById('zukanShelfFab');
-  var ov = document.getElementById('zukanShelfOverlay');
-  var close = document.getElementById('zukanShelfClose');
+  var shelf = document.getElementById('siteShelf');
+  var tab = document.getElementById('shelfTab');
   function setOpen(open) {
-    ov.classList.toggle('open', open);
-    fab.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.body.style.overflow = open ? 'hidden' : '';
-    if (open && typeof gtag === 'function') gtag('event', 'zukan_shelf_open', { page: location.pathname });
+    shelf.classList.toggle('open', open);
+    tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '図鑑の棚', page: location.pathname });
   }
-  fab.addEventListener('click', function() { setOpen(!ov.classList.contains('open')); });
-  close.addEventListener('click', function() { setOpen(false); });
-  ov.addEventListener('click', function(e) { if (e.target === ov) setOpen(false); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && ov.classList.contains('open')) setOpen(false); });
+  tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
+  document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
+  document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });
 })();
 </script>
-<!-- ZUKAN-SHELF END -->
+<!-- SHELF END -->
 
 </body>
 </html>

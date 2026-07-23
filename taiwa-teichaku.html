@@ -1105,5 +1105,58 @@ if (hamburger && mobileMenu) {
   mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
 }
 </script>
+<!-- SHELF START -->
+<style>
+.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
+.shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
+.shelf.open .shelf-backdrop { display: block; }
+.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
+.shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
+.shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
+.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
+.shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
+.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
+.shelf-list a:hover { color: #3C3489; }
+.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
+@media (min-width: 1360px) {
+  .shelf-tab { display: none; }
+  .shelf-panel { transform: translateY(-50%) translateX(0); z-index: 140; }
+  .shelf-close { display: none; }
+  .shelf-backdrop { display: none !important; }
+}
+</style>
+<div class="shelf" id="siteShelf">
+  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 ソリューションの棚</button>
+  <div class="shelf-backdrop" id="shelfBackdrop"></div>
+  <aside class="shelf-panel" aria-label="ソリューションの棚">
+    <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
+    <div class="shelf-title">📚 ソリューションの棚</div>
+    <div class="shelf-list" role="navigation">
+      <a href="./education-program.html" title="課題診断から育成計画まで、研修設計の思考の型を学ぶ">研修設計プログラム</a>
+      <a href="./od-program.html" title="組織が動かない理由を診断し、変革を設計するOD講座">組織開発プログラム</a>
+      <a href="./dialogue-program.html" title="心理的安全性と業績の好循環をつくる組織向け研修">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html" title="社会課題に挑むリーダーの思考整理と戦略立案を伴走">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html" title="離職の真因「対話の不在」に診断×対話筋トレで介入" class="active">離職防止プログラム</a>
+      <a href="./democracy-fitness-career.html" title="意見を持ち、伝え、巻き込む力を鍛える個人向け講座">個人向けキャリア開発</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function() {
+  var shelf = document.getElementById('siteShelf');
+  var tab = document.getElementById('shelfTab');
+  function setOpen(open) {
+    shelf.classList.toggle('open', open);
+    tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: 'ソリューションの棚', page: location.pathname });
+  }
+  tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
+  document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
+  document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });
+})();
+</script>
+<!-- SHELF END -->
+
 </body>
 </html>

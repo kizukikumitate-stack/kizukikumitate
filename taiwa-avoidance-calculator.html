@@ -1046,5 +1046,65 @@ document.querySelectorAll('.mobile-acc-toggle').forEach(btn => {
   update();
 })();
 </script>
+<!-- SHELF START -->
+<style>
+.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
+.shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
+.shelf.open .shelf-backdrop { display: block; }
+.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
+.shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
+.shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
+.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
+.shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
+.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
+.shelf-list a:hover { color: #3C3489; }
+.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
+@media (min-width: 1360px) {
+  .shelf-tab { display: none; }
+  .shelf-panel { transform: translateY(-50%) translateX(0); z-index: 140; }
+  .shelf-close { display: none; }
+  .shelf-backdrop { display: none !important; }
+}
+</style>
+<div class="shelf" id="siteShelf">
+  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 計算機の棚</button>
+  <div class="shelf-backdrop" id="shelfBackdrop"></div>
+  <aside class="shelf-panel" aria-label="計算機の棚">
+    <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
+    <div class="shelf-title">📚 計算機の棚</div>
+    <div class="shelf-list" role="navigation">
+      <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+      <span class="shelf-heading">社会のリスク</span>
+      <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
+      <span class="shelf-heading">組織のリスク</span>
+      <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
+      <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
+      <span class="shelf-heading">個人のリスク</span>
+      <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
+      <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
+      <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算" class="active">対話回避コスト計算機</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function() {
+  var shelf = document.getElementById('siteShelf');
+  var tab = document.getElementById('shelfTab');
+  function setOpen(open) {
+    shelf.classList.toggle('open', open);
+    tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '計算機の棚', page: location.pathname });
+  }
+  tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
+  document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
+  document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });
+})();
+</script>
+<!-- SHELF END -->
+
 </body>
 </html>
