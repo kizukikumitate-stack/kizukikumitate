@@ -17,6 +17,7 @@ data/nav.json（唯一の正）を読み、各ページの
   python3 scripts/update-nav.py          # 検証＋生成・更新
   python3 scripts/update-nav.py --check  # 検証のみ（書き換えない・差分があれば異常終了）
 """
+import html as html_mod
 import json
 import os
 import posixpath
@@ -68,6 +69,8 @@ def link_attrs(item, page_path):
     attrs = f'href="{href}"'
     if item.get("external"):
         attrs += ' target="_blank" rel="noopener"'
+    if item.get("desc"):
+        attrs += f' title="{html_mod.escape(item["desc"], quote=True)}"'
     if not is_external(item["href"]) and as_page(item["href"]) == page_path:
         attrs += ' class="active"'
     return attrs

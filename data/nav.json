@@ -23,22 +23,26 @@
     "items": [
       {
         "label": "Home",
-        "href": "index.html"
+        "href": "index.html",
+        "desc": "サイト全体の入口。プログラム・図鑑・診断のハブ"
       },
       {
         "label": "目指す未来",
         "children": [
           {
             "label": "平和な地球行きロケット",
-            "href": "rocket-map.html"
+            "href": "rocket-map.html",
+            "desc": "工房の全体像を一枚の絵で見わたすページ"
           },
           {
             "label": "世界平和までのロードマップ",
-            "href": "roadmap.html"
+            "href": "roadmap.html",
+            "desc": "世界中の実践がつながる、平和への戦略地図"
           },
           {
             "label": "足元からの地図（展開編）",
-            "href": "ashimoto-map.html"
+            "href": "ashimoto-map.html",
+            "desc": "個人・職場・学校・地域・制度の5層で平和を育てる地図"
           }
         ]
       },
@@ -47,27 +51,33 @@
         "children": [
           {
             "label": "研修設計プログラム",
-            "href": "education-program.html"
+            "href": "education-program.html",
+            "desc": "課題診断から育成計画まで、研修設計の思考の型を学ぶ"
           },
           {
             "label": "組織開発プログラム",
-            "href": "od-program.html"
+            "href": "od-program.html",
+            "desc": "組織が動かない理由を診断し、変革を設計するOD講座"
           },
           {
             "label": "対話力向上プログラム",
-            "href": "dialogue-program.html"
+            "href": "dialogue-program.html",
+            "desc": "心理的安全性と業績の好循環をつくる組織向け研修"
           },
           {
             "label": "リーダー向けコーチング",
-            "href": "social-leader-coaching.html"
+            "href": "social-leader-coaching.html",
+            "desc": "社会課題に挑むリーダーの思考整理と戦略立案を伴走"
           },
           {
             "label": "離職防止プログラム",
-            "href": "taiwa-teichaku.html"
+            "href": "taiwa-teichaku.html",
+            "desc": "離職の真因「対話の不在」に診断×対話筋トレで介入"
           },
           {
             "label": "個人向けキャリア開発",
-            "href": "democracy-fitness-career.html"
+            "href": "democracy-fitness-career.html",
+            "desc": "意見を持ち、伝え、巻き込む力を鍛える個人向け講座"
           }
         ]
       },
@@ -76,31 +86,38 @@
         "children": [
           {
             "label": "Democracy Fitness",
-            "href": "democracy-fitness.html"
+            "href": "democracy-fitness.html",
+            "desc": "対話・合意形成の10筋を鍛える体験型プログラム。体験会情報も"
           },
           {
             "label": "LSP",
-            "href": "lsp.html"
+            "href": "lsp.html",
+            "desc": "レゴブロックで思考を可視化するワークショップ手法"
           },
           {
             "label": "対話用カード",
-            "href": "topaasia.html"
+            "href": "topaasia.html",
+            "desc": "フィンランド発・カード型対話メソッドの日本向けページ"
           },
           {
             "label": "会社の妖怪診断",
-            "href": "yokai/"
+            "href": "yokai/",
+            "desc": "会社のすれ違いを生む10の妖怪を3分で診断"
           },
           {
             "label": "社会の妖怪診断",
-            "href": "shakai-yokai/"
+            "href": "shakai-yokai/",
+            "desc": "社会に棲む10の妖怪と、対になる式神を診断"
           },
           {
             "label": "妖怪と式神ワークショップ",
-            "href": "yokai/workshop.html"
+            "href": "yokai/workshop.html",
+            "desc": "妖怪の名を借りて組織を語る、オンライン1時間ワーク"
           },
           {
             "label": "PTAのこれから",
-            "href": "pta-korekara.html"
+            "href": "pta-korekara.html",
+            "desc": "PTAのデータ・5つの論点・無料対話キットの案内所"
           }
         ]
       },
@@ -112,93 +129,114 @@
           },
           {
             "label": "ホモ・サピエンスの苦手図鑑",
-            "href": "nigate-zukan.html"
+            "href": "nigate-zukan.html",
+            "desc": "先送りや同調など、人類共通の「苦手」12種と処方箋"
           },
           {
             "label": "ホモ・サピエンスの知恵図鑑",
-            "href": "chie-zukan.html"
+            "href": "chie-zukan.html",
+            "desc": "効力感・心理的安全性など、人が育てられる力50種"
           },
           {
             "label": "非認知スキル図鑑",
-            "href": "hininchi-zukan.html"
+            "href": "hininchi-zukan.html",
+            "desc": "自制心・共感力など、テストで測れない力25種"
           },
           {
             "label": "学びと成長の法則図鑑",
-            "href": "growth-laws-zukan.html"
+            "href": "growth-laws-zukan.html",
+            "desc": "学習科学が実験で確かめた、学びと成長の法則23種"
           },
           {
             "label": "ふりかえりの技法図鑑",
-            "href": "reflection-zukan.html"
+            "href": "reflection-zukan.html",
+            "desc": "KPT・ORIDなど、ふりかえりの技法23種をやり方つきで"
           },
           {
             "label": "主な神経物質図鑑",
-            "href": "shinkei-busshitsu-zukan.html"
+            "href": "shinkei-busshitsu-zukan.html",
+            "desc": "ドーパミンなど12の脳内物質を、誤解の訂正つきで"
           },
           {
             "label": "1on1の成功と失敗の図鑑",
-            "href": "1on1-zukan.html"
+            "href": "1on1-zukan.html",
+            "desc": "1on1の成功パターン24種・しくじり26種の観察図鑑"
           },
           {
             "label": "休息と生産性の図鑑",
-            "href": "rest-productivity-zukan.html"
+            "href": "rest-productivity-zukan.html",
+            "desc": "「休むと業績が下がる」という思い込みを解く21の標本"
           },
           {
             "label": "キャリア理論図鑑",
-            "href": "career-theory-zukan.html"
+            "href": "career-theory-zukan.html",
+            "desc": "定番のキャリア理論21種を、根拠と今日の一手つきで"
           },
           {
             "label": "生涯キャリア図鑑",
-            "href": "tenshoku-no-sho.html"
+            "href": "tenshoku-no-sho.html",
+            "desc": "職業をRPG風の転職チャートで一覧する無料教材"
           },
           {
             "heading": "社会と世界の図鑑"
           },
           {
             "label": "世界の対話の技法図鑑",
-            "href": "dialogue-zukan.html"
+            "href": "dialogue-zukan.html",
+            "desc": "世界で発明された対話と平和の技法を集めた図鑑"
           },
           {
             "label": "合意形成図鑑",
-            "href": "goikeisei-zukan.html"
+            "href": "goikeisei-zukan.html",
+            "desc": "世界のうまくいっている合意形成の仕組み12の標本"
           },
           {
             "label": "システム思考図鑑",
-            "href": "systems-thinking-zukan.html"
+            "href": "systems-thinking-zukan.html",
+            "desc": "因果ループ図など、つながりを見るための28の図解"
           },
           {
             "label": "社会の仕組み図鑑",
-            "href": "shikumi-zukan.html"
+            "href": "shikumi-zukan.html",
+            "desc": "お金と民意の回路を集めた、社会システムの図鑑"
           },
           {
             "label": "世界の貧困解決アイデア図鑑",
-            "href": "poverty-zukan.html"
+            "href": "poverty-zukan.html",
+            "desc": "世界で発明された貧困解決のアイデアを集めた図鑑"
           },
           {
             "label": "眠るお金図鑑",
-            "href": "nemuru-okane-zukan.html"
+            "href": "nemuru-okane-zukan.html",
+            "desc": "タンス預金47兆円など、日本に眠るお金12の標本"
           },
           {
             "label": "世界のオルタナティブ教育図鑑",
-            "href": "alternative-education-zukan.html"
+            "href": "alternative-education-zukan.html",
+            "desc": "モンテッソーリなど、世界24のオルタナティブ教育"
           },
           {
             "label": "教育の費用対効果図鑑",
-            "href": "education-roi-zukan.html"
+            "href": "education-roi-zukan.html",
+            "desc": "厳密に検証された「教育投資が返ってきた例」を収蔵"
           },
           {
             "heading": "読み物"
           },
           {
             "label": "おすすめTED集",
-            "href": "ted-collection.html"
+            "href": "ted-collection.html",
+            "desc": "平和と民主主義とお金の流れを学ぶTEDトーク16本"
           },
           {
             "label": "ノーベル平和賞",
-            "href": "nobel-peace.html"
+            "href": "nobel-peace.html",
+            "desc": "125年の受賞者一覧と、照らす対象の広がりをたどる"
           },
           {
             "label": "連載・気づきから組み立てる",
-            "href": "series/"
+            "href": "series/",
+            "desc": "BEM・HPIの理論を現場で使える形に翻訳する連載"
           }
         ]
       },
@@ -207,28 +245,32 @@
         "children": [
           {
             "label": "このシリーズについて",
-            "href": "jirei.html"
+            "href": "jirei.html",
+            "desc": "成功と失敗を併記し、分けた「分岐点」を特定する事例集"
           },
           {
             "heading": "個人の事例"
           },
           {
             "label": "キャリアの転機",
-            "href": "jirei-career.html"
+            "href": "jirei-career.html",
+            "desc": "出世の一本道から降りた人・降りられなかった人の事例"
           },
           {
             "heading": "組織の事例"
           },
           {
             "label": "研修の成功と失敗",
-            "href": "jirei-kenshu.html"
+            "href": "jirei-kenshu.html",
+            "desc": "行動が変わる研修と、感想文で終わる研修の分岐点"
           },
           {
             "heading": "社会の事例"
           },
           {
             "label": "商店街の立て直し",
-            "href": "jirei-shotengai.html"
+            "href": "jirei-shotengai.html",
+            "desc": "高松丸亀町商店街はなぜ再生できたのか、の事例"
           }
         ]
       },
@@ -237,73 +279,87 @@
         "children": [
           {
             "label": "このシリーズについて",
-            "href": "risk-calculators.html"
+            "href": "risk-calculators.html",
+            "desc": "計算機シリーズ共通の前提・出典・免責のまとめ"
           },
           {
             "heading": "社会のリスク"
           },
           {
             "label": "学校の分岐点",
-            "href": "school-consolidation-countdown.html"
+            "href": "school-consolidation-countdown.html",
+            "desc": "校区の出生数から、統廃合が検討される時期を試算"
           },
           {
             "label": "介護の支え手計算機",
-            "href": "caregiving-capacity-calculator.html"
+            "href": "caregiving-capacity-calculator.html",
+            "desc": "あなたの高齢期に、支え手が何人いるかを試算"
           },
           {
             "heading": "組織のリスク"
           },
           {
             "label": "顧客の平均年齢時限爆弾",
-            "href": "customer-age-timebomb.html"
+            "href": "customer-age-timebomb.html",
+            "desc": "何もしない場合に顧客基盤が半減する年を試算"
           },
           {
             "label": "採用市場消滅計算機",
-            "href": "recruitment-extinction.html"
+            "href": "recruitment-extinction.html",
+            "desc": "採用目標を割り込む年を、確定した出生数から試算"
           },
           {
             "label": "技能承継時限爆弾",
-            "href": "skill-succession-timebomb.html"
+            "href": "skill-succession-timebomb.html",
+            "desc": "熟練の技が消える年と、育成着手の期限を試算"
           },
           {
             "label": "対話不足コスト計算機",
-            "href": "taiwa-cost-calculator.html"
+            "href": "taiwa-cost-calculator.html",
+            "desc": "会議の空転・手戻り・離職の損失を自社の数字で概算"
           },
           {
             "heading": "個人のリスク"
           },
           {
             "label": "老後のお金の見取り図",
-            "href": "longevity-money-map.html"
+            "href": "longevity-money-map.html",
+            "desc": "統計をもとに、老後のお金の目安を引く見取り図"
           },
           {
             "label": "昇給交渉しない計算機",
-            "href": "salary-negotiation-calculator.html"
+            "href": "salary-negotiation-calculator.html",
+            "desc": "昇給交渉を先延ばしにした複利の損失を試算"
           },
           {
             "label": "対話回避コスト計算機",
-            "href": "taiwa-avoidance-calculator.html"
+            "href": "taiwa-avoidance-calculator.html",
+            "desc": "「言わないコスト」が「言うコスト」を上回る日を概算"
           }
         ]
       },
       {
         "label": "ストア",
-        "href": "store.html"
+        "href": "store.html",
+        "desc": "対話キット・おすすめ本など、持ち帰れる実践アイテム"
       },
       {
         "label": "調査・データ",
         "children": [
           {
             "label": "観測室について（調査・データ）",
-            "href": "research.html"
+            "href": "research.html",
+            "desc": "独自調査データの発行棚。白書・効果検証を公開"
           },
           {
             "label": "デモクラ筋白書2026 速報版",
-            "href": "democracy-fitness-hakusho-2026.html"
+            "href": "democracy-fitness-hakusho-2026.html",
+            "desc": "デモクラ筋診断のベースラインデータ(n=37)を分析"
           },
           {
             "label": "事実の台帳（発行者情報）",
-            "href": "jijitsu-daicho.html"
+            "href": "jijitsu-daicho.html",
+            "desc": "資格・経歴・実績を出典つきで一覧する公式レジストリ"
           }
         ]
       },
