@@ -80,6 +80,17 @@ try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.
   --charcoal:#1e1e1e;
 }
 /* ---- ライトモード（白背景・紙の図鑑風） ---- */
+/* ライトモード時、夜色固定の回遊バンドを紙色に読み替える（本体CSS側＝update-kaiyuで消えない） */
+html.light .kaiyu[data-kaiyu-theme=night]{background:#f0ebdd;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow,
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-tag,
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#a67c1a;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-title,
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#2b2740;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:#4d4968;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:#fffdf7;border-color:#d9d3c2;box-shadow:0 2px 10px rgba(90,75,30,.06);}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13);border-color:#a67c1a;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#a67c1a;color:#fffdf7;}
 html.light{
   color-scheme: light;
   --page:#f6f3ea;

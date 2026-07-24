@@ -219,6 +219,8 @@ header .pair-link:hover{background:var(--surface-2);}
   padding:12px 14px;box-shadow:0 10px 30px rgba(0,0,0,.45);
   font-size:12px;line-height:1.75;color:var(--ink-2);pointer-events:none;
 }
+.rec-tip .rt-fig{margin:-12px -14px 8px;background:#0e1024;border-radius:8px 8px 0 0;overflow:hidden;}
+.rec-tip .rt-fig img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
 .rec-tip .rt-name{color:var(--ink);font-size:14px;font-weight:700;letter-spacing:.04em;}
 .rec-tip .rt-catch{color:var(--gold);font-size:11.5px;margin:3px 0 7px;}
 .rec-tip .rt-rw{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11.5px;margin-bottom:6px;}
@@ -226,6 +228,19 @@ header .pair-link:hover{background:var(--surface-2);}
 .rec-tip .rt-why{color:#7ee2a0;font-size:11.5px;margin-top:5px;}
 html.light .rec-tip .rt-why{color:#148a52;}
 .rec-tip .rt-hint{color:var(--ink-muted);font-size:10.5px;margin-top:8px;border-top:1px solid var(--hairline);padding-top:6px;}
+
+/* ライトモードのとき、夜色固定の回遊バンドを紙色に読み替える
+   （このページの本体CSS側に置く＝update-kaiyu の再生成では消えない） */
+html.light .kaiyu[data-kaiyu-theme=night]{background:#f0ebdd;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow,
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-tag,
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#a67c1a;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-title,
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#2b2740;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:#4d4968;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:#fffdf7;border-color:#d9d3c2;box-shadow:0 2px 10px rgba(90,75,30,.06);}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13);border-color:#a67c1a;}
+html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#a67c1a;color:#fffdf7;}
 
 /* ---- しくみ（読みたい人だけ開く） ---- */
 .howto{margin-top:22px;}
@@ -1156,7 +1171,7 @@ function showResult(opts){
     const isTop = g===topGap && g>=2;
     /* 数式ではなく、いまの状態を言葉で示す */
     const st = g>=3 ? 'とても足りない' : g===2 ? '足りない' : g===1 ? 'すこし足りない'
-             : g===0 ? 'つりあっている' : 'いまは満ちている';
+             : g===0 ? 'つりあっている' : '満ちている';
     return '<div class="gap-row'+(isTop?' top':'')+(g<=0?' filled':'')+'" '+
       'title="大切さ '+r2.importance[x.key]+' ／ いまの満足 '+r2.satisfaction[x.key]+'">'+
       '<span class="gl">'+x.icon+' '+x.label+'</span>'+
@@ -1218,7 +1233,8 @@ const JOBP_MAP = {}; JOBP.forEach(j=>{ JOBP_MAP[j.i] = j; });
 function tipHTML(j){
   const rw = [['💰',j.r[0]],['❤️',j.r[1]],['⏳',j.r[2]],['⭐',j.r[3]]]
     .map(p=>'<span>'+p[0]+' '+'★'.repeat(p[1])+'<span style="color:var(--star-empty)">'+'☆'.repeat(5-p[1])+'</span></span>').join('');
-  let h = '<div class="rt-name">'+j.n+'</div><div class="rt-catch">「'+j.c+'」</div>';
+  let h = '<div class="rt-fig"><img src="./images/tenshoku/'+j.i+'.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display=\'none\'"></div>';
+  h += '<div class="rt-name">'+j.n+'</div><div class="rt-catch">「'+j.c+'」</div>';
   h += '<div class="rt-rw">'+rw+'</div>';
   h += '<div class="rt-sec">この仕事につきやすい負荷</div>'+
        '<div>'+j.x.map(t=>TAISEI_MAP[t].i+TAISEI_MAP[t].n).join('・')+'</div>';
