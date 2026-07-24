@@ -12,20 +12,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>はたらく現在地診断｜4つのほうしゅうから、いまのあなたを知る | きづきくみたて工房</title>
-<meta name="description" content="収入・やりがい・時間の自由・市場価値。はたらくことで得られる4つのほうしゅうについて、8つの質問で「いまの満足度」と「自分にとっての大切さ」を診断。あなたの渇きに合わせて、生涯キャリア図鑑・業界図鑑からおすすめの探索先を紹介する無料診断ツール。">
+<meta name="description" content="収入・やりがい・時間の自由・市場価値。8つの質問で「いま求めているほうしゅう」を、15枚のカードで「わりと平気なこと・避けたいこと」を選ぶと、生涯キャリア図鑑・業界図鑑からあなたに合う職業と業界を提案する無料診断ツール。">
 <link rel="canonical" href="https://kizukikumitate.com/genzaichi-shindan.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:title" content="はたらく現在地診断">
-<meta property="og:description" content="収入・やりがい・時間の自由・市場価値。あなたはいま、どれが満たされ、どれが渇いている？8つの質問で診断する無料ツール。">
+<meta property="og:description" content="収入・やりがい・時間の自由・市場価値。8つの質問と15枚のカードで、いまのあなたに合う職業と業界をさがす無料ツール。">
 <meta property="og:url" content="https://kizukikumitate.com/genzaichi-shindan.html">
 <meta property="og:image" content="https://kizukikumitate.com/genzaichi-shindan-ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="はたらく現在地診断">
-<meta name="twitter:description" content="収入・やりがい・時間の自由・市場価値。あなたはいま、どれが満たされ、どれが渇いている？8つの質問で診断する無料ツール。">
+<meta name="twitter:description" content="収入・やりがい・時間の自由・市場価値。8つの質問と15枚のカードで、いまのあなたに合う職業と業界をさがす無料ツール。">
 <meta name="twitter:image" content="https://kizukikumitate.com/genzaichi-shindan-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "JPY" },
-  "description": "収入・やりがい・時間の自由・市場価値の4つのほうしゅうについて、8つの質問で満足度と大切さを診断する無料キャリアツール。生涯キャリア図鑑・業界図鑑への入口。",
+  "description": "4つのほうしゅう（収入・やりがい・時間の自由・市場価値）の8問と、はたらく負荷への耐性を選ぶ15枚のカードから、合う職業と業界を提案する無料キャリアツール。生涯キャリア図鑑・業界図鑑への入口。",
   "author": {
     "@type": "Person",
     "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
@@ -128,6 +128,7 @@ header .pair-link:hover{background:var(--surface-2);}
   padding:12px 30px;font-weight:700;
 }
 .big-btn:hover{filter:brightness(1.06);}
+.big-btn:disabled{opacity:.4;cursor:not-allowed;filter:none;}
 .ghost-btn{
   font-family:inherit;font-size:13px;letter-spacing:.06em;cursor:pointer;
   color:var(--ink-2);background:var(--surface);border:1px solid var(--hairline);border-radius:8px;
@@ -157,6 +158,8 @@ header .pair-link:hover{background:var(--surface-2);}
 .q-caption span{max-width:40%;word-break:keep-all;overflow-wrap:break-word;}
 .q-caption span:last-child{text-align:right;}
 .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:26px;}
+/* 右下の固定ボタン（テーマ・ver）と進むボタンが重ならないように余白を確保 */
+@media (max-width:700px){ .q-nav{padding-right:52px;} }
 
 /* ---- result ---- */
 .result{padding:26px 26px 30px;}
@@ -166,6 +169,41 @@ header .pair-link:hover{background:var(--surface-2);}
 .result-desc{color:var(--ink-2);font-size:14px;line-height:1.9;text-align:center;margin:14px 4px 20px;word-break:keep-all;overflow-wrap:break-word;}
 .code-badge{display:block;text-align:center;font-size:11.5px;color:var(--ink-muted);margin-bottom:14px;}
 .sec-label{color:var(--ink-muted);font-size:11px;letter-spacing:.16em;margin:16px 0 8px;border-bottom:1px solid var(--hairline);padding-bottom:4px;}
+/* ---- 耐性カード ---- */
+.cards-title{font-size:19px;letter-spacing:.08em;color:var(--gold);text-align:center;margin:14px 0 6px;}
+.cards-lead{font-size:13px;color:var(--ink-2);text-align:center;line-height:1.9;margin:0 0 14px;}
+.cards-lead b{color:var(--ink);font-weight:700;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:0 0 12px;}
+.tcard{
+  font-family:inherit;cursor:pointer;text-align:left;position:relative;
+  background:var(--surface-2);border:2px solid var(--hairline);border-radius:10px;
+  padding:11px 12px 10px;color:var(--ink-2);line-height:1.55;transition:border-color .15s,background .15s;
+}
+.tcard .tc-ico{font-size:20px;display:block;margin-bottom:4px;}
+.tcard .tc-name{display:block;font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:.03em;}
+.tcard .tc-desc{display:block;font-size:11px;color:var(--ink-muted);margin-top:3px;}
+.tcard:hover{border-color:var(--gold);}
+.tcard.sel{border-color:var(--gold);background:var(--hover-bg);}
+.tcard.sel .tc-name{color:var(--gold);}
+.tcard .tc-rank{
+  position:absolute;top:-9px;right:-9px;width:23px;height:23px;border-radius:50%;
+  background:var(--gold);color:#1a1633;font-size:12px;font-weight:700;display:none;
+  align-items:center;justify-content:center;line-height:1;
+}
+.tcard.sel .tc-rank{display:flex;}
+.tcard[disabled]{opacity:.34;cursor:not-allowed;}
+.tcard[disabled]:hover{border-color:var(--hairline);}
+.cards-count{text-align:center;font-size:12px;color:var(--ink-muted);letter-spacing:.1em;margin:0 0 4px;}
+.cards-count span{color:var(--gold);font-size:15px;font-weight:700;}
+.picked-line{font-size:11.5px;color:var(--ink-2);line-height:1.8;margin:6px 0 0;}
+.picked-line b{color:var(--gold);font-weight:400;}
+@media (max-width:520px){
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .tcard{padding:9px 10px;}
+  .tcard .tc-name{font-size:12.5px;}
+  .tcard .tc-desc{font-size:10.5px;}
+}
+
 .res-note{color:var(--ink-2);font-size:11.5px;line-height:1.75;margin:8px 0 0;}
 .res-caveat{color:var(--ink-muted);font-size:11px;margin-top:16px;border-top:1px solid var(--hairline);padding-top:10px;}
 .links{display:flex;flex-wrap:wrap;gap:8px;}
@@ -537,14 +575,14 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   </header>
 
   <section id="introPanel" class="dq intro">
-    <p>8つの質問に答えると、あなたがいま渇いているほうしゅうと、その渇きにあわせた探索先（職業・業界）が分かります。回答は保存されず、URLで結果を共有できます。</p>
+    <p><b style="color:var(--ink)">8つの質問</b>で、あなたがいま求めているほうしゅうを。そのあと<b style="color:var(--ink)">15枚のカード</b>で、はたらく中で「わりと平気なこと」と「できれば避けたいこと」を3つずつ。この2つから、あなたに合いそうな職業と大陸をおすすめします。回答は保存されず、URLで結果を共有できます。</p>
     <div class="reward-legend">
       <span class="chip">💰 収入</span>
       <span class="chip">❤️ やりがい</span>
       <span class="chip">⏳ 時間の自由</span>
       <span class="chip">⭐ 市場価値</span>
     </div>
-    <div class="start-row"><button type="button" class="big-btn" id="startBtn">診断をはじめる（約2分）</button></div>
+    <div class="start-row"><button type="button" class="big-btn" id="startBtn">診断をはじめる（約3分）</button></div>
   </section>
 
   <section id="quizPanel" class="dq quiz" hidden>
@@ -571,6 +609,21 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     </div>
   </section>
 
+  <section id="cardPanel" class="dq cards" hidden>
+    <div class="q-progress">
+      <div class="q-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0" id="cardTrack" aria-label="選んだカードの枚数"><div class="q-progress-bar" id="cardBar"></div></div>
+      <span class="q-count" id="cardStep">あと 2 ステップ</span>
+    </div>
+    <h2 class="cards-title" id="cardTitle" tabindex="-1">これは、わりと平気</h2>
+    <p class="cards-lead" id="cardLead">はたらく中で起きることを15枚並べました。この中で<b>「自分はわりと平気」なものを3つ</b>選んでください。</p>
+    <div class="card-grid" id="cardGrid" role="group" aria-labelledby="cardTitle"></div>
+    <p class="cards-count" aria-live="polite"><span id="cardCount">0</span> / 3 まい</p>
+    <div class="q-nav">
+      <button type="button" class="ghost-btn" id="cardPrev">◀ もどる</button>
+      <button type="button" class="big-btn" id="cardNext" disabled>次へ</button>
+    </div>
+  </section>
+
   <section id="resultPanel" class="dq result" tabindex="-1" aria-live="polite" hidden>
     <div class="result-head">
       <div class="result-icon" id="resIcon">⚖️</div>
@@ -578,13 +631,14 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     </div>
     <span class="code-badge" id="codeBadge" hidden></span>
     <p class="result-desc" id="resDesc"></p>
+    <p class="picked-line" id="resPicks" hidden></p>
     <div class="sec-label">おすすめの探索先（生涯キャリア図鑑の職業）</div>
     <div class="links" id="resJobs"></div>
     <p class="res-note" id="resJobsNote" hidden></p>
     <div class="sec-label" id="resIndsLabel">おすすめの探索先（業界図鑑の大陸）</div>
     <div class="links" id="resInds"></div>
     <p class="res-note" id="resIndsNote" hidden></p>
-    <p class="res-note res-caveat">※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは「その報酬の★が高いカード」を編集部が選んだ目安で、同じ職業でも会社や働き方で大きく変わります。</p>
+    <p class="res-note res-caveat">※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは、図鑑の★の高さに加えて、あなたが選んだカード（耐性のタグ付けも編集部の判断です）で絞り込んだ目安です。同じ職業でも会社や働き方で大きく変わります。ここに出ていない職業も図鑑には129職ぶん収蔵されているので、気になる道は図鑑から直接さがしてみてください。</p>
     <div class="step-box">
       <div class="sec-label">今日の一歩</div>
       <textarea id="stepNote" placeholder="今日、これからひとつだけ試してみることを書いてみましょう（例：気になった職業カードを1つ読んでみる、など）。印刷して手元に残せます。"></textarea>
@@ -640,6 +694,18 @@ const QUESTIONS = [
   {reward:'exp', kind:'imp', text:'あなたにとって、市場価値を育てることはどれくらい大切ですか？', lo:'あまり大切ではない', hi:'とても大切'}
 ];
 
+
+/* ================= 耐性（何になら耐えられるか） =================
+   15枚のカードから「わりと平気」3つ・「できれば避けたい」3つを選んでもらう。
+   職業・大陸へのタグ付けは公的統計ではなく編集部の判断（★の根拠と同じ扱い）。 */
+const TAISEI=[{k:'study',i:'📚',n:'長い修行',d:'何年も学び続け、資格を取る'},{k:'fog',i:'🌫️',n:'霧の中を進む',d:'前例も正解もない中で決める'},{k:'rule',i:'📋',n:'型どおりに動く',d:'決められた手順を正確に守る'},{k:'unfair',i:'🌀',n:'理由が説明されないまま決まる',d:'背景がわからないまま動く場面がある'},{k:'refuse',i:'🚪',n:'断られることがある',d:'断られ、否定される場面が多い'},{k:'mask',i:'🎭',n:'気持ちを整えて出る',d:'笑顔や落ち着きを保ち続ける'},{k:'night',i:'🌙',n:'不規則な時間',d:'夜勤・休日出勤・呼び出しがある'},{k:'same',i:'🔁',n:'同じことの繰り返し',d:'毎日ほぼ同じ作業が続く'},{k:'clash',i:'⚔️',n:'対立の場に立つ',d:'板挟み・交渉・衝突の矢面に立つ'},{k:'slow',i:'🏔️',n:'成果が出るまで長い',d:'実るまでに何年もかかる'},{k:'number',i:'📊',n:'数字に追われる',d:'ノルマや評価が数字で示される'},{k:'alone',i:'🧍',n:'ひとりで黙々と',d:'会話が少なく、こもる時間が長い'},{k:'crowd',i:'👥',n:'常に人に囲まれる',d:'ひとりになれる時間が少ない'},{k:'body',i:'💪',n:'体を使う',d:'立ち仕事・力仕事・移動が多い'},{k:'grief',i:'🤲',n:'人の苦しみに向き合う',d:'病・死・困難のそばで働く'}];
+const TAISEI_MAP={};TAISEI.forEach(function(t){TAISEI_MAP[t.k]=t;});
+const JOBP=[{i:'sales',n:'営業',r:[4,3,2,4],x:['refuse','number','crowd']},{i:'retail',n:'販売・接客',r:[2,3,2,2],x:['mask','crowd','body']},{i:'craft',n:'製造・技能職',r:[3,3,3,3],x:['study','body','same']},{i:'engineer',n:'エンジニア',r:[4,4,4,5],x:['study','alone','same']},{i:'analyst',n:'データアナリスト',r:[4,3,4,5],x:['alone','number','same']},{i:'accounting',n:'経理・財務',r:[3,2,2,4],x:['rule','same','number']},{i:'hr',n:'人事',r:[3,4,3,3],x:['clash','mask','rule']},{i:'cs',n:'カスタマーサポート',r:[2,3,3,2],x:['refuse','mask','same']},{i:'teacher',n:'教育・講師',r:[3,5,3,3],x:['crowd','mask','slow']},{i:'marketer',n:'マーケター',r:[3,3,3,4],x:['number','fog','slow']},{i:'planner',n:'企画',r:[3,4,3,4],x:['fog','clash','refuse']},{i:'admin',n:'事務・アシスタント',r:[2,2,4,2],x:['same','rule','mask']},{i:'designer',n:'デザイナー',r:[3,4,4,4],x:['refuse','alone','slow']},{i:'writer',n:'ライター・編集',r:[2,4,5,3],x:['alone','slow','refuse']},{i:'salesengineer',n:'セールスエンジニア',r:[4,4,3,5],x:['study','refuse','clash']},{i:'bizdev',n:'事業開発 (BizDev)',r:[4,5,2,5],x:['fog','clash','refuse']},{i:'csuccess',n:'カスタマーサクセス',r:[4,4,3,4],x:['mask','number','refuse']},{i:'datascientist',n:'データサイエンティスト',r:[5,4,4,5],x:['study','alone','same']},{i:'pm',n:'プロダクトマネージャー',r:[5,5,2,5],x:['clash','fog','number']},{i:'fpa',n:'FP&Aアナリスト',r:[5,3,3,5],x:['number','rule','same']},{i:'peopleanalytics',n:'ピープルアナリティクス',r:[4,4,3,4],x:['study','alone','rule']},{i:'contentmarketer',n:'コンテンツマーケター',r:[4,4,4,4],x:['slow','alone','same']},{i:'uxdesigner',n:'UX/プロダクトデザイナー',r:[4,4,4,5],x:['fog','refuse','clash']},{i:'bpr',n:'業務改善スペシャリスト',r:[4,3,4,4],x:['clash','rule','slow']},{i:'learningdesigner',n:'ラーニングデザイナー',r:[3,5,4,4],x:['slow','study','clash']},{i:'ecproducer',n:'EC/店舗プロデューサー',r:[4,4,3,4],x:['number','fog','night']},{i:'qualityeng',n:'生産技術・品質マネージャー',r:[4,3,3,4],x:['rule','same','clash']},{i:'nurse',n:'看護師',r:[3,5,2,4],x:['night','grief','body']},{i:'biyoshi',n:'美容師',r:[2,4,2,3],x:['body','mask','crowd']},{i:'tobi',n:'鳶職',r:[3,4,3,3],x:['body','rule','night']},{i:'doctor',n:'医師',r:[5,5,1,5],x:['study','night','grief']},{i:'lawyer',n:'弁護士',r:[5,4,2,5],x:['study','clash','slow']},{i:'kenchikushi',n:'一級建築士',r:[4,4,2,4],x:['study','rule','slow']},{i:'sekokan',n:'施工管理技士 (現場監督)',r:[4,4,2,4],x:['clash','night','body']},{i:'cnurse',n:'専門看護師・認定看護師',r:[4,5,2,4],x:['study','grief','night']},{i:'stylist',n:'トップスタイリスト',r:[4,5,3,4],x:['body','mask','number']},{i:'douga',n:'動画クリエイター',r:[3,4,4,4],x:['alone','slow','refuse']},{i:'mangaka',n:'漫画家 (新人・アシスタント)',r:[2,4,2,2],x:['alone','slow','refuse']},{i:'animator',n:'アニメーター',r:[2,4,2,3],x:['alone','same','slow']},{i:'dentou',n:'伝統芸能の修行者',r:[1,4,1,2],x:['study','slow','unfair']},{i:'tsuyaku',n:'通訳・翻訳者',r:[3,4,4,4],x:['study','alone','mask']},{i:'chouri',n:'調理師',r:[2,4,2,3],x:['body','night','same']},{i:'npo',n:'NPO職員',r:[2,5,3,3],x:['slow','grief','refuse']},{i:'nougyo',n:'農業従事者 (一次産業)',r:[2,4,3,3],x:['body','night','slow']},{i:'eizoudir',n:'映像ディレクター',r:[4,4,2,4],x:['clash','night','fog']},{i:'rensai',n:'連載漫画家',r:[3,5,1,3],x:['alone','slow','number']},{i:'sakuga',n:'作画監督・キャラクターデザイナー',r:[3,4,2,4],x:['alone','clash','night']},{i:'dentoupro',n:'真打・名題 (プロの継承者)',r:[3,5,2,3],x:['study','slow','crowd']},{i:'bunka',n:'日本文化翻訳家',r:[4,5,4,4],x:['study','alone','slow']},{i:'chef',n:'シェフ・料理長',r:[3,4,2,4],x:['body','night','clash']},{i:'fundraiser',n:'ファンドレイザー・事業マネージャー',r:[3,5,3,4],x:['refuse','number','slow']},{i:'nouke',n:'農業経営者 (認定農業者)',r:[3,4,3,4],x:['body','slow','number']},{i:'consul',n:'コンサルタント (アナリスト)',r:[4,3,1,5],x:['study','number','night']},{i:'komuin',n:'公務員 (行政職)',r:[3,4,4,2],x:['rule','clash','study']},{i:'shosha',n:'総合商社パーソン',r:[5,4,2,4],x:['study','clash','night']},{i:'kinyu',n:'金融パーソン (銀行・証券)',r:[4,3,3,3],x:['number','rule','study']},{i:'senryaku',n:'戦略・専門コンサルタント',r:[5,4,1,5],x:['study','number','night']},{i:'kanryou',n:'キャリア官僚 (国家総合職)',r:[3,4,1,4],x:['unfair','night','rule']},{i:'kaigai',n:'海外事業・トレーダー',r:[5,4,2,5],x:['fog','night','clash']},{i:'fundmgr',n:'証券アナリスト・ファンドマネージャー',r:[5,3,2,5],x:['number','study','alone']},{i:'gamecreator',n:'ゲームクリエイター',r:[4,5,3,4],x:['night','fog','alone']},{i:'keisatsu',n:'警察官',r:[4,4,2,3],x:['night','body','unfair']},{i:'shobo',n:'消防士',r:[4,5,2,3],x:['night','body','grief']},{i:'jieitai',n:'自衛官',r:[3,4,2,3],x:['rule','body','unfair']},{i:'kaigo',n:'介護職員',r:[2,5,3,3],x:['body','grief','clash']},{i:'ongakuka',n:'音楽家 (ミュージシャン・演奏家)',r:[1,5,3,2],x:['alone','slow','refuse']},{i:'geijutsuka',n:'芸術家 (画家・彫刻家)',r:[1,5,4,2],x:['alone','slow','refuse']},{i:'panya',n:'パン職人・パティシエ',r:[2,4,2,3],x:['night','body','same']},{i:'athlete',n:'アスリート (育成年代・実業団)',r:[2,5,2,2],x:['body','slow','number']},{i:'keiji',n:'刑事・専門捜査官',r:[4,4,1,3],x:['night','grief','clash']},{i:'kyujo',n:'レスキュー隊員・救急救命士',r:[4,5,1,4],x:['night','body','grief']},{i:'jieikanbu',n:'幹部自衛官',r:[4,4,1,4],x:['rule','unfair','clash']},{i:'kaigofukushi',n:'介護福祉士・ケアマネジャー',r:[3,5,3,4],x:['body','grief','clash']},{i:'puroartist',n:'プロアーティスト (音楽・美術)',r:[3,5,3,3],x:['alone','refuse','number']},{i:'jyui',n:'獣医師',r:[4,5,2,4],x:['study','grief','night']},{i:'insyokuowner',n:'飲食店オーナー (パン屋・ケーキ屋・食堂)',r:[3,5,1,4],x:['body','night','number']},{i:'proathlete',n:'プロアスリート',r:[4,5,2,3],x:['body','number','slow']},{i:'shukyoka',n:'宗教家 (僧侶・神職・牧師)',r:[2,5,2,2],x:['slow','grief','crowd']},{i:'jushoku',n:'住職・宮司・主任牧師',r:[3,5,2,3],x:['slow','grief','crowd']},{i:'vc',n:'ベンチャーキャピタリスト',r:[4,4,3,5],x:['fog','number','refuse']}];
+const INDP={nourin:{n:'農林水産業',x:['body','night','slow']},kensetsu:{n:'建設業',x:['body','rule','night']},seizo:{n:'製造業',x:['same','rule','body']},energy:{n:'電気・ガス・水道',x:['rule','night','same']},it:{n:'情報通信業',x:['study','fog','alone']},senmon:{n:'学術研究・専門サービス',x:['study','slow','number']},iryofukushi:{n:'医療・福祉',x:['grief','night','body']},kyoiku:{n:'教育・学習支援',x:['crowd','slow','mask']},komu:{n:'公務',x:['rule','clash','study']},service:{n:'その他サービス',x:['body','mask','crowd']},oroshi:{n:'卸売・小売業',x:['number','crowd','mask']},kinyu:{n:'金融・保険業',x:['number','rule','study']},fudosan:{n:'不動産・物品賃貸',x:['number','refuse','clash']},unyu:{n:'運輸・郵便業',x:['night','body','same']},shukuhaku:{n:'宿泊・飲食サービス',x:['body','night','mask']},seikatsu:{n:'生活関連・娯楽',x:['body','night','crowd']}};
+const IND_BY_REWARD={gold:['kinyu','fudosan','senmon','it','oroshi'],heart:['iryofukushi','kyoiku','nourin','service','komu'],time:[],exp:['it','senmon','kinyu','seizo','oroshi'],balance:['service','oroshi','seikatsu','unyu','kensetsu']};
+
+/* 注: jobs / inds は未使用（推薦は JOBP + pickJobs / INDP + pickInds が正）。
+   ここで使うのは icon / name / desc / jobsNote / indsNote のみ */
 const TYPES = {
   gold: {
     icon:'💰', name:'金貨を求める旅人',
@@ -679,15 +745,49 @@ const TYPES = {
     jobs:[], inds:[]
   }
 };
-/* ふたつ型のときに、該当2報酬の推薦をその場で合成する */
-function duoContent(keys){
-  const seen=new Set(), jobs=[], inds=[];
-  for(const k of keys){
-    for(const j of (TYPES[k].jobs||[]))  if(!seen.has(j.id)){ seen.add(j.id); jobs.push(j); }
-    for(const g of (TYPES[k].inds||[]))  if(!seen.has(g.id)){ seen.add(g.id); inds.push(g); }
+/* ================= 推薦（渇き × 耐性）=================
+   その報酬の★が高い職業を母集団にし、避けたい耐性を持つ職業を外す。
+   外しきって足りない場合は「避けたいものが少ない順」で補い、その旨を伝える。 */
+const REWARD_IDX = {gold:0, heart:1, time:2, exp:3};
+function hitCount(tags, list){ return tags.filter(t=>list.indexOf(t)>=0).length; }
+function pickJobs(rewardKeys, n, balanced){
+  const idxs = rewardKeys.map(k=>REWARD_IDX[k]);
+  /* バランス型は「どれも大きく欠けていない」職を見るので、最小値で母集団を作る。
+     それ以外は、渇いている報酬の★が高い職を母集団にする */
+  const key = j => balanced ? Math.min.apply(null, j.r) : Math.max.apply(null, idxs.map(i=>j.r[i]));
+  let pool = JOBP.filter(j=>key(j)>=(balanced?3:4));
+  if(pool.length < n) pool = JOBP.slice();
+  const score = j => {
+    const rw = key(j);
+    const others = j.r.reduce((s,v)=>s+v,0) - Math.max.apply(null, idxs.map(i=>j.r[i]));
+    /* 平気と答えた耐性は、選んだ順に重みをつけて加点（1番目=3点） */
+    const okScore = j.x.reduce((s,t)=>{ const p=okTags.indexOf(t); return s + (p>=0 ? (CARD_PICK-p) : 0); }, 0);
+    /* others は同点時の目安にとどめる（係数を上げると4報酬すべて高い職ばかりになり、
+       やりがい★5でも他が低い職＝介護・教育などが永久に出なくなるため） */
+    return rw*10 + okScore*4 + others*0.3;
+  };
+  const clean = pool.filter(j=>hitCount(j.x, avoidTags)===0);
+  let list, softened = false;
+  if(clean.length >= n){
+    list = clean.sort((a,b)=>score(b)-score(a));
+  }else{
+    softened = true;
+    list = pool.slice().sort((a,b)=> hitCount(a.x,avoidTags)-hitCount(b.x,avoidTags) || score(b)-score(a));
   }
-  return {jobs:jobs.slice(0,4), inds:inds.slice(0,3)};
+  return {list:list.slice(0,n), softened:softened};
 }
+function pickInds(typeKey, rewardKeys, n){
+  let ids = [];
+  (typeKey==='duo' ? rewardKeys : [typeKey]).forEach(k=>{
+    (IND_BY_REWARD[k]||[]).forEach(id=>{ if(ids.indexOf(id)<0) ids.push(id); });
+  });
+  if(!ids.length) return {list:[], softened:false};
+  const clean = ids.filter(id=>hitCount(INDP[id].x, avoidTags)===0);
+  const enough = clean.length >= n;
+  const use = enough ? clean : ids.slice().sort((a,b)=>hitCount(INDP[a].x,avoidTags)-hitCount(INDP[b].x,avoidTags));
+  return {list:use.slice(0,n).map(id=>({id:id, name:INDP[id].n})), softened:!enough};
+}
+function tagNames(keys){ return keys.map(k=>TAISEI_MAP[k].i+TAISEI_MAP[k].n).join('・'); }
 
 let answers = new Array(QUESTIONS.length).fill(0);
 let qi = 0;
@@ -745,7 +845,81 @@ scaleBtns.forEach(b=>{
 prevBtn.addEventListener('click', ()=>{ if(qi>0){ qi--; renderQuestion(); focusQuestion(); } });
 nextBtn.addEventListener('click', ()=>{
   if(!answers[qi]) return;
-  if(qi<QUESTIONS.length-1){ qi++; renderQuestion(); focusQuestion(); } else { showResult(); }
+  if(qi<QUESTIONS.length-1){ qi++; renderQuestion(); focusQuestion(); } else { startCards(); }
+});
+
+/* ================= 耐性カード（15枚から3つずつ） ================= */
+const cardPanel = document.getElementById('cardPanel');
+const cardGrid = document.getElementById('cardGrid');
+const cardTitle = document.getElementById('cardTitle');
+const cardLead = document.getElementById('cardLead');
+const cardNext = document.getElementById('cardNext');
+const cardPrev = document.getElementById('cardPrev');
+let cardStepNo = 1;      /* 1=わりと平気 / 2=できれば避けたい */
+let okTags = [];         /* 選んだ順に保持（先頭ほど強い） */
+let avoidTags = [];
+const CARD_PICK = 3;
+
+function startCards(){
+  quizPanel.hidden = true;
+  cardPanel.hidden = false;
+  cardStepNo = 1;
+  renderCards();
+  cardTitle.focus({preventScroll:true});
+}
+function currentPicks(){ return cardStepNo===1 ? okTags : avoidTags; }
+function renderCards(){
+  const picks = currentPicks();
+  const locked = cardStepNo===2 ? okTags : [];
+  cardTitle.textContent = cardStepNo===1 ? 'これは、わりと平気' : 'これは、できれば避けたい';
+  cardLead.innerHTML = cardStepNo===1
+    ? 'はたらく中で起きることを15枚ならべました。この中で<b>「自分はわりと平気」なものを3つ</b>選んでください。順番は気にしなくて大丈夫です。'
+    : '今度は逆に、<b>「これは避けたい」ものを3つ</b>選んでください。<span style="color:var(--ink-muted)">（1つ前で選んだ3枚は選べません）</span>';
+  cardGrid.innerHTML = TAISEI.map(t=>{
+    const i = picks.indexOf(t.k);
+    const dis = locked.indexOf(t.k)>=0;
+    return '<button type="button" class="tcard'+(i>=0?' sel':'')+'" data-k="'+t.k+'"'+
+      (dis?' aria-disabled="true" disabled aria-label="'+t.n+'（1つ前で選びました）"':'')+
+      ' aria-pressed="'+(i>=0?'true':'false')+'">'+
+      '<span class="tc-rank">'+(i>=0?(i+1):'')+'</span>'+
+      '<span class="tc-ico" aria-hidden="true">'+t.i+'</span>'+
+      '<span class="tc-name">'+t.n+'</span>'+
+      '<span class="tc-desc">'+t.d+'</span></button>';
+  }).join('');
+  document.getElementById('cardCount').textContent = String(picks.length);
+  document.getElementById('cardStep').textContent = cardStepNo===1 ? 'あと 2 ステップ' : 'あと 1 ステップ';
+  const track = document.getElementById('cardTrack');
+  document.getElementById('cardBar').style.width = (picks.length/CARD_PICK*100)+'%';
+  if(track) track.setAttribute('aria-valuenow', String(picks.length));
+  cardNext.disabled = picks.length !== CARD_PICK;
+  cardNext.textContent = cardStepNo===1 ? '次へ' : '結果を見る';
+}
+cardGrid.addEventListener('click', e=>{
+  const b = e.target.closest('.tcard');
+  if(!b || b.disabled) return;
+  const picks = currentPicks();
+  const k = b.dataset.k;
+  const at = picks.indexOf(k);
+  if(at>=0) picks.splice(at,1);
+  else if(picks.length < CARD_PICK) picks.push(k);
+  else { showToast('3つまでです。入れ替えるには選んだカードをもう一度押してください'); return; }
+  renderCards();
+  /* 再描画でフォーカスが飛ぶので、押したカードへ戻す */
+  const back = cardGrid.querySelector('.tcard[data-k="'+k+'"]');
+  if(back && back.focus) back.focus({preventScroll:true});
+});
+cardNext.addEventListener('click', ()=>{
+  if(currentPicks().length !== CARD_PICK) return;
+  if(cardStepNo===1){
+    /* もどって選び直したとき、同じカードが「平気」と「避けたい」の両方に残らないようにする */
+    avoidTags = avoidTags.filter(k=>okTags.indexOf(k)<0);
+    cardStepNo = 2; renderCards(); cardTitle.focus({preventScroll:true});
+  }
+  else { showResult(); }
+});
+cardPrev.addEventListener('click', ()=>{
+  if(cardStepNo===2){ cardStepNo = 1; renderCards(); cardTitle.focus({preventScroll:true}); }
+  else { cardPanel.hidden = true; quizPanel.hidden = false; qi = QUESTIONS.length-1; renderQuestion(); focusQuestion(); }
 });
 document.getElementById('startBtn').addEventListener('click', ()=>{
   introPanel.hidden = true;
@@ -793,21 +967,34 @@ function showResult(opts){
   const shared = !!(opts && opts.shared);
   const {type, duoKeys} = computeResult();
   const t = TYPES[type];
-  /* ふたつ型は、該当2報酬の推薦をその場で合成して見せる */
-  const content = (type==='duo' && duoKeys) ? duoContent(duoKeys) : {jobs:t.jobs||[], inds:t.inds||[]};
+  const rewardKeys = (type==='duo' && duoKeys) ? duoKeys
+                   : (type==='balance' ? ['gold','heart','time','exp'] : [type]);
+  const jr = pickJobs(rewardKeys, 3, type==='balance');
+  const ir = pickInds(type, duoKeys||[], 2);
   const nameSuffix = (type==='duo' && duoKeys)
     ? '（' + duoKeys.map(k=>TYPES[k].icon+REWARD_LABEL[k]).join(' と ') + '）' : '';
   document.getElementById('resIcon').textContent = t.icon;
   document.getElementById('resName').textContent = t.icon+' '+t.name+nameSuffix;
   document.getElementById('resDesc').textContent = t.desc;
+  /* 選んだ耐性カードを結果にも残す（何を前提に選ばれたかが分かるように） */
+  const pickLine = document.getElementById('resPicks');
+  if(okTags.length && avoidTags.length){
+    pickLine.innerHTML = 'あなたが選んだカード ／ わりと平気: <b>'+tagNames(okTags)+'</b>　・　避けたい: <b>'+tagNames(avoidTags)+'</b>';
+    pickLine.hidden = false;
+  }else{ pickLine.hidden = true; }
   const jobsEl = document.getElementById('resJobs');
-  jobsEl.innerHTML = content.jobs.map(j=>'<a class="link-chip" href="./tenshoku-no-sho.html#job-'+j.id+'" data-zukan="tenshoku" data-target="job-'+j.id+'">▶ '+j.name+'</a>').join('');
+  jobsEl.innerHTML = jr.list.map(j=>'<a class="link-chip" href="./tenshoku-no-sho.html#job-'+j.i+'" data-zukan="tenshoku" data-target="job-'+j.i+'">▶ '+j.n+'</a>').join('');
   const indsEl = document.getElementById('resInds');
-  indsEl.innerHTML = content.inds.map(g=>'<a class="link-chip" href="./gyokai-zukan.html#ind-'+g.id+'" data-zukan="gyokai" data-target="ind-'+g.id+'">🗺 '+g.name+'</a>').join('');
-  /* タイプ固有の注記（推薦の前提を伝える） */
-  setNote('resJobsNote', t.jobsNote);
+  indsEl.innerHTML = ir.list.map(g=>'<a class="link-chip" href="./gyokai-zukan.html#ind-'+g.id+'" data-zukan="gyokai" data-target="ind-'+g.id+'">🗺 '+g.name+'</a>').join('');
+  /* 注記: タイプ固有のもの＋「避けたいものを全部よけると候補が残らなかった」場合の説明 */
+  let jn = t.jobsNote || '';
+  if(jr.softened && avoidTags.length){
+    jn = (jn ? jn+' ' : '') + '※ 避けたいカード（'+tagNames(avoidTags)+'）をすべてよけると候補が残らなかったため、'
+       + 'あてはまるものが少ない順に並べています。カードの「とくぎ」や業界の「おきて」で実際の中身を確かめてください。';
+  }
+  setNote('resJobsNote', jn);
   setNote('resIndsNote', t.indsNote);
-  document.getElementById('resIndsLabel').hidden = content.inds.length===0 && !t.indsNote;
+  document.getElementById('resIndsLabel').hidden = ir.list.length===0 && !t.indsNote;
   const code = currentCode();
   const codeBadge = document.getElementById('codeBadge');
   if(code){ codeBadge.textContent = '案内コード: '+code; codeBadge.hidden = false; } else { codeBadge.hidden = true; }
@@ -817,7 +1004,10 @@ function showResult(opts){
   /* 結果カードへフォーカスを移し、支援技術にも到達を伝える */
   const rc = document.getElementById('resultPanel');
   if(rc && rc.focus){ try{ rc.focus({preventScroll:true}); }catch(e){} }
-  if(typeof gtag==='function') gtag('event','shindan_complete',{type:type, source: shared?'shared':'self'});
+  if(typeof gtag==='function') gtag('event','shindan_complete',{
+    type: type, source: shared?'shared':'self',
+    ok_tags: okTags.join('|'), ng_tags: avoidTags.join('|'), softened: jr.softened
+  });
 }
 function setNote(id, text){
   const el = document.getElementById(id);
@@ -840,6 +1030,8 @@ function showToast(msg){
 document.getElementById('shareBtn').addEventListener('click', ()=>{
   const params = new URLSearchParams();
   params.set('ans', answers.join(','));
+  if(okTags.length===CARD_PICK) params.set('ok', okTags.join(','));
+  if(avoidTags.length===CARD_PICK) params.set('ng', avoidTags.join(','));
   const code = currentCode();
   if(code) params.set('code', code);
   const url = location.origin + location.pathname + '?' + params.toString();
@@ -855,6 +1047,8 @@ document.getElementById('printBtn').addEventListener('click', ()=>window.print()
 document.getElementById('restartBtn').addEventListener('click', ()=>{
   answers = new Array(QUESTIONS.length).fill(0);
   qi = 0;
+  okTags = []; avoidTags = []; cardStepNo = 1;
+  cardPanel.hidden = true;
   const code = currentCode();
   history.replaceState(null, '', location.pathname + (code ? '?code='+encodeURIComponent(code) : ''));
   resultPanel.hidden = true;
@@ -871,6 +1065,15 @@ document.getElementById('restartBtn').addEventListener('click', ()=>{
     const arr = ansParam.split(',').map(Number);
     if(arr.length===QUESTIONS.length && arr.every(n=>Number.isInteger(n) && n>=1 && n<=5)){
       answers = arr;
+      /* 耐性カードも共有URLから復元（不正な値は捨てる） */
+      const readTags = s => {
+        if(!s) return [];
+        const a = s.split(',').filter(k=>TAISEI_MAP[k]);
+        return (a.length===CARD_PICK && new Set(a).size===CARD_PICK) ? a : [];
+      };
+      okTags = readTags(params.get('ok'));
+      avoidTags = readTags(params.get('ng'));
+      if(okTags.some(k=>avoidTags.indexOf(k)>=0)){ okTags = []; avoidTags = []; }
       showResult({shared:true});
       return;
     }
