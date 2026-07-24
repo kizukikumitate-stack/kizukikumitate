@@ -281,6 +281,28 @@ html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#a67c1a;color:
   background:var(--surface-2);border:1px solid var(--hairline);border-radius:8px;padding:12px;line-height:1.8;
 }
 .result-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:22px;}
+
+/* ---- マイ冒険の書（1枚にまとめる・印刷/共有の成果物） ---- */
+.book{margin-top:26px;padding:0;border:2px solid var(--gold);border-radius:14px;overflow:hidden;background:var(--surface);}
+.book-frame{padding:26px 28px 22px;position:relative;}
+.book-eyebrow{text-align:center;font-size:11.5px;letter-spacing:.28em;color:var(--gold);}
+.book-title{text-align:center;font-family:'Shippori Mincho',serif;font-weight:800;font-size:26px;letter-spacing:.14em;color:var(--ink);margin:4px 0 2px;}
+.book-title::before,.book-title::after{content:"✦";color:var(--gold);font-size:16px;margin:0 .5em;vertical-align:middle;}
+.book-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px;margin:16px 0 4px;padding-bottom:10px;border-bottom:1px solid var(--hairline);}
+.book-name label{font-size:11.5px;color:var(--ink-muted);letter-spacing:.1em;white-space:nowrap;}
+.book input,.book textarea{font-family:inherit;color:var(--ink);background:var(--surface-2);border:1px solid var(--hairline);border-radius:8px;}
+.book-name input{flex:1;min-width:140px;font-size:15px;padding:7px 10px;}
+.book-date{font-size:12px;color:var(--ink-muted);white-space:nowrap;margin-left:auto;}
+.book-sec{margin-top:15px;}
+.book-h{font-size:11.5px;letter-spacing:.16em;color:var(--gold);margin-bottom:6px;}
+.book-type{font-size:17px;font-weight:700;color:var(--ink);letter-spacing:.04em;}
+.book-gaps{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px;font-size:12.5px;color:var(--ink-2);}
+.book-gaps b{color:var(--gold);font-weight:700;}
+.book-cards{font-size:12.5px;color:var(--ink-2);line-height:1.9;}
+.book-cards b{color:var(--ink);font-weight:700;}
+.book-sec input[type=text]{width:100%;font-size:14px;padding:9px 11px;}
+.book-sec textarea{width:100%;min-height:70px;resize:vertical;font-size:14px;padding:10px 11px;line-height:1.8;}
+.book-foot{margin-top:18px;padding-top:12px;border-top:1px solid var(--hairline);text-align:center;font-size:11px;color:var(--ink-muted);letter-spacing:.08em;}
 .toast{
   position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);
   background:var(--surface-2);border:1px solid var(--gold);color:var(--gold);
@@ -297,9 +319,24 @@ html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#a67c1a;color:
 }
 
 @media print{
-  body>nav,.mobile-menu,footer,.theme-btn,.intro,.quiz,header .pair-links,.result-actions{display:none !important;}
-  body{padding:16px;background:#fff;}
-  .dq{box-shadow:none;border-color:#333;}
+  /* 冒険の書だけを1枚できれいに印刷する。入れ子なので visibility 方式で隔離する
+     （display:none だと親ごと消えて子を復活できないため） */
+  /* 固定表示のクロム（ナビ・フッター・右下ボタン・棚）は完全に除去 */
+  body>nav,.mobile-menu,footer,.theme-btn,.ver-btn,.tut-help-btn,[class*="shelf"],.toast{display:none !important;}
+  body *{visibility:hidden !important;}
+  #adventureBook,#adventureBook *{visibility:visible !important;}
+  #adventureBook{position:absolute !important;left:0 !important;top:0 !important;width:100% !important;margin:0 !important;border:2px solid #a67c1a !important;background:#fffdf7 !important;box-shadow:none !important;}
+  body{padding:0 !important;background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  /* 印刷は紙色固定にして読みやすく（ダークモードで開いていても白紙に） */
+  #adventureBook .book-eyebrow,#adventureBook .book-h{color:#a67c1a !important;}
+  #adventureBook .book-title,#adventureBook .book-type,#adventureBook .book-cards b{color:#2b2740 !important;}
+  #adventureBook .book-gaps{color:#4d4968 !important;}
+  #adventureBook .book-gaps b{color:#a67c1a !important;}
+  #adventureBook .book-cards{color:#4d4968 !important;}
+  #adventureBook input,#adventureBook textarea{background:#fff !important;border:1px solid #d9d3c2 !important;color:#2b2740 !important;}
+  #adventureBook .book-foot{color:#8b87a3 !important;border-top-color:#d9d3c2 !important;}
+  #adventureBook .book-name{border-bottom-color:#d9d3c2 !important;}
+  #adventureBook .book-date{color:#8b87a3 !important;}
 }
 
 /* ---- ライト/ダーク切り替え（右下・生涯キャリア図鑑・業界図鑑と共有） ---- */
@@ -707,13 +744,38 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <div class="links" id="resInds"></div>
     <p class="res-note" id="resIndsNote" hidden></p>
     <p class="res-note res-caveat">※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは、図鑑の★の高さに加えて、あなたが選んだカード（耐性のタグ付けも編集部の判断です）で絞り込んだ目安です。同じ職業でも会社や働き方で大きく変わります。ここに出ていない職業も図鑑には129職ぶん収蔵されているので、気になる道は図鑑から直接さがしてみてください。</p>
-    <div class="step-box">
-      <div class="sec-label">今日の一歩</div>
-      <textarea id="stepNote" placeholder="今日、これからひとつだけ試してみることを書いてみましょう（例：気になった職業カードを1つ読んでみる、など）。印刷して手元に残せます。"></textarea>
-    </div>
+    <section id="adventureBook" class="dq book" aria-label="わたしの冒険の書">
+      <div class="book-frame">
+        <div class="book-eyebrow">はたらく現在地診断</div>
+        <h2 class="book-title">わたしの冒険の書</h2>
+        <div class="book-name">
+          <label for="bkName">冒険者の名前</label>
+          <input id="bkName" type="text" placeholder="お名前・ニックネーム（任意）" autocomplete="off">
+          <span class="book-date" id="bkDate"></span>
+        </div>
+        <div class="book-sec">
+          <div class="book-h">いまの現在地</div>
+          <div class="book-type" id="bkType"></div>
+          <div class="book-gaps" id="bkGaps"></div>
+        </div>
+        <div class="book-sec">
+          <div class="book-h">わたしが選んだカード</div>
+          <div class="book-cards" id="bkCards"></div>
+        </div>
+        <div class="book-sec">
+          <div class="book-h">目指してみたい道</div>
+          <input id="bkGoal" type="text" placeholder="気になった職業や大陸を書いてみよう（例：データサイエンティスト／医療・福祉の大陸）" autocomplete="off">
+        </div>
+        <div class="book-sec">
+          <div class="book-h">今日の一歩</div>
+          <textarea id="bkStep" placeholder="今日、これからひとつだけ試してみること（例：気になった職業カードを1つ読む）"></textarea>
+        </div>
+        <div class="book-foot">きづきくみたて工房 ／ みんなで作る 生涯キャリア図鑑・業界図鑑</div>
+      </div>
+    </section>
     <div class="result-actions">
       <button type="button" class="ghost-btn" id="shareBtn">🔗 結果を共有する</button>
-      <button type="button" class="ghost-btn" id="printBtn">🖨 印刷する</button>
+      <button type="button" class="ghost-btn" id="printBtn">🖨 冒険の書を印刷・PDF保存</button>
       <button type="button" class="ghost-btn" id="restartBtn">↺ もう一度診断する</button>
     </div>
   </section>
@@ -1202,6 +1264,8 @@ function showResult(opts){
   const code = currentCode();
   const codeBadge = document.getElementById('codeBadge');
   if(code){ codeBadge.textContent = '案内コード: '+code; codeBadge.hidden = false; } else { codeBadge.hidden = true; }
+  /* マイ冒険の書を埋める（現在地→目指す道→今日の一歩を1枚に） */
+  fillAdventureBook(t, nameSuffix, r2, jr);
   quizPanel.hidden = true;
   introPanel.hidden = true;
   resultPanel.hidden = false;
@@ -1213,6 +1277,28 @@ function showResult(opts){
     ok_tags: okTags.join('|'), ng_tags: avoidTags.join('|'), softened: jr.softened
   });
 }
+/* マイ冒険の書の中身を、診断結果からつくる */
+const GAP_WORD = g => g>=3?'とても足りない':g===2?'足りない':g===1?'すこし足りない':g===0?'つりあっている':'満ちている';
+function fillAdventureBook(t, nameSuffix, r2, jr){
+  document.getElementById('bkType').textContent = t.icon+' '+t.name+nameSuffix;
+  document.getElementById('bkGaps').innerHTML = REWARDS.map(x=>{
+    const g = r2.gaps[x.key];
+    return x.icon+' '+x.label+'：<b>'+GAP_WORD(g)+'</b>';
+  }).join('');
+  const cardsEl = document.getElementById('bkCards');
+  if(okTags.length && avoidTags.length){
+    cardsEl.innerHTML = 'わりと平気：<b>'+tagNames(okTags)+'</b><br>できれば避けたい：<b>'+tagNames(avoidTags)+'</b>';
+  }else{
+    cardsEl.innerHTML = '<span style="color:var(--ink-muted)">（カードは選ばれていません）</span>';
+  }
+  /* 日付（ブラウザのローカル日付） */
+  const d = new Date();
+  document.getElementById('bkDate').textContent = d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+  /* 目指す道: まだ空なら、いちばんのおすすめ職を下書きとして入れておく（編集可） */
+  const goal = document.getElementById('bkGoal');
+  if(!goal.value && jr.list.length) goal.value = jr.list[0].n;
+}
+
 function setNote(id, text){
   const el = document.getElementById(id);
   if(!el) return;
@@ -1328,6 +1414,9 @@ document.getElementById('restartBtn').addEventListener('click', ()=>{
   qi = 0;
   okTags = []; avoidTags = []; cardStepNo = 1;
   cardPanel.hidden = true;
+  /* 冒険の書の記入欄もリセット */
+  document.getElementById('bkGoal').value = '';
+  document.getElementById('bkStep').value = '';
   const code = currentCode();
   history.replaceState(null, '', location.pathname + (code ? '?code='+encodeURIComponent(code) : ''));
   resultPanel.hidden = true;
