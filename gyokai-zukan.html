@@ -218,6 +218,17 @@ html.light .tech-item b{--gc2:#1d6fb8;}
 .zukan-total{grid-column:1/-1;text-align:center;color:var(--ink-2);font-size:13px;letter-spacing:.1em;margin:2px 4px 0;}
 .zukan-total b{color:var(--gold);font-size:16px;font-weight:700;}
 
+/* ---- 診断からの旅（おすすめをめぐって、診断へ帰る） ---- */
+.trip-bar{margin:14px 0 2px;padding:12px 14px;border:2px solid var(--gold);border-radius:10px;background:var(--surface-2);}
+.trip-head{font-size:11.5px;color:var(--gold);letter-spacing:.12em;margin-bottom:8px;text-align:center;}
+.trip-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.trip-chip{font-family:inherit;font-size:11.5px;cursor:pointer;color:var(--ink-2);background:var(--surface);border:1px solid var(--hairline);border-radius:999px;padding:5px 11px;}
+.trip-chip:hover{color:var(--gold);border-color:var(--gold);}
+.trip-chip.now{color:var(--gold);border-color:var(--gold);background:var(--hover-bg);}
+.trip-back{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--hairline);}
+.trip-back a,.trip-back button{font-family:inherit;font-size:12px;cursor:pointer;text-decoration:none;color:var(--gold);background:var(--surface);border:1px solid var(--gold);border-radius:8px;padding:7px 14px;letter-spacing:.04em;}
+.trip-back a:hover,.trip-back button:hover{background:var(--hover-bg);}
+
 /* ---- world map ---- */
 .map-wrap{padding:14px;}
 .map-svg{width:100%;height:auto;display:block;}
@@ -1222,8 +1233,59 @@ function openIndustry(id){
     btn.setAttribute("aria-expanded","true");
     btn.textContent = "▲ とじる";
   }
+  renderTripBar(id, card);
   setTimeout(()=>card.scrollIntoView({behavior:"smooth",block:"start"}), 60);
 }
+
+/* ================= 診断からの旅 =================
+   現在地診断から来たときだけ、開いたカードの中に「おすすめをめぐる」バーを差し込む。
+   一方通行で迷子にならないよう、診断へ帰る道と世界地図へ出る道を必ず添える。 */
+const TRIP = (function(){
+  const p = new URLSearchParams(location.search);
+  if(p.get("from") !== "shindan") return null;
+  const rec = (p.get("rec")||"").split(",").filter(id=>GYOKAI_MAP[id]);
+  let back = p.get("back") || "";
+  /* 帰り先は自サイト内の診断ページに限定する（外部URLを踏ませない） */
+  try{
+    const u = new URL(back, location.href);
+    back = (u.origin===location.origin && u.pathname.endsWith("genzaichi-shindan.html")) ? u.href : "";
+  }catch(e){ back = ""; }
+  if(!rec.length && !back) return null;
+  return {rec:rec, back:back, seen:{}};
+})();
+let tripBarEl = null;
+function renderTripBar(currentId, card){
+  if(!TRIP || !card) return;
+  if(currentId) TRIP.seen[currentId] = true;
+  if(!tripBarEl){ tripBarEl = document.createElement("div"); tripBarEl.className = "trip-bar"; }
+  const done = TRIP.rec.filter(id=>TRIP.seen[id]).length;
+  let h = '<div class="trip-head">🧭 現在地診断からのおすすめ（'+done+' / '+TRIP.rec.length+' 件を見ました）</div>';
+  if(TRIP.rec.length){
+    h += '<div class="trip-row">' + TRIP.rec.map(id=>{
+      const g = GYOKAI_MAP[id], now = id===currentId;
+      return '<button type="button" class="trip-chip'+(now?' now':'')+'" data-trip="'+id+'">'+
+        (TRIP.seen[id] && !now ? '✓ ' : '')+ g.name +'</button>';
+    }).join('') + '</div>';
+  }
+  h += '<div class="trip-back">';
+  if(TRIP.back) h += '<a href="'+TRIP.back+'">🧭 診断の結果にもどる</a>';
+  h += '<button type="button" id="tripMap">🗺 世界地図を見る</button>';
+  h += '<a href="./tenshoku-no-sho.html">📖 生涯キャリア図鑑を見る</a>';
+  h += '</div>';
+  tripBarEl.innerHTML = h;
+  const detail = card.querySelector(".jc-detail") || card;
+  detail.appendChild(tripBarEl);
+}
+document.addEventListener("click", e=>{
+  const c = e.target.closest("[data-trip]");
+  if(c){ e.preventDefault(); openIndustry(c.dataset.trip); return; }
+  if(e.target.closest("#tripMap")){
+    const mt = document.querySelector('.tab-btn[data-panel="p-map"]');
+    if(mt) mt.click();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+});
+
 if(location.hash.startsWith("#ind-")) openIndustry(location.hash.slice(5));
 window.addEventListener("hashchange",()=>{ if(location.hash.startsWith("#ind-")) openIndustry(location.hash.slice(5)); });
 

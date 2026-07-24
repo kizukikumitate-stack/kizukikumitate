@@ -458,6 +458,26 @@ header .pair-link:hover{background:var(--surface-2);}
 }
 .jc-toggle:hover,.jobcard.open .jc-toggle{color:var(--gold);border-color:var(--gold);}
 
+/* ---- 診断からの旅（おすすめをめぐって、診断へ帰る） ---- */
+.trip-bar{
+  margin:10px 8px 0;padding:12px 14px;border:2px solid var(--gold);border-radius:10px;
+  background:var(--surface);box-shadow:0 0 0 3px var(--surface);
+}
+.trip-head{font-size:11.5px;color:var(--gold);letter-spacing:.12em;margin-bottom:8px;text-align:center;}
+.trip-row{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;}
+.trip-chip{
+  font-family:inherit;font-size:11.5px;cursor:pointer;color:var(--ink-2);
+  background:var(--surface-2);border:1px solid var(--hairline);border-radius:999px;padding:5px 11px;
+}
+.trip-chip:hover{color:var(--gold);border-color:var(--gold);}
+.trip-chip.now{color:var(--gold);border-color:var(--gold);background:var(--hover-bg);}
+.trip-back{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px;padding-top:10px;border-top:1px solid var(--hairline);}
+.trip-back a,.trip-back button{
+  font-family:inherit;font-size:12px;cursor:pointer;text-decoration:none;color:var(--gold);
+  background:var(--surface-2);border:1px solid var(--gold);border-radius:8px;padding:7px 14px;letter-spacing:.04em;
+}
+.trip-back a:hover,.trip-back button:hover{background:var(--hover-bg);}
+
 /* ---- modal ---- */
 .modal-bg{position:fixed;inset:0;background:rgba(5,6,18,.75);display:none;z-index:500;overflow-y:auto;padding:40px 14px;}
 .modal-bg.open{display:block;}
@@ -1096,6 +1116,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <div class="modal-card">
     <button class="modal-close" id="modalClose">とじる ✕</button>
     <div id="modalBody"></div>
+    <div class="trip-bar" id="tripBar" hidden></div>
   </div>
 </div>
 
@@ -2777,6 +2798,7 @@ function openModal(id){
   if(pendingFocusJob) pendingFocusJob = id; /* カード内リンクで渡り歩いたら最後に見た職業へ */
   lastFocusEl = document.activeElement;
   document.getElementById("modalBody").innerHTML = cardHTML(j);
+  if(typeof renderTripBar === "function") renderTripBar(id);
   modalBg.classList.add("open");
   document.getElementById("modalClose").focus();
 }
@@ -3314,6 +3336,56 @@ function openJobFromHash(){
 }
 openJobFromHash();
 window.addEventListener("hashchange", openJobFromHash);
+
+/* ================= 診断からの旅 =================
+   現在地診断から来たときだけ、カードの下に「おすすめをめぐる」バーを出す。
+   一方通行で迷子にならないよう、診断へ帰る道と全体チャートへ出る道を必ず添える。 */
+const TRIP = (function(){
+  const p = new URLSearchParams(location.search);
+  if(p.get("from") !== "shindan") return null;
+  const rec = (p.get("rec")||"").split(",").filter(id=>JOB_MAP[id]);
+  let back = p.get("back") || "";
+  /* 帰り先は自サイト内の診断ページに限定する（外部URLを踏ませない） */
+  try{
+    const u = new URL(back, location.href);
+    back = (u.origin===location.origin && u.pathname.endsWith("genzaichi-shindan.html")) ? u.href : "";
+  }catch(e){ back = ""; }
+  if(!rec.length && !back) return null;
+  return {rec:rec, back:back, seen:{}};
+})();
+function renderTripBar(currentId){
+  const bar = document.getElementById("tripBar");
+  if(!bar) return;
+  if(!TRIP){ bar.hidden = true; return; }
+  if(currentId) TRIP.seen[currentId] = true;
+  const done = TRIP.rec.filter(id=>TRIP.seen[id]).length;
+  let h = '<div class="trip-head">🧭 現在地診断からのおすすめ（'+done+' / '+TRIP.rec.length+' 件を見ました）</div>';
+  if(TRIP.rec.length){
+    h += '<div class="trip-row">' + TRIP.rec.map(id=>{
+      const j = JOB_MAP[id];
+      const now = id===currentId;
+      return '<button type="button" class="trip-chip'+(now?' now':'')+'" data-trip="'+id+'">'+
+        (TRIP.seen[id] && !now ? '✓ ' : '')+ j.name +'</button>';
+    }).join('') + '</div>';
+  }
+  h += '<div class="trip-back">';
+  if(TRIP.back) h += '<a href="'+TRIP.back+'">🧭 診断の結果にもどる</a>';
+  h += '<button type="button" id="tripChart">🗺 転職チャート全体を見る</button>';
+  h += '<a href="./gyokai-zukan.html">📖 業界図鑑を見る</a>';
+  h += '</div>';
+  bar.innerHTML = h;
+  bar.hidden = false;
+}
+document.addEventListener("click", e=>{
+  const c = e.target.closest("[data-trip]");
+  if(c){ e.preventDefault(); openModal(c.dataset.trip); return; }
+  if(e.target.closest("#tripChart")){
+    closeModal();
+    const ct = document.querySelector('.tab-btn[data-panel="p-chart"]');
+    if(ct) ct.click();
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+});
 
 /* ================= みんなでつくる ================= */
 const userJobs = [];

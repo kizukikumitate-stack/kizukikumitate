@@ -195,6 +195,32 @@ header .pair-link:hover{background:var(--surface-2);}
 .tcard[disabled]:hover{border-color:var(--hairline);}
 .cards-count{text-align:center;font-size:12px;color:var(--ink-muted);letter-spacing:.1em;margin:0 0 4px;}
 .cards-count span{color:var(--gold);font-size:15px;font-weight:700;}
+/* ---- 回答の内訳（渇きの可視化） ---- */
+.gap-table{display:flex;flex-direction:column;gap:6px;margin:2px 0 4px;}
+.gap-row{display:grid;grid-template-columns:minmax(0,7.4em) minmax(0,1fr) minmax(0,4.6em);align-items:center;gap:8px;font-size:12px;}
+.gap-row .gl{color:var(--ink-2);white-space:nowrap;}
+.gap-bar{position:relative;height:9px;background:var(--surface-2);border:1px solid var(--hairline);border-radius:99px;overflow:hidden;}
+.gap-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--gold);border-radius:99px;display:block;}
+.gap-row.top .gl{color:var(--gold);font-weight:700;}
+.gap-row .gv{color:var(--ink-muted);text-align:right;white-space:nowrap;font-size:11px;}
+.how-link{color:var(--gold);text-decoration:none;border-bottom:1px dotted var(--gold);}
+
+/* ---- しくみ（読みたい人だけ開く） ---- */
+.howto{margin-top:22px;}
+.howto>summary{cursor:pointer;list-style:none;color:var(--gold);font-size:14px;letter-spacing:.08em;padding:14px 18px;text-align:center;}
+.howto>summary::-webkit-details-marker{display:none;}
+.howto>summary::before{content:"▶ ";font-size:11px;}
+.howto[open]>summary::before{content:"▼ ";}
+.howto .hw{padding:4px 22px 22px;font-size:13px;color:var(--ink-2);line-height:1.95;}
+.howto h3{color:var(--gold);font-size:14px;letter-spacing:.1em;margin:20px 0 6px;border-bottom:1px solid var(--hairline);padding-bottom:4px;}
+.howto h3:first-child{margin-top:4px;}
+.howto ol,.howto ul{margin:6px 0 0;padding-left:1.3em;}
+.howto li{margin:3px 0;}
+.howto b{color:var(--ink);font-weight:700;}
+.howto code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--gold);background:var(--surface-2);border:1px solid var(--hairline);border-radius:4px;padding:1px 6px;}
+.howto .formula{background:var(--surface-2);border:1px solid var(--hairline);border-radius:8px;padding:10px 14px;margin:8px 0;font-size:12.5px;line-height:1.9;}
+.howto .caution{color:var(--ink-muted);font-size:12px;border-top:1px solid var(--hairline);margin-top:16px;padding-top:12px;}
+
 .picked-line{font-size:11.5px;color:var(--ink-2);line-height:1.8;margin:6px 0 0;}
 .picked-line b{color:var(--gold);font-weight:400;}
 @media (max-width:520px){
@@ -632,6 +658,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <span class="code-badge" id="codeBadge" hidden></span>
     <p class="result-desc" id="resDesc"></p>
     <p class="picked-line" id="resPicks" hidden></p>
+    <div class="sec-label">あなたの回答の内訳（渇き ＝ 大切さ − 満足度）</div>
+    <div class="gap-table" id="resGaps"></div>
+    <p class="res-note"><a class="how-link" href="#howto">▼ この結果がどう選ばれたか、しくみを読む</a></p>
     <div class="sec-label">おすすめの探索先（生涯キャリア図鑑の職業）</div>
     <div class="links" id="resJobs"></div>
     <p class="res-note" id="resJobsNote" hidden></p>
@@ -720,7 +749,59 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </footer>
 <!-- FOOTER END -->
 
-<div class="toast" id="toast"></div>
+<details class="dq howto" id="howto">
+  <summary>この診断のしくみ（計算式と、データの出どころ）</summary>
+  <div class="hw">
+    <p>この診断が何をどう計算しているかを、隠さず書いておきます。数字を出す道具は、前提が見えないまま使われると人を誤らせるからです。</p>
+
+    <h3>① 何を聞いているか</h3>
+    <p>前半の8問は、4つのほうしゅう（💰収入・❤️やりがい・⏳時間の自由・⭐市場価値）について、それぞれ<b>「いまの満足度」</b>と<b>「自分にとっての大切さ」</b>を5段階で聞いています。後半の15枚のカードは、はたらく中で起きる負荷について<b>「わりと平気なこと」3枚</b>と<b>「できれば避けたいこと」3枚</b>です。</p>
+
+    <h3>② 渇きの求めかた</h3>
+    <div class="formula">渇き ＝ 大切さ − 満足度　（−4 〜 +4）</div>
+    <p>大切に思っているのに満たされていないほど、数字が大きくなります。この値が最も大きいほうしゅうが、いまのあなたの「渇き」です。判定はこの3通りだけです。</p>
+    <ul>
+      <li>いちばん大きい渇きが<b>1以下</b> → ⚖️ バランスの旅人（どれも大きくは欠けていない）</li>
+      <li>いちばん大きい渇きが<b>2以上</b>で、それが<b>複数のほうしゅうで同点</b> → 🧭 ふたつを求める旅人（同点のうち「大切さ」が高い2つを採ります）</li>
+      <li>それ以外 → そのほうしゅうの旅人（金貨・意味・時間・腕試し）</li>
+    </ul>
+    <p>同点をひとくくりに「バランス型」と扱うと、<b>強い渇きを2つ抱えた人に「バランスよく歩めていますね」と返してしまう</b>ため、こう分けています。</p>
+
+    <h3>③ おすすめの選びかた</h3>
+    <ol>
+      <li><b>母集団をつくる</b>— 渇いているほうしゅうの★が4以上の職業を集めます（バランスの旅人だけは「4つの★の最小値が3以上」＝どれも大きくは欠けていない職業）。対象は生涯キャリア図鑑の<b>基本職・上位職の80職</b>です（英雄職より上は、入口の診断としては外しています）。</li>
+      <li><b>避けたいカードで外す</b>— 「できれば避けたい」3枚のどれかがタグに付いている職業を、母集団から取り除きます。</li>
+      <li><b>平気なカードで加点する</b>— 「わりと平気」に選んだタグを持つ職業を加点します。1枚目に選んだものほど重く見ます（1枚目3点・2枚目2点・3枚目1点）。</li>
+      <li><b>並べて上から3つ</b>— 次の式で並べ替えます。</li>
+    </ol>
+    <div class="formula">点数 ＝ 渇いている報酬の★ × 10 ＋ 平気カードの一致 × 4 ＋ 残り3報酬の合計 × 0.3</div>
+    <p>最後の項の係数をわざと小さくしています。ここを大きくすると<b>「4つの報酬すべてが高い職業」ばかりが上位を占めてしまい、やりがい★5でも他が控えめな職業（介護・教育・NPOなど）が永久に出てこなくなる</b>ためです。</p>
+    <p><b>3つ残らなかったときは</b>、除外をやめて「避けたいカードに当たる数が少ない順」に並べ直し、結果画面にその旨を明記します。候補が0件のまま何も出さない、ということはしません。</p>
+
+    <h3>④ 業界（大陸）の選びかた</h3>
+    <p>ほうしゅごとに候補の大陸をあらかじめ決めておき、職業と同じように避けたいカードで絞ります。<b>⏳時間を求める旅人にだけ、大陸をおすすめしていません</b>。業界図鑑には時間の指標がなく、時間の自由は業界よりも職種・働き方・雇用形態で決まる部分が大きいためです（たとえば「公務」の大陸には警察官・消防士・自衛官が含まれます）。</p>
+
+    <h3>⑤ データの出どころ</h3>
+    <ul>
+      <li><b>★（4つのほうしゅう）</b>= <a href="./tenshoku-no-sho.html">生涯キャリア図鑑</a>の各ジョブカードの値をそのまま使っています。★の根拠は図鑑の「ほうしゅう比較」タブに明記しています。</li>
+      <li><b>15枚のカードのタグ付け</b>= <b>編集部の判断</b>です。公的統計ではありません。「この仕事では、この負荷が実際に大きい」を1職につき3つ選んでいます。</li>
+      <li><b>大陸の情報</b>= <a href="./gyokai-zukan.html">業界図鑑</a>（就業者数は労働力調査、年収は民間給与実態統計）。</li>
+    </ul>
+
+    <h3>⑥ この診断がやらないこと・限界</h3>
+    <ul>
+      <li><b>向き不向きの判定ではありません。</b>いまの気持ちを整理して、図鑑を読み始める入口にするための道具です。</li>
+      <li><b>タグはどの職業も3つに揃えています。</b>以前は事務系の職業だけタグが少なく、結果として現場やケアの仕事が選ばれにくくなっていました。「現場の仕事のほうが我慢が多い」という思い込みが数字に化けてしまうため、揃えました。</li>
+      <li><b>同じ職業でも、会社・部署・時期で中身は大きく変わります。</b>タグは「その仕事につきやすい負荷」であって、あなたの職場の話ではありません。</li>
+      <li><b>4つの★がすべて3以下の職業（販売・接客、製造・技能職、カスタマーサポート）は母集団に入らないため、この診断では出てきません。</b>図鑑本体には129職すべて載っているので、そちらから直接さがせます。</li>
+      <li><b>回答はどこにも送信・保存していません。</b>結果はすべてブラウザの中で計算しています（共有したいときだけ、URLに答えが入ります）。</li>
+    </ul>
+
+    <p class="caution">このページは静的なHTMLでできています。実際の計算コードは、ブラウザでこのページのソースを表示すれば全部読めます（<code>computeResult</code> が判定、<code>pickJobs</code> が職業の選定、<code>JOBP</code> がタグ付きのデータです）。おかしいと思うタグ付けや式があれば、ぜひ教えてください。<a href="mailto:y.morimoto@kizukikumitate.com">y.morimoto@kizukikumitate.com</a></p>
+  </div>
+</details>
+
+<div class="toast" id="toast" role="status"></div>
 
 <script>
 /* ===== サイト共通ナビの開閉 ===== */
@@ -1044,10 +1125,28 @@ function showResult(opts){
     pickLine.innerHTML = 'あなたが選んだカード ／ わりと平気: <b>'+tagNames(okTags)+'</b>　・　避けたい: <b>'+tagNames(avoidTags)+'</b>';
     pickLine.hidden = false;
   }else{ pickLine.hidden = true; }
+  /* 回答の内訳: どの報酬がどれだけ渇いたのかを、そのまま見せる */
+  const r2 = computeResult();
+  const topGap = Math.max.apply(null, REWARDS.map(x=>r2.gaps[x.key]));
+  document.getElementById('resGaps').innerHTML = REWARDS.map(x=>{
+    const g = r2.gaps[x.key];
+    const pct = Math.max(0, g) / 4 * 100;   /* 渇き 0〜4 をバーに */
+    const isTop = g===topGap && g>=2;
+    return '<div class="gap-row'+(isTop?' top':'')+'">'+
+      '<span class="gl">'+x.icon+' '+x.label+'</span>'+
+      '<span class="gap-bar"><i style="width:'+pct+'%"></i></span>'+
+      '<span class="gv">大切さ'+r2.importance[x.key]+' − 満足'+r2.satisfaction[x.key]+' = <b style="color:'+(isTop?'var(--gold)':'var(--ink-2)')+'">'+(g>0?'+':'')+g+'</b></span>'+
+      '</div>';
+  }).join('');
+  /* 図鑑へ渡す情報: おすすめ一式（めぐれるように）と、診断へ帰ってくるためのURL */
+  const backUrl = shareUrl();
+  const recJobs = jr.list.map(j=>j.i).join(',');
+  const recInds = ir.list.map(g=>g.id).join(',');
+  const trip = (kind, rec) => '?from=shindan&rec='+encodeURIComponent(rec)+'&back='+encodeURIComponent(backUrl);
   const jobsEl = document.getElementById('resJobs');
-  jobsEl.innerHTML = jr.list.map(j=>'<a class="link-chip" href="./tenshoku-no-sho.html#job-'+j.i+'" data-zukan="tenshoku" data-target="job-'+j.i+'">▶ '+j.n+'</a>').join('');
+  jobsEl.innerHTML = jr.list.map(j=>'<a class="link-chip" href="./tenshoku-no-sho.html'+trip('job',recJobs)+'#job-'+j.i+'" data-zukan="tenshoku" data-target="job-'+j.i+'">▶ '+j.n+'</a>').join('');
   const indsEl = document.getElementById('resInds');
-  indsEl.innerHTML = ir.list.map(g=>'<a class="link-chip" href="./gyokai-zukan.html#ind-'+g.id+'" data-zukan="gyokai" data-target="ind-'+g.id+'">🗺 '+g.name+'</a>').join('');
+  indsEl.innerHTML = ir.list.map(g=>'<a class="link-chip" href="./gyokai-zukan.html'+trip('ind',recInds)+'#ind-'+g.id+'" data-zukan="gyokai" data-target="ind-'+g.id+'">🗺 '+g.name+'</a>').join('');
   /* 注記: タイプ固有のもの＋「避けたいものを全部よけると候補が残らなかった」場合の説明 */
   let jn = t.jobsNote || '';
   if(jr.softened && avoidTags.length){
@@ -1089,14 +1188,18 @@ function showToast(msg){
   setTimeout(()=>toast.classList.remove('show'), 2200);
 }
 
-document.getElementById('shareBtn').addEventListener('click', ()=>{
+/* 結果を再現できるURL（共有にも、図鑑からの帰り道にも使う） */
+function shareUrl(){
   const params = new URLSearchParams();
   params.set('ans', answers.join(','));
   if(okTags.length===CARD_PICK) params.set('ok', okTags.join(','));
   if(avoidTags.length===CARD_PICK) params.set('ng', avoidTags.join(','));
   const code = currentCode();
   if(code) params.set('code', code);
-  const url = location.origin + location.pathname + '?' + params.toString();
+  return location.origin + location.pathname + '?' + params.toString();
+}
+document.getElementById('shareBtn').addEventListener('click', ()=>{
+  const url = shareUrl();
   if(navigator.clipboard && navigator.clipboard.writeText){
     navigator.clipboard.writeText(url).then(()=>showToast('結果のURLをコピーしました')).catch(()=>window.prompt('このURLをコピーしてください', url));
   } else {
