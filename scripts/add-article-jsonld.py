@@ -34,6 +34,7 @@ ARTICLE_PAGES = [
     "1on1-zukan.html",
     "rest-productivity-zukan.html",
     "career-theory-zukan.html",
+    "unlearn-zukan.html",
     "jirei.html",
     "jirei-shotengai.html",
     "jirei-kenshu.html",
@@ -57,7 +58,7 @@ ARTICLE_PAGES = [
     "nobel-peace.html",
 ]
 
-TODAY = "2026-07-19"  # gitに履歴が無い場合のフォールバック（Date.now非依存で固定）
+TODAY = "2026-07-25"  # gitに履歴が無い場合のフォールバック（Date.now非依存で固定）
 
 
 def git_date(path, first):

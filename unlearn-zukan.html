@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アンラーン図鑑 ｜ きづきくみたて工房</title>
+<meta name="description" content="学んだことを捨てるのではなく、固くなった学びをほぐして編み直す。アンラーニングの正体から、手放せない心のしくみ、組織が変われない構造、ソクラテスや禅の知恵、今日から使える実践技法まで、41の知恵を5章に収めた図鑑。">
+<link rel="canonical" href="https://kizukikumitate.com/unlearn-zukan.html">
+<meta property="og:title" content="アンラーン図鑑｜きづきくみたて工房">
+<meta property="og:description" content="手放して、学びなおすための41の知恵。心理学・経営学・世界の思想を5章に収めたフィールドガイド。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/unlearn-zukan.html">
+<meta property="og:image" content="https://kizukikumitate.com/unlearn-zukan-ogp.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="アンラーン図鑑｜きづきくみたて工房">
+<meta name="twitter:description" content="学びを捨てるのではなく、ほぐして編み直す。アンラーニングの知恵41項を5章に収めた図鑑。">
+<meta name="twitter:image" content="https://kizukikumitate.com/unlearn-zukan-ogp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --paper:#f6f1e7;
+    --paper2:#fbf7ee;
+    --ink:#2c2a26;
+    --ink-soft:#6b6357;
+    --line:#d8cdb8;
+    --gold:#b98a2e;
+    --c1:#4a7c8c;  /* アンラーンの正体 */
+    --c2:#c26b52;  /* 手放せない心のしくみ */
+    --c3:#3f4d8a;  /* 組織が手放せない理由 */
+    --c4:#7a9a5b;  /* 手放す知恵の世界史 */
+    --c5:#9a6ba0;  /* アンラーンの実践 */
+    --shadow:0 6px 20px rgba(60,50,30,.10);
+    --forest:#1a5fad;
+    --charcoal:#1e1e1e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 20% 10%, #fdfbf5 0%, transparent 40%),
+      radial-gradient(circle at 90% 80%, #f0e9d8 0%, transparent 45%),
+      var(--paper);
+    line-height:1.8;
+    line-break:strict;
+    hanging-punctuation:allow-end;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:48px 24px 80px;}
+
+  header.book{
+    text-align:center;
+    padding:44px 24px 34px;
+    border:2px solid var(--ink);
+    border-radius:20px;
+    background:linear-gradient(180deg,var(--paper2),#f3ecdc);
+    position:relative;
+    box-shadow:var(--shadow);
+  }
+  header.book::before{
+    content:"UNLEARN · FIELD GUIDE";
+    position:absolute;top:14px;left:0;right:0;
+    font-size:11px;letter-spacing:.35em;color:var(--gold);font-weight:700;
+  }
+  header.book h1{
+    font-size:clamp(30px,5vw,48px);
+    margin:14px 0 6px;
+    letter-spacing:.06em;
+  }
+  header.book .sub{
+    color:var(--ink-soft);
+    font-size:15px;max-width:680px;margin:10px auto 0;
+  }
+  .ribbon{
+    display:inline-block;margin-top:18px;
+    font-size:13px;color:#fff;background:var(--gold);
+    padding:5px 16px;border-radius:999px;letter-spacing:.05em;
+  }
+
+  /* Controls */
+  .controls{
+    display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;
+    margin:30px 0 6px;
+  }
+  .chip{
+    display:flex;align-items:center;gap:8px;cursor:pointer;
+    background:var(--paper2);border:1px solid var(--line);
+    padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;
+    transition:all .15s ease;user-select:none;
+  }
+  .chip .dot{width:12px;height:12px;border-radius:50%;}
+  .chip.active{border-color:var(--ink);box-shadow:0 2px 8px rgba(60,50,30,.15);background:#fff;}
+  .searchbox{
+    display:flex;justify-content:center;margin:14px 0 0;
+  }
+  .searchbox input{
+    width:min(440px,90%);
+    font-size:14px;padding:10px 18px;
+    border:1px solid var(--line);border-radius:999px;
+    background:var(--paper2);color:var(--ink);outline:none;
+    font-family:inherit;
+  }
+  .searchbox input:focus{border-color:var(--gold);}
+  .count-note{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:10px;letter-spacing:.05em;}
+
+  /* Section */
+  .section-head{
+    display:flex;align-items:center;gap:14px;
+    margin:46px 0 20px;
+  }
+  .section-head .kanban{
+    font-size:12px;letter-spacing:.2em;color:#fff;
+    padding:4px 12px;border-radius:6px;font-weight:700;white-space:nowrap;
+  }
+  .section-head h2{font-size:22px;margin:0;letter-spacing:.03em;}
+  .section-head .en{font-size:12px;color:var(--ink-soft);letter-spacing:.15em;}
+  .section-head .rule{flex:1;height:1px;background:var(--line);}
+  .section-lede{font-size:14px;color:var(--ink-soft);margin:-8px 0 20px;max-width:760px;}
+
+  /* Grid & Card */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+    gap:20px;
+  }
+  .card{
+    background:var(--paper2);
+    border:1px solid var(--line);
+    border-top:5px solid var(--cardcolor,#ccc);
+    border-radius:14px;
+    padding:20px 20px 16px;
+    box-shadow:var(--shadow);
+    position:relative;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(60,50,30,.16);}
+  .card .no{
+    position:absolute;top:14px;right:16px;z-index:2;
+    font-size:12px;color:var(--ink-soft);letter-spacing:.15em;
+    background:rgba(251,247,238,.88);padding:2px 8px;border-radius:999px;border:1px solid var(--line);
+  }
+  .card .card-fig{margin:2px 0 12px;border-radius:10px;overflow:hidden;border:1px solid var(--line);}
+  .card .card-fig img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;}
+  .card h3{margin:10px 0 0;font-size:19px;letter-spacing:.02em;}
+  .card .yomi{font-size:11.5px;color:var(--ink-soft);letter-spacing:.08em;}
+  .card .latin{
+    font-style:italic;color:var(--cardcolor);
+    font-size:12.5px;font-weight:600;margin:2px 0 12px;letter-spacing:.02em;
+  }
+  .card .def{
+    margin:0 0 12px;font-size:14.5px;font-weight:700;color:#3f3b34;
+  }
+  .card details{margin-top:4px;}
+  .card summary{
+    cursor:pointer;font-size:12.5px;font-weight:700;color:var(--cardcolor);
+    letter-spacing:.1em;list-style:none;user-select:none;
+  }
+  .card summary::-webkit-details-marker{display:none;}
+  .card summary::before{content:"▸ ";}
+  .card details[open] summary::before{content:"▾ ";}
+  .card .text{font-size:13.5px;color:#3f3b34;margin:10px 0 12px;}
+  .card .memo{
+    background:#fff;border-left:3px solid var(--cardcolor);
+    padding:9px 12px;border-radius:0 8px 8px 0;
+    font-size:12.5px;color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .card .memo b{color:var(--cardcolor);}
+  .card .q{
+    background:linear-gradient(180deg,#fff8e8,#fdf3da);
+    border:1px dashed var(--gold);
+    padding:10px 12px;border-radius:10px;
+    font-size:13px;color:#6b5322;
+  }
+  .card .q b{color:var(--gold);letter-spacing:.1em;font-size:11.5px;display:block;margin-bottom:3px;}
+
+  /* Fieldnote */
+  .fieldnote{
+    margin:56px 0 0;
+    border:2px dashed var(--line);
+    border-radius:16px;
+    background:linear-gradient(180deg,#fbf7ee,#f4eddd);
+    padding:28px 30px;
+  }
+  .fieldnote h2{margin:0 0 6px;font-size:20px;}
+  .fieldnote .en{font-size:12px;color:var(--gold);letter-spacing:.2em;font-weight:700;}
+  .fieldnote p{font-size:14.5px;margin:12px 0 0;color:#3f3b34;}
+
+  /* ---- 巻末の注記（図鑑シリーズ共通） ---- */
+  .pagenote{
+    text-align:center;margin-top:56px;color:var(--ink-soft);font-size:12.5px;
+    border-top:1px solid var(--line);padding-top:22px;
+  }
+  .pagenote .disc{max-width:720px;margin:8px auto 0;line-height:1.7;}
+
+  header.book h1,.section-head h2,.fieldnote h2,.card h3{text-wrap:pretty;}
+
+  @media(max-width:359px){
+    .grid{grid-template-columns:minmax(0,1fr);}
+  }
+  @media(max-width:520px){
+    .wrap{padding:28px 14px 60px;}
+    .section-head{flex-wrap:wrap;}
+  }
+
+  .hidden{display:none !important;}
+  @media print{
+    .controls,.searchbox,.count-note{display:none;}
+    .card{break-inside:avoid;}
+    .card details{display:block;}
+  }
+
+/* ===== 共通グローバルナビ（全ページ共通・台帳自動同期） ===== */
+nav{position:sticky;top:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem;}
+.nav-logo img{height:36px;width:auto;object-fit:contain;}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:var(--forest);letter-spacing:0.06em;}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;margin-left:auto;flex-wrap:wrap;}
+.nav-links a{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;color:var(--charcoal);text-decoration:none;letter-spacing:0.04em;}
+.nav-links a:hover,.nav-links a.active{color:var(--forest);}
+.nav-dropdown{position:relative;display:flex;align-items:center;}
+/* トップレベルの素リンク（Home / ストア等）をドロップダウンのボタンと同じ箱に揃える */
+.nav-links > li > a { display: inline-flex; align-items: center; padding: 0.4rem 0; }
+.nav-dropdown-toggle{font-family:'Jost','Noto Serif JP',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--charcoal);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s;}
+.nav-caret{font-size:0.6em;transition:transform 0.25s;}
+.nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--forest);}
+.nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg);}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid #eee;box-shadow:0 14px 34px rgba(38,33,92,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300;}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px);}
+.nav-dropdown-menu a{font-family:'Noto Sans JP',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;text-transform:none;color:#333;text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s;}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:#f4f3fb;color:var(--forest);}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px);}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px);}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px;}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--charcoal);margin:5px 0;transition:0.3s;}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:#222;text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid #e8e8e8;transition:color 0.15s;}
+.mobile-menu > a:first-child{border-top:1px solid #e8e8e8;}
+.mobile-menu a:hover,.mobile-menu a.active{color:#3C3489;}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:#666;line-height:1;padding:0.3rem;}
+.mobile-acc{width:100%;border-bottom:1px solid #e8e8e8;}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Noto Sans JP',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0;}
+.mobile-acc-caret{font-size:0.75em;color:#b0a8d8;transition:transform 0.25s;}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg);}
+.mobile-acc-panel{display:none;flex-direction:column;align-items:center;padding-bottom:0.7rem;}
+.mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; max-width: 34rem; margin: 0 auto; }
+.mobile-acc-panel .mobile-acc-heading { grid-column: 1 / -1; }
+.mobile-acc-panel a { font-family: 'Shippori Mincho',serif; font-size: 0.88rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.45rem 0.1rem; width: 100%; text-align: center; border: none; transition: color 0.15s; line-height: 1.5; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; }
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:#3C3489;}
+@media(max-width:1250px){.nav-links{display:none;}.nav-hamburger{display:block;}.nav-logo{margin-right:0;}}
+/* ===== 共通フッター（図鑑シリーズの明色フッター） ===== */
+footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid var(--line);}
+.footer-logo{font-family:'Shippori Mincho',serif;font-weight:800;color:var(--ink);letter-spacing:.08em;}
+.footer-copy{margin-top:.6rem;font-size:12px;color:var(--ink-soft);letter-spacing:.06em;}
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1501px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1500px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
+  }
+</style>
+<!-- ===== AI・検索エンジン向け構造化データ（Article） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "アンラーン図鑑",
+  "url": "https://kizukikumitate.com/unlearn-zukan.html",
+  "image": "https://kizukikumitate.com/unlearn-zukan-ogp.png",
+  "datePublished": "2026-07-25",
+  "dateModified": "2026-07-25",
+  "author": {
+    "@type": "Person",
+    "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
+    "name": "森本康仁",
+    "url": "https://kizukikumitate.com/jijitsu-daicho.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://kizukikumitate.com/#org",
+    "name": "きづきくみたて工房",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kizukikumitate.com/logotype.png"
+    }
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+</head>
+<body>
+<!-- NAV START -->
+<nav>
+  <a href="./index.html" class="nav-logo">
+    <img src="./logotype.png" alt="きづきくみたて工房">
+    <span class="nav-logo-text">きづきくみたて工房</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="./index.html" title="サイト全体の入口。プログラム・図鑑・診断のハブ">Home</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
+        <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
+        <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./education-program.html" title="課題診断から育成計画まで、研修設計の思考の型を学ぶ">研修設計プログラム</a>
+        <a href="./od-program.html" title="組織が動かない理由を診断し、変革を設計するOD講座">組織開発プログラム</a>
+        <a href="./dialogue-program.html" title="心理的安全性と業績の好循環をつくる組織向け研修">対話力向上プログラム</a>
+        <a href="./social-leader-coaching.html" title="社会課題に挑むリーダーの思考整理と戦略立案を伴走">リーダー向けコーチング</a>
+        <a href="./taiwa-teichaku.html" title="離職の真因「対話の不在」に診断×対話筋トレで介入">離職防止プログラム</a>
+        <a href="./democracy-fitness-career.html" title="意見を持ち、伝え、巻き込む力を鍛える個人向け講座">個人向けキャリア開発</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./democracy-fitness.html" title="対話・合意形成の10筋を鍛える体験型プログラム。体験会情報も">Democracy Fitness</a>
+        <a href="./lsp.html" title="レゴブロックで思考を可視化するワークショップ手法">LSP</a>
+        <a href="./topaasia.html" title="フィンランド発・カード型対話メソッドの日本向けページ">対話用カード</a>
+        <a href="./yokai/" title="会社のすれ違いを生む10の妖怪を3分で診断">会社の妖怪診断</a>
+        <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
+        <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
+        <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
+        <a href="./kokoro-scope.html" title="起こったことと気持ちを、色とかたちのある球にして多面的に眺めるセルフケアの装置">こころスコープ</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">ヒトと学びの図鑑</span>
+        <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
+        <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種">ホモ・サピエンスの知恵図鑑</a>
+        <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
+        <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
+        <a href="./unlearn-zukan.html" title="学びを手放して編み直すための知恵41種。心理学・経営学・世界の思想から" class="active">アンラーン図鑑</a>
+        <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
+        <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
+        <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
+        <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
+        <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
+        <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
+        <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
+        <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口">はたらく現在地診断</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
+        <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
+        <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
+        <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
+        <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
+        <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
+        <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
+        <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
+        <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">読み物</span>
+        <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
+        <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
+        <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">世界の成功と失敗事例集 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./jirei.html" title="成功と失敗を併記し、分けた「分岐点」を特定する事例集">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">個人の事例</span>
+        <a href="./jirei-career.html" title="出世の一本道から降りた人・降りられなかった人の事例">キャリアの転機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織の事例</span>
+        <a href="./jirei-kenshu.html" title="行動が変わる研修と、感想文で終わる研修の分岐点">研修の成功と失敗</a>
+        <a href="./jirei-rinen-sakutei.html" title="社員とつくった理念と、額縁で終わった理念の分岐点">理念の策定</a>
+        <a href="./jirei-rinen-shinto.html" title="毎日問いかけた会社と、唱和で終わった会社の分岐点">理念の浸透</a>
+        <a href="./jirei-purpose.html" title="仕組みまで変えた会社と、言葉だけ替えた会社の分岐点">パーパス経営と風土改革</a>
+        <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
+        <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
+        <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
+        <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会の事例</span>
+        <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">社会のリスク</span>
+        <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
+        <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織のリスク</span>
+        <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
+        <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
+        <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
+        <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
+        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">個人のリスク</span>
+        <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
+        <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
+        <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算">対話回避コスト計算機</a>
+      </div>
+    </li>
+    <li><a href="./store.html" title="対話キット・おすすめ本など、持ち帰れる実践アイテム">ストア</a></li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
+        <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析">デモクラ筋白書2026 速報版</a>
+        <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
+      </div>
+    </li>
+    <li class="nav-dropdown">
+      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
+      <div class="nav-dropdown-menu">
+        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="mobileClose">✕</button>
+  <a href="./index.html" title="サイト全体の入口。プログラム・図鑑・診断のハブ">Home</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
+      <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
+      <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./education-program.html" title="課題診断から育成計画まで、研修設計の思考の型を学ぶ">研修設計プログラム</a>
+      <a href="./od-program.html" title="組織が動かない理由を診断し、変革を設計するOD講座">組織開発プログラム</a>
+      <a href="./dialogue-program.html" title="心理的安全性と業績の好循環をつくる組織向け研修">対話力向上プログラム</a>
+      <a href="./social-leader-coaching.html" title="社会課題に挑むリーダーの思考整理と戦略立案を伴走">リーダー向けコーチング</a>
+      <a href="./taiwa-teichaku.html" title="離職の真因「対話の不在」に診断×対話筋トレで介入">離職防止プログラム</a>
+      <a href="./democracy-fitness-career.html" title="意見を持ち、伝え、巻き込む力を鍛える個人向け講座">個人向けキャリア開発</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./democracy-fitness.html" title="対話・合意形成の10筋を鍛える体験型プログラム。体験会情報も">Democracy Fitness</a>
+      <a href="./lsp.html" title="レゴブロックで思考を可視化するワークショップ手法">LSP</a>
+      <a href="./topaasia.html" title="フィンランド発・カード型対話メソッドの日本向けページ">対話用カード</a>
+      <a href="./yokai/" title="会社のすれ違いを生む10の妖怪を3分で診断">会社の妖怪診断</a>
+      <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
+      <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
+      <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
+      <a href="./kokoro-scope.html" title="起こったことと気持ちを、色とかたちのある球にして多面的に眺めるセルフケアの装置">こころスコープ</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
+      <a href="./unlearn-zukan.html" title="学びを手放して編み直すための知恵41種。心理学・経営学・世界の思想から" class="active">アンラーン図鑑</a>
+      <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
+      <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
+      <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
+      <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
+      <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
+      <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口">はたらく現在地診断</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
+      <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
+      <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
+      <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">世界の成功と失敗事例集 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./jirei.html" title="成功と失敗を併記し、分けた「分岐点」を特定する事例集">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">個人の事例</span>
+      <a href="./jirei-career.html" title="出世の一本道から降りた人・降りられなかった人の事例">キャリアの転機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織の事例</span>
+      <a href="./jirei-kenshu.html" title="行動が変わる研修と、感想文で終わる研修の分岐点">研修の成功と失敗</a>
+      <a href="./jirei-rinen-sakutei.html" title="社員とつくった理念と、額縁で終わった理念の分岐点">理念の策定</a>
+      <a href="./jirei-rinen-shinto.html" title="毎日問いかけた会社と、唱和で終わった会社の分岐点">理念の浸透</a>
+      <a href="./jirei-purpose.html" title="仕組みまで変えた会社と、言葉だけ替えた会社の分岐点">パーパス経営と風土改革</a>
+      <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
+      <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
+      <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
+      <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会の事例</span>
+      <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
+      <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織のリスク</span>
+      <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
+      <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
+      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">個人のリスク</span>
+      <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
+      <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
+      <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算">対話回避コスト計算機</a>
+    </div>
+  </div>
+  <a href="./store.html" title="対話キット・おすすめ本など、持ち帰れる実践アイテム">ストア</a>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
+      <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析">デモクラ筋白書2026 速報版</a>
+      <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
+    </div>
+  </div>
+  <div class="mobile-acc">
+    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
+    <div class="mobile-acc-panel">
+      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
+      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
+      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
+      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</div>
+<!-- NAV END -->
+
+<div class="wrap">
+
+  <header class="book">
+    <h1>アンラーン図鑑</h1>
+    <div class="sub">手放して、学びなおすための41の知恵。<br>学んだことを捨てるのではなく、固くなった学びをほぐして編み直すための、心理学・経営学・世界の思想のフィールドガイド。</div>
+    <div class="ribbon">全41項 · 全5章 · 保存版</div>
+  </header>
+
+  <div class="controls" id="catChips"></div>
+  <div class="searchbox"><input id="q" type="search" placeholder="用語・よみ・本文をけんさく…"></div>
+  <div class="count-note" id="countNote"></div>
+
+  <main id="zukan"></main>
+
+  <section class="fieldnote">
+    <div class="en">HOW TO USE — 採集ノート</div>
+    <h2>この図鑑の使い方</h2>
+    <p><b>ひとりで。</b>週にひとつ「標本」を選び、末尾の問いに答えてみてください。答えを書き出すだけで、その週のあなたの仕事の見え方が少し変わります。</p>
+    <p><b>チームで。</b>会議やチェックインの冒頭5分、その日の1項を読み上げて、問いをひとりずつ答える。「手放す」という言葉がチームの共通語になると、やり方を変える提案が人格攻撃に聞こえなくなります。</p>
+    <p><b>研修で。</b>第2章(心のしくみ)と第3章(組織の理由)は「なぜ変われないか」の診断に、第4章(世界の知恵)は視点の転換に、第5章(実践)は行動計画づくりに。章の順番が、そのまま半日研修の流れになるよう並べてあります。</p>
+  </section>
+
+  <div class="pagenote">
+    <div>📖 アンラーン図鑑 ／ 全41項・全5章</div>
+    <div class="disc">※本図鑑は、心理学・経営学・思想史で広く語られている概念を、一般的な理解にもとづいて図鑑風にまとめた読み物です。逸話や実験の細部は、伝承や再現研究によって幅があります。原典や出典が必要な場合は別途お調べできます。</div>
+  </div>
+
+</div>
+
+<script>
+const DATA = [{"cat": 1, "term": "アンラーニング", "yomi": "あんらーにんぐ", "en": "Unlearning", "def": "一度身につけた知識やものの見方を、意図的に手放して入れ替えること。", "text": "アンラーニングは「学んだことを忘れる」ことではありません。過去に有効だった知識・スキル・信念のうち、いまの環境に合わなくなったものを見極めて手放し、新しいものと入れ替える、能動的な学びの技術です。経営学者ヘドバーグは、組織が環境の変化についていけない最大の原因は「学べないこと」ではなく「古い学びを捨てられないこと」だと指摘しました。人も組織も、成功体験ほど手放しにくい。だからこそアンラーニングは、たくさん学んできた人・成果を出してきた人ほど必要になる、上級者のための学びなのです。近年の研究では、すべてを捨てるのではなく「型は残して中身を入れ替える」部分的な手放しが有効だとされています。", "person": "ボー・ヘドバーグ(スウェーデンの経営学者、1981年)", "ex": "前の職場で評価された「即レス・即対応」を新しい職場でも続けたら、「まず考えてから動いて」と注意された。武器だったものが、環境が変わると足かせになる。", "q": "あなたがいま持っている「かつての武器」のうち、そろそろ手放しどきかもしれないものは何?"}, {"cat": 1, "term": "学びほぐし", "yomi": "まなびほぐし", "en": "Unlearn (Tsurumi's translation)", "def": "固くなった学びを、編み物をほどくようにほぐして、編み直せる状態に戻すこと。", "text": "哲学者の鶴見俊輔は若い頃、ニューヨークでヘレン・ケラーに会い、「私は大学でたくさんのことを学んだが、そのあとたくさんのことをアンラーンしなければならなかった」と聞かされました。鶴見はこのunlearnに「学びほぐす」という訳語をあてます。学んだことを捨てるのでも忘れるのでもなく、型どおりに編まれたセーターを一度毛糸に戻して、自分の体に合わせて編み直すイメージです。この訳語が優れているのは、「ほぐしたあとの毛糸は失われない」ことを含んでいる点です。知識そのものは財産のまま、それを固定していた編み方だけをほどく。アンラーニングへの恐れ(積み上げたものを失うのでは?)に対する、最も美しい答えのひとつです。", "person": "鶴見俊輔(日本の哲学者)がヘレン・ケラーとの対話から生んだ訳語", "ex": "資格試験のために丸暗記した知識を、現場で使える形に「言い直せた」とき、初めて本当に理解した気がした。あれが学びほぐし。", "q": "あなたが「編み直したい」学びは何? ほどいたら、どんな毛糸が残りそう?"}, {"cat": 1, "term": "ラーン・アンラーン・リラーン", "yomi": "らーん・あんらーん・りらーん", "en": "Learn, Unlearn, Relearn", "def": "21世紀の「読み書き能力」は、学び、手放し、学び直すサイクルを回せる力だという考え方。", "text": "未来学者トフラーは『未来の衝撃』の中で、心理学者ガージョイの言葉としてこう紹介しました。「未来の非識字者とは、字が読めない人ではない。学び方を学び、手放し方を学び、学び直し方を学べない人だ」。1970年の予言は、変化のスピードが増した現代でいっそう重みを増しています。ポイントは、この3つがサイクルになっていることです。アンラーンは一度きりの大掃除ではなく、学ぶたびに回し続ける循環の一部。知識の賞味期限がどんどん短くなる時代には、「何を知っているか」よりも「入れ替えの速さ」が競争力になります。学歴や資格が「学んだ証明」だとすれば、これからは「手放せる証明」が問われるのかもしれません。", "person": "アルビン・トフラー『未来の衝撃』(1970年)が心理学者ハーバート・ガージョイの言葉として紹介", "ex": "スマホの機種変更が苦にならない人は、操作を「覚え直す」のがうまいのではなく、前の機種の癖を「手放す」のがうまい。", "q": "この1年で、あなたが「学んだこと」と「手放したこと」、どちらが多かった?"}, {"cat": 1, "term": "ダブルループ学習", "yomi": "だぶるるーぷがくしゅう", "en": "Double-loop learning", "def": "やり方を改善するだけでなく、その前提にある「そもそも」を疑い学び直すこと。", "text": "サーモスタットは室温が下がればスイッチを入れます。これが「シングルループ学習」――決められた目標に向けて行動を修正する学びです。一方、「そもそも設定温度は適切か?」「なぜこの部屋を暖める必要があるのか?」と、目標や前提そのものを問い直すのが「ダブルループ学習」です。経営学者アージリスは、有能な人ほどシングルループが得意なぶん、前提を疑う機会を失いやすいと警告しました。失敗すれば人は前提を見直しますが、成功し続けている人には見直すきっかけが訪れないからです。アンラーニングとは、このダブルループを意図的に起動させること。「もっとうまくやるには?」の前に「そもそもこれをやるべきか?」と問う習慣が、その入り口になります。", "person": "クリス・アージリス(アメリカの経営学者、1977年)", "ex": "会議の資料づくりを効率化する(シングルループ)前に、「この会議、そもそも要る?」と問う(ダブルループ)。", "q": "あなたが毎週やっている仕事のうち、「そもそも」を最後に問うたのはいつ?"}, {"cat": 1, "term": "変容的学習", "yomi": "へんようてきがくしゅう", "en": "Transformative learning", "def": "知識が増える学びではなく、世界の見え方の枠組みそのものが変わる学び。", "text": "成人教育学者メジローは、大人の学びには2種類あると考えました。ひとつは、いまの枠組みの中に知識を足していく学び。もうひとつは、枠組みそのものが組み変わる「変容的学習」です。変容的学習は多くの場合、「混乱するジレンマ」――いままでの見方では説明できない出来事――から始まります。転職、挫折、異文化体験、価値観の違う人との出会い。そこで自分の前提を批判的に振り返り、他者との対話を重ねる中で、新しい視点の枠組みが編まれていきます。重要なのは、変容は快適な場所では起きにくいということ。アンラーンが「痛み」を伴うのは失敗ではなく、枠組みが組み変わっている証拠なのです。", "person": "ジャック・メジロー(アメリカの成人教育学者、1978年)", "ex": "海外出張で「日本の当たり前」が通じない経験をしてから、社内の「当たり前」も選択肢のひとつに見えるようになった。", "q": "あなたの世界の見え方が「組み変わった」経験を、ひとつ挙げるとしたら?"}, {"cat": 1, "term": "省察的実践家", "yomi": "せいさつてきじっせんか", "en": "Reflective practitioner", "def": "行為の最中に、自分のやり方を問い直しながら動ける専門家のあり方。", "text": "哲学者ショーンは、優れた実践家は「行為のあとに振り返る」だけでなく、「行為の最中に省察する」ことを発見しました。ジャズ奏者が演奏しながら仲間の音に応じて弾き方を変えるように、熟達した教師や医師や設計者は、目の前の状況と「対話」しながら、その場でやり方を組み替えています。これは、マニュアル通りの技術適用とは正反対の専門性です。ショーンがこの概念を打ち出した背景には、「専門家=正解を知っている人」という専門家像への疑問がありました。状況は一つひとつ違い、正解は事前には存在しない。だとすれば専門性の核心は、手持ちの型を状況に合わせてほどき直せる柔らかさにある。省察的実践家とは、アンラーンしながら働く人の別名です。", "person": "ドナルド・ショーン(アメリカの哲学者、1983年)", "ex": "プレゼン中に聴衆の表情を見て、用意したスライドを飛ばして質疑に切り替える。あの瞬間の判断が「行為の中の省察」。", "q": "あなたは仕事の最中、自分のやり方を「変えながら」動けている? それとも決めた通りに走り切る派?"}, {"cat": 1, "term": "ラーニング・アジリティ", "yomi": "らーにんぐ・あじりてぃ", "en": "Learning agility", "def": "初めての状況から素早く学び、過去の経験を柔軟に適用し直せる俊敏さ。", "text": "リーダー研究者のロンバルドとアイキンガーは、将来リーダーとして成功する人を最もよく予測するのは、知能や実績ではなく「ラーニング・アジリティ」だと提唱しました。初めての状況に放り込まれたとき、経験から素早く教訓を引き出し、それを新しい場面に合う形に「翻訳して」使える力です。興味深いのは、経験が豊富なほど有利とは限らないことです。過去の成功パターンをそのまま当てはめる人は、状況が変わると失速します。アジリティの高い人は、経験を「答え」ではなく「素材」として持ち歩き、状況ごとに組み立て直す。つまりこの力の正体は、学ぶ速さである以上に、手放す速さなのです。採用や登用の世界でも、「何を知っているか」から「どう学び直すか」へ評価軸が移りつつあります。", "person": "マイケル・ロンバルドとロバート・アイキンガー(アメリカのリーダーシップ研究者、2000年)", "ex": "異動先で「前の部署ではこうだった」と言いたくなるのをこらえ、まず新しい部署の理屈を観察できる人は立ち上がりが速い。", "q": "初めての状況に放り込まれたとき、あなたが最初にやることは何? それは「答えの適用」か「素材集め」か?"}, {"cat": 2, "term": "サンクコスト効果", "yomi": "さんくこすとこうか", "en": "Sunk cost effect", "def": "取り戻せない過去の投資が惜しくて、損とわかっている道を進み続けてしまう心理。", "text": "つまらない映画でも「チケット代がもったいない」と最後まで観てしまう。この心理を経済学では「サンクコスト(埋没費用)効果」と呼びます。合理的に考えれば、払ったお金は席を立っても戻りません。判断材料にすべきは「これからの時間を何に使うか」だけ。それでも人は、過去の投資が大きいほど撤退できなくなります。心理学者アークスらの実験では、航空機開発に90%投資済みと聞かされた人の多くが、「完成しても売れない」と知りながら残り10%の投資を選びました。英仏が開発した超音速機になぞらえて「コンコルド効果」とも呼ばれます。アンラーンが難しい最大の理由がこれです。学びにかけた時間もキャリアも、心の中では「元を取りたい投資」になっているのです。", "person": "ハル・アークスとキャサリン・ブルーマー(アメリカの心理学者、1985年)", "ex": "何年もかけて覚えた社内システムの操作に愛着があり、明らかに便利な新ツールへの移行に心が抵抗する。", "q": "「ここまでやってきたから」を理由に続けていることは何? 今日ゼロから始めるとしても、それを選ぶ?"}, {"cat": 2, "term": "現状維持バイアス", "yomi": "げんじょういじばいあす", "en": "Status quo bias", "def": "変えたほうが得な場面でも、「いまのまま」を選んでしまう心の重力。", "text": "経済学者サミュエルソンとゼックハウザーは、人が選択を迫られたとき、内容の良し悪しとは無関係に「現状」という選択肢を過剰に選ぶことを実験で示しました。保険や電力のプランを何年も見直さない、初期設定のまま使い続ける、行きつけの店しか行かない――どれも現状維持バイアスの仕業です。背景には、変化に伴う損失を利得より大きく感じる「損失回避」の心理と、「変えて失敗したら自分の責任、変えずに失敗したら仕方ない」という後悔の非対称性があります。つまり現状維持は、心にとって一番「言い訳しやすい」選択なのです。アンラーンの敵は反対意見ではなく、この静かな重力です。変えない理由はいつでも百個見つかる。だからこそ「変えない」ことにも説明責任を課すのが知恵です。", "person": "ウィリアム・サミュエルソンとリチャード・ゼックハウザー(アメリカの経済学者、1988年)", "ex": "「前年踏襲で」という一言は楽で安全に聞こえるが、実は毎年、検討されないままの意思決定が積み上がっている。", "q": "あなたの仕事で「変えない理由」を説明できないまま続いているものは何?"}, {"cat": 2, "term": "保有効果", "yomi": "ほゆうこうか", "en": "Endowment effect", "def": "自分のものになった途端、同じものでも手放す価値が高く感じられる心理。", "text": "経済学者セイラーらの有名な実験では、マグカップをもらった学生は、それを売るときに、持っていない学生が払ってもよいと答えた金額の約2倍を要求しました。同じカップなのに、「自分のもの」になった瞬間、手放す痛みが大きくなるのです。これが保有効果です。この心理はモノだけでなく、考え方やスキル、肩書きにも働きます。自分が提案した企画、自分が作った資料、自分が磨いてきた専門性。「自分のもの」になった知識や意見は、客観的な価値以上に手放しがたくなります。アンラーンの文脈で重要なのは、手放す痛みは「損」の証拠ではなく「所有」の証拠にすぎないと知ることです。痛むからといって、間違った手放しとは限らないのです。", "person": "リチャード・セイラー(アメリカの経済学者、1980年に命名)", "ex": "自分が書いた企画書への修正コメントが、内容は正しいとわかっていても、なぜか胸に刺さる。", "q": "あなたが「自分のもの」だと感じている意見ややり方は何? それは持ち主が変わっても同じ価値がある?"}, {"cat": 2, "term": "確証バイアス", "yomi": "かくしょうばいあす", "en": "Confirmation bias", "def": "自分の考えを支持する情報ばかり集め、反する情報を無視してしまう傾向。", "text": "心理学者ウェイソンは「2・4・6」という数列のルールを当てる実験で、人間の思考の癖を暴きました。参加者のほとんどは自分の仮説(例:2ずつ増える)に「合う」数列ばかりを試し、仮説を「壊す」数列を試そうとしなかったのです。正解は「増加する数列なら何でもよい」でした。人は自分の信念を検証するとき、無意識に「当たり」の証拠を探しに行き、「外れ」の証拠から目をそらします。SNSのアルゴリズムは、この癖に燃料を注ぎ続けます。確証バイアスが怖いのは、古い信念を強化する新しい情報が毎日届くため、本人には「学び続けている」実感があることです。学んでいるのに、考えは一歩も動いていない。アンラーンの第一歩は、自分の考えを「壊しに行く」情報を意図的に取りに行くことです。", "person": "ピーター・ウェイソン(イギリスの心理学者、1960年)", "ex": "自社製品への好意的なレビューは熟読するのに、厳しいレビューは「わかってない客」と流してしまう。", "q": "あなたがいま信じている仕事の持論を「壊す」としたら、どんな証拠を探しに行けばいい?"}, {"cat": 2, "term": "認知的不協和", "yomi": "にんちてきふきょうわ", "en": "Cognitive dissonance", "def": "自分の信念と矛盾する事実に出会ったとき、事実ではなく解釈をねじ曲げてしまう心の働き。", "text": "心理学者フェスティンガーは、「地球滅亡の予言」を信じた集団を観察しました。予言の日に何も起きなかったとき、信者たちは信仰を捨てるどころか、「私たちの祈りが世界を救った」と解釈を変え、以前より熱心に布教を始めたのです。人は信念と事実が食い違うと強い不快感(不協和)を覚え、それを解消するために、多くの場合、変えやすいほう――つまり事実の解釈――を変えてしまいます。投資の失敗を「まだ含み損なだけ」と言い換え、うまくいかない施策を「浸透に時間がかかっているだけ」と説明する。アンラーンの急所はここにあります。古い信念を守るための「うまい説明」を思いついたときこそ、危険信号。不快感は、学び直しの入り口に立っている合図かもしれないのです。", "person": "レオン・フェスティンガー(アメリカの心理学者、1957年)", "ex": "肝いりの施策の数字が悪いとき、「測り方が悪い」「時期が悪い」と、施策以外の説明が次々に思い浮かぶ。", "q": "最近、都合の悪い事実に「うまい説明」をつけたのはいつ? その説明がなかったら、何を変えるべきだった?"}, {"cat": 2, "term": "アインシュテルング効果", "yomi": "あいんしゅてるんぐこうか", "en": "Einstellung effect", "def": "慣れた解き方が頭を占領して、もっと簡単な解き方が見えなくなる現象。", "text": "心理学者ルーチンスは、水差しで決まった量の水を量るパズルを使った実験で、奇妙な現象を発見しました。複雑な手順で解ける問題を繰り返した人は、そのあと「もっと簡単に解ける問題」が出ても、複雑な手順を使い続けたのです。一度も練習していない人のほうが、簡単な解法をすぐ見つけました。これがアインシュテルング(構え)効果です。経験は解法を与えてくれると同時に、他の解法への視界をふさぎます。チェスの熟練者でさえ、見慣れた定石が使える局面では、より良い手が「見えなくなる」ことが眼球運動の研究で示されています。経験を積むほど賢くなるとは限らない。経験を積むほど、「最初に思いつく答え」の引力が強くなるのです。", "person": "エイブラハム・ルーチンス(アメリカの心理学者、1942年)", "ex": "Excelの達人が、関数を駆使した複雑な集計表を組み上げる。新人が同じ作業をボタン一つのピボットテーブルで済ませる。", "q": "あなたの「得意な解き方」が、かえって遠回りになっているかもしれない場面はどこ?"}, {"cat": 2, "term": "機能的固着", "yomi": "きのうてきこちゃく", "en": "Functional fixedness", "def": "モノや仕組みの「いつもの用途」に縛られ、別の使い道が見えなくなること。", "text": "心理学者ドゥンカーの「ロウソク問題」は有名です。ロウソク・マッチ・画びょうの箱を渡され、「ロウソクを壁に取り付けて」と言われると、多くの人が苦戦します。正解は、画びょうの「箱」を棚として壁に留めること。箱を「画びょうの入れ物」としか見られないことが、解決を妨げるのです。これが機能的固着です。面白いことに、箱を空にして渡すと正答率は大きく上がります。「入れ物」という役割が外れると、箱はただの素材に戻るからです。この現象は、道具だけでなく、人・制度・自分自身にも起こります。「営業の人」「議事録用のツール」「うちの会社はこういう会社」。役割のラベルは効率を生む一方で、可能性を封じ込めます。アンラーンとは、ラベルを一度はがして「ただの素材」に戻して眺めることでもあるのです。", "person": "カール・ドゥンカー(ドイツ出身の心理学者、1945年)", "ex": "オンライン会議ツールを「会議のためのもの」と思い込んでいたが、雑談部屋として開きっぱなしにしたら職場の孤立が減った。", "q": "あなたのまわりにある道具・制度・人材のうち、「いつもの用途」のラベルをはがしたら何に化けそう?"}, {"cat": 2, "term": "コミットメントのエスカレーション", "yomi": "こみっとめんとのえすかれーしょん", "en": "Escalation of commitment", "def": "うまくいかない決定ほど、決めた本人がさらに深入りしてしまう悪循環。", "text": "経営学者ストウの実験では、ある事業への投資を自分で決めた人は、その事業が不振だと知らされたあと、他人が決めた場合よりも多くの追加投資をつぎ込みました。失敗の情報が、撤退ではなく深入りを引き起こしたのです。「ぬかるみに膝まで」と題されたこの研究は、ベトナム戦争の泥沼化を念頭に置いていました。人は自分の決定の正しさを証明したい生き物です。だから決定した本人ほど、撤退の判断ができなくなる。企業の失敗プロジェクトの多くが「途中でやめられなかった」ものであるのはこのためです。知恵ある組織は、この心理を前提に仕組みを作ります。撤退基準を始める前に決めておく、続けるかどうかの判断は決めた本人以外が行う。意志の力ではなく、設計で手放すのです。", "person": "バリー・ストウ(アメリカの経営学者、1976年)", "ex": "自分が採用を推した人材がうまくいっていないとき、評価がどうしても甘くなる。", "q": "あなたがいま「引くに引けなくなっている」ことは何? もし他人事なら、どう助言する?"}, {"cat": 2, "term": "知識の呪い", "yomi": "ちしきののろい", "en": "Curse of knowledge", "def": "一度知ってしまうと、「知らなかった頃の自分」に戻って考えられなくなること。", "text": "スタンフォード大学の実験で、参加者は誰でも知っている曲を机を叩くリズムだけで伝えました。叩いた本人は「半分は伝わる」と予想しましたが、聞き手が曲を当てられたのはわずか2.5%。叩く人の頭の中ではメロディが鳴っているのに、聞き手にはただのトントンという音しか聞こえていなかったのです。これが「知識の呪い」です。知識は身につくと透明になり、「それを知らない状態」が想像できなくなります。専門家の説明がわかりにくいのも、ベテランが新人に「なんでわからないの?」と言ってしまうのも、この呪いの仕業です。アンラーンの観点で重要なのは、呪いは本人には絶対に見えないこと。だから「知らない人」に話し、通じなかった箇所を教えてもらうしか、呪いを解く方法はないのです。", "person": "コリン・キャメラーらが命名(1989年)、エリザベス・ニュートンの実験(1990年)", "ex": "自分では「丁寧に書いた」つもりの引き継ぎ資料が、後任にはまったく通じなかった。", "q": "あなたの仕事の説明を「まったくの素人」にしてみるとしたら、最初に詰まるのはどこだと思う?"}, {"cat": 2, "term": "獲得された教条主義", "yomi": "かくとくされたきょうじょうしゅぎ", "en": "Earned dogmatism", "def": "「自分は専門家だ」という自覚そのものが、心を閉じさせるという皮肉な現象。", "text": "心理学者オッタティらは、実験参加者に「あなたは専門知識が豊富だ」と感じさせるだけで、その人が閉鎖的で独断的な思考スタイルを取りやすくなることを示しました。社会には「初心者は謙虚に聞くべき、専門家は自信を持って語ってよい」という暗黙の規範があります。だから専門家の自覚を持った瞬間、人は「もう聞く側ではない」と無意識にモードを切り替えてしまうのです。これを「獲得された教条主義」と呼びます。恐ろしいのは、これが知識の量ではなく「専門家という自己認識」だけで起こることです。実力が伴っていなくても、肩書きや経験年数が心を閉じさせるには十分なのです。熟達の階段を上るほど、耳は塞がりやすくなる。だからこそ一流であり続ける人は、意図的に「聞く側」に回る仕掛けを自分に課しています。", "person": "ヴィクター・オッタティら(アメリカの心理学者、2015年)", "ex": "経験年数が長くなるにつれ、会議で「教わるための質問」をした記憶が減っていく。", "q": "あなたが最後に、年下や後輩に「教えてください」と本気で言ったのはいつ?"}, {"cat": 3, "term": "コンピテンシー・トラップ", "yomi": "こんぴてんしー・とらっぷ", "en": "Competency trap", "def": "得意なやり方で成果が出るせいで、新しいやり方を学ぶ機会が失われていく罠。", "text": "経営学者レヴィットとマーチは、組織学習の研究の中で不気味な罠を指摘しました。あるやり方に習熟すると、そのやり方での成果が上がる。成果が上がるから、ますますそのやり方を使う。使うからさらに習熟する――この好循環は、実は「劣った技術への習熟」でも回ってしまうのです。もっと優れた新しいやり方があっても、乗り換えた直後は不慣れで成績が落ちるため、比較すると「いつものやり方」が勝ってしまう。こうして組織は、得意技に閉じ込められます。これがコンピテンシー・トラップです。罠の出口は、新しいやり方の「下手な時期」を許容する期間をあらかじめ設計しておくこと。学習曲線の谷を越える体力を用意せずに「挑戦しろ」と言っても、合理的な現場は必ず得意技に戻るのです。", "person": "バーバラ・レヴィットとジェームズ・マーチ(アメリカの経営学者、1988年)", "ex": "手書きFAXでの受注が「早くて確実」だからやめられない取引先。移行の谷を越えれば戻れないほど楽になるのに、谷の手前で毎回引き返す。", "q": "あなたのチームの「得意技」は何? その得意技の練習に、新しい技の練習時間が食われていない?"}, {"cat": 3, "term": "コア・リジディティ", "yomi": "こあ・りじでぃてぃ", "en": "Core rigidities", "def": "会社の強みの源泉(コア・ケイパビリティ)が、環境が変わると硬直の源泉に反転すること。", "text": "経営学者レナード=バートンは、企業の中核的な強み――蓄積された技術、評価制度、価値観――が、新製品開発の場面でそのまま「硬直性」に反転することを事例研究で示しました。強みと弱みは別のものではなく、同じものの裏表だというのです。たとえば「品質への徹底したこだわり」は、精密機器では武器ですが、スピード勝負の市場では足かせになります。「技術者が尊敬される文化」は、技術革新を生む一方で、顧客の声を軽視する体質も生みます。怖いのは、強みは成功の記憶と結びついているため、誰もそれを疑えないことです。組織のアンラーンが個人より難しいのは、手放す対象が「みんなの誇り」だからです。だからこそ問いは「弱みをどう直すか」ではなく、「私たちの強みは、どんな環境で毒になるか」であるべきなのです。", "person": "ドロシー・レナード=バートン(アメリカの経営学者、1992年)", "ex": "「対面での丁寧な営業」が強みだった会社ほど、オンライン商談への切り替えで出遅れた。", "q": "あなたの組織の一番の誇りは何? それが「毒になる環境」を具体的に想像できる?"}, {"cat": 3, "term": "アクティブ・イナーシャ", "yomi": "あくてぃぶ・いなーしゃ", "en": "Active inertia", "def": "変化に直面した企業が「何もしない」のではなく、昔の成功パターンをより激しく繰り返してしまうこと。", "text": "経営学者サルは、名門企業が衰退する過程を研究し、意外な事実を見つけました。落ち目の企業は怠けていたのではなく、むしろ猛烈に働いていたのです。ただし、昔成功したやり方で。タイヤ大手のファイアストンはラジアルタイヤという新技術の脅威に直面したとき、従来型タイヤの生産をさらに強化しました。溝にはまった車がアクセルを踏み込むほど深くはまるように、危機に直面した組織は「実績のある行動」を加速させてしまう。これがアクティブ・イナーシャ(活動的惰性)です。この概念が教えてくれるのは、「頑張っているか」は組織の健全性の指標にならないということです。問うべきは、頑張りの方向が昨日の地図に基づいていないか。危機のときほど「もっとやる」より「違うことをやる」勇気が問われます。", "person": "ドナルド・サル(アメリカの経営学者、1999年)", "ex": "売上が落ちると訪問件数を1.5倍にする号令がかかる。顧客が対面営業を望まなくなったことこそが、売上減の原因なのに。", "q": "あなたの組織が危機のときに反射的に「増やす」ものは何? それは昨日の地図に基づいていない?"}, {"cat": 3, "term": "イノベーションのジレンマ", "yomi": "いのべーしょんのじれんま", "en": "The innovator's dilemma", "def": "優良企業が「正しい経営」をするからこそ、破壊的な新技術に敗れるという逆説。", "text": "経営学者クリステンセンは、ハードディスク業界などの歴史を分析し、業界リーダーの敗因が「経営の失敗」ではなく「経営の成功」にあることを示しました。優良企業は、最重要顧客の声を聞き、利益率の高い市場に投資します。これは教科書通りの正しい経営です。ところが破壊的技術は、最初は性能が低く、利益率も低く、主要顧客が求めない形で現れます。だから正しく経営するほど、それを無視するのが合理的になってしまう。そして数年後、性能が追いついた破壊的技術に市場ごと奪われるのです。このジレンマの本質はアンラーンの不可能性にあります。「顧客の声を聞く」「儲かる市場に投資する」という成功の方程式そのものを、部分的に手放す必要があるからです。クリステンセンの処方箋は、本体から切り離した別組織に新技術を託すこと。既存の筋肉では、新しい動きはできないのです。", "person": "クレイトン・クリステンセン(アメリカの経営学者、1997年)", "ex": "大手百貨店にとってネット通販は長らく「客層が違う、単価が低い、うちがやる事業ではない」ものだった。", "q": "いまのあなたの業界で、「性能が低くて相手にされていないもの」は何? それは10年後も低いまま?"}, {"cat": 3, "term": "組織アンラーニング", "yomi": "そしきあんらーにんぐ", "en": "Organizational unlearning", "def": "危機を避けたければ、組織は学ぶ前にまず「忘れる」必要があるという考え方。", "text": "経営学者ニストロムとスターバックは、「組織の危機を避けるために、アンラーンせよ」と題した論文で、衰退する企業の共通点を指摘しました。経営者は過去の成功で染み付いた世界観で危機を解釈するため、対策がすべて「昔の答え」になるのです。彼らの観察では、多くの企業は危機が深刻化してからようやく経営陣を入れ替えることで、強制的にアンラーンを実現していました。しかしそれでは遅すぎるし、痛みも大きい。処方箋として彼らが挙げたのは、日常的に異論を聞く仕組みを持つこと、実験を続けること、そして「いまのやり方が通用しない兆候」を集める専門の耳を持つことです。組織のアンラーンは、個人の総和ではなく、制度・ルーティン・評価基準に埋め込まれた記憶を書き換える作業です。人が入れ替わっても仕組みが古いままなら、組織は同じ夢を見続けます。", "person": "ポール・ニストロムとウィリアム・スターバック(アメリカの経営学者、1984年)", "ex": "新しい中期計画を作っても、予算配分と評価制度が旧事業仕様のままなので、結局全員が旧事業に最適化して動く。", "q": "あなたの組織の制度やルールのうち、「作られた当時の世界観」のまま残っているものはどれ?"}, {"cat": 3, "term": "両利きの経営", "yomi": "りょうききのけいえい", "en": "Organizational ambidexterity", "def": "いまの強みを深める「深化」と、新しい可能性を探す「探索」を、同時に抱えて経営すること。", "text": "経営学者マーチは、組織の学習資源は「いまあるものの深化(exploitation)」と「新しいものの探索(exploration)」の綱引きになると論じました。深化は確実に短期の成果を生み、探索は不確実で失敗も多い。だから放っておけば、組織は必ず深化に傾きます。これが成功企業ほど探索をやめてしまう構造的な理由です。オライリーとタッシュマンは、この両方を意図的に抱える経営を「両利きの経営」と名付けました。重要なのは、両利きは自然にはなれないということです。探索部門を深化部門と同じ物差し(短期のROIなど)で評価すれば、探索は必ず負けて消えます。別の物差し、別の資源、そして両方を守り抜くトップの意志。アンラーンを個人の心がけにせず、組織の構造として設計する――それが両利きの本質です。", "person": "ジェームズ・マーチ(1991年)、チャールズ・オライリーとマイケル・タッシュマン", "ex": "新規事業部門が「3年で黒字化」という既存事業の物差しで評価され、種をまく前に刈り取りを求められて枯れる。", "q": "あなた自身の時間の使い方は、「深化」と「探索」で何対何? その比率は誰が決めた?"}, {"cat": 3, "term": "NIH症候群", "yomi": "えぬあいえっちしょうこうぐん", "en": "Not Invented Here syndrome", "def": "「ここで生まれたものではない」という理由だけで、外部の知識や技術を低く見てしまう組織の病。", "text": "経営学者カッツとアレンは、研究開発チームの生産性を調べ、同じメンバーで長く安定したチームほど、外部の情報を取り入れなくなり、成果が落ちていくことを発見しました。チームは自分たちの知識を過信し、外から来るアイデアを「うちで発明されたものではない(Not Invented Here)」という理由で退けるようになるのです。これは自尊心の問題であると同時に、アイデンティティの問題でもあります。外部の優れたやり方を認めることは、自分たちのこれまでを否定するように感じられるからです。しかし歴史を見れば、飛躍した組織はほぼ例外なく「借りる名人」でした。よそから学ぶことは敗北ではなく、最も効率のよい学習です。「誰が発明したか」ではなく「誰の役に立つか」で知識を選べるかどうかが、開かれた組織と閉じた組織の分かれ目になります。", "person": "ラルフ・カッツとトーマス・アレン(アメリカの経営学者、1982年)", "ex": "他社の成功事例を紹介すると「うちは特殊だから」という一言で議論が終わる。", "q": "あなたのチームが最近「外から借りた」アイデアは何? 思い出せないとしたら、それは何の兆候?"}, {"cat": 4, "term": "無知の知", "yomi": "むちのち", "en": "Socratic ignorance", "def": "「自分は知らない」と自覚していることこそが、知への出発点だという古代からの知恵。", "text": "ソクラテスは「ギリシャで一番の知者」という神託を確かめるため、賢者と呼ばれる人々を訪ね歩きました。そして気づきます。彼らは多くを知っているように語るが、実は大事なことを知らない。そして自分が知らないことにも気づいていない。「私は、知らないということを知っている。その一点だけ、彼らより知恵がある」――これが「無知の知」(正確には「不知の自覚」)です。2400年前のこの逸話は、アンラーンの原点といえます。学び直しを妨げる最大の壁は、知識の不足ではなく「もう知っている」という感覚だからです。ソクラテスは知識を注入する代わりに、問いによって相手の「知っているつもり」を揺さぶりました。よい問いは、答えを与えるよりも深く人を学ばせる。この方法は「産婆術」と呼ばれ、いまもコーチングや対話の技法に生き続けています。", "person": "ソクラテス(古代ギリシャの哲学者、紀元前5世紀)", "ex": "新人の素朴な「なぜこの手順なんですか?」に、誰も本当の理由を答えられなかった。全員が「知っているつもり」だった。", "q": "あなたが「知っているつもり」で、実は説明できないことは何? 試しにひとつ、説明してみると?"}, {"cat": 4, "term": "坐忘", "yomi": "ざぼう", "en": "Zuowang (sitting and forgetting)", "def": "身につけた知識や分別をいったん忘れ去ることで、より大きな働きと通じ合うという荘子の境地。", "text": "『荘子』には、孔子とその弟子・顔回の逸話として「坐忘」が登場します。顔回が「私は進歩しました。仁義を忘れました」と報告し、次に「礼楽を忘れました」と言い、最後に「坐忘の境地に至りました」と告げる。手足や身体を忘れ、耳目の働きを離れ、知を捨て去り、大いなる道と一体になる――それが坐忘です。儒教が大切にする仁義や礼楽といった「立派な学び」さえも、忘れる対象になっているのが痛快です。荘子は、知識や規範が人を導くと同時に、人を縛り、ありのままの世界との接触を妨げると見抜いていました。現代風に言えば、専門知識やフレームワークで世界を見ることに慣れすぎると、フレームの外にあるものが見えなくなる、ということ。坐忘は怠惰な忘却ではなく、満杯の器をいったん空にする、積極的な忘却なのです。", "person": "荘子(中国戦国時代の思想家、紀元前4世紀頃)『荘子』大宗師篇", "ex": "フレームワークを覚えたての頃は何でも3Cや4Pで切っていたが、一度それを「忘れて」客の話をただ聞いたら、分析では見えなかった本音が見えた。", "q": "あなたが「忘れてみる」と面白そうな知識や肩書きは何?"}, {"cat": 4, "term": "為道日損", "yomi": "いどうにっそん", "en": "Daily decrease (Laozi)", "def": "学問は日々増やすもの、道は日々減らすもの。「減らす」ことを成長と捉える老子の思想。", "text": "老子は言います。「学を為せば日々に益し、道を為せば日々に損す。之を損して又損し、以て無為に至る」。知識の学びは毎日何かを足していく営みだが、道の探究は毎日何かを手放していく営みだ、というのです。足す成長しか知らない私たちには衝撃的な逆転です。老子がここで手放せと言うのは、作為、こだわり、「こうあるべき」という固定観念。それらを削ぎ落とした先にある「無為」とは、何もしないことではなく、余計な力みなく、状況そのものに応じて動ける状態を指します。名人の仕事が力みなく見えるのは、足し続けた末ではなく、削ぎ落とした末の姿です。「今年は何を学ぶか」と同じ真剣さで「今年は何を減らすか」を問う。2500年前の中国に、引き算の成長論がすでにあったのです。", "person": "老子(中国古代の思想家)『道徳経』第48章", "ex": "ベテランの職人ほど道具が少ない。若手ほど道具箱が膨らんでいく。", "q": "この1年で、あなたの仕事から「減らせたもの」は何? 来年は何を減らす?"}, {"cat": 4, "term": "初心", "yomi": "しょしん", "en": "Beginner's mind (Shoshin)", "def": "初心者の心には多くの可能性があるが、専門家の心には少ししかない、という禅の教え。", "text": "曹洞宗の禅僧・鈴木俊隆は、アメリカでの説法をまとめた『禅マインド ビギナーズ・マインド』でこう語りました。「初心者の心には多くの可能性があります。しかし専門家の心には、ほとんどありません」。初心とは、経験の浅さではなく、心の構えのことです。目の前のものを「もう知っている」というラベル越しに見るのではなく、初めて出会うように見る。この構えは、スティーブ・ジョブズが愛読したことでも知られ、シリコンバレーの発想法にも流れ込みました。日本には世阿弥の「初心忘るべからず」もあります。こちらは「未熟だった頃の芸と、その時々の学びを忘れるな」という意味で、熟達の各段階に「その時にしか学べない初心」があると説きます。どちらも共通するのは、熟達の敵は無知ではなく「慣れ」だという洞察です。", "person": "鈴木俊隆(日本出身の禅僧、1970年)『禅マインド ビギナーズ・マインド』", "ex": "毎日通る通勤路を、旅行者のつもりで歩いてみたら、10年間気づかなかった店を3つ見つけた。", "q": "明日の仕事をひとつ選んで「人生で初めてやる」つもりで取り組むとしたら、何を選ぶ?"}, {"cat": 4, "term": "守破離", "yomi": "しゅはり", "en": "Shu-Ha-Ri", "def": "型を守り、型を破り、型を離れる。日本の芸道に伝わる、手放しを組み込んだ成長の三段階。", "text": "守破離は、茶道や武道など日本の芸道に伝わる修行の段階論です。原型は千利休の教えを詠んだ道歌「規矩作法 守り尽くして破るとも 離るるとても本を忘るな」にあるとされます。まず師の型を徹底的に「守」る。次に他流も学び、自分に合わせて型を「破」る。最後には型そのものから「離」れ、自在の境地に至る――。この段階論の見事さは、成長の道筋にあらかじめ「手放し」が組み込まれていることです。型は永遠の正解ではなく、いつか破り、離れるためにこそ、まず徹底して身につけるもの。つまり守破離の世界では、アンラーンは裏切りではなく、師への最高の礼なのです。同時に道歌は「本を忘るな」と釘を刺します。離れても根本の心は失わない。すべてを捨てるのではなく、核を残して形を手放す。現代のアンラーニング研究の結論を、日本の芸道は何百年も先取りしていました。", "person": "千利休の道歌に原型をもつ日本の芸道の伝統概念", "ex": "営業トークのスクリプトを一言一句守る時期を経た人ほど、あるとき自然にスクリプトを離れて、自分の言葉で話し始める。", "q": "あなたはいま、何の「守」の段階にいて、何の「破」の段階にいる? 「離」れる準備ができた型はある?"}, {"cat": 4, "term": "空の茶碗", "yomi": "からのちゃわん", "en": "Empty your cup", "def": "すでに満杯の器には、何も注げない。学ぶ前にまず器を空けよ、という禅の逸話。", "text": "明治時代の禅僧・南隠のもとを、ある大学教授が禅を学びたいと訪ねました。南隠は茶を出し、教授の茶碗が満ちてもなお注ぎ続けます。あふれる茶に驚いて「もう入りません!」と叫ぶ教授に、南隠は言いました。「あなたはこの茶碗と同じだ。自分の意見や憶測で満ちている。まず自分の茶碗を空にしなければ、どうして禅をお見せできましょう」。この逸話が世界中で愛されるのは、学びの失敗の多くが「注ぐ側」ではなく「受ける側の満杯」で起きることを、一杯の茶で見せてしまうからです。研修で何も持ち帰らない人は、理解力が足りないのではなく、「それは知っている」「うちでは通用しない」で茶碗が満ちています。新しい場に臨む前の小さな儀式――「今日は自分の茶碗をどれだけ空けて来たか?」と自問すること――が、同じ話から受け取れる量を何倍にも変えるのです。", "person": "南隠(明治期の日本の禅僧)の逸話として伝わる", "ex": "同じ研修を受けて「知ってる話ばかりだった」と言う人と「3つ持ち帰った」と言う人がいる。差は講師ではなく茶碗にある。", "q": "次に人の話を聞くとき、あなたの茶碗には何がすでに入っている? どれを一時的に出しておける?"}, {"cat": 4, "term": "メタノイア", "yomi": "めたのいあ", "en": "Metanoia", "def": "視点が根本から転換し、心が向きを変えること。「学習」の最も深い意味を指す古い言葉。", "text": "メタノイアはギリシャ語で「心(ノイア)の転換・超越(メタ)」を意味し、新約聖書では「悔い改め」と訳されてきました。しかし原義はもっと広く、ものの見方が根本から向きを変えることを指します。経営学者センゲは『学習する組織』でこの言葉を取り上げ、「学習の最も深い意味を捉えた言葉」と評しました。情報を取り込むことが学習なのではない。世界の見え方が変わり、それまで取れなかった行動が取れるようになること――それが本来の学習だというのです。この視点に立つと、アンラーニングとメタノイアは同じ出来事の両面だとわかります。古い見方が緩んで手放されるとき(アンラーン)、新しい見方が流れ込む(メタノイア)。回心、転向、目からウロコ。古今東西の言葉が同じ体験を指しているのは、「見方の転換」こそが人間の変化の中心にあるからでしょう。", "person": "ギリシャ語由来。ピーター・センゲ『学習する組織』(1990年)が学習の本質として再発見", "ex": "「部下が動かないのは部下の問題」と思っていた管理職が、あるとき「動けない仕組みを自分が作っていた」と見え方が反転する。", "q": "あなたの「目からウロコ」体験で、いまの仕事観をつくっているものは何?"}, {"cat": 4, "term": "パラダイムシフト", "yomi": "ぱらだいむしふと", "en": "Paradigm shift", "def": "科学の進歩は積み上げではなく、世界の見方の枠組みごと入れ替わる革命によって起こるという理論。", "text": "科学史家クーンは『科学革命の構造』で、科学は知識をレンガのように積み上げて進歩するという常識を覆しました。科学者たちは普段、「パラダイム」と呼ばれる共通の枠組みの中でパズルを解いています。ところが枠組みでは説明できない「変則事例」が溜まってくると、やがて枠組みごと交代する革命が起きる。天動説から地動説へ、ニュートン力学から相対性理論へ。重要なのは、新旧のパラダイムは単純に優劣を比較できず、古い枠組みの中で真面目に研究している人ほど、革命に最後まで抵抗するとクーンが指摘したことです。知識が邪魔をするのは、科学の世界でさえ同じなのです。ビジネスでも、市場の「変則事例」――理屈に合わない顧客の行動、説明できない新興企業の成長――は、あなたのパラダイムの寿命を知らせる先触れかもしれません。", "person": "トーマス・クーン(アメリカの科学史家、1962年)『科学革命の構造』", "ex": "ある業界で長年「一時的な現象」として処理されてきた顧客離れは、振り返れば10年分ためこまれた変則事例だった。", "q": "あなたの業界で「理屈に合わない」と片付けられている現象は何? それはパラダイムの寿命の先触れでは?"}, {"cat": 5, "term": "経験学習サイクル", "yomi": "けいけんがくしゅうさいくる", "en": "Experiential learning cycle", "def": "経験しっぱなしでは学びにならない。振り返り、持論化し、試すサイクルが経験を学習に変える。", "text": "教育学者コルブは、大人の学びの中心は経験であり、しかし経験そのものは学習ではないと考えました。経験(やってみる)→内省(振り返る)→概念化(持論・教訓を引き出す)→実験(次に試す)というサイクルを回して初めて、経験は学びになるのです。アンラーンの観点で急所になるのは3つ目の「概念化」です。人は一度つくった持論を、その後の経験に当てはめ続ける傾向があります。持論は経験を効率よく処理する道具であると同時に、経験から新しく学ぶことを止める栓にもなる。だから熟達者の学びには「持論を疑う内省」が必要になります。経験学習研究の松尾睦は、仕事のアンラーニングを進める鍵として、自分の型を意識的に棚卸しし、変化の兆しに合わせて入れ替える「学びほぐしの習慣」を挙げています。サイクルは回すだけでなく、ときどき逆回転させて持論を解体する――それが上級者の回し方です。", "person": "デービッド・コルブ(アメリカの教育学者、1984年)、日本では松尾睦が発展", "ex": "営業日報を「今日の結果」だけでなく「今日、自分の持論が外れた場面」で書いてみると、同じ1日から学べる量が変わる。", "q": "あなたの持論のうち、最近の経験と「合わなくなってきた」ものはどれ?"}, {"cat": 5, "term": "越境学習", "yomi": "えっきょうがくしゅう", "en": "Cross-boundary learning", "def": "ホームを離れてアウェイに身を置くことで、自分の「当たり前」を揺さぶられて学ぶこと。", "text": "越境学習とは、勝手知ったる「ホーム」(自社・自部署)と、勝手のわからない「アウェイ」(他社、副業、地域活動、NPOなど)を行き来することで生まれる学びを指します。研究者の石山恒貴は、越境学習の本質を「冒険」にたとえます。アウェイでは、ホームで通用した肩書きも常識も通じません。この「通じない」体験こそが、自分がどれだけ会社固有のものの見方に染まっていたかを教えてくれるのです。重要なのは、越境の学びは行った先で得る知識よりも、戻ってきたときの違和感にあるということ。アウェイの目でホームを見ると、昨日まで空気のようだった慣行が「奇妙な風習」に見えてきます。この違和感こそアンラーンの入り口です。留学や出向のような大きな越境でなくても、業界の違う勉強会、子どものPTA、地域の消防団――ホームの常識が通じない場所なら、どこでも越境は始まります。", "person": "石山恒貴(日本の人材開発研究者)らが体系化", "ex": "副業先で「その進め方、遅くないですか?」と言われて初めて、本業の承認プロセスの異常さに気づいた。", "q": "あなたが最近「アウェイ」に身を置いたのはいつ? そこで通じなかった「ホームの常識」は何だった?"}, {"cat": 5, "term": "プレモータム", "yomi": "ぷれもーたむ", "en": "Premortem", "def": "計画を始める前に「この計画は失敗した」と仮定して、その死因をみんなで先に書き出す技法。", "text": "検死(ポストモータム)は死後に死因を調べますが、プレモータムは実行前に行う「事前検死」です。心理学者クラインが考案したこの技法では、計画の承認直前にチームでこう想像します。「1年後、この計画は完全に失敗した。何が起きたのか?」。全員がそれぞれ失敗の物語を書き出すのです。この手順の巧妙さは、組織の力学を逆転させることにあります。普段の会議では、懸念を口にする人は「後ろ向きな人」になりがちです。しかしプレモータムでは、失敗の理由を挙げることが課題そのものなので、聡明な人ほど鋭い死因を挙げようと競い始めます。研究では、この「起きたと仮定して理由を探す」方法は、単に「リスクを挙げてください」と頼むより多くの盲点を発見できることが示されています。成功イメージで固まったチームの頭を、一度ほぐして再点検する。集団のためのアンラーン技法です。", "person": "ゲイリー・クライン(アメリカの心理学者、2007年に提唱)", "ex": "新サービスの企画会議で「失敗した前提」で語り始めた途端、誰も言い出せなかった「実は営業が売る自信がない」が出てきた。", "q": "あなたのいまの計画が1年後に失敗しているとしたら、死因の第一候補は何?"}, {"cat": 5, "term": "悪魔の代弁者", "yomi": "あくまのだいべんしゃ", "en": "Devil's advocate", "def": "あえて反対の立場から異を唱える役割を置くことで、集団の思い込みを揺さぶる仕組み。", "text": "カトリック教会にはかつて、聖人の認定審査で候補者の欠点をあえて主張する「悪魔の代弁者」という公式の役職がありました。全員が賛成に傾く場面にこそ、制度として反対役を置く。この知恵は、集団の結束が強いほど異論が消えていく「集団思考」への解毒剤として、現代の経営にも受け継がれています。ただし心理学者ネメスの研究は、重要な注意点を示しています。「役割として」形だけ反対する人には、本物の説得力がなく、かえって多数派の確信を強めてしまうことがあるのです。効果があるのは、本気の異論。だから運用のコツは、反対役に十分な準備時間と情報を与え、「論破されるための的」ではなく「別の仮説の本気の代理人」として扱うことです。異論を歓迎する儀式を持つ組織は、リーダーの持論が静かに全員の持論になっていく事態を防げます。", "person": "カトリック教会の列聖審査に由来。チャーラン・ネメスらが効果の条件を研究", "ex": "全員一致で決まりそうな投資案件ほど、「今日は反対役をやって」と一人に頼んでから決める。", "q": "あなたのチームの直近の「全員一致」の決定は何? 本気の反対意見を、一度でも聞いた?"}, {"cat": 5, "term": "ストップ・ドゥーイング・リスト", "yomi": "すとっぷ・どぅーいんぐ・りすと", "en": "Stop doing list", "def": "「やることリスト」の逆。やめることを先に決めるリストが、偉大さへの規律をつくる。", "text": "経営学者コリンズは、飛躍した企業の研究『ビジョナリー・カンパニー2』の中で、意外な発見を報告しています。偉大になった企業は「やることリスト」よりも「やめることリスト(stop doing list)」を効果的に使っていたというのです。飛躍の敵は怠惰ではなく、良いことの過剰。そこそこ良い事業、そこそこ意味のある施策が資源を分散させ、決定的な一点への集中を妨げます。コリンズ自身、恩師から「いまのままなら、君は成功した人にはなるだろうが、偉大な人にはならない」と言われ、年に一度「やめることリスト」を作る習慣を持ったといいます。個人でも組織でも、カレンダーと予算は「過去に決めたこと」の博物館になりがちです。新年の抱負に何かを足す前に、何を外すかを決める。アンラーンを年中行事として制度化する、最も簡単な方法のひとつです。", "person": "ジム・コリンズ(アメリカの経営学者)『ビジョナリー・カンパニー2』(2001年)", "ex": "毎週の定例会議を半分やめてみたら、困る会議と誰も困らない会議がはっきり分かれた。", "q": "あなたの今年の「やめることリスト」に、最初に載せるべきものは何?"}, {"cat": 5, "term": "習慣ループの書き換え", "yomi": "しゅうかんるーぷのかきかえ", "en": "Rewriting the habit loop", "def": "習慣は消せないが、きっかけと報酬を残したまま「行動」だけ入れ替えることはできる。", "text": "行動の多くは、意思決定ではなく習慣で動いています。習慣は「きっかけ→行動→報酬」のループ構造を持ち、脳はこのループを自動化することでエネルギーを節約しています。ジャーナリストのデュヒッグが紹介した習慣研究の黄金律は、「習慣は消去できない。上書きするしかない」というものです。古い習慣と戦って消すのではなく、同じきっかけ、同じ報酬のまま、真ん中の行動だけを入れ替える。習慣研究の第一人者ウッドの研究も、行動変容の鍵は意志力ではなく環境の設計――きっかけとの接触を変えること――だと示しています。これは仕事の癖のアンラーンにそのまま使えます。「メールが来たら即返信」の癖なら、きっかけ(通知)を1日3回のまとめ確認に変える。染み付いた型と根性で戦わず、ループの部品を交換する。手放しは、意志の勝負ではなく設計の勝負なのです。", "person": "チャールズ・デュヒッグ『習慣の力』(2012年)、ウェンディ・ウッド(アメリカの心理学者)らの研究", "ex": "会議で真っ先に発言してしまう癖を、「最初の3分はメモに徹する」という新しい行動に差し替えたら、若手の発言が増えた。", "q": "あなたが手放したい仕事の癖をひとつ選ぶと、その「きっかけ」と「報酬」は何? 行動だけ何に差し替えられる?"}, {"cat": 5, "term": "リバースメンタリング", "yomi": "りばーすめんたりんぐ", "en": "Reverse mentoring", "def": "若手がベテランの「先生」になる制度。教わる側に回ることで、上位者のアンラーンを仕組み化する。", "text": "1999年、GEのCEOだったウェルチは、インターネットに疎い自分と経営幹部たちに、若手社員を「メンター」として付けました。年長者が教え、若手が教わるという当たり前を逆転させたこの仕組みは、リバースメンタリングと呼ばれ、世界中の企業に広がりました。この制度の本当の価値は、デジタルスキルの伝達そのものよりも、上位者が公式に「教わる側」に座ることにあります。地位が上がるほど、人は「聞く側」に回る機会を失い、獲得された教条主義(専門家の自覚が心を閉じさせる現象)が進みます。リバースメンタリングは、その流れを制度の力で逆流させる装置なのです。運用の鍵は、若手を「若者代表のサンプル」ではなく一人の先生として遇すること。そして上位者が「わからない」と言う姿を組織に見せること自体が、アンラーンを許可する文化をつくります。", "person": "ジャック・ウェルチ(GEの経営者、1999年に導入)", "ex": "役員が新入社員から生成AIの使い方を教わる30分を月2回設けたら、役員会の資料から「AIは若い人のもの」という前提が消えた。", "q": "あなたがいま「教わる側」に回るとしたら、誰に、何を教わりたい?"}, {"cat": 5, "term": "問いのリフレーミング", "yomi": "といのりふれーみんぐ", "en": "Reframing the question", "def": "答えを変える前に、問いを立て直す。優れた解決の多くは「別の問い」から生まれる。", "text": "「エレベーターが遅い」という苦情に、増速工事という答えを出す前に、「待ち時間が退屈なのでは?」と問いを立て直して鏡を置いたら苦情が消えた――リフレーミングの定番の逸話です。人は問題に出会うと、最初の問いの枠の中で答えを探し始めます。しかしその枠自体が、過去の経験や業界の常識でできた「古い学び」であることが少なくありません。問いを変えることは、枠を手放すこと。つまりリフレーミングは、日常の中でできる最小単位のアンラーンです。実践のコツは、行き詰まったときに「この問いは誰の、いつの前提でできているか?」と一段上から眺めること。「どうすれば会議を効率化できるか?」は「そもそも何のために集まるのか?」に、「どうすれば若手が辞めないか?」は「若手は何のためにここを選び続けるのか?」に立て直せます。答えの質は、問いの質を超えられないのです。", "person": "問題設定研究の系譜(ドゥンカー、アインシュタインの逸話など)から発展した実践知", "ex": "「どうすれば残業を減らせるか」で1年停滞した議論が、「どの仕事なら明日消しても誰も困らないか」に変えた途端に動き出した。", "q": "あなたがいま抱えている一番の課題を、まったく別の問いに立て直すとしたら?"}, {"cat": 5, "term": "心理的安全性という土壌", "yomi": "しんりてきあんぜんせいというどじょう", "en": "Psychological safety as soil for unlearning", "def": "「間違えた」「わからない」と言えない場所では、誰も手放せない。アンラーンには安全な土壌が要る。", "text": "アンラーンには、避けて通れない瞬間があります。「私のやり方は古かった」と認める瞬間です。ハーバード大学のエドモンドソンが示したように、対人リスク――無知だと思われる、無能だと思われる――への恐れが強い職場では、人は質問も実験も告白もしなくなります。つまり心理的安全性の低い組織では、アンラーンは個人の勇気の問題ではなく、構造的に不可能になるのです。逆に、リーダーが自ら「この前提、私が間違っていた」と口にする組織では、手放すことがキャリアの傷ではなく成熟の証になります。注意したいのは、心理的安全性は「ぬるさ」ではないこと。エドモンドソンが強調するのは、高い基準と安全性の両立です。古いやり方への率直な指摘が飛び交い、それを誰も人格攻撃と受け取らない状態。それが、組織ぐるみの学びほぐしが起こる土壌です。", "person": "エイミー・エドモンドソン(アメリカの経営学者、1999年)", "ex": "部長が会議で「先月の私の判断は間違いだった。データを見て考えを変えた」と言った日から、部内の「実は…」という報告が増えた。", "q": "あなたの職場で「考えを変えた」と公言した人は、最近どう扱われた? それが答えかもしれない。"}];
+
+const CATS = {
+  1:{name:"アンラーンの正体", en:"WHAT UNLEARNING IS", color:"var(--c1)", lede:"アンラーンとは何であって、何でないのか。「捨てる」ではなく「ほぐして編み直す」——この章はその正体をつかむための基礎概念です。"},
+  2:{name:"手放せない心のしくみ", en:"WHY WE CAN'T LET GO", color:"var(--c2)", lede:"意志が弱いから手放せないのではありません。人の心には、手放しを妨げる仕組みが標準装備されています。まずは、その仕組みの形を知るところから。"},
+  3:{name:"組織が手放せない理由", en:"WHY ORGANIZATIONS CAN'T", color:"var(--c3)", lede:"個人より組織のほうが手放せない。強みが硬直に反転し、成功の方程式が罠になる——経営学が見つけた構造たちです。"},
+  4:{name:"手放す知恵の世界史", en:"WISDOM ACROSS TIME", color:"var(--c4)", lede:"ソクラテスから禅まで。人類は2500年前から「知っているつもり」と向き合ってきました。時代を越えて残った、手放しの知恵です。"},
+  5:{name:"アンラーンの実践", en:"PRACTICES", color:"var(--c5)", lede:"手放しは根性ではなく設計。今日から使える、個人とチームのための実践技法です。"}
+};
+
+const ALTS = ["立っている人。足元の床には、いま手放したばかりの無地の四角い道具がひとつ置かれている。", "椅子に座る人。膝の上の編み物を、端からゆっくりほどいている。", "歩く人。床に置かれた三つの丸い飛び石が、大きな輪をえがいて循環するように並ぶ。", "立っている人。金色の細い糸でできた輪が二重に描かれ、人物は内側の小さな輪の中に立ちながら、外側の大きな輪へ手を伸ばしている。", "立っている人。人物の前に、細い線でできた格子状の枠がひとつ。", "小さな管楽器を吹く人。演奏しながら、足元の静かな浅い水面に自分の姿がうっすら映っている。", "身軽に立つ人。水面に点々と並ぶ飛び石の上に、両脚がはっきり分かる姿勢で立つ。", "椅子に座り続ける人。薄暗い室内でひとつの椅子に座ったまま。", "扉の手前で立ち止まる人。足元の床から、細い根のような線が何本も伸びて人物の足を静かに地面につなぎとめている。", "小さな器を両手で胸に抱えこむ人。もう一人の手だけが画面の端からそっと差し出されているが、器は渡されない。", "しゃがんで石を拾う人。丸い石だけを次々に拾ってかごに集めている。", "立って両手で押さえる人。形の合わない二枚の板を無理に重ね合わせようと、両手で押しつけている。", "歩く人。長く曲がりくねった道を進んでいる。", "床にしゃがんで無地の空き箱をのぞきこむ人。すぐ横の壁ぎわに、同じ形の箱がもう一つ、伏せて置かれている。", "浅いくぼみに膝まで沈んだ人。さらに前へ一歩踏み込もうと手を伸ばしている。", "向かい合う二人。一方は机を指先で軽く叩いている。", "背の高い台の上の椅子に座る人。人物のまわりを、ごく薄い色の透明な壁のような線が四方から囲んでいる。", "荷車を押す人。平らな地面に、車輪が刻んだ一本の細い溝が奥へまっすぐ長く伸びていて、人物はその溝の中を進んでいる。", "大きな石の柱に両手で寄り添う人。その柱は無地でどっしりと美しいが、根のような線を地面に深く張って動かない。", "荷車を力いっぱい押す二人。車輪はぬかるみで空回りし、土を後ろへ跳ね上げている。", "大きな曲線の頂に立つ人。足元にはなめらかに上ってきた大きな曲線。", "無地の箱を運び出す三人。建物の中から古い家具のような無地の箱を、戸口の外へ運び出している。", "中央に立つ人。左手は足元の深い井戸から水をくみ上げる綱を握り、右手は遠くへ細く伸びていく金色の糸をつまんでいる。", "低い塀の内側にいる二人。塀の外から差し出された小さな鉢植えの苗を受け取らず、背を向けている。", "古代風の石柱のかたわらに立つ人。手のひらに小さな空の器をのせ、静かに見つめている。", "座禅を組んで座る人。身体の輪郭が下のほうから少しずつ薄れて背景のクリーム色に溶けはじめている。", "道を歩く人。背中の荷物を一つずつ道ばたに置きながら進んでいる。", "並んでしゃがむ大人と子ども。地面から出たばかりの小さな芽を、二人でのぞきこんでいる。", "歩く人。地面に三つの輪が一列に置かれ、人物は二つ目の輪の縁をまたぎ越えようとしている。", "低い卓の前に座る人。両手で持った小さな茶碗はすでに満ちていて、かたわらから注がれた茶が縁からあふれ、受け皿へこぼれ落ちている。", "立ち止まって振り返る人。地面に続いてきた足あとの向きが、その場所からくるりと反対を向いている。", "夜の地面に立つ人。地面に描かれた同心円の中心から一歩外へ出て、いままで中心だった点を外から眺めている。", "飛び石を歩く人。四つの丸い飛び石が輪になって循環するように並び、人物は三つ目の石にいる。", "境界線の上に立つ人。地面の色が左右で分かれている。", "低い机を囲む三人。机の上には罫線だけが引かれた無地の大きな紙。", "丸いテーブルを囲んで座る五人。全員が同じ方向を向くなか、一人だけがくすんだ紫の服で、静かに片手を挙げて別の方向を指している。", "机に向かう人。罫線だけが引かれた無地の紙を手に持ち、小さなはさみで罫線を一本ずつ切り落としている。", "机のそばに立つ人。低い机の上に、三つの部品がつながってできた輪がひとつ置かれている。", "椅子に座る年配の人と、その隣に立つ若い人。若いほうが小さな無地の道具を手に持ち、指し示して教えている。", "立って両手で枠を持つ人。細い線でできた無地の四角い枠を目の前でゆっくり回している。", "輪になって立つ四人。地面の下の断面が少しだけ見えていて、そこに金色の細い根がやわらかく広がり、四人の足元を静かに支えている。"];
+
+let activeCat = 0; // 0 = all
+let query = "";
+
+function pad(n){return String(n).padStart(2,"0");}
+
+function render(){
+  const main = document.getElementById("zukan");
+  main.innerHTML = "";
+  let shown = 0;
+  let no = 0;
+  const nq = query.trim().toLowerCase();
+  for(const c of [1,2,3,4,5]){
+    const items = DATA.map((d,i)=>({...d, idx:i})).filter(d=>d.cat===c);
+    const visible = items.filter(d=>{
+      if(activeCat!==0 && d.cat!==activeCat) return false;
+      if(!nq) return true;
+      return (d.term+d.yomi+d.en+d.def+d.text+d.person+d.ex+d.q).toLowerCase().includes(nq);
+    });
+    // 通し番号は全体順で振る
+    if(visible.length===0){ continue; }
+    const cat = CATS[c];
+    const sec = document.createElement("section");
+    sec.innerHTML = `
+      <div class="section-head">
+        <span class="kanban" style="background:${cat.color}">第${c}章</span>
+        <h2>${cat.name}</h2>
+        <span class="en">${cat.en}</span>
+        <span class="rule"></span>
+      </div>
+      <p class="section-lede">${cat.lede}</p>`;
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    for(const d of visible){
+      shown++;
+      const card = document.createElement("article");
+      card.className = "card";
+      card.style.setProperty("--cardcolor", cat.color);
+      card.innerHTML = `
+        <div class="no">No.${pad(d.idx+1)}</div>
+        <figure class="card-fig"><img src="./images/unlearn/${pad(d.idx+1)}-unlearn.webp" alt="${ALTS[d.idx]||d.term}" width="1600" height="900" loading="${shown===1?"eager":"lazy"}"${shown===1?' fetchpriority="high"':""}></figure>
+        <h3>${d.term}</h3>
+        <div class="yomi">${d.yomi}</div>
+        <div class="latin">${d.en}</div>
+        <p class="def">${d.def}</p>
+        <details>
+          <summary>くわしく見る</summary>
+          <p class="text">${d.text}</p>
+          <div class="memo"><b>ひと</b> ${d.person}</div>
+          <div class="memo"><b>たとえば</b> ${d.ex}</div>
+          <div class="q"><b>問い</b>${d.q}</div>
+        </details>`;
+      grid.appendChild(card);
+    }
+    sec.appendChild(grid);
+    main.appendChild(sec);
+  }
+  document.getElementById("countNote").textContent =
+    (activeCat===0 && !nq) ? `全${DATA.length}項を収録` : `${shown}項が見つかりました`;
+}
+
+function buildChips(){
+  const box = document.getElementById("catChips");
+  const mk = (label,color,val)=>{
+    const el = document.createElement("div");
+    el.className = "chip"+(val===activeCat?" active":"");
+    el.innerHTML = (color?`<span class="dot" style="background:${color}"></span>`:"🔎 ")+label;
+    el.onclick = ()=>{activeCat = val; buildChips(); render();};
+    return el;
+  };
+  box.innerHTML = "";
+  box.appendChild(mk("すべて", "var(--gold)", 0));
+  for(const c of [1,2,3,4,5]) box.appendChild(mk(CATS[c].name, CATS[c].color, c));
+}
+
+document.getElementById("q").addEventListener("input", e=>{query=e.target.value; render();});
+buildChips();
+render();
+</script>
+
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./growth-laws-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">学びと成長の法則図鑑</span><span class="kaiyu-desc">テスト効果・忘却曲線・成長マインドセット・心理的安全性……科学が確かめた学びと成長の法則23種を、根拠と但し書きと今日ためせる一手つきで収蔵。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./reflection-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">ふりかえりの技法図鑑</span><span class="kaiyu-desc">ジャーナリング・ORID・KPT・AAR・プレモーテム・免疫マップ……ひとりでもチームでも使えるふりかえりの技法23種を、やり方・所要時間・由来・コツつきで収蔵。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./genzaichi-shindan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">はたらく現在地診断</span><span class="kaiyu-desc">収入・やりがい・時間の自由・市場価値。8つの質問で、いま自分がいちばん求めているほうしゅうを知る。生涯キャリア図鑑と業界図鑑への入口。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
+<!-- FOOTER START -->
+<footer>
+  <div class="footer-logo">きづきくみたて工房</div>
+  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
+</footer>
+<!-- FOOTER END -->
+
+
+<script>
+  /* グローバルナビ開閉（standard variant・台帳生成対象外なので各ページに持つ） */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileClose = document.getElementById('mobileClose');
+  if (hamburger && mobileMenu) {
+    function openMenu(){ hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow='hidden'; }
+    function closeMenu(){ hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow=''; }
+    hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
+    if (mobileClose) mobileClose.addEventListener('click', closeMenu);
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+  }
+  /* 計測: 問い合わせ(mailto)クリック → generate_lead（委譲リスナー・図鑑シリーズ共通） */
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a[href^="mailto:"]');
+    if (a && typeof gtag === 'function') {
+      gtag('event', 'generate_lead', { source_page: location.pathname });
+    }
+  });
+</script>
+<!-- SHELF START -->
+<style>
+.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-right: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
+.shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
+.shelf.open .shelf-backdrop { display: block; }
+.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
+.shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
+.shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
+.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
+.shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
+.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
+.shelf-list a:hover { color: #3C3489; }
+.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
+@media (hover: hover) and (pointer: fine) {
+  .shelf:hover .shelf-panel { transform: translateY(-50%) translateX(0); }
+  .shelf-close { display: none; }
+  .shelf-backdrop { display: none !important; }
+}
+</style>
+<div class="shelf" id="siteShelf">
+  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 図鑑の棚</button>
+  <div class="shelf-backdrop" id="shelfBackdrop"></div>
+  <aside class="shelf-panel" aria-label="図鑑の棚">
+    <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
+    <div class="shelf-title">📚 図鑑の棚</div>
+    <div class="shelf-list" role="navigation">
+      <span class="shelf-heading">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
+      <a href="./unlearn-zukan.html" title="学びを手放して編み直すための知恵41種。心理学・経営学・世界の思想から" class="active">アンラーン図鑑</a>
+      <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
+      <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
+      <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
+      <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
+      <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
+      <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口">はたらく現在地診断</a>
+      <span class="shelf-heading">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
+      <span class="shelf-heading">読み物</span>
+      <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
+      <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
+      <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function() {
+  var shelf = document.getElementById('siteShelf');
+  var tab = document.getElementById('shelfTab');
+  function setOpen(open) {
+    shelf.classList.toggle('open', open);
+    tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '図鑑の棚', page: location.pathname });
+  }
+  tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
+  var hoverSent = false;
+  shelf.addEventListener('mouseenter', function() {
+    if (!hoverSent && typeof gtag === 'function') { hoverSent = true; gtag('event', 'shelf_open', { shelf: '図鑑の棚', page: location.pathname, method: 'hover' }); }
+  });
+  document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
+  document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });
+})();
+</script>
+<!-- SHELF END -->
+
+</body>
+</html>

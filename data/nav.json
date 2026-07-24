@@ -153,6 +153,11 @@
             "desc": "学習科学が実験で確かめた、学びと成長の法則23種"
           },
           {
+            "label": "アンラーン図鑑",
+            "href": "unlearn-zukan.html",
+            "desc": "学びを手放して編み直すための知恵41種。心理学・経営学・世界の思想から"
+          },
+          {
             "label": "ふりかえりの技法図鑑",
             "href": "reflection-zukan.html",
             "desc": "KPT・ORIDなど、ふりかえりの技法23種をやり方つきで"
@@ -578,6 +583,10 @@
     },
     {
       "path": "shakai-yokai/index.html",
+      "variant": "standard"
+    },
+    {
+      "path": "unlearn-zukan.html",
       "variant": "standard"
     },
     {

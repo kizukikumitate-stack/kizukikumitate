@@ -390,6 +390,16 @@
       "sub": "科学が確かめた学びと成長の法則23種。根拠と、過信を戒める但し書きと、今日ためせる一手つき。"
     },
     {
+      "page": "unlearn-zukan.html",
+      "img": "unlearn-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#4a7c8c",
+      "eyebrow": "図鑑 ／ 世界の知恵",
+      "title": "アンラーン図鑑",
+      "sub": "手放して、学びなおすための41の知恵。学びを捨てるのではなく、ほぐして編み直す。"
+    },
+    {
       "page": "reflection-zukan.html",
       "img": "reflection-zukan-ogp.png",
       "template": "standard",

@@ -769,6 +769,21 @@
       ]
     },
     {
+      "id": "unlearn-zukan",
+      "path": "unlearn-zukan.html",
+      "title": "アンラーン図鑑",
+      "tag": "世界の知恵",
+      "desc": "手放して、学びなおすための41の知恵。アンラーニングの正体、手放せない心のしくみ、組織が変われない構造、ソクラテスから禅までの知恵、今日から使える実践技法を5章に。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-25",
+      "band": true,
+      "next": [
+        "growth-laws-zukan",
+        "reflection-zukan"
+      ]
+    },
+    {
       "id": "reflection-zukan",
       "path": "reflection-zukan.html",
       "title": "ふりかえりの技法図鑑",
