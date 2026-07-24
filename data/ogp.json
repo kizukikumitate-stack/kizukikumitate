@@ -658,6 +658,17 @@
       "eyebrow": "対話ツール ／ 視点のレンズ",
       "title": "ステークホルダー・<br>ジオラマ",
       "sub": "ひとつのテーマを、関係者みんなの視点から眺める。誰が得して、誰が損するかを見える化。"
+    },
+    {
+      "page": "genzaichi-shindan.html",
+      "img": "genzaichi-shindan-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#ffd76a",
+      "eyebrow": "みんなで作る ／ キャリア教材",
+      "title": "はたらく現在地診断",
+      "sub": "収入・やりがい・時間の自由・市場価値。いまのあなたの渇きを8つの質問で診断。"
+>>>>>>> pr-1
     }
   ]
 }
