@@ -20,13 +20,13 @@
 <meta property="og:title" content="はたらく現在地診断">
 <meta property="og:description" content="収入・やりがい・時間の自由・市場価値。あなたはいま、どれが満たされ、どれが渇いている？8つの質問で診断する無料ツール。">
 <meta property="og:url" content="https://kizukikumitate.com/genzaichi-shindan.html">
-<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta property="og:image" content="https://kizukikumitate.com/genzaichi-shindan-ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="はたらく現在地診断">
 <meta name="twitter:description" content="収入・やりがい・時間の自由・市場価値。あなたはいま、どれが満たされ、どれが渇いている？8つの質問で診断する無料ツール。">
-<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<meta name="twitter:image" content="https://kizukikumitate.com/genzaichi-shindan-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@500&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
@@ -166,6 +166,8 @@ header .pair-link:hover{background:var(--surface-2);}
 .result-desc{color:var(--ink-2);font-size:14px;line-height:1.9;text-align:center;margin:14px 4px 20px;word-break:keep-all;overflow-wrap:break-word;}
 .code-badge{display:block;text-align:center;font-size:11.5px;color:var(--ink-muted);margin-bottom:14px;}
 .sec-label{color:var(--ink-muted);font-size:11px;letter-spacing:.16em;margin:16px 0 8px;border-bottom:1px solid var(--hairline);padding-bottom:4px;}
+.res-note{color:var(--ink-2);font-size:11.5px;line-height:1.75;margin:8px 0 0;}
+.res-caveat{color:var(--ink-muted);font-size:11px;margin-top:16px;border-top:1px solid var(--hairline);padding-top:10px;}
 .links{display:flex;flex-wrap:wrap;gap:8px;}
 .link-chip{
   display:inline-block;font-family:inherit;font-size:12.5px;cursor:pointer;color:var(--ink-2);text-decoration:none;
@@ -547,20 +549,20 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
   <section id="quizPanel" class="dq quiz" hidden>
     <div class="q-progress">
-      <div class="q-progress-track"><div class="q-progress-bar" id="progBar"></div></div>
+      <div class="q-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="8" aria-valuenow="0" id="progTrack" aria-label="回答した質問の数"><div class="q-progress-bar" id="progBar"></div></div>
       <span class="q-count" id="qCount">1 / 8</span>
     </div>
     <div class="q-head">
-      <span class="q-icon" id="qIcon">💰</span>
+      <span class="q-icon" id="qIcon" aria-hidden="true">💰</span>
       <span class="q-label" id="qLabel">収入｜いまの満足度</span>
     </div>
-    <p class="q-text" id="qText"></p>
-    <div class="q-scale" id="qScale">
-      <button type="button" data-val="1">1</button>
-      <button type="button" data-val="2">2</button>
-      <button type="button" data-val="3">3</button>
-      <button type="button" data-val="4">4</button>
-      <button type="button" data-val="5">5</button>
+    <p class="q-text" id="qText" tabindex="-1"></p>
+    <div class="q-scale" id="qScale" role="group" aria-labelledby="qText">
+      <button type="button" data-val="1" aria-pressed="false">1</button>
+      <button type="button" data-val="2" aria-pressed="false">2</button>
+      <button type="button" data-val="3" aria-pressed="false">3</button>
+      <button type="button" data-val="4" aria-pressed="false">4</button>
+      <button type="button" data-val="5" aria-pressed="false">5</button>
     </div>
     <div class="q-caption"><span id="qLo"></span><span id="qHi"></span></div>
     <div class="q-nav">
@@ -569,7 +571,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     </div>
   </section>
 
-  <section id="resultPanel" class="dq result" hidden>
+  <section id="resultPanel" class="dq result" tabindex="-1" aria-live="polite" hidden>
     <div class="result-head">
       <div class="result-icon" id="resIcon">⚖️</div>
       <div class="result-name" id="resName"></div>
@@ -578,8 +580,11 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <p class="result-desc" id="resDesc"></p>
     <div class="sec-label">おすすめの探索先（生涯キャリア図鑑の職業）</div>
     <div class="links" id="resJobs"></div>
-    <div class="sec-label">おすすめの探索先（業界図鑑の大陸）</div>
+    <p class="res-note" id="resJobsNote" hidden></p>
+    <div class="sec-label" id="resIndsLabel">おすすめの探索先（業界図鑑の大陸）</div>
     <div class="links" id="resInds"></div>
+    <p class="res-note" id="resIndsNote" hidden></p>
+    <p class="res-note res-caveat">※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは「その報酬の★が高いカード」を編集部が選んだ目安で、同じ職業でも会社や働き方で大きく変わります。</p>
     <div class="step-box">
       <div class="sec-label">今日の一歩</div>
       <textarea id="stepNote" placeholder="今日、これからひとつだけ試してみることを書いてみましょう（例：気になった職業カードを1つ読んでみる、など）。印刷して手元に残せます。"></textarea>
@@ -593,6 +598,68 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 
 <!-- FOOTER START -->
+<!-- KAIYU START -->
+<aside class="kaiyu" data-kaiyu-theme="night" aria-label="次のおすすめページ">
+<style>
+.kaiyu{padding:3.4rem 2rem 3.8rem}
+.kaiyu-inner{max-width:960px;margin:0 auto}
+.kaiyu-head{text-align:center;margin-bottom:1.9rem}
+.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
+.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
+.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
+.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
+.kaiyu-card:hover{transform:translateY(-3px)}
+.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
+.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
+.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
+.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
+.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
+.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
+.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
+.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
+.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
+.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
+.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
+</style>
+<div class="kaiyu-inner">
+  <div class="kaiyu-head">
+    <span class="kaiyu-eyebrow">Keep Exploring</span>
+    <span class="kaiyu-title">次は、こちらへ。</span>
+  </div>
+  <div class="kaiyu-grid">
+    <a class="kaiyu-card" href="./tenshoku-no-sho.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">みんなで作る 生涯キャリア図鑑</span><span class="kaiyu-desc">はたらく職業をRPGの転職チャートに一覧化した、みんなで作る生涯キャリアの図鑑。上るだけでなく降りる・留まるも道。★の根拠は公的統計を明記。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./gyokai-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">みんなで作る 業界図鑑</span><span class="kaiyu-desc">日本の16業界を「はたらく世界の大陸」に見立てた、みんなで作る業界の図鑑。はたらく人の数・追い風・人手不足度を公的統計つきで一覧。生涯キャリア図鑑の対の書。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./career-theory-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">キャリア理論図鑑</span><span class="kaiyu-desc">パーソンズからサビカスまで、定番のキャリア理論21種を、根拠・言い過ぎを戒める但し書き・今日ためせる一手つきで収蔵。迷いから引ける逆引き表も。</span><span class="kaiyu-arw">→</span></a>
+  </div>
+</div>
+</aside>
+<!-- KAIYU END -->
+
 <footer>
   <div class="footer-logo">きづきくみたて工房</div>
   <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
@@ -621,6 +688,8 @@ const REWARDS = [
   {key:'time', icon:'⏳', label:'時間の自由'},
   {key:'exp', icon:'⭐', label:'市場価値'}
 ];
+const REWARD_LABEL = {};
+REWARDS.forEach(r=>{ REWARD_LABEL[r.key] = r.label; });
 
 const QUESTIONS = [
   {reward:'gold', kind:'sat', text:'いまの収入に、満足していますか？', lo:'まったく満たされていない', hi:'十分に満たされている'},
@@ -706,13 +775,27 @@ function renderQuestion(){
   qLabel.textContent = r.label + (q.kind==='sat' ? '｜いまの満足度' : '｜自分にとっての大切さ');
   qText.textContent = q.text;
   qCount.textContent = (qi+1)+' / '+QUESTIONS.length;
-  progBar.style.width = (qi/QUESTIONS.length*100)+'%';
+  const answered = answers.filter(n=>n>0).length;
+  progBar.style.width = (answered/QUESTIONS.length*100)+'%';
+  const track = document.getElementById('progTrack');
+  if(track) track.setAttribute('aria-valuenow', String(answered));
   qLo.textContent = q.lo;
   qHi.textContent = q.hi;
-  scaleBtns.forEach(b=>{ b.classList.toggle('sel', answers[qi]===Number(b.dataset.val)); });
+  scaleBtns.forEach(b=>{
+    const on = answers[qi]===Number(b.dataset.val);
+    b.classList.toggle('sel', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    /* 「1」だけでは何を意味するか伝わらないので、両端のことばを読み上げに載せる */
+    b.setAttribute('aria-label', b.dataset.val+'（'+(b.dataset.val==='1'?q.lo:b.dataset.val==='5'?q.hi:'5段階のうち'+b.dataset.val)+'）');
+  });
   prevBtn.disabled = qi===0;
   nextBtn.disabled = !answers[qi];
   nextBtn.textContent = qi===QUESTIONS.length-1 ? '結果を見る' : '次へ';
+}
+/* 質問を切り替えたら、質問文へフォーカスを移す
+   （nextBtn は次の問で disabled になるため、フォーカスが body に落ちてしまう） */
+function focusQuestion(){
+  if(qText && qText.focus){ try{ qText.focus({preventScroll:true}); }catch(e){} }
 }
 
 scaleBtns.forEach(b=>{
@@ -721,15 +804,16 @@ scaleBtns.forEach(b=>{
     renderQuestion();
   });
 });
-prevBtn.addEventListener('click', ()=>{ if(qi>0){ qi--; renderQuestion(); } });
+prevBtn.addEventListener('click', ()=>{ if(qi>0){ qi--; renderQuestion(); focusQuestion(); } });
 nextBtn.addEventListener('click', ()=>{
   if(!answers[qi]) return;
-  if(qi<QUESTIONS.length-1){ qi++; renderQuestion(); } else { showResult(); }
+  if(qi<QUESTIONS.length-1){ qi++; renderQuestion(); focusQuestion(); } else { showResult(); }
 });
 document.getElementById('startBtn').addEventListener('click', ()=>{
   introPanel.hidden = true;
   quizPanel.hidden = false;
   renderQuestion();
+  focusQuestion();
 });
 
 function computeResult(){
@@ -742,25 +826,29 @@ function computeResult(){
   const topKeys = Object.keys(gaps).filter(k=>gaps[k]===maxGap);
   /* 判定:
      - 全体の渇きが小さい（maxGap<=1）→ バランス型
-     - 同点でも渇きが2以上なら、その人は確かに渇いている。
-       3つ以上の同点はバランス型、2つならその両方を示す「ふたつ型」にする
+     - 渇きが2以上で同点が複数 → 「ふたつ型」。同点が3つ以上なら、
+       そのうち「自分にとっての大切さ」が高い2つを採る
        （強い渇きを抱えた人に「バランスよく歩めています」と返さないため） */
   let type, duoKeys = null;
-  if(maxGap <= 1 || topKeys.length >= 3){
+  if(maxGap <= 1){
     type = 'balance';
-  }else if(topKeys.length === 2){
+  }else if(topKeys.length >= 2){
     type = 'duo';
-    duoKeys = topKeys.slice();
+    duoKeys = topKeys.slice()
+      .sort((a,b)=> (importance[b]-importance[a]) || (satisfaction[a]-satisfaction[b]))
+      .slice(0,2);
   }else{
     type = topKeys[0];
   }
   return {type, duoKeys, gaps, satisfaction, importance};
 }
 
+/* 案内コード: 英数字・ハイフン・アンダースコアの16文字までだけを受け付ける
+   （URLの任意文字列がそのまま画面に出ることを防ぐ）。読み取りに副作用は持たせない */
+const CODE_RE = /^[A-Za-z0-9_-]{1,16}$/;
 function currentCode(){
-  const fromUrl = new URLSearchParams(location.search).get('code');
-  if(fromUrl){ try{ localStorage.setItem('genzaichiCode', fromUrl); }catch(e){} return fromUrl; }
-  try{ return localStorage.getItem('genzaichiCode') || ''; }catch(e){ return ''; }
+  try{ const v = localStorage.getItem('genzaichiCode') || ''; return CODE_RE.test(v) ? v : ''; }
+  catch(e){ return ''; }
 }
 
 function showResult(opts){
@@ -829,21 +917,23 @@ document.getElementById('printBtn').addEventListener('click', ()=>window.print()
 document.getElementById('restartBtn').addEventListener('click', ()=>{
   answers = new Array(QUESTIONS.length).fill(0);
   qi = 0;
-  history.replaceState(null, '', location.pathname);
+  const code = currentCode();
+  history.replaceState(null, '', location.pathname + (code ? '?code='+encodeURIComponent(code) : ''));
   resultPanel.hidden = true;
   introPanel.hidden = false;
+  document.getElementById('startBtn').focus();
 });
 
 (function init(){
   const params = new URLSearchParams(location.search);
   const codeParam = params.get('code');
-  if(codeParam){ try{ localStorage.setItem('genzaichiCode', codeParam); }catch(e){} }
+  if(codeParam && CODE_RE.test(codeParam)){ try{ localStorage.setItem('genzaichiCode', codeParam); }catch(e){} }
   const ansParam = params.get('ans');
   if(ansParam){
     const arr = ansParam.split(',').map(Number);
-    if(arr.length===QUESTIONS.length && arr.every(n=>n>=1 && n<=5)){
+    if(arr.length===QUESTIONS.length && arr.every(n=>Number.isInteger(n) && n>=1 && n<=5)){
       answers = arr;
-      showResult();
+      showResult({shared:true});
       return;
     }
   }
@@ -871,5 +961,81 @@ themeBtn.addEventListener("click",()=>{
 syncThemeBtn();
 document.body.appendChild(themeBtn);
 </script>
+<!-- SHELF START -->
+<style>
+.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-right: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
+.shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
+.shelf.open .shelf-backdrop { display: block; }
+.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
+.shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
+.shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
+.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
+.shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
+.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
+.shelf-list a:hover { color: #3C3489; }
+.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
+@media (hover: hover) and (pointer: fine) {
+  .shelf:hover .shelf-panel { transform: translateY(-50%) translateX(0); }
+  .shelf-close { display: none; }
+  .shelf-backdrop { display: none !important; }
+}
+</style>
+<div class="shelf" id="siteShelf">
+  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 図鑑の棚</button>
+  <div class="shelf-backdrop" id="shelfBackdrop"></div>
+  <aside class="shelf-panel" aria-label="図鑑の棚">
+    <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
+    <div class="shelf-title">📚 図鑑の棚</div>
+    <div class="shelf-list" role="navigation">
+      <span class="shelf-heading">ヒトと学びの図鑑</span>
+      <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
+      <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種">ホモ・サピエンスの知恵図鑑</a>
+      <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
+      <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
+      <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
+      <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
+      <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
+      <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
+      <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
+      <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
+      <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
+      <a href="./genzaichi-shindan.html" title="8つの質問で、いま自分が求めているほうしゅうを知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
+      <span class="shelf-heading">社会と世界の図鑑</span>
+      <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
+      <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
+      <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
+      <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
+      <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
+      <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
+      <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
+      <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
+      <span class="shelf-heading">読み物</span>
+      <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
+      <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
+      <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
+    </div>
+  </aside>
+</div>
+<script>
+(function() {
+  var shelf = document.getElementById('siteShelf');
+  var tab = document.getElementById('shelfTab');
+  function setOpen(open) {
+    shelf.classList.toggle('open', open);
+    tab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '図鑑の棚', page: location.pathname });
+  }
+  tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
+  var hoverSent = false;
+  shelf.addEventListener('mouseenter', function() {
+    if (!hoverSent && typeof gtag === 'function') { hoverSent = true; gtag('event', 'shelf_open', { shelf: '図鑑の棚', page: location.pathname, method: 'hover' }); }
+  });
+  document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
+  document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });
+})();
+</script>
+<!-- SHELF END -->
+
 </body>
 </html>
