@@ -83,8 +83,8 @@ try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.
 /* ライトモード時、金色の猫・スライムが紙色背景に沈むので、いったん黒化してから
    カラフルに着色（猫=オレンジ／スライム=水色）＋暗い輪郭の影で見えやすくする。
    animationはfilterを触らないので安全。旗は濃いアンバーで縁を立てる */
-html.light .adventure-walker{filter:brightness(0) invert(48%) sepia(90%) saturate(1800%) hue-rotate(-12deg) drop-shadow(0 1px 1.5px rgba(74,40,10,.5));}
-html.light .adventure-walker.slime{filter:brightness(0) invert(62%) sepia(30%) saturate(900%) hue-rotate(155deg) drop-shadow(0 1px 1.5px rgba(15,55,74,.5));}
+html.light .adventure-walker{filter:brightness(0) invert(45%) sepia(95%) saturate(1900%) hue-rotate(-14deg) drop-shadow(0 0 .6px rgba(60,25,0,1)) drop-shadow(0 0 1.2px rgba(60,25,0,.9));}
+html.light .adventure-walker.slime{filter:brightness(0) invert(62%) sepia(30%) saturate(900%) hue-rotate(155deg) drop-shadow(0 0 .6px rgba(10,45,70,1)) drop-shadow(0 0 1.2px rgba(10,45,70,.9));}
 html.light .adventure-road .flag{filter:brightness(.7) saturate(1.5) drop-shadow(0 1px 1.5px rgba(74,58,20,.5));}
 
 /* ライトモード時、夜色固定の回遊バンドを紙色に読み替える（本体CSS側＝update-kaiyuで消えない） */
