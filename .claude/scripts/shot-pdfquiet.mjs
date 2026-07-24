@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1200, height: 900 } });
+await p.goto('file:///Users/morimotoyasuhito/kizukikumitate/jirei-hyoka.html');
+await p.waitForTimeout(600);
+const el = await p.$('.pdf-quiet');
+await el.scrollIntoViewIfNeeded();
+await p.waitForTimeout(300);
+const box = await el.boundingBox();
+await p.screenshot({ path: '/private/tmp/claude-501/-Users-morimotoyasuhito/1ff5377a-7a00-429b-97f7-07669e96518a/scratchpad/pdfquiet.png', clip: { x: 0, y: box.y - 260, width: 1200, height: 560 } });
+await b.close();
+console.log('ok');

@@ -1,0 +1,16 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1280, height: 1500 } });
+const errs = [];
+p.on('console', m => { if (m.type()==='error') errs.push(m.text()); });
+await p.goto('file:///Users/morimotoyasuhito/kizukikumitate/rest-productivity-zukan.html');
+await p.waitForTimeout(1000);
+const sec = await p.locator('.section-head', { hasText: '国家の生態' }).first();
+await sec.scrollIntoViewIfNeeded();
+await p.waitForTimeout(1500);
+await p.screenshot({ path: '/private/tmp/claude/rest2-macro.png' });
+await p.locator('.dataroom').scrollIntoViewIfNeeded();
+await p.waitForTimeout(1200);
+await p.screenshot({ path: '/private/tmp/claude/rest2-dataroom.png' });
+console.log('console errors:', errs.length);
+await b.close();

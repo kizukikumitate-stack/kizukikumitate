@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newPage({ viewport: { width: 1280, height: 1400 } });
+await p.goto('file:///Users/morimotoyasuhito/kizukikumitate/rest-productivity-zukan.html');
+await p.waitForTimeout(1500);
+await p.screenshot({ path: '/private/tmp/claude/rest-desktop-top.png' });
+await p.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+await p.waitForTimeout(1200);
+await p.screenshot({ path: '/private/tmp/claude/rest-desktop-bottom.png' });
+const errs = [];
+p.on('console', m => { if (m.type()==='error') errs.push(m.text()); });
+console.log('console errors:', errs.length);
+await b.close();

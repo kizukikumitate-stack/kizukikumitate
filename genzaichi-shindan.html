@@ -426,7 +426,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
         <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
         <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
         <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
-        <a href="./genzaichi-shindan.html" title="8つの質問で、いま自分が求めているほうしゅうを知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
+        <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会と世界の図鑑</span>
         <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
         <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
@@ -552,7 +552,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
       <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
       <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
-      <a href="./genzaichi-shindan.html" title="8つの質問で、いま自分が求めているほうしゅうを知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
+      <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界の図鑑</span>
       <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
       <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
@@ -819,7 +819,7 @@ const QUESTIONS = [
 const TAISEI=[{k:'study',i:'📚',n:'長い修行',d:'何年も学び続け、資格を取る'},{k:'fog',i:'🌫️',n:'霧の中を進む',d:'前例も正解もない中で決める'},{k:'rule',i:'📋',n:'型どおりに動く',d:'決められた手順を正確に守る'},{k:'unfair',i:'🌀',n:'理由が説明されないまま決まる',d:'背景がわからないまま動く場面がある'},{k:'refuse',i:'🚪',n:'断られることがある',d:'断られ、否定される場面が多い'},{k:'mask',i:'🎭',n:'気持ちを整えて出る',d:'笑顔や落ち着きを保ち続ける'},{k:'night',i:'🌙',n:'不規則な時間',d:'夜勤・休日出勤・呼び出しがある'},{k:'same',i:'🔁',n:'同じことの繰り返し',d:'毎日ほぼ同じ作業が続く'},{k:'clash',i:'⚔️',n:'対立の場に立つ',d:'板挟み・交渉・衝突の矢面に立つ'},{k:'slow',i:'🏔️',n:'成果が出るまで長い',d:'実るまでに何年もかかる'},{k:'number',i:'📊',n:'数字に追われる',d:'ノルマや評価が数字で示される'},{k:'alone',i:'🧍',n:'ひとりで黙々と',d:'会話が少なく、こもる時間が長い'},{k:'crowd',i:'👥',n:'常に人に囲まれる',d:'ひとりになれる時間が少ない'},{k:'body',i:'💪',n:'体を使う',d:'立ち仕事・力仕事・移動が多い'},{k:'grief',i:'🤲',n:'人の苦しみに向き合う',d:'病・死・困難のそばで働く'}];
 const TAISEI_MAP={};TAISEI.forEach(function(t){TAISEI_MAP[t.k]=t;});
 const JOBP=[{i:'sales',n:'営業',c:'断られてもHPが減らない、前線の剣士。',r:[4,3,2,4],x:['refuse','number','crowd']},{i:'retail',n:'販売・接客',c:'お客の表情を読む、店先の武闘家。',r:[2,3,2,2],x:['mask','crowd','body']},{i:'craft',n:'製造・技能職',c:'手と体で品質を守る、現場の重戦士。',r:[3,3,3,3],x:['study','body','same']},{i:'engineer',n:'エンジニア',c:'呪文(コード)で世界を書き換える魔法使い。',r:[4,4,4,5],x:['study','alone','same']},{i:'analyst',n:'データアナリスト',c:'数字の海から真実を釣り上げる占い師。',r:[4,3,4,5],x:['alone','number','same']},{i:'accounting',n:'経理・財務',c:'会社の血液(カネ)を司る、静かな賢者見習い。',r:[3,2,2,4],x:['rule','same','number']},{i:'hr',n:'人事',c:'仲間を見つけ、育て、守る僧侶。',r:[3,4,3,3],x:['clash','mask','rule']},{i:'cs',n:'カスタマーサポート',c:'困っている人へ真っ先に駆けつける回復役。',r:[2,3,3,2],x:['refuse','mask','same']},{i:'teacher',n:'教育・講師',c:'人のレベルアップが自分の経験値になる導き手。',r:[3,5,3,3],x:['crowd','mask','slow']},{i:'marketer',n:'マーケター',c:'人の心が動く瞬間を狙う、市場の商人。',r:[3,3,3,4],x:['number','fog','slow']},{i:'planner',n:'企画',c:'まだ無いものの設計図を描く参謀。',r:[3,4,3,4],x:['fog','clash','refuse']},{i:'admin',n:'事務・アシスタント',c:'パーティ全体を陰で支える荷物持ち…に見えて司令塔。',r:[2,2,4,2],x:['same','rule','mask']},{i:'designer',n:'デザイナー',c:'見た目と使い心地に魔法をかける遊び人…実は職人。',r:[3,4,4,4],x:['refuse','alone','slow']},{i:'writer',n:'ライター・編集',c:'言葉ひとつで人を旅立たせる吟遊詩人。',r:[2,4,5,3],x:['alone','slow','refuse']},{i:'salesengineer',n:'セールスエンジニア',c:'剣と魔法の二刀流。技術が分かる営業は最強。',r:[4,4,3,5],x:['study','refuse','clash']},{i:'bizdev',n:'事業開発 (BizDev)',c:'まだ無い商売をゼロから起こす開拓者。',r:[4,5,2,5],x:['fog','clash','refuse']},{i:'csuccess',n:'カスタマーサクセス',c:'回復役から、顧客を勝たせる参謀へ。',r:[4,4,3,4],x:['mask','number','refuse']},{i:'datascientist',n:'データサイエンティスト',c:'未来を予測する、現代の大魔道士。',r:[5,4,4,5],x:['study','alone','same']},{i:'pm',n:'プロダクトマネージャー',c:'つくる人と使う人の間に立つ、プロダクトの舵取り。',r:[5,5,2,5],x:['clash','fog','number']},{i:'fpa',n:'FP&Aアナリスト',c:'数字で経営を導く、金庫番から軍師への転身。',r:[5,3,3,5],x:['number','rule','same']},{i:'peopleanalytics',n:'ピープルアナリティクス',c:'人の気持ちをデータで支える、新種の僧侶。',r:[4,4,3,4],x:['study','alone','rule']},{i:'contentmarketer',n:'コンテンツマーケター',c:'物語の力で客を呼ぶ、詩人と商人のあいの子。',r:[4,4,4,4],x:['slow','alone','same']},{i:'uxdesigner',n:'UX/プロダクトデザイナー',c:'使う人の体験まるごとをデザインする上級職。',r:[4,4,4,5],x:['fog','refuse','clash']},{i:'bpr',n:'業務改善スペシャリスト',c:'社内のめんどうを退治する、静かな魔法剣士。',r:[4,3,4,4],x:['clash','rule','slow']},{i:'learningdesigner',n:'ラーニングデザイナー',c:'学びの体験を設計する、導き手の上位互換。',r:[3,5,4,4],x:['slow','study','clash']},{i:'ecproducer',n:'EC/店舗プロデューサー',c:'売場の勘とデータの両輪で商いを回す親方。',r:[4,4,3,4],x:['number','fog','night']},{i:'qualityeng',n:'生産技術・品質マネージャー',c:'現場の腕と数字の目を併せ持つ、工場の軍師。',r:[4,3,3,4],x:['rule','same','clash']},{i:'nurse',n:'看護師',c:'命の現場に立つ、本物の回復職。国家資格の門を越えた者。',r:[3,5,2,4],x:['night','grief','body']},{i:'biyoshi',n:'美容師',c:'ハサミ一本で人を笑顔に変える、手に職の芸術家。',r:[2,4,2,3],x:['body','mask','crowd']},{i:'tobi',n:'鳶職',c:'天空の足場を組む、高所の戦士。街のシルエットは彼らの仕事。',r:[3,4,3,3],x:['body','rule','night']},{i:'doctor',n:'医師',c:'人の命を預かる、回復呪文の最高位。学びの重さも全職業トップ。',r:[5,5,1,5],x:['study','night','grief']},{i:'lawyer',n:'弁護士',c:'法という魔導書を操り、依頼人の盾となる知の剣士。',r:[5,4,2,5],x:['study','clash','slow']},{i:'kenchikushi',n:'一級建築士',c:'紙の上の線が、街の風景になる。構造と美の二刀流。',r:[4,4,2,4],x:['study','rule','slow']},{i:'sekokan',n:'施工管理技士 (現場監督)',c:'数十の職人と工程を束ねる、建設現場の指揮官。',r:[4,4,2,4],x:['clash','night','body']},{i:'cnurse',n:'専門看護師・認定看護師',c:'ひとつの分野を極めた、看護の上級回復職。',r:[4,5,2,4],x:['study','grief','night']},{i:'stylist',n:'トップスタイリスト',c:'予約の取れない指名の的。ハサミ一本で客が並ぶ。',r:[4,5,3,4],x:['body','mask','number']},{i:'douga',n:'動画クリエイター',c:'スマホの中の劇場をつくる、映像の吟遊詩人。',r:[3,4,4,4],x:['alone','slow','refuse']},{i:'mangaka',n:'漫画家 (新人・アシスタント)',c:'ペン一本で世界を生む、物語の錬金術師の卵。',r:[2,4,2,2],x:['alone','slow','refuse']},{i:'animator',n:'アニメーター',c:'1秒24枚の絵に命を吹き込む、動きの職人。',r:[2,4,2,3],x:['alone','same','slow']},{i:'dentou',n:'伝統芸能の修行者',c:'何百年の型を受け継ぐ、文化の見習い戦士。',r:[1,4,1,2],x:['study','slow','unfair']},{i:'tsuyaku',n:'通訳・翻訳者',c:'言葉の壁を溶かす、二つの世界を生きる魔法使い。',r:[3,4,4,4],x:['study','alone','mask']},{i:'chouri',n:'調理師',c:'包丁一本で人を幸せにする、厨房の剣士。',r:[2,4,2,3],x:['body','night','same']},{i:'npo',n:'NPO職員',c:'困りごとの最前線に立つ、社会の回復役。',r:[2,5,3,3],x:['slow','grief','refuse']},{i:'nougyo',n:'農業従事者 (一次産業)',c:'大地と海と共に働く、いちばん根っこの戦士。',r:[2,4,3,3],x:['body','night','slow']},{i:'eizoudir',n:'映像ディレクター',c:'チームを率いて映像作品を仕上げる、現場の演出家。',r:[4,4,2,4],x:['clash','night','fog']},{i:'rensai',n:'連載漫画家',c:'毎週締切と戦いながら、自分の物語を世に出す作家。',r:[3,5,1,3],x:['alone','slow','number']},{i:'sakuga',n:'作画監督・キャラクターデザイナー',c:'作品の絵の品質を一手に背負う、アニメの絵の番人。',r:[3,4,2,4],x:['alone','clash','night']},{i:'dentoupro',n:'真打・名題 (プロの継承者)',c:'看板を背負って舞台に立つ、一人前の芸の担い手。',r:[3,5,2,3],x:['study','slow','crowd']},{i:'bunka',n:'日本文化翻訳家',c:'寿司も能もアニメも、世界の言葉に変換する専門職。',r:[4,5,4,4],x:['study','alone','slow']},{i:'chef',n:'シェフ・料理長',c:'厨房の全皿に責任を持つ、味の指揮官。',r:[3,4,2,4],x:['body','night','clash']},{i:'fundraiser',n:'ファンドレイザー・事業マネージャー',c:'共感をお金に変えて活動を支える、NPOの参謀。',r:[3,5,3,4],x:['refuse','number','slow']},{i:'nouke',n:'農業経営者 (認定農業者)',c:'勘と経験に、データと経営を掛け合わせた新世代の農家。',r:[3,4,3,4],x:['body','slow','number']},{i:'consul',n:'コンサルタント (アナリスト)',c:'ロジックで企業の悩みを解く、雇われ軍師の卵。',r:[4,3,1,5],x:['study','number','night']},{i:'komuin',n:'公務員 (行政職)',c:'街の暮らしを回す、公共の僧侶。安定の代名詞。',r:[3,4,4,2],x:['rule','clash','study']},{i:'shosha',n:'総合商社パーソン',c:'地球儀を回して商いを組む、現代の大商人見習い。',r:[5,4,2,4],x:['study','clash','night']},{i:'kinyu',n:'金融パーソン (銀行・証券)',c:'お金の流れを司る、経済の血管の番人。',r:[4,3,3,3],x:['number','rule','study']},{i:'senryaku',n:'戦略・専門コンサルタント',c:'経営者の隣で戦略を描く、プロの軍師。',r:[5,4,1,5],x:['study','number','night']},{i:'kanryou',n:'キャリア官僚 (国家総合職)',c:'国の制度そのものを設計する、霞が関の魔法使い。',r:[3,4,1,4],x:['unfair','night','rule']},{i:'kaigai',n:'海外事業・トレーダー',c:'時差と為替と文化の波を乗りこなす、世界を股にかける商人。',r:[5,4,2,5],x:['fog','night','clash']},{i:'fundmgr',n:'証券アナリスト・ファンドマネージャー',c:'市場と対話し、他人のお金を増やす数字の狩人。',r:[5,3,2,5],x:['number','study','alone']},{i:'gamecreator',n:'ゲームクリエイター',c:'世界中の「もう1回!」をつくる、遊びの発明家。',r:[4,5,3,4],x:['night','fog','alone']},{i:'keisatsu',n:'警察官',c:'街の平和を守る、いちばん身近な正義の剣士。',r:[4,4,2,3],x:['night','body','unfair']},{i:'shobo',n:'消防士',c:'炎に向かって走る、街の盾。',r:[4,5,2,3],x:['night','body','grief']},{i:'jieitai',n:'自衛官',c:'国と災害現場を守る、本物の戦士。',r:[3,4,2,3],x:['rule','body','unfair']},{i:'kaigo',n:'介護職員',c:'人生の先輩たちの毎日を支える、現代の僧侶。',r:[2,5,3,3],x:['body','grief','clash']},{i:'ongakuka',n:'音楽家 (ミュージシャン・演奏家)',c:'音で人の心を動かす、現代の吟遊詩人。',r:[1,5,3,2],x:['alone','slow','refuse']},{i:'geijutsuka',n:'芸術家 (画家・彫刻家)',c:'世界の見え方を作品にする、孤高の創り手。',r:[1,5,4,2],x:['alone','slow','refuse']},{i:'panya',n:'パン職人・パティシエ',c:'夜明け前の厨房から、街いちばんの香りをつくる職人。',r:[2,4,2,3],x:['night','body','same']},{i:'athlete',n:'アスリート (育成年代・実業団)',c:'体ひとつで頂点を目指す、鍛錬の求道者。',r:[2,5,2,2],x:['body','slow','number']},{i:'keiji',n:'刑事・専門捜査官',c:'事件の謎を追い詰める、現実の名探偵。',r:[4,4,1,3],x:['night','grief','clash']},{i:'kyujo',n:'レスキュー隊員・救急救命士',c:'最後の砦のさらに前へ出る、救助のプロフェッショナル。',r:[4,5,1,4],x:['night','body','grief']},{i:'jieikanbu',n:'幹部自衛官',c:'隊を率いる立場へ。国防の若き指揮官候補。',r:[4,4,1,4],x:['rule','unfair','clash']},{i:'kaigofukushi',n:'介護福祉士・ケアマネジャー',c:'介護のプロ資格を持つ、現場の頼れる背中。',r:[3,5,3,4],x:['body','grief','clash']},{i:'puroartist',n:'プロアーティスト (音楽・美術)',c:'好きなことが職業になった、選ばれし表現者。',r:[3,5,3,3],x:['alone','refuse','number']},{i:'jyui',n:'獣医師',c:'ことばを話せない患者を診る、動物たちの医師。',r:[4,5,2,4],x:['study','grief','night']},{i:'insyokuowner',n:'飲食店オーナー (パン屋・ケーキ屋・食堂)',c:'自分の店の香りで街の朝を起こす、小さな城の主。',r:[3,5,1,4],x:['body','night','number']},{i:'proathlete',n:'プロアスリート',c:'体ひとつで夢を売る、現代の剣闘士。',r:[4,5,2,3],x:['body','number','slow']},{i:'shukyoka',n:'宗教家 (僧侶・神職・牧師)',c:'僧侶系に、本物の僧侶が来た。心と節目に寄り添う道。',r:[2,5,2,2],x:['slow','grief','crowd']},{i:'jushoku',n:'住職・宮司・主任牧師',c:'ひとつのお堂と、その土地の人生の節目を預かる。',r:[3,5,2,3],x:['slow','grief','crowd']},{i:'vc',n:'ベンチャーキャピタリスト',c:'まだ小さな挑戦に、最初の資金を張る目利き。',r:[4,4,3,5],x:['fog','number','refuse']}];
-const INDP={nourin:{n:'農林水産業',x:['body','night','slow']},kensetsu:{n:'建設業',x:['body','rule','night']},seizo:{n:'製造業',x:['same','rule','body']},energy:{n:'電気・ガス・水道',x:['rule','night','same']},it:{n:'情報通信業',x:['study','fog','alone']},senmon:{n:'学術研究・専門サービス',x:['study','slow','number']},iryofukushi:{n:'医療・福祉',x:['grief','night','body']},kyoiku:{n:'教育・学習支援',x:['crowd','slow','mask']},komu:{n:'公務',x:['rule','clash','study']},service:{n:'その他サービス',x:['body','mask','crowd']},oroshi:{n:'卸売・小売業',x:['number','crowd','mask']},kinyu:{n:'金融・保険業',x:['number','rule','study']},fudosan:{n:'不動産・物品賃貸',x:['number','refuse','clash']},unyu:{n:'運輸・郵便業',x:['night','body','same']},shukuhaku:{n:'宿泊・飲食サービス',x:['body','night','mask']},seikatsu:{n:'生活関連・娯楽',x:['body','night','crowd']}};
+const INDP={nourin:{n:'農林水産業',x:['body','night','slow'],r:'大地と海の国',c:'いのちの糧を育てる、すべての大陸の土台。'},kensetsu:{n:'建設業',x:['body','rule','night'],r:'城塞王国',c:'国土という巨大建築物を、建てて直し続ける国。'},seizo:{n:'製造業',x:['same','rule','body'],r:'からくり大陸',c:'日本最大級の人口を抱える、ものづくりの大陸。'},energy:{n:'電気・ガス・水道',x:['rule','night','same'],r:'灯の国',c:'すべての大陸に灯りと水を送る、小さくて要の国。'},it:{n:'情報通信業',x:['study','fog','alone'],r:'魔法とものがたりの大陸',c:'呪文（コード）と物語で、社会の仕組みを書き換え続ける大陸。'},senmon:{n:'学術研究・専門サービス',x:['study','slow','number'],r:'賢者の塔',c:'知恵そのものを商品にする、専門家たちの塔。'},iryofukushi:{n:'医療・福祉',x:['grief','night','body'],r:'聖堂国家',c:'いのちと老いに寄り添う、第2の人口を抱える国。'},kyoiku:{n:'教育・学習支援',x:['crowd','slow','mask'],r:'学び舎の国',c:'次の世代と、学び直す大人を育てる国。'},komu:{n:'公務',x:['rule','clash','study'],r:'王宮と関所の国',c:'ルールと安全という、見えない土台を守る国。'},service:{n:'その他サービス',x:['body','mask','crowd'],r:'よろず請負の国',c:'警備・整備・人材・NPOまで、社会の隙間を埋める国。'},oroshi:{n:'卸売・小売業',x:['number','crowd','mask'],r:'市場（いちば）大陸',c:'製造の大陸と並ぶ人口を抱える、商いの本場。'},kinyu:{n:'金融・保険業',x:['number','rule','study'],r:'金貨の都',c:'お金という血液を、社会に巡らせる都。'},fudosan:{n:'不動産・物品賃貸',x:['number','refuse','clash'],r:'土地と館の国',c:'土地と建物という、動かない資産を動かす国。'},unyu:{n:'運輸・郵便業',x:['night','body','same'],r:'街道と港の国',c:'すべての大陸をつなぐ、物流という大動脈。'},shukuhaku:{n:'宿泊・飲食サービス',x:['body','night','mask'],r:'宿場と食堂の国',c:'旅人と腹ぺこの冒険者を迎える、もてなしの国。'},seikatsu:{n:'生活関連・娯楽',x:['body','night','crowd'],r:'湯と祭りの国',c:'美容・温泉・スポーツ・推し活——暮らしを彩る国。'}};
 const IND_BY_REWARD={gold:['kinyu','fudosan','senmon','it','oroshi'],heart:['iryofukushi','kyoiku','nourin','service','komu'],time:[],exp:['it','senmon','kinyu','seizo','oroshi'],balance:['service','oroshi','seikatsu','unyu','kensetsu']};
 
 /* 注: jobs / inds は未使用（推薦は JOBP + pickJobs / INDP + pickInds が正）。
@@ -1168,7 +1168,13 @@ recTip.className = 'rec-tip';
 recTip.setAttribute('aria-hidden','true');
 document.body.appendChild(recTip);
 const JOBP_MAP = {}; JOBP.forEach(j=>{ JOBP_MAP[j.i] = j; });
-function tipHTML(j){
+function whyLine(tags){
+  const hit = tags.filter(t=>okTags.indexOf(t)>=0);
+  if(hit.length) return '<div class="rt-why">✓ あなたが「わりと平気」と答えた '+hit.map(t=>TAISEI_MAP[t].n).join('・')+' に当てはまります</div>';
+  if(okTags.length) return '<div class="rt-why" style="color:var(--ink-muted)">あなたが避けたいカードには当てはまりませんでした</div>';
+  return '';
+}
+function jobTipHTML(j){
   const rw = [['💰',j.r[0]],['❤️',j.r[1]],['⏳',j.r[2]],['⭐',j.r[3]]]
     .map(p=>'<span>'+p[0]+' '+'★'.repeat(p[1])+'<span style="color:var(--star-empty)">'+'☆'.repeat(5-p[1])+'</span></span>').join('');
   let h = '<div class="rt-fig"><img src="./images/tenshoku/'+j.i+'.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display=\'none\'"></div>';
@@ -1176,34 +1182,51 @@ function tipHTML(j){
   h += '<div class="rt-rw">'+rw+'</div>';
   h += '<div class="rt-sec">この仕事につきやすい負荷</div>'+
        '<div>'+j.x.map(t=>TAISEI_MAP[t].i+TAISEI_MAP[t].n).join('・')+'</div>';
-  const hit = j.x.filter(t=>okTags.indexOf(t)>=0);
-  if(hit.length) h += '<div class="rt-why">✓ あなたが「わりと平気」と答えた '+hit.map(t=>TAISEI_MAP[t].n).join('・')+' に当てはまります</div>';
-  else if(okTags.length) h += '<div class="rt-why" style="color:var(--ink-muted)">あなたが避けたいカードには当てはまりませんでした</div>';
+  h += whyLine(j.x);
   h += '<div class="rt-hint">クリックすると図鑑のカードが開きます（戻ってこられます）</div>';
   return h;
 }
+function indTipHTML(g){
+  let h = '<div class="rt-fig"><img src="./images/gyokai/'+g.id+'.webp" alt="" loading="lazy" decoding="async" onerror="this.style.display=\'none\'"></div>';
+  h += '<div class="rt-name">'+g.n+(g.r?' <span style="color:var(--gold);font-size:11px;font-weight:400">'+g.r+'</span>':'')+'</div>';
+  if(g.c) h += '<div class="rt-catch">「'+g.c+'」</div>';
+  h += '<div class="rt-sec">この大陸につきやすい負荷</div>'+
+       '<div>'+g.x.map(t=>TAISEI_MAP[t].i+TAISEI_MAP[t].n).join('・')+'</div>';
+  h += whyLine(g.x);
+  h += '<div class="rt-hint">クリックすると業界図鑑が開きます（戻ってこられます）</div>';
+  return h;
+}
+/* ホバーカードは画面内に必ず収める（上下どちらにも入らなければ縦位置をクランプ） */
 function placeTip(el){
   const r = el.getBoundingClientRect();
   recTip.style.display = 'block';
-  const tw = recTip.offsetWidth, th = recTip.offsetHeight;
+  const tw = recTip.offsetWidth, th = recTip.offsetHeight, pad = 10;
   let left = r.left + r.width/2 - tw/2;
   left = Math.max(8, Math.min(left, window.innerWidth - tw - 8));
-  let top = r.top - th - 10;
-  if(top < 8) top = r.bottom + 10;
+  let top = r.top - th - pad;              /* まず上に置く */
+  if(top < pad) top = r.bottom + pad;      /* 入らなければ下に */
+  top = Math.max(pad, Math.min(top, window.innerHeight - th - pad)); /* はみ出しをクランプ */
   recTip.style.left = left+'px';
   recTip.style.top = top+'px';
 }
 if(window.matchMedia && window.matchMedia('(hover:hover)').matches){
   resultPanel.addEventListener('mouseover', e=>{
-    const a = e.target.closest('a[data-zukan="tenshoku"]');
+    const a = e.target.closest('a[data-zukan]');
     if(!a) return;
-    const j = JOBP_MAP[(a.dataset.target||'').replace('job-','')];
-    if(!j) return;
-    recTip.innerHTML = tipHTML(j);
+    if(a.dataset.zukan==='tenshoku'){
+      const j = JOBP_MAP[(a.dataset.target||'').replace('job-','')];
+      if(!j) return;
+      recTip.innerHTML = jobTipHTML(j);
+    }else{
+      const id = (a.dataset.target||'').replace('ind-','');
+      const g = INDP[id];
+      if(!g) return;
+      recTip.innerHTML = indTipHTML(Object.assign({id:id}, g));
+    }
     placeTip(a);
   });
   resultPanel.addEventListener('mouseout', e=>{
-    if(e.target.closest('a[data-zukan="tenshoku"]')) recTip.style.display = 'none';
+    if(e.target.closest('a[data-zukan]')) recTip.style.display = 'none';
   });
   window.addEventListener('scroll', ()=>{ recTip.style.display = 'none'; }, {passive:true});
 }
@@ -1296,17 +1319,17 @@ document.body.appendChild(themeBtn);
 </script>
 <!-- SHELF START -->
 <style>
-.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-right: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
+.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #1f1b45; color: #f2d489; border: 1px solid rgba(242,212,137,0.55); border-right: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
 .shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
 .shelf.open .shelf-backdrop { display: block; }
-.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #fffdf8; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
+.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #211c48; border: 2px solid rgba(242,212,137,0.65); border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
 .shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
 .shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
-.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
+.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #f2d489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid rgba(242,212,137,0.65); margin-bottom: 0.3rem; }
 .shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
-.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #eae4d3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
-.shelf-list a:hover { color: #3C3489; }
-.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f1eefa; border-radius: 5px; }
+.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #e8e6f2; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid rgba(255,255,255,0.14); line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
+.shelf-list a:hover { color: #f2d489; }
+.shelf-list a.active { color: #f2d489; font-weight: 700; background: rgba(242,212,137,0.13); border-radius: 5px; }
 @media (hover: hover) and (pointer: fine) {
   .shelf:hover .shelf-panel { transform: translateY(-50%) translateX(0); }
   .shelf-close { display: none; }
@@ -1332,7 +1355,7 @@ document.body.appendChild(themeBtn);
       <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
       <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
       <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
-      <a href="./genzaichi-shindan.html" title="8つの質問で、いま自分が求めているほうしゅうを知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
+      <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口" class="active">はたらく現在地診断</a>
       <span class="shelf-heading">社会と世界の図鑑</span>
       <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
       <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
