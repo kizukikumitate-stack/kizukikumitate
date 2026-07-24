@@ -84,7 +84,9 @@ try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.
    カラフルに着色（猫=オレンジ／スライム=水色）＋暗い輪郭の影で見えやすくする。
    animationはfilterを触らないので安全。旗は濃いアンバーで縁を立てる */
 html.light .adventure-walker{filter:brightness(0) invert(45%) sepia(95%) saturate(1900%) hue-rotate(-14deg) drop-shadow(0 0 .6px rgba(60,25,0,1)) drop-shadow(0 0 1.2px rgba(60,25,0,.9));}
-html.light .adventure-walker.slime{filter:brightness(0) invert(62%) sepia(30%) saturate(900%) hue-rotate(155deg) drop-shadow(0 0 .6px rgba(10,45,70,1)) drop-shadow(0 0 1.2px rgba(10,45,70,.9));}
+/* スライムは目・口が「濃い色で描かれている」ので brightness(0) だと目が体色に潰れる。
+   色相を回す方式にして濃い目を残しつつ、体を鮮やかな水色にする */
+html.light .adventure-walker.slime{filter:brightness(.72) saturate(3.2) hue-rotate(165deg) contrast(1.15) drop-shadow(0 1px 1.5px rgba(15,55,74,.5));}
 html.light .adventure-road .flag{filter:brightness(.7) saturate(1.5) drop-shadow(0 1px 1.5px rgba(74,58,20,.5));}
 
 /* ライトモード時、夜色固定の回遊バンドを紙色に読み替える（本体CSS側＝update-kaiyuで消えない） */
@@ -464,8 +466,8 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 a.link-chip{text-decoration:none;display:inline-block;}
 header .pair-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:20px;}
 header .pair-link{display:inline-flex;align-items:center;gap:7px;font-size:15px;font-weight:700;text-decoration:none;border-radius:999px;padding:13px 26px;letter-spacing:.04em;transition:transform .15s,box-shadow .15s;}
-header .pair-link.primary{background:var(--gold);color:#1a1626;border:2px solid var(--gold);box-shadow:0 4px 18px rgba(255,215,106,.30);}
-header .pair-link.primary:hover{transform:translateY(-2px);box-shadow:0 9px 26px rgba(255,215,106,.42);}
+header .pair-link.primary{background:linear-gradient(100deg,#ffd76a 0%,#ff9d5c 42%,#ff7eb3 74%,#8fd0ff 100%);color:#2a1420;border:2px solid transparent;box-shadow:0 4px 20px rgba(255,140,120,.36);}
+header .pair-link.primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,140,120,.5);filter:saturate(1.12);}
 header .pair-link.secondary{background:var(--surface);color:var(--gold);border:2px solid var(--gold);}
 header .pair-link.secondary:hover{transform:translateY(-2px);background:var(--surface-2);}
 @media (max-width:560px){header .pair-link{font-size:13.5px;padding:12px 18px;width:100%;justify-content:center;}}
