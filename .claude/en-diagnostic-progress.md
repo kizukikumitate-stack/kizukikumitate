@@ -7,7 +7,10 @@
 対象ファイル: genzaichi-shindan.html（同一ページのバイリンガル化・別ファイルは作らない）
 方式: 妖怪診断と同じ ?lang=en ＋ localStorage ＋ 右下トグル（第3方式を作らない）
 
-- [ ] chunk1: i18n土台（LANG判定＝?lang→localStorage→'ja'、切替トグル、localStorage保存、hreflang en、英語のtitle/description/og/twitter を alternate で用意する下地）。この段階では表示文字列はまだ日本語のままでよい。トグルで LANG が切り替わり保存される所まで
+確定訳語（chunk1のレビューで確定・以降のチャンクでも必ずこの語を使う）:
+生涯キャリア図鑑 = Career Atlas / 業界図鑑 = Industry Atlas / 現在地診断 = Where Am I, at Work?
+
+- [x] chunk1: i18n土台（LANG判定＝?lang→localStorage→'ja'、切替トグル、localStorage保存、hreflang en、英語のtitle/description/og/twitter を alternate で用意する下地）。この段階では表示文字列はまだ日本語のままでよい。トグルで LANG が切り替わり保存される所まで
 - [ ] chunk2: 静的UI（導入文・各見出し sec-label・ボタン・冒険の書のラベル・注記 caveat）の英日辞書化と切替反映
 - [ ] chunk3: 診断の質問（QUESTIONS 8問の text/lo/hi）と耐性カード（TAISEI 15枚の name/desc）の英日化
 - [ ] chunk4: 結果まわり（TYPES 5タイプの name/desc/jobsNote/indsNote、REWARDS ラベル、差分の言葉 GAP_WORD、tagNames、ホバーtip、toast）の英日化
