@@ -80,6 +80,11 @@ try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.
   --charcoal:#1e1e1e;
 }
 /* ---- ライトモード（白背景・紙の図鑑風） ---- */
+/* ライトモード時、金色の猫・スライム・旗が紙色背景に沈むので、
+   金を濃いアンバーに落とし＋暗い輪郭の影をつけて見えやすくする（animationはfilterを触らないので安全） */
+html.light .adventure-walker{filter:brightness(.66) saturate(1.5) drop-shadow(0 1px 1.5px rgba(74,58,20,.55));}
+html.light .adventure-road .flag{filter:brightness(.7) saturate(1.5) drop-shadow(0 1px 1.5px rgba(74,58,20,.5));}
+
 /* ライトモード時、夜色固定の回遊バンドを紙色に読み替える（本体CSS側＝update-kaiyuで消えない） */
 html.light .kaiyu[data-kaiyu-theme=night]{background:#f0ebdd;}
 html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow,
