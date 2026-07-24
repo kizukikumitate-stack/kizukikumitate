@@ -1145,6 +1145,21 @@
       ]
     },
     {
+      "id": "genzaichi-shindan",
+      "path": "genzaichi-shindan.html",
+      "title": "はたらく現在地診断",
+      "tag": "世界の知恵",
+      "desc": "収入・やりがい・時間の自由・市場価値。8つの質問で、いま自分がいちばん求めているほうしゅうを知る。生涯キャリア図鑑と業界図鑑への入口。",
+      "theme": "night",
+      "category": "chie",
+      "added": "2026-07-24",
+      "band": true,
+      "next": [
+        "tenshoku-no-sho",
+        "gyokai-zukan"
+      ]
+    },
+    {
       "id": "stakeholder-diorama",
       "path": "stakeholder-diorama.html",
       "title": "ステークホルダー・ジオラマ",
@@ -1154,6 +1169,7 @@
       "category": "mirai",
       "added": "2026-07-24",
       "band": true,
+      "auto": false,
       "next": [
         "goikeisei-zukan",
         "dialogue-program"
