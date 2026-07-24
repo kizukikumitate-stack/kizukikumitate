@@ -361,6 +361,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+        <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール">ステークホルダー・ジオラマ</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">社会のリスク</span>
         <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
         <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
@@ -486,6 +487,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+      <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール">ステークホルダー・ジオラマ</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
       <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
       <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
@@ -633,36 +635,52 @@ const QUESTIONS = [
 
 const TYPES = {
   gold: {
-    icon:'💰', name:'金貨の渇き',
-    desc:'「もっと収入がほしい」——その気持ちは、ここまで頑張ってきた証です。収入は暮らしの土台であり、自分や大切な人を守る力にもなります。渇きを恥じる必要はありません。収入が伸びやすい職業や業界を知ることから、次の一歩を描いてみませんか。',
+    icon:'💰', name:'金貨を求める旅人',
+    desc:'「もっと収入がほしい」——その気持ちは、ここまで頑張ってきた証です。収入は暮らしの土台であり、自分や大切な人を守る力にもなります。求めることを恥じる必要はありません。収入が伸びやすい職業や大陸を知ることから、次の一歩を描いてみませんか。',
     jobs:[{id:'shosha',name:'総合商社パーソン'},{id:'lawyer',name:'弁護士'},{id:'doctor',name:'医師'}],
     inds:[{id:'kinyu',name:'金融・保険業'},{id:'fudosan',name:'不動産・物品賃貸'}]
   },
   heart: {
-    icon:'❤️', name:'やりがいの渇き',
-    desc:'「何のために働いているんだろう」——そう感じるのは、仕事に本気で向き合っているからこそ。やりがいは、誰かの役に立てた実感や、自分の成長を感じる瞬間から生まれます。渇きに気づけたことが、意味を感じられる仕事へ近づく最初の一歩です。',
+    icon:'❤️', name:'意味を求める旅人',
+    desc:'「何のために働いているんだろう」——そう感じるのは、仕事に本気で向き合っているからこそ。やりがいは、誰かの役に立てた実感や、自分の成長を感じる瞬間から生まれます。そこに気づけたことが、意味を感じられる仕事へ近づく最初の一歩です。',
     jobs:[{id:'teacher',name:'教育・講師'},{id:'npo',name:'NPO職員'},{id:'kaigo',name:'介護職員'}],
     inds:[{id:'iryofukushi',name:'医療・福祉'},{id:'kyoiku',name:'教育・学習支援'}]
   },
   time: {
-    icon:'⏳', name:'時間の渇き',
+    icon:'⏳', name:'時間を求める旅人',
     desc:'「自分の時間がほしい」——それはわがままではなく、健やかに働き続けるための大切な信号です。時間の自由は、家族や自分を回復させる時間にもつながります。時間をコントロールしやすい働き方や職業を、まずは探ってみましょう。',
-    jobs:[{id:'writer',name:'ライター・編集'},{id:'admin',name:'事務・アシスタント'},{id:'designer',name:'デザイナー'}],
-    inds:[{id:'komu',name:'公務'},{id:'energy',name:'電気・ガス・水道'}]
+    jobs:[{id:'writer',name:'ライター・編集'},{id:'designer',name:'デザイナー'},{id:'uxdesigner',name:'UX/プロダクトデザイナー'}],
+    jobsNote:'⏳が高い職業は、💰収入や⭐市場価値とのトレードオフになることもあります。カードで4つの報酬を見比べてみてください。',
+    inds:[],
+    indsNote:'時間の自由は、業界よりも職種・働き方・雇用形態で決まる部分が大きいため、この渇きでは大陸をおすすめしていません。気になる大陸があれば、業界図鑑の「おきて」で働き方のクセを確かめてみてください。'
   },
   exp: {
-    icon:'⭐', name:'腕試しの渇き',
-    desc:'「このままで成長できるだろうか」——そう感じるのは、まだ伸びたいと思っている証拠です。市場価値は、どこでも通用するスキルや経験の積み重ねから生まれます。渇きは停滞のサインではなく、次のステージへ進む準備が整ったサインです。',
+    icon:'⭐', name:'腕試しを求める旅人',
+    desc:'「このままで成長できるだろうか」——そう感じるのは、まだ伸びたいと思っている証拠です。市場価値は、どこでも通用するスキルや経験の積み重ねから生まれます。それは停滞のサインではなく、次のステージへ進む準備が整ったサインです。',
     jobs:[{id:'engineer',name:'エンジニア'},{id:'consul',name:'コンサルタント (アナリスト)'},{id:'pm',name:'プロダクトマネージャー'}],
     inds:[{id:'it',name:'情報通信業'},{id:'senmon',name:'学術研究・専門サービス'}]
   },
   balance: {
     icon:'⚖️', name:'バランスの旅人',
-    desc:'収入・やりがい・時間・市場価値。どれか一つに偏らず、ここまでバランスよく歩んでこられたのですね。それは簡単なことではありません。次に伸ばしたい報酬を、自分のペースで選びながら、これからも旅を続けていきましょう。',
+    desc:'収入・やりがい・時間・市場価値。どれか一つに大きく偏ることなく、ここまで歩んでこられたのですね。それは簡単なことではありません。次に伸ばしたい報酬を、自分のペースで選びながら、これからも旅を続けていきましょう。',
     jobs:[{id:'planner',name:'企画'},{id:'csuccess',name:'カスタマーサクセス'},{id:'contentmarketer',name:'コンテンツマーケター'}],
     inds:[{id:'service',name:'その他サービス'},{id:'oroshi',name:'卸売・小売業'}]
+  },
+  duo: {
+    icon:'🧭', name:'ふたつを求める旅人',
+    desc:'いま、強く求めているものが2つあります。どちらも譲れないからこそ、選ぶのが難しいのだと思います。まずは2つのうち「今期はこちらを厚くする」と決めてみると、道が選びやすくなります。両方を同時に満たす道もありますが、多くは順番に手に入れていくものです。',
+    jobs:[], inds:[]
   }
 };
+/* ふたつ型のときに、該当2報酬の推薦をその場で合成する */
+function duoContent(keys){
+  const seen=new Set(), jobs=[], inds=[];
+  for(const k of keys){
+    for(const j of (TYPES[k].jobs||[]))  if(!seen.has(j.id)){ seen.add(j.id); jobs.push(j); }
+    for(const g of (TYPES[k].inds||[]))  if(!seen.has(g.id)){ seen.add(g.id); inds.push(g); }
+  }
+  return {jobs:jobs.slice(0,4), inds:inds.slice(0,3)};
+}
 
 let answers = new Array(QUESTIONS.length).fill(0);
 let qi = 0;
@@ -722,8 +740,21 @@ function computeResult(){
   const vals = Object.values(gaps);
   const maxGap = Math.max.apply(null, vals);
   const topKeys = Object.keys(gaps).filter(k=>gaps[k]===maxGap);
-  const type = (maxGap<=1 || topKeys.length>=2) ? 'balance' : topKeys[0];
-  return {type, gaps, satisfaction, importance};
+  /* 判定:
+     - 全体の渇きが小さい（maxGap<=1）→ バランス型
+     - 同点でも渇きが2以上なら、その人は確かに渇いている。
+       3つ以上の同点はバランス型、2つならその両方を示す「ふたつ型」にする
+       （強い渇きを抱えた人に「バランスよく歩めています」と返さないため） */
+  let type, duoKeys = null;
+  if(maxGap <= 1 || topKeys.length >= 3){
+    type = 'balance';
+  }else if(topKeys.length === 2){
+    type = 'duo';
+    duoKeys = topKeys.slice();
+  }else{
+    type = topKeys[0];
+  }
+  return {type, duoKeys, gaps, satisfaction, importance};
 }
 
 function currentCode(){
@@ -732,23 +763,40 @@ function currentCode(){
   try{ return localStorage.getItem('genzaichiCode') || ''; }catch(e){ return ''; }
 }
 
-function showResult(){
-  const {type} = computeResult();
+function showResult(opts){
+  const shared = !!(opts && opts.shared);
+  const {type, duoKeys} = computeResult();
   const t = TYPES[type];
+  /* ふたつ型は、該当2報酬の推薦をその場で合成して見せる */
+  const content = (type==='duo' && duoKeys) ? duoContent(duoKeys) : {jobs:t.jobs||[], inds:t.inds||[]};
+  const nameSuffix = (type==='duo' && duoKeys)
+    ? '（' + duoKeys.map(k=>TYPES[k].icon+REWARD_LABEL[k]).join(' と ') + '）' : '';
   document.getElementById('resIcon').textContent = t.icon;
-  document.getElementById('resName').textContent = t.icon+' '+t.name;
+  document.getElementById('resName').textContent = t.icon+' '+t.name+nameSuffix;
   document.getElementById('resDesc').textContent = t.desc;
   const jobsEl = document.getElementById('resJobs');
-  jobsEl.innerHTML = t.jobs.map(j=>'<a class="link-chip" href="./tenshoku-no-sho.html#job-'+j.id+'" data-zukan="tenshoku" data-target="job-'+j.id+'">▶ '+j.name+'</a>').join('');
+  jobsEl.innerHTML = content.jobs.map(j=>'<a class="link-chip" href="./tenshoku-no-sho.html#job-'+j.id+'" data-zukan="tenshoku" data-target="job-'+j.id+'">▶ '+j.name+'</a>').join('');
   const indsEl = document.getElementById('resInds');
-  indsEl.innerHTML = t.inds.map(g=>'<a class="link-chip" href="./gyokai-zukan.html#ind-'+g.id+'" data-zukan="gyokai" data-target="ind-'+g.id+'">🗺 '+g.name+'</a>').join('');
+  indsEl.innerHTML = content.inds.map(g=>'<a class="link-chip" href="./gyokai-zukan.html#ind-'+g.id+'" data-zukan="gyokai" data-target="ind-'+g.id+'">🗺 '+g.name+'</a>').join('');
+  /* タイプ固有の注記（推薦の前提を伝える） */
+  setNote('resJobsNote', t.jobsNote);
+  setNote('resIndsNote', t.indsNote);
+  document.getElementById('resIndsLabel').hidden = content.inds.length===0 && !t.indsNote;
   const code = currentCode();
   const codeBadge = document.getElementById('codeBadge');
   if(code){ codeBadge.textContent = '案内コード: '+code; codeBadge.hidden = false; } else { codeBadge.hidden = true; }
   quizPanel.hidden = true;
   introPanel.hidden = true;
   resultPanel.hidden = false;
-  if(typeof gtag==='function') gtag('event','shindan_complete',{type:type});
+  /* 結果カードへフォーカスを移し、支援技術にも到達を伝える */
+  const rc = document.getElementById('resultPanel');
+  if(rc && rc.focus){ try{ rc.focus({preventScroll:true}); }catch(e){} }
+  if(typeof gtag==='function') gtag('event','shindan_complete',{type:type, source: shared?'shared':'self'});
+}
+function setNote(id, text){
+  const el = document.getElementById(id);
+  if(!el) return;
+  if(text){ el.textContent = text; el.hidden = false; } else { el.textContent=''; el.hidden = true; }
 }
 
 resultPanel.addEventListener('click', e=>{

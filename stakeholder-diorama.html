@@ -141,6 +141,27 @@
   .cell-line b.m { color: var(--loss); }
   .cell-empty { color: #B7C2BD; font-size: 12px; }
 
+  /* ===== 右下の更新履歴（バージョンログ） ===== */
+  .ver-fab {
+    position: fixed; right: 12px; bottom: 12px; z-index: 90;
+    border: 1.5px solid var(--border); background: #FFF; color: var(--sub);
+    border-radius: 99px; padding: 5px 12px; font-size: 11.5px; font-weight: 700;
+    font-family: inherit; cursor: pointer; box-shadow: 0 2px 10px rgba(42,52,57,0.10);
+  }
+  .ver-fab:hover { color: var(--indigo); border-color: var(--indigo); }
+  .ver-log {
+    display: none; position: fixed; right: 12px; bottom: 48px; z-index: 90;
+    width: min(340px, calc(100vw - 24px)); max-height: 55vh; overflow-y: auto;
+    background: #FFF; border: 1.5px solid var(--border); border-radius: 14px;
+    padding: 14px 16px; box-shadow: 0 12px 32px rgba(42,52,57,0.16); font-size: 12.5px;
+  }
+  .ver-log.open { display: block; }
+  .ver-log h2 { margin: 0 0 8px; font-size: 13px; }
+  .ver-log ul { margin: 0; padding-left: 1.1em; }
+  .ver-log li { margin-bottom: 7px; line-height: 1.7; }
+  .ver-log .v { color: var(--indigo); font-weight: 800; }
+  .ver-log .d { color: var(--sub); font-size: 11px; margin-left: 4px; }
+
   /* ===== 共通グローバルナビ・フッター（サイト共通パーツ） ===== */
   body > nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -264,7 +285,6 @@
         <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
         <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
         <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
-        <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール" class="active">ステークホルダー・ジオラマ</a>
       </div>
     </li>
     <li class="nav-dropdown">
@@ -320,6 +340,7 @@
       <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+        <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール" class="active">ステークホルダー・ジオラマ</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;">社会のリスク</span>
         <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
         <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
@@ -390,7 +411,6 @@
       <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
       <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
       <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
-      <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール" class="active">ステークホルダー・ジオラマ</a>
     </div>
   </div>
   <div class="mobile-acc">
@@ -446,6 +466,7 @@
     <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
+      <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール" class="active">ステークホルダー・ジオラマ</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
       <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
       <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
@@ -1026,6 +1047,32 @@ function init() {
 init();
 </script>
 
+<button class="ver-fab" id="ver-btn" aria-expanded="false" aria-controls="ver-log">ver 1.1</button>
+<div class="ver-log" id="ver-log" role="dialog" aria-label="更新履歴">
+  <h2>このツールの更新履歴</h2>
+  <ul>
+    <li><span class="v">ver 1.1</span><span class="d">2026-07-24</span><br>未来のリスク計算機シリーズに参加。右下に更新履歴を追加</li>
+    <li><span class="v">ver 1.0</span><span class="d">2026-07-24</span><br>公開。関係者 × 観点（経済・環境・社会）× 時間軸（短期〜長期）で「誰が得して、誰が損するか」を見える化するジオラマ対話ツール</li>
+  </ul>
+</div>
+<script>
+(function(){
+  const btn = document.getElementById("ver-btn");
+  const log = document.getElementById("ver-log");
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const open = log.classList.toggle("open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  document.addEventListener("click", (e) => {
+    if (log.classList.contains("open") && !log.contains(e.target)) {
+      log.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
+</script>
+
 <!-- KAIYU START -->
 <aside class="kaiyu" data-kaiyu-theme="white" aria-label="次のおすすめページ">
 <style>
@@ -1126,20 +1173,26 @@ init();
 }
 </style>
 <div class="shelf" id="siteShelf">
-  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 手法・ワークショップの棚</button>
+  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 計算機の棚</button>
   <div class="shelf-backdrop" id="shelfBackdrop"></div>
-  <aside class="shelf-panel" aria-label="手法・ワークショップの棚">
+  <aside class="shelf-panel" aria-label="計算機の棚">
     <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
-    <div class="shelf-title">📚 手法・ワークショップの棚</div>
+    <div class="shelf-title">📚 計算機の棚</div>
     <div class="shelf-list" role="navigation">
-      <a href="./democracy-fitness.html" title="対話・合意形成の10筋を鍛える体験型プログラム。体験会情報も">Democracy Fitness</a>
-      <a href="./lsp.html" title="レゴブロックで思考を可視化するワークショップ手法">LSP</a>
-      <a href="./topaasia.html" title="フィンランド発・カード型対話メソッドの日本向けページ">対話用カード</a>
-      <a href="./yokai/" title="会社のすれ違いを生む10の妖怪を3分で診断">会社の妖怪診断</a>
-      <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
-      <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
-      <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
+      <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
       <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール" class="active">ステークホルダー・ジオラマ</a>
+      <span class="shelf-heading">社会のリスク</span>
+      <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
+      <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
+      <span class="shelf-heading">組織のリスク</span>
+      <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
+      <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
+      <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
+      <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
+      <span class="shelf-heading">個人のリスク</span>
+      <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
+      <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
+      <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算">対話回避コスト計算機</a>
     </div>
   </aside>
 </div>
@@ -1150,12 +1203,12 @@ init();
   function setOpen(open) {
     shelf.classList.toggle('open', open);
     tab.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '手法・ワークショップの棚', page: location.pathname });
+    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '計算機の棚', page: location.pathname });
   }
   tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
   var hoverSent = false;
   shelf.addEventListener('mouseenter', function() {
-    if (!hoverSent && typeof gtag === 'function') { hoverSent = true; gtag('event', 'shelf_open', { shelf: '手法・ワークショップの棚', page: location.pathname, method: 'hover' }); }
+    if (!hoverSent && typeof gtag === 'function') { hoverSent = true; gtag('event', 'shelf_open', { shelf: '計算機の棚', page: location.pathname, method: 'hover' }); }
   });
   document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
   document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });

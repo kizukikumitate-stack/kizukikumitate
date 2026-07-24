@@ -118,11 +118,6 @@
             "label": "PTAのこれから",
             "href": "pta-korekara.html",
             "desc": "PTAのデータ・5つの論点・無料対話キットの案内所"
-          },
-          {
-            "label": "ステークホルダー・ジオラマ",
-            "href": "stakeholder-diorama.html",
-            "desc": "ひとつのテーマを関係者みんなの視点から眺める対話ツール"
           }
         ]
       },
@@ -326,6 +321,11 @@
             "label": "このシリーズについて",
             "href": "risk-calculators.html",
             "desc": "計算機シリーズ共通の前提・出典・免責のまとめ"
+          },
+          {
+            "label": "ステークホルダー・ジオラマ",
+            "href": "stakeholder-diorama.html",
+            "desc": "ひとつのテーマを関係者みんなの視点から眺める対話ツール"
           },
           {
             "heading": "社会のリスク"
