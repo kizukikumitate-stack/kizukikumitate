@@ -8,3 +8,5 @@ _img-backup/
 .claude/screenshots/
 .claude/scripts/node_modules/
 .claude/scripts/package-lock.json
+.DS_Store
+__pycache__/
