@@ -118,6 +118,11 @@
             "label": "PTAのこれから",
             "href": "pta-korekara.html",
             "desc": "PTAのデータ・5つの論点・無料対話キットの案内所"
+          },
+          {
+            "label": "こころスコープ",
+            "href": "kokoro-scope.html",
+            "desc": "起こったことと気持ちを、色とかたちのある球にして多面的に眺めるセルフケアの装置"
           }
         ]
       },
@@ -863,6 +868,10 @@
     {
       "path": "oem/1on1-zukan.html",
       "reason": "1on1図鑑のOEM（ホワイトラベル）配布版。ナビ・フッター・回遊・GAを外した自己完結HTML（画像埋め込み）。クレジット『Directed by Yasuhito Morimoto』のみ。サイトからはリンクしない（scripts/build-oem-zukan.py で生成）"
+    },
+    {
+      "path": "kokoro-scope.html",
+      "reason": "感情を多面的に眺める没入型セルフケアアプリ画面。ナビ・フッターを出さない（yokai/taiwa と同方針）"
     }
   ]
 }

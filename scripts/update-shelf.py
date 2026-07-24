@@ -75,6 +75,7 @@ def load_themes():
 EXCLUDE = {
     "topaasia.html": "日英バイリンガルの製品ページ。日本語のみの棚は世界観に合わないため",
     "topaasia-data-notes.html": "同上（topaasia系）",
+    "kokoro-scope.html": "感情を多面的に眺める没入型セルフケアアプリ画面（overflow:hidden 全画面）。棚は世界観と操作を妨げるため設置しない",
 }
 
 

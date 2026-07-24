@@ -668,6 +668,16 @@
       "eyebrow": "みんなで作る ／ キャリア教材",
       "title": "はたらく現在地診断",
       "sub": "収入・やりがい・時間の自由・市場価値。いま自分が求めているものを、8つの質問で。"
+    },
+    {
+      "page": "kokoro-scope.html",
+      "img": "kokoro-scope-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#aebafc",
+      "eyebrow": "セルフケアの装置 ／ こころスコープ",
+      "title": "こころスコープ",
+      "sub": "気持ちを、色とかたちのある球にして、いろいろな「見方」で多面的に眺める。"
     }
   ]
 }
