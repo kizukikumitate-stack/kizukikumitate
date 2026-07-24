@@ -14,6 +14,9 @@
 <title>はたらく現在地診断｜4つのほうしゅうから、いまのあなたを知る | きづきくみたて工房</title>
 <meta name="description" content="収入・やりがい・時間の自由・市場価値。8つの質問で「いま求めているほうしゅう」を、15枚のカードで「わりと平気なこと・避けたいこと」を選ぶと、生涯キャリア図鑑・業界図鑑からあなたに合う職業と業界を提案する無料診断ツール。">
 <link rel="canonical" href="https://kizukikumitate.com/genzaichi-shindan.html">
+<link rel="alternate" hreflang="ja" href="https://kizukikumitate.com/genzaichi-shindan.html">
+<link rel="alternate" hreflang="en" href="https://kizukikumitate.com/genzaichi-shindan.html?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://kizukikumitate.com/genzaichi-shindan.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="きづきくみたて工房">
 <meta property="og:locale" content="ja_JP">
@@ -50,6 +53,12 @@
 </script>
 <script>/* ライトモード設定を描画前に適用（ちらつき防止・生涯キャリア図鑑と共有） */
 try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.classList.add("light");}catch(e){}</script>
+<script>/* 言語設定を描画前に適用（ちらつき防止・英語ショーケース化の下地） */
+try{
+  var _genzaichiLangParam = new URLSearchParams(location.search).get('lang');
+  var _genzaichiLang = _genzaichiLangParam || localStorage.getItem('genzaichiLang') || 'ja';
+  if(_genzaichiLang === 'en') document.documentElement.lang = 'en';
+}catch(e){}</script>
 <style>
 :root{
   color-scheme: dark;
@@ -349,6 +358,18 @@ html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#a67c1a;color:
 .theme-btn:hover{background:var(--surface-2);}
 @media (max-width:600px){
   .theme-btn{right:12px;bottom:12px;width:42px;height:42px;font-size:17px;}
+}
+
+/* ---- 言語切替（右下・テーマボタンの真上に重ならないよう配置） ---- */
+.lang-btn{
+  position:fixed;right:16px;bottom:70px;z-index:150;cursor:pointer;font-family:inherit;
+  height:38px;padding:0 16px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;
+  background:var(--surface);color:var(--gold);border:2px solid var(--gold);
+  box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(0,0,0,.5);
+}
+.lang-btn:hover{background:var(--surface-2);}
+@media (max-width:600px){
+  .lang-btn{right:12px;bottom:60px;height:34px;padding:0 12px;font-size:11px;}
 }
 
 /* ===== サイト共通グローバルナビ（data/nav.json が生成） ===== */
@@ -1407,6 +1428,69 @@ themeBtn.addEventListener("click",()=>{
 });
 syncThemeBtn();
 document.body.appendChild(themeBtn);
+</script>
+
+<script>
+/* ================= i18n 土台（英語ショーケース化・chunk1） =================
+   方式は社会の妖怪診断と共通: ?lang → localStorage('genzaichiLang') → 'ja'。
+   この段階では画面の文字列（質問・カード・結果文言）は日本語のまま。
+   ここで用意するのは LANG の判定・保存・トグルボタン・
+   title / meta description / og / twitter の英日切替のみ。
+   後続チャンクで QUESTIONS / TAISEI / TYPES 等の描画文字列を辞書化して LANG に連動させる。 */
+let LANG = 'ja';
+try{
+  const _p = new URLSearchParams(location.search).get('lang');
+  LANG = _p || localStorage.getItem('genzaichiLang') || 'ja';
+}catch(e){}
+if(LANG !== 'en') LANG = 'ja';
+
+const JA_META = {
+  title: document.title,
+  description: document.querySelector('meta[name="description"]').content,
+  ogTitle: document.querySelector('meta[property="og:title"]').content,
+  ogDescription: document.querySelector('meta[property="og:description"]').content
+};
+const EN_META = {
+  title: "Where Am I, at Work? Find What You Need Most Among 4 Rewards | Kizukikumitate",
+  description: "Pay, purpose, time freedom, and market value: answer 8 questions to find what you are craving right now, then choose from 15 cards what you can tolerate and what you would rather avoid. A free tool that recommends jobs and industries from the Career Atlas and Industry Atlas.",
+  ogTitle: "Where Am I, at Work?",
+  ogDescription: "Answer 8 questions and choose from 15 cards to find jobs and industries that fit where you are right now, paired with the Career Atlas and Industry Atlas."
+};
+
+function applyMetaLang(){
+  document.documentElement.lang = LANG === 'en' ? 'en' : 'ja';
+  const m = LANG === 'en' ? EN_META : JA_META;
+  document.title = m.title;
+  document.querySelector('meta[name="description"]').content = m.description;
+  document.querySelector('meta[property="og:title"]').content = m.ogTitle;
+  document.querySelector('meta[property="og:description"]').content = m.ogDescription;
+  document.querySelector('meta[name="twitter:title"]').content = m.ogTitle;
+  document.querySelector('meta[name="twitter:description"]').content = m.ogDescription;
+}
+
+const langBtn = document.createElement("button");
+langBtn.type = "button";
+langBtn.className = "lang-btn";
+function syncLangBtn(){
+  langBtn.textContent = LANG === 'en' ? '日本語' : 'English';
+  const label = LANG === 'en' ? 'このページを日本語で表示する' : 'View this page in English';
+  langBtn.title = label;
+  langBtn.setAttribute("aria-label", label);
+}
+langBtn.addEventListener("click", ()=>{
+  LANG = (LANG === 'en') ? 'ja' : 'en';
+  try{ localStorage.setItem('genzaichiLang', LANG); }catch(e){}
+  try{
+    const u = new URL(location.href);
+    if(LANG === 'en') u.searchParams.set('lang','en'); else u.searchParams.delete('lang');
+    history.replaceState(null, '', u);
+  }catch(e){}
+  applyMetaLang();
+  syncLangBtn();
+});
+applyMetaLang();
+syncLangBtn();
+document.body.appendChild(langBtn);
 </script>
 <!-- SHELF START -->
 <style>
