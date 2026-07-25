@@ -128,9 +128,10 @@
       },
       {
         "label": "世界の知恵",
+        "mega": true,
         "children": [
           {
-            "heading": "ヒトと学びの図鑑"
+            "heading": "学びと心のしくみ"
           },
           {
             "label": "ホモ・サピエンスの苦手図鑑",
@@ -168,6 +169,14 @@
             "desc": "ドーパミンなど12の脳内物質を、誤解の訂正つきで"
           },
           {
+            "label": "報酬系図鑑",
+            "href": "reward-zukan.html",
+            "desc": "気持ちよくなる瞬間は人によって違う。内的な報酬の出方10種と15問の診断"
+          },
+          {
+            "heading": "はたらく・キャリア"
+          },
+          {
             "label": "1on1の成功と失敗の図鑑",
             "href": "1on1-zukan.html",
             "desc": "1on1の成功パターン24種・しくじり26種の観察図鑑"
@@ -198,7 +207,7 @@
             "desc": "10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口"
           },
           {
-            "heading": "社会と世界の図鑑"
+            "heading": "社会と世界"
           },
           {
             "label": "世界の対話の技法図鑑",
@@ -241,7 +250,8 @@
             "desc": "厳密に検証された「教育投資が返ってきた例」を収蔵"
           },
           {
-            "heading": "読み物"
+            "heading": "読み物",
+            "band": true
           },
           {
             "label": "おすすめTED集",
@@ -666,6 +676,10 @@
     },
     {
       "path": "shinkei-busshitsu-zukan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "reward-zukan.html",
       "variant": "standard"
     },
     {

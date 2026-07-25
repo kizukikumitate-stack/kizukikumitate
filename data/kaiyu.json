@@ -1189,6 +1189,21 @@
         "goikeisei-zukan",
         "dialogue-program"
       ]
+    },
+    {
+      "id": "reward-zukan",
+      "path": "reward-zukan.html",
+      "title": "報酬系図鑑",
+      "tag": "世界の知恵",
+      "desc": "同じ仕事をしていても、気持ちいい瞬間は人によって違う場所にある。解き手・磨き手・遂げ手など10の型と、15問の報酬系診断。委任と分担の設計図に。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-07-25",
+      "band": true,
+      "next": [
+        "shinkei-busshitsu-zukan",
+        "genzaichi-shindan"
+      ]
     }
   ]
 }

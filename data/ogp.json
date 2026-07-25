@@ -688,6 +688,16 @@
       "eyebrow": "セルフケアの装置 ／ こころスコープ",
       "title": "こころスコープ",
       "sub": "気持ちを、色とかたちのある球にして、いろいろな「見方」で多面的に眺める。"
+    },
+    {
+      "page": "reward-zukan.html",
+      "img": "reward-zukan-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#C0503F",
+      "eyebrow": "世界の知恵 ／ 図鑑シリーズ",
+      "title": "報酬系図鑑",
+      "sub": "人はそれぞれ、違う瞬間に報酬を受け取っている。10の型と、15問の診断。"
     }
   ]
 }

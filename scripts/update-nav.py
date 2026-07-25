@@ -64,6 +64,11 @@ def as_page(target):
 
 # ── ナビ項目のレンダリング ──────────────────────────────────
 
+# ドロップダウン内の小見出し（デスクトップ）。位置調整はスタイルを足す側で行う。
+DD_HEADING_STYLE = ("display:block;font-family:'Jost','Noto Sans JP',sans-serif;"
+                    "font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;"
+                    "white-space:nowrap;")
+
 def link_attrs(item, page_path):
     href = rel_href(page_path, item["href"])
     attrs = f'href="{href}"'
@@ -76,6 +81,64 @@ def link_attrs(item, page_path):
     return attrs
 
 
+def group_children(children):
+    """children を見出しごとの束に分ける（メガメニュー用）。
+
+    {"heading": …} が新しい束を開始する。{"heading": …, "band": true} の束は
+    列ではなく、メニュー下端の横帯（全列ぶち抜き）としてレンダリングされる。
+    """
+    groups, cur = [], None
+    for child in children:
+        if "heading" in child:
+            cur = {"heading": child["heading"], "band": child.get("band", False), "items": []}
+            groups.append(cur)
+        else:
+            if cur is None:
+                cur = {"heading": None, "band": False, "items": []}
+                groups.append(cur)
+            cur["items"].append(child)
+    return groups
+
+
+def render_mega_menu(item, page_path, out):
+    """列数の多いドロップダウンを、見出し1束＝1列のメガメニューとして描く。
+
+    ページ側CSS（.nav-dropdown-menu の中央寄せ・開閉アニメ）はそのまま使い、
+    幅の拡張と内部のグリッドだけをインラインで足す。台帳側は children に
+    {"heading": …} を挟む従来形式のまま（"band": true の束だけ横帯になる）。
+    ※デスクトップナビはハンバーガー切替（1500px）以上でしか出ないため、
+      固定幅でも画面からはみ出さない。
+    """
+    groups = group_children(item["children"])
+    cols = [g for g in groups if not g["band"]]
+    bands = [g for g in groups if g["band"]]
+
+    out.append('      <div class="nav-dropdown-menu" style="width:min(50rem,calc(100vw - 3rem));">')
+    out.append(f'        <div style="display:grid;grid-template-columns:repeat({len(cols)},minmax(0,1fr));'
+               'align-items:start;padding:.3rem .4rem .35rem;">')
+    for i, g in enumerate(cols):
+        divider = "" if i == 0 else "border-left:1px solid #f0eef7;"
+        out.append(f'          <div style="display:flex;flex-direction:column;{divider}">')
+        if g["heading"]:
+            out.append(f'            <span class="nav-dd-heading" style="{DD_HEADING_STYLE}'
+                       f'padding:.5rem 1.5rem .2rem;">{g["heading"]}</span>')
+        for child in g["items"]:
+            out.append(f'            <a {link_attrs(child, page_path)}>{child["label"]}</a>')
+        out.append('          </div>')
+    out.append('        </div>')
+    for g in bands:
+        out.append('        <div style="border-top:1px solid #ececf3;margin:.1rem .9rem .15rem;'
+                   'padding:.3rem 0 .25rem;display:flex;align-items:center;flex-wrap:wrap;">')
+        if g["heading"]:
+            out.append(f'          <span class="nav-dd-heading" style="{DD_HEADING_STYLE}'
+                       f'padding:.45rem .6rem .45rem .6rem;">{g["heading"]}</span>')
+        for child in g["items"]:
+            out.append(f'          <a {link_attrs(child, page_path)} '
+                       f'style="padding:.45rem .8rem;">{child["label"]}</a>')
+        out.append('        </div>')
+    out.append('      </div>')
+
+
 def render_desktop(items, page_path):
     out = ['  <ul class="nav-links">']
     for item in items:
@@ -85,16 +148,18 @@ def render_desktop(items, page_path):
         out.append('    <li class="nav-dropdown">')
         out.append(f'      <button class="nav-dropdown-toggle" type="button">{item["label"]} '
                    '<span class="nav-caret">▾</span></button>')
+        if item.get("mega"):
+            render_mega_menu(item, page_path, out)
+            out.append('    </li>')
+            continue
         out.append('      <div class="nav-dropdown-menu">')
         seen_heading = 0
         for child in item["children"]:
             if "heading" in child:
                 sep = "" if seen_heading == 0 else "border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;"
                 out.append(
-                    "        <span class=\"nav-dd-heading\" style=\"display:block;"
-                    "font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;"
-                    "letter-spacing:.14em;color:#9a95c0;padding:.5rem 1.5rem .2rem;white-space:nowrap;"
-                    f"{sep}\">{child['heading']}</span>")
+                    f"        <span class=\"nav-dd-heading\" style=\"{DD_HEADING_STYLE}"
+                    f"padding:.5rem 1.5rem .2rem;{sep}\">{child['heading']}</span>")
                 seen_heading += 1
             else:
                 out.append(f'        <a {link_attrs(child, page_path)}>{child["label"]}</a>')
