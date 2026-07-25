@@ -711,10 +711,6 @@
       "variant": "standard"
     },
     {
-      "path": "stakeholder-diorama.html",
-      "variant": "standard"
-    },
-    {
       "path": "career-theory-zukan.html",
       "variant": "standard"
     },
@@ -895,6 +891,10 @@
     {
       "path": "kokoro-scope.html",
       "reason": "感情を多面的に眺める没入型セルフケアアプリ画面。ナビ・フッターを出さない（yokai/taiwa と同方針）"
+    },
+    {
+      "path": "stakeholder-diorama.html",
+      "reason": "ステークホルダー・ジオラマ（磨き込み中のテスト公開・2026-07-25 に全面刷新）。全画面で使う対話ツールのため、ナビ・フッター・回遊・棚を出さない自己完結ページにした（kokoro-scope と同方針）。正式リリース時に pages へ戻す"
     }
   ]
 }

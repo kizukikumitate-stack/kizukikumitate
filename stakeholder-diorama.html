@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -11,548 +10,304 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ステークホルダー・ジオラマ｜みんなの視点でテーマを眺める対話ツール | きづきくみたて工房</title>
-<meta name="description" content="ひとつのテーマを、関係者みんなの視点から眺める対話ツール。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを見える化します。">
-<meta name="robots" content="noindex"><!-- 公開前の磨き込み中。正式リリース時にこの行を削除し、nav.json/kaiyu.json/sitemap.xml に再掲載する -->
-<link rel="canonical" href="https://kizukikumitate.com/stakeholder-diorama.html">
+<meta name="robots" content="noindex"><!-- 磨き込み中のテスト公開。サイトのナビ・sitemap・回遊からは外してある。正式リリース時にこの行を削除し、nav.json/kaiyu.json/sitemap.xml に再掲載する -->
+<title>ステークホルダー・ジオラマ｜きづきくみたて工房（テスト公開）</title>
+<meta name="description" content="ひとつのテーマを、みんなの視点から眺める道具。関係者を場に並べ、経済・環境・社会 × 短期・中期・長期のレンズで「誰が得して、誰が損するか」を可視化します。">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="きづきくみたて工房">
-<meta property="og:locale" content="ja_JP">
-<meta property="og:title" content="ステークホルダー・ジオラマ｜みんなの視点でテーマを眺める対話ツール">
-<meta property="og:description" content="ひとつのテーマを、関係者みんなの視点から眺める無料の対話ツール。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを見える化する。">
-<meta property="og:url" content="https://kizukikumitate.com/stakeholder-diorama.html">
+<meta property="og:title" content="ステークホルダー・ジオラマ（テスト公開）">
+<meta property="og:description" content="ひとつのテーマを、みんなの視点から眺める道具。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを可視化します。">
 <meta property="og:image" content="https://kizukikumitate.com/stakeholder-diorama-ogp.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://kizukikumitate.com/stakeholder-diorama.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ステークホルダー・ジオラマ｜みんなの視点でテーマを眺める対話ツール">
-<meta name="twitter:description" content="ひとつのテーマを、関係者みんなの視点から眺める無料の対話ツール。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを見える化する。">
+<meta name="twitter:title" content="ステークホルダー・ジオラマ（テスト公開）">
+<meta name="twitter:description" content="ひとつのテーマを、みんなの視点から眺める道具。">
 <meta name="twitter:image" content="https://kizukikumitate.com/stakeholder-diorama-ogp.png">
+<link rel="canonical" href="https://kizukikumitate.com/stakeholder-diorama.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Shippori+Mincho:wght@600;800&family=Jost:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navh: 62px;
-    --forest: #1a5fad;
-    --charcoal: #1e1e1e;
-    --mid-gray: #5a6a7a;
-    --purple: #3c3489;
-    --ink: #2A3439;
-    --sub: #5E6E6A;
-    --bg: #F3F7F4;
-    --panel: #FFFFFF;
-    --border: #D8E2DD;
-    --indigo: #34618E;
-    --indigo-dark: #274A6E;
-    --yamabuki: #F2B33D;
-    --gain: #3E9B6E;
-    --loss: #D4635B;
-    --mixed: #E09C3A;
-    --neutral: #93A29C;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Zen Maru Gothic', 'Hiragino Maru Gothic ProN', sans-serif;
-    padding: calc(var(--navh) + 18px) 14px 60px;
-    line-break: strict;
-    hanging-punctuation: allow-end;
-  }
-  .wrap { max-width: 1100px; margin: 0 auto; }
-  header h1 { margin: 0; font-size: 24px; font-weight: 900; display: inline; }
-  header .tag { font-size: 12.5px; color: var(--sub); margin-left: 10px; }
-  input, textarea {
-    width: 100%;
-    border: 1.5px solid var(--border);
-    border-radius: 10px;
-    padding: 8px 10px;
-    font-size: 13.5px;
-    font-family: inherit;
-    color: var(--ink);
-    background: #FFF;
-  }
-  input:focus, textarea:focus { outline: 2px solid var(--indigo); outline-offset: 1px; }
-  button:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
-  #theme-input { margin-top: 10px; font-size: 15px; font-weight: 700; padding: 10px 14px; }
-  .controls { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 14px 0 12px; }
-  .ctrl-group { display: flex; gap: 6px; align-items: center; flex-wrap: wrap; }
-  .ctrl-label { font-size: 12px; font-weight: 800; color: var(--sub); }
-  .pill {
-    border: 1.5px solid var(--border); background: #FFF; color: var(--ink);
-    border-radius: 99px; padding: 6px 14px; font-size: 13px; font-weight: 700;
-    cursor: pointer; font-family: inherit;
-  }
-  .pill.active { border-color: var(--indigo); background: var(--indigo); color: #FFF; }
-  .pill.small { padding: 5px 11px; font-size: 12.5px; }
-  .view-toggle { margin-left: auto; display: flex; gap: 6px; }
-  /* 右端固定の「棚」タブ（.shelf-tab 幅36px）と重ならないよう、モバイルでは右に逃がす */
-  @media (max-width: 768px) { .view-toggle { margin-right: 40px; } }
-  .legend { display: flex; gap: 12px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; font-size: 12px; font-weight: 700; }
-  .legend .dot { width: 12px; height: 12px; border-radius: 99px; display: inline-block; vertical-align: -2px; margin-right: 5px; }
-  .main { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; }
-  .left { flex: 1 1 520px; min-width: min(320px, 100%); }
-  .right { flex: 1 1 330px; min-width: min(300px, 100%); }
-  .field-card { border-radius: 18px; overflow: hidden; box-shadow: 0 6px 24px rgba(42,52,57,0.12); }
-  .field-card svg { width: 100%; height: auto; display: block; }
-  .token { cursor: pointer; }
-  .actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
-  .btn {
-    border: 1.5px solid var(--border); background: #FFF; color: var(--ink);
-    border-radius: 10px; padding: 6px 12px; font-size: 12.5px; font-weight: 700;
-    cursor: pointer; font-family: inherit;
-  }
-  .btn.primary { background: var(--indigo); border-color: var(--indigo); color: #FFF; }
-  .btn.danger { color: var(--loss); }
-  .btn.danger.armed { background: var(--loss); border-color: var(--loss); color: #FFF; }
-  .card { background: #FFF; border: 1.5px solid var(--border); border-radius: 16px; padding: 16px; }
-  .card.dashed { border-style: dashed; color: var(--sub); font-size: 13.5px; line-height: 1.9; padding: 24px; }
-  .empty-table { padding: 40px; text-align: center; color: var(--sub); background: #FFF; border-radius: 14px; border: 1.5px dashed var(--border); }
-  .panel-head { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
-  .panel-head .face { font-size: 26px; }
-  .emoji-row { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 10px; }
-  .emoji-row button { font-size: 17px; padding: 2px 4px; border-radius: 8px; cursor: pointer; border: 2px solid transparent; background: transparent; }
-  .emoji-row button.active { border-color: var(--indigo); }
-  .flabel { font-size: 12px; font-weight: 800; color: var(--sub); display: block; }
-  .flabel.gain { color: var(--gain); }
-  .flabel.loss { color: var(--loss); }
-  .panel textarea { resize: vertical; margin-top: 4px; margin-bottom: 10px; }
-  .grid-section { border-top: 1.5px dashed var(--border); padding-top: 12px; margin-top: 4px; }
-  .grid-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-  .grid-head .title { font-size: 13px; font-weight: 900; }
-  .grid-head .count { font-size: 11.5px; color: var(--sub); }
-  .tab-row { display: flex; gap: 5px; margin-bottom: 6px; flex-wrap: wrap; }
-  .verdict-row { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
-  .verdict-btn {
-    border: 2px solid; background: #FFF; border-radius: 99px; padding: 5px 13px;
-    font-size: 12.5px; font-weight: 800; cursor: pointer; font-family: inherit;
-  }
-  .verdict-btn.active { color: #FFF !important; }
-  .table-block { background: #FFF; border: 1.5px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 20px; }
-  .table-block .block-title { padding: 10px 16px; font-weight: 900; font-size: 15px; background: #F2F7F4; border-bottom: 1.5px solid var(--border); }
-  .table-scroll { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; min-width: 560px; }
-  th { text-align: left; font-size: 12.5px; color: var(--sub); padding: 8px 12px; border-bottom: 1.5px solid var(--border); background: #FAFCFB; }
-  td { vertical-align: top; padding: 10px 12px; border-bottom: 1px solid #EDF2EF; font-size: 13px; }
-  td.name { font-weight: 800; white-space: nowrap; }
-  .vbadge { display: inline-block; font-size: 11px; font-weight: 800; color: #FFF; border-radius: 99px; padding: 2px 8px; margin-bottom: 4px; }
-  .cell-line { font-size: 12.5px; }
-  .cell-line b.p { color: var(--gain); }
-  .cell-line b.m { color: var(--loss); }
-  .cell-empty { color: #B7C2BD; font-size: 12px; }
+:root{
+  --ink:#2A3439; --sub:#5E6E6A; --border:#D8E2DD; --indigo:#34618E; --indigo-dark:#274A6E;
+  --yamabuki:#F2B33D; --gain:#3E9B6E; --loss:#D4635B; --mixed:#E09C3A; --neutral:#93A29C;
+  --bg:#F3F7F4;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN','Yu Gothic',sans-serif;
+  font-weight:500; line-height:1.7;
+  word-break:keep-all; overflow-wrap:break-word;
+  line-break:strict; hanging-punctuation:allow-end;
+  padding:18px 14px 64px;
+}
+.wrap{max-width:1100px; margin:0 auto;}
 
-  /* ===== 右下の更新履歴（バージョンログ） ===== */
-  .ver-fab {
-    position: fixed; right: 12px; bottom: 12px; z-index: 90;
-    border: 1.5px solid var(--border); background: #FFF; color: var(--sub);
-    border-radius: 99px; padding: 5px 12px; font-size: 11.5px; font-weight: 700;
-    font-family: inherit; cursor: pointer; box-shadow: 0 2px 10px rgba(42,52,57,0.10);
-  }
-  .ver-fab:hover { color: var(--indigo); border-color: var(--indigo); }
-  .ver-log {
-    display: none; position: fixed; right: 12px; bottom: 48px; z-index: 90;
-    width: min(340px, calc(100vw - 24px)); max-height: 55vh; overflow-y: auto;
-    background: #FFF; border: 1.5px solid var(--border); border-radius: 14px;
-    padding: 14px 16px; box-shadow: 0 12px 32px rgba(42,52,57,0.16); font-size: 12.5px;
-  }
-  .ver-log.open { display: block; }
-  .ver-log h2 { margin: 0 0 8px; font-size: 13px; }
-  .ver-log ul { margin: 0; padding-left: 1.1em; }
-  .ver-log li { margin-bottom: 7px; line-height: 1.7; }
-  .ver-log .v { color: var(--indigo); font-weight: 800; }
-  .ver-log .d { color: var(--sub); font-size: 11px; margin-left: 4px; }
+/* ---- ヘッダー ---- */
+.head-row{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+h1{margin:0; font-size:1.5rem; font-weight:900; letter-spacing:.01em;}
+.tagline{font-size:.8rem; color:var(--sub);}
+.badge-test{
+  margin-left:auto; font-size:.72rem; font-weight:800; color:#8A6A1E;
+  background:#F8F1DE; border:1.5px solid var(--yamabuki); border-radius:99px; padding:3px 12px;
+}
+.theme-input{
+  width:100%; margin-top:10px; border:1.5px solid var(--border); border-radius:10px;
+  padding:10px 14px; font-size:.95rem; font-weight:700; font-family:inherit; color:var(--ink); background:#FFF;
+}
+.note-lead{font-size:.78rem; color:var(--sub); margin:8px 0 0; line-height:1.9;}
 
-  /* ===== 共通グローバルナビ・フッター（サイト共通パーツ） ===== */
-  body > nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 0.7rem 2rem; display: flex; align-items: center;
-    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
-    border-bottom: 3px solid #3C3489;
-  }
-  .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; flex-shrink: 0; margin-right: 4rem; }
-  .nav-logo img { height: 36px; width: auto; object-fit: contain; }
-  .nav-logo-text { font-family: 'Shippori Mincho', serif; font-size: 1.1rem; font-weight: 800; white-space: nowrap; color: var(--forest); letter-spacing: 0.06em; }
-  .nav-links { display: flex; gap: 1.2rem; list-style: none; align-items: center; margin-left: auto; flex-wrap: wrap; margin-top: 0; margin-bottom: 0; padding-left: 0; }
-  .nav-links a { font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; color: var(--charcoal); text-decoration: none; letter-spacing: 0.04em; }
-  .nav-links a:hover, .nav-links a.active { color: var(--forest); }
+/* ---- 共通パーツ ---- */
+.card{background:#FFF; border:1.5px solid var(--border); border-radius:16px; padding:16px;}
+.pill{
+  border:1.5px solid var(--border); background:#FFF; color:var(--ink); border-radius:99px;
+  padding:6px 14px; font-size:.8rem; font-weight:700; cursor:pointer; font-family:inherit; line-height:1.4;
+}
+.pill.on{background:var(--indigo); border-color:var(--indigo); color:#FFF;}
+.sbtn{
+  border:1.5px solid var(--border); background:#FFF; color:var(--ink); border-radius:10px;
+  padding:6px 12px; font-size:.78rem; font-weight:700; cursor:pointer; font-family:inherit; line-height:1.5;
+}
+.sbtn.primary{background:var(--indigo); border-color:var(--indigo); color:#FFF;}
+.sbtn.gain{background:var(--gain); border-color:var(--gain); color:#FFF;}
+.sbtn.expand{background:#3E4E8E; border-color:#3E4E8E; color:#FFF;}
+.sbtn.danger{color:var(--loss);}
+.sbtn.danger.armed{background:var(--loss); border-color:var(--loss); color:#FFF;}
+.sbtn[disabled]{opacity:.45; cursor:default;}
+.txt{
+  width:100%; border:1.5px solid var(--border); border-radius:10px; padding:8px 10px;
+  font-size:.85rem; font-family:inherit; color:var(--ink); background:#FFF; resize:vertical;
+}
+textarea:focus, input:focus{outline:2px solid var(--indigo); outline-offset:1px;}
+button:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
+.lbl{font-size:.75rem; font-weight:800; color:var(--sub); display:block;}
 
-  /* ===== NAV DROPDOWN (desktop hover) ===== */
-  .nav-dropdown { position: relative; display: flex; align-items: center; }
-  .nav-links > li > a { display: inline-flex; align-items: center; padding: 0.4rem 0; }
-  .nav-dropdown-toggle {
-    font-family: 'Jost', 'Noto Serif JP', sans-serif; font-size: 0.82rem; font-weight: 400;
-    letter-spacing: 0.04em; color: var(--charcoal);
-    background: none; border: none; cursor: pointer; padding: 0.4rem 0;
-    display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; transition: color 0.3s;
-  }
-  .nav-caret { font-size: 0.6em; transition: transform 0.25s; }
-  .nav-dropdown:hover .nav-dropdown-toggle,
-  .nav-dropdown:focus-within .nav-dropdown-toggle { color: var(--forest); }
-  .nav-dropdown:hover .nav-caret,
-  .nav-dropdown:focus-within .nav-caret { transform: rotate(180deg); }
-  .nav-dropdown-menu {
-    position: absolute; top: 100%; left: 50%; transform: translateX(-50%) translateY(8px);
-    min-width: 210px; background: #fff; border: 1px solid #eee;
-    box-shadow: 0 14px 34px rgba(38,33,92,0.14); border-radius: 12px;
-    padding: 0.5rem 0; display: flex; flex-direction: column;
-    opacity: 0; visibility: hidden; transition: opacity 0.2s, transform 0.2s; z-index: 300;
-  }
-  .nav-dropdown-menu::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown:focus-within .nav-dropdown-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(4px); }
-  .nav-dropdown-menu a {
-    font-family: 'Noto Sans JP', sans-serif; font-size: 0.84rem; font-weight: 500;
-    letter-spacing: 0.02em; text-transform: none; color: #333; text-decoration: none;
-    padding: 0.6rem 1.5rem; white-space: nowrap; transition: background 0.15s, color 0.15s;
-  }
-  .nav-dropdown-menu a:hover, .nav-dropdown-menu a.active { background: #f4f3fb; color: var(--forest); }
-  .nav-dropdown:last-child .nav-dropdown-menu { left: auto; right: 0; transform: translateX(0) translateY(8px); }
-  .nav-dropdown:last-child:hover .nav-dropdown-menu,
-  .nav-dropdown:last-child:focus-within .nav-dropdown-menu { transform: translateX(0) translateY(4px); }
+/* ---- AIで下ごしらえ ---- */
+#aiSection{margin-bottom:14px;}
+.sec-title{font-size:.88rem; font-weight:900; margin-bottom:8px;}
+.sec-title span{font-size:.75rem; font-weight:500; color:var(--sub); margin-left:8px;}
+.ai-row{display:flex; gap:8px; flex-wrap:wrap;}
+.ai-row .txt{flex:1 1 260px; width:auto;}
+.vc-label{font-size:.72rem; font-weight:800; color:var(--sub); margin-bottom:6px;}
+.vc-flow{display:flex; gap:4px; flex-wrap:wrap; align-items:center;}
+.vc-item{display:inline-flex; align-items:center; gap:4px;}
+.vc-chip{
+  background:#EAF1F7; border:1.5px solid var(--indigo); color:var(--indigo-dark);
+  border-radius:8px; padding:5px 11px; font-size:.8rem; font-weight:800;
+}
+.vc-arrow{color:var(--indigo); font-weight:900;}
+.vc-sup{
+  background:#F5F2E8; border:1.5px solid var(--yamabuki); color:#8A6A1E;
+  border-radius:99px; padding:3px 10px; font-size:.75rem; font-weight:700;
+}
+.err{color:var(--loss); font-size:.78rem; font-weight:700; margin-top:8px;}
 
-  .nav-hamburger { display: none; margin-left: auto; background: none; border: 0; cursor: pointer; padding: 8px; }
-  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); margin: 5px 0; transition: 0.3s; }
-  .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 199; background: rgba(255,255,255,0.98); backdrop-filter: blur(12px); flex-direction: column; justify-content: flex-start; overflow-y: auto; align-items: center; gap: 0; padding: 5rem 1.5rem 3rem; }
-  .mobile-menu.open { display: flex; }
-  .mobile-menu a { font-family: 'Shippori Mincho', serif; font-size: 1.12rem; font-weight: 600; color: #222; text-decoration: none; padding: 0.75rem 0; width: 100%; text-align: center; border-bottom: 1px solid #e8e8e8; transition: color 0.15s; }
-  .mobile-menu > a:first-child { border-top: 1px solid #e8e8e8; }
-  .mobile-menu a:hover, .mobile-menu a.active { color: #3C3489; }
-  .mobile-menu-label { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.05rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; width: 100%; text-align: center; margin: 2rem 0 0.4rem; }
-  .mobile-menu-close { position: absolute; top: 1.2rem; right: 1.5rem; background: none; border: none; font-size: 1.6rem; cursor: pointer; color: #666; line-height: 1; padding: 0.3rem; }
-  .mobile-acc { width: 100%; border-bottom: 1px solid #e8e8e8; }
-  .mobile-acc-toggle { width: 100%; display: flex; justify-content: center; align-items: center; gap: 0.5em; background: none; border: none; cursor: pointer; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
-  .mobile-menu > a { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; padding: 1.15rem 0; }
-  .mobile-acc-caret { font-size: 0.75em; color: #b0a8d8; transition: transform 0.25s; }
-  .mobile-acc.open .mobile-acc-caret { transform: rotate(180deg); }
-  .mobile-acc-panel { display: none; flex-direction: column; padding-bottom: 0.7rem; }
-  .mobile-acc.open .mobile-acc-panel { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 0.5rem; max-width: 34rem; margin: 0 auto; }
-  .mobile-acc-panel .mobile-acc-heading { grid-column: 1 / -1; }
-  .mobile-acc-panel a { font-family: 'Shippori Mincho', serif; font-size: 0.88rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.45rem 0.1rem; width: 100%; text-align: center; border: none; transition: color 0.15s; line-height: 1.5; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; }
-  .mobile-acc-panel a:hover, .mobile-acc-panel a.active { color: #3C3489; }
-  a.mobile-cat-link { display: flex; justify-content: center; align-items: center; width: 100%; border-bottom: 1px solid #e8e8e8; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-size: 1.15rem; font-weight: 700; letter-spacing: 0.1em; color: #3C3489; text-decoration: none; padding: 1.15rem 0; transition: color 0.15s; }
-  a.mobile-cat-link:hover, a.mobile-cat-link.active { color: #26215C; }
-  footer { padding: 3rem 2rem; text-align: center; background: #fff; border-top: 1px solid #e8e3d6; }
-  .footer-logo { font-family: 'Shippori Mincho', serif; font-weight: 800; color: var(--forest); letter-spacing: 0.08em; }
-  .footer-copy { margin-top: 0.6rem; font-family: 'Jost', sans-serif; font-size: 0.72rem; color: var(--mid-gray); letter-spacing: 0.06em; }
+/* ---- コントロール ---- */
+.controls{display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:12px;}
+.ctl-group{display:flex; gap:6px; align-items:center; flex-wrap:wrap;}
+.ctl-label{font-size:.75rem; font-weight:800; color:var(--sub);}
+.ctl-right{margin-left:auto; display:flex; gap:6px;}
+.legend{display:flex; gap:12px; align-items:center; margin-bottom:10px; flex-wrap:wrap;}
+.legend-item{display:inline-flex; align-items:center; gap:5px; font-size:.75rem; font-weight:700;}
+.dot{width:12px; height:12px; border-radius:99px; display:inline-block;}
 
-  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
-  @media (min-width: 1501px) {
-    body > nav { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .nav-links { gap: 1rem; }
-  }
-  @media (max-width: 1500px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
-    .nav-logo { margin-right: 0; }
-  }
+/* ---- シナリオ ---- */
+#scenarioBar:empty{display:none;}
+.scen{
+  display:flex; gap:8px; align-items:center; margin-bottom:12px; flex-wrap:wrap;
+  background:#FFF; border:1.5px solid var(--border); border-radius:14px; padding:10px 14px;
+}
+.scen-title{font-size:.8rem; font-weight:900;}
+.scen-btn{
+  border:2px solid var(--border); background:#FFF; color:var(--ink); border-radius:12px;
+  padding:8px 18px; font-size:.88rem; font-weight:900; cursor:pointer; font-family:inherit;
+}
+.scen-btn.on{background:var(--indigo-dark); border-color:var(--indigo-dark); color:#FFF;}
+.scen-note{font-size:.72rem; color:var(--sub);}
+
+/* ---- 本体レイアウト ---- */
+.main{display:flex; gap:16px; align-items:flex-start; flex-wrap:wrap;}
+.col-left{flex:1 1 520px; min-width:min(100%,320px);}
+.col-right{flex:1 1 330px; min-width:min(100%,300px);}
+.main.table-view .col-left{flex:1 1 100%;}
+.main.table-view .col-right{flex:1 1 100%;}
+.stage-field{border-radius:18px; overflow:hidden; box-shadow:0 6px 24px rgba(42,52,57,.12);}
+.stage-empty{
+  padding:40px 20px; text-align:center; color:var(--sub); background:#FFF;
+  border-radius:14px; border:1.5px dashed var(--border); font-size:.85rem;
+}
+#actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
+svg.field{width:100%; height:auto; display:block;}
+svg.field .token{cursor:pointer;}
+
+/* ---- 一覧表 ---- */
+.tables{display:flex; flex-direction:column; align-items:stretch; gap:20px;}
+.tbl-card{background:#FFF; border:1.5px solid var(--border); border-radius:14px; overflow:hidden;}
+.tbl-head{padding:10px 16px; font-weight:900; font-size:.92rem; background:#F2F7F4; border-bottom:1.5px solid var(--border);}
+.tbl-scroll{overflow-x:auto;}
+table{border-collapse:collapse; width:100%; min-width:560px;}
+th{
+  text-align:left; font-size:.78rem; color:var(--sub); padding:8px 12px;
+  border-bottom:1.5px solid var(--border); background:#FAFCFB; font-weight:700;
+}
+td{
+  vertical-align:top; padding:10px 12px; border-bottom:1px solid #EDF2EF; font-size:.8rem;
+  word-break:auto-phrase; overflow-wrap:anywhere;
+}
+td.who{font-weight:800; white-space:nowrap;}
+.cellbox{display:flex; flex-direction:column; align-items:flex-start; gap:4px;}
+.cell-empty{color:#B7C2BD; font-size:.75rem;}
+.vtag{
+  align-self:flex-start; font-size:.68rem; font-weight:800; color:#FFF;
+  border-radius:99px; padding:2px 8px; line-height:1.6;
+}
+.cell-line{font-size:.78rem; color:var(--ink);}
+.plus{color:var(--gain); font-weight:800;}
+.minus{color:var(--loss); font-weight:800;}
+
+/* ---- 編集パネル ---- */
+.panel-head{display:flex; gap:8px; align-items:center; margin-bottom:10px;}
+.panel-emoji{font-size:1.6rem; line-height:1;}
+.panel-name{font-size:1.02rem; font-weight:900;}
+.emoji-row{display:flex; gap:4px; flex-wrap:wrap; margin-bottom:10px;}
+.emoji-btn{
+  font-size:1.05rem; padding:2px 4px; border-radius:8px; cursor:pointer;
+  border:2px solid transparent; background:transparent; line-height:1.4;
+}
+.emoji-btn.on{border-color:var(--indigo);}
+.panel-sep{border-top:1.5px dashed var(--border); padding-top:12px; margin-top:2px;}
+.panel-sep-row{display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; gap:8px; flex-wrap:wrap;}
+.panel-sep-row .t{font-size:.82rem; font-weight:900;}
+.counter{font-size:.72rem; color:var(--sub);}
+.mini-row{display:flex; gap:5px; flex-wrap:wrap; margin-bottom:6px;}
+.mini-row.gap-b{margin-bottom:12px;}
+.pill.mini{padding:5px 10px; font-size:.78rem;}
+.vbtn{
+  border:2px solid var(--border); background:#FFF; border-radius:99px; padding:5px 13px;
+  font-size:.78rem; font-weight:800; cursor:pointer; font-family:inherit;
+}
+.guide{
+  background:#FFF; border:1.5px dashed var(--border); border-radius:16px;
+  padding:24px; color:var(--sub); font-size:.85rem; line-height:1.95;
+  word-break:auto-phrase;
+}
+.guide b{color:var(--ink);}
+.guide-title{color:var(--ink); font-weight:900; margin-bottom:8px;}
+.guide-step{display:flex; align-items:flex-start; gap:6px; margin-bottom:6px;}
+.guide-step .no{flex:0 0 auto; font-weight:800; color:var(--indigo);}
+.guide-note{margin-top:12px; padding-top:10px; border-top:1.5px dashed var(--border);}
+.ro-sit{font-size:.82rem; color:var(--sub); line-height:1.8; margin-bottom:12px;}
+.cell-line{word-break:auto-phrase;}
+
+/* ---- トースト ---- */
+#toast{
+  position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(16px);
+  background:var(--indigo-dark); color:#FFF; font-size:.82rem; font-weight:700;
+  border-radius:99px; padding:10px 22px; opacity:0; pointer-events:none;
+  transition:opacity .25s ease, transform .25s ease; z-index:50; max-width:90vw; text-align:center;
+}
+#toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+/* ---- フッター ---- */
+.foot{
+  max-width:1100px; margin:40px auto 0; padding-top:18px; border-top:1.5px solid var(--border);
+  font-size:.74rem; color:var(--sub); line-height:2;
+}
+.foot a{color:var(--indigo); text-decoration:none;}
+.foot a:hover{text-decoration:underline;}
+
+@media (max-width:768px){
+  body{padding:14px 12px 56px;}
+  h1{font-size:1.25rem;}
+  .badge-test{margin-left:0;}
+  .ctl-right{margin-left:0;}
+  .guide{padding:18px;}
+}
+@media (max-width:540px){
+  h1{font-size:1.1rem;}
+  .tagline{font-size:.74rem;}
+  .card{padding:13px;}
+}
 </style>
 </head>
 <body>
-<!-- NAV START -->
-<nav>
-  <a href="./index.html" class="nav-logo">
-    <img src="./logotype.png" alt="きづきくみたて工房">
-    <span class="nav-logo-text">きづきくみたて工房</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="./index.html" title="サイト全体の入口。プログラム・図鑑・診断のハブ">Home</a></li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
-        <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
-        <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">ソリューション <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="./education-program.html" title="課題診断から育成計画まで、研修設計の思考の型を学ぶ">研修設計プログラム</a>
-        <a href="./od-program.html" title="組織が動かない理由を診断し、変革を設計するOD講座">組織開発プログラム</a>
-        <a href="./dialogue-program.html" title="心理的安全性と業績の好循環をつくる組織向け研修">対話力向上プログラム</a>
-        <a href="./social-leader-coaching.html" title="社会課題に挑むリーダーの思考整理と戦略立案を伴走">リーダー向けコーチング</a>
-        <a href="./taiwa-teichaku.html" title="離職の真因「対話の不在」に診断×対話筋トレで介入">離職防止プログラム</a>
-        <a href="./democracy-fitness-career.html" title="意見を持ち、伝え、巻き込む力を鍛える個人向け講座">個人向けキャリア開発</a>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">手法・ワークショップ <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="./democracy-fitness.html" title="対話・合意形成の10筋を鍛える体験型プログラム。体験会情報も">Democracy Fitness</a>
-        <a href="./lsp.html" title="レゴブロックで思考を可視化するワークショップ手法">LSP</a>
-        <a href="./topaasia.html" title="フィンランド発・カード型対話メソッドの日本向けページ">対話用カード</a>
-        <a href="./yokai/" title="会社のすれ違いを生む10の妖怪を3分で診断">会社の妖怪診断</a>
-        <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
-        <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
-        <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
-        <a href="./kokoro-scope.html" title="起こったことと気持ちを、色とかたちのある球にして多面的に眺めるセルフケアの装置">こころスコープ</a>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">世界の知恵 <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu" style="width:min(50rem,calc(100vw - 3rem));">
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:start;padding:.3rem .4rem .35rem;">
-          <div style="display:flex;flex-direction:column;">
-            <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;">学びと心のしくみ</span>
-            <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
-            <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種">ホモ・サピエンスの知恵図鑑</a>
-            <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
-            <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
-            <a href="./unlearn-zukan.html" title="学びを手放して編み直すための知恵41種。心理学・経営学・世界の思想から">アンラーン図鑑</a>
-            <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
-            <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
-            <a href="./reward-zukan.html" title="気持ちよくなる瞬間は人によって違う。内的な報酬の出方10種と15問の診断">報酬系図鑑</a>
-          </div>
-          <div style="display:flex;flex-direction:column;border-left:1px solid #f0eef7;">
-            <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;">はたらく・キャリア</span>
-            <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
-            <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
-            <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
-            <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
-            <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
-            <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口">はたらく現在地診断</a>
-          </div>
-          <div style="display:flex;flex-direction:column;border-left:1px solid #f0eef7;">
-            <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;">社会と世界</span>
-            <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
-            <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
-            <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
-            <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
-            <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
-            <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
-            <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
-            <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
-          </div>
-        </div>
-        <div style="border-top:1px solid #ececf3;margin:.1rem .9rem .15rem;padding:.3rem 0 .25rem;display:flex;align-items:center;flex-wrap:wrap;">
-          <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.45rem .6rem .45rem .6rem;">読み物</span>
-          <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本" style="padding:.45rem .8rem;">おすすめTED集</a>
-          <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる" style="padding:.45rem .8rem;">ノーベル平和賞</a>
-          <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載" style="padding:.45rem .8rem;">連載・気づきから組み立てる</a>
-        </div>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">世界の成功と失敗事例集 <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="./jirei.html" title="成功と失敗を併記し、分けた「分岐点」を特定する事例集">このシリーズについて</a>
-        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;">個人の事例</span>
-        <a href="./jirei-career.html" title="出世の一本道から降りた人・降りられなかった人の事例">キャリアの転機</a>
-        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織の事例</span>
-        <a href="./jirei-kenshu.html" title="行動が変わる研修と、感想文で終わる研修の分岐点">研修の成功と失敗</a>
-        <a href="./jirei-rinen-sakutei.html" title="社員とつくった理念と、額縁で終わった理念の分岐点">理念の策定</a>
-        <a href="./jirei-rinen-shinto.html" title="毎日問いかけた会社と、唱和で終わった会社の分岐点">理念の浸透</a>
-        <a href="./jirei-purpose.html" title="仕組みまで変えた会社と、言葉だけ替えた会社の分岐点">パーパス経営と風土改革</a>
-        <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
-        <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
-        <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
-        <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
-        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会の事例</span>
-        <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">未来のリスク計算機 <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
-        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;">社会のリスク</span>
-        <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
-        <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
-        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">組織のリスク</span>
-        <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
-        <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
-        <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
-        <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
-        <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">個人のリスク</span>
-        <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
-        <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
-        <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算">対話回避コスト計算機</a>
-      </div>
-    </li>
-    <li><a href="./store.html" title="対話キット・おすすめ本など、持ち帰れる実践アイテム">ストア</a></li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
-        <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析">デモクラ筋白書2026 速報版</a>
-        <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
-      </div>
-    </li>
-    <li class="nav-dropdown">
-      <button class="nav-dropdown-toggle" type="button">コンタクト <span class="nav-caret">▾</span></button>
-      <div class="nav-dropdown-menu">
-        <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
-        <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-        <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
-        <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
-        <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
-    </li>
-  </ul>
-  <button class="nav-hamburger" id="hamburger" aria-label="メニューを開く">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" id="mobileClose">✕</button>
-  <a href="./index.html" title="サイト全体の入口。プログラム・図鑑・診断のハブ">Home</a>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
-      <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
-      <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
-    </div>
-  </div>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">ソリューション <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="./education-program.html" title="課題診断から育成計画まで、研修設計の思考の型を学ぶ">研修設計プログラム</a>
-      <a href="./od-program.html" title="組織が動かない理由を診断し、変革を設計するOD講座">組織開発プログラム</a>
-      <a href="./dialogue-program.html" title="心理的安全性と業績の好循環をつくる組織向け研修">対話力向上プログラム</a>
-      <a href="./social-leader-coaching.html" title="社会課題に挑むリーダーの思考整理と戦略立案を伴走">リーダー向けコーチング</a>
-      <a href="./taiwa-teichaku.html" title="離職の真因「対話の不在」に診断×対話筋トレで介入">離職防止プログラム</a>
-      <a href="./democracy-fitness-career.html" title="意見を持ち、伝え、巻き込む力を鍛える個人向け講座">個人向けキャリア開発</a>
-    </div>
-  </div>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">手法・ワークショップ <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="./democracy-fitness.html" title="対話・合意形成の10筋を鍛える体験型プログラム。体験会情報も">Democracy Fitness</a>
-      <a href="./lsp.html" title="レゴブロックで思考を可視化するワークショップ手法">LSP</a>
-      <a href="./topaasia.html" title="フィンランド発・カード型対話メソッドの日本向けページ">対話用カード</a>
-      <a href="./yokai/" title="会社のすれ違いを生む10の妖怪を3分で診断">会社の妖怪診断</a>
-      <a href="./shakai-yokai/" title="社会に棲む10の妖怪と、対になる式神を診断">社会の妖怪診断</a>
-      <a href="./yokai/workshop.html" title="妖怪の名を借りて組織を語る、オンライン1時間ワーク">妖怪と式神ワークショップ</a>
-      <a href="./pta-korekara.html" title="PTAのデータ・5つの論点・無料対話キットの案内所">PTAのこれから</a>
-      <a href="./kokoro-scope.html" title="起こったことと気持ちを、色とかたちのある球にして多面的に眺めるセルフケアの装置">こころスコープ</a>
-    </div>
-  </div>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">世界の知恵 <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">学びと心のしくみ</span>
-      <a href="./nigate-zukan.html" title="先送りや同調など、人類共通の「苦手」12種と処方箋">ホモ・サピエンスの苦手図鑑</a>
-      <a href="./chie-zukan.html" title="効力感・心理的安全性など、人が育てられる力50種">ホモ・サピエンスの知恵図鑑</a>
-      <a href="./hininchi-zukan.html" title="自制心・共感力など、テストで測れない力25種">非認知スキル図鑑</a>
-      <a href="./growth-laws-zukan.html" title="学習科学が実験で確かめた、学びと成長の法則23種">学びと成長の法則図鑑</a>
-      <a href="./unlearn-zukan.html" title="学びを手放して編み直すための知恵41種。心理学・経営学・世界の思想から">アンラーン図鑑</a>
-      <a href="./reflection-zukan.html" title="KPT・ORIDなど、ふりかえりの技法23種をやり方つきで">ふりかえりの技法図鑑</a>
-      <a href="./shinkei-busshitsu-zukan.html" title="ドーパミンなど12の脳内物質を、誤解の訂正つきで">主な神経物質図鑑</a>
-      <a href="./reward-zukan.html" title="気持ちよくなる瞬間は人によって違う。内的な報酬の出方10種と15問の診断">報酬系図鑑</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">はたらく・キャリア</span>
-      <a href="./1on1-zukan.html" title="1on1の成功パターン24種・しくじり26種の観察図鑑">1on1の成功と失敗の図鑑</a>
-      <a href="./rest-productivity-zukan.html" title="「休むと業績が下がる」という思い込みを解く21の標本">休息と生産性の図鑑</a>
-      <a href="./career-theory-zukan.html" title="定番のキャリア理論21種を、根拠と今日の一手つきで">キャリア理論図鑑</a>
-      <a href="./tenshoku-no-sho.html" title="職業をRPG風の転職チャートで一覧する無料教材">生涯キャリア図鑑</a>
-      <a href="./gyokai-zukan.html" title="日本の16業界を「はたらく世界の大陸」に見立てた無料教材">業界図鑑</a>
-      <a href="./genzaichi-shindan.html" title="10問で、いま求めているものと、はたらく負荷への耐性を知る。2つの図鑑の入口">はたらく現在地診断</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会と世界</span>
-      <a href="./dialogue-zukan.html" title="世界で発明された対話と平和の技法を集めた図鑑">世界の対話の技法図鑑</a>
-      <a href="./goikeisei-zukan.html" title="世界のうまくいっている合意形成の仕組み12の標本">合意形成図鑑</a>
-      <a href="./systems-thinking-zukan.html" title="因果ループ図など、つながりを見るための28の図解">システム思考図鑑</a>
-      <a href="./shikumi-zukan.html" title="お金と民意の回路を集めた、社会システムの図鑑">社会の仕組み図鑑</a>
-      <a href="./poverty-zukan.html" title="世界で発明された貧困解決のアイデアを集めた図鑑">世界の貧困解決アイデア図鑑</a>
-      <a href="./nemuru-okane-zukan.html" title="タンス預金47兆円など、日本に眠るお金12の標本">眠るお金図鑑</a>
-      <a href="./alternative-education-zukan.html" title="モンテッソーリなど、世界24のオルタナティブ教育">世界のオルタナティブ教育図鑑</a>
-      <a href="./education-roi-zukan.html" title="厳密に検証された「教育投資が返ってきた例」を収蔵">教育の費用対効果図鑑</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">読み物</span>
-      <a href="./ted-collection.html" title="平和と民主主義とお金の流れを学ぶTEDトーク16本">おすすめTED集</a>
-      <a href="./nobel-peace.html" title="125年の受賞者一覧と、照らす対象の広がりをたどる">ノーベル平和賞</a>
-      <a href="./series/" title="BEM・HPIの理論を現場で使える形に翻訳する連載">連載・気づきから組み立てる</a>
-    </div>
-  </div>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">世界の成功と失敗事例集 <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="./jirei.html" title="成功と失敗を併記し、分けた「分岐点」を特定する事例集">このシリーズについて</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">個人の事例</span>
-      <a href="./jirei-career.html" title="出世の一本道から降りた人・降りられなかった人の事例">キャリアの転機</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織の事例</span>
-      <a href="./jirei-kenshu.html" title="行動が変わる研修と、感想文で終わる研修の分岐点">研修の成功と失敗</a>
-      <a href="./jirei-rinen-sakutei.html" title="社員とつくった理念と、額縁で終わった理念の分岐点">理念の策定</a>
-      <a href="./jirei-rinen-shinto.html" title="毎日問いかけた会社と、唱和で終わった会社の分岐点">理念の浸透</a>
-      <a href="./jirei-purpose.html" title="仕組みまで変えた会社と、言葉だけ替えた会社の分岐点">パーパス経営と風土改革</a>
-      <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
-      <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
-      <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
-      <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会の事例</span>
-      <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
-    </div>
-  </div>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">未来のリスク計算機 <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;">社会のリスク</span>
-      <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
-      <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">組織のリスク</span>
-      <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
-      <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
-      <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
-      <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
-      <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">個人のリスク</span>
-      <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
-      <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
-      <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算">対話回避コスト計算機</a>
-    </div>
-  </div>
-  <a href="./store.html" title="対話キット・おすすめ本など、持ち帰れる実践アイテム">ストア</a>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
-      <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析">デモクラ筋白書2026 速報版</a>
-      <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
-    </div>
-  </div>
-  <div class="mobile-acc">
-    <button class="mobile-acc-toggle" type="button">コンタクト <span class="mobile-acc-caret">▾</span></button>
-    <div class="mobile-acc-panel">
-      <a href="mailto:y.morimoto@kizukikumitate.com">お問い合わせ</a>
-      <a href="https://note.com/kizukikumitate" target="_blank" rel="noopener">note（ブログ）</a>
-      <a href="https://www.facebook.com/yasuhito.morimoto/?locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
-      <a href="https://x.com/c_mory_" target="_blank" rel="noopener">X（旧Twitter）</a>
-      <a href="https://www.linkedin.com/in/yasuhito-morimoto-10039b158/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
-</div>
-<!-- NAV END -->
 <div class="wrap">
+
   <header>
-    <h1>ステークホルダー・ジオラマ</h1>
-    <span class="tag">ひとつのテーマを、みんなの視点から眺める道具</span>
-    <input id="theme-input" placeholder="話し合うテーマを入力(例:社員食堂を廃止するべきか)">
+    <div class="head-row">
+      <h1>ステークホルダー・ジオラマ</h1>
+      <span class="tagline">ひとつのテーマを、みんなの視点から眺める道具</span>
+      <span class="badge-test">🧪 テスト公開中</span>
+    </div>
+    <input id="themeInput" class="theme-input" type="text"
+           placeholder="話し合うテーマを入力（例：社員食堂を廃止するべきか）">
+    <p class="note-lead">入力した内容は、このブラウザの中だけに保存されます。ほかの人と同じ盤面を見たいときは「🔗 この盤面をURLで共有」を押してください。実名や社外秘の情報は入力しないでください。</p>
   </header>
 
+  <section id="aiSection" class="card" hidden></section>
+
   <div class="controls">
-    <div class="ctrl-group"><span class="ctrl-label">スケール</span><span id="scale-btns"></span></div>
-    <div class="ctrl-group"><span class="ctrl-label">観点</span><span id="axis-btns"></span></div>
-    <div class="ctrl-group"><span class="ctrl-label">時間軸</span><span id="horizon-btns"></span></div>
-    <div class="view-toggle" id="view-btns"></div>
+    <div class="ctl-group">
+      <span class="ctl-label">スケール</span>
+      <div id="scaleBtns" class="ctl-group"></div>
+    </div>
+    <div class="ctl-group">
+      <span class="ctl-label">観点</span>
+      <div id="axisBtns" class="ctl-group"></div>
+    </div>
+    <div class="ctl-group">
+      <span class="ctl-label">時間軸</span>
+      <div id="horizonBtns" class="ctl-group"></div>
+    </div>
+    <div class="ctl-right">
+      <button type="button" class="pill on" data-view="field">フィールド</button>
+      <button type="button" class="pill" data-view="table">一覧表</button>
+    </div>
   </div>
 
-  <div class="legend" id="legend"></div>
+  <div id="legend" class="legend"></div>
+
+  <div id="scenarioBar"></div>
 
   <div class="main">
-    <div class="left">
-      <div id="field-area"></div>
-      <div class="actions">
-        <button class="btn primary" id="add-btn">＋ 関係者を追加</button>
-        <button class="btn" id="copy-btn">📋 Markdownをコピー</button>
-        <button class="btn" id="sample-btn">サンプルを読み込む(プール問題)</button>
-        <button class="btn danger" id="reset-btn">すべて消去</button>
-      </div>
+    <div class="col-left">
+      <div id="stage"></div>
+      <div id="actions"></div>
     </div>
-    <div class="right"><div id="panel"></div></div>
+    <div class="col-right">
+      <div id="panel"></div>
+    </div>
   </div>
+
 </div>
 
+<div class="foot">
+  <p>ステークホルダー・ジオラマ（テスト版）｜きづきくみたて工房</p>
+  <p>このページは検証用のため、サイトのメニューからはたどれません。<a href="https://kizukikumitate.com/">きづきくみたて工房のサイトへ</a></p>
+</div>
+
+<div id="toast" role="status" aria-live="polite"></div>
+
 <script>
-/* ================= 定数 ================= */
+/* ================= 定数・トークン ================= */
+
+const COLORS = {
+  ink: "#2A3439",
+  sub: "#5E6E6A",
+  sky1: "#CFE6EE",
+  sky2: "#EAF4EE",
+  panel: "#FFFFFF",
+  border: "#D8E2DD",
+  indigo: "#34618E",
+  indigoDark: "#274A6E",
+  yamabuki: "#F2B33D",
+  gain: "#3E9B6E",
+  loss: "#D4635B",
+  mixed: "#E09C3A",
+  neutral: "#93A29C",
+};
+
 const AXES = [
   { id: "keizai", label: "経済", icon: "💰" },
   { id: "kankyo", label: "環境", icon: "🌿" },
@@ -564,114 +319,1055 @@ const HORIZONS = [
   { id: "choki", label: "長期" },
 ];
 const VERDICTS = [
-  { id: "gain", label: "得する", color: "#3E9B6E", mark: "＋" },
-  { id: "loss", label: "損する", color: "#D4635B", mark: "−" },
-  { id: "mixed", label: "両方", color: "#E09C3A", mark: "±" },
-  { id: "neutral", label: "中立", color: "#93A29C", mark: "・" },
+  { id: "gain", label: "得する", color: COLORS.gain },
+  { id: "loss", label: "損する", color: COLORS.loss },
+  { id: "mixed", label: "両方", color: COLORS.mixed },
+  { id: "neutral", label: "中立", color: COLORS.neutral },
 ];
-const SCALES = [
-  { id: "room", label: "会議室" },
-  { id: "town", label: "街" },
-  { id: "earth", label: "地球" },
-];
-const EMOJIS = ["🧑","👩‍💼","👨‍🌾","🧑‍🏫","🧒","👵","🏢","🏛️","🏫","🏭","🌊","🐦","🌳","🚌","💼","🌏"];
-const STORAGE_KEY = "stakeholder-diorama:v1";
 
-const SAMPLE = {
-  theme: "学校のプールを廃止して、市民プールに集約するべきか",
-  scale: "town",
-  stakeholders: [
-    { id: "s1", name: "児童・生徒", emoji: "🧒", situation: "夏の水泳授業が楽しみな子もいれば、苦手な子もいる。移動時間が増えると休み時間が減る。" },
-    { id: "s2", name: "保護者", emoji: "👩‍💼", situation: "水泳スキルは身につけてほしいが、送迎や費用の負担が気になる。" },
-    { id: "s3", name: "学校・教員", emoji: "🧑‍🏫", situation: "プール管理(水質・安全)の負担が大きい。専門指導員に任せられるなら助かる。" },
-    { id: "s4", name: "自治体", emoji: "🏛️", situation: "老朽化したプールの改修費が課題。集約すれば維持費を削減できる。" },
-    { id: "s5", name: "地域住民", emoji: "👵", situation: "市民プールが混雑するかもしれない。一方で施設が充実するなら歓迎。" },
-  ],
-  data: {
-    s4: { keizai: {
-      tanki: { merit: "改修費(数億円規模)を回避できる", demerit: "バス送迎費など新たな運営費が発生", verdict: "gain" },
-      choki: { merit: "維持管理費を長期的に大幅削減", demerit: "", verdict: "gain" },
-    } },
-    s1: { shakai: {
-      tanki: { merit: "専門指導で泳ぎが上達しやすい", demerit: "移動で授業時間が削られる", verdict: "mixed" },
-    } },
+const SCALES = [
+  { id: "room", label: "会議室", desc: "組織のなか" },
+  { id: "town", label: "街", desc: "地域社会" },
+  { id: "earth", label: "地球", desc: "世界全体" },
+];
+
+const EMOJIS = ["🧑", "👩‍💼", "👨‍🌾", "🧑‍🏫", "🧒", "👵", "🏢", "🏛️", "🏫", "🏭", "🌊", "🐦", "🌳", "🚌", "💼", "🌏"];
+
+
+const CASES = {
+  pool: {
+    label: "プール問題",
+    theme: "学校のプールを廃止して、市民プールに集約するべきか",
+    scale: "town",
+    stakeholders: [
+      { id: "s1", name: "児童・生徒", emoji: "🧒", situation: "夏の水泳授業が楽しみな子もいれば、苦手な子もいる。移動時間が増えると休み時間が減る。" },
+      { id: "s2", name: "保護者", emoji: "👩‍💼", situation: "水泳スキルは身につけてほしいが、送迎や費用の負担が気になる。" },
+      { id: "s3", name: "学校・教員", emoji: "🧑‍🏫", situation: "プール管理(水質・安全)の負担が大きい。専門指導員に任せられるなら助かる。" },
+      { id: "s4", name: "自治体", emoji: "🏛️", situation: "老朽化したプールの改修費が課題。集約すれば維持費を削減できる。" },
+      { id: "s5", name: "地域住民", emoji: "👵", situation: "市民プールが混雑するかもしれない。一方で施設が充実するなら歓迎。" },
+    ],
+    data: {
+      s4: { keizai: {
+        tanki: { merit: "改修費(数億円規模)を回避できる", demerit: "バス送迎費など新たな運営費が発生", verdict: "gain" },
+        choki: { merit: "維持管理費を長期的に大幅削減", demerit: "", verdict: "gain" },
+      } },
+      s1: { shakai: {
+        tanki: { merit: "専門指導で泳ぎが上達しやすい", demerit: "移動で授業時間が削られる", verdict: "mixed" },
+      } },
+    },
+  },
+  genpatsu: {
+    label: "原発再稼働",
+    theme: "日本は原発の再稼働をさらに進めるべきか",
+    scale: "earth",
+    valueChain: {
+      primary: ["ウラン/LNG調達", "燃料加工・輸送", "発電", "送配電", "産業・家計の利用"],
+      support: ["安全規制", "廃棄物処理・廃炉", "立地地域との合意"],
+    },
+    scenarios: {
+      options: [
+        { id: "saikado", label: "⚡ 再稼働を進める世界" },
+        { id: "datsu", label: "🌊 再稼働しない世界" },
+      ],
+      data: {
+        saikado: {
+          g1: { keizai: {
+            tanki: { merit: "化石燃料費を圧縮(1基で年数百億円規模)", demerit: "安全対策投資は巨額", verdict: "gain" },
+            choki: { merit: "", demerit: "廃炉費・使用済み燃料費が積み上がる", verdict: "mixed" },
+          } },
+          g2: {
+            keizai: { tanki: { merit: "交付金・雇用で地元経済が潤う", demerit: "", verdict: "gain" } },
+            shakai: { tanki: { merit: "", demerit: "事故リスクと避難計画への不安は続く", verdict: "mixed" } },
+          },
+          g3: { keizai: { chuki: { merit: "電気料金の安定は工場・DC誘致の追い風", demerit: "", verdict: "gain" } } },
+          g4: {
+            keizai: { tanki: { merit: "電気代の上昇圧力がやわらぐ", demerit: "", verdict: "gain" } },
+            shakai: { choki: { merit: "", demerit: "事故時の賠償・除染費は結局国民負担", verdict: "mixed" } },
+          },
+          g5: {
+            keizai: { tanki: { merit: "燃料輸入が減り貿易収支が改善", demerit: "", verdict: "gain" } },
+            kankyo: { chuki: { merit: "発電時CO2ほぼゼロで削減目標に寄与", demerit: "", verdict: "gain" } },
+          },
+          g6: { kankyo: { choki: { merit: "気候変動の抑制には追い風", demerit: "核のごみの最終処分を背負う", verdict: "mixed" } } },
+          g7: { keizai: { chuki: { merit: "", demerit: "送電網や投資の優先順位で原子力と競合", verdict: "loss" } } },
+          g8: { shakai: { chuki: { merit: "技術継承と人材確保に展望が開ける", demerit: "", verdict: "gain" } } },
+        },
+        datsu: {
+          g1: { keizai: {
+            tanki: { merit: "", demerit: "火力燃料費と老朽火力の維持費が重い", verdict: "loss" },
+            choki: { merit: "", demerit: "動かない原発の維持費と廃炉費だけ残る", verdict: "loss" },
+          } },
+          g2: {
+            keizai: { chuki: { merit: "", demerit: "交付金・雇用が減り地域経済が縮む", verdict: "loss" } },
+            shakai: { tanki: { merit: "事故リスクの不安からは解放される", demerit: "", verdict: "mixed" } },
+          },
+          g3: { keizai: { tanki: { merit: "", demerit: "電気料金高が競争力と国内立地の重石に", verdict: "loss" } } },
+          g4: {
+            keizai: { tanki: { merit: "", demerit: "燃料価格次第で電気代が振れやすい", verdict: "loss" } },
+            shakai: { tanki: { merit: "重大事故の心配は減る", demerit: "", verdict: "mixed" } },
+          },
+          g5: {
+            keizai: { tanki: { merit: "", demerit: "化石燃料の輸入で国富が流出し続ける", verdict: "loss" } },
+            kankyo: { chuki: { merit: "再エネ加速の政治的推進力になる", demerit: "火力依存でCO2削減目標が遠のく", verdict: "mixed" } },
+          },
+          g6: { kankyo: { choki: { merit: "新たな核のごみは増えない", demerit: "気候変動の負荷を最も長く引き受ける", verdict: "mixed" } } },
+          g7: { keizai: { chuki: { merit: "再エネ・蓄電池に投資と人材が集中", demerit: "", verdict: "gain" } } },
+          g8: { shakai: { choki: { merit: "", demerit: "技術・人材が細り廃炉の担い手も不足", verdict: "loss" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "g1", name: "電力会社", emoji: "🔌", situation: "2026年時点で全国15基が再稼働済み。動けば燃料費を大きく圧縮できるが、安全対策の投資も巨額。" },
+      { id: "g2", name: "立地自治体", emoji: "🏘️", situation: "交付金と雇用の恩恵と、事故リスク・避難計画への不安を同時に抱えている。" },
+      { id: "g3", name: "製造業", emoji: "🏭", situation: "電気料金は国際競争力を左右する。半導体工場やデータセンターの誘致でも電力が決め手に。" },
+      { id: "g4", name: "家計・消費者", emoji: "🧑", situation: "電気代の高騰に疲弊。一方で、事故が起きた場合の費用も最終的には国民が負う。" },
+      { id: "g5", name: "政府", emoji: "🏛️", situation: "エネルギー基本計画で原子力を「最大限活用」へ転換。2040年度に電源の約2割を想定する。" },
+      { id: "g6", name: "将来世代", emoji: "👶", situation: "使用済み核燃料の処分も、気候変動の影響も、最も長く引き受けることになる当事者。" },
+      { id: "g7", name: "再エネ産業", emoji: "☀️", situation: "送電網の容量・投資資金・政策の優先順位をめぐって、原子力と取り合う関係にある。" },
+      { id: "g8", name: "原子力人材", emoji: "🧑‍🔬", situation: "稼働が止まれば技術と人材が細り、安全な廃炉すら難しくなるというジレンマを抱える。" },
+    ],
+    extra: {
+      label: "🔭 世界のサプライチェーンまで視野を広げる",
+      stakeholders: [
+        { id: "gx1", name: "ウラン産出国", emoji: "⛏️", situation: "カザフスタン・カナダ・豪州など。原発の稼働動向が輸出の伸びを左右する。" },
+        { id: "gx2", name: "LNG輸出国", emoji: "🚢", situation: "豪州・米国・カタール等。日本は世界有数のLNG買い手で、大口顧客の動向は死活問題。" },
+        { id: "gx3", name: "他国のLNG買い手", emoji: "🌏", situation: "欧州やアジア新興国。日本のLNG需要の増減は、世界のスポット価格に跳ね返る。" },
+        { id: "gx4", name: "燃料商社・海運", emoji: "⚓", situation: "化石燃料の調達・輸送で収益を上げてきた。エネルギー転換の影響を直接受ける。" },
+      ],
+      dataByScenario: {
+        saikado: {
+          gx1: { keizai: { tanki: { merit: "ウラン需要が増え輸出が伸びる", demerit: "", verdict: "gain" } } },
+          gx2: { keizai: { chuki: { merit: "", demerit: "日本向けLNG販売が減っていく", verdict: "loss" } } },
+          gx3: { keizai: { tanki: { merit: "日本の需要減で世界のLNG価格が下がる", demerit: "", verdict: "gain" } } },
+          gx4: { keizai: { chuki: { merit: "", demerit: "化石燃料の輸送・取引量が細る", verdict: "mixed" } } },
+        },
+        datsu: {
+          gx1: { keizai: { tanki: { merit: "", demerit: "ウラン輸出の伸びが見込めない", verdict: "loss" } } },
+          gx2: { keizai: { tanki: { merit: "日本向けLNG販売が高水準で続く", demerit: "", verdict: "gain" } } },
+          gx3: { keizai: { tanki: { merit: "", demerit: "日本との争奪で世界のLNG価格が上がる", verdict: "loss" } } },
+          gx4: { keizai: { tanki: { merit: "燃料の輸送・取引が引き続き堅調", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+  },
+  yosan: {
+    label: "1兆円の使い道",
+    theme: "同じ1兆円、防衛費と教育費のどちらに投じるか",
+    scale: "town",
+    valueChain: {
+      primary: ["税・国債", "予算編成", "配分の決定", "現場での執行", "社会への効果"],
+      support: ["国会審議", "効果検証(EBPM)", "世論・メディア"],
+    },
+    scenarios: {
+      options: [
+        { id: "boei", label: "🛡️ 防衛費に1兆円" },
+        { id: "kyoiku", label: "📚 教育費に1兆円" },
+      ],
+      data: {
+        boei: {
+          y1: { shakai: { choki: { merit: "", demerit: "教育に回れば得られた学びの機会(機会費用)", verdict: "neutral" } } },
+          y2: { keizai: { tanki: { merit: "", demerit: "処遇改善は見送られ現状のまま", verdict: "neutral" } } },
+          y3: { keizai: { tanki: { merit: "処遇・装備・生活環境が改善する", demerit: "", verdict: "gain" } } },
+          y4: { keizai: {
+            tanki: { merit: "受注が拡大し撤退企業も再参入", demerit: "", verdict: "gain" },
+            choki: { merit: "", demerit: "予算頼みの体質になるリスク", verdict: "mixed" },
+          } },
+          y5: {
+            keizai: { tanki: { merit: "", demerit: "たばこ・法人・所得の増税で負担増", verdict: "loss" } },
+            shakai: { tanki: { merit: "安全保障の安心感が増す(受け止めは人それぞれ)", demerit: "", verdict: "mixed" } },
+          },
+          y6: {
+            shakai: { tanki: { merit: "GDP比目標の面で同盟国に説明しやすい", demerit: "", verdict: "gain" } },
+            keizai: { choki: { merit: "", demerit: "恒久財源なき増額は国債頼みに", verdict: "mixed" } },
+          },
+          y7: { keizai: { tanki: { merit: "調達や隊員の消費で地域経済が潤う", demerit: "", verdict: "gain" } } },
+          y8: { shakai: { choki: { merit: "安全保障環境の安定を受け継ぐ(効果は不確実)", demerit: "教育投資の複利効果を逃す", verdict: "mixed" } } },
+        },
+        kyoiku: {
+          y1: { shakai: {
+            tanki: { merit: "少人数学級や無償化で学びが厚くなる", demerit: "", verdict: "gain" },
+            choki: { merit: "生涯所得と人生の選択肢が広がる", demerit: "", verdict: "gain" },
+          } },
+          y2: { keizai: { tanki: { merit: "処遇改善と人員増で長時間労働が緩和", demerit: "", verdict: "gain" } } },
+          y3: { keizai: { tanki: { merit: "", demerit: "処遇改善は現状ペースのまま", verdict: "neutral" } } },
+          y4: { keizai: { tanki: { merit: "", demerit: "期待された受注拡大が見送りに", verdict: "neutral" } } },
+          y5: { keizai: {
+            tanki: { merit: "塾・学費など私費負担が軽くなる", demerit: "", verdict: "gain" },
+            choki: { merit: "人材の生産性向上が税収として還ってくる", demerit: "", verdict: "gain" },
+          } },
+          y6: {
+            keizai: { choki: { merit: "成長率と税収の底上げ(効果は15〜20年後)", demerit: "短期には財政指標の改善に見えない", verdict: "mixed" } },
+            shakai: { tanki: { merit: "", demerit: "GDP比2%目標との整合を同盟国に問われる", verdict: "mixed" } },
+          },
+          y7: { keizai: { tanki: { merit: "", demerit: "見込んでいた地域経済の追い風は来ない", verdict: "neutral" } } },
+          y8: { shakai: { choki: { merit: "教育の複利効果を最も長く受け取る", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "y1", name: "子ども・学生", emoji: "🧒", situation: "教育投資の効果を最も長く受け取る当事者。ただし投票権を持たない。" },
+      { id: "y2", name: "教員・学校", emoji: "🧑‍🏫", situation: "人手不足と長時間労働が続く。処遇改善と人員増を長年求めている。" },
+      { id: "y3", name: "自衛隊員", emoji: "🪖", situation: "採用は定員割れが続く。処遇・装備・生活環境の改善が課題。" },
+      { id: "y4", name: "防衛産業", emoji: "✈️", situation: "撤退企業が相次いだ分野。防衛費増額で受注拡大の局面にある。" },
+      { id: "y5", name: "納税者・家計", emoji: "🧑", situation: "防衛増額の財源には3税の増税で1兆円強を捻出。教育の私費負担も重い。" },
+      { id: "y6", name: "政府・財政", emoji: "🏛️", situation: "防衛関連費は2026年度に約10.6兆円(GDP比1.9%)。文教予算は5兆円台で、国債残高は積み上がる。" },
+      { id: "y7", name: "基地の街", emoji: "🏘️", situation: "駐屯地や基地の調達・隊員の消費が地域経済を支えている街もある。" },
+      { id: "y8", name: "将来世代", emoji: "👶", situation: "教育の受益者であると同時に、国債と安全保障環境の相続人でもある。" },
+    ],
+    extra: {
+      label: "🔭 産業と世界まで視野を広げる",
+      stakeholders: [
+        { id: "yx1", name: "大学・研究機関", emoji: "🔬", situation: "防衛研究資金と教育・基礎研究資金、どちらの流れも受け取りうる立場。デュアルユースを巡る葛藤も。" },
+        { id: "yx2", name: "EdTech・教育産業", emoji: "💻", situation: "公教育のICT投資や学び直し市場の拡大が事業機会に直結する。" },
+        { id: "yx3", name: "装備部品メーカー", emoji: "⚙️", situation: "防衛装備の裾野を支える中小企業群。投資計画は国の予算次第。" },
+        { id: "yx4", name: "周辺国・同盟国", emoji: "🌏", situation: "日本の予算配分を、抑止力の変化としても、国のかたちの表明としても読んでいる。" },
+      ],
+      dataByScenario: {
+        boei: {
+          yx1: { keizai: { tanki: { merit: "防衛関連の研究資金が拡大", demerit: "軍事研究への関与を巡り学内で葛藤", verdict: "mixed" } } },
+          yx2: { keizai: { tanki: { merit: "", demerit: "公教育のICT投資は現状規模のまま", verdict: "neutral" } } },
+          yx3: { keizai: { tanki: { merit: "部品・素材の受注が中小まで波及", demerit: "", verdict: "gain" } } },
+          yx4: { shakai: { tanki: { merit: "同盟国は抑止力強化を歓迎", demerit: "周辺国は軍拡と受け取り緊張が高まる恐れ", verdict: "mixed" } } },
+        },
+        kyoiku: {
+          yx1: { keizai: { tanki: { merit: "基礎研究・大学への資金が厚くなる", demerit: "", verdict: "gain" } } },
+          yx2: { keizai: { tanki: { merit: "端末更新やEdTech需要が拡大", demerit: "", verdict: "gain" } } },
+          yx3: { keizai: { tanki: { merit: "", demerit: "見込んでいた受注は現状規模のまま", verdict: "neutral" } } },
+          yx4: { shakai: { choki: { merit: "人材育成への注力は国際的評価につながる", demerit: "抑止力の相対低下を懸念する声も", verdict: "mixed" } } },
+        },
+      },
+    },
+  },
+  kyuka: {
+    label: "1ヶ月休暇",
+    theme: "全社員が毎年1ヶ月休める会社にしたら、何が起こるか",
+    scale: "room",
+    valueChain: {
+      primary: ["制度設計", "業務の標準化", "引き継ぎ", "休暇の取得", "復帰・還元"],
+      support: ["経営の意思決定", "労務・給与", "顧客への説明"],
+    },
+    scenarios: {
+      options: [
+        { id: "issei", label: "🏖️ 全社一斉に休む" },
+        { id: "kotai", label: "🔄 交代でずらして休む" },
+      ],
+      data: {
+        issei: {
+          k1: { shakai: { tanki: { merit: "旅・学びなどまとまった経験ができる", demerit: "", verdict: "gain" } } },
+          k2: { shakai: { tanki: { merit: "全員休みなので「休む気兼ね」がない", demerit: "", verdict: "gain" } } },
+          k3: { keizai: { tanki: { merit: "全員止まるので調整コストが小さい", demerit: "休暇前後に業務が圧縮され激務に", verdict: "mixed" } } },
+          k4: {
+            keizai: { tanki: { merit: "", demerit: "1ヶ月分の売上機会を失う恐れ", verdict: "loss" } },
+            shakai: { choki: { merit: "「本当に休める会社」ブランドで採用力向上", demerit: "", verdict: "gain" } },
+          },
+          k5: { keizai: { tanki: { merit: "", demerit: "1ヶ月連絡がつかず取引に支障", verdict: "loss" } } },
+          k6: { shakai: { tanki: { merit: "応募動機として強烈な魅力になる", demerit: "", verdict: "gain" } } },
+          k7: { shakai: { tanki: { merit: "海外帰省や長旅など長期の家族時間", demerit: "", verdict: "gain" } } },
+          k8: {
+            keizai: { tanki: { merit: "", demerit: "給与・保険・締め処理の再設計が必要", verdict: "mixed" } },
+            shakai: { chuki: { merit: "全員一律なので制度運用はシンプル", demerit: "", verdict: "gain" } },
+          },
+        },
+        kotai: {
+          k1: { shakai: { tanki: { merit: "好きな時期に休める", demerit: "同僚の穴埋めで休暇前後が激務に", verdict: "mixed" } } },
+          k2: { shakai: { tanki: { merit: "学校行事や介護の都合に合わせられる", demerit: "", verdict: "gain" } } },
+          k3: {
+            keizai: { tanki: { merit: "", demerit: "年間を通じたシフト調整の負担が重い", verdict: "loss" } },
+            shakai: { chuki: { merit: "引き継ぎ整備でチームが属人化から脱する", demerit: "", verdict: "gain" } },
+          },
+          k4: { keizai: {
+            tanki: { merit: "", demerit: "標準化・多能工化への先行投資がかかる", verdict: "mixed" },
+            choki: { merit: "誰かが抜けても回る組織能力が資産になる", demerit: "", verdict: "gain" },
+          } },
+          k5: { keizai: { tanki: { merit: "窓口は年間を通じて維持される", demerit: "担当交代時の引き継ぎ齟齬のリスク", verdict: "mixed" } } },
+          k6: { shakai: { tanki: { merit: "柔軟さは魅力(一斉ほどの話題性はない)", demerit: "", verdict: "gain" } } },
+          k7: { shakai: { tanki: { merit: "混雑期を外した安くて空いた旅ができる", demerit: "", verdict: "gain" } } },
+          k8: { keizai: { tanki: { merit: "", demerit: "シフトと代替要員の管理が複雑化", verdict: "mixed" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "k1", name: "若手社員", emoji: "🧑‍💻", situation: "日本の有給取得率は6割台。「権利はあっても取りにくい」空気の中で働いてきた世代。" },
+      { id: "k2", name: "子育て・介護層", emoji: "👩‍👧", situation: "休みの必要度は高いが、周囲への気兼ねから短い休みを小刻みに取ってきた。" },
+      { id: "k3", name: "管理職", emoji: "🧑‍💼", situation: "メンバーの休暇の穴埋めとシフト調整を引き受ける立場。自分こそ一番休めていない。" },
+      { id: "k4", name: "経営者", emoji: "👔", situation: "欧州では夏季3〜4週間の連続休暇が一般的。人材獲得競争の中で制度を武器にしたい。" },
+      { id: "k5", name: "顧客・取引先", emoji: "🤝", situation: "「担当者が1ヶ月いない」を受け入れられるかは、業種と関係性次第。" },
+      { id: "k6", name: "求職者", emoji: "🎓", situation: "給与だけでなく「本当に休めるか」を企業選びの軸にする人が増えている。" },
+      { id: "k7", name: "社員の家族", emoji: "👨‍👩‍👧", situation: "長期休暇は家族の時間の総量を変える。一方で「1ヶ月ずっと家にいる」への戸惑いも。" },
+      { id: "k8", name: "人事・労務", emoji: "📋", situation: "給与計算・社会保険・評価制度など、制度の裏側をすべて作り直す実務を担う。" },
+    ],
+    extra: {
+      label: "🔭 会社の外まで視野を広げる",
+      stakeholders: [
+        { id: "kx1", name: "旅行・観光業", emoji: "🧳", situation: "長期休暇の普及は国内旅行市場の構造を変える。繁閑の平準化は業界の悲願。" },
+        { id: "kx2", name: "競合他社", emoji: "🏢", situation: "他社の1ヶ月休暇は、顧客を奪う好機にも、人材を奪われる脅威にもなる。" },
+        { id: "kx3", name: "学び直し市場", emoji: "📖", situation: "1ヶ月あれば短期留学や集中講座が可能に。リスキリング市場には追い風。" },
+        { id: "kx4", name: "地域社会", emoji: "🏘️", situation: "平日昼間の担い手不足が続く。休暇中の大人が地域に現れるかどうか。" },
+      ],
+      dataByScenario: {
+        issei: {
+          kx1: { keizai: { tanki: { merit: "特定の月に旅行特需が生まれる", demerit: "極端な繁閑差で現場は疲弊", verdict: "mixed" } } },
+          kx2: { keizai: { tanki: { merit: "停止中の1ヶ月は顧客を奪う好機", demerit: "", verdict: "gain" } } },
+          kx3: { shakai: { tanki: { merit: "短期留学・集中講座の需要が生まれる", demerit: "", verdict: "gain" } } },
+          kx4: { shakai: { tanki: { merit: "", demerit: "一斉だと皆旅行に出て地域には残らない", verdict: "neutral" } } },
+        },
+        kotai: {
+          kx1: { keizai: { chuki: { merit: "年間に平準化された旅行需要は理想形", demerit: "", verdict: "gain" } } },
+          kx2: { keizai: { tanki: { merit: "", demerit: "業務が止まらないため付け入る隙がない", verdict: "neutral" } } },
+          kx3: { shakai: { chuki: { merit: "通年で学び直し需要が生まれる", demerit: "", verdict: "gain" } } },
+          kx4: { shakai: { chuki: { merit: "平日の地域活動に大人の参加者が増える", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+  },
+  teisaisan: {
+    label: "低採算サービス",
+    theme: "利益率の低いサービスを中止すべきか",
+    scale: "room",
+    valueChain: {
+      primary: ["顧客接点", "サービス提供", "コスト配賦", "収益評価", "投資判断"],
+      support: ["管理会計", "顧客の声", "ブランド・信頼"],
+    },
+    scenarios: {
+      options: [
+        { id: "chushi", label: "✂️ 中止する世界" },
+        { id: "keizoku", label: "🛠️ 続ける世界" },
+      ],
+      data: {
+        chushi: {
+          z1: { keizai: {
+            tanki: { merit: "利益率が改善し主力事業へ資源を集中", demerit: "", verdict: "gain" },
+            choki: { merit: "", demerit: "入口商品を失い新規獲得コストが増す恐れ", verdict: "mixed" },
+          } },
+          z2: { shakai: {
+            tanki: { merit: "", demerit: "配置転換や仕事を失う不安", verdict: "loss" },
+            chuki: { merit: "成長分野で新しい役割を得る可能性", demerit: "", verdict: "mixed" },
+          } },
+          z3: { shakai: { tanki: { merit: "", demerit: "長年頼ってきたサービスが使えなくなる", verdict: "loss" } } },
+          z4: { keizai: { tanki: { merit: "人と予算が主力事業に回ってくる", demerit: "", verdict: "gain" } } },
+          z5: { shakai: { tanki: { merit: "", demerit: "中止を顧客に詫びて回る矢面に立つ", verdict: "loss" } } },
+          z6: { keizai: { tanki: { merit: "利益率改善を評価、株価や融資姿勢に好影響", demerit: "", verdict: "gain" } } },
+          z7: { keizai: { tanki: { merit: "", demerit: "共通費の配賦先が減り他部門の数字が悪化して見える", verdict: "mixed" } } },
+        },
+        keizoku: {
+          z1: { keizai: {
+            tanki: { merit: "", demerit: "低採算が全社の利益率を薄め続ける", verdict: "loss" },
+            choki: { merit: "顧客接点と信頼という見えない資産を維持", demerit: "", verdict: "mixed" },
+          } },
+          z2: {
+            shakai: { tanki: { merit: "雇用と役割が守られる", demerit: "", verdict: "gain" } },
+            keizai: { chuki: { merit: "", demerit: "改善なき継続なら部門ごと飼い殺しに", verdict: "mixed" } },
+          },
+          z3: { shakai: { tanki: { merit: "使い続けられる安心", demerit: "", verdict: "gain" } } },
+          z4: { keizai: { tanki: { merit: "", demerit: "自部門が稼いだ利益が補填に回る不満", verdict: "loss" } } },
+          z5: { keizai: { chuki: { merit: "入口商品として主力への橋渡しが続く", demerit: "", verdict: "gain" } } },
+          z6: { keizai: { tanki: { merit: "", demerit: "資本効率の低さを問われ続ける", verdict: "loss" } } },
+          z7: { keizai: { tanki: { merit: "「本当に赤字か」管理会計を見直す機会に", demerit: "", verdict: "neutral" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "z1", name: "経営者", emoji: "👔", situation: "全社の利益率と資源配分に責任を負う。「選択と集中」の圧力の中にいる。" },
+      { id: "z2", name: "担当部門の社員", emoji: "🧑‍💻", situation: "低採算と言われながらも、顧客のために現場を支えてきた当事者。" },
+      { id: "z3", name: "長年の利用者", emoji: "🧓", situation: "数は少ないが、このサービスに生活や業務を頼ってきた顧客層。" },
+      { id: "z4", name: "他部門の社員", emoji: "🏢", situation: "「うちが稼いだ利益があの部門の赤字に消えている」という不満を抱えがち。" },
+      { id: "z5", name: "営業・窓口", emoji: "🤝", situation: "中止となれば顧客に頭を下げる役。信頼関係の毀損を最前線で受け止める。" },
+      { id: "z6", name: "株主・銀行", emoji: "💼", situation: "資本効率と利益率の改善を求める。低採算事業の継続には説明を要求。" },
+      { id: "z7", name: "経理・管理会計", emoji: "📊", situation: "「低利益率」の数字は共通費の配賦次第で変わる。数字の作られ方を知る立場。" },
+    ],
+    extra: {
+      label: "🔭 取引の網の目まで視野を広げる",
+      stakeholders: [
+        { id: "zx1", name: "仕入先・外注先", emoji: "🏭", situation: "このサービス向けの発注が売上の柱になっている取引先もいる。" },
+        { id: "zx2", name: "競合他社", emoji: "🏬", situation: "撤退はシェアを取りに行く好機。顧客リストごと引き受ける提案も可能。" },
+        { id: "zx3", name: "地域・社会", emoji: "🏘️", situation: "代替サービスのない地域では、撤退が生活インフラの穴になることも。" },
+        { id: "zx4", name: "見込み客", emoji: "🚪", situation: "低価格・低採算のサービスが、実は会社との最初の接点(入口)になっている。" },
+      ],
+      dataByScenario: {
+        chushi: {
+          zx1: { keizai: { tanki: { merit: "", demerit: "発注が消え経営に打撃", verdict: "loss" } } },
+          zx2: { keizai: { tanki: { merit: "撤退した市場の顧客を取り込める", demerit: "", verdict: "gain" } } },
+          zx3: { shakai: { chuki: { merit: "", demerit: "代替のない地域では生活に穴があく", verdict: "loss" } } },
+          zx4: { keizai: { chuki: { merit: "", demerit: "気軽に試せる入口がなくなり接点が減る", verdict: "mixed" } } },
+        },
+        keizoku: {
+          zx1: { keizai: { tanki: { merit: "取引が続く安心", demerit: "", verdict: "gain" } } },
+          zx2: { keizai: { tanki: { merit: "", demerit: "参入の隙が生まれない", verdict: "neutral" } } },
+          zx3: { shakai: { tanki: { merit: "地域の生活インフラが保たれる", demerit: "", verdict: "gain" } } },
+          zx4: { shakai: { tanki: { merit: "低価格の入口から関係が始まる", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+  },
+  jinken: {
+    label: "人権と取引",
+    theme: "人権侵害の疑いがある取引先と、取引をやめるべきか",
+    scale: "earth",
+    valueChain: {
+      primary: ["原材料・労働", "現地工場", "商社・物流", "自社製品", "消費者"],
+      support: ["人権DD・監査", "業界イニシアチブ", "規制(欧州の人権DD法制等)"],
+    },
+    scenarios: {
+      options: [
+        { id: "uchikiri", label: "✂️ 取引を打ち切る世界" },
+        { id: "kanyo", label: "🤝 続けて改善を迫る世界" },
+      ],
+      data: {
+        uchikiri: {
+          h1: {
+            keizai: { tanki: { merit: "", demerit: "代替調達で原価上昇・供給の混乱", verdict: "loss" } },
+            shakai: { tanki: { merit: "不買・輸入差止・訴訟のリスクを遮断", demerit: "", verdict: "gain" } },
+          },
+          h2: { keizai: { tanki: { merit: "", demerit: "受注減で解雇。より劣悪な仕事に移ることも", verdict: "loss" } } },
+          h3: { keizai: { tanki: { merit: "", demerit: "大口顧客を失い、改善の資金も失う", verdict: "loss" } } },
+          h4: {
+            shakai: { tanki: { merit: "「知らずに加担」から抜けられる", demerit: "", verdict: "gain" } },
+            keizai: { tanki: { merit: "", demerit: "調達コスト転嫁で値上げの可能性", verdict: "mixed" } },
+          },
+          h5: { keizai: { tanki: { merit: "", demerit: "代替先の開拓と監査を短期間で担う", verdict: "loss" } } },
+          h6: { shakai: { tanki: { merit: "ESG評価と訴訟リスク低減を歓迎", demerit: "", verdict: "gain" } } },
+          h7: { shakai: { tanki: { merit: "圧力の成果として評価できる", demerit: "労働者置き去りの「切り逃げ」批判も", verdict: "mixed" } } },
+          h8: { keizai: { chuki: { merit: "", demerit: "外資の撤退で雇用と外貨を失う", verdict: "loss" } } },
+        },
+        kanyo: {
+          h1: {
+            shakai: {
+              tanki: { merit: "", demerit: "「加担」批判と輸入差止リスクを負い続ける", verdict: "mixed" },
+              choki: { merit: "改善が実れば業界の手本として信頼を得る", demerit: "", verdict: "gain" },
+            },
+          },
+          h2: { shakai: { chuki: { merit: "雇用を保ったまま労働条件が改善する可能性", demerit: "改善が進まなければ現状が固定化する", verdict: "mixed" } } },
+          h3: {
+            keizai: { tanki: { merit: "取引が続き、改善投資の原資も得られる", demerit: "", verdict: "gain" } },
+            shakai: { chuki: { merit: "", demerit: "監査・是正要求への対応負担", verdict: "mixed" } },
+          },
+          h4: { shakai: { tanki: { merit: "", demerit: "「取引を続けている」批判に晒される", verdict: "mixed" } } },
+          h5: { shakai: { chuki: { merit: "", demerit: "監査と是正確認の継続業務が増える", verdict: "mixed" } } },
+          h6: { shakai: { tanki: { merit: "", demerit: "ESG指数からの除外・投資引き揚げのリスク", verdict: "mixed" } } },
+          h7: { shakai: { chuki: { merit: "内部からの改善圧力として協働できる", demerit: "「言い訳の隠れ蓑」にされる恐れ", verdict: "mixed" } } },
+          h8: { keizai: { tanki: { merit: "雇用と外貨が保たれる", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "h1", name: "自社の経営者", emoji: "👔", situation: "調達コストと人権リスク(不買・訴訟・輸入差止)の板挟み。国連指導原則は「まず影響力の行使」を求める。" },
+      { id: "h2", name: "現地の労働者", emoji: "🧑‍🏭", situation: "問題の当事者でありながら、議論の場に最もいない人たち。取引停止は職を失うことでもある。" },
+      { id: "h3", name: "取引先の経営", emoji: "🏭", situation: "低価格の受注競争の中で労働条件を削ってきた。改善には資金と発注の安定が要る。" },
+      { id: "h4", name: "消費者", emoji: "🧑", situation: "安さを求める自分と、人権を大切にしたい自分が同居している。" },
+      { id: "h5", name: "調達・購買部門", emoji: "📦", situation: "監査・是正・代替先探しの実務をすべて担う。QCDと人権の両立を迫られる。" },
+      { id: "h6", name: "株主・ESG投資家", emoji: "💼", situation: "人権リスクは投資リスク。対応の速さと透明性を評価軸にしている。" },
+      { id: "h7", name: "NGO・人権団体", emoji: "📣", situation: "問題を可視化してきた監視役。企業との対決も協働も、状況次第で選ぶ。" },
+      { id: "h8", name: "現地政府", emoji: "🏛️", situation: "雇用と外貨をもたらす外資は手放したくない。国際的批判との間で揺れる。" },
+    ],
+    extra: {
+      label: "🔭 サプライチェーンの奥まで視野を広げる",
+      stakeholders: [
+        { id: "hx1", name: "代替調達先", emoji: "🌏", situation: "取引が移ってくる側。ただし監査の緩い国へ問題ごと移るだけになる恐れも。" },
+        { id: "hx2", name: "業界・同業他社", emoji: "🏢", situation: "一社が切っても、業界全体が買い続ければ現場は変わらない。" },
+        { id: "hx3", name: "労働者の家族", emoji: "👨‍👩‍👧", situation: "仕送りが家計と地域経済を支えている。工場の受注は暮らしに直結する。" },
+        { id: "hx4", name: "規制・国際機関", emoji: "⚖️", situation: "欧州の人権DD法制や米国の輸入規制など、企業に対応を義務づける枠組みが広がる。" },
+      ],
+      dataByScenario: {
+        uchikiri: {
+          hx1: { keizai: { tanki: { merit: "移転需要で受注が増える", demerit: "監査の緩い国へ問題が移るだけの恐れ", verdict: "mixed" } } },
+          hx2: { shakai: { tanki: { merit: "", demerit: "一社が切っても他社が買えば構造は不変", verdict: "neutral" } } },
+          hx3: { keizai: { tanki: { merit: "", demerit: "仕送りが途絶え家計と地域が傾く", verdict: "loss" } } },
+          hx4: { shakai: { chuki: { merit: "規制の実効性を示す前例になる", demerit: "切り逃げでは実態の改善を測れない", verdict: "mixed" } } },
+        },
+        kanyo: {
+          hx1: { keizai: { tanki: { merit: "", demerit: "移転の特需は生まれない", verdict: "neutral" } } },
+          hx2: { shakai: { chuki: { merit: "共同で改善を迫れば業界全体の圧力になる", demerit: "", verdict: "gain" } } },
+          hx3: { shakai: { chuki: { merit: "雇用が続き、改善されれば家族の生活も上向く", demerit: "", verdict: "gain" } } },
+          hx4: { shakai: { chuki: { merit: "対話による是正は国連指導原則の本旨に沿う", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+  },
+  gasoline: {
+    label: "ガソリンと国債",
+    theme: "国債を発行してガソリンを安くし続けるべきか",
+    scale: "town",
+    valueChain: {
+      primary: ["原油輸入", "精製・元売り", "スタンド", "家計・産業の利用", "税・財源"],
+      support: ["国債発行", "価格モニタリング", "気候政策"],
+    },
+    scenarios: {
+      options: [
+        { id: "hojo", label: "⛽ 国債で価格を下げる世界" },
+        { id: "kyufu", label: "🎯 困る人への給付に絞る世界" },
+      ],
+      data: {
+        hojo: {
+          n1: { keizai: { tanki: { merit: "通勤・買い物の燃料費が確実に軽くなる", demerit: "", verdict: "gain" } } },
+          n2: { keizai: { tanki: { merit: "", demerit: "恩恵は薄いのに将来の返済は共有する", verdict: "mixed" } } },
+          n3: { keizai: { tanki: { merit: "燃料費が下がり運賃転嫁の圧力も緩む", demerit: "", verdict: "gain" } } },
+          n4: { keizai: { tanki: { merit: "需要が維持され客足が保たれる", demerit: "", verdict: "gain" } } },
+          n5: {
+            keizai: { tanki: { merit: "", demerit: "国債頼みの補助が年1兆円規模で続く", verdict: "loss" } },
+            shakai: { tanki: { merit: "物価対策として世論に応えやすい", demerit: "", verdict: "gain" } },
+          },
+          n6: {
+            keizai: { choki: { merit: "", demerit: "国債の返済負担を引き継ぐ", verdict: "loss" } },
+            kankyo: { choki: { merit: "", demerit: "安い燃料が脱炭素への転換を遅らせる", verdict: "loss" } },
+          },
+          n7: { keizai: { tanki: { merit: "一律に安くなる恩恵はある", demerit: "多く使う人ほど得をする配り方になる", verdict: "mixed" } } },
+          n8: { keizai: { tanki: { merit: "燃油コストが下がり経営が助かる", demerit: "", verdict: "gain" } } },
+        },
+        kyufu: {
+          n1: { keizai: { tanki: { merit: "対象なら燃料費以上の支援も受けられる", demerit: "対象外なら高いガソリンをそのまま払う", verdict: "mixed" } } },
+          n2: { keizai: { tanki: { merit: "車を持たない世帯にも恩恵が届きうる", demerit: "", verdict: "gain" } } },
+          n3: { keizai: { tanki: { merit: "", demerit: "燃料高は続き運賃転嫁の交渉が要る", verdict: "mixed" } } },
+          n4: { keizai: { tanki: { merit: "", demerit: "買い控えと需要減の逆風", verdict: "loss" } } },
+          n5: { keizai: { tanki: { merit: "総額を絞り必要な層へ集中できる", demerit: "対象の線引きと給付事務のコスト", verdict: "mixed" } } },
+          n6: {
+            kankyo: { choki: { merit: "価格シグナルが残り省エネ・転換が進む", demerit: "", verdict: "gain" } },
+            keizai: { choki: { merit: "", demerit: "国債の返済は残る(規模は小さめ)", verdict: "mixed" } },
+          },
+          n7: { keizai: { tanki: { merit: "燃料費の比率が高い世帯に厚く届く", demerit: "", verdict: "gain" } } },
+          n8: { keizai: { tanki: { merit: "業種向け支援を実情に合わせられる", demerit: "申請の手間と支給までの時差", verdict: "mixed" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "n1", name: "地方の車生活者", emoji: "🚗", situation: "公共交通が乏しく車は生活必需品。暫定税率廃止後も原油高でレギュラー約170円が家計を直撃。" },
+      { id: "n2", name: "都市の生活者", emoji: "🚃", situation: "車を持たない層。ガソリン補助の恩恵は薄いが、国債の返済負担は等しく共有する。" },
+      { id: "n3", name: "運送・物流業", emoji: "🚚", situation: "燃料費が経営を左右する。軽油の暫定税率も2026年4月に廃止されたが、原油高が続く。" },
+      { id: "n4", name: "ガソリンスタンド", emoji: "⛽", situation: "補助金執行の現場。需要の先細りと過疎地の撤退が進む中で店を守っている。" },
+      { id: "n5", name: "政府・財政", emoji: "🏛️", situation: "暫定税率(25.1円/L)廃止後も原油高で効果は相殺。国債を財源に約1.1兆円の補助を再開・継続中。" },
+      { id: "n6", name: "将来世代", emoji: "👶", situation: "国債の返済者であり、気候変動の相続人。この政策の費用を二重に受け取る立場。" },
+      { id: "n7", name: "低所得世帯", emoji: "🧑", situation: "収入に占める燃料費の割合が高い。「一律に安く」と「困る人に厚く」で受け取りが変わる。" },
+      { id: "n8", name: "農業・漁業者", emoji: "🚜", situation: "燃油に依存する一次産業。価格変動が収益を直撃する。" },
+    ],
+    extra: {
+      label: "🔭 財政と世界まで視野を広げる",
+      stakeholders: [
+        { id: "nx1", name: "国債市場・投資家", emoji: "📈", situation: "出口の見えない補助の常態化を、財政規律のシグナルとして見ている。" },
+        { id: "nx2", name: "産油国・元売り", emoji: "🛢️", situation: "補助金は最終的に需要を下支えする。価格を下げる政策の恩恵の一部は川上へ流れる。" },
+        { id: "nx3", name: "EV・省エネ産業", emoji: "🔋", situation: "ガソリンの値段は、転換への最大の価格シグナル。安ければ追い風は弱まる。" },
+        { id: "nx4", name: "気候そのもの", emoji: "🌍", situation: "声を持たない当事者。この場の誰かが代弁しない限り、議論に参加できない。" },
+      ],
+      dataByScenario: {
+        hojo: {
+          nx1: { keizai: { chuki: { merit: "", demerit: "出口なき補助の常態化は規律への懸念材料", verdict: "mixed" } } },
+          nx2: { keizai: { tanki: { merit: "需要が下支えされ販売量が保たれる", demerit: "", verdict: "gain" } } },
+          nx3: { keizai: { chuki: { merit: "", demerit: "安いガソリンは転換への逆風", verdict: "loss" } } },
+          nx4: { kankyo: { chuki: { merit: "", demerit: "消費が維持され排出減が遅れる", verdict: "loss" } } },
+        },
+        kyufu: {
+          nx1: { keizai: { chuki: { merit: "総額が絞られ補助常態化よりは規律的と映る", demerit: "", verdict: "mixed" } } },
+          nx2: { keizai: { tanki: { merit: "", demerit: "需要が細り販売量が減る", verdict: "loss" } } },
+          nx3: { keizai: { chuki: { merit: "価格シグナルが転換への追い風になる", demerit: "", verdict: "gain" } } },
+          nx4: { kankyo: { chuki: { merit: "価格シグナルが働き排出減が進む", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+  },
+  idenshi: {
+    label: "遺伝子編集",
+    theme: "ヒト胚の遺伝子編集(次世代に受け継がれる編集)を認めるべきか",
+    scale: "earth",
+    valueChain: {
+      primary: ["基礎研究", "臨床応用", "生殖医療", "生まれる子", "次の世代"],
+      support: ["倫理審査", "国際規範", "特許・資本"],
+    },
+    scenarios: {
+      options: [
+        { id: "mitomeru", label: "🧬 認める世界" },
+        { id: "kinjiru", label: "🚫 禁じる世界" },
+      ],
+      data: {
+        mitomeru: {
+          i1: { shakai: { tanki: { merit: "家系を苦しめてきた遺伝病を断ち切れる", demerit: "", verdict: "gain" } } },
+          i2: { shakai: { choki: { merit: "発症の恐怖なく生きられる", demerit: "同意なき改変を身体に受けて生きる", verdict: "mixed" } } },
+          i3: { shakai: { tanki: { merit: "研究が公認され透明性の下で進む", demerit: "", verdict: "gain" } } },
+          i4: { keizai: { tanki: { merit: "新しい生殖医療市場が開ける", demerit: "", verdict: "gain" } } },
+          i5: { shakai: { chuki: { merit: "", demerit: "「治すべき存在」という視線が強まる", verdict: "loss" } } },
+          i6: { shakai: { tanki: { merit: "", demerit: "治療と増強の線引きの執行が難しい", verdict: "mixed" } } },
+          i7: { shakai: { choki: { merit: "", demerit: "高額なら格差が遺伝子に刻まれていく", verdict: "loss" } } },
+          i8: { shakai: { tanki: { merit: "", demerit: "生命の設計という一線を越える懸念", verdict: "loss" } } },
+        },
+        kinjiru: {
+          i1: { shakai: { tanki: { merit: "", demerit: "限られた選択肢のまま病と向き合う", verdict: "loss" } } },
+          i2: { shakai: { choki: { merit: "改変されない身体で生まれる権利は守られる", demerit: "防げたはずの病を負って生まれる子も", verdict: "mixed" } } },
+          i3: { shakai: { tanki: { merit: "", demerit: "研究が地下化・国外流出する恐れ", verdict: "mixed" } } },
+          i4: { keizai: { tanki: { merit: "", demerit: "新市場は開けない", verdict: "neutral" } } },
+          i5: { shakai: { tanki: { merit: "多様な身体の尊重が規範として保たれる", demerit: "", verdict: "gain" } } },
+          i6: { shakai: { tanki: { merit: "国際的な規範を守る側に立てる", demerit: "規制の緩い国への流出は止められない", verdict: "mixed" } } },
+          i7: { shakai: { tanki: { merit: "遺伝子をめぐる格差競争は始まらない", demerit: "", verdict: "gain" } } },
+          i8: { shakai: { tanki: { merit: "越えてはならない一線が守られる", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "i1", name: "遺伝病の家系", emoji: "👨‍👩‍👧", situation: "発症の連鎖を自分の代で止めたいという切実さを抱える家族たち。" },
+      { id: "i2", name: "生まれてくる子", emoji: "👶", situation: "編集の対象でありながら、同意することが原理的にできない当事者。" },
+      { id: "i3", name: "研究者", emoji: "🧑‍🔬", situation: "2018年に中国で無認可のゲノム編集ベビーが誕生し研究者は服役。科学と規範の間に立つ。" },
+      { id: "i4", name: "生殖医療機関", emoji: "🏥", situation: "不妊治療の延長線上に、市場としての遺伝子編集が見えている。" },
+      { id: "i5", name: "障害当事者", emoji: "♿", situation: "「治すべき存在」と社会に定義されることへの異議を長年訴えてきた。" },
+      { id: "i6", name: "規制当局", emoji: "🏛️", situation: "国ごとに規制がばらつけば、規制の緩い国への「治療ツーリズム」が生まれる。" },
+      { id: "i7", name: "一般の親たち", emoji: "🧑", situation: "わが子への願いと、高額な技術が「選べる家」だけのものになる不安の間で。" },
+      { id: "i8", name: "生命倫理・宗教界", emoji: "📿", situation: "生命の始まりに人の手が入ることへの、伝統に根ざした問いを投げかける。" },
+    ],
+    extra: {
+      label: "🔭 世代と市場まで視野を広げる",
+      stakeholders: [
+        { id: "ix1", name: "保険・医療財政", emoji: "🏦", situation: "遺伝病の予防は医療費を減らすが、遺伝情報による選別の入口にもなりうる。" },
+        { id: "ix2", name: "バイオ企業・投資家", emoji: "📈", situation: "特許と資本が技術の方向性を決める。規制は投資先の選定条件になる。" },
+        { id: "ix3", name: "規制の緩い国", emoji: "🌏", situation: "先進国が禁じるほど、患者と資本が流れ込むハブになりうる。" },
+        { id: "ix4", name: "未来の人類", emoji: "🧬", situation: "遺伝子プールの多様性を受け継ぐ、まだ存在しない世代。" },
+      ],
+      dataByScenario: {
+        mitomeru: {
+          ix1: { keizai: { choki: { merit: "遺伝病医療費の長期的な減少", demerit: "保険加入での遺伝子選別のリスク", verdict: "mixed" } } },
+          ix2: { keizai: { tanki: { merit: "投資が流入し開発が加速する", demerit: "", verdict: "gain" } } },
+          ix3: { keizai: { tanki: { merit: "合法化競争で拠点を狙える", demerit: "安全性の底が抜ける恐れ", verdict: "mixed" } } },
+          ix4: { shakai: { choki: { merit: "", demerit: "多様性が「望ましさ」の基準で狭まる恐れ", verdict: "mixed" } } },
+        },
+        kinjiru: {
+          ix1: { keizai: { choki: { merit: "", demerit: "遺伝病の医療費は続いていく", verdict: "mixed" } } },
+          ix2: { keizai: { tanki: { merit: "", demerit: "投資は規制の緩い国へ向かう", verdict: "mixed" } } },
+          ix3: { keizai: { tanki: { merit: "禁止国からの患者と資本が流れ込む", demerit: "", verdict: "gain" } } },
+          ix4: { shakai: { choki: { merit: "ゲノムの多様性は保たれる", demerit: "", verdict: "gain" } } },
+        },
+      },
+    },
+  },
+  kokkyo: {
+    label: "国境を開くか",
+    theme: "国境を大きく開いて移民を受け入れるべきか",
+    scale: "earth",
+    valueChain: {
+      primary: ["送出国の暮らし", "移動・仲介", "入国・在留制度", "職場と地域", "定住・次世代"],
+      support: ["語学・教育", "社会保障", "世論・メディア"],
+    },
+    scenarios: {
+      options: [
+        { id: "hiraku", label: "🚪 大きく開く世界" },
+        { id: "shiboru", label: "🚧 今のまま絞る世界" },
+      ],
+      data: {
+        hiraku: {
+          w1: { keizai: { tanki: { merit: "人手不足が緩和され事業を続けられる", demerit: "", verdict: "gain" } } },
+          w2: { keizai: { tanki: { merit: "母国より高い収入と学びの機会", demerit: "言葉の壁・孤立・搾取のリスク", verdict: "mixed" } } },
+          w3: { keizai: { tanki: { merit: "送金が家計と教育を支える", demerit: "家族が離れて暮らす長い年月", verdict: "mixed" } } },
+          w4: { keizai: { chuki: { merit: "送金は貴重な外貨収入になる", demerit: "看護師や技術者の頭脳流出", verdict: "mixed" } } },
+          w5: { shakai: { tanki: { merit: "商店や祭りの担い手が地域に戻る", demerit: "急な変化への不安や摩擦も生まれる", verdict: "mixed" } } },
+          w6: { keizai: { tanki: { merit: "", demerit: "賃金の下押し圧力への懸念(実証は分かれる)", verdict: "mixed" } } },
+          w7: {
+            shakai: { chuki: { merit: "", demerit: "在留制度と社会保障の再設計を迫られる", verdict: "mixed" } },
+            keizai: { choki: { merit: "労働力と税の担い手を得る", demerit: "", verdict: "gain" } },
+          },
+          w8: { shakai: { chuki: { merit: "二つの文化を生きる力を育てる", demerit: "支援のない学校では孤立しやすい", verdict: "mixed" } } },
+        },
+        shiboru: {
+          w1: { keizai: { tanki: { merit: "", demerit: "人手不足で縮小・廃業が進む", verdict: "loss" } } },
+          w2: { keizai: { tanki: { merit: "", demerit: "来日して働く機会が閉ざされる", verdict: "loss" } } },
+          w3: { keizai: { tanki: { merit: "", demerit: "送金という選択肢がそもそも生じない", verdict: "neutral" } } },
+          w4: { keizai: { chuki: { merit: "人材が国内に留まる", demerit: "送金収入は得られない", verdict: "mixed" } } },
+          w5: { shakai: { tanki: { merit: "急な変化への不安はない", demerit: "地域の担い手不足は静かに進む", verdict: "mixed" } } },
+          w6: { keizai: { tanki: { merit: "賃金競合の懸念はない", demerit: "人手不足で一人あたりの負担が増す", verdict: "mixed" } } },
+          w7: { shakai: { tanki: { merit: "制度変更の摩擦を避けられる", demerit: "人口減対策の選択肢を一つ失う", verdict: "mixed" } } },
+          w8: { shakai: { choki: { merit: "", demerit: "この世界では出会わなかった子どもたち", verdict: "neutral" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "w1", name: "人手不足の産業", emoji: "🏗️", situation: "介護・建設・農業など。外国人労働者はすでに200万人を超え、現場は既に彼らなしでは回らない。" },
+      { id: "w2", name: "来日する移民", emoji: "🧳", situation: "より良い暮らしを求めて国境を越える本人。希望とリスクを一身に背負う。" },
+      { id: "w3", name: "送出国に残る家族", emoji: "👨‍👩‍👧", situation: "送金を待ちながら、離れて暮らす。子どもの成長を親が見られない年月が続く。" },
+      { id: "w4", name: "送出国の政府", emoji: "🌏", situation: "送金は外貨収入の柱。一方で医療者や技術者が先に国を出ていく。" },
+      { id: "w5", name: "受入地域の住民", emoji: "🏘️", situation: "隣人が変わっていく変化の当事者。不安も、新しいつながりも、ここで生まれる。" },
+      { id: "w6", name: "同職種の労働者", emoji: "🧑‍🔧", situation: "「仕事を奪われるのでは」という不安の当事者。実際の影響は職種と制度設計による。" },
+      { id: "w7", name: "政府(在留制度)", emoji: "🏛️", situation: "労働力としては欲しいが、生活者として迎える制度は追いついていない。" },
+      { id: "w8", name: "移民の子ども", emoji: "🧒", situation: "親の選択でこの国に育つ。教育とアイデンティティの支えが人生を左右する。" },
+    ],
+    extra: {
+      label: "🔭 世界の人の流れまで視野を広げる",
+      stakeholders: [
+        { id: "wx1", name: "仲介・送出機関", emoji: "🏢", situation: "国境を越える手続きのビジネス。高額な手数料が借金となって移民を縛る問題も。" },
+        { id: "wx2", name: "競合する受入国", emoji: "✈️", situation: "韓国・台湾・ドイツなども同じ人材を求めている。選ばれる国の競争が始まっている。" },
+        { id: "wx3", name: "地域の学校・行政", emoji: "🏫", situation: "日本語支援・多言語対応・生活相談。受け入れの実務を最前線で担う。" },
+        { id: "wx4", name: "将来の日本社会", emoji: "👶", situation: "人口減少が続く社会の担い手を、誰がどう構成するのかという長期の問い。" },
+      ],
+      dataByScenario: {
+        hiraku: {
+          wx1: { keizai: { tanki: { merit: "送出ビジネスが拡大する", demerit: "手数料搾取の温床になる恐れ", verdict: "mixed" } } },
+          wx2: { keizai: { tanki: { merit: "", demerit: "人材獲得競争で待遇引き上げの圧力", verdict: "mixed" } } },
+          wx3: { shakai: { tanki: { merit: "多文化の学びが教室に生まれる", demerit: "日本語支援など現場の負担が急増", verdict: "mixed" } } },
+          wx4: { shakai: { choki: { merit: "人口減の緩和と社会の新しい担い手", demerit: "", verdict: "gain" } } },
+        },
+        shiboru: {
+          wx1: { keizai: { tanki: { merit: "", demerit: "送出ビジネスは縮小する", verdict: "loss" } } },
+          wx2: { keizai: { tanki: { merit: "日本が絞る分、人材が自国に向かう", demerit: "", verdict: "gain" } } },
+          wx3: { shakai: { tanki: { merit: "現場の負担は現状のまま", demerit: "", verdict: "neutral" } } },
+          wx4: { shakai: { choki: { merit: "", demerit: "人口減少と担い手不足が加速する", verdict: "loss" } } },
+        },
+      },
+    },
+  },
+  bi: {
+    label: "ベーシックインカム",
+    theme: "日本はベーシックインカムを導入すべきか",
+    scale: "town",
+    valueChain: {
+      primary: ["税・財源", "給付の仕組み", "家計", "働き方の選択", "社会参加"],
+      support: ["行政システム", "労働市場", "物価"],
+    },
+    scenarios: {
+      options: [
+        { id: "kubaru", label: "💴 全員一律に配る世界" },
+        { id: "genko", label: "🧩 今の社会保障を続ける世界" },
+      ],
+      data: {
+        kubaru: {
+          u1: { keizai: { tanki: { merit: "収入の底ができ、雇用主への交渉力も増す", demerit: "", verdict: "gain" } } },
+          u2: { shakai: { tanki: { merit: "無償だったケア労働に暮らしの土台がつく", demerit: "", verdict: "gain" } } },
+          u3: { keizai: { tanki: { merit: "", demerit: "低賃金のままでは人が集まらなくなる", verdict: "mixed" } } },
+          u4: { keizai: { tanki: { merit: "", demerit: "財源となる増税の主な担い手になる", verdict: "loss" } } },
+          u5: { shakai: { chuki: { merit: "審査・給付事務から対人支援へ再配置", demerit: "既存業務の消滅による雇用不安", verdict: "mixed" } } },
+          u6: { shakai: { tanki: { merit: "", demerit: "一律化で個別の手厚い支援が薄まる懸念", verdict: "loss" } } },
+          u7: { shakai: { tanki: { merit: "失敗できる土台が挑戦を増やす", demerit: "", verdict: "gain" } } },
+          u8: { shakai: { tanki: { merit: "進路をお金でなく関心で選びやすくなる", demerit: "", verdict: "gain" } } },
+        },
+        genko: {
+          u1: { keizai: { tanki: { merit: "", demerit: "制度の隙間に落ちる不安が続く", verdict: "loss" } } },
+          u2: { shakai: { tanki: { merit: "", demerit: "ケア労働は無償のまま", verdict: "loss" } } },
+          u3: { keizai: { tanki: { merit: "人件費の構造は変わらない", demerit: "", verdict: "neutral" } } },
+          u4: { keizai: { tanki: { merit: "大規模な増税は避けられる", demerit: "", verdict: "gain" } } },
+          u5: { shakai: { tanki: { merit: "既存業務は続く", demerit: "申請主義の複雑さと窓口業務は残る", verdict: "mixed" } } },
+          u6: { shakai: { tanki: { merit: "必要に応じた手厚い支援が守られる", demerit: "", verdict: "gain" } } },
+          u7: { shakai: { tanki: { merit: "", demerit: "挑戦の失敗が生活の危機に直結する", verdict: "mixed" } } },
+          u8: { keizai: { tanki: { merit: "", demerit: "学費と生活費のための労働が学業を圧迫", verdict: "mixed" } } },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "u1", name: "不安定就労の人", emoji: "🧑‍💻", situation: "非正規・フリーランス・ギグワーク。今の社会保障の網から最もこぼれやすい層。" },
+      { id: "u2", name: "子育て・介護者", emoji: "👩‍👧", situation: "社会を支える無償のケア労働。現行制度では「働いていない人」として扱われがち。" },
+      { id: "u3", name: "中小企業経営者", emoji: "🏢", situation: "人手の確保が生命線。「辞めても暮らせる」社会は雇用の力学を変える。" },
+      { id: "u4", name: "高所得の納税者", emoji: "💼", situation: "どの設計でも財源の主な担い手。「配るために取る」ことへの納得が問われる。" },
+      { id: "u5", name: "行政・自治体職員", emoji: "🏛️", situation: "資力調査や審査など、現行制度の複雑な実務を担う。BIはその仕事を消す。" },
+      { id: "u6", name: "現行制度の受給者", emoji: "♿", situation: "障害・難病など個別事情に応じた給付を受ける人たち。一律化は必ずしも味方ではない。" },
+      { id: "u7", name: "挑戦する人", emoji: "🎨", situation: "起業家・アーティスト・研究者。フィンランドの実験では幸福度が上がり就労は大きく変わらなかった。" },
+      { id: "u8", name: "若者・学生", emoji: "🎓", situation: "奨学金という借金と、バイトに削られる学業時間の中で進路を選んでいる。" },
+    ],
+    extra: {
+      label: "🔭 経済の土台まで視野を広げる",
+      stakeholders: [
+        { id: "ux1", name: "労働市場全体", emoji: "⚖️", situation: "「働かなくても暮らせる」最低ラインは、すべての賃金交渉の前提を変える。" },
+        { id: "ux2", name: "物価・家主", emoji: "🏠", situation: "全員の所得が一律に増えたとき、その分は家賃や物価に吸収されるのか。" },
+        { id: "ux3", name: "AI・自動化産業", emoji: "🤖", situation: "雇用を置き換える側。BIは自動化への社会的合意の条件とも言われる。" },
+        { id: "ux4", name: "地域コミュニティ", emoji: "🏘️", situation: "PTA・消防団・自治会。時間の余裕の有無が、担い手の数を決めてきた。" },
+      ],
+      dataByScenario: {
+        kubaru: {
+          ux1: { keizai: { chuki: { merit: "誰もやりたがらない仕事の賃金が上がる", demerit: "人件費上昇が価格に転嫁される", verdict: "mixed" } } },
+          ux2: { keizai: { tanki: { merit: "", demerit: "給付分が家賃・物価に吸収される恐れ", verdict: "mixed" } } },
+          ux3: { shakai: { chuki: { merit: "自動化への社会的合意が得やすくなる", demerit: "雇用置換の免罪符にされる恐れ", verdict: "mixed" } } },
+          ux4: { shakai: { chuki: { merit: "時間の余裕が地域活動の担い手を生む", demerit: "", verdict: "gain" } } },
+        },
+        genko: {
+          ux1: { keizai: { tanki: { merit: "現行の賃金構造が保たれる", demerit: "", verdict: "neutral" } } },
+          ux2: { keizai: { tanki: { merit: "給付起点の物価上昇は起きない", demerit: "", verdict: "neutral" } } },
+          ux3: { shakai: { chuki: { merit: "", demerit: "自動化失業への備えは宿題のまま", verdict: "mixed" } } },
+          ux4: { shakai: { tanki: { merit: "", demerit: "平日昼間の担い手不足が続く", verdict: "mixed" } } },
+        },
+      },
+    },
+  },
+  meta: {
+    label: "Meta詐欺広告",
+    theme: "Metaが詐欺広告を全面的に止めたら、誰に何が起きるか",
+    scale: "earth",
+    valueChain: {
+      primary: ["資源採掘", "部品・半導体", "端末製造", "通信・電力", "プラットフォーム", "広告配信", "利用者の注意"],
+      support: ["AI・データセンター", "広告審査", "規制・ガバナンス"],
+    },
+    extra: {
+      label: "🔭 サプライチェーンまで視野を広げる",
+      stakeholders: [
+        { id: "x1", name: "スマホメーカー", emoji: "📲", situation: "広告収益で無料アプリが成り立つ生態系の上で端末が売れる。SNSへの信頼低下は利用時間に響く。" },
+        { id: "x2", name: "半導体・部品", emoji: "⚙️", situation: "広告収益→AI投資→データセンター・端末需要という資金の流れの川上に位置している。" },
+        { id: "x3", name: "電力・DC事業者", emoji: "⚡", situation: "1日150億件の詐欺広告の配信・審査にも電力が使われる。AI投資は電力需要を押し上げ続けている。" },
+        { id: "x4", name: "資源採掘地域", emoji: "⛏️", situation: "端末やサーバーに必要な鉱物の採掘地。デジタル経済の最も川上で環境・人権の負荷を負う。" },
+      ],
+      data: {
+        x1: {
+          keizai: {
+            chuki: { merit: "SNSへの信頼回復は利用時間と端末需要を下支え", demerit: "", verdict: "gain" },
+          },
+          kankyo: {
+            choki: { merit: "", demerit: "買い替えを促す構造そのものは変わらない", verdict: "neutral" },
+          },
+        },
+        x2: {
+          keizai: {
+            tanki: { merit: "", demerit: "MetaのAI投資が減速すれば半導体需要に逆風", verdict: "mixed" },
+            choki: { merit: "健全な広告市場は長期の安定需要につながる", demerit: "", verdict: "gain" },
+          },
+        },
+        x3: {
+          kankyo: {
+            tanki: { merit: "詐欺広告分の配信・審査の電力と計算資源が浮く", demerit: "", verdict: "gain" },
+          },
+          keizai: {
+            tanki: { merit: "", demerit: "AI投資減速なら新設データセンター計画に影響", verdict: "mixed" },
+          },
+        },
+        x4: {
+          kankyo: {
+            choki: { merit: "過剰なデジタル需要の見直しは採掘圧力の緩和に", demerit: "", verdict: "mixed" },
+          },
+          shakai: {
+            choki: { merit: "", demerit: "需要が減れば鉱山地域の雇用に影響が及ぶ", verdict: "mixed" },
+          },
+        },
+      },
+    },
+    stakeholders: [
+      { id: "m1", name: "Meta経営陣", emoji: "🏢", situation: "詐欺・禁止広告は売上の約1割(約160億ドル)との内部推計。止めれば減収、放置すれば規制・訴訟リスク。" },
+      { id: "m2", name: "株主・投資家", emoji: "💼", situation: "AI投資競争の真っ只中。短期の減収と、長期の制裁金・株価暴落リスクを天秤にかけている。" },
+      { id: "m3", name: "利用者・被害者", emoji: "🧑", situation: "1日約150億件の高リスク広告に接触との内部推計。投資詐欺や偽通販の被害が社会問題化。" },
+      { id: "m4", name: "正規の広告主", emoji: "🛍️", situation: "詐欺広告と同じ広告枠を競り合い、詐欺の隣に表示されるブランド毀損リスクも負ってきた。" },
+      { id: "m5", name: "詐欺業者", emoji: "🕶️", situation: "検知確度95%未満なら出稿を続けられ、違反を重ねても止められない「高価値アカウント」も存在した。" },
+      { id: "m6", name: "規制当局・政府", emoji: "🏛️", situation: "SNS型投資詐欺の被害拡大を受け、各国でプラットフォーム規制の圧力を強めている。" },
+      { id: "m7", name: "対策チーム社員", emoji: "🧑‍💻", situation: "対策強化を訴える内部文書もあったが、収益目標との板挟みに置かれてきた。" },
+      { id: "m8", name: "競合SNS等", emoji: "📱", situation: "Metaが締め出せば、詐欺広告費と手口が自社プラットフォームに流れ込んでくる可能性がある。" },
+    ],
+    data: {
+      m1: {
+        keizai: {
+          tanki: { merit: "", demerit: "年約160億ドルの減収+本人確認導入に約20億ドル", verdict: "loss" },
+          choki: { merit: "巨額制裁金・訴訟・広告主離れのリスクを回避", demerit: "AI投資の原資が細る", verdict: "mixed" },
+        },
+        shakai: {
+          tanki: { merit: "「利益より安全」の姿勢転換で信頼回復の一手", demerit: "内部文書報道で失った評判はすぐ戻らない", verdict: "gain" },
+        },
+      },
+      m2: {
+        keizai: {
+          tanki: { merit: "", demerit: "売上約1割減の発表で株価に下落圧力", verdict: "loss" },
+          choki: { merit: "制裁金や集団訴訟という時限爆弾の解消", demerit: "広告収益の成長鈍化を織り込む必要", verdict: "mixed" },
+        },
+      },
+      m3: {
+        keizai: {
+          tanki: { merit: "投資詐欺・偽通販などの金銭被害が減る", demerit: "", verdict: "gain" },
+        },
+        shakai: {
+          tanki: { merit: "高齢の家族などを狙う広告への不安が減る", demerit: "", verdict: "gain" },
+          choki: { merit: "SNS広告そのものへの信頼が回復していく", demerit: "詐欺がSMSや他SNSに移れば警戒は続く", verdict: "gain" },
+        },
+        kankyo: {
+          choki: { merit: "届かない粗悪品・偽物の生産と廃棄が減る", demerit: "", verdict: "gain" },
+        },
+      },
+      m4: {
+        keizai: {
+          tanki: { merit: "詐欺業者の高額入札が消え広告単価が下がる", demerit: "Metaが減収分を広告料値上げで転嫁する恐れ", verdict: "mixed" },
+        },
+        shakai: {
+          chuki: { merit: "詐欺の隣に表示されないブランド安全性", demerit: "", verdict: "gain" },
+        },
+      },
+      m5: {
+        keizai: {
+          tanki: { merit: "", demerit: "最大の集客チャネルを失う", verdict: "loss" },
+        },
+        shakai: {
+          chuki: { merit: "", demerit: "SMSや他SNSへ移るが摘発リスクは増す", verdict: "loss" },
+        },
+      },
+      m6: {
+        shakai: {
+          tanki: { merit: "詐欺被害の相談・捜査負担が軽くなる", demerit: "", verdict: "gain" },
+          choki: { merit: "自主対応の成功例として規制設計が前進", demerit: "他チャネルに分散した詐欺の追跡が困難に", verdict: "mixed" },
+        },
+      },
+      m7: {
+        shakai: {
+          tanki: { merit: "「守る仕事」に専念できる誇りと士気", demerit: "", verdict: "gain" },
+        },
+        keizai: {
+          tanki: { merit: "", demerit: "全社減収の中で予算・人員削減の不安", verdict: "mixed" },
+        },
+      },
+      m8: {
+        keizai: {
+          tanki: { merit: "行き場を失った広告費の一部が流入", demerit: "", verdict: "gain" },
+        },
+        shakai: {
+          chuki: { merit: "", demerit: "詐欺の受け皿となり対策コストと批判が増大", verdict: "loss" },
+        },
+      },
+    },
   },
 };
 
-/* ================= 状態 ================= */
-const state = {
-  theme: "", scale: "room", stakeholders: [], data: {},
-  view: "field", lensAxis: "all", lensHorizon: "all",
-  selectedId: null, hoverId: null, editAxis: "keizai", editHorizon: "tanki",
-};
-let saveTimer = null, confirmReset = false, confirmTimer = null;
-
 /* ================= ユーティリティ ================= */
+
 const uid = () => "s" + Math.random().toString(36).slice(2, 9);
-const esc = (s) => String(s || "").replace(/[&<>"']/g, (c) => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
-const $ = (sel) => document.querySelector(sel);
 
-function getCell(sid, axis, horizon) {
-  return (state.data[sid] && state.data[sid][axis] && state.data[sid][axis][horizon]) || { merit: "", demerit: "", verdict: "" };
+function getCell(data, sid, axis, horizon) {
+  return (data[sid] && data[sid][axis] && data[sid][axis][horizon]) || { merit: "", demerit: "", verdict: "" };
 }
-function setCell(sid, axis, horizon, patch) {
-  if (!state.data[sid]) state.data[sid] = {};
-  if (!state.data[sid][axis]) state.data[sid][axis] = {};
-  state.data[sid][axis][horizon] = Object.assign({ merit: "", demerit: "", verdict: "" }, state.data[sid][axis][horizon], patch);
-}
-function lensAxes() { return state.lensAxis === "all" ? AXES.map(a => a.id) : [state.lensAxis]; }
-function lensHorizons() { return state.lensHorizon === "all" ? HORIZONS.map(h => h.id) : [state.lensHorizon]; }
-function verdictInfo(v) { return VERDICTS.find(x => x.id === v); }
 
-function aggregateVerdict(sid) {
+function aggregateVerdict(data, sid, axisIds, horizonIds) {
   let hasGain = false, hasLoss = false, hasAny = false;
-  for (const a of lensAxes()) for (const h of lensHorizons()) {
-    const v = getCell(sid, a, h).verdict;
-    if (!v) continue;
-    hasAny = true;
-    if (v === "gain") hasGain = true;
-    else if (v === "loss") hasLoss = true;
-    else if (v === "mixed") { hasGain = true; hasLoss = true; }
+  for (const a of axisIds) {
+    for (const h of horizonIds) {
+      const v = getCell(data, sid, a, h).verdict;
+      if (!v) continue;
+      hasAny = true;
+      if (v === "gain") hasGain = true;
+      else if (v === "loss") hasLoss = true;
+      else if (v === "mixed") { hasGain = true; hasLoss = true; }
+    }
   }
   if (hasGain && hasLoss) return "mixed";
   if (hasGain) return "gain";
   if (hasLoss) return "loss";
   return hasAny ? "neutral" : "";
 }
-function filledCount(sid) {
+
+function verdictColor(v) {
+  const f = VERDICTS.find((x) => x.id === v);
+  return f ? f.color : "#B9C6C0";
+}
+
+function filledCount(data, sid) {
   let n = 0;
   for (const a of AXES) for (const h of HORIZONS) {
-    const c = getCell(sid, a.id, h.id);
+    const c = getCell(data, sid, a.id, h.id);
     if (c.merit || c.demerit || c.verdict) n++;
   }
   return n;
 }
 
+const CASE_MENU = [
+  { id: "pool", label: "ケース①プール問題" },
+  { id: "meta", label: "ケース②Metaの詐欺広告" },
+  { id: "genpatsu", label: "ケース③原発再稼働" },
+  { id: "yosan", label: "ケース④1兆円の使い道" },
+  { id: "kyuka", label: "ケース⑤1ヶ月休暇" },
+  { id: "teisaisan", label: "ケース⑥低採算サービスの中止" },
+  { id: "jinken", label: "ケース⑦人権侵害の疑いと取引" },
+  { id: "gasoline", label: "ケース⑧ガソリンと国債" },
+  { id: "idenshi", label: "ケース⑨遺伝子編集" },
+  { id: "kokkyo", label: "ケース⑩国境を開くか" },
+  { id: "bi", label: "ケース⑪ベーシックインカム" },
+];
+
+/* ================= 設定 ================= */
+/* AI下ごしらえの中継先（Supabase Edge Function）。
+   空文字のあいだは「AIで下ごしらえ」欄を表示しない。
+   APIキーはこのファイルには絶対に書かない（キーはEdge Function側の環境変数に置く）。 */
+const AI_ENDPOINT = "";
+
+const STORE_KEY = "stakeholder-diorama:v2";
+
+/* ================= 状態 ================= */
+const S = {
+  theme: "", scale: "room", stakeholders: [], data: {},
+  selectedId: null, hoverId: null, view: "field",
+  lensAxis: "all", lensHorizon: "all",
+  editAxis: "keizai", editHorizon: "tanki",
+  business: "", valueChain: null, themeIdeas: [], aiCandidates: [],
+  caseId: null, scenario: null,
+};
+let confirmReset = false, confirmTimer = null, saveTimer = null;
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+  .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+const clone = (o) => JSON.parse(JSON.stringify(o));
+const lensAxisIds = () => (S.lensAxis === "all" ? AXES.map((a) => a.id) : [S.lensAxis]);
+const lensHorizonIds = () => (S.lensHorizon === "all" ? HORIZONS.map((h) => h.id) : [S.lensHorizon]);
+const selected = () => S.stakeholders.find((s) => s.id === S.selectedId) || null;
+const verdictLabel = (id) => { const v = VERDICTS.find((x) => x.id === id); return v ? v.label : ""; };
+
+function toast(msg) {
+  const t = $("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
 /* ================= 保存 ================= */
+function payload() {
+  const scenarioOut = S.scenario
+    ? { options: S.scenario.options, active: S.scenario.active, store: { ...S.scenario.store, [S.scenario.active]: S.data } }
+    : null;
+  return {
+    theme: S.theme, scale: S.scale, stakeholders: S.stakeholders, data: S.data,
+    business: S.business, valueChain: S.valueChain, themeIdeas: S.themeIdeas,
+    scenario: scenarioOut, caseId: S.caseId,
+  };
+}
+function applyPayload(st) {
+  S.theme = st.theme || "";
+  S.scale = st.scale || "room";
+  S.stakeholders = st.stakeholders || [];
+  S.business = st.business || "";
+  S.valueChain = st.valueChain || null;
+  S.themeIdeas = st.themeIdeas || [];
+  S.caseId = st.caseId || null;
+  S.aiCandidates = [];
+  S.selectedId = null;
+  if (st.scenario && st.scenario.options) {
+    S.scenario = st.scenario;
+    S.data = (st.scenario.store && st.scenario.store[st.scenario.active]) || st.data || {};
+  } else {
+    S.scenario = null;
+    S.data = st.data || {};
+  }
+}
 function save() {
   clearTimeout(saveTimer);
   saveTimer = setTimeout(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({
-        theme: state.theme, scale: state.scale, stakeholders: state.stakeholders, data: state.data,
-      }));
-    } catch (e) { console.error("保存に失敗しました", e); }
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(payload())); } catch (e) { /* 保存できない設定でも動かす */ }
   }, 500);
 }
-function load() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return;
-    const st = JSON.parse(raw);
-    state.theme = st.theme || "";
-    state.scale = st.scale || "room";
-    state.stakeholders = st.stakeholders || [];
-    state.data = st.data || {};
-  } catch (e) { console.error(e); }
+
+/* ================= フィールド（SVGジオラマ） ================= */
+function isoCube(x, y, w, h, top, left, right) {
+  const d = w * 0.5;
+  return '<polygon points="' + (x - w) + ',' + (y - h) + ' ' + x + ',' + (y - h - d) + ' ' + (x + w) + ',' + (y - h) + ' ' + x + ',' + (y - h + d) + '" fill="' + top + '"/>' +
+         '<polygon points="' + (x - w) + ',' + (y - h) + ' ' + x + ',' + (y - h + d) + ' ' + x + ',' + (y + d) + ' ' + (x - w) + ',' + y + '" fill="' + left + '"/>' +
+         '<polygon points="' + (x + w) + ',' + (y - h) + ' ' + x + ',' + (y - h + d) + ' ' + x + ',' + (y + d) + ' ' + (x + w) + ',' + y + '" fill="' + right + '"/>';
 }
-</script>
-<script>
-/* ================= フィールド描画 ================= */
+const GROUNDS = {
+  room: () => '<g>' +
+    '<polygon points="400,175 730,345 400,515 70,345" fill="#D9B98C"/>' +
+    '<polygon points="400,190 700,345 400,500 100,345" fill="#E8CFA6"/>' +
+    '<ellipse cx="400" cy="345" rx="170" ry="82" fill="#BFD8CE"/>' +
+    '<ellipse cx="400" cy="338" rx="135" ry="62" fill="#F7F3E8" stroke="#C9BFA8" stroke-width="3"/>' +
+    '<ellipse cx="400" cy="334" rx="118" ry="52" fill="#FDFBF4"/>' +
+    '<text x="400" y="344" text-anchor="middle" font-size="20" opacity="0.55">📋</text>' +
+    isoCube(185, 248, 26, 34, "#EDEDED", "#CFCFCF", "#BDBDBD") +
+    '<text x="172" y="238" font-size="15">🖊️</text></g>',
+  town: () => '<g>' +
+    '<polygon points="400,175 730,345 400,515 70,345" fill="#7FA96F"/>' +
+    '<polygon points="400,190 700,345 400,500 100,345" fill="#9AC287"/>' +
+    '<polygon points="240,265 560,430 600,410 280,245" fill="#D8D2C0" opacity="0.9"/>' +
+    '<polygon points="560,265 240,430 200,410 520,245" fill="#D8D2C0" opacity="0.9"/>' +
+    isoCube(300, 270, 30, 46, "#E7A96B", "#C9884E", "#B57840") +
+    isoCube(510, 270, 34, 60, "#9FB6CC", "#7E97AF", "#6D869E") +
+    isoCube(400, 440, 30, 40, "#D98A8A", "#B96E6E", "#A66161") +
+    '<ellipse cx="205" cy="410" rx="26" ry="13" fill="#5E8F52"/>' +
+    '<ellipse cx="205" cy="398" rx="18" ry="12" fill="#6FA35F"/>' +
+    '<ellipse cx="595" cy="415" rx="26" ry="13" fill="#5E8F52"/></g>',
+  earth: () => '<g>' +
+    '<circle cx="400" cy="345" r="185" fill="#4A7FB5"/>' +
+    '<circle cx="400" cy="345" r="185" fill="url(#earthShade)"/>' +
+    '<path d="M310,250 q40,-25 80,-8 q30,12 18,42 q-12,28 -50,24 q-45,-5 -55,-30 q-6,-18 7,-28z" fill="#79B06A"/>' +
+    '<path d="M470,340 q45,-10 62,20 q12,24 -12,44 q-28,22 -58,6 q-24,-14 -14,-42 q7,-20 22,-28z" fill="#79B06A"/>' +
+    '<path d="M330,400 q28,-8 40,10 q10,16 -6,30 q-20,16 -40,4 q-16,-11 -8,-28 q5,-11 14,-16z" fill="#8CBF7B"/>' +
+    '<ellipse cx="345" cy="285" rx="55" ry="16" fill="#FFFFFF" opacity="0.55"/>' +
+    '<ellipse cx="465" cy="420" rx="48" ry="13" fill="#FFFFFF" opacity="0.5"/></g>',
+};
 function tokenPositions(n) {
   const cx = 400, cy = 350, rx = 265, ry = 128, pts = [];
   for (let i = 0; i < n; i++) {
@@ -680,561 +1376,577 @@ function tokenPositions(n) {
   }
   return pts;
 }
-
-function isoCube(x, y, w, h, top, left, right) {
-  const d = w * 0.5;
-  return `<polygon points="${x-w},${y-h} ${x},${y-h-d} ${x+w},${y-h} ${x},${y-h+d}" fill="${top}"/>`
-       + `<polygon points="${x-w},${y-h} ${x},${y-h+d} ${x},${y+d} ${x-w},${y}" fill="${left}"/>`
-       + `<polygon points="${x+w},${y-h} ${x},${y-h+d} ${x},${y+d} ${x+w},${y}" fill="${right}"/>`;
+function tipMarkup() {
+  const s = S.stakeholders.find((x) => x.id === S.hoverId);
+  if (!s) return "";
+  const i = S.stakeholders.findIndex((x) => x.id === S.hoverId);
+  const p = tokenPositions(S.stakeholders.length)[i];
+  if (!p) return "";
+  const tx = Math.min(Math.max(p.x, 150), 650);
+  const ty = p.y < 300 ? p.y + 55 : p.y - 130;
+  const sit = s.situation || "まだ状況が入力されていません";
+  const cut = sit.slice(0, 22) + (sit.length > 22 ? "…" : "");
+  return '<g transform="translate(' + tx + ',' + ty + ')" pointer-events="none">' +
+    '<rect x="-145" y="0" width="290" height="76" rx="12" fill="#FFFFFF" stroke="' + COLORS.border + '" stroke-width="1.5"/>' +
+    '<text x="-132" y="24" font-size="14" font-weight="800" fill="' + COLORS.ink + '">' + esc(s.emoji + " " + s.name) + '</text>' +
+    '<text x="-132" y="44" font-size="11.5" fill="' + COLORS.sub + '">' + esc(cut) + '</text>' +
+    '<text x="-132" y="63" font-size="11" fill="' + COLORS.indigo + '" font-weight="700">クリックして詳しく入力 →</text></g>';
 }
+function fieldMarkup() {
+  const earth = S.scale === "earth";
+  const axes = lensAxisIds(), hs = lensHorizonIds();
+  const positions = tokenPositions(S.stakeholders.length);
+  let out = '<svg class="field" viewBox="0 0 800 620" role="img" aria-label="関係者のジオラマ">' +
+    '<defs><linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">' +
+    '<stop offset="0%" stop-color="' + (earth ? "#1E2A45" : COLORS.sky1) + '"/>' +
+    '<stop offset="100%" stop-color="' + (earth ? "#3A4A6B" : COLORS.sky2) + '"/></linearGradient>' +
+    '<radialGradient id="earthShade" cx="0.35" cy="0.3" r="1">' +
+    '<stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>' +
+    '<stop offset="70%" stop-color="#000000" stop-opacity="0"/>' +
+    '<stop offset="100%" stop-color="#000000" stop-opacity="0.28"/></radialGradient></defs>' +
+    '<rect x="0" y="0" width="800" height="620" rx="18" fill="url(#skyGrad)"/>';
+  if (earth) {
+    out += '<g fill="#FFFFFF"><circle cx="120" cy="80" r="2" opacity="0.8"/><circle cx="230" cy="45" r="1.5" opacity="0.6"/>' +
+      '<circle cx="640" cy="70" r="2" opacity="0.8"/><circle cx="710" cy="130" r="1.5" opacity="0.6"/>' +
+      '<circle cx="90" cy="180" r="1.5" opacity="0.5"/><circle cx="540" cy="35" r="1.5" opacity="0.7"/></g>';
+  }
+  out += (GROUNDS[S.scale] || GROUNDS.room)();
 
-function groundSvg() {
-  if (state.scale === "room") return `
-    <polygon points="400,175 730,345 400,515 70,345" fill="#D9B98C"/>
-    <polygon points="400,190 700,345 400,500 100,345" fill="#E8CFA6"/>
-    <ellipse cx="400" cy="345" rx="170" ry="82" fill="#BFD8CE"/>
-    <ellipse cx="400" cy="338" rx="135" ry="62" fill="#F7F3E8" stroke="#C9BFA8" stroke-width="3"/>
-    <ellipse cx="400" cy="334" rx="118" ry="52" fill="#FDFBF4"/>
-    <text x="400" y="344" text-anchor="middle" font-size="20" opacity="0.55">📋</text>
-    ${isoCube(185, 248, 26, 34, "#EDEDED", "#CFCFCF", "#BDBDBD")}
-    <text x="172" y="238" font-size="15">🖊️</text>`;
-  if (state.scale === "town") return `
-    <polygon points="400,175 730,345 400,515 70,345" fill="#7FA96F"/>
-    <polygon points="400,190 700,345 400,500 100,345" fill="#9AC287"/>
-    <polygon points="240,265 560,430 600,410 280,245" fill="#D8D2C0" opacity="0.9"/>
-    <polygon points="560,265 240,430 200,410 520,245" fill="#D8D2C0" opacity="0.9"/>
-    ${isoCube(300, 270, 30, 46, "#E7A96B", "#C9884E", "#B57840")}
-    ${isoCube(510, 270, 34, 60, "#9FB6CC", "#7E97AF", "#6D869E")}
-    ${isoCube(400, 440, 30, 40, "#D98A8A", "#B96E6E", "#A66161")}
-    <ellipse cx="205" cy="410" rx="26" ry="13" fill="#5E8F52"/>
-    <ellipse cx="205" cy="398" rx="18" ry="12" fill="#6FA35F"/>
-    <ellipse cx="595" cy="415" rx="26" ry="13" fill="#5E8F52"/>`;
-  return `
-    <g fill="#FFFFFF">
-      <circle cx="120" cy="80" r="2" opacity="0.8"/><circle cx="230" cy="45" r="1.5" opacity="0.6"/>
-      <circle cx="640" cy="70" r="2" opacity="0.8"/><circle cx="710" cy="130" r="1.5" opacity="0.6"/>
-      <circle cx="90" cy="180" r="1.5" opacity="0.5"/><circle cx="540" cy="35" r="1.5" opacity="0.7"/>
-    </g>
-    <circle cx="400" cy="345" r="185" fill="#4A7FB5"/>
-    <circle cx="400" cy="345" r="185" fill="url(#earthShade)"/>
-    <path d="M310,250 q40,-25 80,-8 q30,12 18,42 q-12,28 -50,24 q-45,-5 -55,-30 q-6,-18 7,-28z" fill="#79B06A"/>
-    <path d="M470,340 q45,-10 62,20 q12,24 -12,44 q-28,22 -58,6 q-24,-14 -14,-42 q7,-20 22,-28z" fill="#79B06A"/>
-    <path d="M330,400 q28,-8 40,10 q10,16 -6,30 q-20,16 -40,4 q-16,-11 -8,-28 q5,-11 14,-16z" fill="#8CBF7B"/>
-    <ellipse cx="345" cy="285" rx="55" ry="16" fill="#FFFFFF" opacity="0.55"/>
-    <ellipse cx="465" cy="420" rx="48" ry="13" fill="#FFFFFF" opacity="0.5"/>`;
-}
-
-function renderField() {
-  const area = $("#field-area");
-  if (state.view !== "field") { renderTable(); return; }
-  const earth = state.scale === "earth";
-  const positions = tokenPositions(state.stakeholders.length);
-  let tokens = "";
-  state.stakeholders.forEach((s, i) => {
+  S.stakeholders.forEach((s, i) => {
     const p = positions[i];
-    const v = aggregateVerdict(s.id);
-    const vi = v ? verdictInfo(v) : null;
-    const ringColor = vi ? vi.color : "#C4D1CB";
-    const sel = s.id === state.selectedId;
-    const labelFill = earth ? "#FFFFFF" : "#2A3439";
-    const labelStroke = earth ? "#1E2A45" : "#FFFFFF";
-    tokens += `
-    <g class="token" data-id="${s.id}" transform="translate(${p.x},${p.y})">
-      <ellipse cx="0" cy="8" rx="20" ry="7" fill="#000" opacity="0.18"/>
-      <path d="M0,6 L-7,-8 L7,-8 Z" fill="${sel ? "#F2B33D" : (vi ? vi.color : "#DDE6E1")}"/>
-      <circle cx="0" cy="-26" r="21" fill="#FFFFFF" stroke="${sel ? "#F2B33D" : ringColor}" stroke-width="${sel ? 5 : 4}"/>
-      <text x="0" y="-19" text-anchor="middle" font-size="20">${s.emoji}</text>
-      ${vi ? `<g transform="translate(14,-42)"><circle r="8" fill="${vi.color}" stroke="#FFF" stroke-width="2"/><text y="3.5" text-anchor="middle" font-size="9" fill="#FFF" font-weight="700">${vi.mark}</text></g>` : ""}
-      <text x="0" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="${labelFill}" style="paint-order:stroke;stroke:${labelStroke};stroke-width:3">${esc(s.name)}</text>
-    </g>`;
+    const v = aggregateVerdict(S.data, s.id, axes, hs);
+    const color = v ? verdictColor(v) : "#FFFFFF";
+    const sel = s.id === S.selectedId;
+    const ring = sel ? COLORS.yamabuki : (color === "#FFFFFF" ? "#C4D1CB" : color);
+    const cone = sel ? COLORS.yamabuki : (color === "#FFFFFF" ? "#DDE6E1" : color);
+    const labelFill = earth ? "#FFFFFF" : COLORS.ink;
+    const labelSize = S.stakeholders.length >= 10 ? 12 : 14;
+    const mark = v === "gain" ? "＋" : v === "loss" ? "−" : v === "mixed" ? "±" : "・";
+    out += '<g class="token" data-id="' + esc(s.id) + '" transform="translate(' + p.x + ',' + p.y + ')">' +
+      '<ellipse cx="0" cy="8" rx="20" ry="7" fill="#000" opacity="0.18"/>' +
+      '<path d="M0,6 L-7,-8 L7,-8 Z" fill="' + cone + '"/>' +
+      '<circle cx="0" cy="-26" r="21" fill="#FFFFFF" stroke="' + ring + '" stroke-width="' + (sel ? 5 : 4) + '"/>' +
+      '<text x="0" y="-19" text-anchor="middle" font-size="20">' + esc(s.emoji) + '</text>' +
+      (v ? '<g transform="translate(14,-42)"><circle r="8" fill="' + verdictColor(v) + '" stroke="#FFF" stroke-width="2"/>' +
+        '<text y="3.5" text-anchor="middle" font-size="9" fill="#FFF" font-weight="700">' + mark + '</text></g>' : "") +
+      '<text x="0" y="28" text-anchor="middle" font-size="' + labelSize + '" font-weight="700" fill="' + labelFill +
+      '" style="paint-order:stroke; stroke:' + (earth ? "#1E2A45" : "#FFFFFF") + '; stroke-width:3">' + esc(s.name) + '</text></g>';
   });
 
-  let tooltip = "";
-  const hover = state.stakeholders.find(s => s.id === state.hoverId);
-  if (hover) {
-    const idx = state.stakeholders.findIndex(s => s.id === state.hoverId);
-    const p = positions[idx];
-    const tx = Math.min(Math.max(p.x, 150), 650);
-    const ty = p.y < 300 ? p.y + 55 : p.y - 130;
-    const sit = hover.situation || "まだ状況が入力されていません";
-    const snippet = sit.length > 22 ? sit.slice(0, 22) + "…" : sit;
-    tooltip = `
-    <g transform="translate(${tx},${ty})" pointer-events="none">
-      <rect x="-145" y="0" width="290" height="76" rx="12" fill="#FFFFFF" stroke="#D8E2DD" stroke-width="1.5"/>
-      <text x="-132" y="24" font-size="14" font-weight="800" fill="#2A3439">${hover.emoji} ${esc(hover.name)}</text>
-      <text x="-132" y="44" font-size="11.5" fill="#5E6E6A">${esc(snippet)}</text>
-      <text x="-132" y="63" font-size="11" fill="#34618E" font-weight="700">クリックして詳しく入力 →</text>
-    </g>`;
+  if (!S.stakeholders.length) {
+    out += '<text x="400" y="345" text-anchor="middle" font-size="17" fill="' + (earth ? "#DCE6F5" : COLORS.sub) +
+      '" font-weight="700">「＋ 関係者を追加」から、この場に人を招きましょう</text>';
   }
-
-  const emptyMsg = state.stakeholders.length === 0
-    ? `<text x="400" y="345" text-anchor="middle" font-size="17" fill="${earth ? "#DCE6F5" : "#5E6E6A"}" font-weight="700">「＋ 関係者を追加」から、この場に人を招きましょう</text>`
-    : "";
-
-  area.innerHTML = `
-  <div class="field-card">
-  <svg viewBox="0 0 800 620" role="img" aria-label="ステークホルダーの配置図">
-    <defs>
-      <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0%" stop-color="${earth ? "#1E2A45" : "#CFE6EE"}"/>
-        <stop offset="100%" stop-color="${earth ? "#3A4A6B" : "#EAF4EE"}"/>
-      </linearGradient>
-      <radialGradient id="earthShade" cx="0.35" cy="0.3" r="1">
-        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>
-        <stop offset="70%" stop-color="#000000" stop-opacity="0"/>
-        <stop offset="100%" stop-color="#000000" stop-opacity="0.28"/>
-      </radialGradient>
-    </defs>
-    <rect x="0" y="0" width="800" height="620" fill="url(#skyGrad)"/>
-    ${groundSvg()}
-    ${tokens}
-    ${tooltip}
-    ${emptyMsg}
-  </svg>
-  </div>`;
-
-  /* クリック/ホバーは #field-area への委譲で処理（hover再描画で要素が差し替わってもクリックを取りこぼさない） */
+  out += '<g id="tipLayer">' + tipMarkup() + "</g></svg>";
+  return out;
 }
 
 /* ================= 一覧表 ================= */
-function cellHtml(c) {
-  if (!c.merit && !c.demerit && !c.verdict) return `<div class="cell-empty">—</div>`;
-  const vi = c.verdict ? verdictInfo(c.verdict) : null;
-  let h = "";
-  if (vi) h += `<span class="vbadge" style="background:${vi.color}">${vi.label}</span><br>`;
-  if (c.merit) h += `<div class="cell-line"><b class="p">＋</b> ${esc(c.merit)}</div>`;
-  if (c.demerit) h += `<div class="cell-line"><b class="m">−</b> ${esc(c.demerit)}</div>`;
-  return h;
+function cellMarkup(c) {
+  if (!c.merit && !c.demerit && !c.verdict) return '<div class="cell-empty">—</div>';
+  let h = '<div class="cellbox">';
+  if (c.verdict) h += '<span class="vtag" style="background:' + verdictColor(c.verdict) + '">' + esc(verdictLabel(c.verdict)) + "</span>";
+  if (c.merit) h += '<div class="cell-line"><b class="plus">＋</b> ' + esc(c.merit) + "</div>";
+  if (c.demerit) h += '<div class="cell-line"><b class="minus">−</b> ' + esc(c.demerit) + "</div>";
+  return h + "</div>";
 }
-
-function renderTable() {
-  const area = $("#field-area");
-  if (state.view !== "table") { renderField(); return; }
-  if (!state.stakeholders.length) {
-    area.innerHTML = `<div class="empty-table">関係者を追加すると、ここに一覧表が育っていきます</div>`;
-    return;
-  }
-  const axes = AXES.filter(a => lensAxes().includes(a.id));
-  const horizons = HORIZONS.filter(h => lensHorizons().includes(h.id));
-  let html = "";
-  for (const axis of axes) {
-    let rows = "";
-    for (const s of state.stakeholders) {
-      let tds = "";
-      for (const h of horizons) tds += `<td>${cellHtml(getCell(s.id, axis.id, h.id))}</td>`;
-      rows += `<tr><td class="name">${s.emoji} ${esc(s.name)}</td>${tds}</tr>`;
-    }
-    html += `
-    <div class="table-block">
-      <div class="block-title">${axis.icon} ${axis.label}の観点</div>
-      <div class="table-scroll"><table>
-        <thead><tr><th>関係者</th>${horizons.map(h => `<th>${h.label}</th>`).join("")}</tr></thead>
-        <tbody>${rows}</tbody>
-      </table></div>
-    </div>`;
-  }
-  area.innerHTML = html;
-}
-</script>
-<script>
-/* ================= 編集パネル ================= */
-function renderPanel() {
-  const panel = $("#panel");
-  const s = state.stakeholders.find(x => x.id === state.selectedId);
-  if (!s) {
-    panel.innerHTML = `
-    <div class="card dashed">
-      <b style="color:var(--ink)">使い方</b><br>
-      ① テーマを決める<br>
-      ② 「＋ 関係者を追加」で登場人物を招く<br>
-      ③ フィールドのコマをクリックして、状況と<br>
-      　 <b>観点(経済・環境・社会)× 時間軸(短期〜長期)</b><br>
-      　 ごとのメリット・デメリットを記入<br>
-      ④ 上のレンズを切り替えると、<br>
-      　 「誰が得して、誰が損するか」が色で見えてくる<br>
-      ⑤ 「一覧表」で全体を俯瞰して対話へ
-    </div>`;
-    return;
-  }
-  const cell = getCell(s.id, state.editAxis, state.editHorizon);
-  const axisLabel = AXES.find(a => a.id === state.editAxis).label;
-  const horizonLabel = HORIZONS.find(h => h.id === state.editHorizon).label;
-
-  panel.innerHTML = `
-  <div class="card panel">
-    <div class="panel-head">
-      <div class="face">${s.emoji}</div>
-      <input id="p-name" style="font-weight:800;font-size:15px">
-      <button class="btn danger" id="p-delete" style="white-space:nowrap">削除</button>
-    </div>
-    <div class="emoji-row">
-      ${EMOJIS.map(em => `<button data-emoji="${em}" class="${s.emoji === em ? "active" : ""}">${em}</button>`).join("")}
-    </div>
-    <label class="flabel" for="p-situation">この人(たち)の置かれている状況</label>
-    <textarea id="p-situation" rows="3" placeholder="立場・事情・大切にしていること など"></textarea>
-
-    <div class="grid-section">
-      <div class="grid-head">
-        <span class="title">視点ごとの影響を記入</span>
-        <span class="count">${filledCount(s.id)}/9 マス記入済み</span>
-      </div>
-      <div class="tab-row">
-        ${AXES.map(a => `<button class="pill small ${state.editAxis === a.id ? "active" : ""}" data-eaxis="${a.id}">${a.icon} ${a.label}</button>`).join("")}
-      </div>
-      <div class="tab-row">
-        ${HORIZONS.map(h => `<button class="pill small ${state.editHorizon === h.id ? "active" : ""}" data-ehorizon="${h.id}">${h.label}</button>`).join("")}
-      </div>
-      <label class="flabel gain" for="p-merit">＋ メリット</label>
-      <textarea id="p-merit" rows="2" placeholder="${axisLabel}×${horizonLabel}で得られるもの"></textarea>
-      <label class="flabel loss" for="p-demerit">− デメリット</label>
-      <textarea id="p-demerit" rows="2" placeholder="失うもの・負担・リスク"></textarea>
-      <label class="flabel">この視点では、この人は…</label>
-      <div class="verdict-row">
-        ${VERDICTS.map(v => {
-          const active = cell.verdict === v.id;
-          return `<button class="verdict-btn ${active ? "active" : ""}" data-verdict="${v.id}"
-            style="border-color:${v.color};color:${v.color};${active ? `background:${v.color};` : ""}">${v.label}</button>`;
-        }).join("")}
-      </div>
-    </div>
-  </div>`;
-
-  /* 値の流し込み(innerHTML経由だとエスケープ問題があるので .value で) */
-  $("#p-name").value = s.name;
-  $("#p-situation").value = s.situation || "";
-  $("#p-merit").value = cell.merit;
-  $("#p-demerit").value = cell.demerit;
-
-  /* イベント */
-  $("#p-name").addEventListener("input", (e) => { s.name = e.target.value; save(); renderField(); });
-  $("#p-situation").addEventListener("input", (e) => { s.situation = e.target.value; save(); });
-  $("#p-merit").addEventListener("input", (e) => { setCell(s.id, state.editAxis, state.editHorizon, { merit: e.target.value }); save(); });
-  $("#p-demerit").addEventListener("input", (e) => { setCell(s.id, state.editAxis, state.editHorizon, { demerit: e.target.value }); save(); });
-  $("#p-delete").addEventListener("click", () => {
-    state.stakeholders = state.stakeholders.filter(x => x.id !== s.id);
-    delete state.data[s.id];
-    state.selectedId = null;
-    save(); render();
+function tableMarkup() {
+  const axes = AXES.filter((a) => lensAxisIds().includes(a.id));
+  const hs = HORIZONS.filter((h) => lensHorizonIds().includes(h.id));
+  let out = '<div class="tables">';
+  axes.forEach((axis) => {
+    out += '<div class="tbl-card"><div class="tbl-head">' + esc(axis.icon + " " + axis.label) + "の観点</div>" +
+      '<div class="tbl-scroll"><table><thead><tr><th>関係者</th>' +
+      hs.map((h) => "<th>" + esc(h.label) + "</th>").join("") + "</tr></thead><tbody>";
+    S.stakeholders.forEach((s) => {
+      out += '<tr><td class="who">' + esc(s.emoji + " " + s.name) + "</td>" +
+        hs.map((h) => "<td>" + cellMarkup(getCell(S.data, s.id, axis.id, h.id)) + "</td>").join("") + "</tr>";
+    });
+    out += "</tbody></table></div></div>";
   });
-  panel.querySelectorAll("[data-emoji]").forEach(b =>
-    b.addEventListener("click", () => { s.emoji = b.getAttribute("data-emoji"); save(); renderField(); renderPanel(); }));
-  panel.querySelectorAll("[data-eaxis]").forEach(b =>
-    b.addEventListener("click", () => { state.editAxis = b.getAttribute("data-eaxis"); renderPanel(); }));
-  panel.querySelectorAll("[data-ehorizon]").forEach(b =>
-    b.addEventListener("click", () => { state.editHorizon = b.getAttribute("data-ehorizon"); renderPanel(); }));
-  panel.querySelectorAll("[data-verdict]").forEach(b =>
-    b.addEventListener("click", () => {
-      const v = b.getAttribute("data-verdict");
-      const cur = getCell(s.id, state.editAxis, state.editHorizon).verdict;
-      setCell(s.id, state.editAxis, state.editHorizon, { verdict: cur === v ? "" : v });
-      save(); renderPanel(); renderField();
-    }));
+  return out + "</div>";
 }
 
-/* ================= コントロール ================= */
-function pillGroup(containerId, items, getActive, onPick, allOption) {
-  const el = document.getElementById(containerId);
-  el.innerHTML = "";
-  const make = (id, label) => {
-    const b = document.createElement("button");
-    b.className = "pill" + (getActive() === id ? " active" : "");
-    b.textContent = label;
-    b.addEventListener("click", () => { onPick(id); renderControls(); render(); });
-    el.appendChild(b);
-  };
-  if (allOption) make("all", "すべて");
-  items.forEach(it => make(it.id, (it.icon ? it.icon + " " : "") + it.label));
+/* ================= 描画 ================= */
+function renderStage() {
+  const stage = $("stage");
+  document.querySelector(".main").classList.toggle("table-view", S.view === "table");
+  if (S.view === "field") {
+    stage.className = "stage-field";
+    stage.innerHTML = fieldMarkup();
+    stage.querySelectorAll(".token").forEach((g) => {
+      const id = g.getAttribute("data-id");
+      g.addEventListener("click", () => { S.selectedId = id; renderStage(); renderPanel(); });
+      g.addEventListener("mouseenter", () => { S.hoverId = id; const l = $("tipLayer"); if (l) l.innerHTML = tipMarkup(); });
+      g.addEventListener("mouseleave", () => { S.hoverId = null; const l = $("tipLayer"); if (l) l.innerHTML = ""; });
+    });
+  } else if (S.stakeholders.length) {
+    stage.className = "";
+    stage.innerHTML = tableMarkup();
+  } else {
+    stage.className = "";
+    stage.innerHTML = '<div class="stage-empty">関係者を追加すると、ここに一覧表が育っていきます</div>';
+  }
 }
 
 function renderControls() {
-  pillGroup("scale-btns", SCALES, () => state.scale, (id) => { state.scale = id; save(); });
-  pillGroup("axis-btns", AXES, () => state.lensAxis, (id) => { state.lensAxis = id; }, true);
-  pillGroup("horizon-btns", HORIZONS, () => state.lensHorizon, (id) => { state.lensHorizon = id; }, true);
-  pillGroup("view-btns", [{ id: "field", label: "フィールド" }, { id: "table", label: "一覧表" }], () => state.view, (id) => { state.view = id; });
-  $("#sample-btn").style.display = state.stakeholders.length === 0 ? "" : "none";
-  $("#reset-btn").style.display = state.stakeholders.length > 0 ? "" : "none";
+  $("scaleBtns").innerHTML = SCALES.map((s) =>
+    '<button type="button" class="pill' + (S.scale === s.id ? " on" : "") + '" data-scale="' + s.id + '" title="' + esc(s.desc) + '">' + esc(s.label) + "</button>").join("");
+  $("axisBtns").innerHTML = '<button type="button" class="pill' + (S.lensAxis === "all" ? " on" : "") + '" data-axis="all">すべて</button>' +
+    AXES.map((a) => '<button type="button" class="pill' + (S.lensAxis === a.id ? " on" : "") + '" data-axis="' + a.id + '">' + esc(a.icon + " " + a.label) + "</button>").join("");
+  $("horizonBtns").innerHTML = '<button type="button" class="pill' + (S.lensHorizon === "all" ? " on" : "") + '" data-horizon="all">すべて</button>' +
+    HORIZONS.map((h) => '<button type="button" class="pill' + (S.lensHorizon === h.id ? " on" : "") + '" data-horizon="' + h.id + '">' + esc(h.label) + "</button>").join("");
+  document.querySelectorAll("[data-view]").forEach((b) => b.classList.toggle("on", b.getAttribute("data-view") === S.view));
 }
 
 function renderLegend() {
-  $("#legend").innerHTML =
-    `<span style="color:var(--sub)">いまのレンズで見ると:</span>` +
-    VERDICTS.map(v => `<span><span class="dot" style="background:${v.color}"></span>${v.label.endsWith("する") ? v.label + "人" : v.label + "の人"}</span>`).join("");
+  $("legend").innerHTML = '<span class="ctl-label">いまのレンズで見ると：</span>' +
+    VERDICTS.map((v) => '<span class="legend-item"><span class="dot" style="background:' + v.color + '"></span>' + esc(v.label) + "人</span>").join("");
 }
 
-/* ================= 全体操作 ================= */
-function render() {
-  if (state.view === "field") renderField(); else renderTable();
-  renderPanel();
+function renderScenario() {
+  const bar = $("scenarioBar");
+  if (!S.scenario) { bar.innerHTML = ""; return; }
+  bar.innerHTML = '<div class="scen"><span class="scen-title">もしもの世界：</span>' +
+    S.scenario.options.map((o) => '<button type="button" class="scen-btn' + (S.scenario.active === o.id ? " on" : "") +
+      '" data-scen="' + esc(o.id) + '">' + esc(o.label) + "</button>").join("") +
+    '<span class="scen-note">切り替えると、同じ関係者たちの得と損が入れ替わります</span></div>';
+  bar.querySelectorAll("[data-scen]").forEach((b) =>
+    b.addEventListener("click", () => switchScenario(b.getAttribute("data-scen"))));
 }
 
-function exportMarkdown() {
-  if (typeof gtag === "function") gtag("event", "diorama_export", { page: location.pathname });
-  let md = `# ${state.theme || "(テーマ未設定)"}\n\n`;
-  for (const s of state.stakeholders) {
-    md += `## ${s.emoji} ${s.name}\n${s.situation ? `状況:${s.situation}\n` : ""}\n`;
-    for (const a of AXES) {
-      const rows = HORIZONS.map(h => {
-        const c = getCell(s.id, a.id, h.id);
-        if (!c.merit && !c.demerit && !c.verdict) return null;
-        const v = c.verdict ? `【${verdictInfo(c.verdict).label}】` : "";
-        return `- ${h.label}${v} ${c.merit ? `メリット:${c.merit} ` : ""}${c.demerit ? `デメリット:${c.demerit}` : ""}`;
-      }).filter(Boolean);
-      if (rows.length) md += `### ${a.label}\n${rows.join("\n")}\n\n`;
-    }
+function renderActions() {
+  const c = S.caseId && CASES[S.caseId] ? CASES[S.caseId] : null;
+  const extra = c && c.extra ? c.extra : null;
+  const extraPlaced = extra ? extra.stakeholders.every((x) => S.stakeholders.some((s) => s.name === x.name)) : true;
+  let out = '<button type="button" class="sbtn primary" data-act="add">＋ 関係者を追加</button>' +
+    '<button type="button" class="sbtn" data-act="share">🔗 この盤面をURLで共有</button>' +
+    '<button type="button" class="sbtn" data-act="md">📋 Markdownをコピー</button>';
+  if (!S.stakeholders.length) {
+    out += CASE_MENU.map((m) => '<button type="button" class="sbtn" data-case="' + m.id + '">' + esc(m.label) + "</button>").join("");
   }
-  const done = () => {
-    const btn = $("#copy-btn");
-    btn.textContent = "✓ コピーしました";
-    setTimeout(() => { btn.textContent = "📋 Markdownをコピー"; }, 2000);
+  if (extra && !extraPlaced && S.stakeholders.length) {
+    out += '<button type="button" class="sbtn expand" data-act="expand">' + esc(extra.label) + "</button>";
+  }
+  if (S.stakeholders.length) {
+    out += '<button type="button" class="sbtn danger' + (confirmReset ? " armed" : "") + '" data-act="reset">' +
+      (confirmReset ? "もう一度押すと消去します" : "すべて消去") + "</button>";
+  }
+  const box = $("actions");
+  box.innerHTML = out;
+  box.querySelectorAll("[data-case]").forEach((b) => b.addEventListener("click", () => loadCase(b.getAttribute("data-case"))));
+  box.querySelectorAll("[data-act]").forEach((b) => b.addEventListener("click", () => {
+    const a = b.getAttribute("data-act");
+    if (a === "add") addStakeholder();
+    else if (a === "share") shareUrl();
+    else if (a === "md") exportMarkdown();
+    else if (a === "expand") expandCase();
+    else if (a === "reset") resetAll();
+  }));
+}
+
+function renderPanel() {
+  const p = $("panel");
+  const s = selected();
+  if (!s) {
+    p.innerHTML = '<div class="guide">' +
+      '<div class="guide-title">使い方</div>' +
+      '<div class="guide-step"><span class="no">①</span><span>話し合うテーマを決める</span></div>' +
+      '<div class="guide-step"><span class="no">②</span><span>「＋ 関係者を追加」で、この場に登場人物を招く</span></div>' +
+      '<div class="guide-step"><span class="no">③</span><span>フィールドのコマをクリックして、その人の状況と、<b>観点（経済・環境・社会）× 時間軸（短期〜長期）</b>ごとのメリット・デメリットを記入する</span></div>' +
+      '<div class="guide-step"><span class="no">④</span><span>上のレンズを切り替えると、「誰が得して、誰が損するか」が色で見えてくる</span></div>' +
+      '<div class="guide-step"><span class="no">⑤</span><span>「一覧表」に切り替えて全体を俯瞰し、対話へ</span></div>' +
+      '<div class="guide-note">下のケースを押すと、記入済みの例をすぐ試せます。</div></div>';
+    return;
+  }
+  const c = getCell(S.data, s.id, S.editAxis, S.editHorizon);
+  const axisLabel = AXES.find((a) => a.id === S.editAxis).label;
+  const horizonLabel = HORIZONS.find((h) => h.id === S.editHorizon).label;
+  p.innerHTML = '<div class="card">' +
+    '<div class="panel-head"><div class="panel-emoji">' + esc(s.emoji) + "</div>" +
+    '<input id="nameInput" class="txt" style="font-weight:800; font-size:.95rem" value="' + esc(s.name) + '">' +
+    '<button type="button" class="sbtn danger" id="delBtn" style="white-space:nowrap">削除</button></div>' +
+    '<div class="emoji-row">' + EMOJIS.map((em) =>
+      '<button type="button" class="emoji-btn' + (s.emoji === em ? " on" : "") + '" data-emoji="' + esc(em) + '">' + esc(em) + "</button>").join("") + "</div>" +
+    '<label class="lbl" for="sitInput">この人（たち）の置かれている状況</label>' +
+    '<textarea id="sitInput" class="txt" rows="3" style="margin:4px 0 14px" placeholder="立場・事情・大切にしていること など">' + esc(s.situation) + "</textarea>" +
+    '<div class="panel-sep"><div class="panel-sep-row"><span class="t">視点ごとの影響を記入</span>' +
+    '<span class="counter" id="counter">' + filledCount(S.data, s.id) + "/9 マス記入済み</span></div>" +
+    '<div class="mini-row">' + AXES.map((a) =>
+      '<button type="button" class="pill mini' + (S.editAxis === a.id ? " on" : "") + '" data-eaxis="' + a.id + '">' + esc(a.icon + " " + a.label) + "</button>").join("") + "</div>" +
+    '<div class="mini-row gap-b">' + HORIZONS.map((h) =>
+      '<button type="button" class="pill mini' + (S.editHorizon === h.id ? " on" : "") + '" data-ehorizon="' + h.id + '">' + esc(h.label) + "</button>").join("") + "</div>" +
+    '<label class="lbl" for="meritInput" style="color:var(--gain)">＋ メリット</label>' +
+    '<textarea id="meritInput" class="txt" rows="2" style="margin:4px 0 10px" placeholder="' + esc(axisLabel + "×" + horizonLabel + "で得られるもの") + '">' + esc(c.merit) + "</textarea>" +
+    '<label class="lbl" for="demeritInput" style="color:var(--loss)">− デメリット</label>' +
+    '<textarea id="demeritInput" class="txt" rows="2" style="margin:4px 0 10px" placeholder="失うもの・負担・リスク">' + esc(c.demerit) + "</textarea>" +
+    '<label class="lbl">この視点では、この人は…</label>' +
+    '<div class="mini-row" style="margin-top:6px">' + VERDICTS.map((v) => {
+      const on = c.verdict === v.id;
+      return '<button type="button" class="vbtn" data-verdict="' + v.id + '" style="border-color:' + v.color +
+        "; background:" + (on ? v.color : "#FFF") + "; color:" + (on ? "#FFF" : v.color) + '">' + esc(v.label) + "</button>";
+    }).join("") + "</div></div></div>";
+
+  $("nameInput").addEventListener("input", (e) => {
+    updateStakeholder(s.id, { name: e.target.value });
+    renderStage(); save();
+  });
+  $("sitInput").addEventListener("input", (e) => {
+    updateStakeholder(s.id, { situation: e.target.value }); save();
+  });
+  $("delBtn").addEventListener("click", () => removeStakeholder(s.id));
+  p.querySelectorAll("[data-emoji]").forEach((b) => b.addEventListener("click", () => {
+    updateStakeholder(s.id, { emoji: b.getAttribute("data-emoji") });
+    p.querySelectorAll("[data-emoji]").forEach((x) => x.classList.toggle("on", x === b));
+    p.querySelector(".panel-emoji").textContent = b.getAttribute("data-emoji");
+    renderStage(); save();
+  }));
+  p.querySelectorAll("[data-eaxis]").forEach((b) => b.addEventListener("click", () => {
+    S.editAxis = b.getAttribute("data-eaxis"); renderPanel();
+  }));
+  p.querySelectorAll("[data-ehorizon]").forEach((b) => b.addEventListener("click", () => {
+    S.editHorizon = b.getAttribute("data-ehorizon"); renderPanel();
+  }));
+  const afterCell = () => {
+    const cnt = $("counter"); if (cnt) cnt.textContent = filledCount(S.data, s.id) + "/9 マス記入済み";
+    renderStage(); save();
   };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(md).then(done).catch(() => fallbackCopy(md, done));
-  } else fallbackCopy(md, done);
+  $("meritInput").addEventListener("input", (e) => { updateCell(s.id, S.editAxis, S.editHorizon, { merit: e.target.value }); afterCell(); });
+  $("demeritInput").addEventListener("input", (e) => { updateCell(s.id, S.editAxis, S.editHorizon, { demerit: e.target.value }); afterCell(); });
+  p.querySelectorAll("[data-verdict]").forEach((b) => b.addEventListener("click", () => {
+    const id = b.getAttribute("data-verdict");
+    const cur = getCell(S.data, s.id, S.editAxis, S.editHorizon).verdict;
+    updateCell(s.id, S.editAxis, S.editHorizon, { verdict: cur === id ? "" : id });
+    renderPanel(); renderStage(); save();
+  }));
 }
-function fallbackCopy(text, done) {
-  const ta = document.createElement("textarea");
-  ta.value = text; document.body.appendChild(ta); ta.select();
-  try { document.execCommand("copy"); done(); } catch (e) { console.error(e); }
-  document.body.removeChild(ta);
+
+function renderAi() {
+  const sec = $("aiSection");
+  const hasChain = S.valueChain && S.valueChain.primary && S.valueChain.primary.length > 0;
+  if (!AI_ENDPOINT && !hasChain) { sec.hidden = true; sec.innerHTML = ""; return; }
+  sec.hidden = false;
+  let out = "";
+  if (AI_ENDPOINT) {
+    out += '<div class="sec-title">🤖 AIで下ごしらえ<span>ビジネスを入力すると、バリューチェーンと関係者の候補を用意します</span></div>' +
+      '<div class="ai-row"><input id="bizInput" class="txt" value="' + esc(S.business) +
+      '" placeholder="あなたのビジネスは何ですか？（例：地方都市の介護施設運営）">' +
+      '<button type="button" class="sbtn primary" id="aiBtn" style="padding:8px 18px">バリューチェーンを描く</button></div>' +
+      '<div id="aiErr"></div>';
+  }
+  if (hasChain) {
+    out += '<div style="margin-top:14px"><div class="vc-label">主活動（価値が生まれる流れ）</div><div class="vc-flow">' +
+      S.valueChain.primary.map((x, i) => '<span class="vc-item"><span class="vc-chip">' + esc(x) + "</span>" +
+        (i < S.valueChain.primary.length - 1 ? '<span class="vc-arrow">→</span>' : "") + "</span>").join("") + "</div>";
+    if (S.valueChain.support && S.valueChain.support.length) {
+      out += '<div class="vc-flow" style="margin-top:8px"><span class="vc-label" style="margin:0">支援活動</span>' +
+        S.valueChain.support.map((x) => '<span class="vc-sup">' + esc(x) + "</span>").join("") + "</div>";
+    }
+    out += "</div>";
+  }
+  if (AI_ENDPOINT && S.aiCandidates.length) {
+    out += '<div style="margin-top:14px"><div class="panel-sep-row"><span class="vc-label" style="margin:0">関係者の候補（＋で個別に、まとめてでも配置できます）</span>' +
+      '<button type="button" class="sbtn gain" id="placeAll">まとめてフィールドに配置</button></div><div class="mini-row">' +
+      S.aiCandidates.map((c, i) => {
+        const placed = S.stakeholders.some((s) => s.name === c.name);
+        return '<button type="button" class="sbtn" style="border-radius:99px" data-cand="' + i + '"' + (placed ? " disabled" : "") +
+          ' title="' + esc(c.situation) + '">' + (placed ? "✓" : "＋") + " " + esc(c.emoji + " " + c.name) + "</button>";
+      }).join("") + "</div></div>";
+  }
+  if (AI_ENDPOINT && S.themeIdeas.length) {
+    out += '<div style="margin-top:12px"><div class="vc-label">対話テーマの種（クリックでテーマ欄にセット）</div><div class="mini-row">' +
+      S.themeIdeas.map((t, i) => '<button type="button" class="sbtn" style="border-radius:99px" data-idea="' + i + '">💬 ' + esc(t) + "</button>").join("") + "</div></div>";
+  }
+  sec.innerHTML = out;
+  const biz = $("bizInput");
+  if (biz) {
+    biz.addEventListener("input", (e) => { S.business = e.target.value; save(); });
+    biz.addEventListener("keydown", (e) => { if (e.key === "Enter") generateFromBusiness(); });
+    $("aiBtn").addEventListener("click", generateFromBusiness);
+  }
+  const all = $("placeAll");
+  if (all) all.addEventListener("click", () => {
+    S.aiCandidates.filter((c) => !S.stakeholders.some((s) => s.name === c.name))
+      .forEach((c) => S.stakeholders.push({ id: uid(), name: c.name, emoji: c.emoji, situation: c.situation }));
+    renderAll();
+  });
+  sec.querySelectorAll("[data-cand]").forEach((b) => b.addEventListener("click", () => {
+    const c = S.aiCandidates[+b.getAttribute("data-cand")];
+    if (!c || S.stakeholders.some((s) => s.name === c.name)) return;
+    S.stakeholders.push({ id: uid(), name: c.name, emoji: c.emoji, situation: c.situation });
+    renderAll();
+  }));
+  sec.querySelectorAll("[data-idea]").forEach((b) => b.addEventListener("click", () => {
+    S.theme = S.themeIdeas[+b.getAttribute("data-idea")];
+    $("themeInput").value = S.theme; save();
+  }));
 }
 
-/* ================= 初期化 ================= */
-function init() {
-  load();
-  const fieldArea = $("#field-area");
-  fieldArea.addEventListener("click", (e) => {
-    const t = e.target.closest(".token");
-    if (!t) return;
-    state.selectedId = t.getAttribute("data-id");
-    state.hoverId = null;
-    renderField(); renderPanel();
-  });
-  fieldArea.addEventListener("pointerover", (e) => {
-    if (e.pointerType && e.pointerType !== "mouse") return;
-    const t = e.target.closest(".token");
-    const id = t ? t.getAttribute("data-id") : null;
-    if (state.hoverId !== id) { state.hoverId = id; renderField(); }
-  });
-  fieldArea.addEventListener("pointerleave", () => {
-    if (state.hoverId !== null) { state.hoverId = null; renderField(); }
-  });
-  $("#theme-input").value = state.theme;
-  $("#theme-input").addEventListener("input", (e) => { state.theme = e.target.value; save(); });
+function renderAll() {
+  $("themeInput").value = S.theme;
+  renderAi(); renderControls(); renderLegend(); renderScenario();
+  renderStage(); renderActions(); renderPanel(); save();
+}
 
-  $("#add-btn").addEventListener("click", () => {
-    const s = { id: uid(), name: `関係者${state.stakeholders.length + 1}`, emoji: EMOJIS[state.stakeholders.length % EMOJIS.length], situation: "" };
-    state.stakeholders.push(s);
-    state.selectedId = s.id;
-    save(); renderControls(); render();
-  });
+/* ================= 操作 ================= */
+function addStakeholder() {
+  const s = { id: uid(), name: "関係者" + (S.stakeholders.length + 1), emoji: EMOJIS[S.stakeholders.length % EMOJIS.length], situation: "" };
+  S.stakeholders.push(s);
+  S.selectedId = s.id;
+  renderStage(); renderActions(); renderPanel(); save();
+}
+function updateStakeholder(id, patch) {
+  S.stakeholders = S.stakeholders.map((s) => (s.id === id ? Object.assign({}, s, patch) : s));
+}
+function removeStakeholder(id) {
+  S.stakeholders = S.stakeholders.filter((s) => s.id !== id);
+  delete S.data[id];
+  if (S.selectedId === id) S.selectedId = null;
+  renderStage(); renderActions(); renderPanel(); save();
+}
+function updateCell(sid, axis, horizon, patch) {
+  const cur = getCell(S.data, sid, axis, horizon);
+  if (!S.data[sid]) S.data[sid] = {};
+  if (!S.data[sid][axis]) S.data[sid][axis] = {};
+  S.data[sid][axis][horizon] = Object.assign({}, cur, patch);
+}
+function loadCase(id) {
+  const c = CASES[id];
+  if (!c) return;
+  S.theme = c.theme; S.scale = c.scale;
+  S.stakeholders = clone(c.stakeholders);
+  S.valueChain = c.valueChain ? clone(c.valueChain) : null;
+  if (c.scenarios) {
+    const first = c.scenarios.options[0].id;
+    const store = clone(c.scenarios.data);
+    S.scenario = { options: clone(c.scenarios.options), active: first, store: store };
+    S.data = clone(store[first] || {});
+  } else {
+    S.scenario = null;
+    S.data = clone(c.data || {});
+  }
+  S.selectedId = null; S.caseId = id; S.themeIdeas = []; S.aiCandidates = [];
+  renderAll();
+}
+function switchScenario(id) {
+  if (!S.scenario || id === S.scenario.active) return;
+  S.scenario.store[S.scenario.active] = S.data;
+  S.scenario.active = id;
+  S.data = clone(S.scenario.store[id] || {});
+  S.selectedId = null;
+  renderScenario(); renderStage(); renderPanel(); save();
+}
+function expandCase() {
+  const c = S.caseId && CASES[S.caseId] ? CASES[S.caseId] : null;
+  const extra = c && c.extra ? c.extra : null;
+  if (!extra) return;
+  extra.stakeholders.filter((x) => !S.stakeholders.some((s) => s.name === x.name))
+    .forEach((x) => S.stakeholders.push(clone(x)));
+  if (S.scenario && extra.dataByScenario) {
+    Object.keys(extra.dataByScenario).forEach((scen) => {
+      const base = scen === S.scenario.active ? S.data : (S.scenario.store[scen] || {});
+      S.scenario.store[scen] = Object.assign({}, clone(base), clone(extra.dataByScenario[scen]));
+    });
+    S.data = clone(S.scenario.store[S.scenario.active] || {});
+  } else if (extra.data) {
+    S.data = Object.assign({}, S.data, clone(extra.data));
+  }
+  renderStage(); renderActions(); renderPanel(); save();
+}
+function resetAll() {
+  if (!confirmReset) {
+    confirmReset = true; renderActions();
+    clearTimeout(confirmTimer);
+    confirmTimer = setTimeout(() => { confirmReset = false; renderActions(); }, 3000);
+    return;
+  }
+  confirmReset = false;
+  S.theme = ""; S.stakeholders = []; S.data = {}; S.selectedId = null;
+  S.business = ""; S.valueChain = null; S.themeIdeas = []; S.aiCandidates = [];
+  S.caseId = null; S.scenario = null;
+  history.replaceState(null, "", location.pathname);
+  renderAll();
+}
 
-  $("#sample-btn").addEventListener("click", () => {
-    if (typeof gtag === "function") gtag("event", "diorama_sample", { page: location.pathname });
-    state.theme = SAMPLE.theme; state.scale = SAMPLE.scale;
-    state.stakeholders = JSON.parse(JSON.stringify(SAMPLE.stakeholders));
-    state.data = JSON.parse(JSON.stringify(SAMPLE.data));
-    state.selectedId = null;
-    $("#theme-input").value = state.theme;
-    save(); renderControls(); render();
+/* ================= 書き出し・共有 ================= */
+function copyText(text) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    return true;
+  } catch (e) { return false; }
+}
+function exportMarkdown() {
+  const scenLabel = S.scenario
+    ? "（シナリオ：" + ((S.scenario.options.find((o) => o.id === S.scenario.active) || {}).label || "") + "）"
+    : "";
+  let md = "# " + (S.theme || "（テーマ未設定）") + scenLabel + "\n\n";
+  S.stakeholders.forEach((s) => {
+    md += "## " + s.emoji + " " + s.name + "\n" + (s.situation ? "状況：" + s.situation + "\n" : "") + "\n";
+    AXES.forEach((a) => {
+      const rows = HORIZONS.map((h) => {
+        const c = getCell(S.data, s.id, a.id, h.id);
+        if (!c.merit && !c.demerit && !c.verdict) return null;
+        const v = c.verdict ? "【" + verdictLabel(c.verdict) + "】" : "";
+        return "- " + h.label + v + " " + (c.merit ? "メリット：" + c.merit + " " : "") + (c.demerit ? "デメリット：" + c.demerit : "");
+      }).filter(Boolean);
+      if (rows.length) md += "### " + a.label + "\n" + rows.join("\n") + "\n\n";
+    });
   });
+  toast(copyText(md) ? "✓ Markdownをコピーしました" : "コピーできませんでした");
+}
 
-  $("#reset-btn").addEventListener("click", () => {
-    const btn = $("#reset-btn");
-    if (!confirmReset) {
-      confirmReset = true;
-      btn.classList.add("armed");
-      btn.textContent = "もう一度押すと消去します";
-      confirmTimer = setTimeout(() => {
-        confirmReset = false; btn.classList.remove("armed"); btn.textContent = "すべて消去";
-      }, 3000);
+function b64encode(bytes) {
+  let bin = "";
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+}
+function b64decode(str) {
+  const s = str.replace(/-/g, "+").replace(/_/g, "/");
+  const bin = atob(s + "===".slice((s.length + 3) % 4));
+  const out = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+function pristinePayload(id) {
+  const c = CASES[id];
+  if (!c) return null;
+  const p = { theme: c.theme, scale: c.scale, stakeholders: clone(c.stakeholders), data: {},
+    business: "", valueChain: c.valueChain ? clone(c.valueChain) : null, themeIdeas: [], scenario: null, caseId: id };
+  if (c.scenarios) {
+    const first = c.scenarios.options[0].id;
+    const store = clone(c.scenarios.data);
+    p.scenario = { options: clone(c.scenarios.options), active: first, store: store };
+    p.data = clone(store[first] || {});
+  } else {
+    p.data = clone(c.data || {});
+  }
+  return p;
+}
+async function encodeState() {
+  const cur = payload();
+  if (S.caseId) {
+    const pristine = pristinePayload(S.caseId);
+    if (pristine && JSON.stringify(cur) === JSON.stringify(pristine)) return "c" + S.caseId;
+  }
+  const bytes = new TextEncoder().encode(JSON.stringify(cur));
+  if (typeof CompressionStream === "function") {
+    try {
+      const stream = new Blob([bytes]).stream().pipeThrough(new CompressionStream("deflate-raw"));
+      const buf = await new Response(stream).arrayBuffer();
+      return "z" + b64encode(new Uint8Array(buf));
+    } catch (e) { /* 非対応ブラウザは無圧縮へ */ }
+  }
+  return "r" + b64encode(bytes);
+}
+async function decodeState(token) {
+  if (!token) return null;
+  const kind = token[0], rest = token.slice(1);
+  if (kind === "c") return pristinePayload(rest);
+  const bytes = b64decode(rest);
+  if (kind === "r") return JSON.parse(new TextDecoder().decode(bytes));
+  if (kind === "z" && typeof DecompressionStream === "function") {
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("deflate-raw"));
+    const buf = await new Response(stream).arrayBuffer();
+    return JSON.parse(new TextDecoder().decode(buf));
+  }
+  return null;
+}
+async function shareUrl() {
+  try {
+    const token = await encodeState();
+    const url = location.origin + location.pathname + "#s=" + token;
+    history.replaceState(null, "", "#s=" + token);
+    if (url.length > 8000) {
+      toast("盤面が大きすぎてURLに収まりません。Markdownのコピーをお使いください");
       return;
     }
-    clearTimeout(confirmTimer);
-    confirmReset = false;
-    btn.classList.remove("armed"); btn.textContent = "すべて消去";
-    state.theme = ""; state.stakeholders = []; state.data = {}; state.selectedId = null;
-    $("#theme-input").value = "";
-    save(); renderControls(); render();
-  });
-
-  $("#copy-btn").addEventListener("click", exportMarkdown);
-
-  renderControls();
-  renderLegend();
-  render();
-}
-init();
-</script>
-
-<button class="ver-fab" id="ver-btn" aria-expanded="false" aria-controls="ver-log">ver 1.1</button>
-<div class="ver-log" id="ver-log" role="dialog" aria-label="更新履歴">
-  <h2>このツールの更新履歴</h2>
-  <ul>
-    <li><span class="v">ver 1.1</span><span class="d">2026-07-24</span><br>未来のリスク計算機シリーズに参加。右下に更新履歴を追加</li>
-    <li><span class="v">ver 1.0</span><span class="d">2026-07-24</span><br>公開。関係者 × 観点（経済・環境・社会）× 時間軸（短期〜長期）で「誰が得して、誰が損するか」を見える化するジオラマ対話ツール</li>
-  </ul>
-</div>
-<script>
-(function(){
-  const btn = document.getElementById("ver-btn");
-  const log = document.getElementById("ver-log");
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const open = log.classList.toggle("open");
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
-  });
-  document.addEventListener("click", (e) => {
-    if (log.classList.contains("open") && !log.contains(e.target)) {
-      log.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
+    if (navigator.share && /Android|iPhone|iPad/.test(navigator.userAgent)) {
+      try { await navigator.share({ title: "ステークホルダー・ジオラマ", url: url }); return; } catch (e) { /* 共有を閉じたら下のコピーへ */ }
     }
-  });
-})();
-</script>
-
-<!-- KAIYU START -->
-<aside class="kaiyu" data-kaiyu-theme="white" aria-label="次のおすすめページ">
-<style>
-.kaiyu{padding:3.4rem 2rem 3.8rem}
-.kaiyu-inner{max-width:960px;margin:0 auto}
-.kaiyu-head{text-align:center;margin-bottom:1.9rem}
-.kaiyu-eyebrow{display:block;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.7rem;letter-spacing:.32em;text-transform:uppercase;margin-bottom:.7rem}
-.kaiyu-title{display:block;font-family:'Shippori Mincho',serif;font-weight:700;font-size:1.15rem;letter-spacing:.08em}
-.kaiyu-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
-@media(max-width:860px){.kaiyu-grid{grid-template-columns:minmax(0,1fr)}}
-.kaiyu-card{position:relative;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;border-radius:12px;padding:1.3rem 1.2rem 1.4rem;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease}
-.kaiyu-card:hover{transform:translateY(-3px)}
-.kaiyu-tag{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase}
-.kaiyu-name{font-family:'Shippori Mincho',serif;font-weight:700;font-size:.98rem;letter-spacing:.04em;line-height:1.6}
-.kaiyu-desc{font-size:.78rem;line-height:1.9;font-weight:300}
-.kaiyu-arw{margin-top:auto;align-self:flex-end;font-family:'Jost',sans-serif;font-size:.9rem}
-.kaiyu-badge{position:absolute;top:-.55em;right:.9rem;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:.62rem;letter-spacing:.18em;padding:.18em .7em;border-radius:999px}
-.kaiyu[data-kaiyu-theme=white]{background:#f4f5f9}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-eyebrow{color:#3C3489}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-title{color:#26215C}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-card{background:#fff;border-color:#e3e2ef;box-shadow:0 2px 10px rgba(38,33,92,.05)}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(38,33,92,.12)}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-tag{color:#1a5fad}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-name{color:#26215C}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-desc{color:#5a6a7a}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-arw{color:#3C3489}
-.kaiyu[data-kaiyu-theme=white] .kaiyu-badge{background:#d85a30;color:#fff}
-.kaiyu[data-kaiyu-theme=paper]{background:rgba(60,52,20,.045)}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-eyebrow{color:#b8862d}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-title{color:#3a3428}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-card{background:#fffdf7;border-color:#ddd6c4;box-shadow:0 2px 10px rgba(90,75,30,.06)}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13)}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-tag{color:#b8862d}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-name{color:#3a3428}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-desc{color:#6d6455}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-arw{color:#b8862d}
-.kaiyu[data-kaiyu-theme=paper] .kaiyu-badge{background:#0f6e56;color:#fff}
-.kaiyu[data-kaiyu-theme=night]{background:rgba(255,255,255,.03)}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow{color:#c9a84c}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-title{color:#f2ead8}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:rgba(255,255,255,.045);border-color:rgba(201,168,76,.28)}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(0,0,0,.4);border-color:rgba(201,168,76,.55)}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-tag{color:#c9a84c}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#f2ead8}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:rgba(242,234,216,.66)}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#c9a84c}
-.kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#c9a84c;color:#1a1626}
-</style>
-<div class="kaiyu-inner">
-  <div class="kaiyu-head">
-    <span class="kaiyu-eyebrow">Keep Exploring</span>
-    <span class="kaiyu-title">次は、こちらへ。</span>
-  </div>
-  <div class="kaiyu-grid">
-    <a class="kaiyu-card" href="./goikeisei-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">合意形成図鑑</span><span class="kaiyu-desc">世界と日本の「話し合いがうまくいく仕組み」を12の標本と5つの成立条件で読み解く図鑑。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./unlearn-zukan.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">アンラーン図鑑</span><span class="kaiyu-desc">手放して、学びなおすための41の知恵。アンラーニングの正体、手放せない心のしくみ、組織が変われない構造、ソクラテスから禅までの知恵、今日から使える実践技法を5章に。</span><span class="kaiyu-arw">→</span></a>
-  </div>
-</div>
-</aside>
-<!-- KAIYU END -->
-
-<!-- FOOTER START -->
-<footer>
-  <div class="footer-logo">きづきくみたて工房</div>
-  <div class="footer-copy">&copy; 2026 Yasuhito Morimoto. All rights reserved.</div>
-</footer>
-<!-- FOOTER END -->
-
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileClose = document.getElementById('mobileClose');
-  function openMenu() { hamburger.classList.add('open'); mobileMenu.classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeMenu() { hamburger.classList.remove('open'); mobileMenu.classList.remove('open'); document.body.style.overflow = ''; }
-  hamburger.addEventListener('click', () => { mobileMenu.classList.contains('open') ? closeMenu() : openMenu(); });
-  if (mobileClose) mobileClose.addEventListener('click', closeMenu);
-  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
-</script>
-<!-- SHELF START -->
-<style>
-.shelf-tab { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 150; writing-mode: vertical-rl; display: flex; align-items: center; gap: 0.4em; background: #26215C; color: #fff; border: none; border-right: none; border-radius: 10px 0 0 10px; padding: 1rem 0.48rem; font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.18em; cursor: pointer; box-shadow: -3px 3px 12px rgba(38,33,92,0.3); }
-.shelf-backdrop { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 305; background: rgba(38,33,92,0.18); }
-.shelf.open .shelf-backdrop { display: block; }
-.shelf-panel { position: fixed; right: 0.7rem; top: 50%; transform: translateY(-50%) translateX(calc(100% + 2rem)); transition: transform 0.25s; z-index: 310; width: 226px; max-height: 78vh; overflow-y: auto; background: #ffffff; border: 2px solid #26215C; border-radius: 12px; box-shadow: -6px 8px 22px rgba(38,33,92,0.25); padding: 0.7rem 0.75rem 0.9rem; }
-.shelf.open .shelf-panel { transform: translateY(-50%) translateX(0); }
-.shelf-close { position: absolute; top: 0.35rem; right: 0.5rem; background: none; border: none; font-size: 1.05rem; cursor: pointer; color: #888; line-height: 1; padding: 0.2rem; }
-.shelf-title { font-family: 'Jost', 'Zen Kaku Gothic New', sans-serif; font-weight: 700; color: #3C3489; text-align: center; font-size: 0.95rem; letter-spacing: 0.12em; padding-bottom: 0.45rem; border-bottom: 2px solid #26215C; margin-bottom: 0.3rem; }
-.shelf-heading { display: block; font-family: 'Jost', 'Noto Sans JP', sans-serif; font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; color: #9a95c0; padding: 0.5rem 0 0.12rem; text-align: center; }
-.shelf-list a { display: block; font-family: 'Shippori Mincho', serif; font-size: 0.8rem; font-weight: 600; color: #333; text-decoration: none; padding: 0.42rem 0.25rem; border-bottom: 1px solid #ececf3; line-height: 1.45; word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: balance; hanging-punctuation: allow-end; transition: color 0.15s, background 0.15s; }
-.shelf-list a:hover { color: #3C3489; }
-.shelf-list a.active { color: #3C3489; font-weight: 700; background: #f4f3fb; border-radius: 5px; }
-@media (hover: hover) and (pointer: fine) {
-  .shelf:hover .shelf-panel { transform: translateY(-50%) translateX(0); }
-  .shelf-close { display: none; }
-  .shelf-backdrop { display: none !important; }
-}
-</style>
-<div class="shelf" id="siteShelf">
-  <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 計算機の棚</button>
-  <div class="shelf-backdrop" id="shelfBackdrop"></div>
-  <aside class="shelf-panel" aria-label="計算機の棚">
-    <button class="shelf-close" id="shelfClose" aria-label="閉じる">✕</button>
-    <div class="shelf-title">📚 計算機の棚</div>
-    <div class="shelf-list" role="navigation">
-      <a href="./risk-calculators.html" title="計算機シリーズ共通の前提・出典・免責のまとめ">このシリーズについて</a>
-      <a href="./stakeholder-diorama.html" title="ひとつのテーマを関係者みんなの視点から眺める対話ツール" class="active">ステークホルダー・ジオラマ</a>
-      <span class="shelf-heading">社会のリスク</span>
-      <a href="./school-consolidation-countdown.html" title="校区の出生数から、統廃合が検討される時期を試算">学校の分岐点</a>
-      <a href="./caregiving-capacity-calculator.html" title="あなたの高齢期に、支え手が何人いるかを試算">介護の支え手計算機</a>
-      <span class="shelf-heading">組織のリスク</span>
-      <a href="./customer-age-timebomb.html" title="何もしない場合に顧客基盤が半減する年を試算">顧客の平均年齢時限爆弾</a>
-      <a href="./recruitment-extinction.html" title="採用目標を割り込む年を、確定した出生数から試算">採用市場消滅計算機</a>
-      <a href="./skill-succession-timebomb.html" title="熟練の技が消える年と、育成着手の期限を試算">技能承継時限爆弾</a>
-      <a href="./taiwa-cost-calculator.html" title="会議の空転・手戻り・離職の損失を自社の数字で概算">対話不足コスト計算機</a>
-      <span class="shelf-heading">個人のリスク</span>
-      <a href="./longevity-money-map.html" title="統計をもとに、老後のお金の目安を引く見取り図">老後のお金の見取り図</a>
-      <a href="./salary-negotiation-calculator.html" title="昇給交渉を先延ばしにした複利の損失を試算">昇給交渉しない計算機</a>
-      <a href="./taiwa-avoidance-calculator.html" title="「言わないコスト」が「言うコスト」を上回る日を概算">対話回避コスト計算機</a>
-    </div>
-  </aside>
-</div>
-<script>
-(function() {
-  var shelf = document.getElementById('siteShelf');
-  var tab = document.getElementById('shelfTab');
-  function setOpen(open) {
-    shelf.classList.toggle('open', open);
-    tab.setAttribute('aria-expanded', open ? 'true' : 'false');
-    if (open && typeof gtag === 'function') gtag('event', 'shelf_open', { shelf: '計算機の棚', page: location.pathname });
+    toast(copyText(url) ? "✓ 共有URLをコピーしました。相手に送ると同じ盤面が開きます" : "URLをコピーできませんでした");
+  } catch (e) {
+    toast("共有URLを作れませんでした");
   }
-  tab.addEventListener('click', function() { setOpen(!shelf.classList.contains('open')); });
-  var hoverSent = false;
-  shelf.addEventListener('mouseenter', function() {
-    if (!hoverSent && typeof gtag === 'function') { hoverSent = true; gtag('event', 'shelf_open', { shelf: '計算機の棚', page: location.pathname, method: 'hover' }); }
-  });
-  document.getElementById('shelfClose').addEventListener('click', function() { setOpen(false); });
-  document.getElementById('shelfBackdrop').addEventListener('click', function() { setOpen(false); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); });
-})();
-</script>
-<!-- SHELF END -->
+}
 
+/* ================= AIで下ごしらえ ================= */
+let aiLoading = false;
+async function generateFromBusiness() {
+  if (!AI_ENDPOINT || aiLoading || !S.business.trim()) return;
+  aiLoading = true;
+  const btn = $("aiBtn"), errBox = $("aiErr");
+  if (btn) { btn.textContent = "分析中…"; btn.disabled = true; }
+  if (errBox) errBox.innerHTML = "";
+  try {
+    const res = await fetch(AI_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ business: S.business.trim() }),
+    });
+    if (!res.ok) throw new Error("status " + res.status);
+    const json = await res.json();
+    const parsed = json.result || json;
+    S.valueChain = { primary: parsed.primary || [], support: parsed.support || [] };
+    S.themeIdeas = parsed.themes || [];
+    S.aiCandidates = (parsed.stakeholders || []).map((s) => ({
+      name: String(s.name || "").slice(0, 12),
+      emoji: s.emoji || "🧑",
+      situation: String(s.situation || ""),
+    }));
+    aiLoading = false;
+    renderAi(); save();
+    return;
+  } catch (e) {
+    if (errBox) errBox.innerHTML = '<div class="err">生成に失敗しました。少し待ってからもう一度お試しください。</div>';
+  }
+  aiLoading = false;
+  if (btn) { btn.textContent = "バリューチェーンを描く"; btn.disabled = false; }
+}
+
+/* ================= 起動 ================= */
+(async function init() {
+  const m = location.hash.match(/[#&]s=([^&]+)/);
+  let restored = false;
+  if (m) {
+    try {
+      const st = await decodeState(decodeURIComponent(m[1]));
+      if (st) { applyPayload(st); restored = true; }
+    } catch (e) { /* 壊れたURLは無視して通常起動 */ }
+  }
+  if (!restored) {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) applyPayload(JSON.parse(raw));
+    } catch (e) { /* 初回は何もない */ }
+  }
+
+  $("themeInput").addEventListener("input", (e) => { S.theme = e.target.value; save(); });
+  $("scaleBtns").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-scale]"); if (!b) return;
+    S.scale = b.getAttribute("data-scale"); renderControls(); renderStage(); save();
+  });
+  $("axisBtns").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-axis]"); if (!b) return;
+    S.lensAxis = b.getAttribute("data-axis"); renderControls(); renderStage(); save();
+  });
+  $("horizonBtns").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-horizon]"); if (!b) return;
+    S.lensHorizon = b.getAttribute("data-horizon"); renderControls(); renderStage(); save();
+  });
+  document.querySelectorAll("[data-view]").forEach((b) => b.addEventListener("click", () => {
+    S.view = b.getAttribute("data-view"); renderControls(); renderStage();
+  }));
+
+  renderAll();
+  if (restored) toast("共有された盤面を開きました");
+})();
+
+</script>
 </body>
 </html>

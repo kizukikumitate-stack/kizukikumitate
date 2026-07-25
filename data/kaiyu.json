@@ -1183,7 +1183,8 @@
       "theme": "white",
       "category": "mirai",
       "added": "2026-07-24",
-      "band": true,
+      "band": false,
+      "_band_note": "磨き込み中のテスト公開。全画面ツールのため回遊バンドを出さない（2026-07-25）。正式リリース時に true へ戻す",
       "auto": false,
       "next": [
         "goikeisei-zukan",
