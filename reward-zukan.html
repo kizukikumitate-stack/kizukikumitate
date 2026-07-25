@@ -149,7 +149,8 @@
     font-size:12px;color:var(--ink-faint);letter-spacing:.1em;
     margin-left:auto;
   }
-  .sp-lead{
+  /* .wrap p のリセット（margin/padding:0・詳細度0,1,1）に負けるので .species を足して勝たせる */
+  .species .sp-lead{
     padding:10px 32px 4px;
     font-size:15px;color:var(--ink);
   }
@@ -255,7 +256,7 @@
     .legend{padding:22px 18px;}
     .keying,.pairs,.grounding{padding:24px 18px;}
     .sp-head{padding:22px 18px 6px;}
-    .sp-lead{padding:10px 18px 4px;}
+    .species .sp-lead{padding:10px 18px 4px;}
     .sp-wave{margin:16px 18px 6px;}
     .sp-body{padding:12px 18px 10px;}
     .sp-foot{padding:12px 18px 22px;}
