@@ -1,0 +1,21 @@
+{
+ "name": "tenshoku-facilitator",
+ "aspect_ratio": "1:1",
+ "anchors": [
+  "images/tenshoku/teacher.webp",
+  "images/tenshoku/learningdesigner.webp"
+ ],
+ "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one 'magical' / tool element glows softly in the specified family accent color; everything else stays gold line-art. This is a sword-and-sorcery fantasy 'job class' that embodies the profession with the tools of the trade. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. GENERIC fantasy only: no recognizable existing characters, monsters, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs (any 'runes' must be abstract dots/shapes, never actual characters), no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+ "out_dir": "images/tenshoku",
+ "file_pattern": "{id}.webp",
+ "webp": {
+  "width": 800,
+  "quality": 82
+ },
+ "items": [
+  {
+   "id": "facilitator",
+   "prompt": "Profession (Japanese job title): きづきくみたてファシリテーター (facilitator who sparks awareness in people and organizations, then builds it into change). Draw as a 'healer / cleric' fantasy job class: a robed figure in clean profile standing at the edge of a small round table, not at its head — around the table three or four other small figures sit facing one another, seen from behind or in profile, leaning in as if in dialogue. On the table, a few loose building blocks and a small half-built structure of blocks sit among scattered thinking tokens. The facilitator holds no sword and no pointer — only an open empty hand raised in a gentle question. A thin gold thread rises from the table and connects to a tiny building under construction in the far background, showing that what is noticed here gets built out there. The single glowing accent element uses emerald green light of the half-built block structure on the table; everything else is thin gold line-art on deep navy. One calm, elegant scene, a sense of a circle rather than a stage."
+  }
+ ]
+}

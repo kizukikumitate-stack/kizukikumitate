@@ -442,6 +442,24 @@ svg.edges{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 .tier-hero{color:var(--t-hero);}
 .tier-king{color:var(--t-king);}
 .tier-legend-badge{color:var(--gold);}
+/* ページ主のオリジナルジョブ（🆕みんなの投稿と同じ形・色ちがい） */
+.orig-badge{
+  font-size:9.5px;letter-spacing:.06em;padding:1px 5px;
+  border:1px solid var(--gold);border-radius:4px;color:var(--gold);
+  white-space:nowrap;vertical-align:middle;
+}
+.orig-note{
+  font-size:11.5px;line-height:1.75;color:var(--ink-2);
+  background:var(--surface);border:1px dashed var(--gold);border-radius:6px;
+  padding:7px 9px;margin:0 0 10px;
+  word-break:auto-phrase;line-break:strict;text-wrap:pretty;hanging-punctuation:allow-end;
+  overflow-wrap:break-word;
+}
+.orig-make-link{
+  font-family:inherit;font-size:inherit;color:var(--gold);
+  background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;
+}
+.orig-make-link:hover{opacity:.8;}
 .rarity{font-size:11px;color:var(--ink-muted);margin-top:3px;}
 .rarity b{color:var(--gold);font-weight:400;}
 .fam-tag{font-size:11px;color:var(--ink-2);margin-top:3px;display:flex;align-items:center;gap:6px;}
@@ -1411,6 +1429,13 @@ const JOBS = [
  skills:{taijin:4,bunseki:3,jikko:3,souzou:5,nintai:3},
  tech:[["教材設計","つまずきを先回りした学習の道を敷く"],["eラーニング開発","時間と場所の制約を解く魔法"],["学習体験デザイン","「学びたくなる」仕掛けづくり"]],
  rewards:{gold:3,heart:5,time:4,exp:4}},
+{id:"facilitator", tier:"adv", family:"priest", name:"きづきくみたてファシリテーター", original:true,
+ catch:"気づきを起こし、社会変革へ組み立てる。学びと対話の建築士。",
+ catchFull:"人と組織に気づきを起こし、社会変革へと組み立てる。学びと対話の設計・建築士。",
+ from:["teacher","consul"], cond:"講師で場づくり★4 + コンサルタントで見立ての力（研修が要らない場合まで診断できること）",
+ skills:{taijin:5,bunseki:4,jikko:4,souzou:5,nintai:4},
+ tech:[["問いかけ","答えではなく問いで人と組織を動かす"],["見立て","BEM/HPIで「研修が要らない場合」まで診断する"],["場づくり","安心して本音が出る空気を設計する"],["組み立て","気づきを職場の行動と社会の変化に転移させる"]],
+ rewards:{gold:3,heart:5,time:4,exp:3}},
 {id:"ecproducer", tier:"adv", family:"warrior", name:"EC/店舗プロデューサー",
  catch:"売場の勘とデータの両輪で商いを回す親方。",
  from:["retail","marketer"], cond:"販売でおもてなし★4 + マーケターで広告運用★3",
@@ -2109,6 +2134,7 @@ contentmarketer:{study:"SEO・編集企画・SNSのアルゴリズム", cert:"SE
 uxdesigner:     {study:"ユーザーリサーチ・情報設計・プロトタイピング", cert:"HCD-Net認定(人間中心設計専門家)", hours:"約200〜400時間+ポートフォリオ"},
 bpr:            {study:"業務フロー図の描き方・RPAツール・変化への人の心理", cert:"応用情報技術者/RPAツール認定", hours:"約200〜400時間"},
 learningdesigner:{study:"インストラクショナルデザイン・学習科学・動画教材制作", cert:"キャリアコンサルタント/eラーニング系認定", hours:"約150〜300時間"},
+facilitator:{study:"HPI/BEM(行動工学モデル)・カークパトリックの4レベル評価・成人学習理論・ファシリテーション技法・人が育つ現場の経験", cert:"LSPファシリテーター/キャリアコンサルタント等(資格より場数)", hours:"現場経験込みで5〜10年"},
 ecproducer:     {study:"EC運営の実務・データ分析・物流の基礎", cert:"ネットショップ検定/リテールマーケティング1級", hours:"約100〜300時間"},
 qualityeng:     {study:"統計的品質管理・IE(生産工学)・工程設計", cert:"QC検定2〜1級/技術士補", hours:"約150〜400時間"},
 doctor:         {study:"医学部6年間の全課程+臨床実習", cert:"医師免許(必須)+初期研修2年", hours:"約10000時間超(全職業で最重量級)"},
@@ -2250,6 +2276,7 @@ contentmarketer:{sal:"約500〜700万円", ssrc:"民間転職データの相場"
 uxdesigner:     {sal:"約600〜850万円", ssrc:"民間転職データの相場"},
 bpr:            {sal:"約550〜750万円", ssrc:"民間転職データの相場"},
 learningdesigner:{sal:"約450〜650万円", ssrc:"民間転職データの相場"},
+facilitator:{sal:"案件次第で幅が大きい(日当型〜年間契約型)", ssrc:"—"},
 ecproducer:     {sal:"約500〜700万円", ssrc:"民間転職データの相場"},
 qualityeng:     {sal:"約550〜750万円", ssrc:"民間転職データの相場"},
 doctor:         {sal:"約1440万円", ssrc:"job tag(医師)", hol:"約105日+当直・オンコール"},
@@ -2386,6 +2413,7 @@ contentmarketer:{lv:3,note:"実績(数字)を出せる人は不足"},
 uxdesigner:{lv:4,note:"経験者採用は競争激化"},
 bpr:{lv:4,note:"DX推進の担い手として需要増"},
 learningdesigner:{lv:3,note:"リスキリング需要で拡大中"},
+facilitator:{lv:3,note:"ファシリテーターを名乗る人は多いが、診断から転移まで設計できる人は希少(公的統計のない職のため目安)"},
 ecproducer:{lv:3,note:"EC市場拡大で運営人材は不足気味"},
 qualityeng:{lv:4,note:"製造・建設の技術者不足は構造的"},
 doctor:{lv:4,note:"地方・特定診療科(産科・救急など)で偏在不足"},
@@ -2450,7 +2478,7 @@ const JOB_GYOKAI = {
   consul:["senmon"], senryaku:["senmon"], lawyer:["senmon"], authority:["senmon","kyoiku"], partner:["senmon"], conpartner:["senmon"],
   nurse:["iryofukushi"], doctor:["iryofukushi"], kaigo:["iryofukushi"], kaigofukushi:["iryofukushi"],
   cnurse:["iryofukushi"], shisetsucho:["iryofukushi"], kangobucho:["iryofukushi"], kyujo:["iryofukushi","komu"],
-  teacher:["kyoiku"], learningdesigner:["kyoiku"],
+  teacher:["kyoiku"], learningdesigner:["kyoiku"], facilitator:["kyoiku","senmon"],
   komuin:["komu"], kanryou:["komu"], keisatsu:["komu"], shobo:["komu"], jieitai:["komu"], politician:["komu"],
   keiji:["komu"], jieikanbu:["komu"], shokan:["komu"], jimujikan:["komu"], shocho:["komu"], shobocho:["komu"],
   shikikan:["komu"], seifuku:["komu"],
@@ -2497,10 +2525,16 @@ function cardHTML(j, withLinks=true, collapsible=false){
   const f = FAMILIES[j.family];
   let h = '<div class="dq jobcard" style="border-top:6px solid '+f.color+'">';
   h += illustFig(j);
-  h += '<h3>'+j.name+' '+tierBadge(j.tier)+(j.user?' <span class="tier-badge" style="color:var(--t-hero)">🆕 みんなの投稿</span>':'')+'</h3>';
+  h += '<h3>'+j.name+' '+tierBadge(j.tier)+(j.user?' <span class="tier-badge" style="color:var(--t-hero)">🆕 みんなの投稿</span>':'')+(j.original?' <span class="tier-badge" style="color:var(--gold)">✍️ ページ主</span>':'')+'</h3>';
   h += famTag(j.family);
   h += '<div class="rarity">そんざい数: <b>'+TIER_RARITY[j.tier]+'</b></div>';
-  h += '<p class="catch">「'+j.catch+'」</p>';
+  /* 正式版キャッチコピー(catchFull)があればそちら。無ければ従来どおり catch */
+  h += '<p class="catch">「'+(j.catchFull||j.catch)+'」</p>';
+  if(j.original){
+    h += '<p class="orig-note">✍️ この図鑑の作者のオリジナルジョブです。あなたも'+
+         '<button type="button" class="orig-make-link" data-gomake="1">「みんなでつくる」タブ</button>'+
+         'から、自分の職業を書に加えられます。</p>';
+  }
   if(collapsible){
     h += '<button type="button" class="jc-toggle" aria-expanded="false" aria-controls="jc-detail-'+j.id+'">▼ くわしく見る</button>';
     h += '<div class="jc-detail" id="jc-detail-'+j.id+'">';
@@ -2581,7 +2615,7 @@ function nodeHTML(j){
   return '<button class="node'+legend+'" data-job="'+j.id+'" id="node-'+j.id+'">'+
     '<span class="bar" style="background:'+(j.tier==="legend"?"var(--tier-legend)":f.color)+'"></span>'+
     '<span class="ico">'+ico+'</span>'+
-    '<span class="nm">'+(j.user?'🆕 ':'')+j.name+'<small>'+sub+'</small></span>'+
+    '<span class="nm">'+(j.user?'🆕 ':'')+j.name+(j.original?' <span class="orig-badge">✍️ ページ主</span>':'')+'<small>'+sub+'</small></span>'+
     (j.hitode ? (j.hitode.lv>=4 ? '<span title="人手不足: '+j.hitode.note+'">'+(j.hitode.lv>=5?'🔥🔥':'🔥')+'</span>' : j.hitode.lv<=1 ? '<span class="flame-cool" title="人手が余り気味(狭き門): '+j.hitode.note+'">🔥</span>' : '') : '')+
     '</button>';
 }
@@ -2625,6 +2659,7 @@ const ROUTE_W = {
   "biyoshi>stylist":1, "insyokuowner>ownerchef":1,
   "keiji>shocho":1, "kyujo>shobocho":1, "senryaku>conpartner":1, "eizoudir>filmdir":1,
   "dentoupro>shishou":1,
+  "teacher>facilitator":1, "consul>facilitator":1,
 };
 const TIER_IDX = {base:0, adv:1, hero:2, king:3, legend:4};
 function edgeWeight(from, to){
@@ -2970,6 +3005,16 @@ document.querySelectorAll(".tab-btn").forEach(btn=>{
 });
 updateTabHint();
 
+/* ---- ページ主のオリジナルジョブ → 「みんなでつくる」タブへ ---- */
+document.addEventListener("click",e=>{
+  if(!e.target.closest("[data-gomake]")) return;
+  /* モーダルから飛んだ場合は、チャートへ戻す closeModal ではなく素直に閉じる */
+  modalBg.classList.remove("open");
+  pendingFocusJob = null;
+  const mk = document.querySelector('.tab-btn[data-panel="p-make"]');
+  if(mk){ mk.click(); mk.scrollIntoView({block:"center",behavior:"smooth"}); }
+});
+
 /* ================= 職業検索 ================= */
 /* id → 読み仮名・別名（スペース区切り）。名前そのものはJOBSから自動で拾う */
 const SEARCH_KEYS = {
@@ -2998,6 +3043,7 @@ uxdesigner:"UXデザイナー UIデザイナー プロダクトデザイナー",
 contentmarketer:"コンテンツマーケター オウンドメディア SNS運用",
 bpr:"ぎょうむかいぜん 業務改善 DX推進",
 learningdesigner:"ラーニングデザイナー 研修設計 人材育成",
+facilitator:"ファシリテーター きづきくみたて ワークショップ 対話 組織開発 人材開発 研修講師 場づくり",
 ecproducer:"イーシー ネットショップ 通販 店舗プロデューサー",
 qualityeng:"せいさんぎじゅつ ひんしつ 品質管理 生産管理",
 keiei:"けいえいきかく 経営 事業責任者 部長",
@@ -3282,6 +3328,10 @@ document.body.appendChild(tutHelpBtn);
 
 /* ================= 更新履歴（ver表示・右下） ================= */
 const VERSION_LOG = [
+  {v:"2.2", d:"2026-07-25", items:[
+    "上位職に「きづきくみたてファシリテーター」を追加（教育・講師 × コンサルタントの狭き門ルート）",
+    "この図鑑の作者のオリジナルジョブに ✍️ページ主 のしるしをつけました",
+  ]},
   {v:"2.1", d:"2026-07-24", items:[
     "「はたらく現在地診断」を新設——8つの質問で、いま自分が求めているほうしゅうを知り、そこから図鑑を読み始められるように",
   ]},
