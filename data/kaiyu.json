@@ -1205,6 +1205,38 @@
         "shinkei-busshitsu-zukan",
         "genzaichi-shindan"
       ]
+    },
+    {
+      "id": "shinkai-scope",
+      "path": "shinkai-scope.html",
+      "title": "深海スコープ",
+      "tag": "手法・ワークショップ",
+      "desc": "心の「こうしたい」を抱えて、浜辺から深海へ。水深を下げながら欲求を掘り、海底に棲む11のニーズに触れて、自分のことばで言いかえる自己理解の装置。",
+      "theme": "night",
+      "category": "method",
+      "added": "2026-07-26",
+      "band": false,
+      "_band_note": "水深とともに配色が変わる没入型ツール。潜水の体験を断ち切るため回遊バンドは出さない（kokoro-scope と同方針）。行き先としては使う",
+      "next": [
+        "reward-zukan",
+        "unlearn-scope"
+      ]
+    },
+    {
+      "id": "unlearn-scope",
+      "path": "unlearn-scope.html",
+      "title": "アンラーン・スコープ",
+      "tag": "手法・ワークショップ",
+      "desc": "手放したい課題を、責めずに深海へ持って潜る。それが守ってきたものと支払ってきたものを同じ明るさで照らし、最深部の信念を「未検証の仮説」に変えて浮上する。",
+      "theme": "night",
+      "category": "method",
+      "added": "2026-07-26",
+      "band": false,
+      "_band_note": "深海に潜る没入型ツール。同上の理由で回遊バンドは出さない。行き先としては使う",
+      "next": [
+        "unlearn-zukan",
+        "shinkai-scope"
+      ]
     }
   ]
 }

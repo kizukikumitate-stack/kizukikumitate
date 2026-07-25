@@ -76,6 +76,8 @@ EXCLUDE = {
     "topaasia.html": "日英バイリンガルの製品ページ。日本語のみの棚は世界観に合わないため",
     "topaasia-data-notes.html": "同上（topaasia系）",
     "kokoro-scope.html": "感情を多面的に眺める没入型セルフケアアプリ画面（overflow:hidden 全画面）。棚は世界観と操作を妨げるため設置しない",
+    "shinkai-scope.html": "深海スコープ。水深とともに配色が変わる没入型ツール。右端の棚は潜水の体験と配色を妨げるため設置しない",
+    "unlearn-scope.html": "アンラーン・スコープ。深海に潜る没入型ツール。同上の理由で棚は設置しない",
 }
 
 

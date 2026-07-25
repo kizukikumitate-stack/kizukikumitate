@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>深海スコープ — 欲求の深度をたずねる</title>
+<meta name="description" content="心の「こうしたい」を抱えて、浜辺から深海へ。水深を下げながら欲求を深掘りし、海底にあるニーズに光を当てて、自分のことばで言いかえる、きづきくみたて工房の自己理解の装置です。">
+<link rel="canonical" href="https://kizukikumitate.com/shinkai-scope.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/shinkai-scope.html">
+<meta property="og:title" content="深海スコープ — 欲求の深度をたずねる">
+<meta property="og:description" content="「こうしたい」を抱えて水深を下げていく。海底に沈むニーズに触れ、自分のことばで光を当てる自己理解の装置。">
+<meta property="og:image" content="https://kizukikumitate.com/shinkai-scope-ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="深海スコープ — 欲求の深度をたずねる">
+<meta name="twitter:description" content="「こうしたい」を抱えて水深を下げていく。海底に沈むニーズに触れ、自分のことばで光を当てる自己理解の装置。">
+<meta name="twitter:image" content="https://kizukikumitate.com/shinkai-scope-ogp.png">
+<style>
+  @property --g1 { syntax:'<color>'; initial-value:#BFE0E8; inherits:true; }
+  @property --g2 { syntax:'<color>'; initial-value:#EFE3C8; inherits:true; }
+
+  :root{
+    --g1:#BFE0E8; --g2:#EFE3C8;
+    --ink:#1E3A45;
+    --ink-soft:#4E6B77;
+    --ink-faint:#7E97A1;
+    --card:#FFFFFF;
+    --card-line:rgba(30,58,69,.12);
+    --opt-bg:#F7FAFA;
+    --opt-line:rgba(30,58,69,.16);
+    --field-bg:#F7FAFA;
+    --accent:#16697A;
+    --accent-ink:#FFFFFF;
+    --note-bg:rgba(22,105,122,.08);
+    --shadow:0 8px 28px rgba(10,40,60,.10);
+    --radius:12px;
+  }
+  body.d1{ --g1:#A9DBE2; --g2:#7CC3CC; }
+  body.d2{ --g1:#5FBAC7; --g2:#2E8FA6;
+    --ink:#0F3542; --card:rgba(255,255,255,.93); }
+  body.d3, body.d4, body.d5, body.d6{
+    --ink:#D7E6EF; --ink-soft:#93ADBD; --ink-faint:#5F7A8C;
+    --card:rgba(7,24,40,.58);
+    --card-line:rgba(140,190,220,.16);
+    --opt-bg:rgba(255,255,255,.05);
+    --opt-line:rgba(140,190,220,.22);
+    --field-bg:rgba(2,10,20,.35);
+    --accent:#57C2DB;
+    --accent-ink:#04202B;
+    --note-bg:rgba(87,194,219,.10);
+    --shadow:0 8px 30px rgba(0,0,0,.35);
+  }
+  body.d3{ --g1:#1E6E8F; --g2:#0F4468; }
+  body.d4{ --g1:#0D3757; --g2:#07223D; }
+  body.d5{ --g1:#061C32; --g2:#030F1D; }
+  body.d6{ --g1:#02090F; --g2:#01040A; }
+  body.d7{ --g1:#F2D6A9; --g2:#9FC6D4; }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP","Yu Gothic",sans-serif;
+    background:linear-gradient(180deg,var(--g1) 0%,var(--g2) 100%);
+    background-attachment:fixed;
+    min-height:100vh;
+    color:var(--ink);
+    line-height:1.9;
+    padding:0 18px 70px;
+    transition:--g1 1.6s ease, --g2 1.6s ease, color 1.2s ease;
+    overflow-x:hidden;
+    word-break:auto-phrase;
+    line-break:strict;
+    overflow-wrap:break-word;
+    hanging-punctuation:allow-end;
+  }
+  .wrap{max-width:640px;margin:0 auto;}
+
+  /* 泡 */
+  .bubbles{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity 1.5s;z-index:0;}
+  body.d2 .bubbles, body.d3 .bubbles, body.d4 .bubbles, body.d5 .bubbles, body.d6 .bubbles{opacity:1;}
+  .bubbles span{
+    position:absolute;bottom:-24px;
+    width:8px;height:8px;border-radius:50%;
+    background:rgba(255,255,255,.14);
+    animation:rise linear infinite;
+  }
+  .bubbles span:nth-child(1){left:12%;width:5px;height:5px;animation-duration:11s;}
+  .bubbles span:nth-child(2){left:28%;animation-duration:15s;animation-delay:3s;}
+  .bubbles span:nth-child(3){left:47%;width:4px;height:4px;animation-duration:9s;animation-delay:1s;}
+  .bubbles span:nth-child(4){left:66%;width:10px;height:10px;animation-duration:18s;animation-delay:5s;}
+  .bubbles span:nth-child(5){left:81%;width:6px;height:6px;animation-duration:13s;animation-delay:2s;}
+  .bubbles span:nth-child(6){left:92%;width:4px;height:4px;animation-duration:10s;animation-delay:6s;}
+  @keyframes rise{
+    from{transform:translateY(0);opacity:0;}
+    10%{opacity:1;}
+    to{transform:translateY(-110vh);opacity:0;}
+  }
+
+  .content{position:relative;z-index:1;}
+
+  /* ヘッダー */
+  header{text-align:center;padding:44px 0 6px;}
+  header .logo{
+    font-size:28px;font-weight:700;letter-spacing:.22em;
+    color:var(--ink);
+    transition:color 1.2s;
+  }
+  header .tagline{
+    font-size:12px;color:var(--ink-soft);letter-spacing:.28em;margin-top:6px;
+    transition:color 1.2s;
+  }
+
+  /* 深度計 */
+  .depth{
+    display:flex;align-items:center;gap:14px;
+    margin:22px auto 8px;
+    max-width:640px;
+    font-family:"SFMono-Regular",Menlo,Consolas,"Courier New",monospace;
+    font-size:11px;letter-spacing:.12em;
+    color:var(--ink-faint);
+    transition:color 1.2s;
+  }
+  .depth .d-track{
+    flex:1;height:2px;background:var(--card-line);
+    border-radius:2px;overflow:hidden;
+  }
+  .depth .d-fill{
+    height:100%;width:0;
+    background:var(--accent);
+    transition:width 1.4s ease, background 1.2s;
+  }
+  .depth .d-read{min-width:9.5em;text-align:right;white-space:nowrap;}
+
+  /* 画面 */
+  .screen{display:none;animation:sink .6s ease;}
+  .screen.active{display:block;}
+  @keyframes sink{from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:none;}}
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--card-line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:30px 28px;
+    margin:14px 0;
+    transition:background 1.2s, border-color 1.2s, color 1.2s;
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  .card h2{
+    font-size:17px;font-weight:700;
+    letter-spacing:.14em;margin-bottom:4px;
+  }
+  .card h2 .zone{
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:10.5px;letter-spacing:.25em;
+    color:var(--accent);
+    display:block;margin-bottom:6px;
+    transition:color 1.2s;
+  }
+  .card .sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:16px;transition:color 1.2s;}
+  .card p{font-size:14px;margin-bottom:1em;}
+  .note{
+    background:var(--note-bg);
+    border-left:2px solid var(--accent);
+    border-radius:6px;
+    padding:13px 18px;
+    font-size:12.5px;color:var(--ink-soft);
+    margin:14px 0;
+    line-height:1.9;
+    transition:background 1.2s, border-color 1.2s, color 1.2s;
+  }
+  .note a{color:var(--accent);}
+
+  /* 入力 */
+  textarea, input[type=text]{
+    width:100%;
+    font-family:inherit;
+    font-size:15px;line-height:1.8;color:var(--ink);
+    background:var(--field-bg);
+    border:1px solid var(--opt-line);
+    border-radius:8px;
+    padding:12px 15px;
+    resize:vertical;
+    transition:background 1.2s, border-color .2s, color 1.2s;
+  }
+  textarea:focus, input[type=text]:focus{outline:none;border-color:var(--accent);}
+  textarea::placeholder, input::placeholder{color:var(--ink-faint);}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .chip{
+    font-size:12px;color:var(--ink-soft);
+    background:transparent;
+    border:1px solid var(--opt-line);
+    border-radius:999px;
+    padding:5px 14px;cursor:pointer;
+    transition:border-color .15s, color .15s;
+  }
+  .chip:hover{border-color:var(--accent);color:var(--accent);}
+
+  /* 選択肢 */
+  .opts{display:grid;gap:9px;margin-top:6px;}
+  .opt{
+    background:var(--opt-bg);
+    border:1px solid var(--opt-line);
+    border-radius:10px;
+    padding:13px 16px;
+    cursor:pointer;
+    transition:border-color .15s, background .3s;
+    font-size:14px;
+  }
+  .opt:hover{border-color:var(--accent);}
+  .opt.sel{border-color:var(--accent);background:var(--note-bg);}
+  .opt .opt-t{font-weight:700;font-size:13.5px;letter-spacing:.04em;}
+  .opt.sel .opt-t{color:var(--accent);}
+  .opt .opt-d{font-size:12.5px;color:var(--ink-soft);margin-top:2px;line-height:1.7;}
+  .free-area{display:none;margin-top:10px;}
+  .free-area.show{display:block;}
+
+  /* ニーズカード */
+  .needs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:8px;}
+  @media(max-width:520px){.needs{grid-template-columns:minmax(0,1fr);}}
+  .need{
+    position:relative;
+    background:var(--opt-bg);
+    border:1px solid var(--opt-line);
+    border-radius:10px;
+    padding:13px 15px;
+    cursor:pointer;
+    transition:border-color .15s, background .3s;
+  }
+  .need:hover{border-color:var(--accent);}
+  .need.sel{border-color:var(--accent);background:var(--note-bg);}
+  .need .n-name{font-weight:700;font-size:14px;}
+  .need.sel .n-name{color:var(--accent);}
+  .need .n-words{
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:10px;color:var(--ink-faint);margin-top:2px;letter-spacing:.05em;
+  }
+  .need .n-desc{font-size:12px;color:var(--ink-soft);margin-top:6px;line-height:1.7;}
+  .need .n-badge{
+    position:absolute;top:-9px;right:10px;
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:9.5px;letter-spacing:.15em;
+    color:var(--accent);
+    background:var(--card);
+    border:1px solid var(--accent);
+    border-radius:999px;
+    padding:2px 9px;
+    display:none;
+  }
+  .need.suggested .n-badge{display:inline-block;animation:ping 2.4s ease infinite;}
+  @keyframes ping{0%,100%{opacity:1;}50%{opacity:.45;}}
+
+  /* リフレーム */
+  .rf-block{
+    border-top:1px dashed var(--opt-line);
+    padding-top:18px;margin-top:18px;
+  }
+  .rf-block:first-of-type{border-top:none;margin-top:0;padding-top:0;}
+  .rf-label{
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:10.5px;color:var(--accent);
+    letter-spacing:.22em;margin-bottom:8px;
+  }
+  .hint-list{
+    font-size:12px;color:var(--ink-faint);
+    margin:8px 0 6px;line-height:2;
+  }
+  .hint-list span{
+    display:inline-block;
+    border:1px solid var(--opt-line);
+    border-radius:6px;
+    padding:2px 10px;margin:2px 4px 2px 0;
+  }
+
+  /* ボタン */
+  .actions{
+    display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;
+    margin-top:22px;gap:12px;
+  }
+  button{
+    font-family:inherit;cursor:pointer;
+    border:none;border-radius:6px;
+    font-size:13.5px;letter-spacing:.14em;
+  }
+  .btn-next{
+    background:var(--accent);color:var(--accent-ink);
+    padding:13px 34px;
+    font-weight:700;
+    transition:opacity .15s, background 1.2s, color 1.2s;
+  }
+  .btn-next:hover{opacity:.86;}
+  .btn-back{
+    background:none;color:var(--ink-faint);
+    padding:13px 8px;
+    transition:color .15s;
+  }
+  .btn-back:hover{color:var(--ink-soft);}
+  .warn{font-size:12px;color:#D08A3E;margin-top:10px;display:none;}
+  .warn.show{display:block;}
+
+  /* 潜水記録 */
+  .summary{
+    background:var(--card);
+    border:1px solid var(--accent);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:28px 26px;
+    margin:14px 0;
+    transition:background 1.2s, color 1.2s;
+    backdrop-filter:blur(6px);
+  }
+  .summary h3{
+    text-align:center;font-size:15px;
+    letter-spacing:.3em;margin-bottom:4px;
+  }
+  .summary .log-en{
+    text-align:center;
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:10px;letter-spacing:.4em;color:var(--ink-faint);
+    margin-bottom:20px;
+  }
+  .sum-row{margin-bottom:14px;}
+  .sum-label{
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:10px;color:var(--ink-faint);letter-spacing:.22em;margin-bottom:2px;
+  }
+  .sum-body{font-size:14px;white-space:pre-wrap;}
+  .sum-needs span{
+    display:inline-block;
+    border:1px solid var(--accent);color:var(--accent);
+    border-radius:999px;padding:2px 14px;margin:2px 6px 2px 0;
+    font-size:12.5px;font-weight:700;
+  }
+  .sister{
+    display:block;
+    background:var(--card);
+    border:1px solid var(--card-line);
+    border-radius:10px;
+    padding:14px 18px;
+    margin:12px 0;
+    font-size:12.5px;color:var(--ink-soft);
+    text-decoration:none;
+    transition:border-color .15s, background 1.2s, color 1.2s;
+    line-height:1.8;
+  }
+  .sister:hover{border-color:var(--accent);}
+  .sister strong{color:var(--ink);}
+
+  footer{
+    text-align:center;
+    margin-top:44px;
+    font-size:11px;color:var(--ink-faint);
+    line-height:2;
+    transition:color 1.2s;
+  }
+  footer a{color:var(--ink-soft);text-decoration:underline;text-underline-offset:.25em;transition:color 1.2s;}
+  footer a:hover{color:var(--accent);}
+
+  @media(max-width:540px){
+    body{padding:0 14px 60px;}
+    header{padding:34px 0 4px;}
+    header .logo{font-size:23px;letter-spacing:.16em;}
+    .card, .summary{padding:24px 18px;}
+    .depth{gap:10px;font-size:10px;}
+    .depth .d-read{min-width:8.4em;}
+    .btn-next{padding:13px 22px;}
+    .actions{justify-content:center;}
+  }
+</style>
+</head>
+<body class="d0">
+<div class="bubbles"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="content">
+<div class="wrap">
+
+<header>
+  <div class="logo">深海スコープ</div>
+  <div class="tagline">— 浜辺から、深海へ —</div>
+</header>
+
+<div class="depth">
+  <span>DEPTH</span>
+  <div class="d-track"><div class="d-fill" id="d-fill"></div></div>
+  <span class="d-read" id="d-read">0 m · 浜辺</span>
+</div>
+
+<!-- 0: 浜辺 -->
+<div class="screen" id="s0">
+  <div class="card">
+    <h2><span class="zone">SHORE / 0 m</span>ここは浜辺</h2>
+    <p>心の「こうしたい」は、海面に立つ波のようなものです。かたちは見えても、それを動かしている流れは、もっと深いところにある。</p>
+    <p>深海スコープは、その欲求を抱えたまま水深を下げていく装置です。浅瀬で手ざわりを確かめ、中層と深層で二度掘り、海底で──欲求の正体であるニーズに触れる。最後に、見つけたものに光を当てて、浮上します。</p>
+    <div class="note">
+      入力した内容は、保存も送信もされません。すべてこの画面の中で完結します。<br>
+      気持ちのつらさのほうが大きい日は、先に <a href="./kokoro-scope.html">こころスコープ</a> へ。「こうしたい」より「手放したい」が強い日は <a href="./unlearn-scope.html">アンラーン・スコープ</a> へ。海は逃げません。
+    </div>
+    <div class="actions">
+      <span></span>
+      <button class="btn-next" onclick="go(1)">入水する</button>
+    </div>
+  </div>
+</div>
+
+<!-- 1: 水面 -->
+<div class="screen" id="s1">
+  <div class="card">
+    <h2><span class="zone">SURFACE / 0 m</span>水面 — ことばにする</h2>
+    <div class="sub">いま心にある「こうしたい」を、一文で。整った文章でなくて構いません。「〜したくない」のかたちでも。</div>
+    <textarea id="in-desire" rows="2" placeholder="例: 自分の力でやってみたい"></textarea>
+    <div class="chips">
+      <span class="chip">自分の力でやってみたい</span>
+      <span class="chip">認められたい</span>
+      <span class="chip">ちゃんとしたい</span>
+      <span class="chip">逃げだしたい</span>
+      <span class="chip">そばにいてほしい</span>
+      <span class="chip">放っておいてほしい</span>
+      <span class="chip">役に立ちたい</span>
+      <span class="chip">変わりたい</span>
+    </div>
+    <div class="warn" id="w1">ひとことだけでも、書いてから潜りましょう</div>
+    <div class="actions">
+      <button class="btn-back" onclick="go(0)">← 浜辺へ</button>
+      <button class="btn-next" onclick="next1()">潜りはじめる</button>
+    </div>
+  </div>
+</div>
+
+<!-- 2: 浅瀬 -->
+<div class="screen" id="s2">
+  <div class="card">
+    <h2><span class="zone">SHALLOWS / −10 m</span>浅瀬 — 手ざわり</h2>
+    <div class="sub" id="s2-sub"></div>
+    <p style="font-size:13.5px;color:var(--ink-soft);">場面をひとつ思い出してください。<strong>特に困ってはいなかった</strong>のに、その「こうしたい」を誰かに先回りされた、止められた、妨げられた──そのとき胸に湧いたものは。</p>
+    <div class="opts" id="opts-feel"></div>
+    <div class="free-area" id="free-feel"><textarea rows="2" placeholder="湧いたものを、自分のことばで"></textarea></div>
+    <div class="warn" id="w2">いちばん近いものをひとつ</div>
+    <div class="actions">
+      <button class="btn-back" onclick="go(1)">← 水面へ</button>
+      <button class="btn-next" onclick="next2()">さらに潜る</button>
+    </div>
+  </div>
+</div>
+
+<!-- 3: 中層 -->
+<div class="screen" id="s3">
+  <div class="card">
+    <h2><span class="zone">TWILIGHT ZONE / −200 m</span>中層 — 味わいたい瞬間</h2>
+    <div class="sub">ここから光が薄くなります。想像で照らしてください。その「こうしたい」が完全に叶うとして、いちばん味わいたいのはどの瞬間ですか。</div>
+    <div class="opts" id="opts-moment"></div>
+    <div class="free-area" id="free-moment"><textarea rows="2" placeholder="味わいたい瞬間を、自分のことばで"></textarea></div>
+    <div class="warn" id="w3">いちばん近いものをひとつ</div>
+    <div class="actions">
+      <button class="btn-back" onclick="go(2)">← 浅瀬へ</button>
+      <button class="btn-next" onclick="next3()">さらに潜る</button>
+    </div>
+  </div>
+</div>
+
+<!-- 4: 深層 -->
+<div class="screen" id="s4">
+  <div class="card">
+    <h2><span class="zone">MIDNIGHT ZONE / −1,000 m</span>深層 — 翌朝に残るもの</h2>
+    <div class="sub">叶った日の、翌朝を想像します。目が覚めたとき、何が残っていたら良かったと思えますか。</div>
+    <div class="opts" id="opts-morning"></div>
+    <div class="free-area" id="free-morning"><textarea rows="2" placeholder="残っていてほしいものを、自分のことばで"></textarea></div>
+    <div class="warn" id="w4">いちばん近いものをひとつ</div>
+    <div class="actions">
+      <button class="btn-back" onclick="go(3)">← 中層へ</button>
+      <button class="btn-next" onclick="next4()">海底へ</button>
+    </div>
+  </div>
+</div>
+
+<!-- 5: 海底 -->
+<div class="screen" id="s5">
+  <div class="card">
+    <h2><span class="zone">SEABED / −4,000 m</span>海底 — ニーズに触れる</h2>
+    <div class="sub">欲求の底には、これらのニーズが棲んでいます。ここまでの応答から <span style="color:var(--accent);font-family:Menlo,monospace;font-size:11px;">◉ 反応</span> の出ている水域に印をつけました。印に限らず、読んで胸が動くものを<strong>1〜3つ</strong>。判断は頭ではなく、からだで。</div>
+    <div class="needs" id="needs-grid"></div>
+    <div class="warn" id="w5">胸が動いたものを、1〜3つ</div>
+    <div class="actions">
+      <button class="btn-back" onclick="go(4)">← 深層へ</button>
+      <button class="btn-next" onclick="next5()">光を当てる</button>
+    </div>
+  </div>
+</div>
+
+<!-- 6: 超深海 -->
+<div class="screen" id="s6">
+  <div class="card">
+    <h2><span class="zone">HADAL ZONE / −6,500 m</span>最深部 — 光を当てる</h2>
+    <div class="sub">見つけたものに、自分のことばで光を当てます。文はそのまま使っても、書き換えても構いません。</div>
+    <div id="rf-area"></div>
+    <div class="actions">
+      <button class="btn-back" onclick="saveRf();go(5)">← 海底へ</button>
+      <button class="btn-next" onclick="next6()">浮上する</button>
+    </div>
+  </div>
+</div>
+
+<!-- 7: 浮上 -->
+<div class="screen" id="s7">
+  <div class="summary" id="sum-card"></div>
+  <div id="sister-area"></div>
+  <div class="card" style="padding:18px 24px;">
+    <div class="actions" style="margin-top:0;">
+      <button class="btn-back" onclick="restart()">もう一度潜る</button>
+      <button class="btn-next" id="btn-copy" onclick="copySummary()">記録をコピー</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  深海スコープ ／ スコープ・シリーズ · <a href="./index.html">きづきくみたて工房</a><br>
+  姉妹編: <a href="./kokoro-scope.html">こころスコープ</a> ／ <a href="./unlearn-scope.html">アンラーン・スコープ</a><br>
+  このツールは自己理解のための装置であり、医療・カウンセリングの代替ではありません。<br>
+  つらさが続くときは、信頼できる人や専門の窓口へ:
+  <a href="tel:0120061338">#いのちSOS 0120-061-338</a> ／
+  <a href="tel:0120279338">よりそいホットライン 0120-279-338</a><br>
+  入力した内容はどこにも送信・保存されません（この画面を閉じると消えます）。
+</footer>
+
+</div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- データ ---------- */
+
+  var FEELS = [
+    {key:"approach", t:"ざんねん",
+     d:"楽しみを取られた、という感じ。おいしいところを先に食べられたときの。"},
+    {key:"protect", t:"もやもや",
+     d:"負い目・恥・不安に近いざわつき。借りができた、できない人だと思われた、という感じ。"},
+    {key:"dignity", t:"いらだち",
+     d:"踏み込まれた感じ。ここは自分の領分だ、という熱。"},
+    {key:"connect", t:"かなしさ",
+     d:"伝わっていない感じ。自分にとっての大事さが、わかってもらえていない。"}
+  ];
+
+  var MOMENTS = [
+    {key:"process", t:"向かっている途中の時間",
+     d:"試して、迷って、少しずつ近づいていく。その道中そのもの。", needs:["jiyu","seicho","asobi"]},
+    {key:"done", t:"やり遂げた・できあがった瞬間",
+     d:"「できた」と言える一瞬。手の中に結果があるとき。", needs:["tassei"]},
+    {key:"gaze", t:"誰かの反応・まなざし",
+     d:"見てもらえたとき。伝わったとき。誰かの表情が変わるとき。", needs:["shonin","tsunagari"]},
+    {key:"calm", t:"そのあとに来る静けさ",
+     d:"ほっとする感じ。もう気にしなくていい、という状態。", needs:["anshin","kyusoku"]}
+  ];
+
+  var MORNINGS = [
+    {key:"newself", t:"新しくできるようになった自分",
+     d:"きのうまでの自分には、できなかったことができる。", needs:["seicho"]},
+    {key:"made", t:"自分の手でつくったもの",
+     d:"自分の指紋がすべてついた、何か。", needs:["tassei"]},
+    {key:"between", t:"大切な人とのあいだの何か",
+     d:"関係が近くなっている。あたたかくなっている。", needs:["tsunagari"]},
+    {key:"nofear", t:"もう心配しなくていい、という感覚",
+     d:"あの重さが、なくなっている。", needs:["anshin"]},
+    {key:"world", t:"世界が少し良くなった実感",
+     d:"自分がいたことで、何かが良い方向に動いた。", needs:["koken","imi"]}
+  ];
+
+  var NEEDS = {
+    jiyu:     {name:"自律・自由", words:"AUTONOMY",
+      desc:"誰の指図でもなく、自分の順番と基準で進めたい。",
+      hints:["助けは「答え」ではなく「ヒント」でもらう","ここは自分の領土だと先に決めて伝える","小さくても、すべて自分で決められる場所を持つ"]},
+    seicho:   {name:"成長・有能感", words:"GROWTH",
+      desc:"わからないことが、わかるようになっていきたい。",
+      hints:["「頑張れば届く」難易度に調整する","できるようになったことを記録する","行き詰まってから、一段だけ足場をもらう"]},
+    tassei:   {name:"達成・作者性", words:"AUTHORSHIP",
+      desc:"「これは自分がやった」と言えるものを持ちたい。",
+      hints:["「完成」の定義を少し手前に置く","自分の指紋を残す部分を決めて、そこは譲らない","やり遂げた印をかたちにして残す"]},
+    shonin:   {name:"承認・理解", words:"RECOGNITION",
+      desc:"自分のしたことが、正確に受け取られてほしい。",
+      hints:["見てほしい人に「見てほしい」と直接伝える","正確に受け取ってくれる人をひとり選ぶ","自分の仕事に、自分で名前をつける"]},
+    tsunagari:{name:"つながり・親密", words:"CONNECTION",
+      desc:"誰かと通じ合っている感覚の中にいたい。",
+      hints:["結果ではなく途中を共有する","同じものを好きな人の近くにいく","弱っているときこそ、短く連絡する"]},
+    anshin:   {name:"安心・安全", words:"SAFETY",
+      desc:"おびやかされずに、安心していられたい。",
+      hints:["何が確保されれば安心か、書き出す","借りにならない形の助け(お互いさま)を選ぶ","予測できる部分をひとつ増やす"]},
+    songen:   {name:"尊厳・対等", words:"DIGNITY",
+      desc:"軽んじられず、ひとりの人として扱われたい。",
+      hints:["境界線を先にことばにして伝える","対等でいられる相手・場所を選ぶ","「それは困る」と言う練習を小さくする"]},
+    koken:    {name:"貢献", words:"CONTRIBUTION",
+      desc:"自分の力が、誰かのためになってほしい。",
+      hints:["役に立てた相手を、ひとりの顔で思い浮かべる","見えない貢献を、自分だけは数えておく","「ありがとう」を受け取りきる"]},
+    imi:      {name:"意味・大きなもの", words:"MEANING",
+      desc:"この欲求が、もっと大きな願いの一部であってほしい。",
+      hints:["この「こうしたい」の先にある願いを一文で書く","大きな願いから見て、これはどんな一歩かを考える","願いを共有できる人をひとり見つける"]},
+    asobi:    {name:"遊び・美", words:"PLAY",
+      desc:"役に立たなくても、面白くて、美しいものに触れたい。",
+      hints:["効率をいったん脇に置く時間をつくる","美しいと感じるものに寄り道する","締切のない場所をひとつ持つ"]},
+    kyusoku:  {name:"休息・回復", words:"REST",
+      desc:"いったん降ろして、静かに回復したい。",
+      hints:["「やらないこと」を先に決める","回復も予定に入れる","手放しても壊れないものをひとつ手放す"]}
+  };
+
+  var FEEL_NEEDS = {
+    approach:["jiyu","seicho","tassei"],
+    protect:["anshin","songen"],
+    dignity:["songen","jiyu"],
+    connect:["tsunagari","shonin"]
+  };
+
+  var FEEL_MSG = {
+    approach:{title:"計測結果: この欲求は接近型 — 味わうために潜っている",
+      body:"防衛や不安ではなく、プロセスそのものを求める欲求とみられます。削る対象ではなく、より良く味わうために設計する対象です。人の力を借りるときも「楽しみを奪われない借り方」──答えではなくヒント、着手前ではなく行き詰まってから──が設計できます。"},
+    protect:{title:"計測結果: この欲求は、何かを守っている可能性",
+      body:"根にあるのは「したい」より「壊されたくない」──安心や対等さのニーズかもしれません。その場合、欲求の実現より先に「何が確保されれば安全か」を特定するのが近道です。自分を責める理由は、どこにもありません。"},
+    dignity:{title:"計測結果: 境界線の信号かもしれない",
+      body:"いらだちは多くの場合、大切なものが踏まれたときの警報です。根には尊厳や領分のニーズがいる可能性があります。境界を先に言語化して伝えられれば、この欲求はもっと静かなかたちで満たせます。"},
+    connect:{title:"計測結果: 誰かに届きたがっている欲求かもしれない",
+      body:"かなしさが湧くなら、根にいるのは「わかってほしい」「つながっていたい」のほうです。ひとりで叶えるより、誰にどう受け取ってほしいかを特定するほうが、深部に早く届きます。"},
+    free:{title:"計測結果: 自分のことばが、いちばん精度の高い計器",
+      body:"選択肢に収まらなかったその感覚は、既製の分類より正確な観測かもしれません。この先の海底では、書いたことばを羅針盤にしてください。"}
+  };
+
+  /* ---------- 状態 ---------- */
+
+  var state = {
+    desire:"", feel:null, feelFree:"", moment:null, momentFree:"",
+    morning:null, morningFree:"", needs:[], reframes:{}, alt:{}, step:""
+  };
+
+  var DEPTHS = [
+    {read:"0 m · 浜辺", fill:0},
+    {read:"0 m · 水面", fill:4},
+    {read:"−10 m · 浅瀬", fill:14},
+    {read:"−200 m · 中層", fill:34},
+    {read:"−1,000 m · 深層", fill:56},
+    {read:"−4,000 m · 海底", fill:80},
+    {read:"−6,500 m · 最深部", fill:100},
+    {read:"0 m · 浮上", fill:0}
+  ];
+
+  /* ---------- ユーティリティ ---------- */
+
+  function $(id){ return document.getElementById(id); }
+  function esc(s){
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+
+  function go(n){
+    document.querySelectorAll(".screen").forEach(function(s){ s.classList.remove("active"); });
+    $("s"+n).classList.add("active");
+    document.body.className = "d"+n;
+    $("d-read").textContent = DEPTHS[n].read;
+    $("d-fill").style.width = DEPTHS[n].fill + "%";
+    window.scrollTo({top:0, behavior:"smooth"});
+  }
+  window.go = go;
+
+  /* ---------- 選択肢レンダリング ---------- */
+
+  function renderOpts(elId, freeId, items, onPick){
+    var el = $(elId);
+    var html = "";
+    items.forEach(function(it, i){
+      html += '<div class="opt" data-i="'+i+'"><span class="opt-t">'+it.t+'</span><div class="opt-d">'+it.d+'</div></div>';
+    });
+    html += '<div class="opt" data-i="free"><span class="opt-t">この中にはない感覚が湧く</span><div class="opt-d">自分のことばで書く。それがいちばん正確な観測になることもあります。</div></div>';
+    el.innerHTML = html;
+    el.querySelectorAll(".opt").forEach(function(opt){
+      opt.addEventListener("click", function(){
+        el.querySelectorAll(".opt").forEach(function(o){ o.classList.remove("sel"); });
+        opt.classList.add("sel");
+        var isFree = opt.getAttribute("data-i") === "free";
+        $(freeId).classList.toggle("show", isFree);
+        if(isFree) $(freeId).querySelector("textarea").focus();
+        onPick(isFree ? "free" : parseInt(opt.getAttribute("data-i"),10));
+      });
+    });
+  }
+
+  renderOpts("opts-feel","free-feel",FEELS,function(v){ state.feel = v; });
+  renderOpts("opts-moment","free-moment",MOMENTS,function(v){ state.moment = v; });
+  renderOpts("opts-morning","free-morning",MORNINGS,function(v){ state.morning = v; });
+
+  /* ---------- チップ ---------- */
+
+  document.querySelectorAll(".chip").forEach(function(c){
+    c.addEventListener("click", function(){
+      $("in-desire").value = c.textContent;
+      $("in-desire").focus();
+    });
+  });
+
+  /* ---------- 各ステップ ---------- */
+
+  function warn(id, on){ $(id).classList.toggle("show", !!on); }
+
+  window.next1 = function(){
+    var v = $("in-desire").value.trim();
+    if(!v){ warn("w1",true); return; }
+    warn("w1",false);
+    state.desire = v;
+    $("s2-sub").textContent = "「" + v + "」の手ざわりを、感情から計測します。";
+    go(2);
+  };
+
+  window.next2 = function(){
+    if(state.feel === null){ warn("w2",true); return; }
+    if(state.feel === "free"){
+      var t = $("free-feel").querySelector("textarea").value.trim();
+      if(!t){ warn("w2",true); return; }
+      state.feelFree = t;
+    }
+    warn("w2",false);
+    go(3);
+  };
+
+  window.next3 = function(){
+    if(state.moment === null){ warn("w3",true); return; }
+    if(state.moment === "free"){
+      var t = $("free-moment").querySelector("textarea").value.trim();
+      if(!t){ warn("w3",true); return; }
+      state.momentFree = t;
+    }
+    warn("w3",false);
+    go(4);
+  };
+
+  window.next4 = function(){
+    if(state.morning === null){ warn("w4",true); return; }
+    if(state.morning === "free"){
+      var t = $("free-morning").querySelector("textarea").value.trim();
+      if(!t){ warn("w4",true); return; }
+      state.morningFree = t;
+    }
+    warn("w4",false);
+    renderNeeds();
+    go(5);
+  };
+
+  /* ---------- ニーズ ---------- */
+
+  function suggestedNeeds(){
+    var sug = {};
+    if(state.feel !== "free" && state.feel !== null){
+      (FEEL_NEEDS[FEELS[state.feel].key]||[]).forEach(function(k){ sug[k]=1; });
+    }
+    if(state.moment !== "free" && state.moment !== null){
+      (MOMENTS[state.moment].needs||[]).forEach(function(k){ sug[k]=1; });
+    }
+    if(state.morning !== "free" && state.morning !== null){
+      (MORNINGS[state.morning].needs||[]).forEach(function(k){ sug[k]=1; });
+    }
+    return sug;
+  }
+
+  function renderNeeds(){
+    var sug = suggestedNeeds();
+    var grid = $("needs-grid");
+    var html = "";
+    Object.keys(NEEDS).forEach(function(k){
+      var n = NEEDS[k];
+      html += '<div class="need'+(sug[k]?' suggested':'')+'" data-k="'+k+'">';
+      html += '<span class="n-badge">◉ 反応</span>';
+      html += '<div class="n-name">'+n.name+'</div>';
+      html += '<div class="n-words">'+n.words+'</div>';
+      html += '<div class="n-desc">'+n.desc+'</div>';
+      html += '</div>';
+    });
+    grid.innerHTML = html;
+    grid.querySelectorAll(".need").forEach(function(card){
+      card.addEventListener("click", function(){
+        var k = card.getAttribute("data-k");
+        var idx = state.needs.indexOf(k);
+        if(idx >= 0){
+          state.needs.splice(idx,1);
+          card.classList.remove("sel");
+        } else {
+          if(state.needs.length >= 3){ warn("w5",true); return; }
+          state.needs.push(k);
+          card.classList.add("sel");
+        }
+        warn("w5",false);
+      });
+    });
+    state.needs.forEach(function(k){
+      var card = grid.querySelector('.need[data-k="'+k+'"]');
+      if(card) card.classList.add("sel");
+    });
+  }
+
+  window.next5 = function(){
+    if(state.needs.length < 1){ warn("w5",true); return; }
+    warn("w5",false);
+    renderReframe();
+    go(6);
+  };
+
+  /* ---------- リフレーム ---------- */
+
+  function feelKey(){
+    if(state.feel === "free" || state.feel === null) return "free";
+    return FEELS[state.feel].key;
+  }
+
+  function renderReframe(){
+    var area = $("rf-area");
+    var msg = FEEL_MSG[feelKey()];
+    var html = "";
+
+    html += '<div class="note"><strong>'+msg.title+'</strong><br>'+msg.body+'</div>';
+
+    state.needs.forEach(function(k, i){
+      var n = NEEDS[k];
+      var pre = "わたしは「" + state.desire + "」というかたちで、『" + n.name + "』に触れようとしているのかもしれない。";
+      html += '<div class="rf-block">';
+      html += '<div class="rf-label">DISCOVERY '+(i+1)+' — '+n.name+'</div>';
+      html += '<textarea class="rf-text" data-k="'+k+'" rows="3">'+esc(state.reframes[k] || pre)+'</textarea>';
+      html += '<div class="hint-list">このニーズへ届く、別のルート(例):<br>';
+      n.hints.forEach(function(h){ html += '<span>'+h+'</span>'; });
+      html += '</div>';
+      html += '<input type="text" class="rf-alt" data-k="'+k+'" placeholder="自分なりのルートをひとつ(任意)" value="'+esc(state.alt[k]||"")+'">';
+      html += '</div>';
+    });
+
+    html += '<div class="rf-block">';
+    html += '<div class="rf-label">NEXT 24H</div>';
+    html += '<p style="font-size:13px;color:var(--ink-soft);">浮上したあと、24時間以内にできる大きさの一歩をひとつ。(任意)</p>';
+    html += '<input type="text" id="rf-step" placeholder="例: 助けてもらう前に「ヒントだけほしい」と言ってみる" value="'+esc(state.step||"")+'">';
+    html += '</div>';
+
+    area.innerHTML = html;
+  }
+
+  function saveRf(){
+    document.querySelectorAll(".rf-text").forEach(function(ta){
+      state.reframes[ta.getAttribute("data-k")] = ta.value.trim();
+    });
+    document.querySelectorAll(".rf-alt").forEach(function(inp){
+      state.alt[inp.getAttribute("data-k")] = inp.value.trim();
+    });
+    state.step = $("rf-step") ? $("rf-step").value.trim() : "";
+  }
+  window.saveRf = saveRf;
+
+  window.next6 = function(){
+    saveRf();
+    renderSummary();
+    go(7);
+  };
+
+  /* ---------- 潜水記録 ---------- */
+
+  function feelLabel(){
+    if(state.feel === "free") return "「" + state.feelFree + "」(自分のことば)";
+    if(state.feel === null) return "";
+    return FEELS[state.feel].t;
+  }
+
+  function renderSummary(){
+    var html = '<h3>潜水記録</h3><div class="log-en">DIVE LOG</div>';
+
+    html += '<div class="sum-row"><div class="sum-label">潜行の起点</div><div class="sum-body">「'+esc(state.desire)+'」</div></div>';
+    html += '<div class="sum-row"><div class="sum-label">浅瀬の手ざわり</div><div class="sum-body">'+esc(feelLabel())+'</div></div>';
+
+    var momentTxt = state.moment === "free" ? state.momentFree : (state.moment !== null ? MOMENTS[state.moment].t : "");
+    var morningTxt = state.morning === "free" ? state.morningFree : (state.morning !== null ? MORNINGS[state.morning].t : "");
+    html += '<div class="sum-row"><div class="sum-label">中層 — 味わいたい瞬間</div><div class="sum-body">'+esc(momentTxt)+'</div></div>';
+    html += '<div class="sum-row"><div class="sum-label">深層 — 翌朝に残るもの</div><div class="sum-body">'+esc(morningTxt)+'</div></div>';
+
+    html += '<div class="sum-row"><div class="sum-label">海底で触れたニーズ</div><div class="sum-body sum-needs">';
+    state.needs.forEach(function(k){ html += '<span>'+NEEDS[k].name+'</span>'; });
+    html += '</div></div>';
+
+    state.needs.forEach(function(k){
+      if(state.reframes[k]){
+        html += '<div class="sum-row"><div class="sum-label">光を当てたことば — '+NEEDS[k].name+'</div><div class="sum-body">'+esc(state.reframes[k])+'</div></div>';
+      }
+      if(state.alt[k]){
+        html += '<div class="sum-row"><div class="sum-label">別のルート — '+NEEDS[k].name+'</div><div class="sum-body">'+esc(state.alt[k])+'</div></div>';
+      }
+    });
+
+    if(state.step){
+      html += '<div class="sum-row"><div class="sum-label">浮上後24時間の一歩</div><div class="sum-body">'+esc(state.step)+'</div></div>';
+    }
+
+    $("sum-card").innerHTML = html;
+
+    var sisters = "";
+    var workNeeds = ["jiyu","seicho","tassei","asobi"];
+    var hasWork = state.needs.some(function(k){ return workNeeds.indexOf(k) >= 0; });
+    if(hasWork && feelKey() === "approach"){
+      sisters += '<a class="sister" href="./reward-zukan.html"><strong>姉妹編: 報酬系図鑑</strong><br>あなたの「こうしたい」は、はたらく場面の報酬のかたちの話かもしれません。解き手・磨き手など10の型を収めた図鑑と診断があります。</a>';
+    }
+    sisters += '<a class="sister" href="./unlearn-scope.html"><strong>姉妹編: アンラーン・スコープ</strong><br>「こうしたい」ではなく「手放したい」のほうが強い日は、こちらへ。そのやり方が守ってきたものと支払ってきたものを、同じ明るさで照らします。</a>';
+    sisters += '<a class="sister" href="./kokoro-scope.html"><strong>姉妹編: こころスコープ</strong><br>気持ちのつらさのほうが大きい日は、こちらで感情を整えられます。</a>';
+    $("sister-area").innerHTML = sisters;
+  }
+
+  window.copySummary = function(){
+    var lines = [];
+    lines.push("潜水記録(深海スコープ)");
+    lines.push("");
+    lines.push("潜行の起点:「" + state.desire + "」");
+    lines.push("浅瀬の手ざわり: " + feelLabel());
+    var momentTxt = state.moment === "free" ? state.momentFree : (state.moment !== null ? MOMENTS[state.moment].t : "");
+    var morningTxt = state.morning === "free" ? state.morningFree : (state.morning !== null ? MORNINGS[state.morning].t : "");
+    lines.push("中層 — 味わいたい瞬間: " + momentTxt);
+    lines.push("深層 — 翌朝に残るもの: " + morningTxt);
+    lines.push("海底で触れたニーズ: " + state.needs.map(function(k){ return NEEDS[k].name; }).join(" / "));
+    state.needs.forEach(function(k){
+      if(state.reframes[k]) lines.push("光を当てたことば(" + NEEDS[k].name + "): " + state.reframes[k]);
+      if(state.alt[k]) lines.push("別のルート(" + NEEDS[k].name + "): " + state.alt[k]);
+    });
+    if(state.step) lines.push("浮上後24時間の一歩: " + state.step);
+    var text = lines.join("\n");
+
+    function done(){
+      var b = $("btn-copy");
+      b.textContent = "コピーしました";
+      setTimeout(function(){ b.textContent = "記録をコピー"; }, 1800);
+    }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand("copy"); }catch(e){}
+      document.body.removeChild(ta);
+      done();
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done, function(){ fallback(); });
+    } else { fallback(); }
+  };
+
+  window.restart = function(){
+    state = {desire:"", feel:null, feelFree:"", moment:null, momentFree:"",
+      morning:null, morningFree:"", needs:[], reframes:{}, alt:{}, step:""};
+    $("in-desire").value = "";
+    ["opts-feel","opts-moment","opts-morning"].forEach(function(id){
+      document.querySelectorAll("#"+id+" .opt").forEach(function(o){ o.classList.remove("sel"); });
+    });
+    ["free-feel","free-moment","free-morning"].forEach(function(id){
+      $(id).classList.remove("show");
+      $(id).querySelector("textarea").value = "";
+    });
+    go(0);
+  };
+
+  go(0);
+})();
+</script>
+</body>
+</html>

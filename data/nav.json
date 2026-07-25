@@ -123,6 +123,16 @@
             "label": "こころスコープ",
             "href": "kokoro-scope.html",
             "desc": "起こったことと気持ちを、色とかたちのある球にして多面的に眺めるセルフケアの装置"
+          },
+          {
+            "label": "深海スコープ",
+            "href": "shinkai-scope.html",
+            "desc": "「こうしたい」を抱えて水深を下げ、海底に沈むニーズに光を当てる自己理解の装置"
+          },
+          {
+            "label": "アンラーン・スコープ",
+            "href": "unlearn-scope.html",
+            "desc": "手放したい課題が守ってきたものと支払ってきたものを、同じ明るさで照らす学びほぐしの装置"
           }
         ]
       },
@@ -891,6 +901,14 @@
     {
       "path": "kokoro-scope.html",
       "reason": "感情を多面的に眺める没入型セルフケアアプリ画面。ナビ・フッターを出さない（yokai/taiwa と同方針）"
+    },
+    {
+      "path": "shinkai-scope.html",
+      "reason": "深海スコープ。水深とともに配色が変わる没入型の自己理解ツール。共通ナビ・フッターは潜水の体験を断ち切るため出さない（kokoro-scope と同方針・ページ内フッターから回遊）"
+    },
+    {
+      "path": "unlearn-scope.html",
+      "reason": "アンラーン・スコープ。深海に潜って学びほぐす没入型ツール。共通ナビ・フッターは出さない（kokoro-scope と同方針・ページ内フッターから回遊）"
     },
     {
       "path": "stakeholder-diorama.html",

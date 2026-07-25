@@ -690,6 +690,26 @@
       "sub": "気持ちを、色とかたちのある球にして、いろいろな「見方」で多面的に眺める。"
     },
     {
+      "page": "shinkai-scope.html",
+      "img": "shinkai-scope-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#57C2DB",
+      "eyebrow": "自己理解の装置 ／ スコープ・シリーズ",
+      "title": "深海スコープ",
+      "sub": "「こうしたい」を抱えて水深を下げる。海底に沈むニーズに、自分のことばで光を当てる。"
+    },
+    {
+      "page": "unlearn-scope.html",
+      "img": "unlearn-scope-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#5FD4C4",
+      "eyebrow": "学びほぐしの装置 ／ スコープ・シリーズ",
+      "title": "アンラーン・スコープ",
+      "sub": "その課題が守ってきたものと、支払ってきたもの。同じ明るさで照らしてから決める。"
+    },
+    {
       "page": "reward-zukan.html",
       "img": "reward-zukan-ogp.png",
       "template": "standard",

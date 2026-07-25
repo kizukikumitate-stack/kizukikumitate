@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アンラーン・スコープ — 手放したい課題と、深海で向き合う</title>
+<meta name="description" content="克服したい課題を、責めずに深海へ持って潜る。それが守ってきたもの、支払ってきたもの、その奥に沈む信念をたどり、アンラーン図鑑の知恵カードと小さな実験を持って浮上する、きづきくみたて工房の学びほぐしの装置です。">
+<link rel="canonical" href="https://kizukikumitate.com/unlearn-scope.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/unlearn-scope.html">
+<meta property="og:title" content="アンラーン・スコープ — 手放したい課題と、深海で向き合う">
+<meta property="og:description" content="その課題が守ってきたものと、支払ってきたものを、同じ明るさで照らす。最深部の信念を「未検証の仮説」に変えて浮上する学びほぐしの装置。">
+<meta property="og:image" content="https://kizukikumitate.com/unlearn-scope-ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="アンラーン・スコープ — 手放したい課題と、深海で向き合う">
+<meta name="twitter:description" content="その課題が守ってきたものと、支払ってきたものを、同じ明るさで照らす。最深部の信念を「未検証の仮説」に変えて浮上する学びほぐしの装置。">
+<meta name="twitter:image" content="https://kizukikumitate.com/unlearn-scope-ogp.png">
+<style>
+  :root{
+    --fg:#e8f1f5;
+    --fg-soft:#9db8c6;
+    --accent:#5fd4c4;
+    --accent2:#f3c96b;
+    --warn:#f0a3a3;
+    --card:#122a3aee;
+    --card-line:#2a4d63;
+    --glow:0 0 24px rgba(95,212,196,.25);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;min-height:100%;}
+  body{
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+    color:var(--fg);
+    line-height:1.9;
+    background:linear-gradient(180deg,#0e3c55 0%,#0a2e46 40%,#082438 100%);
+    transition:background 1.6s ease;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    word-break:auto-phrase;
+    line-break:strict;
+    overflow-wrap:break-word;
+    hanging-punctuation:allow-end;
+  }
+  body[data-depth="0"]{background:linear-gradient(180deg,#17557a,#0e3c55 60%,#0b3049);}
+  body[data-depth="1"]{background:linear-gradient(180deg,#0e3c55,#0a3049 60%,#092a41);}
+  body[data-depth="2"]{background:linear-gradient(180deg,#0a3049,#082639 60%,#071f30);}
+  body[data-depth="3"]{background:linear-gradient(180deg,#082639,#061d2c 60%,#051724);}
+  body[data-depth="4"]{background:linear-gradient(180deg,#061d2c,#04131e 60%,#030d16);}
+  body[data-depth="5"]{background:linear-gradient(180deg,#0d3550,#155a7d 55%,#1d7ba0);}
+  body[data-depth="6"]{background:linear-gradient(180deg,#17557a,#1d7ba0 55%,#2596bd);}
+
+  /* bubbles */
+  .bub{position:fixed;bottom:-40px;border-radius:50%;
+    background:radial-gradient(circle at 32% 30%, rgba(255,255,255,.35), rgba(255,255,255,.05) 60%, transparent);
+    animation:rise linear infinite;pointer-events:none;z-index:0;}
+  @keyframes rise{to{transform:translateY(-115vh);}}
+
+  .wrap{max-width:720px;margin:0 auto;padding:44px 20px 120px;position:relative;z-index:1;}
+
+  .meter{
+    position:fixed;top:16px;right:16px;z-index:5;
+    font-size:11.5px;letter-spacing:.2em;color:var(--fg-soft);
+    background:#08243888;border:1px solid var(--card-line);
+    padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px);
+  }
+  .brand{
+    font-size:11px;letter-spacing:.4em;color:var(--accent);
+    text-align:center;margin-bottom:6px;font-weight:700;
+  }
+  h1{text-align:center;font-size:clamp(26px,5vw,38px);margin:0 0 8px;letter-spacing:.08em;}
+  .lede{text-align:center;color:var(--fg-soft);font-size:14px;max-width:560px;margin:0 auto;}
+
+  .panel{
+    background:var(--card);
+    border:1px solid var(--card-line);
+    border-radius:18px;
+    padding:28px 26px;
+    margin-top:30px;
+    box-shadow:0 10px 40px rgba(0,0,0,.35);
+    backdrop-filter:blur(6px);
+    animation:fadein .8s ease;
+  }
+  @keyframes fadein{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+  .stage-tag{
+    display:inline-block;font-size:11px;letter-spacing:.25em;font-weight:700;
+    color:#062430;background:var(--accent);
+    padding:3px 12px;border-radius:999px;margin-bottom:12px;
+  }
+  h2{font-size:20px;margin:0 0 8px;letter-spacing:.04em;}
+  .guide{color:var(--fg-soft);font-size:13.5px;margin:0 0 18px;}
+
+  textarea,input[type="text"]{
+    width:100%;font-family:inherit;font-size:15px;line-height:1.8;
+    background:#0a2233;border:1px solid var(--card-line);border-radius:12px;
+    color:var(--fg);padding:14px 16px;outline:none;resize:vertical;
+  }
+  textarea:focus,input[type="text"]:focus{border-color:var(--accent);box-shadow:var(--glow);}
+  .hint-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .chip{
+    font-size:12.5px;color:var(--fg-soft);border:1px solid var(--card-line);
+    padding:6px 12px;border-radius:999px;cursor:pointer;user-select:none;
+    transition:all .15s ease;background:#0a223355;
+  }
+  .chip:hover{color:var(--fg);border-color:var(--accent);}
+  .chip.sel{color:#062430;background:var(--accent);border-color:var(--accent);font-weight:700;}
+  .chip.gold.sel{background:var(--accent2);border-color:var(--accent2);}
+
+  .tone-row{display:flex;gap:10px;margin-top:14px;}
+  .tone{
+    flex:1;text-align:center;font-size:13px;padding:10px;border-radius:12px;
+    border:1px solid var(--card-line);cursor:pointer;color:var(--fg-soft);
+  }
+  .tone.sel{border-color:var(--accent);color:var(--fg);box-shadow:var(--glow);}
+
+  .slider-row{margin-top:18px;}
+  .slider-row label{font-size:13px;color:var(--fg-soft);}
+  input[type="range"]{width:100%;accent-color:var(--accent);}
+  .slider-val{font-size:22px;font-weight:700;color:var(--accent);text-align:center;}
+
+  .btn{
+    display:block;width:100%;margin-top:22px;
+    font-family:inherit;font-size:15px;font-weight:700;letter-spacing:.15em;
+    color:#062430;background:linear-gradient(180deg,#7fe3d4,#5fd4c4);
+    border:none;border-radius:999px;padding:14px;cursor:pointer;
+    transition:transform .12s ease, box-shadow .12s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:var(--glow);}
+  .btn:disabled{opacity:.35;cursor:not-allowed;transform:none;box-shadow:none;}
+  .btn.ghost{background:transparent;color:var(--fg-soft);border:1px solid var(--card-line);font-weight:400;letter-spacing:.05em;}
+
+  .orb{
+    width:120px;height:120px;margin:6px auto 18px;border-radius:50%;
+    background:radial-gradient(circle at 34% 30%, rgba(255,255,255,.5), rgba(95,212,196,.5) 35%, rgba(10,40,60,.9) 75%);
+    box-shadow:0 0 40px rgba(95,212,196,.35), inset 0 0 30px rgba(255,255,255,.12);
+    display:flex;align-items:center;justify-content:center;
+    font-size:12px;color:#eafffb;text-align:center;padding:14px;
+    animation:float 5s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .orb span{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;}
+
+  .echo{
+    border-left:3px solid var(--accent);
+    background:#0a223366;padding:12px 16px;border-radius:0 10px 10px 0;
+    font-size:14px;margin:0 0 16px;color:var(--fg);
+  }
+  .soft{color:var(--fg-soft);font-size:13px;}
+
+  .two-col{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:16px 0;}
+  .side{
+    border:1px solid var(--card-line);border-radius:12px;padding:14px 16px;font-size:13.5px;
+  }
+  .side h4{margin:0 0 8px;font-size:13px;letter-spacing:.1em;}
+  .side.merit h4{color:var(--accent);}
+  .side.cost h4{color:var(--accent2);}
+  .side ul{margin:0;padding-left:18px;}
+  .side li{margin-bottom:4px;}
+
+  .wcard{
+    border:1px solid var(--card-line);
+    border-top:4px solid var(--accent);
+    border-radius:14px;padding:18px 18px 14px;margin-top:14px;
+    background:#0d2c4088;
+  }
+  .wcard.gold{border-top-color:var(--accent2);}
+  .wcard .k{font-size:10.5px;letter-spacing:.25em;color:var(--fg-soft);}
+  .wcard h3{margin:4px 0 2px;font-size:17px;}
+  .wcard .en{font-size:11.5px;font-style:italic;color:var(--accent);margin-bottom:8px;}
+  .wcard.gold .en{color:var(--accent2);}
+  .wcard p{font-size:13.5px;margin:6px 0;color:#cfe3ec;}
+  .wcard .q{
+    border:1px dashed var(--accent2);border-radius:10px;padding:9px 12px;
+    font-size:13px;color:#f7e3b0;margin-top:10px;background:#0a223355;
+  }
+  .reframe{
+    background:linear-gradient(180deg,#12384d,#0d2c40);
+    border:1px solid var(--accent);border-radius:14px;
+    padding:20px;margin-top:18px;font-size:15px;box-shadow:var(--glow);
+  }
+  .exp{
+    border:1px solid var(--accent2);border-radius:14px;padding:16px 18px;margin-top:14px;
+    font-size:14px;background:#20304055;
+  }
+  .exp b{color:var(--accent2);letter-spacing:.15em;font-size:12px;display:block;margin-bottom:4px;}
+
+  pre.note{
+    white-space:pre-wrap;font-family:inherit;font-size:13px;
+    background:#0a2233;border:1px solid var(--card-line);border-radius:12px;
+    padding:16px;color:#cfe3ec;max-height:300px;overflow:auto;
+  }
+  .diff{
+    text-align:center;font-size:14px;margin:14px 0 4px;color:var(--fg-soft);
+  }
+  .diff b{font-size:24px;color:var(--accent);}
+
+  .safety{
+    margin-top:16px;border:1px solid #5a3a4a;background:#2a18224d;
+    border-radius:12px;padding:14px 16px;font-size:13px;color:#f3d9de;display:none;
+  }
+  .safety a{color:#ffc7cf;}
+  footer{
+    max-width:720px;margin:40px auto 0;padding:0 20px 40px;
+    font-size:11.5px;color:#7c98a8;text-align:center;line-height:1.8;position:relative;z-index:1;
+  }
+  footer a{color:#9dc6d8;}
+  .hidden{display:none !important;}
+
+  .sisters{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;}
+  .sister{
+    display:block;text-decoration:none;color:var(--fg-soft);
+    border:1px solid var(--card-line);border-radius:12px;
+    padding:13px 16px;font-size:13px;line-height:1.8;background:#0a223355;
+    transition:border-color .15s ease,color .15s ease;
+  }
+  .sister:hover{border-color:var(--accent);color:var(--fg);}
+  .sister b{color:var(--fg);display:block;font-size:13.5px;margin-bottom:2px;}
+
+  @media(max-width:640px){
+    .wrap{padding:52px 16px 100px;}
+    .panel{padding:22px 17px;border-radius:15px;}
+    .meter{top:10px;right:10px;font-size:10.5px;padding:5px 10px;}
+    .two-col{grid-template-columns:minmax(0,1fr);}
+    .tone-row{flex-direction:column;align-items:stretch;}
+    .lede{font-size:13px;}
+  }
+</style>
+</head>
+<body data-depth="0">
+<div class="meter" id="meter">SURFACE ±0m</div>
+<div class="wrap">
+
+  <div class="brand">UNLEARN SCOPE</div>
+  <h1>アンラーン・スコープ</h1>
+  <p class="lede">克服したい課題を、責めずに深海へ持って潜る。<br>それが守ってきたもの、支払ってきたもの、その奥に沈む信念——<br>浮上するころ、別の見方に出会っているかもしれません。</p>
+
+  <!-- STEP 0 : 入力 -->
+  <section class="panel" id="s0">
+    <span class="stage-tag">海面 ±0m · もちこむ</span>
+    <h2>いま、克服したい・手放したいと感じている課題は?</h2>
+    <p class="guide">うまく言えなくて大丈夫。いつものクセ、やめられない習慣、こだわり——一文で。</p>
+    <textarea id="issue" rows="2" placeholder="例:人に仕事を任せられない"></textarea>
+    <div class="hint-chips" id="issueHints"></div>
+
+    <div class="tone-row">
+      <div class="tone sel" data-tone="soft" onclick="setTone(this)">🌊 そっと寄り添ってほしい</div>
+      <div class="tone" data-tone="flat" onclick="setTone(this)">🧭 淡々と進めてほしい</div>
+    </div>
+
+    <div class="slider-row">
+      <label>いまの時点で、「この課題は手放せる気がする」度は?</label>
+      <input type="range" id="beforeSlider" min="0" max="100" value="30" oninput="document.getElementById('bv').textContent=this.value">
+      <div class="slider-val"><span id="bv">30</span> / 100</div>
+    </div>
+
+    <div class="safety" id="safety0"></div>
+    <button class="btn" onclick="go1()">潜りはじめる ▾</button>
+  </section>
+
+  <!-- STEP 1 : 寄り添い -->
+  <section class="panel hidden" id="s1">
+    <span class="stage-tag">水深 -20m · ねぎらう</span>
+    <div class="orb"><span id="orbText"></span></div>
+    <h2 id="v-title"></h2>
+    <p id="v-body" style="font-size:14.5px;"></p>
+    <p class="soft" id="v-note"></p>
+    <button class="btn" onclick="go2()">もう少し深くへ ▾</button>
+  </section>
+
+  <!-- STEP 2 : 恩恵 -->
+  <section class="panel hidden" id="s2">
+    <span class="stage-tag">水深 -50m · めぐみを見る</span>
+    <h2>そのやり方は、あなたを何から守ってきましたか?</h2>
+    <p class="guide">直したい課題は、たいてい「かつての有能な守り」です。ピンとくるものを1〜3つ。</p>
+    <div class="hint-chips" id="benefitChips"></div>
+    <button class="btn" id="btn2" disabled onclick="go3()">守りを認めて、さらに深くへ ▾</button>
+  </section>
+
+  <!-- STEP 3 : 代償 -->
+  <section class="panel hidden" id="s3">
+    <span class="stage-tag">水深 -100m · しはらいを見る</span>
+    <h2>それを続けることで、静かに支払っているものは?</h2>
+    <p class="guide">責めるためではなく、両面を同じ明るさで照らすために。1〜3つ。</p>
+    <div class="hint-chips" id="costChips"></div>
+    <div class="two-col" id="balance" style="display:none;">
+      <div class="side merit"><h4>🛡 守ってきたもの</h4><ul id="meritList"></ul></div>
+      <div class="side cost"><h4>⏳ 支払ってきたもの</h4><ul id="costList"></ul></div>
+    </div>
+    <button class="btn" id="btn3" disabled onclick="go4()">両面を持って、最深部へ ▾</button>
+  </section>
+
+  <!-- STEP 4 : 固定観念 -->
+  <section class="panel hidden" id="s4">
+    <span class="stage-tag">水深 -200m · 最深部</span>
+    <h2>もしそれを手放したら——何が起きると信じていますか?</h2>
+    <p class="guide">ここが一番深い場所です。心の中の「もし手放したら…」の続きを、正直に一文で。候補から選んで書き換えても構いません。</p>
+    <div class="hint-chips" id="beliefHints"></div>
+    <textarea id="belief" rows="2" placeholder="例:手放したら、取り返しのつかない失敗が起きる気がする"></textarea>
+    <p class="soft" style="margin-top:10px;">書けたら、それは「事実」ではなく「検証されていない仮説」として、いったん海底に置いていきます。</p>
+    <div class="safety" id="safety4"></div>
+    <button class="btn" onclick="go5()">信念を置いて、浮上する ▴</button>
+  </section>
+
+  <!-- STEP 5 : 浮上・知恵カード -->
+  <section class="panel hidden" id="s5">
+    <span class="stage-tag" style="background:var(--accent2);">浮上中 · 別の見方に出会う</span>
+    <h2>浮上の途中で、3枚のカードが流れてきました</h2>
+    <p class="guide">あなたの選んだ「守り」に対応する、<a href="./unlearn-zukan.html" style="color:var(--accent);">アンラーン図鑑</a>からの3枚です。</p>
+    <div id="cards"></div>
+    <div class="reframe" id="reframe"></div>
+    <div class="exp" id="experiment"></div>
+    <button class="btn" onclick="go6()">海面へ ▴</button>
+  </section>
+
+  <!-- STEP 6 : ノート -->
+  <section class="panel hidden" id="s6">
+    <span class="stage-tag" style="background:var(--accent2);">海面 ±0m · 学びほぐしノート</span>
+    <h2>おかえりなさい</h2>
+    <div class="slider-row">
+      <label>いま、「この課題は手放せる気がする」度は?</label>
+      <input type="range" id="afterSlider" min="0" max="100" value="50" oninput="updateAfter(this.value)">
+      <div class="slider-val"><span id="av">50</span> / 100</div>
+      <div class="diff" id="diff"></div>
+    </div>
+    <p class="guide">今日の潜水記録です。コピーして、手帳やチームの1on1に持っていけます。</p>
+    <pre class="note" id="note"></pre>
+    <button class="btn" onclick="copyNote(this)">ノートをコピーする</button>
+    <button class="btn ghost" onclick="location.reload()">もう一度、別の課題で潜る</button>
+
+    <div class="sisters">
+      <a class="sister" href="./unlearn-zukan.html"><b>アンラーン図鑑</b>今日出会った3枚を含む、学びほぐしの知恵を一覧で。カードの背景にある理論と出典をたどれます。</a>
+      <a class="sister" href="./shinkai-scope.html"><b>深海スコープ</b>「手放したい」ではなく「こうしたい」のほうが強い日は、こちらへ。欲求の底に沈むニーズに光を当てます。</a>
+      <a class="sister" href="./kokoro-scope.html"><b>こころスコープ</b>気持ちのつらさのほうが大きい日は、こちらで感情を多面的に眺められます。</a>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  このツールは自己内省のための道具であり、医療・カウンセリング・専門的コーチングの代わりではありません。<br>
+  つらさが強いとき、ひとりで抱えないでください:
+  <a href="tel:0120061338">#いのちSOS 0120-061-338</a> ／
+  <a href="tel:0120279338">よりそいホットライン 0120-279-338</a><br>
+  入力内容はどこにも送信・保存されません(この画面を閉じると消えます)。<br>
+  UNLEARN SCOPE ／ スコープ・シリーズ — <a href="./index.html">きづきくみたて工房</a><br>
+  <a href="./unlearn-zukan.html">アンラーン図鑑</a> ／
+  <a href="./shinkai-scope.html">深海スコープ</a> ／
+  <a href="./kokoro-scope.html">こころスコープ</a>
+</footer>
+
+<script>
+/* ---------------- data ---------------- */
+const ISSUE_HINTS = [
+  "人に仕事を任せられない","会議で本音を言えない","完璧に仕上げないと出せない",
+  "即レスがやめられない","新しいやり方に移行できない","部下につい口を出してしまう",
+  "頼まれると断れない","昔の成功パターンを繰り返してしまう"
+];
+
+const BENEFITS = [
+  {id:"anshin", label:"安心(不安を感じずにすむ)", protect:"予測できない事態への不安"},
+  {id:"shippai", label:"失敗の回避", protect:"取り返しのつかない失敗"},
+  {id:"hinshitsu", label:"品質・完璧さ", protect:"中途半端なものを世に出す痛み"},
+  {id:"control", label:"コントロール感", protect:"物事が手を離れていく怖さ"},
+  {id:"hyoka", label:"評価・有能に見られること", protect:"「できない人」と思われること"},
+  {id:"kako", label:"過去の努力を無駄にしないこと", protect:"積み上げてきたものが消える喪失感"},
+  {id:"chowa", label:"調和・波風を立てないこと", protect:"関係が壊れる怖さ"},
+  {id:"tadashisa", label:"正しさ・自分の信念", protect:"自分が間違っていたと認める痛み"},
+  {id:"speed", label:"スピード・効率", protect:"立ち止まることへの焦り"},
+  {id:"sekinin", label:"責任感(自分がやるべき)", protect:"人に迷惑をかける罪悪感"}
+];
+
+const COSTS = [
+  "自分の時間と余裕","睡眠・健康","新しい挑戦の機会","まわりの人の成長の機会",
+  "信頼して任せ合う関係","率直な意見が集まること","創造性・遊び","変化に適応する力",
+  "本当にやりたかったこと","家族や大切な人との時間"
+];
+
+const BELIEF_TPL = {
+  anshin:"手放したら、予想外のことが次々起きて対処できなくなる気がする",
+  shippai:"手放したら、取り返しのつかない失敗が起きる気がする",
+  hinshitsu:"手放したら、仕事の質が下がって信頼を失う気がする",
+  control:"手放したら、物事がバラバラになってしまう気がする",
+  hyoka:"手放したら、「たいしたことない人」だとバレる気がする",
+  kako:"手放したら、これまでの努力が全部無駄になる気がする",
+  chowa:"手放したら、大切な関係が壊れる気がする",
+  tadashisa:"手放したら、自分が長年間違っていたことになる気がする",
+  speed:"手放したら、みんなに置いていかれる気がする",
+  sekinin:"手放したら、無責任な人間になってしまう気がする"
+};
+
+/* 図鑑カード(正体=なぜ手放せない / 知恵=世界の知恵 / 実践=今週の実験) */
+const CARDS = {
+  genjo:{k:"正体の手がかり", term:"現状維持バイアス", en:"Status quo bias",
+    p:"変えたほうが得な場面でも「いまのまま」を選んでしまう心の重力。変えて失敗したら自分の責任、変えずに失敗したら仕方ない——現状維持は、心にとって一番言い訳しやすい選択です。",
+    q:"「変えない理由」を説明できないまま続いているものは何?"},
+  hoyu:{k:"正体の手がかり", term:"保有効果", en:"Endowment effect",
+    p:"自分のものになった途端、同じものでも手放す価値が高く感じられる心理。手放す痛みは「損」の証拠ではなく「所有」の証拠にすぎません。痛むからといって、間違った手放しとは限らないのです。",
+    q:"その意見ややり方は、持ち主が変わっても同じ価値がある?"},
+  sunk:{k:"正体の手がかり", term:"サンクコスト効果", en:"Sunk cost effect",
+    p:"取り戻せない過去の投資が惜しくて、損とわかっている道を進み続けてしまう心理。学びにかけた時間もキャリアも、心の中では「元を取りたい投資」になっています。",
+    q:"今日ゼロから始めるとしても、それを選ぶ?"},
+  einstellung:{k:"正体の手がかり", term:"アインシュテルング効果", en:"Einstellung effect",
+    p:"慣れた解き方が頭を占領して、もっと簡単な解き方が見えなくなる現象。経験を積むほど「最初に思いつく答え」の引力は強くなります。",
+    q:"あなたの「得意な解き方」が、かえって遠回りになっている場面はどこ?"},
+  dogma:{k:"正体の手がかり", term:"獲得された教条主義", en:"Earned dogmatism",
+    p:"「自分は専門家だ」という自覚そのものが、心を閉じさせるという皮肉な現象。実力ではなく、肩書きや経験年数だけでも心は閉じていきます。",
+    q:"最後に、年下や後輩に「教えてください」と本気で言ったのはいつ?"},
+  fushin:{k:"正体の手がかり", term:"認知的不協和", en:"Cognitive dissonance",
+    p:"信念と矛盾する事実に出会ったとき、事実ではなく解釈をねじ曲げてしまう心の働き。古い信念を守る「うまい説明」を思いついたときこそ、危険信号です。",
+    q:"最近、都合の悪い事実に「うまい説明」をつけたのはいつ?"},
+  escalation:{k:"正体の手がかり", term:"コミットメントのエスカレーション", en:"Escalation of commitment",
+    p:"うまくいかない決定ほど、決めた本人がさらに深入りしてしまう悪循環。撤退の判断は、決めた本人が一番できなくなります。意志ではなく設計で手放すのが知恵です。",
+    q:"もし他人事なら、いまの自分にどう助言する?"},
+  shoshin:{k:"世界の知恵", term:"初心", en:"Beginner's mind",
+    p:"「初心者の心には多くの可能性があるが、専門家の心には少ししかない」(禅僧・鈴木俊隆)。熟達の敵は無知ではなく「慣れ」です。",
+    q:"明日の仕事をひとつ、「人生で初めてやる」つもりで選ぶなら?"},
+  chawan:{k:"世界の知恵", term:"空の茶碗", en:"Empty your cup",
+    p:"満杯の器には何も注げない——学ぶ前にまず器を空けよ、という禅の逸話。学びの失敗の多くは、注ぐ側でなく「受ける側の満杯」で起きます。",
+    q:"あなたの茶碗には、いま何がすでに入っている?"},
+  shuhari:{k:"世界の知恵", term:"守破離", en:"Shu-Ha-Ri",
+    p:"型を守り、破り、離れる。日本の芸道は、成長の道筋にあらかじめ「手放し」を組み込んでいました。型を離れることは裏切りではなく、師への最高の礼です。",
+    q:"「離」れる準備ができた型は、もうありませんか?"},
+  nisson:{k:"世界の知恵", term:"為道日損", en:"Daily decrease (Laozi)",
+    p:"「学を為せば日々に益し、道を為せば日々に損す」(老子)。名人の仕事が力みなく見えるのは、足し続けた末ではなく、削ぎ落とした末の姿です。",
+    q:"今年、あなたの仕事から「減らせるもの」は何?"},
+  zabou:{k:"世界の知恵", term:"坐忘", en:"Zuowang",
+    p:"身につけた知識や肩書きをいったん忘れ去ることで、より大きな働きと通じ合う——荘子の境地。満杯の器を空にする、積極的な忘却です。",
+    q:"「忘れてみる」と面白そうな肩書きは何?"},
+  muchi:{k:"世界の知恵", term:"無知の知", en:"Socratic ignorance",
+    p:"学び直しを妨げる最大の壁は、知識の不足ではなく「もう知っている」という感覚。ソクラテスは問いによって「知っているつもり」を揺さぶりました。",
+    q:"「知っているつもり」で実は説明できないことは何?"},
+  premortem:{k:"今週の実験", term:"プレモータム", en:"Premortem",
+    p:"「失敗しないように」と守るかわりに、先に失敗を仮定して死因を書き出してみる技法。失敗を先に言葉にすると、失敗はコントロール可能な変数に変わります。",
+    q:"この計画が1年後に失敗しているとしたら、死因の第一候補は?"},
+  stopdoing:{k:"今週の実験", term:"ストップ・ドゥーイング・リスト", en:"Stop doing list",
+    p:"やることリストの逆——やめることを先に決めるリスト。飛躍の敵は怠惰ではなく「良いことの過剰」です(ジム・コリンズ)。",
+    q:"今年の「やめることリスト」の1行目に何を書く?"},
+  habit:{k:"今週の実験", term:"習慣ループの書き換え", en:"Rewriting the habit loop",
+    p:"習慣は消せません。きっかけと報酬を残したまま、真ん中の行動だけ差し替えるのが黄金律。手放しは意志の勝負ではなく設計の勝負です。",
+    q:"そのクセの「きっかけ」と「報酬」は何? 行動だけ何に差し替える?"},
+  reverse:{k:"今週の実験", term:"リバースメンタリング", en:"Reverse mentoring",
+    p:"若手に「先生」になってもらい、自分が教わる側に座る。上位者が「わからない」と言う姿こそ、まわりのアンラーンを許可します。",
+    q:"いま「教わる側」に回るなら、誰に、何を教わる?"},
+  devil:{k:"今週の実験", term:"悪魔の代弁者", en:"Devil's advocate",
+    p:"全員が賛成に傾く場面にこそ、制度として反対役を置く。本気の異論だけが、多数派の思い込みを揺さぶれます。",
+    q:"直近の「全員一致」の決定に、本気の反対意見を一度でも聞いた?"},
+  reframe_q:{k:"今週の実験", term:"問いのリフレーミング", en:"Reframing the question",
+    p:"答えを変える前に、問いを立て直す。問いを変えることは、枠を手放すこと——日常でできる最小単位のアンラーンです。",
+    q:"いまの課題を、まったく別の問いに立て直すとしたら?"},
+  ekkyo:{k:"今週の実験", term:"越境学習", en:"Cross-boundary learning",
+    p:"ホームの常識が通じないアウェイに身を置くと、自分の「当たり前」が奇妙な風習に見えてきます。その違和感がアンラーンの入り口です。",
+    q:"今月、どんな「アウェイ」に身を置ける?"}
+};
+
+/* benefit id → [正体, 知恵, 実験] */
+const CARD_MAP = {
+  anshin:["genjo","shoshin","premortem"],
+  shippai:["escalation","shoshin","premortem"],
+  hinshitsu:["einstellung","nisson","stopdoing"],
+  control:["hoyu","shuhari","habit"],
+  hyoka:["dogma","zabou","reverse"],
+  kako:["sunk","chawan","stopdoing"],
+  chowa:["genjo","muchi","devil"],
+  tadashisa:["fushin","muchi","reframe_q"],
+  speed:["einstellung","nisson","habit"],
+  sekinin:["hoyu","shuhari","reverse"]
+};
+
+/* benefit id → 小さな実験 */
+const EXPERIMENTS = {
+  anshin:"今週、小さな予定をひとつ「決めずに」当日の状況で選んでみる。何が起きたか、夜に一行メモ。",
+  shippai:"次のタスクを始める前に「これが失敗するとしたら?」を3つ書き出してから着手する(プレモータム)。守りが「準備」に変わります。",
+  hinshitsu:"今週ひとつだけ、60点の状態で人に見せて反応をもらう。「未完成で見せた場合のコスト」が想像どおりか検証する。",
+  control:"今週ひとつだけ、やり方を指定せずに結果だけ頼んで任せてみる。手順の違いを直したくなったら、メモに書くだけにする。",
+  hyoka:"今週、会議でひとつ「教えてください」と質問する。有能に見せる代わりに、学ぶ側に座った時の周囲の反応を観察する。",
+  kako:"「今日ゼロから始めるなら、これを選ぶか?」を、いま続けていること3つに問いかけて、答えを書き出す。",
+  chowa:"次の会議で、賛成する前に「あえて反対するなら?」を一度だけ口に出してみる(前置きしてOK)。関係は本当に壊れるか観察する。",
+  tadashisa:"自分の持論と逆の立場の記事・人の話を、今週ひとつだけ「反論せずに」最後まで聞く。",
+  speed:"毎日のうち30分だけ「即レスしない時間」を作る。その間に起きた不都合を記録する(たぶん、ほとんど起きません)。",
+  sekinin:"今週ひとつ、人に頼む。頼まれた側の表情を観察する——迷惑そうか、頼られて嬉しそうか。"
+};
+
+const CRISIS_WORDS = ["死にたい","消えたい","自殺","自傷","リストカット","死のう","いなくなりたい","終わりにしたい"];
+
+/* ---------------- state ---------------- */
+const S = {tone:"soft", issue:"", benefits:[], costs:[], belief:"", before:30, after:50};
+
+/* ---------------- helpers ---------------- */
+const $ = id => document.getElementById(id);
+function setDepth(n, label){document.body.dataset.depth=n;$("meter").textContent=label;}
+function show(id){["s0","s1","s2","s3","s4","s5","s6"].forEach(s=>$(s).classList.add("hidden"));$(id).classList.remove("hidden");window.scrollTo({top:0,behavior:"smooth"});}
+function setTone(el){document.querySelectorAll(".tone").forEach(t=>t.classList.remove("sel"));el.classList.add("sel");S.tone=el.dataset.tone;}
+function checkCrisis(text, boxId){
+  const hit = CRISIS_WORDS.some(w=>text.includes(w));
+  const box = $(boxId);
+  if(hit){
+    box.style.display="block";
+    box.innerHTML = "とてもつらい気持ちが伝わってきました。このツールは、ひとりで抱えるための道具ではありません。<br>よければ、人に話せる窓口があります:<b>#いのちSOS 0120-061-338</b> ／ <b>よりそいホットライン 0120-279-338</b>(24時間・無料)。<br>このまま続けることも、ここでやめることも、どちらも選べます。";
+  } else { box.style.display="none"; }
+  return hit;
+}
+
+/* ---------------- step 0 ---------------- */
+ISSUE_HINTS.forEach(h=>{
+  const c=document.createElement("div");c.className="chip";c.textContent=h;
+  c.onclick=()=>{$("issue").value=h;};
+  $("issueHints").appendChild(c);
+});
+
+function go1(){
+  S.issue = $("issue").value.trim();
+  if(!S.issue){$("issue").focus();$("issue").placeholder="ここに一文だけ、書いてみてください";return;}
+  S.before = +$("beforeSlider").value;
+  if(checkCrisis(S.issue,"safety0") && !$("s0").dataset.warned){$("s0").dataset.warned="1";return;}
+  $("orbText").innerHTML="<span>"+esc(S.issue)+"</span>";
+  const soft = S.tone==="soft";
+  $("v-title").textContent = soft ? "まず、ここまで持ってきたことに。" : "現在地を確認します。";
+  $("v-body").innerHTML = soft
+    ? "「"+esc(S.issue)+"」——それを課題として言葉にできた時点で、あなたはもう眺める側に立っています。<br><br>そして、ひとつだけ先にお伝えします。それは単なる悪いクセではありません。<b>これまでのどこかで、あなたを確かに守ってきたやり方</b>です。だから簡単に手放せないのは、意志が弱いからではなく、それがちゃんと仕事をしてきた証拠です。"
+    : "「"+esc(S.issue)+"」を外在化しました。<br><br>前提の確認:この行動パターンは過去のある環境では合理的に機能していた可能性が高いです。手放しにくさは意志の問題ではなく、パターンが果たしてきた機能の強さを示します。ここからその機能を分解します。";
+  $("v-note").textContent = soft
+    ? "ここから先は、直そうとしません。まず、それが何を守ってきたのかを一緒に見に行きます。"
+    : "次のステップで、このパターンの便益(何を守ってきたか)を特定します。";
+  setDepth(1,"DIVING -20m");
+  show("s1");
+}
+
+/* ---------------- step 2 ---------------- */
+BENEFITS.forEach(b=>{
+  const c=document.createElement("div");c.className="chip";c.textContent=b.label;c.dataset.id=b.id;
+  c.onclick=()=>{toggleSel(c,S.benefits,b.id,3);$("btn2").disabled=S.benefits.length===0;};
+  $("benefitChips").appendChild(c);
+});
+COSTS.forEach(l=>{
+  const c=document.createElement("div");c.className="chip gold";c.textContent=l;
+  c.onclick=()=>{toggleSel(c,S.costs,l,3);$("btn3").disabled=S.costs.length===0;renderBalance();};
+  $("costChips").appendChild(c);
+});
+function toggleSel(el,arr,val,max){
+  const i=arr.indexOf(val);
+  if(i>=0){arr.splice(i,1);el.classList.remove("sel");}
+  else{if(arr.length>=max){return;}arr.push(val);el.classList.add("sel");}
+}
+function go2(){setDepth(2,"DIVING -50m");show("s2");}
+function go3(){setDepth(3,"DIVING -100m");renderBalance();show("s3");}
+function renderBalance(){
+  if(S.benefits.length===0)return;
+  $("balance").style.display="grid";
+  $("meritList").innerHTML=S.benefits.map(id=>"<li>"+bLabel(id)+"</li>").join("");
+  $("costList").innerHTML=S.costs.map(l=>"<li>"+esc(l)+"</li>").join("");
+}
+function bLabel(id){return esc(BENEFITS.find(b=>b.id===id).label);}
+
+/* ---------------- step 4 ---------------- */
+function go4(){
+  setDepth(4,"ABYSS -200m");
+  $("beliefHints").innerHTML="";
+  S.benefits.forEach(id=>{
+    const c=document.createElement("div");c.className="chip";c.textContent=BELIEF_TPL[id];
+    c.onclick=()=>{$("belief").value=BELIEF_TPL[id];};
+    $("beliefHints").appendChild(c);
+  });
+  show("s4");
+}
+
+/* ---------------- step 5 ---------------- */
+function go5(){
+  S.belief=$("belief").value.trim()||BELIEF_TPL[S.benefits[0]];
+  if(checkCrisis(S.belief,"safety4") && !$("s4").dataset.warned){$("s4").dataset.warned="1";return;}
+  setDepth(5,"ASCENDING…");
+  // カード選択: 主benefitのマップ + 2nd benefitの知恵で多様化
+  const main=CARD_MAP[S.benefits[0]];
+  const picked=[CARDS[main[0]],CARDS[main[1]],CARDS[main[2]]];
+  if(S.benefits[1]){
+    const alt=CARD_MAP[S.benefits[1]];
+    if(alt[1]!==main[1])picked[1]=CARDS[alt[1]];
+  }
+  S.picked=picked;
+  $("cards").innerHTML=picked.map((c,i)=>`
+    <div class="wcard ${i===2?'gold':''}">
+      <div class="k">${c.k}</div>
+      <h3>${c.term}</h3>
+      <div class="en">${c.en}</div>
+      <p>${c.p}</p>
+      <div class="q"><b>問い</b> ${c.q}</div>
+    </div>`).join("");
+  const protect=S.benefits.map(id=>BENEFITS.find(b=>b.id===id).protect)[0];
+  $("reframe").innerHTML=
+    "🌊 <b>別の見方</b><br><br>あなたは「"+esc(S.issue)+"」という<b>欠点を抱えている</b>のではなく、<br>「"+esc(protect)+"」から自分を守る方法として、それを<b>選び続けてきた</b>のかもしれません。<br><br>そしてその奥には——<br>「"+esc(S.belief)+"」<br>という信念が沈んでいました。これは事実ではなく、<b>まだ検証されていない仮説</b>です。仮説は、消すものではなく、試すものです。";
+  S.exp=EXPERIMENTS[S.benefits[0]];
+  $("experiment").innerHTML="<b>🔬 今週の小さな実験(仮説の検証)</b>"+esc(S.exp);
+  show("s5");
+}
+
+/* ---------------- step 6 ---------------- */
+function go6(){
+  setDepth(6,"SURFACE ±0m");
+  updateAfter($("afterSlider").value);
+  show("s6");
+}
+function updateAfter(v){
+  S.after=+v;$("av").textContent=v;
+  const d=S.after-S.before;
+  $("diff").innerHTML="潜水前 "+S.before+" → いま <b>"+S.after+"</b>("+(d>=0?"+":"")+d+")"
+    +(d>0?"<br><span style='font-size:12px'>数字が動いた分だけ、見方が動いています。</span>"
+         :"<br><span style='font-size:12px'>動かなくて大丈夫。両面を見たこと自体が今日の収穫です。</span>");
+  renderNote();
+}
+function renderNote(){
+  const d=new Date();
+  const date=d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDate();
+  $("note").textContent =
+`【学びほぐしノート】 ${date}
+■ 持ち込んだ課題
+${S.issue}
+■ それが守ってきたもの
+${S.benefits.map(bId=>"・"+BENEFITS.find(b=>b.id===bId).label).join("\n")}
+■ 静かに支払ってきたもの
+${S.costs.map(c=>"・"+c).join("\n")}
+■ 最深部にあった信念(未検証の仮説)
+「${S.belief}」
+■ 出会ったカード
+${(S.picked||[]).map(c=>"・"+c.term+" — "+c.q).join("\n")}
+■ 今週の小さな実験
+${S.exp||""}
+■ 手放せる気がする度
+${S.before} → ${S.after}
+
+- UNLEARN SCOPE (深海スコープ・シリーズ)`;
+}
+function copyNote(btn){
+  const text=$("note").textContent;
+  const done=()=>{btn.textContent="コピーしました ✓";setTimeout(()=>btn.textContent="ノートをコピーする",1800);};
+  const fallback=()=>{
+    const ta=document.createElement("textarea");
+    ta.value=text;ta.style.position="fixed";ta.style.opacity="0";
+    document.body.appendChild(ta);ta.select();
+    try{document.execCommand("copy");}catch(e){}
+    document.body.removeChild(ta);done();
+  };
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(done,fallback);
+  }else{fallback();}
+}
+
+function esc(s){return s.replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));}
+
+/* bubbles */
+for(let i=0;i<14;i++){
+  const b=document.createElement("div");b.className="bub";
+  const size=4+Math.random()*10;
+  b.style.width=b.style.height=size+"px";
+  b.style.left=Math.random()*100+"vw";
+  b.style.animationDuration=(9+Math.random()*14)+"s";
+  b.style.animationDelay=(-Math.random()*14)+"s";
+  b.style.opacity=.25+Math.random()*.4;
+  document.body.appendChild(b);
+}
+</script>
+</body>
+</html>
