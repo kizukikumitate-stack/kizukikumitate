@@ -1429,13 +1429,6 @@ const JOBS = [
  skills:{taijin:4,bunseki:3,jikko:3,souzou:5,nintai:3},
  tech:[["教材設計","つまずきを先回りした学習の道を敷く"],["eラーニング開発","時間と場所の制約を解く魔法"],["学習体験デザイン","「学びたくなる」仕掛けづくり"]],
  rewards:{gold:3,heart:5,time:4,exp:4}},
-{id:"facilitator", tier:"adv", family:"priest", name:"きづきくみたてファシリテーター", original:true,
- catch:"気づきを起こし、社会変革へ組み立てる。学びと対話の建築士。",
- catchFull:"人と組織に気づきを起こし、社会変革へと組み立てる。学びと対話の設計・建築士。",
- from:["teacher","consul"], cond:"講師で場づくり★4 + コンサルタントで見立ての力（研修が要らない場合まで診断できること）",
- skills:{taijin:5,bunseki:4,jikko:4,souzou:5,nintai:4},
- tech:[["問いかけ","答えではなく問いで人と組織を動かす"],["見立て","BEM/HPIで「研修が要らない場合」まで診断する"],["場づくり","安心して本音が出る空気を設計する"],["組み立て","気づきを職場の行動と社会の変化に転移させる"]],
- rewards:{gold:3,heart:5,time:4,exp:3}},
 {id:"ecproducer", tier:"adv", family:"warrior", name:"EC/店舗プロデューサー",
  catch:"売場の勘とデータの両輪で商いを回す親方。",
  from:["retail","marketer"], cond:"販売でおもてなし★4 + マーケターで広告運用★3",
@@ -1487,6 +1480,13 @@ const JOBS = [
  skills:{taijin:5,bunseki:4,jikko:4,souzou:3,nintai:5},
  tech:[["組織開発","組織の病を診断し処方する"],["経営と現場の通訳","両方の言葉を話す二刀流"],["カルチャー醸成","目に見えない空気を意図して育てる"]],
  rewards:{gold:5,heart:5,time:2,exp:4}},
+{id:"facilitator", tier:"hero", family:"priest", name:"きづきくみたてファシリテーター", original:true,
+ catch:"気づきを起こし、社会変革へ組み立てる。学びと対話の建築士。",
+ catchFull:"人と組織に気づきを起こし、社会変革へと組み立てる。学びと対話の設計・建築士。",
+ from:["learningdesigner","senryaku"], cond:"学びの設計と、経営の見立ての両方を持つこと。ファシリテーターを名乗る人は多いが、診断から職場への転移まで設計できる人は希少",
+ skills:{taijin:5,bunseki:4,jikko:4,souzou:5,nintai:4},
+ tech:[["問いかけ","答えではなく問いで人と組織を動かす"],["見立て","BEM/HPIで「研修が要らない場合」まで診断する"],["場づくり","安心して本音が出る空気を設計する"],["組み立て","気づきを職場の行動と社会の変化に転移させる"]],
+ rewards:{gold:3,heart:5,time:4,exp:3}},
 {id:"cdo", tier:"hero", family:"artist", name:"クリエイティブディレクター",
  catch:"世界観そのものを司る、遊び人の最終進化。",
  from:["uxdesigner","contentmarketer","bunka","gamecreator"], joiner:"or", cond:"自分の手を動かす職人から「良し悪しを裁定する目」の持ち主へ",
@@ -2413,7 +2413,6 @@ contentmarketer:{lv:3,note:"実績(数字)を出せる人は不足"},
 uxdesigner:{lv:4,note:"経験者採用は競争激化"},
 bpr:{lv:4,note:"DX推進の担い手として需要増"},
 learningdesigner:{lv:3,note:"リスキリング需要で拡大中"},
-facilitator:{lv:3,note:"ファシリテーターを名乗る人は多いが、診断から転移まで設計できる人は希少(公的統計のない職のため目安)"},
 ecproducer:{lv:3,note:"EC市場拡大で運営人材は不足気味"},
 qualityeng:{lv:4,note:"製造・建設の技術者不足は構造的"},
 doctor:{lv:4,note:"地方・特定診療科(産科・救急など)で偏在不足"},
@@ -2659,7 +2658,7 @@ const ROUTE_W = {
   "biyoshi>stylist":1, "insyokuowner>ownerchef":1,
   "keiji>shocho":1, "kyujo>shobocho":1, "senryaku>conpartner":1, "eizoudir>filmdir":1,
   "dentoupro>shishou":1,
-  "teacher>facilitator":1, "consul>facilitator":1,
+  "learningdesigner>facilitator":1, "senryaku>facilitator":1,
 };
 const TIER_IDX = {base:0, adv:1, hero:2, king:3, legend:4};
 function edgeWeight(from, to){
@@ -3329,7 +3328,7 @@ document.body.appendChild(tutHelpBtn);
 /* ================= 更新履歴（ver表示・右下） ================= */
 const VERSION_LOG = [
   {v:"2.2", d:"2026-07-25", items:[
-    "上位職に「きづきくみたてファシリテーター」を追加（教育・講師 × コンサルタントの狭き門ルート）",
+    "英雄職に「きづきくみたてファシリテーター」を追加（ラーニングデザイナー × 戦略・専門コンサルタントの狭き門ルート）",
     "この図鑑の作者のオリジナルジョブに ✍️ページ主 のしるしをつけました",
   ]},
   {v:"2.1", d:"2026-07-24", items:[

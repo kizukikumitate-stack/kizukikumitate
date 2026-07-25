@@ -97,6 +97,22 @@ python3 scripts/gen-zukan-art.py build data/art-specs/<name>.json
   を入れる。歩きかけ・踏み出しポーズは事故りやすいので「両脚がはっきり分かる立ち姿」を指定する。
   コンタクトシート目視では**手足の本数を数える**こと。
 
+- **線画（金の輪郭線）指定なのに塗り絵になる**（生涯キャリア図鑑 tenshoku で連続4回発生・
+  2026-07-25）。原因は**指示過多**で、素材・質感の形容（リネンの／革製の／編み上げの…）を
+  足すほどモデルが「描き込み」と解釈して面を塗り始める。対策は2つ:
+  1. **線画条件を style の先頭に置く**。後半に混ぜると効かない。効いた文面は
+     「OUTLINE-ONLY line art. Every shape is drawn with thin gold contour lines and is
+     COMPLETELY UNFILLED: the flat deep-navy background shows through inside every body,
+     garment, face, object and bubble. No filled areas, no shading, no gradients, no hatching,
+     no silhouettes — **if you would fill a shape, leave it empty instead**」
+     （地面の楕円も塗られるので `the ground ellipse` を明示的に列挙する）
+  2. **prompt 側の形容詞を削る**。構図（誰が・どこに・何を持って）だけ残し、素材の形容は捨てる。
+     塗りが戻ったら、まず prompt を短くする。style を強くするより効く
+
+- **アンカーは「同じ図鑑の綺麗な既存カード2枚」がいちばん安定する**（tenshoku で確認）。
+  別図鑑の絵や、直前に失敗した自分の絵をアンカーにすると画風が引きずられて悪化する。
+  新規1枚を既存図鑑に足すときは、隣に並ぶ完成済みカードから2枚選ぶこと。
+
 **技術**
 
 - **1:1で返ってくる**。`generationConfig.imageConfig.aspectRatio` を必ず指定する。
