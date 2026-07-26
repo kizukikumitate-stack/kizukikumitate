@@ -274,7 +274,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
       <button class="nav-dropdown-toggle" type="button">目指す未来 <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
-        <a href="./rocket-inside.html" title="工房で働くAIエージェント8体をジョブカードで見るページ" class="active">ロケットの中（乗組員デッキ）</a>
+        <a href="./rocket-inside.html" title="工房ではたらくAIエージェントを、ジョブカードの形で見るページ" class="active">ロケットの中</a>
         <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
         <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
       </div>
@@ -417,7 +417,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <button class="mobile-acc-toggle" type="button">目指す未来 <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
-      <a href="./rocket-inside.html" title="工房で働くAIエージェント8体をジョブカードで見るページ" class="active">ロケットの中（乗組員デッキ）</a>
+      <a href="./rocket-inside.html" title="工房ではたらくAIエージェントを、ジョブカードの形で見るページ" class="active">ロケットの中</a>
       <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
       <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
     </div>
@@ -1013,22 +1013,14 @@ document.addEventListener("keydown", function(e){ if (e.key === "Escape" && bg.c
 
 /* ================= 更新履歴（ver表示・右下） ================= */
 var VERSION_LOG = [
-  {v:"1.3", d:"2026-07-26", items:[
-    "工房の間から1体を取り下げました（20体になりました）"
-  ]},
-  {v:"1.2", d:"2026-07-26", items:[
-    "とくぎの説明を、実際にやっていることが分かる書き方に全面的に直した",
-    "ライトモード（紙の図鑑風）を追加。生涯キャリア図鑑と設定を共有していて、どちらで切り替えても引き継がれます",
-    "この更新履歴を追加"
-  ]},
   {v:"1.1", d:"2026-07-26", items:[
-    "3つのフロアに分けて、21体すべてを載せました（寄合の間・乗組員デッキ・工房の間）",
-    "新しい13体のイラストを追加",
-    "札は既定でまっすぐに。カーソルを合わせたときだけ傾くようにしました"
+    "ライトモード（紙の図鑑風）を追加しました。生涯キャリア図鑑と設定が共通なので、どちらで切り替えても引き継がれます",
+    "札の説明を、実際にやっていることが分かる書き方に直しました",
+    "この更新履歴を追加しました"
   ]},
   {v:"1.0", d:"2026-07-26", items:[
-    "「ロケットの中」開室。まず8体を乗組員デッキに並べました",
-    "「みんなでつくる乗組員」の投稿を受けつけ開始"
+    "「ロケットの中」をひらきました。工房ではたらいているサブエージェントを、ジョブカードの形で見られます",
+    "「みんなでつくる乗組員」の投稿を受けつけはじめました"
   ]}
 ];
 var verBg = document.getElementById("verBg");
@@ -1152,7 +1144,7 @@ form.addEventListener("submit", function(e){
     <div class="shelf-title">📚 目指す未来の棚</div>
     <div class="shelf-list" role="navigation">
       <a href="./rocket-map.html" title="工房の全体像を一枚の絵で見わたすページ">平和な地球行きロケット</a>
-      <a href="./rocket-inside.html" title="工房で働くAIエージェント8体をジョブカードで見るページ" class="active">ロケットの中（乗組員デッキ）</a>
+      <a href="./rocket-inside.html" title="工房ではたらくAIエージェントを、ジョブカードの形で見るページ" class="active">ロケットの中</a>
       <a href="./roadmap.html" title="世界中の実践がつながる、平和への戦略地図">世界平和までのロードマップ</a>
       <a href="./ashimoto-map.html" title="個人・職場・学校・地域・制度の5層で平和を育てる地図">足元からの地図（展開編）</a>
     </div>
