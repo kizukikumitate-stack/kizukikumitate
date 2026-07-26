@@ -11,15 +11,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex"><!-- 磨き込み中のテスト公開。サイトのナビ・sitemap・回遊からは外してある。正式リリース時にこの行を削除し、nav.json/kaiyu.json/sitemap.xml に再掲載する -->
-<title>ステークホルダー・ジオラマ ― ４次元トンボのメガネ｜きづきくみたて工房（テスト公開）</title>
+<title>４次元トンボのメガネ ― ステークホルダー・ジオラマ｜きづきくみたて工房（テスト公開）</title>
 <meta name="description" content="ひとつのテーマを、みんなの視点から眺める道具。関係者を場に並べ、経済・環境・社会 × 短期・中期・長期のレンズで「誰が得して、誰が損するか」を可視化します。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ステークホルダー・ジオラマ ― ４次元トンボのメガネ（テスト公開）">
+<meta property="og:title" content="４次元トンボのメガネ ― ステークホルダー・ジオラマ（テスト公開）">
 <meta property="og:description" content="ひとつのテーマを、みんなの視点から眺める道具。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを可視化します。">
 <meta property="og:image" content="https://kizukikumitate.com/stakeholder-diorama-ogp.png">
 <meta property="og:url" content="https://kizukikumitate.com/stakeholder-diorama.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ステークホルダー・ジオラマ ― ４次元トンボのメガネ（テスト公開）">
+<meta name="twitter:title" content="４次元トンボのメガネ ― ステークホルダー・ジオラマ（テスト公開）">
 <meta name="twitter:description" content="ひとつのテーマを、みんなの視点から眺める道具。">
 <meta name="twitter:image" content="https://kizukikumitate.com/stakeholder-diorama-ogp.png">
 <link rel="canonical" href="https://kizukikumitate.com/stakeholder-diorama.html">
@@ -51,6 +51,14 @@ h1{margin:0; font-size:1.5rem; font-weight:900; letter-spacing:.01em;}
   font-size:.62em; font-weight:800; color:var(--indigo); margin-left:.5em;
   white-space:nowrap; letter-spacing:.02em;
 }
+/* タイトル＝はじめの画面にもどるボタン（見た目は見出しのまま） */
+.title-home{
+  border:0; background:none; padding:0; margin:0; cursor:pointer; text-align:left;
+  font:inherit; color:inherit; letter-spacing:inherit;
+}
+.title-home:hover{color:var(--indigo-dark);}
+.title-home:hover .subtitle{text-decoration:underline; text-underline-offset:3px;}
+.title-home:focus-visible{outline:2px solid var(--indigo); outline-offset:3px; border-radius:6px;}
 .tagline{font-size:.8rem; color:var(--sub);}
 .badge-test{
   font-size:.72rem; font-weight:800; color:#8A6A1E;
@@ -344,7 +352,8 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
 
   <header>
     <div class="head-row">
-      <h1>ステークホルダー・ジオラマ<span class="subtitle">― ４次元トンボのメガネ</span></h1>
+      <h1><button type="button" class="title-home" id="titleHome"
+          title="押すと、はじめの画面にもどります">４次元トンボのメガネ<span class="subtitle">― ステークホルダー・ジオラマ</span></button></h1>
       <span class="tagline">ひとつのテーマを、みんなの視点から眺める道具</span>
       <span class="head-actions">
         <span class="badge-test">🧪 テスト公開中</span>
@@ -394,7 +403,7 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
 </div>
 
 <div class="foot">
-  <p>ステークホルダー・ジオラマ（テスト版）｜きづきくみたて工房</p>
+  <p>４次元トンボのメガネ ― ステークホルダー・ジオラマ（テスト版）｜きづきくみたて工房</p>
   <p>このページは検証用のため、サイトのメニューからはたどれません。<a href="https://kizukikumitate.com/">きづきくみたて工房のサイトへ</a></p>
 </div>
 
@@ -2425,7 +2434,7 @@ async function shareUrl() {
       return;
     }
     if (navigator.share && /Android|iPhone|iPad/.test(navigator.userAgent)) {
-      try { await navigator.share({ title: "ステークホルダー・ジオラマ ― ４次元トンボのメガネ", url: url }); return; } catch (e) { /* 共有を閉じたら下のコピーへ */ }
+      try { await navigator.share({ title: "４次元トンボのメガネ ― ステークホルダー・ジオラマ", url: url }); return; } catch (e) { /* 共有を閉じたら下のコピーへ */ }
     }
     toast(copyText(url) ? "✓ 共有URLをコピーしました。相手に送ると同じ盤面が開きます" : "URLをコピーできませんでした");
   } catch (e) {
@@ -2502,6 +2511,7 @@ async function generateFromBusiness() {
   }));
 
   $("guideBtn").addEventListener("click", openGuide);
+  $("titleHome").addEventListener("click", goHome);
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
     if (!$("guideModal").hidden) { closeGuide(); return; }
