@@ -1,11 +1,17 @@
 {
   "name": "agent-deck",
   "aspect_ratio": "1:1",
-  "anchors": ["images/tenshoku/nurse.webp", "images/tenshoku/founder.webp"],
-  "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. Human anatomy: exactly two arms and two legs, clearly separated, no extra or missing limbs, a simple standing or seated posture. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+  "anchors": [
+    "images/tenshoku/nurse.webp",
+    "images/tenshoku/founder.webp"
+  ],
+  "style": "Elegant LINE-ART illustration (outline style): the figure and every object are drawn with CLEAN, CLEARLY VISIBLE GOLD outlines on a deep navy background (#0e1024) — a confident medium-weight stroke, NEVER hairline-thin or wispy. Every single line must still read clearly when the picture is shrunk to a small card about 200px wide: no faint, barely-there strokes anywhere, and no line thinner than the main contour of the figure. Keep the stroke weight even across the whole picture. The shapes are NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Refined and uncluttered, with calm space around the subject, but the main subject fills roughly the middle half of the frame — not a tiny figure lost in a large empty void. A gold ground ellipse under the figure, drawn as an UNFILLED OUTLINE only — the deep-navy background shows through it. Never fill the ellipse, and never fill any other shape. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. Human anatomy: exactly two arms and two legs, clearly separated, no extra or missing limbs, a simple standing or seated posture. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
   "out_dir": "images/agent-deck",
   "file_pattern": "{id}.webp",
-  "webp": { "width": 800, "quality": 82 },
+  "webp": {
+    "width": 800,
+    "quality": 82
+  },
   "items": [
     {
       "id": "site-reviewer",
@@ -21,11 +27,11 @@
     },
     {
       "id": "expert-educator-reviewer",
-      "prompt": "A master artisan inspecting a staircase: an elder figure in clean profile checking each step of a wooden staircase with a measuring rod, one step clearly uneven. Accent glow: emerald green light on the uneven step."
+      "prompt": "A master artisan inspecting a staircase: an elder figure seen in STRICT SIDE PROFILE with the face turned fully away from the viewer and left plain and featureless, standing beside a wooden staircase and holding a long straight measuring rod down onto one step to check it; one step is clearly uneven. The whole picture sits on the flat deep-navy background — no circular vignette, no pale or white backdrop. Accent glow: emerald green light on the uneven step."
     },
     {
       "id": "post-deploy-smoke-tester",
-      "prompt": "A scout testing a newly built bridge: a figure from behind tapping the planks of a new bridge with a long staff, thin gold ripples of sound spreading from the point of contact. Accent glow: terracotta orange light where the staff meets the plank."
+      "prompt": "A scout testing a newly built bridge: a figure from behind tapping the planks of a new bridge with a long staff, thin gold ripples of sound spreading from the point of contact. The ground ellipse under the scene is an UNFILLED outline only — the deep-navy background shows through it. Accent glow: terracotta orange light where the staff meets the plank."
     },
     {
       "id": "copy-brand-voice-reviewer",

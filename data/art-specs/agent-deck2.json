@@ -1,11 +1,17 @@
 {
   "name": "agent-deck2",
   "aspect_ratio": "1:1",
-  "anchors": ["images/agent-deck/site-reviewer.webp", "images/agent-deck/survey-data-analyst.webp"],
-  "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. Human anatomy: exactly two arms and two legs, clearly separated, no extra or missing limbs, a simple standing or seated posture. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+  "anchors": [
+    "images/agent-deck/site-reviewer.webp",
+    "images/agent-deck/survey-data-analyst.webp"
+  ],
+  "style": "Elegant LINE-ART illustration (outline style): the figure and every object are drawn with CLEAN, CLEARLY VISIBLE GOLD outlines on a deep navy background (#0e1024) — a confident medium-weight stroke, NEVER hairline-thin or wispy. Every single line must still read clearly when the picture is shrunk to a small card about 200px wide: no faint, barely-there strokes anywhere, and no line thinner than the main contour of the figure. Keep the stroke weight even across the whole picture. The shapes are NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Refined and uncluttered, with calm space around the subject, but the main subject fills roughly the middle half of the frame — not a tiny figure lost in a large empty void. A gold ground ellipse under the figure, drawn as an UNFILLED OUTLINE only — the deep-navy background shows through it. Never fill the ellipse, and never fill any other shape. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. Human anatomy: exactly two arms and two legs, clearly separated, no extra or missing limbs, a simple standing or seated posture. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
   "out_dir": "images/agent-deck",
   "file_pattern": "{id}.webp",
-  "webp": { "width": 800, "quality": 82 },
+  "webp": {
+    "width": 800,
+    "quality": 82
+  },
   "items": [
     {
       "id": "panel-info-designer",
@@ -29,7 +35,7 @@
     },
     {
       "id": "panel-creative-coder",
-      "prompt": "An inspector of movement: a figure from behind holding up a small hanging mechanism of interlocking gears and a swinging weight, watching it turn. Accent glow: terracotta orange light at the centre of the mechanism."
+      "prompt": "An inspector of movement: a figure from behind holding up a small hanging mechanism of a few interlocking gears with a swinging weight below it, watching it turn. Keep the mechanism simple and machine-like, not ornate. Accent glow: terracotta orange light at the centre of the mechanism."
     },
     {
       "id": "panel-community",
@@ -49,7 +55,7 @@
     },
     {
       "id": "seo-content",
-      "prompt": "A planter of waymarks: a figure from behind pushing a wooden signpost with completely blank empty boards into the ground at a crossing where several faint paths converge. Accent glow: warm mustard amber light around the base of the post."
+      "prompt": "A planter of waymarks: a LARGE, close-up view of a figure from behind pushing a tall wooden signpost with completely blank empty boards into the ground; several faint paths converge at the crossing under it. The signpost and the figure together fill most of the frame. Accent glow: warm mustard amber light around the base of the post."
     },
     {
       "id": "design-unifier",

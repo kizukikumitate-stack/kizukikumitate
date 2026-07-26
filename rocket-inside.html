@@ -9,6 +9,8 @@
   gtag('js', new Date());
   gtag('config', 'G-E3YZKY8DQG');
 </script>
+<script>/* ライトモード設定を描画前に適用（ちらつき防止）。キーは生涯キャリア図鑑と共通 */
+try{if(localStorage.getItem("tenshokuTheme")==="light")document.documentElement.classList.add("light");}catch(e){}</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ロケットの中 ― 工房のサブエージェント21体 | きづきくみたて工房</title>
@@ -102,6 +104,59 @@
   .deck-note { font-size: 12.5px; color: var(--ink-2); margin: 10px 0 26px; padding-left: 10px; border-left: 2px solid var(--hairline); }
   .deck-note b { color: var(--gold); font-weight: 500; }
   .deck { margin-bottom: 0; }
+
+  /* ---- ライトモード（白背景・紙の図鑑風／生涯キャリア図鑑と同じ配色） ---- */
+  html.light{
+    color-scheme: light;
+    --page:#f6f3ea; --surface:#fffdf7; --surface-2:#f0ebdd;
+    --ink:#2b2740; --ink-2:#4d4968; --ink-muted:#8b87a3;
+    --hairline:#d9d3c2; --gold:#a67c1a; --star:#d98f00; --star-empty:#d8d2c2;
+    --t-tech:#1d6fb8; --hover-bg:#eee7d4; --hull:#a67c1a;
+  }
+  html.light body{background-image:radial-gradient(circle at 20% 10%, #efe9d9 0%, transparent 40%),radial-gradient(circle at 80% 90%, #ece4d2 0%, transparent 45%);}
+  /* 夜色で固定していた船内を紙色に読み替える */
+  html.light .deck{background:linear-gradient(180deg,#fffdf7,#f5f0e2 70%,#efe9d9);}
+  html.light .port{background:radial-gradient(circle at 34% 30%,#e8e0cb,#cfc6ad 70%);}
+  html.light .mini{box-shadow:0 2px 10px rgba(90,75,30,.08);}
+  html.light .mini:hover,html.light .mini:focus-visible{box-shadow:0 10px 22px rgba(90,75,30,.16);}
+  html.light .bg{background:rgba(80,70,40,.42);}
+  html.light .modal-bg{background:rgba(80,70,40,.42);}
+  html.light .ver-btn,html.light .theme-btn{box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(90,75,30,.18);}
+  /* 夜色固定の回遊バンドを紙色に読み替える（本体CSS側＝update-kaiyuで消えない） */
+  html.light .kaiyu[data-kaiyu-theme=night]{background:#f0ebdd;}
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-eyebrow,
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-tag,
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-arw{color:#a67c1a;}
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-title,
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-name{color:#2b2740;}
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-desc{color:#4d4968;}
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-card{background:#fffdf7;border-color:#d9d3c2;box-shadow:0 2px 10px rgba(90,75,30,.06);}
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-card:hover{box-shadow:0 12px 26px rgba(90,75,30,.13);border-color:#a67c1a;}
+  html.light .kaiyu[data-kaiyu-theme=night] .kaiyu-badge{background:#a67c1a;color:#fffdf7;}
+
+  /* ---- 更新履歴（ver表示・右下）／ライト・ダーク切り替え ---- */
+  .modal-bg{position:fixed;inset:0;background:rgba(5,6,18,.78);display:none;z-index:500;overflow-y:auto;padding:40px 14px;}
+  .modal-bg.open{display:block;}
+  .modal-card{background:var(--surface);border:2px solid var(--hairline);border-radius:12px;max-width:520px;margin:0 auto;}
+  .modal-close{display:block;margin:12px 12px 0 auto;background:var(--surface-2);color:var(--ink);border:1px solid var(--hairline);border-radius:7px;font-family:inherit;font-size:12.5px;padding:7px 12px;cursor:pointer;}
+  .modal-close:hover{border-color:var(--gold);color:var(--gold);}
+  .ver-btn{position:fixed;right:16px;bottom:16px;z-index:150;cursor:pointer;font-family:inherit;color:var(--gold);background:var(--surface);border:2px solid var(--gold);border-radius:999px;padding:9px 15px;font-size:12.5px;letter-spacing:.1em;line-height:1;box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(0,0,0,.5);}
+  .ver-btn:hover{background:var(--surface-2);}
+  .ver-log{padding:4px 22px 20px;}
+  .ver-log h3{color:var(--gold);font-size:14px;letter-spacing:.1em;margin:16px 0 6px;display:flex;flex-direction:row;align-items:baseline;gap:10px;}
+  .ver-log h3:first-child{margin-top:4px;}
+  .ver-log h3 small{color:var(--ink-muted);font-size:11px;font-weight:400;letter-spacing:.06em;}
+  .ver-log ul{list-style:none;padding:0;margin:0;}
+  .ver-log li{font-size:12.5px;color:var(--ink-2);padding:2px 0 2px 1.2em;text-indent:-1.2em;}
+  .ver-log li::before{content:"▶ ";color:var(--gold);font-size:10px;}
+  .ver-log .ver-note{color:var(--ink-muted);font-size:11.5px;margin-top:14px;border-top:1px solid var(--hairline);padding-top:10px;}
+  .theme-btn{position:fixed;right:16px;bottom:62px;z-index:150;cursor:pointer;font-family:inherit;width:46px;height:46px;border-radius:50%;font-size:19px;line-height:1;background:var(--surface);color:var(--gold);border:2px solid var(--gold);box-shadow:0 0 0 3px var(--surface),0 6px 18px rgba(0,0,0,.5);}
+  .theme-btn:hover{background:var(--surface-2);}
+  @media (max-width:600px){
+    .ver-btn{right:12px;bottom:12px;padding:8px 12px;font-size:11.5px;}
+    .theme-btn{right:12px;bottom:56px;width:42px;height:42px;font-size:17px;}
+  }
+
   /* ===== 図鑑カード（モーダル） ===== */
   .bg { position: fixed; inset: 0; background: rgba(5,6,20,.86); display: none; align-items: center; justify-content: center; padding: 14px; z-index: 200; }
   .bg.open { display: flex; }
@@ -527,7 +582,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
   <h2>みんなでつくる乗組員</h2>
   <p class="sec-body">この床には、まだ空きがあります。あなたの仕事場に「こんな乗組員がいてくれたら」と思うものを教えてください。生涯キャリア図鑑の「みんなでつくる」と同じで、この書に載っていない職こそ、これからの希望だと思っています。</p>
-  <p class="sec-body">とくに聞いてみたいのは<b>「やらないでほしいこと」</b>です。札をひらくと分かるのですが、いま働いている8体のとくぎは、ほとんどが我慢でできています。何をしてほしいかより、何をしないでいてほしいか。そちらを手がかりに、乗組員をつくっていこうと考えています。</p>
+  <p class="sec-body">とくに聞いてみたいのは<b>「やらないでほしいこと」</b>です。札をひらくと分かるのですが、いま働いている21体のとくぎは、ほとんどが我慢でできています。何をしてほしいかより、何をしないでいてほしいか。そちらを手がかりに、乗組員をつくっていこうと考えています。</p>
 
   <div class="make">
     <form id="sform" novalidate>
@@ -570,11 +625,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <p class="note">送っていただいた内容は、森本にメールで届きます。どこにも保存していません。カードにするときは、こちらから改めてご相談します。</p>
 
   <h2>となりの部屋へ</h2>
+  <p class="sec-body">この図鑑には対になる一冊があります。<b>人の職業</b>を同じカードの形で集めた「生涯キャリア図鑑」です。同じ5つの系統、同じ5つのスキル、同じ★のつけかたで書いてあるので、そのまま並べて見比べられます。ライトモードの設定も2冊で共通なので、どちらで切り替えても、もう一方に引き継がれます。</p>
   <div class="links">
     <a class="chip" href="rocket-map.html">▶ ロケットの全体図を見る</a>
     <a class="chip" href="tenshoku-no-sho.html">▶ 人の職業の図鑑（生涯キャリア図鑑）へ</a>
   </div>
 
+</div>
+
+<div class="modal-bg" id="verBg" role="dialog" aria-modal="true" aria-label="このページの更新履歴">
+  <div class="modal-card">
+    <button type="button" class="modal-close" id="verClose">とじる ✕</button>
+    <div class="ver-log" id="verBody"></div>
+  </div>
 </div>
 
 <div class="bg" id="bg">
@@ -687,9 +750,9 @@ var A = [
  catch:"公開の門に立つ、七つ目の番人。",
  sk:{taijin:1,bunseki:4,jikko:3,souzou:1,nintai:5},
  rw:{time:4,guard:5,find:2,calm:4},
- tech:[["ナビ整合の眼","全ページを横断して、リンクの片道通行を見つける"],
-       ["機密探知","HTMLやJSに素で置かれた鍵を嗅ぎ分ける"],
-       ["基準書優先","渡されたチェックリストを、自分の判断より上に置く"]],
+ tech:[["ナビ整合の眼","新しいページを足したとき、ほかの全ページのメニューにそれが載っているか、逆に新ページから既存ページへ戻れるかを1枚ずつ確かめる"],
+       ["機密探知","APIキーやトークンが、HTMLやJSにそのまま書き込まれたまま公開されようとしていないかを探す"],
+       ["基準書優先","チェックリストを渡されたら、自分の考えより先にその項目と判定基準に従う。「指摘対象外」と書かれたものには触らない"]],
  make:{tool:"Read / Grep / Glob / Bash", when:"ページの新規作成・大幅変更・ナビ変更・公開の前"}},
 
 {id:"participant-reviewer", floor:"crew", nm:"初参加者の目", fam:"priest",
@@ -697,9 +760,9 @@ var A = [
  catch:"はじめて、ひとりで申し込む人の不安を、代わりに抱える。",
  sk:{taijin:5,bunseki:3,jikko:1,souzou:2,nintai:4},
  rw:{time:3,guard:4,find:5,calm:3},
- tech:[["好意的補完の禁止","「たぶん大丈夫だろう」と思った瞬間を、脱落点として捕まえる"],
-       ["返金規定の追及","有料イベントで、キャンセル条件の欠落を見逃さない"],
-       ["要判断の切り分け","主催者が決めるべきことを、勝手に確定させない"]],
+ tech:[["好意的補完の禁止","「キャンセルはたぶんできるだろう」と自分で補ってしまったら、そこを申込みが止まる場所として記録する"],
+       ["返金規定の追及","有料のイベントで「何日前まで全額返るのか」がページのどこにも書いていなければ、要修正として出す"],
+       ["要判断の切り分け","返金の期限のように主催者が決めることは、文面を勝手に書き切らず「要判断」と印をつけて返す"]],
  make:{tool:"Read / Grep / Glob", when:"イベントページの公開前"}},
 
 {id:"novice-reviewer", floor:"crew", nm:"門外漢の目", fam:"priest",
@@ -707,9 +770,9 @@ var A = [
  catch:"何も知らないまま読んで、手が止まった場所を全部おぼえている。",
  sk:{taijin:4,bunseki:3,jikko:1,souzou:2,nintai:5},
  rw:{time:3,guard:3,find:5,calm:3},
- tech:[["初耳ぢから","専門家の常識を、最後まで常識として受け取らない"],
-       ["脱落点の記録","「わかった気」ではなく「次に何をするか言えるか」で判定する"],
-       ["薄めずに易しくする","核を削る提案になりそうなら「要判断」と申告する"]],
+ tech:[["初耳ぢから","「ファシリテーション」のような業界の言葉が説明なしで出てきたら、そこで手を止めて書き留める"],
+       ["脱落点の記録","読んだあとに「次に何をするか」を具体的に言えなければ、わかった気になっただけとみなす"],
+       ["薄めずに易しくする","言い換えると中身が痩せそうなときは、勝手に削らず「要判断」と書いて熟達者の目に回す"]],
  make:{tool:"Read / Grep / Glob / WebFetch", when:"有料商品の公開・改訂の前（熟達者の目とペア）"}},
 
 {id:"expert-educator-reviewer", floor:"crew", nm:"熟達者の目", fam:"priest",
@@ -717,9 +780,9 @@ var A = [
  catch:"作り手への配慮で、トーンを甘くしない同業の目。",
  sk:{taijin:4,bunseki:4,jikko:2,souzou:3,nintai:4},
  rw:{time:3,guard:4,find:5,calm:2},
- tech:[["順序を疑う","前提から体験、内省、転用へと続く階段が崩れていないか見る"],
-       ["問いの検分","その問いで場が深まるかを、浅いか誘導的かの観点で突く"],
-       ["値ぶみ","この価格に中身が釣り合うか、無料情報の焼き直しでないかを言う"]],
+ tech:[["順序を疑う","前提→体験→内省→転用の順が入れ替わっていないか、最初の一歩が重すぎて折れないかを見る"],
+       ["問いの検分","投げかける問いを一つずつ検分し、浅い問い・答えを誘導している問い・答えにくい問いを名指しする"],
+       ["値ぶみ","その値段に中身が釣り合うか、無料で手に入る情報の焼き直しになっていないか、金を払う価値のある核はどこかを言う"]],
  make:{tool:"Read / Grep / Glob / WebFetch", when:"有料商品の公開・改訂の前（門外漢の目とペア）"}},
 
 {id:"post-deploy-smoke-tester", floor:"crew", nm:"公開後の斥候", fam:"warrior",
@@ -727,9 +790,9 @@ var A = [
  catch:"実際に叩いてみるまで、公開したとは言わない。",
  sk:{taijin:1,bunseki:3,jikko:5,souzou:1,nintai:4},
  rw:{time:4,guard:5,find:2,calm:5},
- tech:[["実物取得","ローカルのファイルではなく、公開URLを取りに行く"],
-       ["保留の勇気","取れていないものに、チェックをつけない"],
-       ["迂回の自制","許可が下りない時、抜け道で取りに行かない"]],
+ tech:[["実物取得","手元のファイルではなく公開URLを実際に取得して、日時・会場・参加費が新しくなっているかを見る"],
+       ["保留の勇気","取得できなかった項目は「保留」として報告する。コミットしたからという理由で「確認済み」にしない"],
+       ["迂回の自制","取得の許可が下りなかったとき、別の手段で回り道して取りに行かず、人に確認をお願いする"]],
  make:{tool:"Read / WebFetch / Bash", when:"公開の作業をした直後"}},
 
 {id:"copy-brand-voice-reviewer", floor:"crew", nm:"ブランドボイス番", fam:"artist",
@@ -737,9 +800,9 @@ var A = [
  catch:"その言葉を、うちの名前で世に出していいかだけを見る。",
  sk:{taijin:4,bunseki:3,jikko:1,souzou:3,nintai:4},
  rw:{time:3,guard:4,find:3,calm:4},
- tech:[["禁止語の察知","「乗り越える」「克服」など、対決の匂いを嗅ぎ分ける"],
-       ["煽り検知","恐怖と締切で申込を迫っていないかを測る"],
-       ["毎回読み直す","基準を記憶に頼らず、決まりごとを都度とりに行く"]],
+ tech:[["禁止語の察知","「乗り越える」「克服」など対決の匂いのある語を見つけて、「向き合う」「対になる」といった言い換えを出す"],
+       ["煽り検知","「今すぐ」「手遅れ」のような恐怖と締切で申込みを迫っていないか、読む人に断る余地が残っているかを見る"],
+       ["毎回読み直す","禁止する言い回しは増えていくので、記憶に頼らず、毎回そのつど決まりごとを読み直してから判定する"]],
  make:{tool:"Read / Grep / Glob", when:"メルマガや告知の文章を出した直後"}},
 
 {id:"measurement-cv-reviewer", floor:"crew", nm:"計測番", fam:"merchant",
@@ -747,9 +810,9 @@ var A = [
  catch:"計測できないページは、世に出させない。",
  sk:{taijin:1,bunseki:5,jikko:3,souzou:1,nintai:4},
  rw:{time:4,guard:5,find:4,calm:3},
- tech:[["タグ欠落検知","全公開ページの計測タグを、構造的に洗う"],
-       ["実額突合","ボタンに書かれた金額と、実際の請求額のズレを見る"],
-       ["言い切らない","コードだけ見て「計測できている」と言わず、手作業の残りを必ず添える"]],
+ tech:[["タグ欠落検知","公開している全ページに解析タグが入っているかを機械的に洗い、IDちがいや二重設置も見つける"],
+       ["実額突合","購入ボタンの計測に書かれた金額が、実際に請求される額と1円までそろっているかを確かめる"],
+       ["言い切らない","コードが正しくても管理画面での設定が残っているので、「あと何を手で設定する必要があるか」を必ず書き添える"]],
  make:{tool:"Read / Grep / Glob / Bash", when:"ページ公開前（門の番人と並走）"}},
 
 {id:"survey-data-analyst", floor:"crew", nm:"回答の読み手", fam:"mage",
@@ -757,9 +820,9 @@ var A = [
  catch:"言えることと、言えないことの境界に立つ。",
  sk:{taijin:1,bunseki:5,jikko:3,souzou:2,nintai:5},
  rw:{time:5,guard:3,find:5,calm:3},
- tech:[["逆転の反転","集計前に、必ず裏返す設問を見分ける"],
-       ["版そろえ","版と型を混ぜずに、比べられるものだけを比べる"],
-       ["過剰解釈の封印","相関を因果と書かない。回答数が少ないうちは率を語らない"]],
+ tech:[["逆転の反転","「そう思わない」ほど点が高くなる設問を見分けて、集計する前に数値を裏返す"],
+       ["版そろえ","60問の版と40問の版、意識をきく型と行動をきく型を混ぜず、同じ版・同じ型どうしだけで比べる"],
+       ["過剰解釈の封印","二つが一緒に動いていることを「だから起きた」と書かない。回答が数十件のうちは率や有意差を語らず、傾向までにとどめる"]],
  make:{tool:"Read / Grep / Glob / Bash", when:"「回答データを分析して」と言われたとき"}}
 ,
 /* ===== 寄合の間（プロパネル8人・棟梁に呼ばれて集まる） ===== */
@@ -768,73 +831,73 @@ var A = [
  catch:"一枚絵としては完成している。で、「深さ」のレイヤーはあるか。",
  sk:{taijin:2,bunseki:5,jikko:1,souzou:3,nintai:4},
  rw:{time:2,guard:3,find:5,calm:2},
- tech:[["段階的開示を見る","一度に全部見せていないか、掘れる余地があるかを見る"],
-       ["データとの接続を見る","絵が生きた数字につながっているかを確かめる"],
-       ["美しさを後回しにする","整っていることより、階層があることを先に見る"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["段階的開示を見る","全体像と細部のズームが設計されているか、1画面に全部を詰め込んでいないかを見る"],
+       ["データとの接続を見る","止まっている図に、実績値や件数や日付を流し込める場所はどこかを探す。絵を計器盤に変えられないかを考える"],
+       ["美しさを後回しにする","図の一つひとつが実際のページや数字と1対1でつながっているか、飾りだけの要素はないかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-storyteller", floor:"yoriai", nm:"語り部", fam:"artist",
  alt:"焚き火のそばで白紙の本をひらき、立ちのぼる煙が遠い道の形になる横向きの姿",
  catch:"世界観はあるのに、物語はあるか。",
  sk:{taijin:3,bunseki:2,jikko:1,souzou:5,nintai:3},
  rw:{time:2,guard:2,find:5,calm:3},
- tech:[["時間軸をさがす","設定の美しさに満足せず、時が流れているかを見る"],
-       ["登場人物をさがす","誰の話なのかが読者に手渡されているかを見る"],
-       ["変化をさがす","読み終えたときに何かが動いたかを問う"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["時間軸をさがす","「いつ始まり、いまどこで、これからどうなるのか」がページに流れているかを見る"],
+       ["登場人物をさがす","読む人が客席にいるままか、それとも物語の登場人物になれるかを見る"],
+       ["変化をさがす","一度読んで終わりか、また戻ってきたくなる記録や続きものの仕掛けがあるかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-game-ux", floor:"yoriai", nm:"隠し扉の探し手", fam:"artist",
  alt:"のっぺりした壁の一枚を押し、細い光の隙間がひらく後ろ姿",
  catch:"クリックして遷移するだけなら、地図で十分。",
  sk:{taijin:3,bunseki:3,jikko:2,souzou:5,nintai:3},
  rw:{time:2,guard:2,find:5,calm:2},
- tech:[["同乗者に変える","読者をプレイヤーにする仕掛けがあるかを見る"],
-       ["進んだ跡をさがす","どこまで来たかが本人に見えるかを見る"],
-       ["隠し場所をさがす","見つけたときの小さな喜びが仕込めるかを探す"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["同乗者に変える","全部を見てまわりたくなる理由（進み具合の表示・隠し要素）があるか、あっても気づかれているかを見る"],
+       ["進んだ跡をさがす","押したときに気持ちのいい反応が返るか、自分の痕跡（投稿や選択）が残せるかを見る"],
+       ["隠し場所をさがす","仕掛けが誰にも気づかれず埋もれていないか、逆にうるさすぎて本題を邪魔していないかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-strategist", floor:"yoriai", nm:"筋道の検分役", fam:"merchant",
  alt:"無数の留め具が並ぶ壁に一本の糸を張り、指ではじいて張りを確かめる横向きの姿",
  catch:"美しい。で、検証可能性は。",
  sk:{taijin:3,bunseki:5,jikko:2,souzou:3,nintai:4},
  rw:{time:2,guard:4,find:5,calm:1},
- tech:[["理念を構造に直す","きれいな図を、実証のついた筋道に組み直す"],
-       ["説明できるかを問う","支援者や顧客に、そのまま話せる形かを見る"],
-       ["証拠のありかを聞く","そう言える根拠がどこにあるのかを突く"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["理念を構造に直す","それぞれの主張に、実施した数・参加者の変化・実績といった裏づけが紐づいているかを見る"],
+       ["説明できるかを問う","活動から成果、成果から変化への矢印が読む人に追えるか、どこで話が飛んでいるかを名指しする"],
+       ["証拠のありかを聞く","数字を毎年更新して、そのまま説明資料として使い回せる作りになっているかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-workshop-designer", floor:"yoriai", nm:"車座の設え役", fam:"priest",
  alt:"がらんとした広間で、丸い腰かけを輪に並べていく後ろ姿",
  catch:"対話の工房なのに、このページは一方通行になっていないか。",
  sk:{taijin:5,bunseki:3,jikko:3,souzou:4,nintai:3},
  rw:{time:2,guard:2,find:5,calm:3},
- tech:[["読むものを道具に変える","ページそのものを対話の道具にできないかを探す"],
-       ["双方向の口をさがす","参加者が手を出せる場所があるかを見る"],
-       ["場の安全を見る","否定されない・沈黙が許される設計かを見る"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["読むものを道具に変える","訪れた人が自分の意見や不安を持ち込める場所があるか、その敷居は低いかを見る"],
+       ["双方向の口をさがす","会場のスクリーンに映したとき、そのまま進行の道具になるか（文字の大きさ・操作性）を見る"],
+       ["場の安全を見る","集まった声が、次の回のコンテンツやワークショップに返っていく循環があるかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-creative-coder", floor:"yoriai", nm:"動きの検分役", fam:"warrior",
  alt:"歯車と錘の仕掛けを高くかかげ、その回りかたを見あげる後ろ姿",
  catch:"触っていないときも生きているか。そして、耳で読めるか。",
  sk:{taijin:1,bunseki:4,jikko:5,souzou:4,nintai:4},
  rw:{time:3,guard:5,find:4,calm:3},
- tech:[["静けさを見る","誰も触っていないときの佇まいを見る"],
-       ["耳で読む","読み上げでも意味が通るかを確かめる"],
-       ["重さを量る","華やかさと速さ・保守しやすさが両立しているかを見る"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["静けさを見る","誰も触っていないときにも世界が動いているかを見る。ただし電池と処理の重さも同時に量る"],
+       ["耳で読む","読み上げソフト・キーボード操作・動きを減らす設定に対応しているか、見た目の演出に頼り切っていないかを見る"],
+       ["重さを量る","この先ページが増えたときに、手作業が破綻しない作りになっているかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-community", floor:"yoriai", nm:"灯りの継ぎ手", fam:"priest",
  alt:"道沿いに並ぶ消えた灯籠の、はじめの一つに火を移す後ろ姿",
  catch:"支えてくれる人は、このページのどこに「いる」のか。",
  sk:{taijin:5,bunseki:2,jikko:2,souzou:3,nintai:4},
  rw:{time:2,guard:3,find:5,calm:4},
- tech:[["居場所をさがす","支えてくれた人が、どこに映っているかを見る"],
-       ["変わり目を見る","訪れた人が支える人になる境目を探す"],
-       ["帰属感を測る","仲間に入れたと感じられるかを見る"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["居場所をさがす","協力してくれた人が、名前の一覧ではなく絵の中に描き込まれているかを見る"],
+       ["変わり目を見る","「見る→来る→支える」の段差が小さく、次の一歩がいつも見えているかを見る"],
+       ["帰属感を測る","支援の呼びかけが世界観の言葉になっているか、生々しい言い方になっていないかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 {id:"panel-educator", floor:"yoriai", nm:"持ち帰りの包み手", fam:"priest",
  alt:"低い机で、小さな包みに布をかけて結んでいる横向きの姿",
  catch:"これは教室で使えるか。子どもに説明できるか。",
  sk:{taijin:4,bunseki:3,jikko:2,souzou:4,nintai:4},
  rw:{time:2,guard:2,find:5,calm:3},
- tech:[["教室に持ち込む","そのまま授業で使える形にできるかを見る"],
-       ["子どもの言葉に直す","説明が、いちばん幼い相手にも届くかを試す"],
-       ["持ち帰りを作る","ワークシートや指導案に展開できる余地を探す"]],
- make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+ tech:[["教室に持ち込む","専門用語に現代語の言い換えが添えてあるか、学びの素材としてそのまま使えるかを見る"],
+       ["子どもの言葉に直す","「あなたの◯◯を描いてみよう」のような、手を動かす形や印刷して使える形にできる要素を探す"],
+       ["持ち帰りを作る","中高生が読んでも置いていかれず、大人が読んでも幼稚に見えないかを見る"]],
+ make:{tool:"汎用エージェントとして起動（読むだけ・ファイルは変更しない）", when:"棟梁に呼ばれたとき"}},
 
 /* ===== 工房の間（この家に仕える5人） ===== */
 {id:"quality-auditor", floor:"koubou", nm:"見回り役", fam:"priest",
@@ -842,46 +905,46 @@ var A = [
  catch:"直す前に、まず全部の戸を見て回る。",
  sk:{taijin:1,bunseki:5,jikko:3,souzou:1,nintai:5},
  rw:{time:5,guard:5,find:4,calm:4},
- tech:[["横断で見る","一枚ずつではなく、全ページを通して見る"],
-       ["直す前に断る","勝手に直さず、まず一覧を出して承認をもらう"],
-       ["直しは一箇所に集める","CSSの修正は最後のまとめ場所にだけ書く"]],
- make:{tool:"この家の道具すべて", when:"全ページの品質をまとめて見たいとき"}},
+ tech:[["横断で見る","1枚ずつではなく全ページを通して、モバイル表示・ナビ・デザインの決まりを一度に見る"],
+       ["直す前に断る","問題を見つけても勝手に直さず、まず一覧にして出し、直していいかの承認をもらう"],
+       ["直しは一箇所に集める","CSSの修正はページ末尾のまとめ場所にだけ書き、あちこちに散らさない"]],
+ make:{tool:"制限なし（読み書き・コマンド実行のすべて）", when:"全ページの品質をまとめて見たいとき"}},
 {id:"page-creator", floor:"koubou", nm:"宮大工", fam:"warrior",
  alt:"がらんとした部屋で、組みかけの木枠に新しい柱を立てている後ろ姿",
  catch:"最初から、モバイルで崩れていない状態で建てる。",
  sk:{taijin:1,bunseki:3,jikko:5,souzou:3,nintai:4},
  rw:{time:5,guard:4,find:2,calm:4},
- tech:[["決まりどおりに建てる","この家の寸法・配色・組み方を外さない"],
-       ["外の材を持ち込まない","外部CSSファイルを作らず、インラインを守る"],
-       ["入口をいじらない","ナビのリンクを勝手に増やさない"]],
- make:{tool:"この家の道具すべて", when:"新しいページを建てるとき"}},
+ tech:[["決まりどおりに建てる","この家の寸法・配色・組み方から外れない形で建て、最初からモバイルで崩れていない状態に仕上げる"],
+       ["外の材を持ち込まない","外部のCSSファイルを作らず、ページの中に書く方式を守る"],
+       ["入口をいじらない","ナビのリンク構成は既存ページと完全にそろえ、新しいリンクを勝手に足さない"]],
+ make:{tool:"制限なし（読み書き・コマンド実行のすべて）", when:"新しいページを建てるとき"}},
 {id:"seo-content", floor:"koubou", nm:"道しるべ立て", fam:"merchant",
  alt:"いくつもの細い道が集まる辻に、なにも書かれていない道標を立てる後ろ姿",
  catch:"見つけてもらえなければ、無いのと同じ。",
  sk:{taijin:2,bunseki:5,jikko:3,souzou:3,nintai:4},
  rw:{time:3,guard:2,find:5,calm:2},
- tech:[["探されかたを見る","どの言葉で辿り着くのかから逆に考える"],
-       ["中身の正しさは預ける","専門的な正確さは、必ず森本さんに確かめる"],
-       ["外へのリンクを足さない","勝手によその道をつながない"]],
- make:{tool:"この家の道具すべて", when:"ページの見つけられ方を良くしたいとき"}},
+ tech:[["探されかたを見る","どんな言葉で検索されて辿り着くのかを起点に、見出しと説明文を組み立て直す"],
+       ["中身の正しさは預ける","専門的な内容が正しいかどうかは自分で決めず、必ず本人に確かめてから書く"],
+       ["外へのリンクを足さない","よそのサイトへのリンクを勝手に増やさない"]],
+ make:{tool:"制限なし（読み書き・コマンド実行のすべて）", when:"ページの見つけられ方を良くしたいとき"}},
 {id:"design-unifier", floor:"koubou", nm:"寸法合わせ", fam:"artist",
  alt:"長い壁に並ぶ同じ形の窓を、測り紐で当たっていく横向きの姿。一つだけ列から外れている",
  catch:"揃っていないところは、だいたい一枚だけ。",
  sk:{taijin:1,bunseki:4,jikko:4,souzou:2,nintai:5},
  rw:{time:4,guard:4,find:4,calm:4},
- tech:[["列から外れた一枚を見つける","全ページのナビ・フッター・書体・色を突き合わせる"],
-       ["触れない寸法を覚えている","過去に事故った設定値には手を出さない"],
-       ["書体を増やさない","決められた四つの書体だけを使う"]],
- make:{tool:"この家の道具すべて", when:"見た目がページごとにばらけてきたとき"}},
+ tech:[["列から外れた一枚を見つける","全ページのナビ・フッター・書体・色を突き合わせて、ひとつだけ列から外れている箇所を拾う"],
+       ["触れない寸法を覚えている","過去に不具合を起こした設定値は、揃っていなくても手を出さない"],
+       ["書体を増やさない","使う書体は決められた4種類だけにして、新しいものを持ち込まない"]],
+ make:{tool:"制限なし（読み書き・コマンド実行のすべて）", when:"見た目がページごとにばらけてきたとき"}},
 {id:"note-writer", floor:"koubou", nm:"文机の主", fam:"artist",
  alt:"低い文机にむかい、白紙の巻物の上に筆をかまえる後ろ姿。かたわらに蓋の閉じた箱",
  catch:"書くところまで。世に出すのは、本人の手で。",
  sk:{taijin:3,bunseki:3,jikko:4,souzou:5,nintai:4},
  rw:{time:5,guard:3,find:3,calm:3},
- tech:[["下書きで止める","公開はしない。必ず下書き保存まで"],
-       ["矛盾を作らない","既存の記事やサイトの記載と食い違わないようにする"],
-       ["専門は借りものにしない","理論の扱いは、本人の言っていることに合わせる"]],
- make:{tool:"この家の道具すべて", when:"note の記事を書き起こすとき"}}
+ tech:[["下書きで止める","記事を書き上げてもnoteには下書き保存までで、世に出すのは必ず本人の手に委ねる"],
+       ["矛盾を作らない","すでに書いてある記事やサイトの記載と、言っていることが食い違わないようにする"],
+       ["専門は借りものにしない","理論や枠組みの扱いは、本人がこれまで言ってきたことに合わせる"]],
+ make:{tool:"制限なし（読み書き・コマンド実行のすべて）", when:"note の記事を書き起こすとき"}}
 ];
 
 function stars(n){
@@ -956,6 +1019,67 @@ function closeCard(){
 document.getElementById("cx").addEventListener("click", closeCard);
 bg.addEventListener("click", function(e){ if (e.target === bg) { closeCard(); } });
 document.addEventListener("keydown", function(e){ if (e.key === "Escape" && bg.classList.contains("open")) { closeCard(); } });
+
+/* ================= 更新履歴（ver表示・右下） ================= */
+var VERSION_LOG = [
+  {v:"1.2", d:"2026-07-26", items:[
+    "とくぎの説明を、実際にやっていることが分かる書き方に全面的に直した",
+    "ライトモード（紙の図鑑風）を追加。生涯キャリア図鑑と設定を共有していて、どちらで切り替えても引き継がれます",
+    "この更新履歴を追加"
+  ]},
+  {v:"1.1", d:"2026-07-26", items:[
+    "3つのフロアに分けて、21体すべてを載せました（寄合の間・乗組員デッキ・工房の間）",
+    "新しい13体のイラストを追加",
+    "札は既定でまっすぐに。カーソルを合わせたときだけ傾くようにしました"
+  ]},
+  {v:"1.0", d:"2026-07-26", items:[
+    "「ロケットの中」開室。まず8体を乗組員デッキに並べました",
+    "「みんなでつくる乗組員」の投稿を受けつけ開始"
+  ]}
+];
+var verBg = document.getElementById("verBg");
+document.getElementById("verBody").innerHTML =
+  VERSION_LOG.map(function(r){
+    return '<h3>ver ' + r.v + ' <small>' + r.d + '</small></h3><ul>' +
+      r.items.map(function(t){ return '<li>' + t + '</li>'; }).join('') + '</ul>';
+  }).join('') +
+  '<p class="ver-note">この部屋は、工房のはたらきかたが変わるたびに書き足していきます。' +
+  '乗組員が増えたとき、持ち場が変わったときも、ここに残します。</p>';
+
+var verBtn = document.createElement("button");
+verBtn.type = "button";
+verBtn.className = "ver-btn";
+verBtn.textContent = "ver " + VERSION_LOG[0].v;
+verBtn.title = "更新履歴を見る";
+verBtn.setAttribute("aria-label", "更新履歴を見る（現在 ver " + VERSION_LOG[0].v + "）");
+verBtn.addEventListener("click", function(){ verBg.classList.add("open"); document.getElementById("verClose").focus(); });
+document.body.appendChild(verBtn);
+function closeVer(){ verBg.classList.remove("open"); verBtn.focus(); }
+document.getElementById("verClose").addEventListener("click", closeVer);
+verBg.addEventListener("click", function(e){ if(e.target === verBg) closeVer(); });
+document.addEventListener("keydown", function(e){ if(e.key === "Escape" && verBg.classList.contains("open")) closeVer(); });
+
+/* ================= ライト/ダーク切り替え ================= */
+/* 保存キーは生涯キャリア図鑑と共通。どちらで切り替えても、もう一方に引き継がれる */
+try{ if(localStorage.getItem("tenshokuTheme") === "light") document.documentElement.classList.add("light"); }catch(e){}
+var themeBtn = document.createElement("button");
+themeBtn.type = "button";
+themeBtn.className = "theme-btn";
+function syncThemeBtn(){
+  var light = document.documentElement.classList.contains("light");
+  themeBtn.textContent = light ? "🌙" : "☀️";
+  var label = light ? "ダークモードに切り替える" : "ライトモード（白背景）に切り替える";
+  themeBtn.title = label;
+  themeBtn.setAttribute("aria-label", label);
+}
+themeBtn.addEventListener("click", function(){
+  var light = document.documentElement.classList.toggle("light");
+  try{ localStorage.setItem("tenshokuTheme", light ? "light" : "dark"); }catch(e){}
+  syncThemeBtn();
+  if (typeof gtag === "function") { gtag("event", "theme_toggle", { mode: light ? "light" : "dark" }); }
+});
+syncThemeBtn();
+document.body.appendChild(themeBtn);
 
 /* ===== 投稿フォーム ===== */
 var form = document.getElementById("sform");

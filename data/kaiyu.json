@@ -61,9 +61,9 @@
     {
       "id": "rocket-inside",
       "path": "rocket-inside.html",
-      "title": "ロケットの中 ― 乗組員デッキ",
+      "title": "ロケットの中 ― 工房のサブエージェント21体",
       "tag": "目指す未来",
-      "desc": "工房で実際に働くAIエージェント8体を、生涯キャリア図鑑と同じジョブカードで見るページ。",
+      "desc": "工房で実際に働いているAIエージェント21体を、生涯キャリア図鑑と同じジョブカードにして、3つのフロアに分けて並べたページ。",
       "theme": "night",
       "category": "mirai",
       "added": "2026-07-26",
@@ -1141,7 +1141,8 @@
       "band": true,
       "next": [
         "gyokai-zukan",
-        "jirei-career"
+        "jirei-career",
+        "rocket-inside"
       ]
     },
     {
