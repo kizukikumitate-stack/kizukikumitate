@@ -124,6 +124,8 @@ button:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
 }
 .mode-note{font-size:.75rem; color:var(--sub); flex:1 1 14rem; min-width:0;}
 .mode-note b{color:var(--indigo-dark);}
+.mode-note a{color:var(--indigo); font-weight:800; text-decoration:none; white-space:nowrap;}
+.mode-note a:hover{text-decoration:underline;}
 .pill.sys.on{background:#3E4E8E; border-color:#3E4E8E;}
 
 /* ---- システム思考モード：輪（ループ）の一覧 ---- */
@@ -519,7 +521,8 @@ const MODES = [
   { id: "views", label: "🗺 みんなの視点", desc: "誰が得して、誰が損するか",
     note: "関係者を並べ、<b>観点×時間軸</b>のレンズで「誰が得して、誰が損するか」を見ます。" },
   { id: "systems", label: "🔄 システム思考", desc: "影響がまわって返ってくる輪を見る",
-    note: "関係者のあいだに<b>影響の矢</b>を引くと、ぐるりと返ってくる<b>輪（ループ）</b>を自動で見つけます。記入した内容はそのまま使えます。" },
+    note: "関係者のあいだに<b>影響の矢</b>を引くと、ぐるりと返ってくる<b>輪（ループ）</b>を自動で見つけます。記入した内容はそのまま使えます。" +
+      ' <a href="./systems-thinking.html">解説とチュートリアル →</a>' },
 ];
 
 const SCALES = [
@@ -2719,8 +2722,10 @@ function openSysGuide() {
     '<div class="act-magic"><div class="act-t">🪄 輪を見ながらの問い</div>' +
     '<div class="act-q">' + SYS_QUESTIONS.map(esc).join("<br>") + "</div></div>" +
     '<p class="modal-note">もっと知りたい方へ：' +
-    '<a href="https://kizukikumitate.com/systems-thinking-zukan.html">システム思考の道具図鑑</a>' +
-    'に、因果ループ図・ストック&フロー・システム原型（共有地の悲劇、応急処置の失敗ほか）を集めています。<br>' +
+    '<a href="./systems-thinking.html">システム思考とは（解説とチュートリアル）</a>' +
+    'に、氷山・輪・遅れの考え方と、このケースで手を動かす5ステップをまとめています。' +
+    '道具そのものは<a href="./systems-thinking-zukan.html">システム思考の道具図鑑</a>' +
+    '（因果ループ図・ストック&フロー・システム原型ほか）へ。<br>' +
     '心得：矢は事実ではなく仮説／描けない矢こそ話す価値がある／輪の中に自分を入れて描く。</p>' +
     "</div>";
   m.querySelector(".modal-box").addEventListener("click", (e) => e.stopPropagation());

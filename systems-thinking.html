@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex"><!-- 磨き込み中のテスト公開。ツール（stakeholder-diorama.html）と同じ扱いで、ナビ・sitemap・回遊からは外してある。正式リリース時にこの行を削除し、nav.json/kaiyu.json/sitemap.xml に掲載する -->
+<title>システム思考とは ― ４次元トンボのメガネで鍛える｜きづきくみたて工房（テスト公開）</title>
+<meta name="description" content="システム思考の考え方（氷山・輪・遅れ）を平たい言葉で解説し、対話ツール「４次元トンボのメガネ（ステークホルダー・ジオラマ）」で実際に手を動かして鍛えるチュートリアルまでを1ページにまとめました。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="システム思考とは ― ４次元トンボのメガネで鍛える（テスト公開）">
+<meta property="og:description" content="影響は一方通行ではなく、まわって返ってきます。氷山・輪・遅れの3つの見方と、対話ツールで手を動かす5ステップのチュートリアル。">
+<meta property="og:image" content="https://kizukikumitate.com/systems-thinking-ogp.png">
+<meta property="og:url" content="https://kizukikumitate.com/systems-thinking.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="システム思考とは ― ４次元トンボのメガネで鍛える（テスト公開）">
+<meta name="twitter:description" content="氷山・輪・遅れの3つの見方と、手を動かして鍛えるチュートリアル。">
+<meta name="twitter:image" content="https://kizukikumitate.com/systems-thinking-ogp.png">
+<link rel="canonical" href="https://kizukikumitate.com/systems-thinking.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#2A3439; --sub:#5E6E6A; --border:#D8E2DD; --indigo:#34618E; --indigo-dark:#274A6E;
+  --yamabuki:#F2B33D; --gain:#3E9B6E; --loss:#D4635B; --sys:#3E4E8E;
+  --bg:#F3F7F4;
+}
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%; scroll-behavior:smooth;}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Zen Maru Gothic','Hiragino Maru Gothic ProN','Yu Gothic',sans-serif;
+  font-weight:500; line-height:1.9;
+  word-break:keep-all; overflow-wrap:break-word;
+  line-break:strict; hanging-punctuation:allow-end;
+  padding:18px 14px 64px;
+}
+.wrap{max-width:820px; margin:0 auto;}
+
+/* ---- ヘッダー ---- */
+.eyebrow{font-size:.76rem; font-weight:800; color:var(--indigo); letter-spacing:.04em;}
+h1{margin:6px 0 0; font-size:1.6rem; font-weight:900; letter-spacing:.01em;}
+.h1sub{font-size:.9rem; font-weight:800; color:var(--sys); margin-top:4px;}
+.lead{font-size:.9rem; color:var(--sub); margin:12px 0 0;}
+.head-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-top:14px;}
+.badge-test{
+  font-size:.72rem; font-weight:800; color:#8A6A1E;
+  background:#F8F1DE; border:1.5px solid var(--yamabuki); border-radius:99px; padding:3px 12px;
+}
+.btn{
+  display:inline-block; border:1.5px solid var(--indigo); background:#FFF; color:var(--indigo-dark);
+  border-radius:10px; padding:7px 14px; font-size:.8rem; font-weight:800; text-decoration:none;
+}
+.btn:hover{background:#EAF1F7;}
+.btn.primary{background:var(--indigo); border-color:var(--indigo); color:#FFF;}
+.btn.primary:hover{background:var(--indigo-dark);}
+.btn.sys{background:var(--sys); border-color:var(--sys); color:#FFF;}
+.btn.sys:hover{background:#2E3B6E;}
+
+/* ---- 目次 ---- */
+.toc{
+  background:#FFF; border:1.5px solid var(--border); border-radius:16px; padding:14px 18px; margin:20px 0 0;
+}
+.toc-t{font-size:.82rem; font-weight:900; margin-bottom:6px;}
+.toc ol{margin:0; padding-left:1.3em; font-size:.84rem;}
+.toc a{color:var(--indigo-dark); text-decoration:none;}
+.toc a:hover{text-decoration:underline;}
+
+/* ---- セクション ---- */
+section{margin-top:34px;}
+.part{
+  font-size:.74rem; font-weight:900; color:#FFF; background:var(--sys);
+  border-radius:99px; padding:3px 12px; display:inline-block;
+}
+h2{font-size:1.16rem; font-weight:900; margin:10px 0 0; letter-spacing:.01em;}
+h3{font-size:.98rem; font-weight:900; margin:24px 0 0; color:var(--indigo-dark);}
+/* 狭いカードでも「。」の孤立と単語内改行が出ないよう、文節で折り返す */
+p, li, td, .lead, .quiet, .do, .note, .fig-cap, .next-b{
+  word-break:auto-phrase; line-break:strict; hanging-punctuation:allow-end;
+}
+h1, h2, h3, .card-t, .step-t, .word-t, .next-t{text-wrap:balance; word-break:auto-phrase;}
+p{font-size:.9rem; margin:10px 0 0;}
+.card{background:#FFF; border:1.5px solid var(--border); border-radius:16px; padding:16px 18px; margin-top:14px;}
+.card-t{font-size:.9rem; font-weight:900; margin-bottom:4px;}
+.card p{margin-top:6px;}
+.grid3{display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:12px; margin-top:14px;}
+.grid2{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; margin-top:14px;}
+.note{
+  background:#F8F1DE; border:1.5px solid var(--yamabuki); border-radius:14px; padding:13px 16px;
+  font-size:.84rem; margin-top:16px;
+}
+.quiet{font-size:.82rem; color:var(--sub);}
+strong{color:var(--indigo-dark);}
+.tag-r{display:inline-block; background:var(--loss); color:#FFF; font-size:.72rem; font-weight:900; border-radius:99px; padding:2px 10px;}
+.tag-b{display:inline-block; background:var(--gain); color:#FFF; font-size:.72rem; font-weight:900; border-radius:99px; padding:2px 10px;}
+.tag-d{display:inline-block; background:#F8F1DE; color:#8A6A1E; border:1.5px solid var(--yamabuki); font-size:.72rem; font-weight:800; border-radius:99px; padding:1px 9px;}
+
+/* ---- 手順 ---- */
+.step{display:flex; gap:12px; align-items:flex-start; margin-top:16px;}
+.step-no{
+  flex:0 0 auto; width:30px; height:30px; border-radius:99px; background:var(--sys); color:#FFF;
+  font-size:.86rem; font-weight:900; display:flex; align-items:center; justify-content:center;
+}
+.step-body{flex:1 1 auto; min-width:0;}
+.step-t{font-size:.92rem; font-weight:900;}
+.step-body p{margin-top:4px;}
+.do{
+  background:#EDF2F7; border-left:4px solid var(--sys); border-radius:0 10px 10px 0;
+  padding:9px 12px; font-size:.84rem; margin-top:8px;
+}
+.do b{color:var(--sys);}
+
+/* ---- 表 ---- */
+.tbl-wrap{overflow-x:auto; margin-top:14px;}
+table{border-collapse:collapse; width:100%; min-width:32rem; background:#FFF; font-size:.84rem;}
+th, td{border:1.5px solid var(--border); padding:8px 10px; text-align:left; vertical-align:top;}
+th{background:#EDF2F0; font-weight:900; white-space:nowrap;}
+
+/* ---- 図（強化ループと平衡ループ） ---- */
+.fig{background:#FFF; border:1.5px solid var(--border); border-radius:16px; padding:10px; margin-top:14px;}
+.fig svg{width:100%; height:auto; display:block;}
+.fig-cap{font-size:.78rem; color:var(--sub); padding:4px 6px 2px;}
+
+/* ---- 用語 ---- */
+.words{display:flex; flex-direction:column; align-items:stretch; gap:10px; margin-top:14px;}
+.word{background:#FFF; border:1.5px solid var(--border); border-radius:14px; padding:12px 15px;}
+.word-t{font-size:.86rem; font-weight:900;}
+.word p{font-size:.84rem; margin-top:4px;}
+
+/* ---- Q&A ---- */
+details{background:#FFF; border:1.5px solid var(--border); border-radius:14px; padding:11px 15px; margin-top:10px;}
+summary{font-size:.87rem; font-weight:800; cursor:pointer;}
+details p{font-size:.84rem;}
+
+/* ---- 次へ ---- */
+.next{display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:12px; margin-top:16px;}
+.next a{
+  display:block; background:#FFF; border:1.5px solid var(--border); border-radius:16px;
+  padding:14px 16px; text-decoration:none; color:var(--ink);
+}
+.next a:hover{border-color:var(--indigo);}
+.next-t{font-size:.9rem; font-weight:900; color:var(--indigo-dark);}
+.next-b{font-size:.8rem; color:var(--sub); margin-top:4px;}
+
+/* ---- フッター ---- */
+.foot{
+  max-width:820px; margin:44px auto 0; padding-top:18px; border-top:1.5px solid var(--border);
+  font-size:.76rem; color:var(--sub); line-height:2;
+}
+.foot a{color:var(--indigo); text-decoration:none;}
+.foot a:hover{text-decoration:underline;}
+
+@media (max-width:768px){
+  body{padding:14px 12px 56px;}
+  h1{font-size:1.3rem;}
+  h2{font-size:1.05rem;}
+  .grid3, .grid2, .next{grid-template-columns:minmax(0, 1fr);}
+}
+@media (max-width:540px){
+  h1{font-size:1.15rem;}
+  .card{padding:14px 15px;}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">４次元トンボのメガネ ／ 読みもの</div>
+    <h1>システム思考とは</h1>
+    <div class="h1sub">― そして、この道具でどう鍛えるか</div>
+    <p class="lead">原因はひとつ、と決める前に。影響は一方通行ではなく、まわって自分に返ってきます。この読みものは前半で<strong>システム思考の考え方</strong>を平たい言葉で説明し、後半で対話ツール<strong>「４次元トンボのメガネ」</strong>を使って実際に手を動かすチュートリアルまで案内します。</p>
+    <div class="head-row">
+      <span class="badge-test">🧪 テスト公開中</span>
+      <a class="btn sys" href="./stakeholder-diorama.html">🔄 ツールを開く</a>
+      <a class="btn" href="./systems-thinking-zukan.html">📚 システム思考の道具図鑑</a>
+    </div>
+  </header>
+
+  <div class="toc">
+    <div class="toc-t">この読みもののなかみ</div>
+    <ol>
+      <li><a href="#part1">前半：システム思考とは（10分）</a></li>
+      <li><a href="#three">三つの見方 ― 氷山・輪・遅れ</a></li>
+      <li><a href="#loops">輪は2種類しかない</a></li>
+      <li><a href="#traps">つまずきの型</a></li>
+      <li><a href="#words">用語の小さな棚</a></li>
+      <li><a href="#part2">後半：この道具で鍛える（チュートリアル）</a></li>
+      <li><a href="#steps">手を動かす5ステップ</a></li>
+      <li><a href="#qa">つまずいたときのQ&amp;A</a></li>
+      <li><a href="#menu">練習メニュー（ひとり／研修）</a></li>
+    </ol>
+  </div>
+
+  <section id="part1">
+    <span class="part">前半</span>
+    <h2>システム思考とは</h2>
+    <p>会議で「原因は何か」を探すと、たいてい一本の矢が引かれます。売上が落ちたのは価格のせい。離職が続くのは上司のせい。矢が一本なら打ち手も一本で、話は早く終わります。</p>
+    <p>けれど現場に戻ると、打ったはずの手が効かない。効いたはずが半年後に別の場所で反対に効いている。これは打ち手が弱かったからではなく、<strong>影響がまわって返ってくる形</strong>を見ないまま決めたからです。</p>
+    <p>システム思考は、この「まわって返ってくる形」を見るための考え方です。誰かを責める代わりに、<strong>人がそう動いてしまう仕組み</strong>のほうを描きます。魔法ではありません。当てるための道具でもありません。<strong>見落としに気づくための道具</strong>です。</p>
+
+    <div class="note">📌 この読みものの立場：図に描けたものが正解ではありません。描いた矢はすべて仮説です。仮説だからこそ、人と見せ合うと違いが出て、話す価値が生まれます。</div>
+  </section>
+
+  <section id="three">
+    <h2>三つの見方 ― 氷山・輪・遅れ</h2>
+    <p>細かい技法はたくさんありますが、入口はこの三つで足ります。</p>
+
+    <div class="grid3">
+      <div class="card">
+        <div class="card-t">🧊 出来事の下を見る</div>
+        <p>目に入るのは「出来事」だけです。その下には繰り返される「パターン」があり、さらに下にそれを生む「構造」、いちばん下に「前提（ものの見方）」があります。氷山モデルと呼ばれる見立てです。</p>
+        <p class="quiet">問い：これは一度きりの出来事ですか。それとも何度目ですか。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">🔄 影響は返ってくる</div>
+        <p>Aが動くとBが動き、Bが動くとCが動き、そのCがまたAを動かす。輪が閉じると、そこから先は「原因」と「結果」の区別がなくなります。輪そのものが動きを生みます。</p>
+        <p class="quiet">問い：その影響は、本当にどこにも返ってこないのでしょうか。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">⏳ 時間がずれる</div>
+        <p>原因と結果のあいだには時間差があります。人の育成、信頼、地下水、設備の劣化。効きはじめるまでが長いものほど、手ごたえのないうちに打ち手を変えてしまいます。</p>
+        <p class="quiet">問い：これは何ヶ月後に効きはじめる話ですか。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="loops">
+    <h2>輪は2種類しかない</h2>
+    <p>いくつ矢を引いても、閉じた輪は必ず次の2種類のどちらかになります。ここがシステム思考のいちばん実用的なところです。</p>
+
+    <div class="fig">
+      <svg viewBox="0 0 760 260" role="img" aria-label="強化ループと平衡ループの図">
+        <defs>
+          <marker id="ar-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,1 L9,5 L0,9 z" fill="#D4635B"/>
+          </marker>
+          <marker id="ar-b" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0,1 L9,5 L0,9 z" fill="#3E9B6E"/>
+          </marker>
+        </defs>
+
+        <text x="180" y="34" text-anchor="middle" font-size="16" font-weight="800" fill="#D4635B">🔁 強化ループ（R）</text>
+        <circle cx="90" cy="120" r="34" fill="#FFF" stroke="#D4635B" stroke-width="3"/>
+        <text x="90" y="125" text-anchor="middle" font-size="13" font-weight="800" fill="#2A3439">評判</text>
+        <circle cx="270" cy="120" r="34" fill="#FFF" stroke="#D4635B" stroke-width="3"/>
+        <text x="270" y="125" text-anchor="middle" font-size="13" font-weight="800" fill="#2A3439">利用者</text>
+        <path d="M124,105 Q180,72 236,105" fill="none" stroke="#D4635B" stroke-width="3" marker-end="url(#ar-r)"/>
+        <path d="M236,138 Q180,171 124,138" fill="none" stroke="#D4635B" stroke-width="3" marker-end="url(#ar-r)"/>
+        <circle cx="180" cy="84" r="11" fill="#FFF" stroke="#D4635B" stroke-width="2"/>
+        <text x="180" y="89" text-anchor="middle" font-size="12" font-weight="900" fill="#D4635B">＋</text>
+        <circle cx="180" cy="159" r="11" fill="#FFF" stroke="#D4635B" stroke-width="2"/>
+        <text x="180" y="164" text-anchor="middle" font-size="12" font-weight="900" fill="#D4635B">＋</text>
+        <text x="180" y="216" text-anchor="middle" font-size="13" fill="#5E6E6A">同じ方向へ回り続け、勢いが増していく</text>
+        <text x="180" y="238" text-anchor="middle" font-size="13" fill="#5E6E6A">（良い循環にも、悪循環にもなる）</text>
+
+        <line x1="380" y1="50" x2="380" y2="230" stroke="#D8E2DD" stroke-width="2" stroke-dasharray="6 6"/>
+
+        <text x="580" y="34" text-anchor="middle" font-size="16" font-weight="800" fill="#3E9B6E">⚖️ 平衡ループ（B）</text>
+        <circle cx="490" cy="120" r="34" fill="#FFF" stroke="#3E9B6E" stroke-width="3"/>
+        <text x="490" y="125" text-anchor="middle" font-size="13" font-weight="800" fill="#2A3439">残業</text>
+        <circle cx="670" cy="120" r="34" fill="#FFF" stroke="#3E9B6E" stroke-width="3"/>
+        <text x="670" y="125" text-anchor="middle" font-size="13" font-weight="800" fill="#2A3439">体力</text>
+        <path d="M524,105 Q580,72 636,105" fill="none" stroke="#3E9B6E" stroke-width="3" stroke-dasharray="8 5" marker-end="url(#ar-b)"/>
+        <path d="M636,138 Q580,171 524,138" fill="none" stroke="#3E9B6E" stroke-width="3" marker-end="url(#ar-b)"/>
+        <circle cx="580" cy="84" r="11" fill="#FFF" stroke="#3E9B6E" stroke-width="2"/>
+        <text x="580" y="89" text-anchor="middle" font-size="12" font-weight="900" fill="#3E9B6E">−</text>
+        <circle cx="580" cy="159" r="11" fill="#FFF" stroke="#3E9B6E" stroke-width="2"/>
+        <text x="580" y="164" text-anchor="middle" font-size="12" font-weight="900" fill="#3E9B6E">＋</text>
+        <text x="580" y="216" text-anchor="middle" font-size="13" fill="#5E6E6A">行きすぎを引き戻し、ある状態に近づける</text>
+        <text x="580" y="238" text-anchor="middle" font-size="13" fill="#5E6E6A">（動けない理由も、この輪のことが多い）</text>
+      </svg>
+      <div class="fig-cap">＋は「同じ向きに動く」、−は「逆向きに動く」。輪のなかの−の数が偶数なら強化ループ、奇数なら平衡ループになります。</div>
+    </div>
+
+    <p><span class="tag-r">🔁 強化ループ（R）</span> 評判が上がると利用者が増え、利用者が増えると評判が上がる。放っておくと勢いが増していく輪です。良い方向にも悪い方向にも同じ形で働くので、「どこで止まるのか」「何が限界になるのか」を先に話しておくと役に立ちます。</p>
+    <p><span class="tag-b">⚖️ 平衡ループ（B）</span> 残業が増えると体力が下がり、体力が下がると残業できなくなる。行きすぎを引き戻す輪です。目標や上限があるところに生まれます。「変えようとしても元に戻ってしまう」という現場の感覚は、多くの場合この輪が働いています。</p>
+    <p><span class="tag-d">⏳ 遅れ</span> どちらの輪も、途中に遅れが入ると読み方が変わります。手を打った実感が出るまで時間がかかるため、効果が見えないうちに打ち手を変えたくなり、あとから効果と副作用がまとめて来ます。</p>
+  </section>
+
+  <section id="traps">
+    <h2>つまずきの型</h2>
+    <p>輪を見ないまま決めると、同じ形のつまずきが繰り返されます。名前を知っておくと、会議のなかで気づけるようになります。</p>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="card-t">部分だけ良くなる</div>
+        <p>それぞれの部署が自分の指標を良くすると、全体では悪くなることがあります。誰も間違っていないのに結果が悪い、という状況はここから生まれます。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">応急処置が効きすぎる</div>
+        <p>症状がすぐ引く手当てほど繰り返し使われ、根の部分に手が入らなくなります。効く手当てであることが、かえって足を止めます。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">遅れに驚いて振れる</div>
+        <p>反応が返るまで待てず、追加で手を打つ。しばらくして最初の手と追加の手がまとめて効き、行きすぎてしまう。増員や在庫でよく起きる形です。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">善意が別の場所で効く</div>
+        <p>誰かを助ける手が、輪をまわって別の誰かの負担になる。悪意がないだけに気づきにくく、当事者を場に呼んでいないと最後まで見えません。</p>
+      </div>
+    </div>
+    <p class="quiet">それぞれの型（システム原型）の詳しい説明と出典は<a href="./systems-thinking-zukan.html">システム思考の道具図鑑</a>にまとめています。</p>
+  </section>
+
+  <section id="words">
+    <h2>用語の小さな棚</h2>
+    <div class="words">
+      <div class="word">
+        <div class="word-t">🔁 強化ループ（R / Reinforcing）</div>
+        <p>同じ方向へ回り続け、勢いが増していく輪。輪のなかの「逆向き（−）」の矢が偶数のときに生まれます。</p>
+      </div>
+      <div class="word">
+        <div class="word-t">⚖️ 平衡ループ（B / Balancing）</div>
+        <p>行きすぎを引き戻し、ある状態に近づける輪。「逆向き（−）」の矢が奇数のときに生まれます。</p>
+      </div>
+      <div class="word">
+        <div class="word-t">⏳ 遅れ（ディレイ）</div>
+        <p>原因と結果のあいだの時間差。遅れの長い輪は、実感と実態がずれるため、判断がいちばん狂いやすい場所です。</p>
+      </div>
+      <div class="word">
+        <div class="word-t">🎯 レバレッジポイント</div>
+        <p>小さく触るだけで全体の流れが変わる場所。多くの場合それは量の調整ではなく、矢の向き・遅れの長さ・前提のほうにあります。</p>
+      </div>
+      <div class="word">
+        <div class="word-t">🧊 氷山モデル</div>
+        <p>出来事の下にパターン、その下に構造、いちばん下に前提がある、という見立て。矢を引いて輪を描く作業は「構造」を描くことにあたります。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="part2">
+    <span class="part">後半</span>
+    <h2>この道具で、どう鍛えるか</h2>
+    <p>読んで分かった気になるのと、自分の言葉で矢を引けるのは別のことです。「４次元トンボのメガネ」は、関係者を並べて視点を切り替える対話ツールですが、<strong>システム思考モード</strong>に切り替えると、そのまま輪を描く練習台になります。</p>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr><th>ツールの機能</th><th>システム思考のどこを鍛えるか</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>関係者のコマを並べる</td><td>システムの<b>境界</b>を決める練習。誰を場に入れたかで、見える輪が変わります。</td></tr>
+          <tr><td>観点（経済・環境・社会）を切り替える</td><td>指標をひとつに絞らない練習。同じ出来事が、観点ごとに別の意味を持ちます。</td></tr>
+          <tr><td>時間軸（短期・中期・長期）を切り替える</td><td><b>遅れ</b>を扱う練習。短期で得する人と長期で損する人がずれることに気づきます。</td></tr>
+          <tr><td>影響の矢（＋／−／⏳）を引く</td><td>氷山の「<b>構造</b>」を描く練習。頭のなかの因果を外に出して見せ合えます。</td></tr>
+          <tr><td>輪の自動判定（R / B）</td><td>自分が描いた構造の意味を受け取る練習。勢いが増す輪か、引き戻す輪かが分かります。</td></tr>
+          <tr><td>もしもの世界の切り替え</td><td>前提を入れ替える練習。同じ関係者の得と損が入れ替わるのを体で確かめられます。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="steps">
+    <h2>手を動かす5ステップ</h2>
+    <p>はじめは「①プール問題」のケースを教材にするのが早いです。記入済みの盤面が読み込まれるので、矢を引くところから始められます。所要は20〜30分です。</p>
+
+    <div class="step">
+      <div class="step-no">1</div>
+      <div class="step-body">
+        <div class="step-t">ケースを開く</div>
+        <p>ツールを開き、画面いちばん下の帯から「①プール問題」を押します。学校のプールを廃止して市民プールに集約するか、というテーマで、児童・生徒／保護者／学校・教員／自治体／地域住民の5人が並びます。</p>
+        <div class="do"><b>やること：</b>下の帯 → <b>①プール問題</b></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">2</div>
+      <div class="step-body">
+        <div class="step-t">モードを切り替える</div>
+        <p>画面上部のモードを「🔄 システム思考」にします。記入済みのメリット・デメリットはそのまま残るので、いつでも「🗺 みんなの視点」に戻して見比べられます。</p>
+        <div class="do"><b>やること：</b>モード → <b>🔄 システム思考</b></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">3</div>
+      <div class="step-body">
+        <div class="step-t">矢を3本引いて、輪を閉じる</div>
+        <p>コマをクリックすると、右側に「🔄 影響の矢」が出ます。相手を選び、同じ向きに動くなら＋、逆向きなら−、効きはじめるのに時間がかかるなら⏳を付けて引きます。まずは3本つないで輪を閉じてみてください。</p>
+        <div class="do"><b>例：</b>児童・生徒 <b>—＋→</b> 保護者 ／ 保護者 <b>—＋⏳→</b> 学校・教員 ／ 学校・教員 <b>—−→</b> 児童・生徒</div>
+        <p class="quiet">この3本は「子どもが困ると保護者が声を上げ、声を上げられた学校が（時間をかけて）対応を増やし、対応が増えると子どもの困りは減る」という読みです。あなたの読みが違うなら、その違いこそ話す価値があります。</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">4</div>
+      <div class="step-body">
+        <div class="step-t">判定を読む</div>
+        <p>輪が閉じると、盤面の下に「🔁 強化ループ（R）」か「⚖️ 平衡ループ（B）」が自動で並びます。上の例は−が1本（奇数）なので平衡ループです。遅れを含む輪には「⏳ 遅れあり」が付きます。</p>
+        <div class="do"><b>問い：</b>この輪は勢いが増す輪ですか、引き戻す輪ですか。実感と合っていますか。</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-no">5</div>
+      <div class="step-body">
+        <div class="step-t">どこに触るかを決めて、副作用を確かめる</div>
+        <p>輪を眺めながら、いちばん小さい力で流れが変わる場所を探します。決めたら、その手を輪に戻して「別のどこかで効いていないか」を見ます。ここまでやって一周です。</p>
+        <div class="do"><b>やること：</b>📋 Markdownをコピー、または 🔗 URLで共有 して、描いた輪を記録に残す</div>
+      </div>
+    </div>
+
+    <div class="head-row" style="margin-top:20px">
+      <a class="btn sys" href="./stakeholder-diorama.html">🔄 ツールを開いて、ここから始める</a>
+    </div>
+  </section>
+
+  <section id="qa">
+    <h2>つまずいたときのQ&amp;A</h2>
+
+    <details>
+      <summary>矢が1本も引けません</summary>
+      <p>「AとBのどちらが原因か」を決めようとしていると、手が止まります。順番はあとで直せるので、まずは<b>思いついた向き</b>で1本引いてください。引いてから逆向きのほうが自然だと感じたら、はずして引き直すだけです。</p>
+    </details>
+    <details>
+      <summary>輪ができません（矢が一方通行で終わる）</summary>
+      <p>それ自体が発見です。「この影響は、本当にどこにも返ってこないのか」と問い直すと、たいてい返り道が見つかります。見つからないときは、返り道の途中にいる人がまだ場にいない可能性があります。「＋ 関係者を追加」で招いてみてください。</p>
+    </details>
+    <details>
+      <summary>輪が多すぎて読めません</summary>
+      <p>全部を読む必要はありません。<b>いちばん実感に近い輪を1つ</b>選び、そこだけ話してください。残りは記録に残しておけば、次の会で使えます（探索は6人までの輪・24個までで打ち切ります）。</p>
+    </details>
+    <details>
+      <summary>描いた輪が正しいか分かりません</summary>
+      <p>正しさは判定できません。この道具が返すのは「あなたが描いた構造なら、それは勢いが増す輪です」という<b>読み取り</b>だけです。正しさの代わりに、他の人と見せ合ったときの<b>違い</b>を材料にしてください。</p>
+    </details>
+  </section>
+
+  <section id="menu">
+    <h2>練習メニュー</h2>
+
+    <h3>ひとりで（1回10分）</h3>
+    <p>手近な題材で、輪を1つだけ描いて終わりにします。毎回1つでも、10回やると「返り道を探す」癖が付きます。</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="card-t">① 身近な滞り</div>
+        <p>会議が長い、返信が遅い、といった小さな滞りを題材に、関係者3人で輪を1つ描きます。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">② うまくいっていること</div>
+        <p>好調なものを題材に強化ループを描き、「何が限界になるか」まで書き足します。</p>
+      </div>
+      <div class="card">
+        <div class="card-t">③ 戻ってしまう変化</div>
+        <p>変えたのに元に戻った出来事を題材に、引き戻している平衡ループを探します。</p>
+      </div>
+    </div>
+
+    <h3>研修・ワークショップで（90分）</h3>
+    <p>進行の台本は、ツールの中の「📖 進め方」と「📖 システム思考の使い方」に入れてあります。おおまかには、関係者を並べる（20分）→ 各自が矢を引く（20分）→ 描いた輪を見せ合う（25分）→ どこに触るかを決める（20分）→ ふりかえり（5分）の流れです。</p>
+    <p>見せ合う場面がいちばん学びになります。同じテーマでも人によって矢の向きが違い、その違いが「自分がどんな前提で世界を見ていたか」を映すからです。</p>
+
+    <div class="note">🪄 進行役への注記：矢の少ない人を急かさないでください。矢が引けないのは、その人が慎重に考えている合図でもあります。輪ができないまま終わる班があってもかまいません。</div>
+  </section>
+
+  <section>
+    <h2>次に読むもの</h2>
+    <div class="next">
+      <a href="./stakeholder-diorama.html">
+        <div class="next-t">🔄 ４次元トンボのメガネ</div>
+        <div class="next-b">ひとつのテーマを、みんなの視点から眺める道具。システム思考モードで輪を描けます。</div>
+      </a>
+      <a href="./systems-thinking-zukan.html">
+        <div class="next-t">📚 システム思考の道具図鑑</div>
+        <div class="next-b">因果ループ図・ストック&amp;フロー・システム原型など、道具そのものを出典つきで集めた図鑑。</div>
+      </a>
+      <a href="./dialogue-zukan.html">
+        <div class="next-t">🗣 世界の対話の技法図鑑</div>
+        <div class="next-b">描いた輪を人と話すための場のつくり方。世界の対話技法を集めています。</div>
+      </a>
+      <a href="./ashimoto-map.html">
+        <div class="next-t">🗺 足元からの地図</div>
+        <div class="next-b">個人・職場・学校・地域・制度の5層で、身近な場所から変化を育てる見取り図。</div>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<div class="foot">
+  <p>システム思考とは ― ４次元トンボのメガネで鍛える（テスト版）｜きづきくみたて工房</p>
+  <p>このページは検証用のため、サイトのメニューからはたどれません。<a href="https://kizukikumitate.com/">きづきくみたて工房のサイトへ</a></p>
+</div>
+
+</body>
+</html>

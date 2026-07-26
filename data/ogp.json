@@ -680,6 +680,16 @@
       "sub": "ステークホルダー・ジオラマ ／ ひとつのテーマを、関係者みんなの視点から眺める。誰が得して、誰が損するかを見える化。"
     },
     {
+      "page": "systems-thinking.html",
+      "img": "systems-thinking-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#3E4E8E",
+      "eyebrow": "読みもの ／ ４次元トンボのメガネ",
+      "title": "システム思考とは",
+      "sub": "氷山・輪・遅れの3つの見方と、対話ツールで手を動かして鍛えるチュートリアル。"
+    },
+    {
       "page": "genzaichi-shindan.html",
       "img": "genzaichi-shindan-ogp.png",
       "template": "standard",
