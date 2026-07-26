@@ -1897,8 +1897,8 @@ function bindTokens(stage, list) {
 function renderStage() {
   const stage = $("stage");
   document.querySelector(".main").classList.toggle("table-view", S.view === "table");
-  if (S.view === "field" && S.world && !S.currentSiteId) {
-    /* 世界地図：拠点を選ぶ */
+  if (S.view === "field" && S.world && !S.currentSiteId && S.scale === "earth") {
+    /* 世界地図：拠点を選ぶ（スケール「地球」のとき。会議室・街を選ぶと下の通常の盤面になる） */
     stage.className = "";
     stage.innerHTML = '<div class="role-row"><span class="ctl-label">つながりで見る</span>' +
       ROLE_FILTERS.map((r) => '<button type="button" class="pill' + (S.roleFilter === r.id ? " on" : "") +
@@ -1940,7 +1940,8 @@ function renderStage() {
 }
 
 function renderControls() {
-  $("scaleGroup").hidden = !!S.world; /* 世界地図があるときは拠点ごとの地面が決まっている */
+  /* スケールは常に出す。世界地図を持つケースでは「地球」＝世界地図、会議室・街＝全員を一つの場に並べた盤面 */
+  $("scaleGroup").hidden = false;
   $("scaleBtns").innerHTML = SCALES.map((s) =>
     '<button type="button" class="pill' + (S.scale === s.id ? " on" : "") + '" data-scale="' + s.id + '" title="' + esc(s.desc) + '">' + esc(s.label) + "</button>").join("");
   $("axisBtns").innerHTML = '<button type="button" class="pill' + (S.lensAxis === "all" ? " on" : "") + '" data-axis="all">すべて</button>' +
@@ -2550,7 +2551,9 @@ async function generateFromBusiness() {
   $("themeInput").addEventListener("input", (e) => { S.theme = e.target.value; save(); });
   $("scaleBtns").addEventListener("click", (e) => {
     const b = e.target.closest("[data-scale]"); if (!b) return;
-    S.scale = b.getAttribute("data-scale"); renderControls(); renderStage(); save();
+    S.scale = b.getAttribute("data-scale");
+    S.currentSiteId = null; /* 拠点の中にいても、スケールを選んだら全体の盤面にもどる */
+    renderControls(); renderStage(); renderActions(); renderPanel(); save();
   });
   $("axisBtns").addEventListener("click", (e) => {
     const b = e.target.closest("[data-axis]"); if (!b) return;
