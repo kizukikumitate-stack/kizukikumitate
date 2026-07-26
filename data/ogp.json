@@ -150,6 +150,16 @@
       "sub": "過去を発射台に、対話の工房と事業のエンジンを積んで、平和な地球へ。工房のすべてを一枚に。"
     },
     {
+      "page": "rocket-inside.html",
+      "img": "rocket-inside-ogp.png",
+      "template": "standard",
+      "theme": "night",
+      "acc": "#d9a441",
+      "eyebrow": "ロケットの中 ／ 乗組員デッキ",
+      "title": "工房で働く<br>AIエージェント8体",
+      "sub": "ジョブ図鑑と同じカードにしてみたら、とくぎの多くが「やらないこと」でできていた。"
+    },
+    {
       "page": "ashimoto-map.html",
       "img": "ashimoto-map-ogp.png",
       "template": "standard",

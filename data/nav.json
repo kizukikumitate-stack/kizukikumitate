@@ -35,6 +35,11 @@
             "desc": "工房の全体像を一枚の絵で見わたすページ"
           },
           {
+            "label": "ロケットの中（乗組員デッキ）",
+            "href": "rocket-inside.html",
+            "desc": "工房で働くAIエージェント8体をジョブカードで見るページ"
+          },
+          {
             "label": "世界平和までのロードマップ",
             "href": "roadmap.html",
             "desc": "世界中の実践がつながる、平和への戦略地図"
@@ -559,6 +564,10 @@
     },
     {
       "path": "rocket-map.html",
+      "variant": "standard"
+    },
+    {
+      "path": "rocket-inside.html",
       "variant": "standard"
     },
     {

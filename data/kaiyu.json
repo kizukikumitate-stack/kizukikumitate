@@ -59,6 +59,21 @@
       ]
     },
     {
+      "id": "rocket-inside",
+      "path": "rocket-inside.html",
+      "title": "ロケットの中 ― 乗組員デッキ",
+      "tag": "目指す未来",
+      "desc": "工房で実際に働くAIエージェント8体を、生涯キャリア図鑑と同じジョブカードで見るページ。",
+      "theme": "night",
+      "category": "mirai",
+      "added": "2026-07-26",
+      "band": true,
+      "next": [
+        "tenshoku-no-sho",
+        "roadmap"
+      ]
+    },
+    {
       "id": "dialogue-program",
       "path": "dialogue-program.html",
       "title": "対話力向上プログラム",

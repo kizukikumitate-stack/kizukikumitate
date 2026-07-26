@@ -1,0 +1,43 @@
+{
+  "name": "agent-deck",
+  "aspect_ratio": "1:1",
+  "anchors": ["images/tenshoku/nurse.webp", "images/tenshoku/founder.webp"],
+  "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. Human anatomy: exactly two arms and two legs, clearly separated, no extra or missing limbs, a simple standing or seated posture. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+  "out_dir": "images/agent-deck",
+  "file_pattern": "{id}.webp",
+  "webp": { "width": 800, "quality": 82 },
+  "items": [
+    {
+      "id": "site-reviewer",
+      "prompt": "A gatekeeper of a threshold: a figure from behind standing before a tall closed gate, raising a lantern to inspect the doorframe; a ring of keys hangs at the waist. Accent glow: emerald green light of the lantern."
+    },
+    {
+      "id": "participant-reviewer",
+      "prompt": "A first-time visitor arriving alone: a small lone figure from behind standing outside a half-open doorway of a warmly lit hall, one hand hesitating near the frame, a small travel bag on the ground at the feet. Accent glow: emerald green light spilling out from the doorway."
+    },
+    {
+      "id": "novice-reviewer",
+      "prompt": "A newcomer who has stopped on the way: a figure from behind halted on a path before a wooden signpost whose boards are completely blank and empty with nothing written on them, head tilted; the path forks beyond. Accent glow: emerald green light on one empty board."
+    },
+    {
+      "id": "expert-educator-reviewer",
+      "prompt": "A master artisan inspecting a staircase: an elder figure in clean profile checking each step of a wooden staircase with a measuring rod, one step clearly uneven. Accent glow: emerald green light on the uneven step."
+    },
+    {
+      "id": "post-deploy-smoke-tester",
+      "prompt": "A scout testing a newly built bridge: a figure from behind tapping the planks of a new bridge with a long staff, thin gold ripples of sound spreading from the point of contact. Accent glow: terracotta orange light where the staff meets the plank."
+    },
+    {
+      "id": "copy-brand-voice-reviewer",
+      "prompt": "A keeper of the house voice: a figure from behind holding up a completely blank unrolled scroll with nothing written on it toward a hanging wind chime, listening. Accent glow: rose pink light of the wind chime."
+    },
+    {
+      "id": "measurement-cv-reviewer",
+      "prompt": "A keeper of instruments: a figure from behind facing a wall of round unmarked dials with plain needles and no markings on their faces, reaching toward one of them. Accent glow: warm mustard amber light behind the single dial being read."
+    },
+    {
+      "id": "survey-data-analyst",
+      "prompt": "A reader of many answers: a figure seen strictly from behind with the back turned to the viewer, standing at the railing of an observatory balcony, head tilted up toward many small floating points of light arranged in a loose constellation in the night sky; one blank empty board is held low at the side in one hand. Accent glow: cool blue light of the constellation."
+    }
+  ]
+}
