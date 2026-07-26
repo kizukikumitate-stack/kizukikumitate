@@ -278,17 +278,24 @@ td.who{font-weight:800; white-space:nowrap;}
 }
 .case-bar-inner{max-width:1100px; margin:0 auto; display:flex; flex-direction:column; gap:7px;}
 .case-bar-head{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+/* 左の見出し側が伸び縮みを引き受け、右のボタン群は動かさない */
+.cb-info{display:flex; align-items:center; gap:8px; flex:1 1 auto; min-width:0;}
+.cb-nav{display:flex; align-items:center; gap:8px; flex:0 0 auto;}
 .case-bar-title{font-size:.75rem; font-weight:900; color:var(--sub); white-space:nowrap;}
 .case-bar-now{
   font-size:.78rem; font-weight:800; color:var(--indigo-dark);
-  max-width:14rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+  flex:0 0 auto; width:clamp(7rem, 26vw, 13rem);
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 .case-bar-count{
   font-size:.72rem; font-weight:800; color:var(--sub); white-space:nowrap;
-  background:#EDF2F0; border-radius:99px; padding:2px 10px;
+  background:#EDF2F0; border-radius:99px; padding:2px 10px; flex:0 0 auto;
 }
+/* ラベルが「もう一度で戻る」に変わっても幅が動かないよう固定する */
+.cb-nav .sbtn{flex:0 0 auto; text-align:center;}
+.cb-nav .cb-home{min-width:9.8em;}
 .cb-toggle{
-  margin-left:auto; border:1.5px solid var(--border); background:#FFF; color:var(--sub);
+  border:1.5px solid var(--border); background:#FFF; color:var(--sub);
   border-radius:99px; width:30px; height:26px; font-size:.7rem; font-weight:900;
   cursor:pointer; font-family:inherit; line-height:1; flex:0 0 auto;
 }
@@ -1940,15 +1947,17 @@ function renderCaseBar() {
   const count = i >= 0 ? (i + 1) + " / " + CASE_MENU.length : "－ / " + CASE_MENU.length;
   bar.innerHTML = '<div class="case-bar-inner">' +
     '<div class="case-bar-head">' +
+    '<div class="cb-info">' +
     '<span class="case-bar-title">🎬 ケースを試す</span>' +
-    '<span class="case-bar-now">' + esc(nowLabel) + "</span>" +
-    '<span class="case-bar-count">' + esc(count) + "</span>" +
+    '<span class="case-bar-now" title="' + esc(nowLabel) + '">' + esc(nowLabel) + "</span>" +
+    '<span class="case-bar-count">' + esc(count) + "</span></div>" +
+    '<div class="cb-nav">' +
     '<button type="button" class="sbtn" data-cb="prev">◀ 前</button>' +
     '<button type="button" class="sbtn primary" data-cb="next">次のケース ▶</button>' +
-    '<button type="button" class="sbtn back' + (confirmHome ? " armed" : "") + '" data-cb="home">' +
-    (confirmHome ? "もう一度押すともどります" : "↩︎ はじめの画面") + "</button>" +
+    '<button type="button" class="sbtn back cb-home' + (confirmHome ? " armed" : "") + '" data-cb="home">' +
+    (confirmHome ? "もう一度で戻る" : "↩︎ はじめの画面") + "</button>" +
     '<button type="button" class="cb-toggle" data-cb="toggle" aria-expanded="' + (barCollapsed ? "false" : "true") +
-    '" aria-label="ケース一覧の開閉">' + (barCollapsed ? "▲" : "▼") + "</button></div>" +
+    '" aria-label="ケース一覧の開閉">' + (barCollapsed ? "▲" : "▼") + "</button></div></div>" +
     '<div class="case-bar-list" id="caseBarList">' +
     CASE_MENU.map((m) => '<button type="button" class="cb-chip' +
       (m.id === S.caseId ? " on" : "") + (m.id === pendingCase ? " armed" : "") +
