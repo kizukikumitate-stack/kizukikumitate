@@ -117,6 +117,61 @@ button:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
 }
 .err{color:var(--loss); font-size:.78rem; font-weight:700; margin-top:8px;}
 
+/* ---- モード切替（みんなの視点／システム思考） ---- */
+.mode-bar{
+  display:flex; gap:8px; align-items:center; flex-wrap:wrap; margin-bottom:12px;
+  background:#FFF; border:1.5px solid var(--border); border-radius:14px; padding:9px 14px;
+}
+.mode-note{font-size:.75rem; color:var(--sub); flex:1 1 14rem; min-width:0;}
+.mode-note b{color:var(--indigo-dark);}
+.pill.sys.on{background:#3E4E8E; border-color:#3E4E8E;}
+
+/* ---- システム思考モード：輪（ループ）の一覧 ---- */
+#loops:empty{display:none;}
+.loops-card{
+  background:#FFF; border:1.5px solid var(--border); border-radius:16px; padding:14px 16px; margin-top:12px;
+}
+.loops-head{display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:8px;}
+.loops-title{font-size:.88rem; font-weight:900;}
+.loops-count{font-size:.72rem; font-weight:800; color:var(--sub); background:#EDF2F0; border-radius:99px; padding:2px 10px;}
+.loop{border-top:1.5px dashed var(--border); padding:10px 0 2px;}
+.loop:first-of-type{border-top:0;}
+.loop-tag{
+  display:inline-block; font-size:.72rem; font-weight:900; color:#FFF;
+  border-radius:99px; padding:2px 10px; margin-right:6px;
+}
+.loop-tag.r{background:#D4635B;}
+.loop-tag.b{background:#3E9B6E;}
+.loop-delay{font-size:.72rem; font-weight:800; color:#8A6A1E; background:#F8F1DE; border-radius:99px; padding:2px 9px;}
+.loop-chain{font-size:.82rem; font-weight:700; margin:6px 0 2px; word-break:auto-phrase;}
+.loop-read{font-size:.78rem; color:var(--sub); line-height:1.8;}
+.loops-empty{font-size:.8rem; color:var(--sub); line-height:1.9;}
+.sys-q{font-size:.78rem; color:var(--sub); line-height:1.9; border-top:1.5px dashed var(--border); margin-top:10px; padding-top:8px;}
+
+/* ---- システム思考モード：影響の矢の editor ---- */
+.link-sec{border-top:1.5px dashed var(--border); margin-top:12px; padding-top:10px;}
+.link-row{display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin:6px 0;}
+.link-row select{
+  flex:1 1 9rem; min-width:0; border:1.5px solid var(--border); border-radius:10px;
+  padding:6px 8px; font-size:.8rem; font-family:inherit; background:#FFF; color:var(--ink);
+}
+.link-check{display:inline-flex; align-items:center; gap:5px; font-size:.76rem; font-weight:700; color:var(--sub);}
+.link-row #linkAdd{margin-left:auto;}
+.link-list{margin-top:8px; display:flex; flex-direction:column; align-items:stretch; gap:6px;}
+.link-item{
+  display:flex; gap:6px; align-items:center; flex-wrap:wrap;
+  background:#F7FAF8; border:1.5px solid var(--border); border-radius:10px; padding:6px 10px; font-size:.78rem; font-weight:700;
+}
+.link-item .grow{flex:1 1 6rem; min-width:0;}
+.link-mark{font-weight:900;}
+.link-mark.same{color:var(--gain);}
+.link-mark.opposite{color:var(--loss);}
+.link-del{
+  border:0; background:none; color:var(--loss); font-size:.76rem; font-weight:800;
+  cursor:pointer; font-family:inherit; padding:2px 4px;
+}
+.link-in{font-size:.76rem; color:var(--sub); line-height:1.8;}
+
 /* ---- コントロール ---- */
 .controls{display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:12px;}
 .ctl-group{display:flex; gap:6px; align-items:center; flex-wrap:wrap;}
@@ -371,6 +426,12 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
 
   <section id="aiSection" class="card" hidden></section>
 
+  <div class="mode-bar">
+    <span class="ctl-label">モード</span>
+    <div id="modeBtns" class="ctl-group"></div>
+    <span class="mode-note" id="modeNote"></span>
+  </div>
+
   <div class="controls">
     <div class="ctl-group" id="scaleGroup">
       <span class="ctl-label">スケール</span>
@@ -398,6 +459,7 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
     <div class="col-left">
       <div id="stage"></div>
       <div id="actions"></div>
+      <div id="loops"></div>
     </div>
     <div class="col-right">
       <div id="panel"></div>
@@ -451,6 +513,13 @@ const VERDICTS = [
   { id: "loss", label: "損する", color: COLORS.loss },
   { id: "mixed", label: "両方", color: COLORS.mixed },
   { id: "neutral", label: "中立", color: COLORS.neutral },
+];
+
+const MODES = [
+  { id: "views", label: "🗺 みんなの視点", desc: "誰が得して、誰が損するか",
+    note: "関係者を並べ、<b>観点×時間軸</b>のレンズで「誰が得して、誰が損するか」を見ます。" },
+  { id: "systems", label: "🔄 システム思考", desc: "影響がまわって返ってくる輪を見る",
+    note: "関係者のあいだに<b>影響の矢</b>を引くと、ぐるりと返ってくる<b>輪（ループ）</b>を自動で見つけます。記入した内容はそのまま使えます。" },
 ];
 
 const SCALES = [
@@ -1412,6 +1481,7 @@ const S = {
   business: "", valueChain: null, themeIdeas: [], aiCandidates: [],
   caseId: null, scenario: null,
   world: null, currentSiteId: null, roleFilter: "all", rot: { lam: 100, phi: 20 },
+  mode: "views", links: [],
 };
 let confirmReset = false, confirmTimer = null, saveTimer = null;
 let barCollapsed = false, pendingCase = null, pendingTimer = null;
@@ -1444,6 +1514,7 @@ function payload() {
     theme: S.theme, scale: S.scale, stakeholders: S.stakeholders, data: S.data,
     business: S.business, valueChain: S.valueChain, themeIdeas: S.themeIdeas,
     scenario: scenarioOut, caseId: S.caseId, world: S.world,
+    mode: S.mode, links: S.links,
   };
 }
 function applyPayload(st) {
@@ -1455,6 +1526,8 @@ function applyPayload(st) {
   S.themeIdeas = st.themeIdeas || [];
   S.caseId = st.caseId || null;
   S.world = st.world || null;
+  S.mode = st.mode === "systems" ? "systems" : "views";
+  S.links = st.links || [];
   S.currentSiteId = null;
   S.roleFilter = "all";
   S.rot = { lam: 100, phi: 20 };
@@ -1691,6 +1764,203 @@ function globeInner() {
   return out;
 }
 
+/* ================= システム思考モード（影響の矢と輪） ================= */
+const LINK_KINDS = {
+  same: { label: "同じ向きに動く", mark: "＋", color: "#3E9B6E" },
+  opposite: { label: "逆向きに動く", mark: "−", color: "#D4635B" },
+};
+const SYS_QUESTIONS = [
+  "「この矢は、まわって自分に返ってきませんか？」",
+  "「効きはじめるまで、どれくらいかかりますか？」",
+  "「よかれと思った手が、別の場所で効いていませんか？」",
+  "「この輪を弱める（強める）には、どこに触るのが一番小さくて効きますか？」",
+];
+
+const stakeholderName = (id) => {
+  const s = S.stakeholders.find((x) => x.id === id);
+  return s ? s.emoji + " " + s.name : "（削除された関係者）";
+};
+function addLink(from, to, kind, delay) {
+  if (!from || !to || from === to) return false;
+  if (S.links.some((l) => l.from === from && l.to === to)) return false; /* 同じ向きの矢は1本 */
+  S.links.push({ id: uid(), from: from, to: to, kind: kind === "opposite" ? "opposite" : "same", delay: !!delay });
+  return true;
+}
+function removeLink(id) {
+  S.links = S.links.filter((l) => l.id !== id);
+}
+/* 関係者を消したら、その人につながる矢も消す */
+function pruneLinks() {
+  const ids = S.stakeholders.map((s) => s.id);
+  S.links = S.links.filter((l) => ids.indexOf(l.from) >= 0 && ids.indexOf(l.to) >= 0);
+}
+
+/* 閉じた輪（ループ）を探す。逆向きの矢が偶数なら強化ループ(R)、奇数なら平衡ループ(B)。 */
+function findLoops() {
+  const adj = {};
+  S.links.forEach((l) => { (adj[l.from] = adj[l.from] || []).push(l); });
+  const found = [], seen = {};
+  const record = (nodes, links) => {
+    /* いちばん小さいIDに回して重複を除く */
+    let min = 0;
+    for (let i = 1; i < nodes.length; i++) if (nodes[i] < nodes[min]) min = i;
+    const rot = nodes.slice(min).concat(nodes.slice(0, min));
+    const key = rot.join(">");
+    if (seen[key]) return;
+    seen[key] = true;
+    const opp = links.filter((l) => l.kind === "opposite").length;
+    found.push({
+      nodes: nodes, links: links,
+      kind: opp % 2 === 0 ? "r" : "b",
+      hasDelay: links.some((l) => l.delay),
+    });
+  };
+  const walk = (start, node, nodes, links) => {
+    if (found.length > 24) return; /* 探しすぎない */
+    (adj[node] || []).forEach((l) => {
+      if (l.to === start) { record(nodes, links.concat(l)); return; }
+      if (nodes.indexOf(l.to) >= 0) return;
+      if (nodes.length >= 6) return; /* 長すぎる輪は追わない */
+      walk(start, l.to, nodes.concat(l.to), links.concat(l));
+    });
+  };
+  S.stakeholders.forEach((s) => walk(s.id, s.id, [s.id], []));
+  return found;
+}
+
+function loopChain(loop) {
+  return loop.nodes.map((id, i) => {
+    const l = loop.links[i];
+    const m = LINK_KINDS[l.kind].mark + (l.delay ? "⏳" : "");
+    return stakeholderName(id) + " —" + m + "→ ";
+  }).join("") + stakeholderName(loop.nodes[0]);
+}
+
+function renderLoops() {
+  const box = $("loops");
+  if (S.mode !== "systems") { box.innerHTML = ""; return; }
+  const loops = findLoops();
+  let out = '<div class="loops-card"><div class="loops-head">' +
+    '<span class="loops-title">🔄 見つかった輪（ループ）</span>' +
+    '<span class="loops-count">矢 ' + S.links.length + " 本／輪 " + loops.length + " つ</span>" +
+    '<button type="button" class="sbtn" data-sys="guide" style="margin-left:auto">📖 システム思考の使い方</button></div>';
+  if (!S.links.length) {
+    out += '<div class="loops-empty">コマをクリックして、右の「影響の矢」から' +
+      '<b>この人が動くと、誰が動くか</b>を1本ずつ引いてみてください。' +
+      '矢がひとまわりして戻ってくると、それが<b>輪</b>です。輪はここに自動で並びます。</div>';
+  } else if (!loops.length) {
+    out += '<div class="loops-empty">まだ輪になっていません。矢の終点から、もう一度どこかへ矢を引くと' +
+      '（たとえば最後の人から最初の人へ）輪が閉じます。<br>' +
+      '「その影響は、本当にどこにも返ってこないのか？」と問い直すのがこのモードの練習です。</div>';
+  } else {
+    loops.forEach((lp) => {
+      const isR = lp.kind === "r";
+      out += '<div class="loop">' +
+        '<span class="loop-tag ' + lp.kind + '">' + (isR ? "🔁 強化ループ(R)" : "⚖️ 平衡ループ(B)") + "</span>" +
+        (lp.hasDelay ? '<span class="loop-delay">⏳ 遅れあり</span>' : "") +
+        '<div class="loop-chain">' + esc(loopChain(lp)) + "</div>" +
+        '<div class="loop-read">' +
+        (isR ? "同じ方向へ回り続ける輪。放っておくと勢いが増していきます（良い方にも、悪い方にも）。" +
+               "どこで止まるのか、何が限界になるのかを話してみてください。"
+             : "行きすぎを引き戻す輪。目標や上限に近づくと効きます。" +
+               "「戻される力が強すぎて動けない」ときも、この輪が働いています。") +
+        (lp.hasDelay ? "<br>遅れを含むので、手を打った実感が出るまで時間がかかります。効果が見えず打ち手を変えたくなる場所です。" : "") +
+        "</div></div>";
+    });
+  }
+  out += '<div class="sys-q">🪄 輪を見ながらの問い<br>' + SYS_QUESTIONS.map(esc).join("<br>") + "</div></div>";
+  box.innerHTML = out;
+  const gb = box.querySelector('[data-sys="guide"]');
+  if (gb) gb.addEventListener("click", openSysGuide);
+}
+
+/* パネルの「影響の矢」欄（システム思考モードのときだけ出す） */
+function linkEditorMarkup(s) {
+  const others = S.stakeholders.filter((x) => x.id !== s.id);
+  const outgoing = S.links.filter((l) => l.from === s.id);
+  const incoming = S.links.filter((l) => l.to === s.id);
+  let out = '<div class="link-sec"><span class="t" style="font-size:.84rem; font-weight:900">🔄 影響の矢</span>' +
+    '<div class="link-in" style="margin:4px 0 8px">この人（たち）が増える・強まると、誰がどう動きますか。</div>';
+  if (!others.length) {
+    out += '<div class="link-in">相手がいません。「＋ 関係者を追加」で、もう一人招いてください。</div></div>';
+    return out;
+  }
+  out += '<div class="link-row"><select id="linkTo" aria-label="矢の相手">' +
+    others.map((x) => '<option value="' + esc(x.id) + '">' + esc(x.emoji + " " + x.name) + "</option>").join("") +
+    "</select></div>" +
+    '<div class="link-row">' +
+    '<button type="button" class="pill mini on" id="linkSame" data-kind="same">＋ 同じ向きに動く</button>' +
+    '<button type="button" class="pill mini" id="linkOpp" data-kind="opposite">− 逆向きに動く</button>' +
+    '<label class="link-check"><input type="checkbox" id="linkDelay"> ⏳ 遅れて効く</label>' +
+    '<button type="button" class="sbtn primary" id="linkAdd">矢を引く</button></div>';
+  if (outgoing.length) {
+    out += '<div class="link-list">' + outgoing.map((l) => {
+      const k = LINK_KINDS[l.kind];
+      return '<div class="link-item"><span class="link-mark ' + l.kind + '">' + k.mark + "</span>" +
+        '<span class="grow">→ ' + esc(stakeholderName(l.to)) + (l.delay ? " ⏳" : "") + "</span>" +
+        '<button type="button" class="link-del" data-unlink="' + esc(l.id) + '">はずす</button></div>';
+    }).join("") + "</div>";
+  }
+  if (incoming.length) {
+    out += '<div class="link-in" style="margin-top:8px">この人に入ってくる矢：' +
+      incoming.map((l) => esc(stakeholderName(l.from)) + " —" + LINK_KINDS[l.kind].mark + (l.delay ? "⏳" : "") + "→").join("／") +
+      "</div>";
+  }
+  return out + "</div>";
+}
+function bindLinkEditor(p, s) {
+  const add = p.querySelector("#linkAdd");
+  if (!add) return;
+  let kind = "same";
+  p.querySelectorAll("[data-kind]").forEach((b) => b.addEventListener("click", () => {
+    kind = b.getAttribute("data-kind");
+    p.querySelectorAll("[data-kind]").forEach((x) => x.classList.toggle("on", x === b));
+  }));
+  add.addEventListener("click", () => {
+    const to = p.querySelector("#linkTo").value;
+    const delay = p.querySelector("#linkDelay").checked;
+    if (!addLink(s.id, to, kind, delay)) { toast("その相手への矢は、もう引いてあります"); return; }
+    renderStage(); renderPanel(); renderLoops(); save();
+    toast("矢を引きました。ひとまわりすると輪になります");
+  });
+  p.querySelectorAll("[data-unlink]").forEach((b) => b.addEventListener("click", () => {
+    removeLink(b.getAttribute("data-unlink"));
+    renderStage(); renderPanel(); renderLoops(); save();
+  }));
+}
+
+/* 盤面に矢を描く（コマの下に敷く） */
+function linkMarkup(list, positions) {
+  const idx = {};
+  list.forEach((s, i) => { idx[s.id] = positions[i]; });
+  const shown = S.links.filter((l) => idx[l.from] && idx[l.to]);
+  if (!shown.length) return "";
+  let out = '<g class="links">';
+  shown.forEach((l) => {
+    const a = { x: idx[l.from].x, y: idx[l.from].y - 26 };
+    const b = { x: idx[l.to].x, y: idx[l.to].y - 26 };
+    const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
+    const ux = dx / len, uy = dy / len;
+    const ax = a.x + ux * 26, ay = a.y + uy * 26;
+    const bx = b.x - ux * 30, by = b.y - uy * 30;
+    /* 往復の矢が重ならないよう、進行方向の左へふくらませる */
+    const bow = 30;
+    const qx = (ax + bx) / 2 - uy * bow, qy = (ay + by) / 2 + ux * bow;
+    const k = LINK_KINDS[l.kind];
+    out += '<path d="M' + ax.toFixed(1) + "," + ay.toFixed(1) + " Q" + qx.toFixed(1) + "," + qy.toFixed(1) +
+      " " + bx.toFixed(1) + "," + by.toFixed(1) + '" fill="none" stroke="' + k.color +
+      '" stroke-width="3" opacity="0.85"' + (l.kind === "opposite" ? ' stroke-dasharray="8 5"' : "") +
+      ' marker-end="url(#arrow-' + l.kind + ')"/>';
+    /* 真ん中に符号（＋／−）と遅れの砂時計 */
+    const mx = (ax + 2 * qx + bx) / 4, my = (ay + 2 * qy + by) / 4;
+    out += '<g transform="translate(' + mx.toFixed(1) + "," + my.toFixed(1) + ')">' +
+      '<circle r="11" fill="#FFFFFF" stroke="' + k.color + '" stroke-width="2"/>' +
+      '<text y="4.5" text-anchor="middle" font-size="12" font-weight="900" fill="' + k.color + '">' + k.mark + "</text>" +
+      (l.delay ? '<text x="0" y="-14" text-anchor="middle" font-size="11">⏳</text>' : "") + "</g>";
+  });
+  return out + "</g>";
+}
+
 function tokenPositions(n) {
   const cx = 400, cy = 350, rx = 265, ry = 128, pts = [];
   for (let i = 0; i < n; i++) {
@@ -1730,7 +2000,11 @@ function fieldMarkup(scale, list) {
     '<radialGradient id="earthShade" cx="0.35" cy="0.3" r="1">' +
     '<stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>' +
     '<stop offset="70%" stop-color="#000000" stop-opacity="0"/>' +
-    '<stop offset="100%" stop-color="#000000" stop-opacity="0.28"/></radialGradient></defs>' +
+    '<stop offset="100%" stop-color="#000000" stop-opacity="0.28"/></radialGradient>' +
+    Object.keys(LINK_KINDS).map((k) =>
+      '<marker id="arrow-' + k + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">' +
+      '<path d="M0,1 L9,5 L0,9 z" fill="' + LINK_KINDS[k].color + '"/></marker>').join("") +
+    "</defs>" +
     '<rect x="0" y="0" width="800" height="620" rx="18" fill="url(#skyGrad)"/>';
   if (earth) {
     out += '<g fill="#FFFFFF"><circle cx="120" cy="80" r="2" opacity="0.8"/><circle cx="230" cy="45" r="1.5" opacity="0.6"/>' +
@@ -1738,6 +2012,7 @@ function fieldMarkup(scale, list) {
       '<circle cx="90" cy="180" r="1.5" opacity="0.5"/><circle cx="540" cy="35" r="1.5" opacity="0.7"/></g>';
   }
   out += (GROUNDS[scale] || GROUNDS.room)();
+  if (S.mode === "systems") out += linkMarkup(list, positions); /* 矢はコマの下に敷く */
 
   list.forEach((s, i) => {
     const p = positions[i];
@@ -1942,6 +2217,10 @@ function renderStage() {
 function renderControls() {
   /* スケールは常に出す。世界地図を持つケースでは「地球」＝世界地図、会議室・街＝全員を一つの場に並べた盤面 */
   $("scaleGroup").hidden = false;
+  $("modeBtns").innerHTML = MODES.map((m) =>
+    '<button type="button" class="pill' + (m.id === "systems" ? " sys" : "") + (S.mode === m.id ? " on" : "") +
+    '" data-mode="' + m.id + '">' + esc(m.label) + "</button>").join("");
+  $("modeNote").innerHTML = (MODES.find((m) => m.id === S.mode) || MODES[0]).note;
   $("scaleBtns").innerHTML = SCALES.map((s) =>
     '<button type="button" class="pill' + (S.scale === s.id ? " on" : "") + '" data-scale="' + s.id + '" title="' + esc(s.desc) + '">' + esc(s.label) + "</button>").join("");
   $("axisBtns").innerHTML = '<button type="button" class="pill' + (S.lensAxis === "all" ? " on" : "") + '" data-axis="all">すべて</button>' +
@@ -2055,11 +2334,25 @@ function boardIsDirty() {
   const cur = payload();
   if ((cur.theme || "") !== (p.theme || "")) return true;
   if (JSON.stringify(cur.stakeholders) !== JSON.stringify(p.stakeholders)) return true;
+  /* 引いた矢は盤面の中身なので、消えると困る＝編集ありと見なす */
+  if ((cur.links || []).length !== (p.links || []).length) return true;
   if (cur.scenario && p.scenario) {
     /* どのシナリオを開いているかは編集ではないので、中身どうしを比べる */
     return JSON.stringify(cur.scenario.store) !== JSON.stringify(p.scenario.store);
   }
   return JSON.stringify(cur.data) !== JSON.stringify(p.data);
+}
+function setMode(id) {
+  const m = MODES.find((x) => x.id === id);
+  if (!m || S.mode === id) return;
+  S.mode = id;
+  renderControls(); renderStage(); renderActions(); renderPanel(); renderLoops(); save();
+  if (id === "systems") {
+    toast(S.links.length ? "システム思考モード：矢と輪を表示しています"
+                         : "システム思考モード：コマを選んで「影響の矢」を引くと、輪を自動で見つけます");
+  } else {
+    toast("みんなの視点モードにもどりました（引いた矢は消えていません）");
+  }
 }
 function tryLoadCase(id) {
   if (!CASES[id]) return;
@@ -2094,7 +2387,9 @@ function renderPanel() {
       '<div class="guide-step"><span class="no">④</span><span>上のレンズを切り替えると、「誰が得して、誰が損するか」が色で見えてくる</span></div>' +
       '<div class="guide-step"><span class="no">⑤</span><span>「一覧表」に切り替えて全体を俯瞰し、対話へ</span></div>' +
       '<div class="guide-note">画面いちばん下の帯にある<b>ケース</b>を押すと、記入済みの例をすぐ試せます。' +
-      '「次のケース ▶」で11のケースを順ぐりに一周でき、いつでも別のケースに切り替えられます。</div></div>';
+      '「次のケース ▶」で11のケースを順ぐりに一周でき、いつでも別のケースに切り替えられます。<br><br>' +
+      '影響がまわって返ってくる<b>輪</b>を見たいときは、上の<b>モード</b>を「🔄 システム思考」に切り替えてください。' +
+      'コマのあいだに矢を引くと、強化ループ・平衡ループを自動で見つけます。</div></div>';
     return;
   }
   const c = getCell(S.data, s.id, S.editAxis, S.editHorizon);
@@ -2108,6 +2403,7 @@ function renderPanel() {
       '<button type="button" class="emoji-btn' + (s.emoji === em ? " on" : "") + '" data-emoji="' + esc(em) + '">' + esc(em) + "</button>").join("") + "</div>" +
     '<label class="lbl" for="sitInput">この人（たち）の置かれている状況</label>' +
     '<textarea id="sitInput" class="txt" rows="3" style="margin:4px 0 14px" placeholder="立場・事情・大切にしていること など">' + esc(s.situation) + "</textarea>" +
+    (S.mode === "systems" ? linkEditorMarkup(s) : "") +
     '<div class="panel-sep"><div class="panel-sep-row"><span class="t">視点ごとの影響を記入</span>' +
     '<span class="counter" id="counter">' + filledCount(S.data, s.id) + "/9 マス記入済み</span></div>" +
     '<div class="mini-row">' + AXES.map((a) =>
@@ -2133,6 +2429,7 @@ function renderPanel() {
     updateStakeholder(s.id, { situation: e.target.value }); save();
   });
   $("delBtn").addEventListener("click", () => removeStakeholder(s.id));
+  if (S.mode === "systems") bindLinkEditor(p, s);
   p.querySelectorAll("[data-emoji]").forEach((b) => b.addEventListener("click", () => {
     updateStakeholder(s.id, { emoji: b.getAttribute("data-emoji") });
     p.querySelectorAll("[data-emoji]").forEach((x) => x.classList.toggle("on", x === b));
@@ -2223,7 +2520,7 @@ function renderAi() {
 function renderAll() {
   $("themeInput").value = S.theme;
   renderAi(); renderControls(); renderLegend(); renderScenario();
-  renderStage(); renderActions(); renderPanel(); renderCaseBar(); save();
+  renderStage(); renderActions(); renderPanel(); renderLoops(); renderCaseBar(); save();
 }
 
 /* ================= 操作 ================= */
@@ -2241,7 +2538,8 @@ function removeStakeholder(id) {
   S.stakeholders = S.stakeholders.filter((s) => s.id !== id);
   delete S.data[id];
   if (S.selectedId === id) S.selectedId = null;
-  renderStage(); renderActions(); renderPanel(); save();
+  pruneLinks(); /* いなくなった人につながる矢も片付ける */
+  renderStage(); renderActions(); renderPanel(); renderLoops(); save();
 }
 function updateCell(sid, axis, horizon, patch) {
   const cur = getCell(S.data, sid, axis, horizon);
@@ -2267,6 +2565,7 @@ function loadCase(id) {
     S.data = clone(c.data || {});
   }
   S.selectedId = null; S.caseId = id; S.themeIdeas = []; S.aiCandidates = [];
+  S.links = c.links ? clone(c.links) : [];
   confirmReset = false; clearTimeout(confirmTimer);
   history.replaceState(null, "", location.pathname);
   renderAll();
@@ -2306,6 +2605,7 @@ function clearBoard(msg) {
   S.business = ""; S.valueChain = null; S.themeIdeas = []; S.aiCandidates = [];
   S.caseId = null; S.scenario = null;
   S.world = null; S.currentSiteId = null; S.roleFilter = "all"; S.rot = { lam: 100, phi: 20 };
+  S.links = []; /* モードは利用者が選んだままにする */
   pendingCase = null; clearTimeout(pendingTimer);
   history.replaceState(null, "", location.pathname);
   renderAll();
@@ -2382,6 +2682,54 @@ function openGuide() {
   const c = m.querySelector(".modal-close");
   if (c) c.focus();
 }
+const SYS_STEPS = [
+  ["① 関係者を置く（10分）",
+   "まずは「みんなの視点」モードと同じ。この決定で動く人・組織・自然を、思いつく限りコマにして並べます。ここを急ぐと、あとの輪が細くなります。"],
+  ["② 影響の矢を引く（20分）",
+   "コマをクリックし「影響の矢」から、この人が増える・強まると誰がどう動くかを1本ずつ引きます。同じ向きに動くなら＋、逆向きなら−。効きはじめるまで時間がかかるものは⏳（遅れ）を付けます。"],
+  ["③ 輪を見つける（20分）",
+   "矢がひとまわりして戻ってくると、盤面の下に輪が並びます。強化ループ(R)は勢いが増していく輪、平衡ループ(B)は行きすぎを引き戻す輪。「これは本当に一方通行か？」と疑うと輪が見つかります。"],
+  ["④ どこに触るか決める（20分）",
+   "輪を眺めて、いちばん小さい力で流れが変わる場所（レバレッジポイント）を探します。多くの場合それは、量ではなく<b>矢の向きや遅れ、前提</b>のほうにあります。"],
+  ["⑤ 副作用を確かめる（15分）",
+   "選んだ打ち手を輪に戻して、別のどこかで効いていないかを見ます。「よかれと思った手が、遅れて反対に効く」——これに気づく練習が、このモードの目的です。"],
+];
+const SYS_WORDS = [
+  ["🔁 強化ループ(R)", "同じ方向へ回り続け、勢いが増していく輪。良い循環にも悪循環にもなります。逆向き（−）の矢が偶数のとき、この輪になります。"],
+  ["⚖️ 平衡ループ(B)", "行きすぎを引き戻し、ある状態に近づけていく輪。目標や上限がある場所に生まれます。逆向き（−）の矢が奇数のとき、この輪です。"],
+  ["⏳ 遅れ", "原因と結果のあいだにある時間。遅れがあると、手ごたえが無いうちに打ち手を変えてしまい、あとから効果と副作用がまとめて来ます。"],
+  ["🧊 氷山モデル", "出来事の下にパターン、その下に構造、いちばん下に前提（ものの見方）がある、という見立て。矢を引く作業は「構造」を描くことにあたります。"],
+  ["🎯 レバレッジポイント", "小さく触るだけで全体の流れが変わる場所。輪の中でどこに手を入れるかを話すための言葉です。"],
+];
+
+function openSysGuide() {
+  const m = $("guideModal");
+  m.className = "modal-back";
+  m.hidden = false;
+  m.innerHTML = '<div class="modal-box" role="dialog" aria-modal="true" aria-label="システム思考モードの使い方">' +
+    '<div class="modal-head"><h2>🔄 システム思考モードの使い方</h2>' +
+    '<button type="button" class="modal-close" data-close="1" aria-label="閉じる">✕</button></div>' +
+    '<p class="modal-lead">「誰が得して、誰が損するか」を並べたあと、もう一歩。' +
+    '影響は一方通行ではなく、まわって自分に返ってきます。その<b>輪</b>を描いて眺めるのがこのモードです。' +
+    '当てるのが目的ではなく、輪を描く過程で見落としに気づくための道具です。</p>' +
+    SYS_STEPS.map((a) => '<div class="act"><div class="act-t">' + esc(a[0]) + '</div>' +
+      '<div class="act-b">' + a[1] + "</div></div>").join("") +
+    '<div class="act-magic"><div class="act-t">📚 言葉のたな</div><div class="act-b">' +
+    SYS_WORDS.map((w) => "<b>" + esc(w[0]) + "</b>：" + w[1]).join("<br><br>") + "</div></div>" +
+    '<div class="act-magic"><div class="act-t">🪄 輪を見ながらの問い</div>' +
+    '<div class="act-q">' + SYS_QUESTIONS.map(esc).join("<br>") + "</div></div>" +
+    '<p class="modal-note">もっと知りたい方へ：' +
+    '<a href="https://kizukikumitate.com/systems-thinking-zukan.html">システム思考の道具図鑑</a>' +
+    'に、因果ループ図・ストック&フロー・システム原型（共有地の悲劇、応急処置の失敗ほか）を集めています。<br>' +
+    '心得：矢は事実ではなく仮説／描けない矢こそ話す価値がある／輪の中に自分を入れて描く。</p>' +
+    "</div>";
+  m.querySelector(".modal-box").addEventListener("click", (e) => e.stopPropagation());
+  m.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeGuide));
+  m.addEventListener("click", closeGuide);
+  document.body.style.overflow = "hidden";
+  const c = m.querySelector(".modal-close");
+  if (c) c.focus();
+}
 function closeGuide() {
   const m = $("guideModal");
   m.hidden = true;
@@ -2420,6 +2768,17 @@ function exportMarkdown() {
       if (rows.length) md += "### " + a.label + "\n" + rows.join("\n") + "\n\n";
     });
   });
+  if (S.links.length) {
+    md += "## 🔄 影響の矢とループ\n";
+    S.links.forEach((l) => {
+      md += "- " + stakeholderName(l.from) + " —" + LINK_KINDS[l.kind].mark + (l.delay ? "（遅れ）" : "") +
+        "→ " + stakeholderName(l.to) + "\n";
+    });
+    const loops = findLoops();
+    md += "\n" + (loops.length ? loops.map((lp) =>
+      "- " + (lp.kind === "r" ? "強化ループ(R)" : "平衡ループ(B)") + (lp.hasDelay ? "・遅れあり" : "") +
+      "：" + loopChain(lp)).join("\n") : "- 閉じた輪はまだありません") + "\n\n";
+  }
   toast(copyText(md) ? "✓ Markdownをコピーしました" : "コピーできませんでした");
 }
 
@@ -2439,7 +2798,8 @@ function pristinePayload(id) {
   const c = CASES[id];
   if (!c) return null;
   const p = { theme: c.theme, scale: c.scale, stakeholders: clone(c.stakeholders), data: {},
-    business: "", valueChain: c.valueChain ? clone(c.valueChain) : null, themeIdeas: [], scenario: null, caseId: id };
+    business: "", valueChain: c.valueChain ? clone(c.valueChain) : null, themeIdeas: [], scenario: null, caseId: id,
+    mode: S.mode, /* モードは見方の切替であって盤面の中身ではない */ links: c.links ? clone(c.links) : [] };
   if (c.scenarios) {
     const first = c.scenarios.options[0].id;
     const store = clone(c.scenarios.data);
@@ -2452,7 +2812,7 @@ function pristinePayload(id) {
 }
 async function encodeState() {
   const cur = payload();
-  if (S.caseId) {
+  if (S.caseId && S.mode === "views") {
     const pristine = pristinePayload(S.caseId);
     if (pristine && JSON.stringify(cur) === JSON.stringify(pristine)) return "c" + S.caseId;
   }
@@ -2549,6 +2909,10 @@ async function generateFromBusiness() {
   }
 
   $("themeInput").addEventListener("input", (e) => { S.theme = e.target.value; save(); });
+  $("modeBtns").addEventListener("click", (e) => {
+    const b = e.target.closest("[data-mode]"); if (!b) return;
+    setMode(b.getAttribute("data-mode"));
+  });
   $("scaleBtns").addEventListener("click", (e) => {
     const b = e.target.closest("[data-scale]"); if (!b) return;
     S.scale = b.getAttribute("data-scale");
