@@ -292,8 +292,12 @@ td.who{font-weight:800; white-space:nowrap;}
   border-radius:99px; width:30px; height:26px; font-size:.7rem; font-weight:900;
   cursor:pointer; font-family:inherit; line-height:1; flex:0 0 auto;
 }
-.case-bar-list{display:flex; gap:6px; overflow-x:auto; padding-bottom:2px;}
-.case-bar-list::-webkit-scrollbar{height:6px;}
+/* 11ケースを折り返して全部見せる（横スクロールで隠さない） */
+.case-bar-list{
+  display:flex; flex-wrap:wrap; gap:6px; padding-bottom:2px;
+  max-height:34vh; overflow-y:auto;
+}
+.case-bar-list::-webkit-scrollbar{width:6px;}
 .case-bar-list::-webkit-scrollbar-thumb{background:#CBD8D2; border-radius:99px;}
 .cb-chip{
   flex:0 0 auto; white-space:nowrap;
@@ -319,6 +323,8 @@ td.who{font-weight:800; white-space:nowrap;}
   .case-bar{padding-left:10px; padding-right:10px;}
   .case-bar-now{max-width:9.5rem;}
   .case-bar-title{font-size:.72rem;}
+  .case-bar-list{gap:5px;}
+  .cb-chip{font-size:.71rem; padding:4px 9px;}
 }
 
 /* 下部のケース帯のぶんだけ余白を空ける（帯の高さはJSが --bar-h に入れる） */
@@ -1946,7 +1952,8 @@ function renderCaseBar() {
     '<div class="case-bar-list" id="caseBarList">' +
     CASE_MENU.map((m) => '<button type="button" class="cb-chip' +
       (m.id === S.caseId ? " on" : "") + (m.id === pendingCase ? " armed" : "") +
-      '" data-cbcase="' + m.id + '">' + esc(m.label) + "</button>").join("") +
+      '" data-cbcase="' + m.id + '" title="' + esc(m.label) + '">' +
+      esc(m.label.replace(/^ケース/, "")) + "</button>").join("") +
     "</div></div>";
   bar.classList.toggle("collapsed", barCollapsed);
   bar.querySelectorAll("[data-cbcase]").forEach((b) =>
@@ -1958,15 +1965,7 @@ function renderCaseBar() {
     else if (a === "home") goHome();
     else if (a === "toggle") { barCollapsed = !barCollapsed; renderCaseBar(); }
   }));
-  scrollActiveChipIntoView();
   syncBarSpace();
-}
-function scrollActiveChipIntoView() {
-  const row = $("caseBarList");
-  if (!row) return;
-  const chip = row.querySelector(".cb-chip.on");
-  if (!chip) return;
-  row.scrollLeft = chip.offsetLeft - row.clientWidth / 2 + chip.offsetWidth / 2;
 }
 /* 帯の高さぶんの余白を本文とトーストに渡す（帯が本文に重ならないように） */
 function syncBarSpace() {
