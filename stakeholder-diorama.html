@@ -11,15 +11,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex"><!-- 磨き込み中のテスト公開。サイトのナビ・sitemap・回遊からは外してある。正式リリース時にこの行を削除し、nav.json/kaiyu.json/sitemap.xml に再掲載する -->
-<title>ステークホルダー・ジオラマ｜きづきくみたて工房（テスト公開）</title>
+<title>ステークホルダー・ジオラマ ― ４次元トンボのメガネ｜きづきくみたて工房（テスト公開）</title>
 <meta name="description" content="ひとつのテーマを、みんなの視点から眺める道具。関係者を場に並べ、経済・環境・社会 × 短期・中期・長期のレンズで「誰が得して、誰が損するか」を可視化します。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ステークホルダー・ジオラマ（テスト公開）">
+<meta property="og:title" content="ステークホルダー・ジオラマ ― ４次元トンボのメガネ（テスト公開）">
 <meta property="og:description" content="ひとつのテーマを、みんなの視点から眺める道具。経済・環境・社会 × 短期・中期・長期のレンズで、誰が得して誰が損するかを可視化します。">
 <meta property="og:image" content="https://kizukikumitate.com/stakeholder-diorama-ogp.png">
 <meta property="og:url" content="https://kizukikumitate.com/stakeholder-diorama.html">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ステークホルダー・ジオラマ（テスト公開）">
+<meta name="twitter:title" content="ステークホルダー・ジオラマ ― ４次元トンボのメガネ（テスト公開）">
 <meta name="twitter:description" content="ひとつのテーマを、みんなの視点から眺める道具。">
 <meta name="twitter:image" content="https://kizukikumitate.com/stakeholder-diorama-ogp.png">
 <link rel="canonical" href="https://kizukikumitate.com/stakeholder-diorama.html">
@@ -47,6 +47,10 @@ body{
 /* ---- ヘッダー ---- */
 .head-row{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
 h1{margin:0; font-size:1.5rem; font-weight:900; letter-spacing:.01em;}
+.subtitle{
+  font-size:.62em; font-weight:800; color:var(--indigo); margin-left:.5em;
+  white-space:nowrap; letter-spacing:.02em;
+}
 .tagline{font-size:.8rem; color:var(--sub);}
 .badge-test{
   font-size:.72rem; font-weight:800; color:#8A6A1E;
@@ -72,6 +76,8 @@ h1{margin:0; font-size:1.5rem; font-weight:900; letter-spacing:.01em;}
 .sbtn.primary{background:var(--indigo); border-color:var(--indigo); color:#FFF;}
 .sbtn.gain{background:var(--gain); border-color:var(--gain); color:#FFF;}
 .sbtn.expand{background:#3E4E8E; border-color:#3E4E8E; color:#FFF;}
+.sbtn.back{background:#EAF1F7; border-color:var(--indigo); color:var(--indigo-dark);}
+.sbtn.back.armed{background:var(--yamabuki); border-color:var(--yamabuki); color:#5C4508;}
 .sbtn.danger{color:var(--loss);}
 .sbtn.danger.armed{background:var(--loss); border-color:var(--loss); color:#FFF;}
 .sbtn[disabled]{opacity:.45; cursor:default;}
@@ -301,6 +307,7 @@ td.who{font-weight:800; white-space:nowrap;}
 @media (max-width:768px){
   body{padding:14px 12px 56px;}
   h1{font-size:1.25rem;}
+  .subtitle{display:block; margin-left:0; font-size:.72em;}
   .badge-test{margin-left:0;}
   .ctl-right{margin-left:0;}
   .guide{padding:18px;}
@@ -324,7 +331,7 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
 
   <header>
     <div class="head-row">
-      <h1>ステークホルダー・ジオラマ</h1>
+      <h1>ステークホルダー・ジオラマ<span class="subtitle">― ４次元トンボのメガネ</span></h1>
       <span class="tagline">ひとつのテーマを、みんなの視点から眺める道具</span>
       <span class="head-actions">
         <span class="badge-test">🧪 テスト公開中</span>
@@ -1382,6 +1389,7 @@ const S = {
 };
 let confirmReset = false, confirmTimer = null, saveTimer = null;
 let barCollapsed = false, pendingCase = null, pendingTimer = null;
+let confirmHome = false, homeTimer = null;
 
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s == null ? "" : s)
@@ -1835,7 +1843,7 @@ function renderStage() {
     const members = siteMembers(site.id);
     stage.className = "";
     stage.innerHTML = '<div class="site-row">' +
-      '<button type="button" class="sbtn" data-act="globe">🌍 地球にもどる</button>' +
+      '<button type="button" class="sbtn back" data-act="globe">← 🌍 地球にもどる</button>' +
       '<span class="site-name">📍 ' + esc(site.name) + "</span>" +
       '<span class="site-role" style="background:' + role.color + '">' + esc(role.label) + "</span></div>" +
       '<div class="stage-frame">' + fieldMarkup(site.field, members) + "</div>";
@@ -1886,7 +1894,12 @@ function renderActions() {
   const c = S.caseId && CASES[S.caseId] ? CASES[S.caseId] : null;
   const extra = c && c.extra ? c.extra : null;
   const extraPlaced = extra ? extra.stakeholders.every((x) => S.stakeholders.some((s) => s.name === x.name)) : true;
-  let out = '<button type="button" class="sbtn primary" data-act="add">＋ 関係者を追加</button>' +
+  let out = "";
+  if (S.caseId || S.stakeholders.length) {
+    out += '<button type="button" class="sbtn back' + (confirmHome ? " armed" : "") + '" data-act="home">' +
+      (confirmHome ? "もう一度押すともどります" : "↩︎ はじめの画面にもどる") + "</button>";
+  }
+  out += '<button type="button" class="sbtn primary" data-act="add">＋ 関係者を追加</button>' +
     '<button type="button" class="sbtn" data-act="share">🔗 この盤面をURLで共有</button>' +
     '<button type="button" class="sbtn" data-act="md">📋 Markdownをコピー</button>';
   if (extra && !extraPlaced && S.stakeholders.length) {
@@ -1906,6 +1919,7 @@ function renderActions() {
     else if (a === "md") exportMarkdown();
     else if (a === "expand") expandCase();
     else if (a === "reset") resetAll();
+    else if (a === "home") goHome();
   }));
 }
 
@@ -1925,8 +1939,8 @@ function renderCaseBar() {
     '<span class="case-bar-count">' + esc(count) + "</span>" +
     '<button type="button" class="sbtn" data-cb="prev">◀ 前</button>' +
     '<button type="button" class="sbtn primary" data-cb="next">次のケース ▶</button>' +
-    '<button type="button" class="sbtn danger' + (confirmReset ? " armed" : "") + '" data-cb="clear">' +
-    (confirmReset ? "もう一度押すと消去します" : "まっさらに戻す") + "</button>" +
+    '<button type="button" class="sbtn back' + (confirmHome ? " armed" : "") + '" data-cb="home">' +
+    (confirmHome ? "もう一度押すともどります" : "↩︎ はじめの画面") + "</button>" +
     '<button type="button" class="cb-toggle" data-cb="toggle" aria-expanded="' + (barCollapsed ? "false" : "true") +
     '" aria-label="ケース一覧の開閉">' + (barCollapsed ? "▲" : "▼") + "</button></div>" +
     '<div class="case-bar-list" id="caseBarList">' +
@@ -1941,7 +1955,7 @@ function renderCaseBar() {
     const a = b.getAttribute("data-cb");
     if (a === "prev") stepCase(-1);
     else if (a === "next") stepCase(1);
-    else if (a === "clear") resetAll();
+    else if (a === "home") goHome();
     else if (a === "toggle") { barCollapsed = !barCollapsed; renderCaseBar(); }
   }));
   scrollActiveChipIntoView();
@@ -2213,14 +2227,9 @@ function expandCase() {
   }
   renderStage(); renderActions(); renderPanel(); save();
 }
-function resetAll() {
-  if (!confirmReset) {
-    confirmReset = true; renderActions(); renderCaseBar();
-    clearTimeout(confirmTimer);
-    confirmTimer = setTimeout(() => { confirmReset = false; renderActions(); renderCaseBar(); }, 3000);
-    return;
-  }
-  confirmReset = false;
+function clearBoard(msg) {
+  confirmReset = false; confirmHome = false;
+  clearTimeout(confirmTimer); clearTimeout(homeTimer);
   S.theme = ""; S.stakeholders = []; S.data = {}; S.selectedId = null;
   S.business = ""; S.valueChain = null; S.themeIdeas = []; S.aiCandidates = [];
   S.caseId = null; S.scenario = null;
@@ -2229,7 +2238,34 @@ function resetAll() {
   history.replaceState(null, "", location.pathname);
   renderAll();
   window.scrollTo({ top: 0, behavior: "smooth" });
-  toast("まっさらに戻しました。下の帯から次のケースを選べます");
+  toast(msg);
+}
+/* すべて消去：手で書いた盤面も消えるので、いつでも2段階 */
+function resetAll() {
+  if (!confirmReset) {
+    confirmReset = true; renderActions(); renderCaseBar();
+    clearTimeout(confirmTimer);
+    confirmTimer = setTimeout(() => { confirmReset = false; renderActions(); renderCaseBar(); }, 3000);
+    return;
+  }
+  clearBoard("まっさらに戻しました。下の帯から次のケースを選べます");
+}
+/* はじめの画面（使い方ガイド）にもどる。
+   ケースを読み込んだだけの未編集の盤面なら、消えるものが無いので1押しで戻る。 */
+function goHome() {
+  if (!S.caseId && !S.stakeholders.length) {
+    if (S.view !== "field") { S.view = "field"; renderControls(); renderStage(); }
+    toast("いま、はじめの画面です");
+    return;
+  }
+  if (boardIsDirty() && !confirmHome) {
+    confirmHome = true; renderActions(); renderCaseBar();
+    clearTimeout(homeTimer);
+    homeTimer = setTimeout(() => { confirmHome = false; renderActions(); renderCaseBar(); }, 3000);
+    toast("記入した内容は消えます。もう一度押すと、はじめの画面にもどります");
+    return;
+  }
+  clearBoard("はじめの画面にもどりました");
 }
 
 /* ================= 進め方ガイド ================= */
@@ -2381,7 +2417,7 @@ async function shareUrl() {
       return;
     }
     if (navigator.share && /Android|iPhone|iPad/.test(navigator.userAgent)) {
-      try { await navigator.share({ title: "ステークホルダー・ジオラマ", url: url }); return; } catch (e) { /* 共有を閉じたら下のコピーへ */ }
+      try { await navigator.share({ title: "ステークホルダー・ジオラマ ― ４次元トンボのメガネ", url: url }); return; } catch (e) { /* 共有を閉じたら下のコピーへ */ }
     }
     toast(copyText(url) ? "✓ 共有URLをコピーしました。相手に送ると同じ盤面が開きます" : "URLをコピーできませんでした");
   } catch (e) {
@@ -2459,7 +2495,10 @@ async function generateFromBusiness() {
 
   $("guideBtn").addEventListener("click", openGuide);
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && !$("guideModal").hidden) closeGuide();
+    if (e.key !== "Escape") return;
+    if (!$("guideModal").hidden) { closeGuide(); return; }
+    /* 拠点のなかにいるときは Esc で地球にもどる（盤面は消さない） */
+    if (S.currentSiteId) backToGlobe();
   });
 
   window.addEventListener("resize", syncBarSpace);
