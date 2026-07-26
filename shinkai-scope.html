@@ -204,6 +204,36 @@
   }
   .chip:hover{border-color:var(--accent);color:var(--accent);}
 
+  /* 自己タグづけ */
+  .tag-q{font-size:12.5px;color:var(--ink-soft);margin-top:14px;line-height:1.8;}
+  .tag-q span{color:var(--ink-faint);font-size:11.5px;}
+  .tag-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px;}
+  .tag-chip{
+    font-size:12px;color:var(--ink-soft);
+    background:transparent;
+    border:1px solid var(--opt-line);
+    border-radius:999px;
+    padding:5px 13px;cursor:pointer;
+    transition:border-color .15s, color .15s, background .3s;
+  }
+  .tag-chip:hover{border-color:var(--accent);color:var(--accent);}
+  .tag-chip.sel{border-color:var(--accent);background:var(--note-bg);color:var(--accent);font-weight:700;}
+
+  /* これまでの応答（持って潜るもの） */
+  .trace{
+    border-left:2px solid var(--opt-line);
+    padding:3px 0 3px 13px;
+    margin:0 0 18px;
+    font-size:12px;color:var(--ink-faint);line-height:2;
+    transition:border-color 1.2s, color 1.2s;
+  }
+  .trace b{
+    font-family:"SFMono-Regular",Menlo,Consolas,monospace;
+    font-size:9.5px;letter-spacing:.2em;color:var(--ink-faint);
+    font-weight:400;margin-right:.7em;
+  }
+  .trace i{font-style:normal;color:var(--ink-soft);}
+
   /* 選択肢 */
   .opts{display:grid;gap:9px;margin-top:6px;}
   .opt{
@@ -257,6 +287,9 @@
   }
   .need.suggested .n-badge{display:inline-block;animation:ping 2.4s ease infinite;}
   @keyframes ping{0%,100%{opacity:1;}50%{opacity:.45;}}
+  .need.mine{border-style:dashed;}
+  .need.mine.sel{border-style:solid;}
+  .need .n-input{margin-top:9px;font-size:13.5px;padding:9px 12px;}
 
   /* リフレーム */
   .rf-block{
@@ -441,7 +474,10 @@
     <div class="sub" id="s2-sub"></div>
     <p style="font-size:13.5px;color:var(--ink-soft);">場面をひとつ思い出してください。<strong>特に困ってはいなかった</strong>のに、その「こうしたい」を誰かに先回りされた、止められた、妨げられた──そのとき胸に湧いたものは。</p>
     <div class="opts" id="opts-feel"></div>
-    <div class="free-area" id="free-feel"><textarea rows="2" placeholder="湧いたものを、自分のことばで"></textarea></div>
+    <div class="free-area" id="free-feel"><textarea rows="2" placeholder="湧いたものを、自分のことばで"></textarea>
+      <div class="tag-q">そのことばは、どちらの向きに近いですか。<span>（任意。海底で光る印の手がかりになります）</span></div>
+      <div class="tag-chips" data-tag="feel"><span class="tag-chip" data-k="approach">ちかづきたい</span><span class="tag-chip" data-k="protect">まもりたい</span><span class="tag-chip" data-k="dignity">ゆずれない</span><span class="tag-chip" data-k="connect">とどきたい</span><span class="tag-chip" data-k="">決めない</span></div>
+    </div>
     <div class="warn" id="w2">いちばん近いものをひとつ</div>
     <div class="actions">
       <button class="btn-back" onclick="go(1)">← 水面へ</button>
@@ -456,7 +492,10 @@
     <h2><span class="zone">TWILIGHT ZONE / −200 m</span>中層 — 味わいたい瞬間</h2>
     <div class="sub">ここから光が薄くなります。想像で照らしてください。その「こうしたい」が完全に叶うとして、いちばん味わいたいのはどの瞬間ですか。</div>
     <div class="opts" id="opts-moment"></div>
-    <div class="free-area" id="free-moment"><textarea rows="2" placeholder="味わいたい瞬間を、自分のことばで"></textarea></div>
+    <div class="free-area" id="free-moment"><textarea rows="2" placeholder="味わいたい瞬間を、自分のことばで"></textarea>
+      <div class="tag-q">その瞬間は、おおまかにどのあたりですか。<span>（任意。近いものが無ければ「決めない」で構いません）</span></div>
+      <div class="tag-chips" data-tag="moment"><span class="tag-chip" data-k="process">途中の時間</span><span class="tag-chip" data-k="done">できあがり</span><span class="tag-chip" data-k="gaze">誰かの反応</span><span class="tag-chip" data-k="calm">そのあとの静けさ</span><span class="tag-chip" data-k="">決めない</span></div>
+    </div>
     <div class="warn" id="w3">いちばん近いものをひとつ</div>
     <div class="actions">
       <button class="btn-back" onclick="go(2)">← 浅瀬へ</button>
@@ -471,7 +510,10 @@
     <h2><span class="zone">MIDNIGHT ZONE / −1,000 m</span>深層 — 翌朝に残るもの</h2>
     <div class="sub">叶った日の、翌朝を想像します。目が覚めたとき、何が残っていたら良かったと思えますか。</div>
     <div class="opts" id="opts-morning"></div>
-    <div class="free-area" id="free-morning"><textarea rows="2" placeholder="残っていてほしいものを、自分のことばで"></textarea></div>
+    <div class="free-area" id="free-morning"><textarea rows="2" placeholder="残っていてほしいものを、自分のことばで"></textarea>
+      <div class="tag-q">残っていてほしいのは、おおまかにどのあたりですか。<span>（任意）</span></div>
+      <div class="tag-chips" data-tag="morning"><span class="tag-chip" data-k="newself">新しい自分</span><span class="tag-chip" data-k="made">つくったもの</span><span class="tag-chip" data-k="between">人とのあいだ</span><span class="tag-chip" data-k="nofear">心配のなさ</span><span class="tag-chip" data-k="world">世界が少し良く</span><span class="tag-chip" data-k="">決めない</span></div>
+    </div>
     <div class="warn" id="w4">いちばん近いものをひとつ</div>
     <div class="actions">
       <button class="btn-back" onclick="go(3)">← 中層へ</button>
@@ -484,9 +526,10 @@
 <div class="screen" id="s5">
   <div class="card">
     <h2><span class="zone">SEABED / −4,000 m</span>海底 — ニーズに触れる</h2>
-    <div class="sub">欲求の底には、これらのニーズが棲んでいます。ここまでの応答から <span style="color:var(--accent);font-family:Menlo,monospace;font-size:11px;">◉ 反応</span> の出ている水域に印をつけました。印に限らず、読んで胸が動くものを<strong>1〜3つ</strong>。判断は頭ではなく、からだで。</div>
+    <div class="sub">欲求の底には、これらのニーズが棲んでいます。ここまでの応答から <span style="color:var(--accent);font-family:Menlo,monospace;font-size:11px;">◉ 反応</span> の出ている水域に印をつけました。印に限らず、読んで胸が動くものを<strong>1〜3つ</strong>。判断は頭ではなく、からだで。どれも違うと感じたら、最後の枠で<strong>自分で名前をつけられます</strong>。</div>
+    <div id="trace-5"></div>
     <div class="needs" id="needs-grid"></div>
-    <div class="warn" id="w5">胸が動いたものを、1〜3つ</div>
+    <div class="warn" id="w5">胸が動いたものを、1〜3つ（自分で名づける場合は、ことばを書いてください）</div>
     <div class="actions">
       <button class="btn-back" onclick="go(4)">← 深層へ</button>
       <button class="btn-next" onclick="next5()">光を当てる</button>
@@ -499,6 +542,7 @@
   <div class="card">
     <h2><span class="zone">HADAL ZONE / −6,500 m</span>最深部 — 光を当てる</h2>
     <div class="sub">見つけたものに、自分のことばで光を当てます。文はそのまま使っても、書き換えても構いません。</div>
+    <div id="trace-6"></div>
     <div id="rf-area"></div>
     <div class="actions">
       <button class="btn-back" onclick="saveRf();go(5)">← 海底へ</button>
@@ -629,12 +673,32 @@
       body:"選択肢に収まらなかったその感覚は、既製の分類より正確な観測かもしれません。この先の海底では、書いたことばを羅針盤にしてください。"}
   };
 
+  /* 自由記述に本人がつける「向き」のラベル */
+  var TAG_LABELS = {
+    feel:{approach:"ちかづきたい", protect:"まもりたい", dignity:"ゆずれない", connect:"とどきたい"},
+    moment:{process:"途中の時間", done:"できあがり", gaze:"誰かの反応", calm:"そのあとの静けさ"},
+    morning:{newself:"新しい自分", made:"つくったもの", between:"人とのあいだ", nofear:"心配のなさ", world:"世界が少し良く"}
+  };
+
+  /* 自分で名づけたニーズに添える、汎用の別ルート */
+  var MINE_HINTS = [
+    "それが満たされていた場面を、ひとつ思い出して書く",
+    "それを1割だけ増やすなら、明日どこを変えるか",
+    "それを正確に受け取ってくれそうな人を、ひとり思い浮かべる"
+  ];
+
+  var MINE_KEY = "__mine";
+
   /* ---------- 状態 ---------- */
 
-  var state = {
-    desire:"", feel:null, feelFree:"", moment:null, momentFree:"",
-    morning:null, morningFree:"", needs:[], reframes:{}, alt:{}, step:""
+  var BLANK = {
+    desire:"", feel:null, feelFree:"", feelTag:null,
+    moment:null, momentFree:"", momentTag:null,
+    morning:null, morningFree:"", morningTag:null,
+    needs:[], mineName:"", reframes:{}, alt:{}, step:""
   };
+
+  var state = JSON.parse(JSON.stringify(BLANK));
 
   var DEPTHS = [
     {read:"0 m · 浜辺", fill:0},
@@ -690,6 +754,21 @@
   renderOpts("opts-moment","free-moment",MOMENTS,function(v){ state.moment = v; });
   renderOpts("opts-morning","free-morning",MORNINGS,function(v){ state.morning = v; });
 
+  /* ---------- 自己タグづけ ---------- */
+
+  document.querySelectorAll(".tag-chips").forEach(function(row){
+    var field = row.getAttribute("data-tag") + "Tag";
+    row.querySelectorAll(".tag-chip").forEach(function(chip){
+      chip.addEventListener("click", function(){
+        var already = chip.classList.contains("sel");
+        row.querySelectorAll(".tag-chip").forEach(function(c){ c.classList.remove("sel"); });
+        if(already){ state[field] = null; return; }
+        chip.classList.add("sel");
+        state[field] = chip.getAttribute("data-k") || null;
+      });
+    });
+  });
+
   /* ---------- チップ ---------- */
 
   document.querySelectorAll(".chip").forEach(function(c){
@@ -742,24 +821,78 @@
       state.morningFree = t;
     }
     warn("w4",false);
+    renderTrace("trace-5");
     renderNeeds();
     go(5);
   };
 
   /* ---------- ニーズ ---------- */
 
+  /* 選択肢を選んでいればそのキー、自由記述なら本人がつけたタグを使う */
+  function feelSlot(){
+    if(state.feel === "free") return state.feelTag;
+    return state.feel === null ? null : FEELS[state.feel].key;
+  }
+  function momentSlot(){
+    if(state.moment === "free") return state.momentTag;
+    return state.moment === null ? null : MOMENTS[state.moment].key;
+  }
+  function morningSlot(){
+    if(state.morning === "free") return state.morningTag;
+    return state.morning === null ? null : MORNINGS[state.morning].key;
+  }
+
+  function byKey(list, key){
+    for(var i=0;i<list.length;i++){ if(list[i].key === key) return list[i]; }
+    return null;
+  }
+
   function suggestedNeeds(){
     var sug = {};
-    if(state.feel !== "free" && state.feel !== null){
-      (FEEL_NEEDS[FEELS[state.feel].key]||[]).forEach(function(k){ sug[k]=1; });
-    }
-    if(state.moment !== "free" && state.moment !== null){
-      (MOMENTS[state.moment].needs||[]).forEach(function(k){ sug[k]=1; });
-    }
-    if(state.morning !== "free" && state.morning !== null){
-      (MORNINGS[state.morning].needs||[]).forEach(function(k){ sug[k]=1; });
-    }
+    var f = feelSlot();
+    if(f) (FEEL_NEEDS[f]||[]).forEach(function(k){ sug[k]=1; });
+    var m = byKey(MOMENTS, momentSlot());
+    if(m) (m.needs||[]).forEach(function(k){ sug[k]=1; });
+    var g = byKey(MORNINGS, morningSlot());
+    if(g) (g.needs||[]).forEach(function(k){ sug[k]=1; });
     return sug;
+  }
+
+  /* ---------- 表示用テキスト ---------- */
+
+  function tagSuffix(kind, tag){
+    return tag && TAG_LABELS[kind][tag] ? "（自分のことば・向き: " + TAG_LABELS[kind][tag] + "）" : "（自分のことば）";
+  }
+  function feelText(){
+    if(state.feel === "free") return "「" + state.feelFree + "」" + tagSuffix("feel", state.feelTag);
+    return state.feel === null ? "" : FEELS[state.feel].t;
+  }
+  function momentText(){
+    if(state.moment === "free") return "「" + state.momentFree + "」" + tagSuffix("moment", state.momentTag);
+    return state.moment === null ? "" : MOMENTS[state.moment].t;
+  }
+  function morningText(){
+    if(state.morning === "free") return "「" + state.morningFree + "」" + tagSuffix("morning", state.morningTag);
+    return state.morning === null ? "" : MORNINGS[state.morning].t;
+  }
+
+  /* 持って潜ってきたものを、以降の画面でも見えるようにする */
+  function renderTrace(id){
+    var el = $(id);
+    if(!el) return;
+    el.innerHTML = '<div class="trace">'
+      + '<b>起点</b><i>「' + esc(state.desire) + '」</i><br>'
+      + '<b>浅瀬</b><i>' + esc(feelText()) + '</i><br>'
+      + '<b>中層</b><i>' + esc(momentText()) + '</i><br>'
+      + '<b>深層</b><i>' + esc(morningText()) + '</i>'
+      + '</div>';
+  }
+
+  function needName(k){
+    return k === MINE_KEY ? (state.mineName || "自分で名づけたもの") : NEEDS[k].name;
+  }
+  function needHints(k){
+    return k === MINE_KEY ? MINE_HINTS : NEEDS[k].hints;
   }
 
   function renderNeeds(){
@@ -775,10 +908,22 @@
       html += '<div class="n-desc">'+n.desc+'</div>';
       html += '</div>';
     });
+    html += '<div class="need mine" data-k="'+MINE_KEY+'">';
+    html += '<div class="n-name">＋ 自分のことばで名づける</div>';
+    html += '<div class="n-words">YOUR OWN</div>';
+    html += '<div class="n-desc">この11個の中に、自分の底にあるものが見当たらないとき。名前を自分でつければ、そのまま海底のニーズとして持って上がれます。</div>';
+    html += '<input type="text" class="n-input" id="need-mine" placeholder="例: ちゃんと終わらせたい" value="'+esc(state.mineName)+'">';
+    html += '</div>';
+
     grid.innerHTML = html;
     grid.querySelectorAll(".need").forEach(function(card){
-      card.addEventListener("click", function(){
+      card.addEventListener("click", function(e){
+        if(e.target.tagName === "INPUT") return;
         var k = card.getAttribute("data-k");
+        if(k === MINE_KEY && !state.mineName){
+          card.querySelector("input").focus();
+          return;
+        }
         var idx = state.needs.indexOf(k);
         if(idx >= 0){
           state.needs.splice(idx,1);
@@ -791,6 +936,23 @@
         warn("w5",false);
       });
     });
+
+    var mine = grid.querySelector("#need-mine");
+    var mineCard = mine.closest(".need");
+    mine.addEventListener("input", function(){
+      state.mineName = mine.value.trim();
+      var has = state.needs.indexOf(MINE_KEY) >= 0;
+      if(state.mineName && !has){
+        if(state.needs.length >= 3){ warn("w5",true); return; }
+        state.needs.push(MINE_KEY);
+        mineCard.classList.add("sel");
+        warn("w5",false);
+      } else if(!state.mineName && has){
+        state.needs.splice(state.needs.indexOf(MINE_KEY),1);
+        mineCard.classList.remove("sel");
+      }
+    });
+
     state.needs.forEach(function(k){
       var card = grid.querySelector('.need[data-k="'+k+'"]');
       if(card) card.classList.add("sel");
@@ -798,8 +960,12 @@
   }
 
   window.next5 = function(){
+    if(state.needs.indexOf(MINE_KEY) >= 0 && !state.mineName){
+      state.needs.splice(state.needs.indexOf(MINE_KEY),1);
+    }
     if(state.needs.length < 1){ warn("w5",true); return; }
     warn("w5",false);
+    renderTrace("trace-6");
     renderReframe();
     go(6);
   };
@@ -807,8 +973,7 @@
   /* ---------- リフレーム ---------- */
 
   function feelKey(){
-    if(state.feel === "free" || state.feel === null) return "free";
-    return FEELS[state.feel].key;
+    return feelSlot() || "free";
   }
 
   function renderReframe(){
@@ -816,16 +981,24 @@
     var msg = FEEL_MSG[feelKey()];
     var html = "";
 
-    html += '<div class="note"><strong>'+msg.title+'</strong><br>'+msg.body+'</div>';
+    /* 自由記述＋自己タグのときは、機械が測ったのではなく本人がつけた向きだと明示する */
+    var title = (state.feel === "free" && state.feelTag)
+      ? msg.title.replace("計測結果:", "あなたがつけた向きから:")
+      : msg.title;
+    html += '<div class="note"><strong>'+title+'</strong><br>'+msg.body+'</div>';
 
     state.needs.forEach(function(k, i){
-      var n = NEEDS[k];
-      var pre = "わたしは「" + state.desire + "」というかたちで、『" + n.name + "』に触れようとしているのかもしれない。";
+      var name = needName(k);
+      var mine = (k === MINE_KEY);
+      var pre = "わたしは「" + state.desire + "」というかたちで、『" + name + "』に触れようとしているのかもしれない。";
+      if(state.feel === "free" && state.feelFree){
+        pre += "浅瀬で湧いたのは「" + state.feelFree + "」だった。";
+      }
       html += '<div class="rf-block">';
-      html += '<div class="rf-label">DISCOVERY '+(i+1)+' — '+n.name+'</div>';
+      html += '<div class="rf-label">DISCOVERY '+(i+1)+' — '+esc(name)+(mine ? '（自分で名づけた）' : '')+'</div>';
       html += '<textarea class="rf-text" data-k="'+k+'" rows="3">'+esc(state.reframes[k] || pre)+'</textarea>';
-      html += '<div class="hint-list">このニーズへ届く、別のルート(例):<br>';
-      n.hints.forEach(function(h){ html += '<span>'+h+'</span>'; });
+      html += '<div class="hint-list">'+(mine ? '自分で名づけたものへ届く、掘りかた:' : 'このニーズへ届く、別のルート(例):')+'<br>';
+      needHints(k).forEach(function(h){ html += '<span>'+h+'</span>'; });
       html += '</div>';
       html += '<input type="text" class="rf-alt" data-k="'+k+'" placeholder="自分なりのルートをひとつ(任意)" value="'+esc(state.alt[k]||"")+'">';
       html += '</div>';
@@ -859,33 +1032,24 @@
 
   /* ---------- 潜水記録 ---------- */
 
-  function feelLabel(){
-    if(state.feel === "free") return "「" + state.feelFree + "」(自分のことば)";
-    if(state.feel === null) return "";
-    return FEELS[state.feel].t;
-  }
-
   function renderSummary(){
     var html = '<h3>潜水記録</h3><div class="log-en">DIVE LOG</div>';
 
     html += '<div class="sum-row"><div class="sum-label">潜行の起点</div><div class="sum-body">「'+esc(state.desire)+'」</div></div>';
-    html += '<div class="sum-row"><div class="sum-label">浅瀬の手ざわり</div><div class="sum-body">'+esc(feelLabel())+'</div></div>';
-
-    var momentTxt = state.moment === "free" ? state.momentFree : (state.moment !== null ? MOMENTS[state.moment].t : "");
-    var morningTxt = state.morning === "free" ? state.morningFree : (state.morning !== null ? MORNINGS[state.morning].t : "");
-    html += '<div class="sum-row"><div class="sum-label">中層 — 味わいたい瞬間</div><div class="sum-body">'+esc(momentTxt)+'</div></div>';
-    html += '<div class="sum-row"><div class="sum-label">深層 — 翌朝に残るもの</div><div class="sum-body">'+esc(morningTxt)+'</div></div>';
+    html += '<div class="sum-row"><div class="sum-label">浅瀬の手ざわり</div><div class="sum-body">'+esc(feelText())+'</div></div>';
+    html += '<div class="sum-row"><div class="sum-label">中層 — 味わいたい瞬間</div><div class="sum-body">'+esc(momentText())+'</div></div>';
+    html += '<div class="sum-row"><div class="sum-label">深層 — 翌朝に残るもの</div><div class="sum-body">'+esc(morningText())+'</div></div>';
 
     html += '<div class="sum-row"><div class="sum-label">海底で触れたニーズ</div><div class="sum-body sum-needs">';
-    state.needs.forEach(function(k){ html += '<span>'+NEEDS[k].name+'</span>'; });
+    state.needs.forEach(function(k){ html += '<span>'+esc(needName(k))+'</span>'; });
     html += '</div></div>';
 
     state.needs.forEach(function(k){
       if(state.reframes[k]){
-        html += '<div class="sum-row"><div class="sum-label">光を当てたことば — '+NEEDS[k].name+'</div><div class="sum-body">'+esc(state.reframes[k])+'</div></div>';
+        html += '<div class="sum-row"><div class="sum-label">光を当てたことば — '+esc(needName(k))+'</div><div class="sum-body">'+esc(state.reframes[k])+'</div></div>';
       }
       if(state.alt[k]){
-        html += '<div class="sum-row"><div class="sum-label">別のルート — '+NEEDS[k].name+'</div><div class="sum-body">'+esc(state.alt[k])+'</div></div>';
+        html += '<div class="sum-row"><div class="sum-label">別のルート — '+esc(needName(k))+'</div><div class="sum-body">'+esc(state.alt[k])+'</div></div>';
       }
     });
 
@@ -911,15 +1075,13 @@
     lines.push("潜水記録(深海スコープ)");
     lines.push("");
     lines.push("潜行の起点:「" + state.desire + "」");
-    lines.push("浅瀬の手ざわり: " + feelLabel());
-    var momentTxt = state.moment === "free" ? state.momentFree : (state.moment !== null ? MOMENTS[state.moment].t : "");
-    var morningTxt = state.morning === "free" ? state.morningFree : (state.morning !== null ? MORNINGS[state.morning].t : "");
-    lines.push("中層 — 味わいたい瞬間: " + momentTxt);
-    lines.push("深層 — 翌朝に残るもの: " + morningTxt);
-    lines.push("海底で触れたニーズ: " + state.needs.map(function(k){ return NEEDS[k].name; }).join(" / "));
+    lines.push("浅瀬の手ざわり: " + feelText());
+    lines.push("中層 — 味わいたい瞬間: " + momentText());
+    lines.push("深層 — 翌朝に残るもの: " + morningText());
+    lines.push("海底で触れたニーズ: " + state.needs.map(needName).join(" / "));
     state.needs.forEach(function(k){
-      if(state.reframes[k]) lines.push("光を当てたことば(" + NEEDS[k].name + "): " + state.reframes[k]);
-      if(state.alt[k]) lines.push("別のルート(" + NEEDS[k].name + "): " + state.alt[k]);
+      if(state.reframes[k]) lines.push("光を当てたことば(" + needName(k) + "): " + state.reframes[k]);
+      if(state.alt[k]) lines.push("別のルート(" + needName(k) + "): " + state.alt[k]);
     });
     if(state.step) lines.push("浮上後24時間の一歩: " + state.step);
     var text = lines.join("\n");
@@ -944,8 +1106,7 @@
   };
 
   window.restart = function(){
-    state = {desire:"", feel:null, feelFree:"", moment:null, momentFree:"",
-      morning:null, morningFree:"", needs:[], reframes:{}, alt:{}, step:""};
+    state = JSON.parse(JSON.stringify(BLANK));
     $("in-desire").value = "";
     ["opts-feel","opts-moment","opts-morning"].forEach(function(id){
       document.querySelectorAll("#"+id+" .opt").forEach(function(o){ o.classList.remove("sel"); });
@@ -954,6 +1115,7 @@
       $(id).classList.remove("show");
       $(id).querySelector("textarea").value = "";
     });
+    document.querySelectorAll(".tag-chip").forEach(function(c){ c.classList.remove("sel"); });
     go(0);
   };
 

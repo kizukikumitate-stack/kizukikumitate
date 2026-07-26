@@ -213,6 +213,23 @@
   footer a{color:#9dc6d8;}
   .hidden{display:none !important;}
 
+  /* 自分のことばで書く枠 */
+  .chip.mine{border-style:dashed;}
+  .chip.mine.sel{border-style:solid;}
+  .own{display:none;margin-top:14px;}
+  .own.show{display:block;}
+  .own-q{font-size:13px;color:var(--fg-soft);margin:0 0 8px;line-height:1.8;}
+  .own-q span{font-size:11.5px;color:#7c98a8;}
+  .own-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;}
+  .own-tag{
+    font-size:12.5px;color:var(--fg-soft);border:1px solid var(--card-line);
+    padding:6px 12px;border-radius:999px;cursor:pointer;user-select:none;
+    background:#0a223355;transition:all .15s ease;
+  }
+  .own-tag:hover{color:var(--fg);border-color:var(--accent);}
+  .own-tag.sel{color:#062430;background:var(--accent);border-color:var(--accent);font-weight:700;}
+  .own-note{font-size:12px;color:#7c98a8;margin-top:10px;line-height:1.8;}
+
   .sisters{margin-top:18px;display:grid;grid-template-columns:minmax(0,1fr);gap:10px;}
   .sister{
     display:block;text-decoration:none;color:var(--fg-soft);
@@ -278,8 +295,18 @@
   <section class="panel hidden" id="s2">
     <span class="stage-tag">水深 -50m · めぐみを見る</span>
     <h2>そのやり方は、あなたを何から守ってきましたか?</h2>
-    <p class="guide">直したい課題は、たいてい「かつての有能な守り」です。ピンとくるものを1〜3つ。</p>
+    <p class="guide">直したい課題は、たいてい「かつての有能な守り」です。ピンとくるものを1〜3つ。ぴったり来るものが無ければ、最後の「この中にない」から自分のことばで書けます。</p>
     <div class="hint-chips" id="benefitChips"></div>
+
+    <div class="own" id="ownBenefit">
+      <p class="own-q">そのやり方は、あなたを何から守ってきましたか。自分のことばで一文どうぞ。</p>
+      <input type="text" id="ownBenefitText" placeholder="例: 誰かに落胆されること" oninput="onOwnBenefit()">
+      <p class="own-q" style="margin-top:14px;">いま書いたものは、おおまかにどの怖さに近いですか。<span>（任意。浮上のときに流れてくるカードの手がかりになります）</span></p>
+      <div class="own-tags" id="ownBenefitTags"></div>
+      <p class="own-note">選ばなくても進めます。その場合は、どの守りにも共通する3枚をお渡しします。</p>
+    </div>
+
+    <div class="safety" id="safety2"></div>
     <button class="btn" id="btn2" disabled onclick="go3()">守りを認めて、さらに深くへ ▾</button>
   </section>
 
@@ -287,8 +314,14 @@
   <section class="panel hidden" id="s3">
     <span class="stage-tag">水深 -100m · しはらいを見る</span>
     <h2>それを続けることで、静かに支払っているものは?</h2>
-    <p class="guide">責めるためではなく、両面を同じ明るさで照らすために。1〜3つ。</p>
+    <p class="guide">責めるためではなく、両面を同じ明るさで照らすために。1〜3つ。こちらも「この中にない」から自分のことばで書けます。</p>
     <div class="hint-chips" id="costChips"></div>
+
+    <div class="own" id="ownCost">
+      <p class="own-q">静かに支払ってきたものを、自分のことばで。</p>
+      <input type="text" id="ownCostText" placeholder="例: 誰かに任せてみる、という選択肢そのもの" oninput="onOwnCost()">
+    </div>
+
     <div class="two-col" id="balance" style="display:none;">
       <div class="side merit"><h4>🛡 守ってきたもの</h4><ul id="meritList"></ul></div>
       <div class="side cost"><h4>⏳ 支払ってきたもの</h4><ul id="costList"></ul></div>
@@ -312,10 +345,14 @@
   <section class="panel hidden" id="s5">
     <span class="stage-tag" style="background:var(--accent2);">浮上中 · 別の見方に出会う</span>
     <h2>浮上の途中で、3枚のカードが流れてきました</h2>
-    <p class="guide">あなたの選んだ「守り」に対応する、<a href="./unlearn-zukan.html" style="color:var(--accent);">アンラーン図鑑</a>からの3枚です。</p>
+    <p class="guide"><span id="cardsLede"></span>出典は<a href="./unlearn-zukan.html" style="color:var(--accent);">アンラーン図鑑</a>です。</p>
     <div id="cards"></div>
     <div class="reframe" id="reframe"></div>
     <div class="exp" id="experiment"></div>
+    <div class="own show">
+      <p class="own-q">この実験がしっくり来なければ、自分の実験を書いてください。<span>（書いた場合は、ノートにこちらが載ります）</span></p>
+      <input type="text" id="ownExp" placeholder="今週ためしてみる、小さなこと" oninput="onOwnExp()">
+    </div>
     <button class="btn" onclick="go6()">海面へ ▴</button>
   </section>
 
@@ -489,8 +526,22 @@ const EXPERIMENTS = {
 
 const CRISIS_WORDS = ["死にたい","消えたい","自殺","自傷","リストカット","死のう","いなくなりたい","終わりにしたい"];
 
+/* 選択肢が合わないとき、本人が「おおまかな怖さ」を自分でタグづけするための4families。
+   rep = そのfamilyを代表する benefit id（カード・実験・信念テンプレの行き先） */
+const BENEFIT_FAMILIES = [
+  {id:"kowareru", label:"こわれるのが怖い",       rep:"control"},
+  {id:"mirare",   label:"見られ方が怖い",         rep:"hyoka"},
+  {id:"ushinau",  label:"失うのが怖い",           rep:"kako"},
+  {id:"kankei",   label:"関係が壊れるのが怖い",   rep:"chowa"}
+];
+
+/* どの守りにも共通して効く3枚（タグを選ばなかった場合） */
+const GENERIC_CARDS = ["genjo","shoshin","reframe_q"];
+const GENERIC_EXPERIMENT = "今週ひとつだけ、そのやり方を「半分だけ」にしてみる。何が起きたか——そして、思ったほど何も起きなかったか——を、夜に一行だけ書き留める。";
+
 /* ---------------- state ---------------- */
-const S = {tone:"soft", issue:"", benefits:[], costs:[], belief:"", before:30, after:50};
+const S = {tone:"soft", issue:"", benefits:[], costs:[], belief:"", before:30, after:50,
+           ownBenefit:"", ownBenefitFam:null, ownCost:"", ownExp:""};
 
 /* ---------------- helpers ---------------- */
 const $ = id => document.getElementById(id);
@@ -535,36 +586,131 @@ function go1(){
 /* ---------------- step 2 ---------------- */
 BENEFITS.forEach(b=>{
   const c=document.createElement("div");c.className="chip";c.textContent=b.label;c.dataset.id=b.id;
-  c.onclick=()=>{toggleSel(c,S.benefits,b.id,3);$("btn2").disabled=S.benefits.length===0;};
+  c.onclick=()=>{toggleSel(c,S.benefits,b.id,3);syncBtn2();};
   $("benefitChips").appendChild(c);
 });
+addMineChip($("benefitChips"),"＋ この中にない（自分のことばで）","ownBenefit","ownBenefitText");
+
+BENEFIT_FAMILIES.forEach(f=>{
+  const t=document.createElement("div");t.className="own-tag";t.textContent=f.label;t.dataset.id=f.id;
+  t.onclick=()=>{
+    const already=t.classList.contains("sel");
+    $("ownBenefitTags").querySelectorAll(".own-tag").forEach(x=>x.classList.remove("sel"));
+    if(already){S.ownBenefitFam=null;return;}
+    t.classList.add("sel");S.ownBenefitFam=f.id;
+  };
+  $("ownBenefitTags").appendChild(t);
+});
+
 COSTS.forEach(l=>{
   const c=document.createElement("div");c.className="chip gold";c.textContent=l;
-  c.onclick=()=>{toggleSel(c,S.costs,l,3);$("btn3").disabled=S.costs.length===0;renderBalance();};
+  c.onclick=()=>{toggleSel(c,S.costs,l,3);syncBtn3();renderBalance();};
   $("costChips").appendChild(c);
 });
+addMineChip($("costChips"),"＋ この中にない（自分のことばで）","ownCost","ownCostText");
+
+/* 「この中にない」チップ: 押すと自由記述欄が開く。テキストが空なら選択は成立しない */
+function addMineChip(host,label,panelKey,inputId){
+  const c=document.createElement("div");
+  c.className = host.id==="costChips" ? "chip gold mine" : "chip mine";
+  c.textContent=label;c.dataset.panel=panelKey;
+  c.onclick=()=>{
+    const panel=$(panelKey==="ownBenefit"?"ownBenefit":"ownCost");
+    const open=panel.classList.toggle("show");
+    c.classList.toggle("sel",open && !!S[panelKey]);
+    if(open) $(inputId).focus();
+  };
+  host.appendChild(c);
+}
+
+function mineChip(panelKey){
+  return document.querySelector('.chip.mine[data-panel="'+panelKey+'"]');
+}
+
+function onOwnBenefit(){
+  S.ownBenefit=$("ownBenefitText").value.trim();
+  mineChip("ownBenefit").classList.toggle("sel",!!S.ownBenefit);
+  syncBtn2();
+}
+function onOwnCost(){
+  S.ownCost=$("ownCostText").value.trim();
+  mineChip("ownCost").classList.toggle("sel",!!S.ownCost);
+  syncBtn3();renderBalance();
+}
+function onOwnExp(){S.ownExp=$("ownExp").value.trim();}
+
+function syncBtn2(){$("btn2").disabled = S.benefits.length===0 && !S.ownBenefit;}
+function syncBtn3(){$("btn3").disabled = S.costs.length===0 && !S.ownCost;}
+
 function toggleSel(el,arr,val,max){
   const i=arr.indexOf(val);
   if(i>=0){arr.splice(i,1);el.classList.remove("sel");}
   else{if(arr.length>=max){return;}arr.push(val);el.classList.add("sel");}
 }
-function go2(){setDepth(2,"DIVING -50m");show("s2");}
-function go3(){setDepth(3,"DIVING -100m");renderBalance();show("s3");}
-function renderBalance(){
-  if(S.benefits.length===0)return;
-  $("balance").style.display="grid";
-  $("meritList").innerHTML=S.benefits.map(id=>"<li>"+bLabel(id)+"</li>").join("");
-  $("costList").innerHTML=S.costs.map(l=>"<li>"+esc(l)+"</li>").join("");
+
+/* 表示・記録に使う「守り」「支払い」の一覧（選択肢＋自分のことば） */
+function benefitList(){
+  const out=S.benefits.map(id=>BENEFITS.find(b=>b.id===id).label);
+  if(S.ownBenefit) out.push(S.ownBenefit+"（自分のことば）");
+  return out;
 }
-function bLabel(id){return esc(BENEFITS.find(b=>b.id===id).label);}
+function costList(){
+  const out=S.costs.slice();
+  if(S.ownCost) out.push(S.ownCost+"（自分のことば）");
+  return out;
+}
+
+/* カード・実験・信念テンプレの行き先。選択肢 → 自己タグ → 汎用 の順で決める */
+function cardKey(){
+  if(S.benefits.length) return S.benefits[0];
+  if(S.ownBenefitFam) return BENEFIT_FAMILIES.find(f=>f.id===S.ownBenefitFam).rep;
+  return null;
+}
+/* リフレーム文で使う「何から守ってきたか」。本人のことばがあればそれを優先する */
+function protectText(){
+  if(S.ownBenefit) return S.ownBenefit;
+  const b=BENEFITS.find(x=>x.id===S.benefits[0]);
+  return b?b.protect:"";
+}
+function beliefFromOwn(){
+  return S.ownBenefit ? "手放したら、『"+S.ownBenefit+"』が本当に起きてしまう気がする" : "";
+}
+function beliefFallback(){
+  const k=cardKey();
+  if(k&&BELIEF_TPL[k]) return BELIEF_TPL[k];
+  return beliefFromOwn() || "手放したら、何かがうまくいかなくなる気がする";
+}
+/* 3枚のカードが「どこから来たか」を正直に書く */
+function cardsLede(){
+  if(S.benefits.length) return "あなたの選んだ「守り」に対応する3枚です。";
+  const f=BENEFIT_FAMILIES.find(x=>x.id===S.ownBenefitFam);
+  if(f) return "あなたがつけた「"+f.label+"」という手がかりに対応する3枚です。";
+  return "守りを自分のことばで書かれたので、どの守りにも共通して効く3枚をお渡しします。";
+}
+
+function go2(){setDepth(2,"DIVING -50m");show("s2");}
+function go3(){
+  if(checkCrisis(S.ownBenefit,"safety2") && !$("s2").dataset.warned){$("s2").dataset.warned="1";return;}
+  setDepth(3,"DIVING -100m");renderBalance();show("s3");
+}
+function renderBalance(){
+  const merits=benefitList();
+  if(merits.length===0)return;
+  $("balance").style.display="grid";
+  $("meritList").innerHTML=merits.map(l=>"<li>"+esc(l)+"</li>").join("");
+  $("costList").innerHTML=costList().map(l=>"<li>"+esc(l)+"</li>").join("");
+}
 
 /* ---------------- step 4 ---------------- */
 function go4(){
   setDepth(4,"ABYSS -200m");
   $("beliefHints").innerHTML="";
-  S.benefits.forEach(id=>{
-    const c=document.createElement("div");c.className="chip";c.textContent=BELIEF_TPL[id];
-    c.onclick=()=>{$("belief").value=BELIEF_TPL[id];};
+  const tpls=S.benefits.map(id=>BELIEF_TPL[id]);
+  if(S.ownBenefitFam) tpls.push(BELIEF_TPL[BENEFIT_FAMILIES.find(f=>f.id===S.ownBenefitFam).rep]);
+  if(S.ownBenefit) tpls.push(beliefFromOwn());
+  [...new Set(tpls.filter(Boolean))].forEach(t=>{
+    const c=document.createElement("div");c.className="chip";c.textContent=t;
+    c.onclick=()=>{$("belief").value=t;};
     $("beliefHints").appendChild(c);
   });
   show("s4");
@@ -572,17 +718,19 @@ function go4(){
 
 /* ---------------- step 5 ---------------- */
 function go5(){
-  S.belief=$("belief").value.trim()||BELIEF_TPL[S.benefits[0]];
+  S.belief=$("belief").value.trim()||beliefFallback();
   if(checkCrisis(S.belief,"safety4") && !$("s4").dataset.warned){$("s4").dataset.warned="1";return;}
   setDepth(5,"ASCENDING…");
-  // カード選択: 主benefitのマップ + 2nd benefitの知恵で多様化
-  const main=CARD_MAP[S.benefits[0]];
+  // カード選択: 主benefit（無ければ自己タグ、それも無ければ汎用3枚）+ 2nd benefitの知恵で多様化
+  const key=cardKey();
+  const main=key?CARD_MAP[key]:GENERIC_CARDS;
   const picked=[CARDS[main[0]],CARDS[main[1]],CARDS[main[2]]];
   if(S.benefits[1]){
     const alt=CARD_MAP[S.benefits[1]];
     if(alt[1]!==main[1])picked[1]=CARDS[alt[1]];
   }
   S.picked=picked;
+  $("cardsLede").textContent = cardsLede();
   $("cards").innerHTML=picked.map((c,i)=>`
     <div class="wcard ${i===2?'gold':''}">
       <div class="k">${c.k}</div>
@@ -591,10 +739,9 @@ function go5(){
       <p>${c.p}</p>
       <div class="q"><b>問い</b> ${c.q}</div>
     </div>`).join("");
-  const protect=S.benefits.map(id=>BENEFITS.find(b=>b.id===id).protect)[0];
   $("reframe").innerHTML=
-    "🌊 <b>別の見方</b><br><br>あなたは「"+esc(S.issue)+"」という<b>欠点を抱えている</b>のではなく、<br>「"+esc(protect)+"」から自分を守る方法として、それを<b>選び続けてきた</b>のかもしれません。<br><br>そしてその奥には——<br>「"+esc(S.belief)+"」<br>という信念が沈んでいました。これは事実ではなく、<b>まだ検証されていない仮説</b>です。仮説は、消すものではなく、試すものです。";
-  S.exp=EXPERIMENTS[S.benefits[0]];
+    "🌊 <b>別の見方</b><br><br>あなたは「"+esc(S.issue)+"」という<b>欠点を抱えている</b>のではなく、<br>「"+esc(protectText())+"」から自分を守る方法として、それを<b>選び続けてきた</b>のかもしれません。<br><br>そしてその奥には——<br>「"+esc(S.belief)+"」<br>という信念が沈んでいました。これは事実ではなく、<b>まだ検証されていない仮説</b>です。仮説は、消すものではなく、試すものです。";
+  S.exp=(key&&EXPERIMENTS[key])||GENERIC_EXPERIMENT;
   $("experiment").innerHTML="<b>🔬 今週の小さな実験(仮説の検証)</b>"+esc(S.exp);
   show("s5");
 }
@@ -621,19 +768,19 @@ function renderNote(){
 ■ 持ち込んだ課題
 ${S.issue}
 ■ それが守ってきたもの
-${S.benefits.map(bId=>"・"+BENEFITS.find(b=>b.id===bId).label).join("\n")}
+${benefitList().map(l=>"・"+l).join("\n")}
 ■ 静かに支払ってきたもの
-${S.costs.map(c=>"・"+c).join("\n")}
+${costList().map(l=>"・"+l).join("\n")}
 ■ 最深部にあった信念(未検証の仮説)
 「${S.belief}」
 ■ 出会ったカード
 ${(S.picked||[]).map(c=>"・"+c.term+" — "+c.q).join("\n")}
 ■ 今週の小さな実験
-${S.exp||""}
+${S.ownExp||S.exp||""}
 ■ 手放せる気がする度
 ${S.before} → ${S.after}
 
-- UNLEARN SCOPE (深海スコープ・シリーズ)`;
+- UNLEARN SCOPE (スコープ・シリーズ / きづきくみたて工房)`;
 }
 function copyNote(btn){
   const text=$("note").textContent;
