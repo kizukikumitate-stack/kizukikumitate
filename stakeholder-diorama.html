@@ -160,6 +160,10 @@ svg.field .token{cursor:pointer;}
 .stage-frame{border-radius:18px; overflow:hidden; box-shadow:0 6px 24px rgba(42,52,57,.12);}
 svg.globe{width:100%; height:auto; display:block; touch-action:none; cursor:grab;}
 svg.globe:active{cursor:grabbing;}
+/* 「地球」スケールのフィールドも回せる（コマは通常のカーソルに戻す） */
+svg.field.spin{touch-action:none; cursor:grab;}
+svg.field.spin:active{cursor:grabbing;}
+svg.field.spin .token{cursor:pointer;}
 svg.globe .site{cursor:pointer;}
 .role-row, .site-row{display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:8px;}
 .site-name{font-size:.95rem; font-weight:900;}
@@ -1499,14 +1503,8 @@ const GROUNDS = {
     '<ellipse cx="205" cy="410" rx="26" ry="13" fill="#5E8F52"/>' +
     '<ellipse cx="205" cy="398" rx="18" ry="12" fill="#6FA35F"/>' +
     '<ellipse cx="595" cy="415" rx="26" ry="13" fill="#5E8F52"/></g>',
-  earth: () => '<g>' +
-    '<circle cx="400" cy="345" r="185" fill="#4A7FB5"/>' +
-    '<circle cx="400" cy="345" r="185" fill="url(#earthShade)"/>' +
-    '<path d="M310,250 q40,-25 80,-8 q30,12 18,42 q-12,28 -50,24 q-45,-5 -55,-30 q-6,-18 7,-28z" fill="#79B06A"/>' +
-    '<path d="M470,340 q45,-10 62,20 q12,24 -12,44 q-28,22 -58,6 q-24,-14 -14,-42 q7,-20 22,-28z" fill="#79B06A"/>' +
-    '<path d="M330,400 q28,-8 40,10 q10,16 -6,30 q-20,16 -40,4 q-16,-11 -8,-28 q5,-11 14,-16z" fill="#8CBF7B"/>' +
-    '<ellipse cx="345" cy="285" rx="55" ry="16" fill="#FFFFFF" opacity="0.55"/>' +
-    '<ellipse cx="465" cy="420" rx="48" ry="13" fill="#FFFFFF" opacity="0.5"/></g>',
+  /* 「地球」スケールは、どのケース・どの盤面でもドラッグで回せる地球儀（中身は spinGlobeParts） */
+  earth: () => '<g id="spinGlobe">' + spinGlobeParts() + "</g>",
   sea: () => '<g>' +
     '<rect x="0" y="300" width="800" height="320" fill="#5FA8CF"/>' +
     '<rect x="0" y="300" width="800" height="30" fill="#7FBCDB"/>' +
@@ -1592,6 +1590,20 @@ function projectPoint(lat, lon, lam0, phi0, R, cx, cy) {
   const x = Math.cos(p) * Math.sin(l - l0);
   const y = Math.cos(p0) * Math.sin(p) - Math.sin(p0) * Math.cos(p) * Math.cos(l - l0);
   return { x: cx + R * x, y: cy - R * y, visible: cosc > 0, depth: cosc };
+}
+
+/* 「地球」スケールで使う地球儀の中身（拠点ピンなし・S.rot に追従する）。
+   世界地図（globeInner）と同じ投影・同じ大陸データを使うので、回した向きは両方で共有される。 */
+function spinGlobeParts(cx, cy, R) {
+  cx = cx == null ? 400 : cx; cy = cy == null ? 345 : cy; R = R == null ? 185 : R;
+  let out = '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="#4A7FB5"/>';
+  CONTINENTS.forEach((pts) => {
+    const vis = pts.map((c) => projectPoint(c[0], c[1], S.rot.lam, S.rot.phi, R, cx, cy)).filter((p) => p.visible);
+    if (vis.length < 3) return;
+    out += '<polygon points="' + vis.map((p) => p.x.toFixed(1) + "," + p.y.toFixed(1)).join(" ") +
+      '" fill="#79B06A" stroke="#5E8F52" stroke-width="1"/>';
+  });
+  return out + '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="url(#earthShade)"/>';
 }
 
 function aggregateSiteVerdict(sids, axes, hs) {
@@ -1752,6 +1764,10 @@ function fieldMarkup(scale, list) {
     out += '<text x="400" y="345" text-anchor="middle" font-size="17" fill="' + (earth ? "#DCE6F5" : COLORS.sub) +
       '" font-weight="700">「＋ 関係者を追加」から、この場に人を招きましょう</text>';
   }
+  if (earth) {
+    out += '<text x="400" y="604" text-anchor="middle" font-size="13" font-weight="700" fill="#B9C8E0">' +
+      '🌏 ドラッグで地球を回せます</text>';
+  }
   out += '<g id="tipLayer">' + tipMarkup(list) + "</g></svg>";
   return out;
 }
@@ -1793,7 +1809,8 @@ function bindGlobeDrag(svg) {
     drag = { x: e.clientX, y: e.clientY };
     moved += Math.abs(dx) + Math.abs(dy);
     if (moved < 4) return; /* 指のわずかな震えでは回さない */
-    S.rot = { lam: S.rot.lam + dx * 0.5, phi: Math.max(-60, Math.min(60, S.rot.phi + dy * 0.4)) };
+    /* 縦横どちらも「引っ張る」向き。lam を引くと地球が指の向きについてくる */
+    S.rot = { lam: S.rot.lam - dx * 0.5, phi: Math.max(-60, Math.min(60, S.rot.phi + dy * 0.4)) };
     svg.innerHTML = globeInner();
     bindSiteClicks(svg, movedFn);
     e.preventDefault();
@@ -1812,6 +1829,37 @@ function bindGlobeDrag(svg) {
     window.addEventListener("pointercancel", onEnd);
   });
   bindSiteClicks(svg, movedFn);
+}
+/* 「地球」スケールのフィールドを回す。地球の絵だけ差し替えるのでコマは動かない */
+function bindEarthSpin(svg) {
+  const g = svg.querySelector("#spinGlobe");
+  if (!g) return;
+  svg.classList.add("spin");
+  let drag = null;
+  const onMove = (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    drag = { x: e.clientX, y: e.clientY };
+    svg._spinMoved = (svg._spinMoved || 0) + Math.abs(dx) + Math.abs(dy);
+    if (svg._spinMoved < 4) return; /* 指のわずかな震えでは回さない */
+    S.rot = { lam: S.rot.lam - dx * 0.5, phi: Math.max(-60, Math.min(60, S.rot.phi + dy * 0.4)) };
+    g.innerHTML = spinGlobeParts();
+    e.preventDefault();
+  };
+  const onEnd = () => {
+    drag = null;
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onEnd);
+    window.removeEventListener("pointercancel", onEnd);
+    save();
+    setTimeout(() => { svg._spinMoved = 0; }, 0); /* クリック判定のあとで戻す */
+  };
+  svg.addEventListener("pointerdown", (e) => {
+    drag = { x: e.clientX, y: e.clientY }; svg._spinMoved = 0;
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onEnd);
+    window.addEventListener("pointercancel", onEnd);
+  });
 }
 function bindSiteClicks(svg, movedFn) {
   svg.querySelectorAll(".site").forEach((g) => {
@@ -1836,7 +1884,11 @@ function backToGlobe() {
 function bindTokens(stage, list) {
   stage.querySelectorAll(".token").forEach((g) => {
     const id = g.getAttribute("data-id");
-    g.addEventListener("click", () => { S.selectedId = id; renderStage(); renderPanel(); });
+    g.addEventListener("click", () => {
+      const svg = g.ownerSVGElement;
+      if (svg && (svg._spinMoved || 0) > 8) return; /* 地球を回しただけの指を誤爆させない */
+      S.selectedId = id; renderStage(); renderPanel();
+    });
     g.addEventListener("mouseenter", () => { S.hoverId = id; const l = $("tipLayer"); if (l) l.innerHTML = tipMarkup(list); });
     g.addEventListener("mouseleave", () => { S.hoverId = null; const l = $("tipLayer"); if (l) l.innerHTML = ""; });
   });
@@ -1872,10 +1924,12 @@ function renderStage() {
     const back = stage.querySelector('[data-act="globe"]');
     if (back) back.addEventListener("click", backToGlobe);
     bindTokens(stage, members);
+    if (site.field === "earth") bindEarthSpin(stage.querySelector("svg.field"));
   } else if (S.view === "field") {
     stage.className = "stage-field";
     stage.innerHTML = fieldMarkup();
     bindTokens(stage, S.stakeholders);
+    if (S.scale === "earth") bindEarthSpin(stage.querySelector("svg.field"));
   } else if (S.stakeholders.length) {
     stage.className = "";
     stage.innerHTML = tableMarkup();
