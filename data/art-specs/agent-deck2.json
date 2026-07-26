@@ -1,0 +1,63 @@
+{
+  "name": "agent-deck2",
+  "aspect_ratio": "1:1",
+  "anchors": ["images/agent-deck/site-reviewer.webp", "images/agent-deck/survey-data-analyst.webp"],
+  "style": "Elegant single-weight LINE-ART illustration (outline style): the figure and every object are drawn as thin, luminous GOLD outlines on a deep navy background (#0e1024) — NOT filled color blocks, NOT a chibi/mascot, NOT a solid silhouette. Minimal and refined, plenty of empty space, a thin gold ground ellipse under the figure. Exactly one element glows softly in the specified accent color; everything else stays gold line-art. Calm, dignified scenes with a gentle fantasy-journey flavor. The figure is small, shown from behind or in clean profile — never a forward-facing face, keep the face plain/featureless. Human anatomy: exactly two arms and two legs, clearly separated, no extra or missing limbs, a simple standing or seated posture. GENERIC only: no specific religious symbols or sect emblems, no recognizable people, brands, franchises, or logos. STRICT: no text, no letters, no numbers, no real glyphs, no speech bubbles, no sun or large glowing disc, a single calm scene, no collage, no split panels.",
+  "out_dir": "images/agent-deck",
+  "file_pattern": "{id}.webp",
+  "webp": { "width": 800, "quality": 82 },
+  "items": [
+    {
+      "id": "panel-info-designer",
+      "prompt": "A reader of layers: a figure from behind facing a tall cliff face of many horizontal strata, reaching up to trace one single band with a fingertip. Accent glow: cool blue light along the one traced band."
+    },
+    {
+      "id": "panel-storyteller",
+      "prompt": "A teller of tales: a figure in clean profile seated on a low stool beside a small fire, an open blank book with empty pages resting on the knees, thin gold lines of smoke rising and curling into the shape of a distant road. Accent glow: rose pink light of the small fire."
+    },
+    {
+      "id": "panel-game-ux",
+      "prompt": "A finder of hidden doors: a figure from behind pressing one panel in a plain wall, a narrow vertical gap swinging open beside their hand. Accent glow: rose pink light spilling from the narrow gap."
+    },
+    {
+      "id": "panel-strategist",
+      "prompt": "A tester of reasoning: a figure in clean profile before a wall of small pegs, a single taut thread strung from one peg across to a far peg, one finger plucking the thread to test it. Accent glow: warm mustard amber light along the taut thread."
+    },
+    {
+      "id": "panel-workshop-designer",
+      "prompt": "A setter of the circle: a figure from behind arranging low round stools into a ring on the floor of an empty hall, one stool still held in the hands. Accent glow: emerald green light on the stool being placed."
+    },
+    {
+      "id": "panel-creative-coder",
+      "prompt": "An inspector of movement: a figure from behind holding up a small hanging mechanism of interlocking gears and a swinging weight, watching it turn. Accent glow: terracotta orange light at the centre of the mechanism."
+    },
+    {
+      "id": "panel-community",
+      "prompt": "A passer of light: a figure from behind lowering a small flame to the first of a long row of unlit lanterns set along a path that curves into the distance. Accent glow: emerald green light of the first lantern being lit."
+    },
+    {
+      "id": "panel-educator",
+      "prompt": "A wrapper of what is taken home: a figure in clean profile at a low table, tying a cloth around a small square parcel, a few blank sheets stacked beside it. Accent glow: emerald green light from within the parcel."
+    },
+    {
+      "id": "quality-auditor",
+      "prompt": "A walker of the rounds: a figure from behind walking a long corridor lined with many identical closed doors, raising a lantern; one door far ahead stands slightly ajar. Accent glow: emerald green light from the gap of the ajar door."
+    },
+    {
+      "id": "page-creator",
+      "prompt": "A raiser of frames: a figure from behind lifting a new wooden post upright into an empty room where a simple frame is half built. Accent glow: terracotta orange light at the joint where the post meets the beam."
+    },
+    {
+      "id": "seo-content",
+      "prompt": "A planter of waymarks: a figure from behind pushing a wooden signpost with completely blank empty boards into the ground at a crossing where several faint paths converge. Accent glow: warm mustard amber light around the base of the post."
+    },
+    {
+      "id": "design-unifier",
+      "prompt": "A matcher of measures: a figure in clean profile holding a measuring cord across a row of identical window frames set in a long wall, pausing at one frame that sits slightly out of line. Accent glow: rose pink light on the one misaligned frame."
+    },
+    {
+      "id": "note-writer",
+      "prompt": "A keeper of the writing desk: a figure from behind seated at a low desk, brush raised over a completely blank unrolled scroll, a closed lidded box waiting at the side of the desk. Accent glow: rose pink light at the tip of the brush."
+    }
+  ]
+}

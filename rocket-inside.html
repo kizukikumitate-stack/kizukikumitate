@@ -11,19 +11,19 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ロケットの中 ― 乗組員デッキ | きづきくみたて工房</title>
-<meta name="description" content="平和な地球行きロケットの1フロア。きづきくみたて工房で実際に働いているAIサブエージェント8体を、生涯キャリア図鑑と同じジョブカードの形で並べました。とくぎ・スキル・つくりかたを公開しています。「こんな乗組員がいたら」の投稿も募集中。">
+<title>ロケットの中 ― 工房のサブエージェント21体 | きづきくみたて工房</title>
+<meta name="description" content="平和な地球行きロケットの船内。きづきくみたて工房で実際に働いているAIサブエージェント21体を、生涯キャリア図鑑と同じジョブカードの形で、寄合の間・乗組員デッキ・工房の間の3フロアに分けて並べました。「こんな乗組員がいたら」の投稿も募集中。">
 <link rel="canonical" href="https://kizukikumitate.com/rocket-inside.html">
 <meta property="og:type" content="website">
-<meta property="og:title" content="ロケットの中 ― 乗組員デッキ｜きづきくみたて工房">
-<meta property="og:description" content="工房で実際に働いているAIサブエージェント8体を、生涯キャリア図鑑と同じジョブカードにしました。とくぎの多くが「やらないこと」でできています。">
+<meta property="og:title" content="ロケットの中 ― 工房のサブエージェント21体｜きづきくみたて工房">
+<meta property="og:description" content="工房で実際に働いているAIサブエージェント21体を、生涯キャリア図鑑と同じジョブカードにしました。寄合の間・乗組員デッキ・工房の間の3フロアに分かれています。">
 <meta property="og:url" content="https://kizukikumitate.com/rocket-inside.html">
 <meta property="og:image" content="https://kizukikumitate.com/rocket-inside-ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ロケットの中 ― 乗組員デッキ｜きづきくみたて工房">
-<meta name="twitter:description" content="工房で実際に働いているAIサブエージェント8体を、生涯キャリア図鑑と同じジョブカードにしました。とくぎの多くが「やらないこと」でできています。">
+<meta name="twitter:title" content="ロケットの中 ― 工房のサブエージェント21体｜きづきくみたて工房">
+<meta name="twitter:description" content="工房で実際に働いているAIサブエージェント21体を、生涯キャリア図鑑と同じジョブカードにしました。寄合の間・乗組員デッキ・工房の間の3フロアに分かれています。">
 <meta name="twitter:image" content="https://kizukikumitate.com/rocket-inside-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=Shippori+Mincho:wght@400;600;800&family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@500&family=Noto+Serif+JP:wght@400&display=swap" rel="stylesheet">
@@ -98,6 +98,10 @@
   .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
   .mini .mode { position: absolute; top: 6px; right: 7px; font-size: 11px; z-index: 2; background: rgba(9,10,28,.72); border-radius: 50%; padding: 1px 2px; }
 
+  .floor-lead { font-size: 12.5px; color: var(--ink-muted); margin: 0 0 12px; text-align: center; }
+  .deck-note { font-size: 12.5px; color: var(--ink-2); margin: 10px 0 26px; padding-left: 10px; border-left: 2px solid var(--hairline); }
+  .deck-note b { color: var(--gold); font-weight: 500; }
+  .deck { margin-bottom: 0; }
   /* ===== 図鑑カード（モーダル） ===== */
   .bg { position: fixed; inset: 0; background: rgba(5,6,20,.86); display: none; align-items: center; justify-content: center; padding: 14px; z-index: 200; }
   .bg.open { display: flex; }
@@ -484,19 +488,42 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <div class="wrap">
 
-  <p class="eyebrow">平和な地球行きロケット ／ 1フロア目</p>
-  <h1>ロケットの中 ― 乗組員デッキ</h1>
-  <p class="lede">きづきくみたて工房で実際に働いている、AIのサブエージェント8体です。生涯キャリア図鑑と同じジョブカードの形にして並べました。札をつつくと、とくぎとスキルが見られます。</p>
-  <p class="note">この8体は本当に毎日動いています。ページを公開する前、有料の教材を出す前、メルマガの文章を出したあと。それぞれの持ち場で、人が見落とすところを見ています。</p>
+  <p class="eyebrow">平和な地球行きロケット ／ 船内の断面図</p>
+  <h1>ロケットの中</h1>
+  <p class="lede">きづきくみたて工房で実際に働いている、AIのサブエージェント21体です。生涯キャリア図鑑と同じジョブカードの形にして、3つのフロアに分けて並べました。札をつつくと、とくぎとスキルが見られます。</p>
+  <p class="note">21体は本当に毎日動いています。ページを公開する前、有料の教材を出す前、メルマガの文章を出したあと。それぞれの持ち場で、人が見落とすところを見ています。</p>
 
-  <div class="deck">
-    <span class="deck-name">乗組員デッキ</span>
-    <span class="deck-sub">工房で稼働中</span>
+  <p class="floor-lead">上の階ほど、遠くのことを考えます。下の階ほど、手を動かします。</p>
+
+  <div class="deck" id="deck-yoriai">
+    <span class="deck-name">寄合の間</span>
+    <span class="deck-sub">呼ばれて集まる 8人</span>
     <span class="port p1"></span>
     <span class="port p2"></span>
-    <div class="cards" id="cards"></div>
+    <div class="cards" data-floor="yoriai"></div>
     <span class="floor"></span>
   </div>
+  <p class="deck-note">ふだんは席にいません。<b>棟梁</b>が「このページを見てくれ」と声をかけたとき、8人まとめて呼ばれます。全員そろって同じページを見て、それぞれ違うところで引っかかる。棟梁は自分では見ずに、8人の言い分を1本にまとめます。まとまらなかった食い違いは、消さずにそのまま書き残す決まりです。</p>
+
+  <div class="deck" id="deck-crew">
+    <span class="deck-name">乗組員デッキ</span>
+    <span class="deck-sub">どの現場でも働く 8人</span>
+    <span class="port p1"></span>
+    <span class="port p2"></span>
+    <div class="cards" data-floor="crew"></div>
+    <span class="floor"></span>
+  </div>
+  <p class="deck-note">この工房だけでなく、ほかの仕事場にもついていく渡りの職人です。だから、この家の事情をあえて知りません。知らないからこそ、はじめての人の目や、門外漢の目になれます。</p>
+
+  <div class="deck" id="deck-koubou">
+    <span class="deck-name">工房の間</span>
+    <span class="deck-sub">この家に仕える 5人</span>
+    <span class="port p1"></span>
+    <span class="port p2"></span>
+    <div class="cards" data-floor="koubou"></div>
+    <span class="floor"></span>
+  </div>
+  <p class="deck-note">このサイトの癖を知り尽くしている5人です。触れてはいけない寸法、変えてはいけない決まりを覚えていて、そのうえで手を動かします。ほかの家では働けません。</p>
 
   <h2>みんなでつくる乗組員</h2>
   <p class="sec-body">この床には、まだ空きがあります。あなたの仕事場に「こんな乗組員がいてくれたら」と思うものを教えてください。生涯キャリア図鑑の「みんなでつくる」と同じで、この書に載っていない職こそ、これからの希望だと思っています。</p>
@@ -655,7 +682,7 @@ var SKILL = [["taijin","対人力"],["bunseki","分析力"],["jikko","実行力"
 var REWARD = [["time","⏳ じかんを かえす"],["guard","🛡️ じこを ふせぐ"],["find","🔍 きづきを くれる"],["calm","😌 あんしんを くれる"]];
 
 var A = [
-{id:"site-reviewer", nm:"門の番人", fam:"priest",
+{id:"site-reviewer", floor:"crew", nm:"門の番人", fam:"priest",
  alt:"閉じた門の前で、灯りをかざして門柱をあらためる後ろ姿",
  catch:"公開の門に立つ、七つ目の番人。",
  sk:{taijin:1,bunseki:4,jikko:3,souzou:1,nintai:5},
@@ -665,7 +692,7 @@ var A = [
        ["基準書優先","渡されたチェックリストを、自分の判断より上に置く"]],
  make:{tool:"Read / Grep / Glob / Bash", when:"ページの新規作成・大幅変更・ナビ変更・公開の前"}},
 
-{id:"participant-reviewer", nm:"初参加者の目", fam:"priest",
+{id:"participant-reviewer", floor:"crew", nm:"初参加者の目", fam:"priest",
  alt:"灯りのともる戸口の外で、扉に手をかけたまま立ちどまる後ろ姿",
  catch:"はじめて、ひとりで申し込む人の不安を、代わりに抱える。",
  sk:{taijin:5,bunseki:3,jikko:1,souzou:2,nintai:4},
@@ -675,7 +702,7 @@ var A = [
        ["要判断の切り分け","主催者が決めるべきことを、勝手に確定させない"]],
  make:{tool:"Read / Grep / Glob", when:"イベントページの公開前"}},
 
-{id:"novice-reviewer", nm:"門外漢の目", fam:"priest",
+{id:"novice-reviewer", floor:"crew", nm:"門外漢の目", fam:"priest",
  alt:"分かれ道の前で、なにも書かれていない道標を見あげる後ろ姿",
  catch:"何も知らないまま読んで、手が止まった場所を全部おぼえている。",
  sk:{taijin:4,bunseki:3,jikko:1,souzou:2,nintai:5},
@@ -685,7 +712,7 @@ var A = [
        ["薄めずに易しくする","核を削る提案になりそうなら「要判断」と申告する"]],
  make:{tool:"Read / Grep / Glob / WebFetch", when:"有料商品の公開・改訂の前（熟達者の目とペア）"}},
 
-{id:"expert-educator-reviewer", nm:"熟達者の目", fam:"priest",
+{id:"expert-educator-reviewer", floor:"crew", nm:"熟達者の目", fam:"priest",
  alt:"物差しで階段の段をひとつずつあらためる、横向きの老練な姿",
  catch:"作り手への配慮で、トーンを甘くしない同業の目。",
  sk:{taijin:4,bunseki:4,jikko:2,souzou:3,nintai:4},
@@ -695,7 +722,7 @@ var A = [
        ["値ぶみ","この価格に中身が釣り合うか、無料情報の焼き直しでないかを言う"]],
  make:{tool:"Read / Grep / Glob / WebFetch", when:"有料商品の公開・改訂の前（門外漢の目とペア）"}},
 
-{id:"post-deploy-smoke-tester", nm:"公開後の斥候", fam:"warrior",
+{id:"post-deploy-smoke-tester", floor:"crew", nm:"公開後の斥候", fam:"warrior",
  alt:"架けたばかりの橋の板を、杖で叩いてたしかめる後ろ姿",
  catch:"実際に叩いてみるまで、公開したとは言わない。",
  sk:{taijin:1,bunseki:3,jikko:5,souzou:1,nintai:4},
@@ -705,7 +732,7 @@ var A = [
        ["迂回の自制","許可が下りない時、抜け道で取りに行かない"]],
  make:{tool:"Read / WebFetch / Bash", when:"公開の作業をした直後"}},
 
-{id:"copy-brand-voice-reviewer", nm:"ブランドボイス番", fam:"artist",
+{id:"copy-brand-voice-reviewer", floor:"crew", nm:"ブランドボイス番", fam:"artist",
  alt:"風鈴にむけて、なにも書かれていない巻物をかざす後ろ姿",
  catch:"その言葉を、うちの名前で世に出していいかだけを見る。",
  sk:{taijin:4,bunseki:3,jikko:1,souzou:3,nintai:4},
@@ -715,7 +742,7 @@ var A = [
        ["毎回読み直す","基準を記憶に頼らず、決まりごとを都度とりに行く"]],
  make:{tool:"Read / Grep / Glob", when:"メルマガや告知の文章を出した直後"}},
 
-{id:"measurement-cv-reviewer", nm:"計測番", fam:"merchant",
+{id:"measurement-cv-reviewer", floor:"crew", nm:"計測番", fam:"merchant",
  alt:"目盛りのない丸い計器がならぶ壁の、ひとつに手をのばす後ろ姿",
  catch:"計測できないページは、世に出させない。",
  sk:{taijin:1,bunseki:5,jikko:3,souzou:1,nintai:4},
@@ -725,7 +752,7 @@ var A = [
        ["言い切らない","コードだけ見て「計測できている」と言わず、手作業の残りを必ず添える"]],
  make:{tool:"Read / Grep / Glob / Bash", when:"ページ公開前（門の番人と並走）"}},
 
-{id:"survey-data-analyst", nm:"回答の読み手", fam:"mage",
+{id:"survey-data-analyst", floor:"crew", nm:"回答の読み手", fam:"mage",
  alt:"露台の手すりごしに、ちらばる星のあつまりを見あげる後ろ姿",
  catch:"言えることと、言えないことの境界に立つ。",
  sk:{taijin:1,bunseki:5,jikko:3,souzou:2,nintai:5},
@@ -734,6 +761,127 @@ var A = [
        ["版そろえ","版と型を混ぜずに、比べられるものだけを比べる"],
        ["過剰解釈の封印","相関を因果と書かない。回答数が少ないうちは率を語らない"]],
  make:{tool:"Read / Grep / Glob / Bash", when:"「回答データを分析して」と言われたとき"}}
+,
+/* ===== 寄合の間（プロパネル8人・棟梁に呼ばれて集まる） ===== */
+{id:"panel-info-designer", floor:"yoriai", nm:"地層の読み手", fam:"mage",
+ alt:"幾重にも重なる地層の崖にむかい、一本の層だけを指でなぞる後ろ姿",
+ catch:"一枚絵としては完成している。で、「深さ」のレイヤーはあるか。",
+ sk:{taijin:2,bunseki:5,jikko:1,souzou:3,nintai:4},
+ rw:{time:2,guard:3,find:5,calm:2},
+ tech:[["段階的開示を見る","一度に全部見せていないか、掘れる余地があるかを見る"],
+       ["データとの接続を見る","絵が生きた数字につながっているかを確かめる"],
+       ["美しさを後回しにする","整っていることより、階層があることを先に見る"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-storyteller", floor:"yoriai", nm:"語り部", fam:"artist",
+ alt:"焚き火のそばで白紙の本をひらき、立ちのぼる煙が遠い道の形になる横向きの姿",
+ catch:"世界観はあるのに、物語はあるか。",
+ sk:{taijin:3,bunseki:2,jikko:1,souzou:5,nintai:3},
+ rw:{time:2,guard:2,find:5,calm:3},
+ tech:[["時間軸をさがす","設定の美しさに満足せず、時が流れているかを見る"],
+       ["登場人物をさがす","誰の話なのかが読者に手渡されているかを見る"],
+       ["変化をさがす","読み終えたときに何かが動いたかを問う"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-game-ux", floor:"yoriai", nm:"隠し扉の探し手", fam:"artist",
+ alt:"のっぺりした壁の一枚を押し、細い光の隙間がひらく後ろ姿",
+ catch:"クリックして遷移するだけなら、地図で十分。",
+ sk:{taijin:3,bunseki:3,jikko:2,souzou:5,nintai:3},
+ rw:{time:2,guard:2,find:5,calm:2},
+ tech:[["同乗者に変える","読者をプレイヤーにする仕掛けがあるかを見る"],
+       ["進んだ跡をさがす","どこまで来たかが本人に見えるかを見る"],
+       ["隠し場所をさがす","見つけたときの小さな喜びが仕込めるかを探す"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-strategist", floor:"yoriai", nm:"筋道の検分役", fam:"merchant",
+ alt:"無数の留め具が並ぶ壁に一本の糸を張り、指ではじいて張りを確かめる横向きの姿",
+ catch:"美しい。で、検証可能性は。",
+ sk:{taijin:3,bunseki:5,jikko:2,souzou:3,nintai:4},
+ rw:{time:2,guard:4,find:5,calm:1},
+ tech:[["理念を構造に直す","きれいな図を、実証のついた筋道に組み直す"],
+       ["説明できるかを問う","支援者や顧客に、そのまま話せる形かを見る"],
+       ["証拠のありかを聞く","そう言える根拠がどこにあるのかを突く"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-workshop-designer", floor:"yoriai", nm:"車座の設え役", fam:"priest",
+ alt:"がらんとした広間で、丸い腰かけを輪に並べていく後ろ姿",
+ catch:"対話の工房なのに、このページは一方通行になっていないか。",
+ sk:{taijin:5,bunseki:3,jikko:3,souzou:4,nintai:3},
+ rw:{time:2,guard:2,find:5,calm:3},
+ tech:[["読むものを道具に変える","ページそのものを対話の道具にできないかを探す"],
+       ["双方向の口をさがす","参加者が手を出せる場所があるかを見る"],
+       ["場の安全を見る","否定されない・沈黙が許される設計かを見る"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-creative-coder", floor:"yoriai", nm:"動きの検分役", fam:"warrior",
+ alt:"歯車と錘の仕掛けを高くかかげ、その回りかたを見あげる後ろ姿",
+ catch:"触っていないときも生きているか。そして、耳で読めるか。",
+ sk:{taijin:1,bunseki:4,jikko:5,souzou:4,nintai:4},
+ rw:{time:3,guard:5,find:4,calm:3},
+ tech:[["静けさを見る","誰も触っていないときの佇まいを見る"],
+       ["耳で読む","読み上げでも意味が通るかを確かめる"],
+       ["重さを量る","華やかさと速さ・保守しやすさが両立しているかを見る"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-community", floor:"yoriai", nm:"灯りの継ぎ手", fam:"priest",
+ alt:"道沿いに並ぶ消えた灯籠の、はじめの一つに火を移す後ろ姿",
+ catch:"支えてくれる人は、このページのどこに「いる」のか。",
+ sk:{taijin:5,bunseki:2,jikko:2,souzou:3,nintai:4},
+ rw:{time:2,guard:3,find:5,calm:4},
+ tech:[["居場所をさがす","支えてくれた人が、どこに映っているかを見る"],
+       ["変わり目を見る","訪れた人が支える人になる境目を探す"],
+       ["帰属感を測る","仲間に入れたと感じられるかを見る"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+{id:"panel-educator", floor:"yoriai", nm:"持ち帰りの包み手", fam:"priest",
+ alt:"低い机で、小さな包みに布をかけて結んでいる横向きの姿",
+ catch:"これは教室で使えるか。子どもに説明できるか。",
+ sk:{taijin:4,bunseki:3,jikko:2,souzou:4,nintai:4},
+ rw:{time:2,guard:2,find:5,calm:3},
+ tech:[["教室に持ち込む","そのまま授業で使える形にできるかを見る"],
+       ["子どもの言葉に直す","説明が、いちばん幼い相手にも届くかを試す"],
+       ["持ち帰りを作る","ワークシートや指導案に展開できる余地を探す"]],
+ make:{tool:"読むための道具ひととおり（提案のみ・変更はしない）", when:"棟梁に呼ばれたとき"}},
+
+/* ===== 工房の間（この家に仕える5人） ===== */
+{id:"quality-auditor", floor:"koubou", nm:"見回り役", fam:"priest",
+ alt:"同じ扉が延々と並ぶ廊下を、灯りをかざして歩く後ろ姿。奥の一枚だけが細く開いている",
+ catch:"直す前に、まず全部の戸を見て回る。",
+ sk:{taijin:1,bunseki:5,jikko:3,souzou:1,nintai:5},
+ rw:{time:5,guard:5,find:4,calm:4},
+ tech:[["横断で見る","一枚ずつではなく、全ページを通して見る"],
+       ["直す前に断る","勝手に直さず、まず一覧を出して承認をもらう"],
+       ["直しは一箇所に集める","CSSの修正は最後のまとめ場所にだけ書く"]],
+ make:{tool:"この家の道具すべて", when:"全ページの品質をまとめて見たいとき"}},
+{id:"page-creator", floor:"koubou", nm:"宮大工", fam:"warrior",
+ alt:"がらんとした部屋で、組みかけの木枠に新しい柱を立てている後ろ姿",
+ catch:"最初から、モバイルで崩れていない状態で建てる。",
+ sk:{taijin:1,bunseki:3,jikko:5,souzou:3,nintai:4},
+ rw:{time:5,guard:4,find:2,calm:4},
+ tech:[["決まりどおりに建てる","この家の寸法・配色・組み方を外さない"],
+       ["外の材を持ち込まない","外部CSSファイルを作らず、インラインを守る"],
+       ["入口をいじらない","ナビのリンクを勝手に増やさない"]],
+ make:{tool:"この家の道具すべて", when:"新しいページを建てるとき"}},
+{id:"seo-content", floor:"koubou", nm:"道しるべ立て", fam:"merchant",
+ alt:"いくつもの細い道が集まる辻に、なにも書かれていない道標を立てる後ろ姿",
+ catch:"見つけてもらえなければ、無いのと同じ。",
+ sk:{taijin:2,bunseki:5,jikko:3,souzou:3,nintai:4},
+ rw:{time:3,guard:2,find:5,calm:2},
+ tech:[["探されかたを見る","どの言葉で辿り着くのかから逆に考える"],
+       ["中身の正しさは預ける","専門的な正確さは、必ず森本さんに確かめる"],
+       ["外へのリンクを足さない","勝手によその道をつながない"]],
+ make:{tool:"この家の道具すべて", when:"ページの見つけられ方を良くしたいとき"}},
+{id:"design-unifier", floor:"koubou", nm:"寸法合わせ", fam:"artist",
+ alt:"長い壁に並ぶ同じ形の窓を、測り紐で当たっていく横向きの姿。一つだけ列から外れている",
+ catch:"揃っていないところは、だいたい一枚だけ。",
+ sk:{taijin:1,bunseki:4,jikko:4,souzou:2,nintai:5},
+ rw:{time:4,guard:4,find:4,calm:4},
+ tech:[["列から外れた一枚を見つける","全ページのナビ・フッター・書体・色を突き合わせる"],
+       ["触れない寸法を覚えている","過去に事故った設定値には手を出さない"],
+       ["書体を増やさない","決められた四つの書体だけを使う"]],
+ make:{tool:"この家の道具すべて", when:"見た目がページごとにばらけてきたとき"}},
+{id:"note-writer", floor:"koubou", nm:"文机の主", fam:"artist",
+ alt:"低い文机にむかい、白紙の巻物の上に筆をかまえる後ろ姿。かたわらに蓋の閉じた箱",
+ catch:"書くところまで。世に出すのは、本人の手で。",
+ sk:{taijin:3,bunseki:3,jikko:4,souzou:5,nintai:4},
+ rw:{time:5,guard:3,find:3,calm:3},
+ tech:[["下書きで止める","公開はしない。必ず下書き保存まで"],
+       ["矛盾を作らない","既存の記事やサイトの記載と食い違わないようにする"],
+       ["専門は借りものにしない","理論の扱いは、本人の言っていることに合わせる"]],
+ make:{tool:"この家の道具すべて", when:"note の記事を書き起こすとき"}}
 ];
 
 function stars(n){
@@ -742,23 +890,25 @@ function stars(n){
   return s + '</span>';
 }
 
-var box = document.getElementById("cards");
-A.forEach(function(a, idx){
-  var f = FAM[a.fam];
-  var b = document.createElement("button");
-  b.className = "mini";
-  b.type = "button";
-  b.style.borderTopColor = f.color;
-  b.setAttribute("aria-label", a.nm + "（" + a.id + "）のカードをひらく");
-  var load = idx === 0 ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
-  b.innerHTML =
-    '<span class="mode" title="別室ではたらく">🚪</span>' +
-    '<img src="' + IMG + a.id + '.webp" alt="' + a.alt + '" ' + load + '>' +
-    '<span class="txt"><span class="nm">' + a.nm + '</span>' +
-    '<span class="en">' + a.id + '</span>' +
-    '<span class="fam"><span class="dot" style="background:' + f.color + '"></span>' + f.name + '</span></span>';
-  b.addEventListener("click", function(){ openCard(a); });
-  box.appendChild(b);
+document.querySelectorAll('.cards').forEach(function(box){
+  var fl = box.getAttribute('data-floor');
+  A.filter(function(a){ return a.floor === fl; }).forEach(function(a, idx){
+    var f = FAM[a.fam];
+    var b = document.createElement("button");
+    b.className = "mini";
+    b.type = "button";
+    b.style.borderTopColor = f.color;
+    b.setAttribute("aria-label", a.nm + "（" + a.id + "）のカードをひらく");
+    var load = (fl === "crew" && idx === 0) ? 'loading="eager" fetchpriority="high"' : 'loading="lazy"';
+    b.innerHTML =
+      '<span class="mode" title="別室ではたらく">🚪</span>' +
+      '<img src="' + IMG + a.id + '.webp" alt="' + a.alt + '" ' + load + '>' +
+      '<span class="txt"><span class="nm">' + a.nm + '</span>' +
+      '<span class="en">' + a.id + '</span>' +
+      '<span class="fam"><span class="dot" style="background:' + f.color + '"></span>' + f.name + '</span></span>';
+    b.addEventListener("click", function(){ openCard(a); });
+    box.appendChild(b);
+  });
 });
 
 var bg = document.getElementById("bg");
