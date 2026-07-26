@@ -49,7 +49,7 @@ body{
 h1{margin:0; font-size:1.5rem; font-weight:900; letter-spacing:.01em;}
 .tagline{font-size:.8rem; color:var(--sub);}
 .badge-test{
-  margin-left:auto; font-size:.72rem; font-weight:800; color:#8A6A1E;
+  font-size:.72rem; font-weight:800; color:#8A6A1E;
   background:#F8F1DE; border:1.5px solid var(--yamabuki); border-radius:99px; padding:3px 12px;
 }
 .theme-input{
@@ -106,6 +106,7 @@ button:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
 /* ---- コントロール ---- */
 .controls{display:flex; flex-wrap:wrap; gap:14px; align-items:center; margin-bottom:12px;}
 .ctl-group{display:flex; gap:6px; align-items:center; flex-wrap:wrap;}
+.ctl-group[hidden]{display:none;}
 .ctl-label{font-size:.75rem; font-weight:800; color:var(--sub);}
 .ctl-right{margin-left:auto; display:flex; gap:6px;}
 .legend{display:flex; gap:12px; align-items:center; margin-bottom:10px; flex-wrap:wrap;}
@@ -140,6 +141,51 @@ button:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
 #actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
 svg.field{width:100%; height:auto; display:block;}
 svg.field .token{cursor:pointer;}
+
+/* ---- 世界地図と拠点 ---- */
+.stage-frame{border-radius:18px; overflow:hidden; box-shadow:0 6px 24px rgba(42,52,57,.12);}
+svg.globe{width:100%; height:auto; display:block; touch-action:none; cursor:grab;}
+svg.globe:active{cursor:grabbing;}
+svg.globe .site{cursor:pointer;}
+.role-row, .site-row{display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:8px;}
+.site-name{font-size:.95rem; font-weight:900;}
+.site-role{
+  font-size:.68rem; font-weight:800; color:#FFF; border-radius:99px; padding:3px 10px; line-height:1.6;
+}
+
+/* ---- 進め方ガイド ---- */
+.head-actions{margin-left:auto; display:flex; gap:8px; align-items:center; flex-wrap:wrap;}
+.guide-btn{
+  border:1.5px solid var(--indigo); background:#EAF1F7; color:var(--indigo-dark);
+  border-radius:99px; padding:4px 13px; font-size:.72rem; font-weight:800;
+  cursor:pointer; font-family:inherit; line-height:1.6;
+}
+.modal-back{
+  position:fixed; inset:0; background:rgba(42,52,57,.45); z-index:60;
+  display:flex; align-items:center; justify-content:center; padding:16px;
+}
+.modal-box{
+  background:#FFF; border-radius:18px; max-width:620px; width:100%; max-height:85vh;
+  overflow-y:auto; padding:22px 24px; box-shadow:0 12px 40px rgba(0,0,0,.25);
+  -webkit-overflow-scrolling:touch;
+}
+.modal-head{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:6px;}
+.modal-head h2{margin:0; font-size:1.05rem; font-weight:900;}
+.modal-close{
+  border:none; background:transparent; font-size:1.25rem; cursor:pointer;
+  color:var(--sub); font-family:inherit; line-height:1; padding:4px 6px;
+}
+.modal-lead{font-size:.78rem; color:var(--sub); margin:0 0 14px; line-height:1.9;}
+.act{margin-bottom:12px;}
+.act-t{font-size:.84rem; font-weight:900; color:var(--indigo-dark);}
+.act-b{font-size:.78rem; line-height:1.9; color:var(--ink);}
+.act-magic{border-top:1.5px dashed var(--border); padding-top:10px; margin-top:4px;}
+.act-magic .act-t{color:var(--ink); margin-bottom:4px;}
+.act-q{font-size:.78rem; line-height:2.1;}
+.modal-note{font-size:.72rem; color:var(--sub); margin:10px 0 0; line-height:1.9;}
+@media (max-width:640px){
+  .modal-box{padding:18px 16px; max-height:88vh;}
+}
 
 /* ---- 一覧表 ---- */
 .tables{display:flex; flex-direction:column; align-items:stretch; gap:20px;}
@@ -280,7 +326,10 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
     <div class="head-row">
       <h1>ステークホルダー・ジオラマ</h1>
       <span class="tagline">ひとつのテーマを、みんなの視点から眺める道具</span>
-      <span class="badge-test">🧪 テスト公開中</span>
+      <span class="head-actions">
+        <span class="badge-test">🧪 テスト公開中</span>
+        <button type="button" class="guide-btn" id="guideBtn">📖 進め方</button>
+      </span>
     </div>
     <input id="themeInput" class="theme-input" type="text"
            placeholder="話し合うテーマを入力（例：社員食堂を廃止するべきか）">
@@ -290,7 +339,7 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
   <section id="aiSection" class="card" hidden></section>
 
   <div class="controls">
-    <div class="ctl-group">
+    <div class="ctl-group" id="scaleGroup">
       <span class="ctl-label">スケール</span>
       <div id="scaleBtns" class="ctl-group"></div>
     </div>
@@ -330,6 +379,8 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
 </div>
 
 <div id="caseBar" class="case-bar" aria-label="ケースの切り替え"></div>
+
+<div id="guideModal" hidden></div>
 
 <div id="toast" role="status" aria-live="polite"></div>
 
@@ -404,6 +455,15 @@ const CASES = {
     label: "原発再稼働",
     theme: "日本は原発の再稼働をさらに進めるべきか",
     scale: "earth",
+    world: {
+      sites: [
+        { id: "jp", name: "日本", lat: 36, lon: 138, field: "town", role: "home" },
+        { id: "kz", name: "ウラン産出国", lat: 48, lon: 67, field: "mine", role: "chotatsu" },
+        { id: "me", name: "LNG輸出国", lat: 25, lon: 51, field: "sea", role: "chotatsu" },
+        { id: "eu", name: "欧州のLNG買い手", lat: 50, lon: 10, field: "town", role: "teikyo" },
+        { id: "sr", name: "海上輸送路", lat: 4, lon: 80, field: "sea", role: "both" },
+      ],
+    },
     valueChain: {
       primary: ["ウラン/LNG調達", "燃料加工・輸送", "発電", "送配電", "産業・家計の利用"],
       support: ["安全規制", "廃棄物処理・廃炉", "立地地域との合意"],
@@ -461,22 +521,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "g1", name: "電力会社", emoji: "🔌", situation: "2026年時点で全国15基が再稼働済み。動けば燃料費を大きく圧縮できるが、安全対策の投資も巨額。" },
-      { id: "g2", name: "立地自治体", emoji: "🏘️", situation: "交付金と雇用の恩恵と、事故リスク・避難計画への不安を同時に抱えている。" },
-      { id: "g3", name: "製造業", emoji: "🏭", situation: "電気料金は国際競争力を左右する。半導体工場やデータセンターの誘致でも電力が決め手に。" },
-      { id: "g4", name: "家計・消費者", emoji: "🧑", situation: "電気代の高騰に疲弊。一方で、事故が起きた場合の費用も最終的には国民が負う。" },
-      { id: "g5", name: "政府", emoji: "🏛️", situation: "エネルギー基本計画で原子力を「最大限活用」へ転換。2040年度に電源の約2割を想定する。" },
-      { id: "g6", name: "将来世代", emoji: "👶", situation: "使用済み核燃料の処分も、気候変動の影響も、最も長く引き受けることになる当事者。" },
-      { id: "g7", name: "再エネ産業", emoji: "☀️", situation: "送電網の容量・投資資金・政策の優先順位をめぐって、原子力と取り合う関係にある。" },
-      { id: "g8", name: "原子力人材", emoji: "🧑‍🔬", situation: "稼働が止まれば技術と人材が細り、安全な廃炉すら難しくなるというジレンマを抱える。" },
+      { id: "g1", siteId: "jp", name: "電力会社", emoji: "🔌", situation: "2026年時点で全国15基が再稼働済み。動けば燃料費を大きく圧縮できるが、安全対策の投資も巨額。" },
+      { id: "g2", siteId: "jp", name: "立地自治体", emoji: "🏘️", situation: "交付金と雇用の恩恵と、事故リスク・避難計画への不安を同時に抱えている。" },
+      { id: "g3", siteId: "jp", name: "製造業", emoji: "🏭", situation: "電気料金は国際競争力を左右する。半導体工場やデータセンターの誘致でも電力が決め手に。" },
+      { id: "g4", siteId: "jp", name: "家計・消費者", emoji: "🧑", situation: "電気代の高騰に疲弊。一方で、事故が起きた場合の費用も最終的には国民が負う。" },
+      { id: "g5", siteId: "jp", name: "政府", emoji: "🏛️", situation: "エネルギー基本計画で原子力を「最大限活用」へ転換。2040年度に電源の約2割を想定する。" },
+      { id: "g6", siteId: "jp", name: "将来世代", emoji: "👶", situation: "使用済み核燃料の処分も、気候変動の影響も、最も長く引き受けることになる当事者。" },
+      { id: "g7", siteId: "jp", name: "再エネ産業", emoji: "☀️", situation: "送電網の容量・投資資金・政策の優先順位をめぐって、原子力と取り合う関係にある。" },
+      { id: "g8", siteId: "jp", name: "原子力人材", emoji: "🧑‍🔬", situation: "稼働が止まれば技術と人材が細り、安全な廃炉すら難しくなるというジレンマを抱える。" },
     ],
     extra: {
       label: "🔭 世界のサプライチェーンまで視野を広げる",
       stakeholders: [
-        { id: "gx1", name: "ウラン産出国", emoji: "⛏️", situation: "カザフスタン・カナダ・豪州など。原発の稼働動向が輸出の伸びを左右する。" },
-        { id: "gx2", name: "LNG輸出国", emoji: "🚢", situation: "豪州・米国・カタール等。日本は世界有数のLNG買い手で、大口顧客の動向は死活問題。" },
-        { id: "gx3", name: "他国のLNG買い手", emoji: "🌏", situation: "欧州やアジア新興国。日本のLNG需要の増減は、世界のスポット価格に跳ね返る。" },
-        { id: "gx4", name: "燃料商社・海運", emoji: "⚓", situation: "化石燃料の調達・輸送で収益を上げてきた。エネルギー転換の影響を直接受ける。" },
+        { id: "gx1", siteId: "kz", name: "ウラン産出国", emoji: "⛏️", situation: "カザフスタン・カナダ・豪州など。原発の稼働動向が輸出の伸びを左右する。" },
+        { id: "gx2", siteId: "me", name: "LNG輸出国", emoji: "🚢", situation: "豪州・米国・カタール等。日本は世界有数のLNG買い手で、大口顧客の動向は死活問題。" },
+        { id: "gx3", siteId: "eu", name: "他国のLNG買い手", emoji: "🌏", situation: "欧州やアジア新興国。日本のLNG需要の増減は、世界のスポット価格に跳ね返る。" },
+        { id: "gx4", siteId: "sr", name: "燃料商社・海運", emoji: "⚓", situation: "化石燃料の調達・輸送で収益を上げてきた。エネルギー転換の影響を直接受ける。" },
       ],
       dataByScenario: {
         saikado: {
@@ -1318,6 +1378,7 @@ const S = {
   editAxis: "keizai", editHorizon: "tanki",
   business: "", valueChain: null, themeIdeas: [], aiCandidates: [],
   caseId: null, scenario: null,
+  world: null, currentSiteId: null, roleFilter: "all", rot: { lam: 100, phi: 20 },
 };
 let confirmReset = false, confirmTimer = null, saveTimer = null;
 let barCollapsed = false, pendingCase = null, pendingTimer = null;
@@ -1348,7 +1409,7 @@ function payload() {
   return {
     theme: S.theme, scale: S.scale, stakeholders: S.stakeholders, data: S.data,
     business: S.business, valueChain: S.valueChain, themeIdeas: S.themeIdeas,
-    scenario: scenarioOut, caseId: S.caseId,
+    scenario: scenarioOut, caseId: S.caseId, world: S.world,
   };
 }
 function applyPayload(st) {
@@ -1359,6 +1420,10 @@ function applyPayload(st) {
   S.valueChain = st.valueChain || null;
   S.themeIdeas = st.themeIdeas || [];
   S.caseId = st.caseId || null;
+  S.world = st.world || null;
+  S.currentSiteId = null;
+  S.roleFilter = "all";
+  S.rot = { lam: 100, phi: 20 };
   S.aiCandidates = [];
   S.selectedId = null;
   if (st.scenario && st.scenario.options) {
@@ -1412,7 +1477,178 @@ const GROUNDS = {
     '<path d="M330,400 q28,-8 40,10 q10,16 -6,30 q-20,16 -40,4 q-16,-11 -8,-28 q5,-11 14,-16z" fill="#8CBF7B"/>' +
     '<ellipse cx="345" cy="285" rx="55" ry="16" fill="#FFFFFF" opacity="0.55"/>' +
     '<ellipse cx="465" cy="420" rx="48" ry="13" fill="#FFFFFF" opacity="0.5"/></g>',
+  sea: () => '<g>' +
+    '<rect x="0" y="300" width="800" height="320" fill="#5FA8CF"/>' +
+    '<rect x="0" y="300" width="800" height="30" fill="#7FBCDB"/>' +
+    '<path d="M60,380 q30,-14 60,0 q30,14 60,0" stroke="#CFEAF5" stroke-width="4" fill="none" opacity="0.7"/>' +
+    '<path d="M520,450 q30,-14 60,0 q30,14 60,0" stroke="#CFEAF5" stroke-width="4" fill="none" opacity="0.7"/>' +
+    '<path d="M240,520 q30,-14 60,0 q30,14 60,0" stroke="#CFEAF5" stroke-width="4" fill="none" opacity="0.6"/>' +
+    '<circle cx="680" cy="130" r="36" fill="#F7D77A"/>' +
+    '<polygon points="330,330 470,330 445,368 355,368" fill="#5E6E7E"/>' +
+    '<rect x="352" y="300" width="30" height="30" fill="#D4635B"/>' +
+    '<rect x="386" y="300" width="30" height="30" fill="#E0A83C"/>' +
+    '<rect x="420" y="300" width="26" height="30" fill="#6FA35F"/>' +
+    '<rect x="398" y="270" width="10" height="30" fill="#3E4E5E"/></g>',
+  mine: () => '<g>' +
+    '<polygon points="400,175 730,345 400,515 70,345" fill="#B08A5E"/>' +
+    '<polygon points="400,190 700,345 400,500 100,345" fill="#C9A574"/>' +
+    '<polygon points="300,300 400,190 500,300" fill="#8E8578"/>' +
+    '<polygon points="330,300 400,222 470,300" fill="#A39A8C"/>' +
+    '<path d="M375,300 a25,28 0 0 1 50,0 z" fill="#4A4038"/>' +
+    '<rect x="373" y="268" width="6" height="34" fill="#6E5A44"/>' +
+    '<rect x="421" y="268" width="6" height="34" fill="#6E5A44"/>' +
+    '<text x="520" y="410" font-size="24">⛏️</text>' +
+    '<ellipse cx="255" cy="400" rx="26" ry="12" fill="#8E8578"/>' +
+    '<ellipse cx="255" cy="393" rx="20" ry="11" fill="#A39A8C"/>' +
+    '<ellipse cx="590" cy="330" rx="22" ry="10" fill="#8E8578"/></g>',
+  forest: () => {
+    const tree = (x, y, k, c1, c2) =>
+      '<rect x="' + (x - 4 * k) + '" y="' + (y - 8 * k) + '" width="' + (8 * k) + '" height="' + (16 * k) + '" fill="#8A6A4A"/>' +
+      '<polygon points="' + x + ',' + (y - 58 * k) + ' ' + (x - 24 * k) + ',' + (y - 12 * k) + ' ' + (x + 24 * k) + ',' + (y - 12 * k) + '" fill="' + c1 + '"/>' +
+      '<polygon points="' + x + ',' + (y - 76 * k) + ' ' + (x - 18 * k) + ',' + (y - 36 * k) + ' ' + (x + 18 * k) + ',' + (y - 36 * k) + '" fill="' + c2 + '"/>';
+    return '<g><polygon points="400,175 730,345 400,515 70,345" fill="#5E8F52"/>' +
+      '<polygon points="400,190 700,345 400,500 100,345" fill="#77A868"/>' +
+      tree(280, 300, 1, "#3E7A46", "#4E8F55") + tree(520, 300, 0.85, "#3E7A46", "#4E8F55") +
+      tree(400, 470, 1, "#35693C", "#457F4B") + tree(180, 370, 0.7, "#3E7A46", "#4E8F55") +
+      tree(620, 380, 0.7, "#35693C", "#457F4B") +
+      '<ellipse cx="400" cy="345" rx="24" ry="10" fill="#8A6A4A"/>' +
+      '<ellipse cx="400" cy="342" rx="24" ry="10" fill="#A9855E"/></g>';
+  },
+  farm: () => '<g>' +
+    '<polygon points="400,175 730,345 400,515 70,345" fill="#C9A96B"/>' +
+    '<polygon points="400,190 700,345 400,500 100,345" fill="#E0C083"/>' +
+    '<polygon points="400,210 660,345 400,480 140,345" fill="#B9CE7E"/>' +
+    '<polygon points="400,240 600,345 400,450 200,345" fill="#D5DE9A"/>' +
+    '<polygon points="400,270 545,345 400,420 255,345" fill="#B9CE7E"/>' +
+    isoCube(245, 290, 30, 36, "#D98A8A", "#B96E6E", "#A66161") +
+    '<polygon points="215,254 245,232 275,254" fill="#8A5A4A"/>' +
+    '<text x="560" y="290" font-size="26">🚜</text>' +
+    '<circle cx="120" cy="110" r="32" fill="#F7D77A"/></g>',
 };
+
+/* 空の色（拠点フィールドごと） */
+const SKY = {
+  room: ["#CFE6EE", "#EAF4EE"], town: ["#CFE6EE", "#EAF4EE"], earth: ["#1E2A45", "#3A4A6B"],
+  sea: ["#BFE0F0", "#E6F4F0"], forest: ["#D5EAD9", "#EFF6E9"],
+  farm: ["#E8E9C8", "#F7F2E2"], mine: ["#E3D8C8", "#F2EADF"],
+};
+
+/* ================= 地球儀（世界に散らばる拠点） ================= */
+const ROLES = {
+  home: { label: "🏠 拠点", color: "#F2B33D" },
+  chotatsu: { label: "⛏️ 調達先", color: "#5B6ABF" },
+  teikyo: { label: "🛒 提供・影響先", color: "#3E8C8C" },
+  both: { label: "🔄 両方", color: "#8A6FBF" },
+};
+const ROLE_FILTERS = [
+  { id: "all", label: "🌐 すべて" },
+  { id: "chotatsu", label: "⛏️ 調達網" },
+  { id: "teikyo", label: "🛒 提供網" },
+];
+const CONTINENTS = [
+  [[35, -8], [32, 32], [12, 44], [-2, 42], [-35, 20], [-20, 12], [5, -8]],
+  [[36, -6], [45, 12], [55, 25], [70, 60], [66, 110], [55, 138], [42, 122], [30, 106], [20, 100], [26, 62], [34, 36]],
+  [[62, -165], [70, -100], [58, -62], [45, -66], [30, -82], [18, -100], [30, -115], [42, -125], [56, -155]],
+  [[10, -75], [0, -50], [-10, -38], [-25, -48], [-42, -65], [-52, -71], [-22, -70], [-4, -79]],
+  [[-12, 130], [-13, 143], [-22, 149], [-36, 150], [-38, 140], [-33, 121], [-21, 114]],
+  [[82, -42], [78, -22], [70, -26], [62, -46], [70, -56], [78, -60]],
+  [[44, 140], [38, 141], [33, 133], [36, 136]],
+];
+
+function projectPoint(lat, lon, lam0, phi0, R, cx, cy) {
+  const f = Math.PI / 180;
+  const p = lat * f, l = lon * f, l0 = lam0 * f, p0 = phi0 * f;
+  const cosc = Math.sin(p0) * Math.sin(p) + Math.cos(p0) * Math.cos(p) * Math.cos(l - l0);
+  const x = Math.cos(p) * Math.sin(l - l0);
+  const y = Math.cos(p0) * Math.sin(p) - Math.sin(p0) * Math.cos(p) * Math.cos(l - l0);
+  return { x: cx + R * x, y: cy - R * y, visible: cosc > 0, depth: cosc };
+}
+
+function aggregateSiteVerdict(sids, axes, hs) {
+  let hasGain = false, hasLoss = false, hasAny = false;
+  for (const sid of sids) {
+    for (const a of axes) for (const h of hs) {
+      const v = getCell(S.data, sid, a, h).verdict;
+      if (!v) continue;
+      hasAny = true;
+      if (v === "gain") hasGain = true;
+      else if (v === "loss") hasLoss = true;
+      else if (v === "mixed") { hasGain = true; hasLoss = true; }
+    }
+  }
+  if (hasGain && hasLoss) return "mixed";
+  if (hasGain) return "gain";
+  if (hasLoss) return "loss";
+  return hasAny ? "neutral" : "";
+}
+
+const homeSiteId = () => {
+  if (!S.world) return null;
+  const h = S.world.sites.find((x) => x.role === "home") || S.world.sites[0];
+  return h ? h.id : null;
+};
+const siteMembers = (siteId) => {
+  const home = homeSiteId();
+  return S.stakeholders.filter((s) => (s.siteId || home) === siteId);
+};
+const roleVisible = (role) => {
+  if (role === "home" || S.roleFilter === "all") return true;
+  if (role === "both") return true;
+  return role === S.roleFilter;
+};
+
+function globeMarkup() {
+  return '<svg class="globe" viewBox="0 0 800 620" role="img" aria-label="世界に散らばる関係者">' +
+    globeInner() + "</svg>";
+}
+function globeInner() {
+  const CX = 400, CY = 320, R = 195;
+  const axes = lensAxisIds(), hs = lensHorizonIds();
+  let out = '<defs><linearGradient id="spaceGrad" x1="0" y1="0" x2="0" y2="1">' +
+    '<stop offset="0%" stop-color="#1E2A45"/><stop offset="100%" stop-color="#3A4A6B"/></linearGradient>' +
+    '<radialGradient id="globeShade" cx="0.35" cy="0.3" r="1">' +
+    '<stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>' +
+    '<stop offset="70%" stop-color="#000000" stop-opacity="0"/>' +
+    '<stop offset="100%" stop-color="#000000" stop-opacity="0.3"/></radialGradient></defs>' +
+    '<rect x="0" y="0" width="800" height="620" rx="18" fill="url(#spaceGrad)"/>' +
+    '<g fill="#FFFFFF"><circle cx="110" cy="90" r="2" opacity="0.8"/><circle cx="240" cy="50" r="1.5" opacity="0.6"/>' +
+    '<circle cx="650" cy="75" r="2" opacity="0.8"/><circle cx="715" cy="140" r="1.5" opacity="0.6"/>' +
+    '<circle cx="80" cy="200" r="1.5" opacity="0.5"/><circle cx="560" cy="40" r="1.5" opacity="0.7"/>' +
+    '<circle cx="700" cy="480" r="1.5" opacity="0.5"/><circle cx="90" cy="520" r="2" opacity="0.6"/></g>' +
+    '<circle cx="' + CX + '" cy="' + CY + '" r="' + R + '" fill="#4A7FB5"/>';
+
+  CONTINENTS.forEach((pts) => {
+    const vis = pts.map((c) => projectPoint(c[0], c[1], S.rot.lam, S.rot.phi, R, CX, CY)).filter((p) => p.visible);
+    if (vis.length < 3) return;
+    out += '<polygon points="' + vis.map((p) => p.x.toFixed(1) + "," + p.y.toFixed(1)).join(" ") +
+      '" fill="#79B06A" stroke="#5E8F52" stroke-width="1"/>';
+  });
+  out += '<circle cx="' + CX + '" cy="' + CY + '" r="' + R + '" fill="url(#globeShade)"/>';
+
+  S.world.sites.filter((st) => roleVisible(st.role)).forEach((st) => {
+    const p = projectPoint(st.lat, st.lon, S.rot.lam, S.rot.phi, R + 4, CX, CY);
+    if (!p.visible) return;
+    const members = siteMembers(st.id).map((s) => s.id);
+    const v = aggregateSiteVerdict(members, axes, hs);
+    const ring = v ? verdictColor(v) : "#FFFFFF";
+    const role = ROLES[st.role] || ROLES.both;
+    out += '<g class="site" data-site="' + esc(st.id) + '" transform="translate(' + p.x.toFixed(1) + ',' + p.y.toFixed(1) + ')">' +
+      '<circle r="15" fill="#FFFFFF" stroke="' + ring + '" stroke-width="4.5" opacity="' + (0.5 + 0.5 * p.depth).toFixed(2) + '"/>' +
+      '<text y="5" text-anchor="middle" font-size="14">📍</text>' +
+      '<text y="-22" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF" ' +
+      'style="paint-order:stroke; stroke:#1E2A45; stroke-width:3">' + esc(st.name) + '</text>' +
+      '<g transform="translate(0,26)"><rect x="-46" y="-9" width="92" height="17" rx="8" fill="' + role.color + '" opacity="0.92"/>' +
+      '<text y="4" text-anchor="middle" font-size="10" font-weight="800" fill="#FFFFFF">' + esc(role.label) + '</text></g>' +
+      (members.length ? '<g transform="translate(15,-13)"><circle r="8" fill="#F2B33D" stroke="#FFF" stroke-width="1.5"/>' +
+        '<text y="3.5" text-anchor="middle" font-size="9" font-weight="800" fill="#3A2E10">' + members.length + '</text></g>' : "") +
+      '</g>';
+  });
+
+  out += '<text x="400" y="595" text-anchor="middle" font-size="13" font-weight="700" fill="#B9C8E0">' +
+    '🌏 ドラッグで地球を回す／📍をタップでその土地へ</text>';
+  return out;
+}
+
 function tokenPositions(n) {
   const cx = 400, cy = 350, rx = 265, ry = 128, pts = [];
   for (let i = 0; i < n; i++) {
@@ -1421,11 +1657,12 @@ function tokenPositions(n) {
   }
   return pts;
 }
-function tipMarkup() {
-  const s = S.stakeholders.find((x) => x.id === S.hoverId);
+function tipMarkup(list) {
+  list = list || S.stakeholders;
+  const s = list.find((x) => x.id === S.hoverId);
   if (!s) return "";
-  const i = S.stakeholders.findIndex((x) => x.id === S.hoverId);
-  const p = tokenPositions(S.stakeholders.length)[i];
+  const i = list.findIndex((x) => x.id === S.hoverId);
+  const p = tokenPositions(list.length)[i];
   if (!p) return "";
   const tx = Math.min(Math.max(p.x, 150), 650);
   const ty = p.y < 300 ? p.y + 55 : p.y - 130;
@@ -1437,14 +1674,17 @@ function tipMarkup() {
     '<text x="-132" y="44" font-size="11.5" fill="' + COLORS.sub + '">' + esc(cut) + '</text>' +
     '<text x="-132" y="63" font-size="11" fill="' + COLORS.indigo + '" font-weight="700">クリックして詳しく入力 →</text></g>';
 }
-function fieldMarkup() {
-  const earth = S.scale === "earth";
+function fieldMarkup(scale, list) {
+  scale = scale || S.scale;
+  list = list || S.stakeholders;
+  const earth = scale === "earth";
+  const sky = SKY[scale] || SKY.room;
   const axes = lensAxisIds(), hs = lensHorizonIds();
-  const positions = tokenPositions(S.stakeholders.length);
+  const positions = tokenPositions(list.length);
   let out = '<svg class="field" viewBox="0 0 800 620" role="img" aria-label="関係者のジオラマ">' +
     '<defs><linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">' +
-    '<stop offset="0%" stop-color="' + (earth ? "#1E2A45" : COLORS.sky1) + '"/>' +
-    '<stop offset="100%" stop-color="' + (earth ? "#3A4A6B" : COLORS.sky2) + '"/></linearGradient>' +
+    '<stop offset="0%" stop-color="' + sky[0] + '"/>' +
+    '<stop offset="100%" stop-color="' + sky[1] + '"/></linearGradient>' +
     '<radialGradient id="earthShade" cx="0.35" cy="0.3" r="1">' +
     '<stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>' +
     '<stop offset="70%" stop-color="#000000" stop-opacity="0"/>' +
@@ -1455,9 +1695,9 @@ function fieldMarkup() {
       '<circle cx="640" cy="70" r="2" opacity="0.8"/><circle cx="710" cy="130" r="1.5" opacity="0.6"/>' +
       '<circle cx="90" cy="180" r="1.5" opacity="0.5"/><circle cx="540" cy="35" r="1.5" opacity="0.7"/></g>';
   }
-  out += (GROUNDS[S.scale] || GROUNDS.room)();
+  out += (GROUNDS[scale] || GROUNDS.room)();
 
-  S.stakeholders.forEach((s, i) => {
+  list.forEach((s, i) => {
     const p = positions[i];
     const v = aggregateVerdict(S.data, s.id, axes, hs);
     const color = v ? verdictColor(v) : "#FFFFFF";
@@ -1465,7 +1705,7 @@ function fieldMarkup() {
     const ring = sel ? COLORS.yamabuki : (color === "#FFFFFF" ? "#C4D1CB" : color);
     const cone = sel ? COLORS.yamabuki : (color === "#FFFFFF" ? "#DDE6E1" : color);
     const labelFill = earth ? "#FFFFFF" : COLORS.ink;
-    const labelSize = S.stakeholders.length >= 10 ? 12 : 14;
+    const labelSize = list.length >= 10 ? 12 : 14;
     const mark = v === "gain" ? "＋" : v === "loss" ? "−" : v === "mixed" ? "±" : "・";
     out += '<g class="token" data-id="' + esc(s.id) + '" transform="translate(' + p.x + ',' + p.y + ')">' +
       '<ellipse cx="0" cy="8" rx="20" ry="7" fill="#000" opacity="0.18"/>' +
@@ -1478,11 +1718,11 @@ function fieldMarkup() {
       '" style="paint-order:stroke; stroke:' + (earth ? "#1E2A45" : "#FFFFFF") + '; stroke-width:3">' + esc(s.name) + '</text></g>';
   });
 
-  if (!S.stakeholders.length) {
+  if (!list.length) {
     out += '<text x="400" y="345" text-anchor="middle" font-size="17" fill="' + (earth ? "#DCE6F5" : COLORS.sub) +
       '" font-weight="700">「＋ 関係者を追加」から、この場に人を招きましょう</text>';
   }
-  out += '<g id="tipLayer">' + tipMarkup() + "</g></svg>";
+  out += '<g id="tipLayer">' + tipMarkup(list) + "</g></svg>";
   return out;
 }
 
@@ -1513,18 +1753,99 @@ function tableMarkup() {
 }
 
 /* ================= 描画 ================= */
+/* ---- 地球儀：ドラッグで回す ---- */
+function bindGlobeDrag(svg) {
+  let drag = null, moved = 0;
+  const movedFn = () => moved;
+  const onMove = (e) => {
+    if (!drag) return;
+    const dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    drag = { x: e.clientX, y: e.clientY };
+    moved += Math.abs(dx) + Math.abs(dy);
+    if (moved < 4) return; /* 指のわずかな震えでは回さない */
+    S.rot = { lam: S.rot.lam + dx * 0.5, phi: Math.max(-60, Math.min(60, S.rot.phi + dy * 0.4)) };
+    svg.innerHTML = globeInner();
+    bindSiteClicks(svg, movedFn);
+    e.preventDefault();
+  };
+  const onEnd = () => {
+    drag = null;
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onEnd);
+    window.removeEventListener("pointercancel", onEnd);
+    setTimeout(() => { moved = 0; }, 0); /* クリック判定のあとで戻す */
+  };
+  svg.addEventListener("pointerdown", (e) => {
+    drag = { x: e.clientX, y: e.clientY }; moved = 0;
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onEnd);
+    window.addEventListener("pointercancel", onEnd);
+  });
+  bindSiteClicks(svg, movedFn);
+}
+function bindSiteClicks(svg, movedFn) {
+  svg.querySelectorAll(".site").forEach((g) => {
+    g.style.cursor = "pointer";
+    g.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (movedFn && movedFn() > 8) return; /* 回しただけの指を誤爆させない */
+      openSite(g.getAttribute("data-site"));
+    });
+  });
+}
+function openSite(id) {
+  S.currentSiteId = id;
+  S.selectedId = null;
+  renderControls(); renderStage(); renderActions(); renderPanel(); save();
+}
+function backToGlobe() {
+  S.currentSiteId = null;
+  S.selectedId = null;
+  renderControls(); renderStage(); renderActions(); renderPanel(); save();
+}
+function bindTokens(stage, list) {
+  stage.querySelectorAll(".token").forEach((g) => {
+    const id = g.getAttribute("data-id");
+    g.addEventListener("click", () => { S.selectedId = id; renderStage(); renderPanel(); });
+    g.addEventListener("mouseenter", () => { S.hoverId = id; const l = $("tipLayer"); if (l) l.innerHTML = tipMarkup(list); });
+    g.addEventListener("mouseleave", () => { S.hoverId = null; const l = $("tipLayer"); if (l) l.innerHTML = ""; });
+  });
+}
+
 function renderStage() {
   const stage = $("stage");
   document.querySelector(".main").classList.toggle("table-view", S.view === "table");
-  if (S.view === "field") {
+  if (S.view === "field" && S.world && !S.currentSiteId) {
+    /* 世界地図：拠点を選ぶ */
+    stage.className = "";
+    stage.innerHTML = '<div class="role-row"><span class="ctl-label">つながりで見る</span>' +
+      ROLE_FILTERS.map((r) => '<button type="button" class="pill' + (S.roleFilter === r.id ? " on" : "") +
+        '" data-role="' + r.id + '">' + esc(r.label) + "</button>").join("") + "</div>" +
+      '<div class="stage-frame">' + globeMarkup() + "</div>";
+    stage.querySelectorAll("[data-role]").forEach((b) => b.addEventListener("click", () => {
+      S.roleFilter = b.getAttribute("data-role"); renderStage(); save();
+    }));
+    const svg = stage.querySelector("svg.globe");
+    if (svg) bindGlobeDrag(svg);
+  } else if (S.view === "field" && S.world && S.currentSiteId) {
+    /* 拠点のなか */
+    const site = S.world.sites.find((x) => x.id === S.currentSiteId);
+    if (!site) { S.currentSiteId = null; renderStage(); return; }
+    const role = ROLES[site.role] || ROLES.both;
+    const members = siteMembers(site.id);
+    stage.className = "";
+    stage.innerHTML = '<div class="site-row">' +
+      '<button type="button" class="sbtn" data-act="globe">🌍 地球にもどる</button>' +
+      '<span class="site-name">📍 ' + esc(site.name) + "</span>" +
+      '<span class="site-role" style="background:' + role.color + '">' + esc(role.label) + "</span></div>" +
+      '<div class="stage-frame">' + fieldMarkup(site.field, members) + "</div>";
+    const back = stage.querySelector('[data-act="globe"]');
+    if (back) back.addEventListener("click", backToGlobe);
+    bindTokens(stage, members);
+  } else if (S.view === "field") {
     stage.className = "stage-field";
     stage.innerHTML = fieldMarkup();
-    stage.querySelectorAll(".token").forEach((g) => {
-      const id = g.getAttribute("data-id");
-      g.addEventListener("click", () => { S.selectedId = id; renderStage(); renderPanel(); });
-      g.addEventListener("mouseenter", () => { S.hoverId = id; const l = $("tipLayer"); if (l) l.innerHTML = tipMarkup(); });
-      g.addEventListener("mouseleave", () => { S.hoverId = null; const l = $("tipLayer"); if (l) l.innerHTML = ""; });
-    });
+    bindTokens(stage, S.stakeholders);
   } else if (S.stakeholders.length) {
     stage.className = "";
     stage.innerHTML = tableMarkup();
@@ -1535,6 +1856,7 @@ function renderStage() {
 }
 
 function renderControls() {
+  $("scaleGroup").hidden = !!S.world; /* 世界地図があるときは拠点ごとの地面が決まっている */
   $("scaleBtns").innerHTML = SCALES.map((s) =>
     '<button type="button" class="pill' + (S.scale === s.id ? " on" : "") + '" data-scale="' + s.id + '" title="' + esc(s.desc) + '">' + esc(s.label) + "</button>").join("");
   $("axisBtns").innerHTML = '<button type="button" class="pill' + (S.lensAxis === "all" ? " on" : "") + '" data-axis="all">すべて</button>' +
@@ -1821,6 +2143,7 @@ function renderAll() {
 /* ================= 操作 ================= */
 function addStakeholder() {
   const s = { id: uid(), name: "関係者" + (S.stakeholders.length + 1), emoji: EMOJIS[S.stakeholders.length % EMOJIS.length], situation: "" };
+  if (S.world) s.siteId = S.currentSiteId || homeSiteId();
   S.stakeholders.push(s);
   S.selectedId = s.id;
   renderStage(); renderActions(); renderPanel(); save();
@@ -1846,6 +2169,8 @@ function loadCase(id) {
   S.theme = c.theme; S.scale = c.scale;
   S.stakeholders = clone(c.stakeholders);
   S.valueChain = c.valueChain ? clone(c.valueChain) : null;
+  S.world = c.world ? clone(c.world) : null;
+  S.currentSiteId = null; S.roleFilter = "all"; S.rot = { lam: 100, phi: 20 };
   if (c.scenarios) {
     const first = c.scenarios.options[0].id;
     const store = clone(c.scenarios.data);
@@ -1899,11 +2224,62 @@ function resetAll() {
   S.theme = ""; S.stakeholders = []; S.data = {}; S.selectedId = null;
   S.business = ""; S.valueChain = null; S.themeIdeas = []; S.aiCandidates = [];
   S.caseId = null; S.scenario = null;
+  S.world = null; S.currentSiteId = null; S.roleFilter = "all"; S.rot = { lam: 100, phi: 20 };
   pendingCase = null; clearTimeout(pendingTimer);
   history.replaceState(null, "", location.pathname);
   renderAll();
   window.scrollTo({ top: 0, behavior: "smooth" });
   toast("まっさらに戻しました。下の帯から次のケースを選べます");
+}
+
+/* ================= 進め方ガイド ================= */
+const GUIDE_ACTS = [
+  ["第1幕 関係者に出会う（15分）",
+   "コマを1つずつ開き、状況を一人称で読み上げる。参加者一人ひとりにコマを割り当て、以後その関係者の代弁者として語ってもらう。自分と遠い立場のコマを渡すのがコツ。問い：「普段の会議に一度も呼ばれたことがない人は誰？」"],
+  ["第2幕 レンズを回す（20分）",
+   "「経済×短期」から始める（普段の会議の景色）。観点と時間軸を回し、切替のたび10秒眺める。色が変わったコマの代弁者に発言権。空欄の多いレンズで立ち止まる：「埋まらないこと自体が発見です」。問い：「あなたの組織の意思決定はどのレンズで行われていますか？」"],
+  ["第3幕 世界を切り替える（20分）",
+   "トグルを押す前に予想を聞く。逆転したコマ、どちらの世界でも変わらないコマ（板挟み）、灰色のコマを順に扱う。灰色の問い：「中立の人は本当に中立ですか？」（マスを開くと機会費用が書いてある）。問い：「これは本当に二択でしょうか？」"],
+  ["第4幕 いない人を招く（15分）",
+   "🔭ボタンを押す前に必ず聞く：「この場に、まだ呼ばれていない関係者は？」。名前が挙がるまで沈黙を恐れない。挙がった人が拡張にいなければ「＋関係者を追加」で手入力し、参加者の発見を地図に刻む。問い：「声を持たない当事者の席に、誰が座りますか？」"],
+  ["第5幕 書き込み、持ち帰る（20分）",
+   "各代弁者が自分のコマの空欄を1つ以上埋める。「一覧表」で俯瞰し、チェックアウト：「最初の意見から、動いたこと／動かなかったこと」。📋Markdownで記録を共有する。"],
+];
+const GUIDE_QUESTIONS = [
+  "「いま誰の話をしていて、誰の話をしていませんか？」",
+  "「そのメリットは、誰にとってのメリットですか？」",
+  "「10年後のこのコマは、今日の私たちに何と言うでしょう？」",
+  "「この議論で、誰も疑っていない数字は何ですか？」",
+  "「コマを降りて自分に戻ったとき、何が残りましたか？」",
+];
+
+function openGuide() {
+  const m = $("guideModal");
+  m.className = "modal-back";
+  m.hidden = false;
+  m.innerHTML = '<div class="modal-box" role="dialog" aria-modal="true" aria-label="対話の進め方">' +
+    '<div class="modal-head"><h2>📖 対話の進め方（5幕・標準90分）</h2>' +
+    '<button type="button" class="modal-close" data-close="1" aria-label="閉じる">✕</button></div>' +
+    '<p class="modal-lead">目的は合意ではなく、テーマの解像度を全員で上げること。機能は幕ごとに少しずつ解放する。</p>' +
+    GUIDE_ACTS.map((a) => '<div class="act"><div class="act-t">' + esc(a[0]) + '</div>' +
+      '<div class="act-b">' + esc(a[1]) + "</div></div>").join("") +
+    '<div class="act-magic"><div class="act-t">🪄 困ったときの魔法の問い</div>' +
+    '<div class="act-q">' + GUIDE_QUESTIONS.map(esc).join("<br>") + "</div></div>" +
+    '<p class="modal-note">心得：結論を急がない／色は事実ではなく仮説／強い意見の人には反対側のコマを／沈黙は機能している／灰色と空欄はご馳走。</p>' +
+    "</div>";
+  m.querySelector(".modal-box").addEventListener("click", (e) => e.stopPropagation());
+  m.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeGuide));
+  m.addEventListener("click", closeGuide);
+  document.body.style.overflow = "hidden";
+  const c = m.querySelector(".modal-close");
+  if (c) c.focus();
+}
+function closeGuide() {
+  const m = $("guideModal");
+  m.hidden = true;
+  m.innerHTML = "";
+  m.className = "";
+  document.body.style.overflow = "";
 }
 
 /* ================= 書き出し・共有 ================= */
@@ -2080,6 +2456,11 @@ async function generateFromBusiness() {
   document.querySelectorAll("[data-view]").forEach((b) => b.addEventListener("click", () => {
     S.view = b.getAttribute("data-view"); renderControls(); renderStage();
   }));
+
+  $("guideBtn").addEventListener("click", openGuide);
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !$("guideModal").hidden) closeGuide();
+  });
 
   window.addEventListener("resize", syncBarSpace);
 
