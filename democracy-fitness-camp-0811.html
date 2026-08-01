@@ -116,11 +116,83 @@
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
 
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    min-width: 0;
+  }
+
+  .df-logo-badge {
+    width: 78px;
+    height: 78px;
+    flex: 0 0 auto;
+    display: block;
+    background: #fff;
+    border-radius: 50%;
+    padding: 6px;
+    box-shadow: 0 2px 14px rgba(0,0,0,0.28);
+  }
+
   .logo-mark {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.1rem;
     letter-spacing: 0.2em;
     color: var(--gold);
+  }
+
+  /* ── 本家ロゴ・公式サイト表示 ── */
+  .df-origin {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    margin-top: 2.2rem;
+    padding: 1.4rem 1.6rem;
+    background: #fff;
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+  }
+
+  .df-origin img {
+    width: 96px;
+    height: 96px;
+    flex: 0 0 auto;
+    display: block;
+  }
+
+  .df-origin-text {
+    min-width: 0;
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--text-secondary);
+    word-break: auto-phrase;
+    line-break: strict;
+    hanging-punctuation: allow-end;
+  }
+
+  .df-origin-text strong {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.12em;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .df-origin-text a {
+    color: var(--accent);
+    font-weight: 700;
+    word-break: break-all;
+  }
+
+  @media (max-width: 540px) {
+    .df-origin {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+    }
+    .df-origin { border-left: none; border-top: 3px solid var(--accent); }
   }
 
   .nav-date {
@@ -3335,7 +3407,10 @@
 <!-- ── HERO ── -->
 <section class="hero">
   <nav class="hero-nav">
-    <div class="logo-mark">DEMOCRACY FITNESS RETREAT 2026</div>
+    <div class="hero-brand">
+      <img src="./democracy-fitness-logo.png" alt="Democracy Fitness（デモクラシーフィットネス）公式ロゴ" class="df-logo-badge" width="480" height="480" fetchpriority="high" decoding="async">
+      <div class="logo-mark">DEMOCRACY FITNESS RETREAT 2026</div>
+    </div>
     <div class="nav-date">2026.08.11 TUE – 08.12 WED · KITA-KARUIZAWA</div>
   </nav>
 
@@ -3344,8 +3419,9 @@
     <h1 class="hero-title">合宿版<br>デモクラシーフィットネス2026 in 北軽井沢。<span class="accent-line">— 2日間で、全10筋肉を鍛えます。</span></h1>
     <p class="hero-subtitle">
       デンマーク発、対話の力を「スポーツのように」鍛えるプログラム。<br>
-      普段は2時間ずつでお届けしている全10種類の筋肉ワークを、<br>
-      北軽井沢の森の中で2日間、一気に体験します。
+      トレーニングは1種目30分、全部で10種目。<br>
+      普段の体験会では、その一部しか扱えません。<br>
+      10種目すべてを、北軽井沢の森の中で2日間、一気に体験します。
     </p>
     <a href="#register" class="hero-cta">
       参加申し込みへ <span class="hero-cta-arrow">→</span>
@@ -3378,9 +3454,19 @@
     <div class="what-body">
       <div class="section-label">ABOUT</div>
       <h2 class="section-heading">デモクラシー<span class="jp-nowrap">フィットネスとは</span></h2>
-      <p><strong>「デモクラシーフィットネス」は、デンマーク発祥の対話トレーニングプログラム</strong>です。民主主義を制度や知識として学ぶのではなく、スポーツのように日常の中で「鍛える」ものとして捉え直しているところに大きな特徴があります。</p>
-      <p>対話を支える10種類の力を「筋肉」と呼び、それぞれに30分前後のワークが用意されています。聴く・問う・伝える・違いを受け止める——いずれも、知っているだけでは使えるようにならない力です。安全な場で繰り返し練習することで、組織・チーム・家族・地域での日常の対話に活きてきます。</p>
+      <p><strong>「デモクラシーフィットネス（Democracy Fitness）」は、デンマーク発祥の対話トレーニングプログラム</strong>です。民主主義を制度や知識として学ぶのではなく、スポーツのように日常の中で「鍛える」ものとして捉え直しているところに大きな特徴があります。</p>
+      <p>対話を支える10種類の力を「筋肉」と呼び、それぞれに<strong>30分のトレーニング</strong>が1種目ずつ用意されています。<strong>この「30分で1種目」という単位は世界共通</strong>です。聴く・問う・伝える・違いを受け止める——いずれも、知っているだけでは使えるようにならない力です。安全な場で繰り返し練習することで、組織・チーム・家族・地域での日常の対話に活きてきます。</p>
+      <p>日本でご案内している2時間の体験会や半日のワークショップは、この30分のトレーニングを核に、導入・振り返り・現場への持ち帰りを加えて組み立てた<strong>「ワークショップ」</strong>です。<span class="jp-nowrap">つまり、</span>トレーニング＝30分の1種目／ワークショップ＝それを含む場、という関係になります。</p>
       <p>政党の議論ではなく、誰もが使える実践的なコミュニケーションのトレーニング。それがデモクラシーフィットネスです。</p>
+
+      <div class="df-origin">
+        <img src="./democracy-fitness-logo.png" alt="Democracy Fitness（デモクラシーフィットネス）公式ロゴ" width="480" height="480" loading="lazy" decoding="async">
+        <div class="df-origin-text">
+          <strong>DEMOCRACY FITNESS — WE TRAIN DEMOCRACY</strong>
+          デモクラシーフィットネスは<span class="jp-nowrap">デンマーク</span>で生まれ、世界各国のトレーナーによって広がっているコンセプトで<span class="jp-nowrap">す。</span>本合宿は、本国の認定を受けた公式トレーナーによる日本での開催で<span class="jp-nowrap">す。</span><br>
+          公式サイト：<a href="https://www.democracyfitness.org" target="_blank" rel="noopener">www.democracyfitness.org</a>
+        </div>
+      </div>
     </div>
 
     <div class="what-visual">
@@ -3399,7 +3485,7 @@
   <div class="section-label">IN DENMARK</div>
   <h2 class="section-heading">本場・デンマークでの様子</h2>
   <p class="gallery-lead">
-    世界各地から集まった実践者が、コペンハーゲンに会して2日間のデモクラシーフィットネスを行いました。本国の認定トレーナーが進行し、参加者は身体ごと10の筋肉を体験。ワークの空気感を写真でご覧ください。
+    世界各地から集まった実践者が、コペンハーゲンで2日間の<strong>「Democracy Fitness Trainer Camp（デモクラシーフィットネス・トレーナーキャンプ）」</strong>に参加しました。トレーナーを養成するこの公式プログラムを本国の認定トレーナーが進行し、参加者は身体ごと10の筋肉を体験。当日の空気感を写真でご覧ください。
   </p>
 
   <div class="gallery-grid cols-3" data-gallery="dk">
@@ -3548,7 +3634,7 @@
   <div class="why-camp-inner">
     <div class="section-label">WHY RETREAT</div>
     <h2 class="section-heading">なぜ、合宿なのか。</h2>
-    <p class="why-camp-lead">デモクラシーフィットネスは、これまで2時間の体験会や半日のワークショップという形で各地で開催してきまし<span class="jp-nowrap">た。</span><strong>10の筋肉をすべて続けて体験できる機会は、国内でも数えるほどしかありませ<span class="jp-nowrap">ん。</span></strong>短時間のワークでは届かない深さと、合宿だからこそ生まれる関係性を、北軽井沢の2日間に込めまし<span class="jp-nowrap">た。</span></p>
+    <p class="why-camp-lead">デモクラシーフィットネスのトレーニングは1種目30<span class="jp-nowrap">分。</span>これまで日本では、そのトレーニングを組み込んだ2時間の体験会や半日のワークショップという形で各地で開催してきまし<span class="jp-nowrap">た。</span><strong>10の筋肉をすべて続けて体験できる機会は、国内でも数えるほどしかありませ<span class="jp-nowrap">ん。</span></strong>短時間のワークでは届かない深さと、合宿だからこそ生まれる関係性を、北軽井沢の2日間に込めまし<span class="jp-nowrap">た。</span></p>
     <div class="why-camp-grid">
       <div class="why-camp-card">
         <div class="cool-icon on-dark">
@@ -3623,7 +3709,7 @@
   <div class="program-inner">
     <div class="section-label">PROGRAM</div>
     <h2 class="section-heading">2日間のプログラム</h2>
-    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.9; max-width: 720px;">朝のチェックインから翌日のクロージングまで、ワーク・対話・休息・食事のリズムを丁寧に設計しています。内容は当日の場の流れに応じて一部調整する場合があります。</p>
+    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.9; max-width: 720px;">朝のチェックインから翌日のクロージングまで、ワーク・対話・休息・食事のリズムを丁寧に設計しています。<strong>各筋肉のトレーニングは1種目30分</strong>です。本合宿では各種目の前後に導入・対話・振り返りを挟むワークショップ形式で進めるため、下表では2〜3種目をひとつの時間帯にまとめ、余白を含めた枠で記載しています。内容は当日の場の流れに応じて一部調整する場合があります。</p>
 
     <!-- Day 1 -->
     <div class="program-day">
@@ -3837,7 +3923,7 @@
       <p>9年ほど東京都で小学校教員として勤めた後、単身セブ島に移住し、複数の教育事業の立ち上げに従事。2015年の帰国後は日本の教育系企業にて、多くの企業に研修やワークショップを提供。<strong>製造・金融・IT・サービス・医療・行政・NPO・教育機関など、業界・職種を横断して数百社にわたる組織の人事戦略・組織戦略の立案や教育施策の実施を支援</strong>してきた。</p>
       <p>2022年末に独立。国内外の先進的な教育実践や働き方のリサーチをしながら、日本の伝統的な組織の働き方・学び方のアップデートに挑戦中。</p>
       <p>2013年にシンガポールにて<strong>レゴ® シリアスプレイ®（LSP）</strong>の修了認定トレーニングを受講。以降、企業を中心に<strong>500以上の現場にLSPを提供</strong>するなど、日本でも有数の登壇数を誇るLSP修了認定ファシリテーターの一人。</p>
-      <p>デモクラシーフィットネスにおいては、本国デンマークの組織から直接トレーナー認定を受けるとともに、デンマーク社会の根っこにある対話文化・教育哲学・歴史を継続的にフィールドリサーチしている。</p>
+      <p>デモクラシーフィットネスにおいては、デンマーク・コペンハーゲンで開催された公式の<strong>「Democracy Fitness Trainer Camp」</strong>を修了し、本国の組織から直接トレーナー認定を受けている。あわせて、デンマーク社会の根っこにある対話文化・教育哲学・歴史を継続的にフィールドリサーチしている。（公式サイト：<a href="https://www.democracyfitness.org" target="_blank" rel="noopener" style="color: var(--accent);">www.democracyfitness.org</a>）</p>
       <p>2022年末に軽井沢に移住。森の中で、人間社会と自然との共存の仕方について考え中。</p>
     </div>
   </div>
@@ -4125,7 +4211,7 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             <span class="faq-a-label">A</span>
-            <p>いいえ。「デモクラシーフィットネス」は政党や政策の議論をするものではありません。組織・チーム・家族・地域における日常の対話に活かせる「対話の筋肉」を鍛えるトレーニングです。デンマーク発祥のコンセプトで、政治的立場にかかわらず、誰もが活用できる実践的なメソッドです。</p>
+            <p>いいえ。「デモクラシーフィットネス」は政党や政策の議論をするものではありません。組織・チーム・家族・地域における日常の対話に活かせる「対話の筋肉」を鍛えるトレーニングです。デンマーク発祥のコンセプト（公式サイト：<a href="https://www.democracyfitness.org" target="_blank" rel="noopener" style="color: var(--accent);">www.democracyfitness.org</a>）で、政治的立場にかかわらず、誰もが活用できる実践的なメソッドです。</p>
           </div>
         </div>
       </div>
@@ -4181,7 +4267,7 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             <span class="faq-a-label">A</span>
-            <p>大丈夫です。むしろ初めて触れる方を歓迎しています。プログラムは「10の筋肉」を順を追って一つひとつ体験する設計になっており、参加者全員が同じスタートラインから始められるように構成されています。体験会への参加歴は問いません。</p>
+            <p>大丈夫です。むしろ初めて触れる方を歓迎しています。プログラムは「10の筋肉」を順を追って一つひとつ体験する設計になっており、参加者全員が同じスタートラインから始められるように構成されています。体験会への参加歴は問いません。なお、デモクラシーフィットネスの「トレーニング」は1種目30分が基本単位で、本合宿はその10種目すべてを2日間で行うものです（2時間の体験会は、その中の一部を扱うワークショップです）。</p>
           </div>
         </div>
       </div>
@@ -4335,7 +4421,7 @@
         <div class="faq-answer">
           <div class="faq-answer-inner">
             <span class="faq-a-label">A</span>
-            <p>本合宿は2日間ひとつのプログラムとして設計しているため、原則として1日のみの参加は受け付けておりません。短時間の体験を希望される方は、東京や名古屋で開催される通常の体験会（2時間）をご検討ください。<a href="./democracy-fitness.html" style="color: var(--accent);">詳しくはこちら</a>。</p>
+            <p>本合宿は2日間ひとつのプログラムとして設計しているため、原則として1日のみの参加は受け付けておりません。短時間の体験を希望される方は、東京や名古屋で開催される体験会（2時間のワークショップ形式。30分のトレーニングを含みます）をご検討ください。<a href="./democracy-fitness.html" style="color: var(--accent);">詳しくはこちら</a>。</p>
           </div>
         </div>
       </div>
@@ -4462,7 +4548,7 @@
       </tr>
       <tr>
         <th>サービス内容</th>
-        <td>合宿版デモクラシーフィットネス2026 in 北軽井沢（1泊2日合宿型ワークショップ／対話・合意形成トレーニング）</td>
+        <td>合宿版デモクラシーフィットネス2026 in 北軽井沢（1泊2日の合宿型プログラム／対話・合意形成のトレーニング10種目）</td>
       </tr>
       <tr>
         <th>参加費</th>
