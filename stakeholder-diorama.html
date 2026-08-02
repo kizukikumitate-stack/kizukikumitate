@@ -287,6 +287,70 @@ svg.globe .site{cursor:pointer;}
 }
 .sbtn.save{border-color:var(--indigo); background:#EAF1F7; color:var(--indigo-dark);}
 
+/* ---- スケールの人数バッジ ---- */
+.pill-n{
+  display:inline-block; margin-left:6px; min-width:17px; padding:0 5px;
+  border-radius:99px; background:rgba(42,52,57,.11); font-size:.66rem; font-weight:900; line-height:1.55;
+}
+.pill.on .pill-n{background:rgba(255,255,255,.28);}
+.tbl-note{
+  font-size:.74rem; color:var(--sub); background:#FFF; border:1.5px dashed var(--border);
+  border-radius:12px; padding:9px 12px; margin-bottom:10px; line-height:1.8;
+}
+
+/* ---- 🎙️ 聞きながら描く ---- */
+.listen-bar{
+  background:#FFF; border:1.5px solid var(--indigo); border-radius:14px;
+  padding:10px 14px; margin-bottom:12px;
+}
+.listen-head{display:flex; gap:10px; align-items:center; flex-wrap:wrap;}
+.listen-dot{
+  width:10px; height:10px; border-radius:99px; background:#D4635B; flex:none;
+  animation:listen-blink 1.4s ease infinite;
+}
+@keyframes listen-blink{0%,100%{opacity:1;}50%{opacity:0.25;}}
+.listen-dot.off{background:var(--neutral); animation:none;}
+.listen-title{font-size:.8rem; font-weight:900; color:var(--indigo-dark);}
+.listen-interim{
+  flex:1 1 200px; min-width:0; font-size:.72rem; color:var(--sub);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis; direction:rtl; text-align:left;
+}
+.listen-interim bdi{unicode-bidi:plaintext;}
+.listen-note{font-size:.66rem; color:var(--sub); margin:6px 0 0; line-height:1.7;}
+.listen-err{font-size:.7rem; color:var(--loss); font-weight:700; margin-top:6px;}
+.listen-log{margin-top:8px; display:flex; flex-direction:column; gap:5px; max-height:180px; overflow-y:auto;}
+.lg-item{
+  display:flex; gap:8px; align-items:center; font-size:.72rem; line-height:1.7;
+  background:#F3F7F4; border-radius:10px; padding:5px 10px;
+}
+.lg-item.undone{opacity:0.5; text-decoration:line-through;}
+.lg-time{color:var(--sub); font-size:.64rem; flex:none;}
+.lg-body{flex:1 1 auto; min-width:0;}
+.lg-undo{
+  flex:none; border:1.5px solid var(--border); background:#FFF; color:var(--sub);
+  border-radius:99px; padding:2px 10px; font-size:.64rem; font-weight:800;
+  cursor:pointer; font-family:inherit; line-height:1.6;
+}
+.lg-undo:hover{border-color:var(--loss); color:var(--loss);}
+.sbtn.listen-on{border-color:var(--loss); background:#FBEDEC; color:var(--loss);}
+.replay-count{font-size:.72rem; color:var(--sub); font-weight:700; flex:none;}
+.replay-track{
+  flex:1 1 120px; min-width:60px; height:7px; border-radius:99px; background:#E4ECE7; overflow:hidden;
+}
+.replay-fill{display:block; height:100%; background:var(--indigo); border-radius:99px; transition:width .4s ease;}
+.imp-sec{margin:14px 0;}
+.imp-t{font-size:.8rem; font-weight:900; color:var(--indigo-dark); margin-bottom:6px;}
+.imp-row{display:flex; gap:8px; flex-wrap:wrap; align-items:center;}
+.imp-file{
+  display:inline-block; border:1.5px solid var(--border); background:#F3F7F4; border-radius:12px;
+  padding:8px 14px; font-size:.74rem; font-weight:800; cursor:pointer; line-height:1.6;
+}
+.imp-file:hover{border-color:var(--indigo);}
+.imp-file.exp{background:#FDF6E8; border-style:dashed;}
+.imp-note{font-size:.68rem; color:var(--sub); margin-top:7px; line-height:1.8;}
+svg.field .token.fresh{animation:tk-fade 0.9s ease;}
+@keyframes tk-fade{from{opacity:0;}}
+
 /* ---- 一覧表 ---- */
 .tables{display:flex; flex-direction:column; align-items:stretch; gap:20px;}
 .tbl-card{background:#FFF; border:1.5px solid var(--border); border-radius:14px; overflow:hidden;}
@@ -482,6 +546,8 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
 
   <div id="scenarioBar"></div>
 
+  <div id="listenBar"></div>
+
   <div class="main">
     <div class="col-left">
       <div id="stage"></div>
@@ -565,11 +631,11 @@ const CASES = {
     theme: "学校のプールを廃止して、市民プールに集約するべきか",
     scale: "town",
     stakeholders: [
-      { id: "s1", name: "児童・生徒", emoji: "🧒", situation: "夏の水泳授業が楽しみな子もいれば、苦手な子もいる。移動時間が増えると休み時間が減る。" },
-      { id: "s2", name: "保護者", emoji: "👩‍💼", situation: "水泳スキルは身につけてほしいが、送迎や費用の負担が気になる。" },
-      { id: "s3", name: "学校・教員", emoji: "🧑‍🏫", situation: "プール管理(水質・安全)の負担が大きい。専門指導員に任せられるなら助かる。" },
-      { id: "s4", name: "自治体", emoji: "🏛️", situation: "老朽化したプールの改修費が課題。集約すれば維持費を削減できる。" },
-      { id: "s5", name: "地域住民", emoji: "👵", situation: "市民プールが混雑するかもしれない。一方で施設が充実するなら歓迎。" },
+      { id: "s1", scale: "room", name: "児童・生徒", emoji: "🧒", situation: "夏の水泳授業が楽しみな子もいれば、苦手な子もいる。移動時間が増えると休み時間が減る。" },
+      { id: "s2", scale: "town", name: "保護者", emoji: "👩‍💼", situation: "水泳スキルは身につけてほしいが、送迎や費用の負担が気になる。" },
+      { id: "s3", scale: "room", name: "学校・教員", emoji: "🧑‍🏫", situation: "プール管理(水質・安全)の負担が大きい。専門指導員に任せられるなら助かる。" },
+      { id: "s4", scale: "town", name: "自治体", emoji: "🏛️", situation: "老朽化したプールの改修費が課題。集約すれば維持費を削減できる。" },
+      { id: "s5", scale: "town", name: "地域住民", emoji: "👵", situation: "市民プールが混雑するかもしれない。一方で施設が充実するなら歓迎。" },
     ],
     data: {
       s4: { keizai: {
@@ -651,22 +717,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "g1", siteId: "jp", name: "電力会社", emoji: "🔌", situation: "2026年時点で全国15基が再稼働済み。動けば燃料費を大きく圧縮できるが、安全対策の投資も巨額。" },
-      { id: "g2", siteId: "jp", name: "立地自治体", emoji: "🏘️", situation: "交付金と雇用の恩恵と、事故リスク・避難計画への不安を同時に抱えている。" },
-      { id: "g3", siteId: "jp", name: "製造業", emoji: "🏭", situation: "電気料金は国際競争力を左右する。半導体工場やデータセンターの誘致でも電力が決め手に。" },
-      { id: "g4", siteId: "jp", name: "家計・消費者", emoji: "🧑", situation: "電気代の高騰に疲弊。一方で、事故が起きた場合の費用も最終的には国民が負う。" },
-      { id: "g5", siteId: "jp", name: "政府", emoji: "🏛️", situation: "エネルギー基本計画で原子力を「最大限活用」へ転換。2040年度に電源の約2割を想定する。" },
-      { id: "g6", siteId: "jp", name: "将来世代", emoji: "👶", situation: "使用済み核燃料の処分も、気候変動の影響も、最も長く引き受けることになる当事者。" },
-      { id: "g7", siteId: "jp", name: "再エネ産業", emoji: "☀️", situation: "送電網の容量・投資資金・政策の優先順位をめぐって、原子力と取り合う関係にある。" },
-      { id: "g8", siteId: "jp", name: "原子力人材", emoji: "🧑‍🔬", situation: "稼働が止まれば技術と人材が細り、安全な廃炉すら難しくなるというジレンマを抱える。" },
+      { id: "g1", scale: "room", siteId: "jp", name: "電力会社", emoji: "🔌", situation: "2026年時点で全国15基が再稼働済み。動けば燃料費を大きく圧縮できるが、安全対策の投資も巨額。" },
+      { id: "g2", scale: "town", siteId: "jp", name: "立地自治体", emoji: "🏘️", situation: "交付金と雇用の恩恵と、事故リスク・避難計画への不安を同時に抱えている。" },
+      { id: "g3", scale: "town", siteId: "jp", name: "製造業", emoji: "🏭", situation: "電気料金は国際競争力を左右する。半導体工場やデータセンターの誘致でも電力が決め手に。" },
+      { id: "g4", scale: "town", siteId: "jp", name: "家計・消費者", emoji: "🧑", situation: "電気代の高騰に疲弊。一方で、事故が起きた場合の費用も最終的には国民が負う。" },
+      { id: "g5", scale: "town", siteId: "jp", name: "政府", emoji: "🏛️", situation: "エネルギー基本計画で原子力を「最大限活用」へ転換。2040年度に電源の約2割を想定する。" },
+      { id: "g6", scale: "earth", siteId: "jp", name: "将来世代", emoji: "👶", situation: "使用済み核燃料の処分も、気候変動の影響も、最も長く引き受けることになる当事者。" },
+      { id: "g7", scale: "town", siteId: "jp", name: "再エネ産業", emoji: "☀️", situation: "送電網の容量・投資資金・政策の優先順位をめぐって、原子力と取り合う関係にある。" },
+      { id: "g8", scale: "room", siteId: "jp", name: "原子力人材", emoji: "🧑‍🔬", situation: "稼働が止まれば技術と人材が細り、安全な廃炉すら難しくなるというジレンマを抱える。" },
     ],
     extra: {
       label: "🔭 世界のサプライチェーンまで視野を広げる",
       stakeholders: [
-        { id: "gx1", siteId: "kz", name: "ウラン産出国", emoji: "⛏️", situation: "カザフスタン・カナダ・豪州など。原発の稼働動向が輸出の伸びを左右する。" },
-        { id: "gx2", siteId: "me", name: "LNG輸出国", emoji: "🚢", situation: "豪州・米国・カタール等。日本は世界有数のLNG買い手で、大口顧客の動向は死活問題。" },
-        { id: "gx3", siteId: "eu", name: "他国のLNG買い手", emoji: "🌏", situation: "欧州やアジア新興国。日本のLNG需要の増減は、世界のスポット価格に跳ね返る。" },
-        { id: "gx4", siteId: "sr", name: "燃料商社・海運", emoji: "⚓", situation: "化石燃料の調達・輸送で収益を上げてきた。エネルギー転換の影響を直接受ける。" },
+        { id: "gx1", scale: "earth", siteId: "kz", name: "ウラン産出国", emoji: "⛏️", situation: "カザフスタン・カナダ・豪州など。原発の稼働動向が輸出の伸びを左右する。" },
+        { id: "gx2", scale: "earth", siteId: "me", name: "LNG輸出国", emoji: "🚢", situation: "豪州・米国・カタール等。日本は世界有数のLNG買い手で、大口顧客の動向は死活問題。" },
+        { id: "gx3", scale: "earth", siteId: "eu", name: "他国のLNG買い手", emoji: "🌏", situation: "欧州やアジア新興国。日本のLNG需要の増減は、世界のスポット価格に跳ね返る。" },
+        { id: "gx4", scale: "earth", siteId: "sr", name: "燃料商社・海運", emoji: "⚓", situation: "化石燃料の調達・輸送で収益を上げてきた。エネルギー転換の影響を直接受ける。" },
       ],
       dataByScenario: {
         saikado: {
@@ -739,22 +805,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "y1", name: "子ども・学生", emoji: "🧒", situation: "教育投資の効果を最も長く受け取る当事者。ただし投票権を持たない。" },
-      { id: "y2", name: "教員・学校", emoji: "🧑‍🏫", situation: "人手不足と長時間労働が続く。処遇改善と人員増を長年求めている。" },
-      { id: "y3", name: "自衛隊員", emoji: "🪖", situation: "採用は定員割れが続く。処遇・装備・生活環境の改善が課題。" },
-      { id: "y4", name: "防衛産業", emoji: "✈️", situation: "撤退企業が相次いだ分野。防衛費増額で受注拡大の局面にある。" },
-      { id: "y5", name: "納税者・家計", emoji: "🧑", situation: "防衛増額の財源には3税の増税で1兆円強を捻出。教育の私費負担も重い。" },
-      { id: "y6", name: "政府・財政", emoji: "🏛️", situation: "防衛関連費は2026年度に約10.6兆円(GDP比1.9%)。文教予算は5兆円台で、国債残高は積み上がる。" },
-      { id: "y7", name: "基地の街", emoji: "🏘️", situation: "駐屯地や基地の調達・隊員の消費が地域経済を支えている街もある。" },
-      { id: "y8", name: "将来世代", emoji: "👶", situation: "教育の受益者であると同時に、国債と安全保障環境の相続人でもある。" },
+      { id: "y1", scale: "town", name: "子ども・学生", emoji: "🧒", situation: "教育投資の効果を最も長く受け取る当事者。ただし投票権を持たない。" },
+      { id: "y2", scale: "room", name: "教員・学校", emoji: "🧑‍🏫", situation: "人手不足と長時間労働が続く。処遇改善と人員増を長年求めている。" },
+      { id: "y3", scale: "room", name: "自衛隊員", emoji: "🪖", situation: "採用は定員割れが続く。処遇・装備・生活環境の改善が課題。" },
+      { id: "y4", scale: "town", name: "防衛産業", emoji: "✈️", situation: "撤退企業が相次いだ分野。防衛費増額で受注拡大の局面にある。" },
+      { id: "y5", scale: "town", name: "納税者・家計", emoji: "🧑", situation: "防衛増額の財源には3税の増税で1兆円強を捻出。教育の私費負担も重い。" },
+      { id: "y6", scale: "room", name: "政府・財政", emoji: "🏛️", situation: "防衛関連費は2026年度に約10.6兆円(GDP比1.9%)。文教予算は5兆円台で、国債残高は積み上がる。" },
+      { id: "y7", scale: "town", name: "基地の街", emoji: "🏘️", situation: "駐屯地や基地の調達・隊員の消費が地域経済を支えている街もある。" },
+      { id: "y8", scale: "town", name: "将来世代", emoji: "👶", situation: "教育の受益者であると同時に、国債と安全保障環境の相続人でもある。" },
     ],
     extra: {
       label: "🔭 産業と世界まで視野を広げる",
       stakeholders: [
-        { id: "yx1", name: "大学・研究機関", emoji: "🔬", situation: "防衛研究資金と教育・基礎研究資金、どちらの流れも受け取りうる立場。デュアルユースを巡る葛藤も。" },
-        { id: "yx2", name: "EdTech・教育産業", emoji: "💻", situation: "公教育のICT投資や学び直し市場の拡大が事業機会に直結する。" },
-        { id: "yx3", name: "装備部品メーカー", emoji: "⚙️", situation: "防衛装備の裾野を支える中小企業群。投資計画は国の予算次第。" },
-        { id: "yx4", name: "周辺国・同盟国", emoji: "🌏", situation: "日本の予算配分を、抑止力の変化としても、国のかたちの表明としても読んでいる。" },
+        { id: "yx1", scale: "town", name: "大学・研究機関", emoji: "🔬", situation: "防衛研究資金と教育・基礎研究資金、どちらの流れも受け取りうる立場。デュアルユースを巡る葛藤も。" },
+        { id: "yx2", scale: "town", name: "EdTech・教育産業", emoji: "💻", situation: "公教育のICT投資や学び直し市場の拡大が事業機会に直結する。" },
+        { id: "yx3", scale: "town", name: "装備部品メーカー", emoji: "⚙️", situation: "防衛装備の裾野を支える中小企業群。投資計画は国の予算次第。" },
+        { id: "yx4", scale: "earth", name: "周辺国・同盟国", emoji: "🌏", situation: "日本の予算配分を、抑止力の変化としても、国のかたちの表明としても読んでいる。" },
       ],
       dataByScenario: {
         boei: {
@@ -821,22 +887,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "k1", name: "若手社員", emoji: "🧑‍💻", situation: "日本の有給取得率は6割台。「権利はあっても取りにくい」空気の中で働いてきた世代。" },
-      { id: "k2", name: "子育て・介護層", emoji: "👩‍👧", situation: "休みの必要度は高いが、周囲への気兼ねから短い休みを小刻みに取ってきた。" },
-      { id: "k3", name: "管理職", emoji: "🧑‍💼", situation: "メンバーの休暇の穴埋めとシフト調整を引き受ける立場。自分こそ一番休めていない。" },
-      { id: "k4", name: "経営者", emoji: "👔", situation: "欧州では夏季3〜4週間の連続休暇が一般的。人材獲得競争の中で制度を武器にしたい。" },
-      { id: "k5", name: "顧客・取引先", emoji: "🤝", situation: "「担当者が1ヶ月いない」を受け入れられるかは、業種と関係性次第。" },
-      { id: "k6", name: "求職者", emoji: "🎓", situation: "給与だけでなく「本当に休めるか」を企業選びの軸にする人が増えている。" },
-      { id: "k7", name: "社員の家族", emoji: "👨‍👩‍👧", situation: "長期休暇は家族の時間の総量を変える。一方で「1ヶ月ずっと家にいる」への戸惑いも。" },
-      { id: "k8", name: "人事・労務", emoji: "📋", situation: "給与計算・社会保険・評価制度など、制度の裏側をすべて作り直す実務を担う。" },
+      { id: "k1", scale: "room", name: "若手社員", emoji: "🧑‍💻", situation: "日本の有給取得率は6割台。「権利はあっても取りにくい」空気の中で働いてきた世代。" },
+      { id: "k2", scale: "room", name: "子育て・介護層", emoji: "👩‍👧", situation: "休みの必要度は高いが、周囲への気兼ねから短い休みを小刻みに取ってきた。" },
+      { id: "k3", scale: "room", name: "管理職", emoji: "🧑‍💼", situation: "メンバーの休暇の穴埋めとシフト調整を引き受ける立場。自分こそ一番休めていない。" },
+      { id: "k4", scale: "room", name: "経営者", emoji: "👔", situation: "欧州では夏季3〜4週間の連続休暇が一般的。人材獲得競争の中で制度を武器にしたい。" },
+      { id: "k5", scale: "room", name: "顧客・取引先", emoji: "🤝", situation: "「担当者が1ヶ月いない」を受け入れられるかは、業種と関係性次第。" },
+      { id: "k6", scale: "room", name: "求職者", emoji: "🎓", situation: "給与だけでなく「本当に休めるか」を企業選びの軸にする人が増えている。" },
+      { id: "k7", scale: "room", name: "社員の家族", emoji: "👨‍👩‍👧", situation: "長期休暇は家族の時間の総量を変える。一方で「1ヶ月ずっと家にいる」への戸惑いも。" },
+      { id: "k8", scale: "room", name: "人事・労務", emoji: "📋", situation: "給与計算・社会保険・評価制度など、制度の裏側をすべて作り直す実務を担う。" },
     ],
     extra: {
       label: "🔭 会社の外まで視野を広げる",
       stakeholders: [
-        { id: "kx1", name: "旅行・観光業", emoji: "🧳", situation: "長期休暇の普及は国内旅行市場の構造を変える。繁閑の平準化は業界の悲願。" },
-        { id: "kx2", name: "競合他社", emoji: "🏢", situation: "他社の1ヶ月休暇は、顧客を奪う好機にも、人材を奪われる脅威にもなる。" },
-        { id: "kx3", name: "学び直し市場", emoji: "📖", situation: "1ヶ月あれば短期留学や集中講座が可能に。リスキリング市場には追い風。" },
-        { id: "kx4", name: "地域社会", emoji: "🏘️", situation: "平日昼間の担い手不足が続く。休暇中の大人が地域に現れるかどうか。" },
+        { id: "kx1", scale: "town", name: "旅行・観光業", emoji: "🧳", situation: "長期休暇の普及は国内旅行市場の構造を変える。繁閑の平準化は業界の悲願。" },
+        { id: "kx2", scale: "town", name: "競合他社", emoji: "🏢", situation: "他社の1ヶ月休暇は、顧客を奪う好機にも、人材を奪われる脅威にもなる。" },
+        { id: "kx3", scale: "town", name: "学び直し市場", emoji: "📖", situation: "1ヶ月あれば短期留学や集中講座が可能に。リスキリング市場には追い風。" },
+        { id: "kx4", scale: "town", name: "地域社会", emoji: "🏘️", situation: "平日昼間の担い手不足が続く。休暇中の大人が地域に現れるかどうか。" },
       ],
       dataByScenario: {
         issei: {
@@ -901,21 +967,21 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "z1", name: "経営者", emoji: "👔", situation: "全社の利益率と資源配分に責任を負う。「選択と集中」の圧力の中にいる。" },
-      { id: "z2", name: "担当部門の社員", emoji: "🧑‍💻", situation: "低採算と言われながらも、顧客のために現場を支えてきた当事者。" },
-      { id: "z3", name: "長年の利用者", emoji: "🧓", situation: "数は少ないが、このサービスに生活や業務を頼ってきた顧客層。" },
-      { id: "z4", name: "他部門の社員", emoji: "🏢", situation: "「うちが稼いだ利益があの部門の赤字に消えている」という不満を抱えがち。" },
-      { id: "z5", name: "営業・窓口", emoji: "🤝", situation: "中止となれば顧客に頭を下げる役。信頼関係の毀損を最前線で受け止める。" },
-      { id: "z6", name: "株主・銀行", emoji: "💼", situation: "資本効率と利益率の改善を求める。低採算事業の継続には説明を要求。" },
-      { id: "z7", name: "経理・管理会計", emoji: "📊", situation: "「低利益率」の数字は共通費の配賦次第で変わる。数字の作られ方を知る立場。" },
+      { id: "z1", scale: "room", name: "経営者", emoji: "👔", situation: "全社の利益率と資源配分に責任を負う。「選択と集中」の圧力の中にいる。" },
+      { id: "z2", scale: "room", name: "担当部門の社員", emoji: "🧑‍💻", situation: "低採算と言われながらも、顧客のために現場を支えてきた当事者。" },
+      { id: "z3", scale: "room", name: "長年の利用者", emoji: "🧓", situation: "数は少ないが、このサービスに生活や業務を頼ってきた顧客層。" },
+      { id: "z4", scale: "room", name: "他部門の社員", emoji: "🏢", situation: "「うちが稼いだ利益があの部門の赤字に消えている」という不満を抱えがち。" },
+      { id: "z5", scale: "room", name: "営業・窓口", emoji: "🤝", situation: "中止となれば顧客に頭を下げる役。信頼関係の毀損を最前線で受け止める。" },
+      { id: "z6", scale: "room", name: "株主・銀行", emoji: "💼", situation: "資本効率と利益率の改善を求める。低採算事業の継続には説明を要求。" },
+      { id: "z7", scale: "room", name: "経理・管理会計", emoji: "📊", situation: "「低利益率」の数字は共通費の配賦次第で変わる。数字の作られ方を知る立場。" },
     ],
     extra: {
       label: "🔭 取引の網の目まで視野を広げる",
       stakeholders: [
-        { id: "zx1", name: "仕入先・外注先", emoji: "🏭", situation: "このサービス向けの発注が売上の柱になっている取引先もいる。" },
-        { id: "zx2", name: "競合他社", emoji: "🏬", situation: "撤退はシェアを取りに行く好機。顧客リストごと引き受ける提案も可能。" },
-        { id: "zx3", name: "地域・社会", emoji: "🏘️", situation: "代替サービスのない地域では、撤退が生活インフラの穴になることも。" },
-        { id: "zx4", name: "見込み客", emoji: "🚪", situation: "低価格・低採算のサービスが、実は会社との最初の接点(入口)になっている。" },
+        { id: "zx1", scale: "town", name: "仕入先・外注先", emoji: "🏭", situation: "このサービス向けの発注が売上の柱になっている取引先もいる。" },
+        { id: "zx2", scale: "town", name: "競合他社", emoji: "🏬", situation: "撤退はシェアを取りに行く好機。顧客リストごと引き受ける提案も可能。" },
+        { id: "zx3", scale: "town", name: "地域・社会", emoji: "🏘️", situation: "代替サービスのない地域では、撤退が生活インフラの穴になることも。" },
+        { id: "zx4", scale: "town", name: "見込み客", emoji: "🚪", situation: "低価格・低採算のサービスが、実は会社との最初の接点(入口)になっている。" },
       ],
       dataByScenario: {
         chushi: {
@@ -984,22 +1050,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "h1", name: "自社の経営者", emoji: "👔", situation: "調達コストと人権リスク(不買・訴訟・輸入差止)の板挟み。国連指導原則は「まず影響力の行使」を求める。" },
-      { id: "h2", name: "現地の労働者", emoji: "🧑‍🏭", situation: "問題の当事者でありながら、議論の場に最もいない人たち。取引停止は職を失うことでもある。" },
-      { id: "h3", name: "取引先の経営", emoji: "🏭", situation: "低価格の受注競争の中で労働条件を削ってきた。改善には資金と発注の安定が要る。" },
-      { id: "h4", name: "消費者", emoji: "🧑", situation: "安さを求める自分と、人権を大切にしたい自分が同居している。" },
-      { id: "h5", name: "調達・購買部門", emoji: "📦", situation: "監査・是正・代替先探しの実務をすべて担う。QCDと人権の両立を迫られる。" },
-      { id: "h6", name: "株主・ESG投資家", emoji: "💼", situation: "人権リスクは投資リスク。対応の速さと透明性を評価軸にしている。" },
-      { id: "h7", name: "NGO・人権団体", emoji: "📣", situation: "問題を可視化してきた監視役。企業との対決も協働も、状況次第で選ぶ。" },
-      { id: "h8", name: "現地政府", emoji: "🏛️", situation: "雇用と外貨をもたらす外資は手放したくない。国際的批判との間で揺れる。" },
+      { id: "h1", scale: "room", name: "自社の経営者", emoji: "👔", situation: "調達コストと人権リスク(不買・訴訟・輸入差止)の板挟み。国連指導原則は「まず影響力の行使」を求める。" },
+      { id: "h2", scale: "earth", name: "現地の労働者", emoji: "🧑‍🏭", situation: "問題の当事者でありながら、議論の場に最もいない人たち。取引停止は職を失うことでもある。" },
+      { id: "h3", scale: "earth", name: "取引先の経営", emoji: "🏭", situation: "低価格の受注競争の中で労働条件を削ってきた。改善には資金と発注の安定が要る。" },
+      { id: "h4", scale: "town", name: "消費者", emoji: "🧑", situation: "安さを求める自分と、人権を大切にしたい自分が同居している。" },
+      { id: "h5", scale: "room", name: "調達・購買部門", emoji: "📦", situation: "監査・是正・代替先探しの実務をすべて担う。QCDと人権の両立を迫られる。" },
+      { id: "h6", scale: "room", name: "株主・ESG投資家", emoji: "💼", situation: "人権リスクは投資リスク。対応の速さと透明性を評価軸にしている。" },
+      { id: "h7", scale: "town", name: "NGO・人権団体", emoji: "📣", situation: "問題を可視化してきた監視役。企業との対決も協働も、状況次第で選ぶ。" },
+      { id: "h8", scale: "earth", name: "現地政府", emoji: "🏛️", situation: "雇用と外貨をもたらす外資は手放したくない。国際的批判との間で揺れる。" },
     ],
     extra: {
       label: "🔭 サプライチェーンの奥まで視野を広げる",
       stakeholders: [
-        { id: "hx1", name: "代替調達先", emoji: "🌏", situation: "取引が移ってくる側。ただし監査の緩い国へ問題ごと移るだけになる恐れも。" },
-        { id: "hx2", name: "業界・同業他社", emoji: "🏢", situation: "一社が切っても、業界全体が買い続ければ現場は変わらない。" },
-        { id: "hx3", name: "労働者の家族", emoji: "👨‍👩‍👧", situation: "仕送りが家計と地域経済を支えている。工場の受注は暮らしに直結する。" },
-        { id: "hx4", name: "規制・国際機関", emoji: "⚖️", situation: "欧州の人権DD法制や米国の輸入規制など、企業に対応を義務づける枠組みが広がる。" },
+        { id: "hx1", scale: "earth", name: "代替調達先", emoji: "🌏", situation: "取引が移ってくる側。ただし監査の緩い国へ問題ごと移るだけになる恐れも。" },
+        { id: "hx2", scale: "earth", name: "業界・同業他社", emoji: "🏢", situation: "一社が切っても、業界全体が買い続ければ現場は変わらない。" },
+        { id: "hx3", scale: "earth", name: "労働者の家族", emoji: "👨‍👩‍👧", situation: "仕送りが家計と地域経済を支えている。工場の受注は暮らしに直結する。" },
+        { id: "hx4", scale: "earth", name: "規制・国際機関", emoji: "⚖️", situation: "欧州の人権DD法制や米国の輸入規制など、企業に対応を義務づける枠組みが広がる。" },
       ],
       dataByScenario: {
         uchikiri: {
@@ -1063,22 +1129,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "n1", name: "地方の車生活者", emoji: "🚗", situation: "公共交通が乏しく車は生活必需品。暫定税率廃止後も原油高でレギュラー約170円が家計を直撃。" },
-      { id: "n2", name: "都市の生活者", emoji: "🚃", situation: "車を持たない層。ガソリン補助の恩恵は薄いが、国債の返済負担は等しく共有する。" },
-      { id: "n3", name: "運送・物流業", emoji: "🚚", situation: "燃料費が経営を左右する。軽油の暫定税率も2026年4月に廃止されたが、原油高が続く。" },
-      { id: "n4", name: "ガソリンスタンド", emoji: "⛽", situation: "補助金執行の現場。需要の先細りと過疎地の撤退が進む中で店を守っている。" },
-      { id: "n5", name: "政府・財政", emoji: "🏛️", situation: "暫定税率(25.1円/L)廃止後も原油高で効果は相殺。国債を財源に約1.1兆円の補助を再開・継続中。" },
-      { id: "n6", name: "将来世代", emoji: "👶", situation: "国債の返済者であり、気候変動の相続人。この政策の費用を二重に受け取る立場。" },
-      { id: "n7", name: "低所得世帯", emoji: "🧑", situation: "収入に占める燃料費の割合が高い。「一律に安く」と「困る人に厚く」で受け取りが変わる。" },
-      { id: "n8", name: "農業・漁業者", emoji: "🚜", situation: "燃油に依存する一次産業。価格変動が収益を直撃する。" },
+      { id: "n1", scale: "town", name: "地方の車生活者", emoji: "🚗", situation: "公共交通が乏しく車は生活必需品。暫定税率廃止後も原油高でレギュラー約170円が家計を直撃。" },
+      { id: "n2", scale: "town", name: "都市の生活者", emoji: "🚃", situation: "車を持たない層。ガソリン補助の恩恵は薄いが、国債の返済負担は等しく共有する。" },
+      { id: "n3", scale: "town", name: "運送・物流業", emoji: "🚚", situation: "燃料費が経営を左右する。軽油の暫定税率も2026年4月に廃止されたが、原油高が続く。" },
+      { id: "n4", scale: "town", name: "ガソリンスタンド", emoji: "⛽", situation: "補助金執行の現場。需要の先細りと過疎地の撤退が進む中で店を守っている。" },
+      { id: "n5", scale: "room", name: "政府・財政", emoji: "🏛️", situation: "暫定税率(25.1円/L)廃止後も原油高で効果は相殺。国債を財源に約1.1兆円の補助を再開・継続中。" },
+      { id: "n6", scale: "town", name: "将来世代", emoji: "👶", situation: "国債の返済者であり、気候変動の相続人。この政策の費用を二重に受け取る立場。" },
+      { id: "n7", scale: "town", name: "低所得世帯", emoji: "🧑", situation: "収入に占める燃料費の割合が高い。「一律に安く」と「困る人に厚く」で受け取りが変わる。" },
+      { id: "n8", scale: "town", name: "農業・漁業者", emoji: "🚜", situation: "燃油に依存する一次産業。価格変動が収益を直撃する。" },
     ],
     extra: {
       label: "🔭 財政と世界まで視野を広げる",
       stakeholders: [
-        { id: "nx1", name: "国債市場・投資家", emoji: "📈", situation: "出口の見えない補助の常態化を、財政規律のシグナルとして見ている。" },
-        { id: "nx2", name: "産油国・元売り", emoji: "🛢️", situation: "補助金は最終的に需要を下支えする。価格を下げる政策の恩恵の一部は川上へ流れる。" },
-        { id: "nx3", name: "EV・省エネ産業", emoji: "🔋", situation: "ガソリンの値段は、転換への最大の価格シグナル。安ければ追い風は弱まる。" },
-        { id: "nx4", name: "気候そのもの", emoji: "🌍", situation: "声を持たない当事者。この場の誰かが代弁しない限り、議論に参加できない。" },
+        { id: "nx1", scale: "town", name: "国債市場・投資家", emoji: "📈", situation: "出口の見えない補助の常態化を、財政規律のシグナルとして見ている。" },
+        { id: "nx2", scale: "earth", name: "産油国・元売り", emoji: "🛢️", situation: "補助金は最終的に需要を下支えする。価格を下げる政策の恩恵の一部は川上へ流れる。" },
+        { id: "nx3", scale: "town", name: "EV・省エネ産業", emoji: "🔋", situation: "ガソリンの値段は、転換への最大の価格シグナル。安ければ追い風は弱まる。" },
+        { id: "nx4", scale: "earth", name: "気候そのもの", emoji: "🌍", situation: "声を持たない当事者。この場の誰かが代弁しない限り、議論に参加できない。" },
       ],
       dataByScenario: {
         hojo: {
@@ -1133,22 +1199,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "i1", name: "遺伝病の家系", emoji: "👨‍👩‍👧", situation: "発症の連鎖を自分の代で止めたいという切実さを抱える家族たち。" },
-      { id: "i2", name: "生まれてくる子", emoji: "👶", situation: "編集の対象でありながら、同意することが原理的にできない当事者。" },
-      { id: "i3", name: "研究者", emoji: "🧑‍🔬", situation: "2018年に中国で無認可のゲノム編集ベビーが誕生し研究者は服役。科学と規範の間に立つ。" },
-      { id: "i4", name: "生殖医療機関", emoji: "🏥", situation: "不妊治療の延長線上に、市場としての遺伝子編集が見えている。" },
-      { id: "i5", name: "障害当事者", emoji: "♿", situation: "「治すべき存在」と社会に定義されることへの異議を長年訴えてきた。" },
-      { id: "i6", name: "規制当局", emoji: "🏛️", situation: "国ごとに規制がばらつけば、規制の緩い国への「治療ツーリズム」が生まれる。" },
-      { id: "i7", name: "一般の親たち", emoji: "🧑", situation: "わが子への願いと、高額な技術が「選べる家」だけのものになる不安の間で。" },
-      { id: "i8", name: "生命倫理・宗教界", emoji: "📿", situation: "生命の始まりに人の手が入ることへの、伝統に根ざした問いを投げかける。" },
+      { id: "i1", scale: "town", name: "遺伝病の家系", emoji: "👨‍👩‍👧", situation: "発症の連鎖を自分の代で止めたいという切実さを抱える家族たち。" },
+      { id: "i2", scale: "town", name: "生まれてくる子", emoji: "👶", situation: "編集の対象でありながら、同意することが原理的にできない当事者。" },
+      { id: "i3", scale: "room", name: "研究者", emoji: "🧑‍🔬", situation: "2018年に中国で無認可のゲノム編集ベビーが誕生し研究者は服役。科学と規範の間に立つ。" },
+      { id: "i4", scale: "room", name: "生殖医療機関", emoji: "🏥", situation: "不妊治療の延長線上に、市場としての遺伝子編集が見えている。" },
+      { id: "i5", scale: "town", name: "障害当事者", emoji: "♿", situation: "「治すべき存在」と社会に定義されることへの異議を長年訴えてきた。" },
+      { id: "i6", scale: "town", name: "規制当局", emoji: "🏛️", situation: "国ごとに規制がばらつけば、規制の緩い国への「治療ツーリズム」が生まれる。" },
+      { id: "i7", scale: "town", name: "一般の親たち", emoji: "🧑", situation: "わが子への願いと、高額な技術が「選べる家」だけのものになる不安の間で。" },
+      { id: "i8", scale: "town", name: "生命倫理・宗教界", emoji: "📿", situation: "生命の始まりに人の手が入ることへの、伝統に根ざした問いを投げかける。" },
     ],
     extra: {
       label: "🔭 世代と市場まで視野を広げる",
       stakeholders: [
-        { id: "ix1", name: "保険・医療財政", emoji: "🏦", situation: "遺伝病の予防は医療費を減らすが、遺伝情報による選別の入口にもなりうる。" },
-        { id: "ix2", name: "バイオ企業・投資家", emoji: "📈", situation: "特許と資本が技術の方向性を決める。規制は投資先の選定条件になる。" },
-        { id: "ix3", name: "規制の緩い国", emoji: "🌏", situation: "先進国が禁じるほど、患者と資本が流れ込むハブになりうる。" },
-        { id: "ix4", name: "未来の人類", emoji: "🧬", situation: "遺伝子プールの多様性を受け継ぐ、まだ存在しない世代。" },
+        { id: "ix1", scale: "town", name: "保険・医療財政", emoji: "🏦", situation: "遺伝病の予防は医療費を減らすが、遺伝情報による選別の入口にもなりうる。" },
+        { id: "ix2", scale: "earth", name: "バイオ企業・投資家", emoji: "📈", situation: "特許と資本が技術の方向性を決める。規制は投資先の選定条件になる。" },
+        { id: "ix3", scale: "earth", name: "規制の緩い国", emoji: "🌏", situation: "先進国が禁じるほど、患者と資本が流れ込むハブになりうる。" },
+        { id: "ix4", scale: "earth", name: "未来の人類", emoji: "🧬", situation: "遺伝子プールの多様性を受け継ぐ、まだ存在しない世代。" },
       ],
       dataByScenario: {
         mitomeru: {
@@ -1206,22 +1272,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "w1", name: "人手不足の産業", emoji: "🏗️", situation: "介護・建設・農業など。外国人労働者はすでに200万人を超え、現場は既に彼らなしでは回らない。" },
-      { id: "w2", name: "来日する移民", emoji: "🧳", situation: "より良い暮らしを求めて国境を越える本人。希望とリスクを一身に背負う。" },
-      { id: "w3", name: "送出国に残る家族", emoji: "👨‍👩‍👧", situation: "送金を待ちながら、離れて暮らす。子どもの成長を親が見られない年月が続く。" },
-      { id: "w4", name: "送出国の政府", emoji: "🌏", situation: "送金は外貨収入の柱。一方で医療者や技術者が先に国を出ていく。" },
-      { id: "w5", name: "受入地域の住民", emoji: "🏘️", situation: "隣人が変わっていく変化の当事者。不安も、新しいつながりも、ここで生まれる。" },
-      { id: "w6", name: "同職種の労働者", emoji: "🧑‍🔧", situation: "「仕事を奪われるのでは」という不安の当事者。実際の影響は職種と制度設計による。" },
-      { id: "w7", name: "政府(在留制度)", emoji: "🏛️", situation: "労働力としては欲しいが、生活者として迎える制度は追いついていない。" },
-      { id: "w8", name: "移民の子ども", emoji: "🧒", situation: "親の選択でこの国に育つ。教育とアイデンティティの支えが人生を左右する。" },
+      { id: "w1", scale: "town", name: "人手不足の産業", emoji: "🏗️", situation: "介護・建設・農業など。外国人労働者はすでに200万人を超え、現場は既に彼らなしでは回らない。" },
+      { id: "w2", scale: "town", name: "来日する移民", emoji: "🧳", situation: "より良い暮らしを求めて国境を越える本人。希望とリスクを一身に背負う。" },
+      { id: "w3", scale: "earth", name: "送出国に残る家族", emoji: "👨‍👩‍👧", situation: "送金を待ちながら、離れて暮らす。子どもの成長を親が見られない年月が続く。" },
+      { id: "w4", scale: "earth", name: "送出国の政府", emoji: "🌏", situation: "送金は外貨収入の柱。一方で医療者や技術者が先に国を出ていく。" },
+      { id: "w5", scale: "town", name: "受入地域の住民", emoji: "🏘️", situation: "隣人が変わっていく変化の当事者。不安も、新しいつながりも、ここで生まれる。" },
+      { id: "w6", scale: "town", name: "同職種の労働者", emoji: "🧑‍🔧", situation: "「仕事を奪われるのでは」という不安の当事者。実際の影響は職種と制度設計による。" },
+      { id: "w7", scale: "room", name: "政府(在留制度)", emoji: "🏛️", situation: "労働力としては欲しいが、生活者として迎える制度は追いついていない。" },
+      { id: "w8", scale: "town", name: "移民の子ども", emoji: "🧒", situation: "親の選択でこの国に育つ。教育とアイデンティティの支えが人生を左右する。" },
     ],
     extra: {
       label: "🔭 世界の人の流れまで視野を広げる",
       stakeholders: [
-        { id: "wx1", name: "仲介・送出機関", emoji: "🏢", situation: "国境を越える手続きのビジネス。高額な手数料が借金となって移民を縛る問題も。" },
-        { id: "wx2", name: "競合する受入国", emoji: "✈️", situation: "韓国・台湾・ドイツなども同じ人材を求めている。選ばれる国の競争が始まっている。" },
-        { id: "wx3", name: "地域の学校・行政", emoji: "🏫", situation: "日本語支援・多言語対応・生活相談。受け入れの実務を最前線で担う。" },
-        { id: "wx4", name: "将来の日本社会", emoji: "👶", situation: "人口減少が続く社会の担い手を、誰がどう構成するのかという長期の問い。" },
+        { id: "wx1", scale: "earth", name: "仲介・送出機関", emoji: "🏢", situation: "国境を越える手続きのビジネス。高額な手数料が借金となって移民を縛る問題も。" },
+        { id: "wx2", scale: "earth", name: "競合する受入国", emoji: "✈️", situation: "韓国・台湾・ドイツなども同じ人材を求めている。選ばれる国の競争が始まっている。" },
+        { id: "wx3", scale: "town", name: "地域の学校・行政", emoji: "🏫", situation: "日本語支援・多言語対応・生活相談。受け入れの実務を最前線で担う。" },
+        { id: "wx4", scale: "earth", name: "将来の日本社会", emoji: "👶", situation: "人口減少が続く社会の担い手を、誰がどう構成するのかという長期の問い。" },
       ],
       dataByScenario: {
         hiraku: {
@@ -1276,22 +1342,22 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "u1", name: "不安定就労の人", emoji: "🧑‍💻", situation: "非正規・フリーランス・ギグワーク。今の社会保障の網から最もこぼれやすい層。" },
-      { id: "u2", name: "子育て・介護者", emoji: "👩‍👧", situation: "社会を支える無償のケア労働。現行制度では「働いていない人」として扱われがち。" },
-      { id: "u3", name: "中小企業経営者", emoji: "🏢", situation: "人手の確保が生命線。「辞めても暮らせる」社会は雇用の力学を変える。" },
-      { id: "u4", name: "高所得の納税者", emoji: "💼", situation: "どの設計でも財源の主な担い手。「配るために取る」ことへの納得が問われる。" },
-      { id: "u5", name: "行政・自治体職員", emoji: "🏛️", situation: "資力調査や審査など、現行制度の複雑な実務を担う。BIはその仕事を消す。" },
-      { id: "u6", name: "現行制度の受給者", emoji: "♿", situation: "障害・難病など個別事情に応じた給付を受ける人たち。一律化は必ずしも味方ではない。" },
-      { id: "u7", name: "挑戦する人", emoji: "🎨", situation: "起業家・アーティスト・研究者。フィンランドの実験では幸福度が上がり就労は大きく変わらなかった。" },
-      { id: "u8", name: "若者・学生", emoji: "🎓", situation: "奨学金という借金と、バイトに削られる学業時間の中で進路を選んでいる。" },
+      { id: "u1", scale: "town", name: "不安定就労の人", emoji: "🧑‍💻", situation: "非正規・フリーランス・ギグワーク。今の社会保障の網から最もこぼれやすい層。" },
+      { id: "u2", scale: "town", name: "子育て・介護者", emoji: "👩‍👧", situation: "社会を支える無償のケア労働。現行制度では「働いていない人」として扱われがち。" },
+      { id: "u3", scale: "town", name: "中小企業経営者", emoji: "🏢", situation: "人手の確保が生命線。「辞めても暮らせる」社会は雇用の力学を変える。" },
+      { id: "u4", scale: "town", name: "高所得の納税者", emoji: "💼", situation: "どの設計でも財源の主な担い手。「配るために取る」ことへの納得が問われる。" },
+      { id: "u5", scale: "room", name: "行政・自治体職員", emoji: "🏛️", situation: "資力調査や審査など、現行制度の複雑な実務を担う。BIはその仕事を消す。" },
+      { id: "u6", scale: "town", name: "現行制度の受給者", emoji: "♿", situation: "障害・難病など個別事情に応じた給付を受ける人たち。一律化は必ずしも味方ではない。" },
+      { id: "u7", scale: "town", name: "挑戦する人", emoji: "🎨", situation: "起業家・アーティスト・研究者。フィンランドの実験では幸福度が上がり就労は大きく変わらなかった。" },
+      { id: "u8", scale: "town", name: "若者・学生", emoji: "🎓", situation: "奨学金という借金と、バイトに削られる学業時間の中で進路を選んでいる。" },
     ],
     extra: {
       label: "🔭 経済の土台まで視野を広げる",
       stakeholders: [
-        { id: "ux1", name: "労働市場全体", emoji: "⚖️", situation: "「働かなくても暮らせる」最低ラインは、すべての賃金交渉の前提を変える。" },
-        { id: "ux2", name: "物価・家主", emoji: "🏠", situation: "全員の所得が一律に増えたとき、その分は家賃や物価に吸収されるのか。" },
-        { id: "ux3", name: "AI・自動化産業", emoji: "🤖", situation: "雇用を置き換える側。BIは自動化への社会的合意の条件とも言われる。" },
-        { id: "ux4", name: "地域コミュニティ", emoji: "🏘️", situation: "PTA・消防団・自治会。時間の余裕の有無が、担い手の数を決めてきた。" },
+        { id: "ux1", scale: "town", name: "労働市場全体", emoji: "⚖️", situation: "「働かなくても暮らせる」最低ラインは、すべての賃金交渉の前提を変える。" },
+        { id: "ux2", scale: "town", name: "物価・家主", emoji: "🏠", situation: "全員の所得が一律に増えたとき、その分は家賃や物価に吸収されるのか。" },
+        { id: "ux3", scale: "earth", name: "AI・自動化産業", emoji: "🤖", situation: "雇用を置き換える側。BIは自動化への社会的合意の条件とも言われる。" },
+        { id: "ux4", scale: "town", name: "地域コミュニティ", emoji: "🏘️", situation: "PTA・消防団・自治会。時間の余裕の有無が、担い手の数を決めてきた。" },
       ],
       dataByScenario: {
         kubaru: {
@@ -1320,10 +1386,10 @@ const CASES = {
     extra: {
       label: "🔭 サプライチェーンまで視野を広げる",
       stakeholders: [
-        { id: "x1", name: "スマホメーカー", emoji: "📲", situation: "広告収益で無料アプリが成り立つ生態系の上で端末が売れる。SNSへの信頼低下は利用時間に響く。" },
-        { id: "x2", name: "半導体・部品", emoji: "⚙️", situation: "広告収益→AI投資→データセンター・端末需要という資金の流れの川上に位置している。" },
-        { id: "x3", name: "電力・DC事業者", emoji: "⚡", situation: "1日150億件の詐欺広告の配信・審査にも電力が使われる。AI投資は電力需要を押し上げ続けている。" },
-        { id: "x4", name: "資源採掘地域", emoji: "⛏️", situation: "端末やサーバーに必要な鉱物の採掘地。デジタル経済の最も川上で環境・人権の負荷を負う。" },
+        { id: "x1", scale: "earth", name: "スマホメーカー", emoji: "📲", situation: "広告収益で無料アプリが成り立つ生態系の上で端末が売れる。SNSへの信頼低下は利用時間に響く。" },
+        { id: "x2", scale: "earth", name: "半導体・部品", emoji: "⚙️", situation: "広告収益→AI投資→データセンター・端末需要という資金の流れの川上に位置している。" },
+        { id: "x3", scale: "earth", name: "電力・DC事業者", emoji: "⚡", situation: "1日150億件の詐欺広告の配信・審査にも電力が使われる。AI投資は電力需要を押し上げ続けている。" },
+        { id: "x4", scale: "earth", name: "資源採掘地域", emoji: "⛏️", situation: "端末やサーバーに必要な鉱物の採掘地。デジタル経済の最も川上で環境・人権の負荷を負う。" },
       ],
       data: {
         x1: {
@@ -1359,14 +1425,14 @@ const CASES = {
       },
     },
     stakeholders: [
-      { id: "m1", name: "Meta経営陣", emoji: "🏢", situation: "詐欺・禁止広告は売上の約1割(約160億ドル)との内部推計。止めれば減収、放置すれば規制・訴訟リスク。" },
-      { id: "m2", name: "株主・投資家", emoji: "💼", situation: "AI投資競争の真っ只中。短期の減収と、長期の制裁金・株価暴落リスクを天秤にかけている。" },
-      { id: "m3", name: "利用者・被害者", emoji: "🧑", situation: "1日約150億件の高リスク広告に接触との内部推計。投資詐欺や偽通販の被害が社会問題化。" },
-      { id: "m4", name: "正規の広告主", emoji: "🛍️", situation: "詐欺広告と同じ広告枠を競り合い、詐欺の隣に表示されるブランド毀損リスクも負ってきた。" },
-      { id: "m5", name: "詐欺業者", emoji: "🕶️", situation: "検知確度95%未満なら出稿を続けられ、違反を重ねても止められない「高価値アカウント」も存在した。" },
-      { id: "m6", name: "規制当局・政府", emoji: "🏛️", situation: "SNS型投資詐欺の被害拡大を受け、各国でプラットフォーム規制の圧力を強めている。" },
-      { id: "m7", name: "対策チーム社員", emoji: "🧑‍💻", situation: "対策強化を訴える内部文書もあったが、収益目標との板挟みに置かれてきた。" },
-      { id: "m8", name: "競合SNS等", emoji: "📱", situation: "Metaが締め出せば、詐欺広告費と手口が自社プラットフォームに流れ込んでくる可能性がある。" },
+      { id: "m1", scale: "room", name: "Meta経営陣", emoji: "🏢", situation: "詐欺・禁止広告は売上の約1割(約160億ドル)との内部推計。止めれば減収、放置すれば規制・訴訟リスク。" },
+      { id: "m2", scale: "room", name: "株主・投資家", emoji: "💼", situation: "AI投資競争の真っ只中。短期の減収と、長期の制裁金・株価暴落リスクを天秤にかけている。" },
+      { id: "m3", scale: "town", name: "利用者・被害者", emoji: "🧑", situation: "1日約150億件の高リスク広告に接触との内部推計。投資詐欺や偽通販の被害が社会問題化。" },
+      { id: "m4", scale: "town", name: "正規の広告主", emoji: "🛍️", situation: "詐欺広告と同じ広告枠を競り合い、詐欺の隣に表示されるブランド毀損リスクも負ってきた。" },
+      { id: "m5", scale: "town", name: "詐欺業者", emoji: "🕶️", situation: "検知確度95%未満なら出稿を続けられ、違反を重ねても止められない「高価値アカウント」も存在した。" },
+      { id: "m6", scale: "town", name: "規制当局・政府", emoji: "🏛️", situation: "SNS型投資詐欺の被害拡大を受け、各国でプラットフォーム規制の圧力を強めている。" },
+      { id: "m7", scale: "room", name: "対策チーム社員", emoji: "🧑‍💻", situation: "対策強化を訴える内部文書もあったが、収益目標との板挟みに置かれてきた。" },
+      { id: "m8", scale: "town", name: "競合SNS等", emoji: "📱", situation: "Metaが締め出せば、詐欺広告費と手口が自社プラットフォームに流れ込んでくる可能性がある。" },
     ],
     data: {
       m1: {
@@ -1497,6 +1563,9 @@ const CASE_MENU = [
    空文字のあいだは「AIで下ごしらえ」欄を表示しない。
    APIキーはこのファイルには絶対に書かない（キーはEdge Function側の環境変数に置く）。 */
 const AI_ENDPOINT = "";
+/* 🎙️ 聞きながら描く の中継先（democracy-fitness-survey の Vercel）。
+   空文字のあいだはボタンを出さない。音声そのものは送らず、この端末で文字にしたテキストだけを送る。 */
+const LISTEN_ENDPOINT = "https://democracy-fitness-survey.vercel.app/api/diorama-listen";
 
 const STORE_KEY = "stakeholder-diorama:v2";
 /* 名前をつけて保存した盤面（このブラウザの中だけ。サーバーには送らない） */
@@ -1757,6 +1826,511 @@ function bindSaveBox(m) {
     armSave(id, "del");
   }));
 }
+/* ================= 🎙️ 聞きながら描く =================
+   会議の声をこの端末で文字にし（Web Speech API）、たまった発言を数十秒ごとに
+   中継APIへ送って、登場した関係者・得と損・影響の矢を盤面に自動で描き足す。
+   反映はぜんぶログに残り、1件ずつ取り消せる。音声データは端末の外に出ない。 */
+const L = {
+  on: false, rec: null, interim: "", pending: "", carry: "",
+  busy: false, timer: null, lastSent: 0, log: [], err: "", nextBatch: 1,
+  fresh: {}, restartTimer: null,
+};
+const LISTEN_TICK_MS = 5000;      /* 送るかどうかを見にいく間隔 */
+const LISTEN_EVERY_MS = 35000;    /* ふだんはこの間隔でまとめて送る */
+const LISTEN_MIN_CHARS = 40;      /* これより短い発言では送らない */
+const LISTEN_EAGER_CHARS = 400;   /* 話が盛り上がったら間隔を待たず送る */
+const LISTEN_MAX_LOG = 15;
+
+const normName = (s) => String(s || "").replace(/[\s　・]/g, "").toLowerCase();
+function findByName(name) {
+  const n = normName(name);
+  if (!n) return null;
+  return S.stakeholders.find((s) => normName(s.name) === n) ||
+         S.stakeholders.find((s) => normName(s.name).includes(n) || n.includes(normName(s.name))) || null;
+}
+function markFresh(id) {
+  L.fresh[id] = Date.now();
+  setTimeout(() => { delete L.fresh[id]; }, 1200);
+}
+
+/* APIの返事を盤面に描き足す。あとで取り消せるよう、変更前のマスの中身も覚えておく */
+function applyListenResult(res) {
+  if (!res || typeof res !== "object") return null;
+  const batch = { id: L.nextBatch++, at: new Date(), items: [], addedS: [], addedL: [], cells: [], undone: false };
+  const arr = (x) => (Array.isArray(x) ? x : []);
+
+  arr(res.stakeholders).slice(0, 4).forEach((cand) => {
+    if (!cand || !cand.name || findByName(cand.name)) return;
+    const s = {
+      id: uid(),
+      scale: SCALE_RANK[cand.scale] != null ? cand.scale : S.scale,
+      name: String(cand.name).slice(0, 20),
+      emoji: cand.emoji && Array.from(String(cand.emoji).trim()).length <= 8 ? String(cand.emoji).trim() : EMOJIS[S.stakeholders.length % EMOJIS.length],
+      situation: cand.situation ? String(cand.situation).slice(0, 120) : "",
+    };
+    if (S.world) s.siteId = homeSiteId();
+    if (hasCustomLayout()) { const here = visibleAt(S.stakeholders, S.scale); freezeLayout(here); s.pos = freeSpot(here); }
+    S.stakeholders.push(s);
+    batch.addedS.push(s.id);
+    batch.items.push("＋ " + s.emoji + " " + s.name + " が登場");
+    markFresh(s.id);
+  });
+
+  arr(res.cells).slice(0, 8).forEach((c) => {
+    if (!c || !c.name) return;
+    const s = findByName(c.name);
+    if (!s) return;
+    const axis = AXES.some((a) => a.id === c.axis) ? c.axis : "keizai";
+    const horizon = HORIZONS.some((h) => h.id === c.horizon) ? c.horizon : "tanki";
+    const prev = clone(getCell(S.data, s.id, axis, horizon));
+    const patch = {};
+    const add = (field, text) => {
+      text = String(text || "").slice(0, 90);
+      if (!text) return;
+      if (!prev[field]) patch[field] = text;
+      else if (!prev[field].includes(text)) patch[field] = prev[field] + "／" + text;
+    };
+    add("merit", c.merit);
+    add("demerit", c.demerit);
+    if (!prev.verdict && ["gain", "loss", "mixed", "neutral"].includes(c.verdict)) patch.verdict = c.verdict;
+    if (!Object.keys(patch).length) return;
+    updateCell(s.id, axis, horizon, patch);
+    batch.cells.push({ sid: s.id, axis: axis, horizon: horizon, prev: prev });
+    const aL = (AXES.find((a) => a.id === axis) || {}).label, hL = (HORIZONS.find((h) => h.id === horizon) || {}).label;
+    batch.items.push("✎ " + s.name + "（" + aL + "×" + hL + "）" +
+      (patch.merit ? "＋" : "") + (patch.demerit ? "−" : "") + (patch.verdict ? "・色" : ""));
+    markFresh(s.id);
+  });
+
+  arr(res.links).slice(0, 6).forEach((lk) => {
+    if (!lk || !lk.from || !lk.to) return;
+    const a = findByName(lk.from), b = findByName(lk.to);
+    if (!a || !b || a.id === b.id) return;
+    const kind = lk.kind === "opposite" ? "opposite" : "same";
+    if (!addLink(a.id, b.id, kind, !!lk.delay)) return; /* 既にある矢はそのまま */
+    batch.addedL.push(S.links[S.links.length - 1].id);
+    batch.items.push("→ " + a.name + " " + (kind === "opposite" ? "−" : "＋") + (lk.delay ? "⏳" : "") + " " + b.name + " に矢");
+  });
+
+  if (!batch.items.length) return null;
+  /* 登場した人が盤面の外にいたら、見えるところまでスケールを広げる */
+  if (batch.addedS.length && !S.currentSiteId) {
+    const w = widestScale(S.stakeholders.filter((s) => batch.addedS.includes(s.id)));
+    if (SCALE_RANK[w] > SCALE_RANK[S.scale]) S.scale = w;
+  }
+  L.log.unshift(batch);
+  if (L.log.length > LISTEN_MAX_LOG) L.log.length = LISTEN_MAX_LOG;
+  renderControls(); renderStage(); renderActions(); renderPanel(); renderLoops(); renderListen(); save();
+  return batch;
+}
+
+function undoListenBatch(id) {
+  const batch = L.log.find((b) => b.id === id);
+  if (!batch || batch.undone) return;
+  batch.undone = true;
+  batch.addedL.forEach((lid) => removeLink(lid));
+  batch.cells.forEach((c) => {
+    if (!S.data[c.sid]) return;
+    if (!S.data[c.sid][c.axis]) return;
+    S.data[c.sid][c.axis][c.horizon] = c.prev;
+  });
+  batch.addedS.forEach((sid) => {
+    S.stakeholders = S.stakeholders.filter((s) => s.id !== sid);
+    delete S.data[sid];
+    if (S.selectedId === sid) S.selectedId = null;
+  });
+  pruneLinks();
+  renderControls(); renderStage(); renderActions(); renderPanel(); renderLoops(); renderListen(); save();
+  toast("取り消しました");
+}
+
+/* 1便ぶんのテキストをAIに送り、返ってきたものを盤面に描き足す（🎙️と📼で共用） */
+function sendListenChunk(text) {
+  return fetch(LISTEN_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      theme: S.theme,
+      stakeholders: S.stakeholders.map((s) => ({ name: s.name, scale: scaleOf(s) })),
+      links: S.links.map((l) => ({ from: stakeholderName(l.from), to: stakeholderName(l.to), kind: l.kind })),
+      transcript: String(text || "").slice(-3000),
+    }),
+  }).then((r) => {
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    return r.json();
+  }).then((res) => applyListenResult(res));
+}
+
+function flushListen(force) {
+  if (L.busy || !LISTEN_ENDPOINT) return;
+  const now = Date.now();
+  const text = (L.carry + L.pending).trim();
+  if (text.length < LISTEN_MIN_CHARS) return;
+  if (!force && text.length < LISTEN_EAGER_CHARS && now - L.lastSent < LISTEN_EVERY_MS) return;
+  L.busy = true; L.err = "";
+  L.pending = ""; L.carry = "";
+  renderListen();
+  sendListenChunk(text).then((batch) => {
+    L.lastSent = Date.now();
+    if (!batch) renderListen();
+  }).catch(() => {
+    /* 失敗した発言は捨てずに、次の便でもう一度送る */
+    L.carry = (text + " " + L.carry).slice(0, 4000);
+    L.err = "AIへの送信に失敗しました。次の便で再送します";
+    renderListen();
+  }).finally(() => { L.busy = false; });
+}
+
+function startListen() {
+  if (L.on) return;
+  if (R.on) { toast("📼の再生中です。先に中止してください"); return; }
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { toast("このブラウザは音声認識に対応していません（Chrome/Edgeでお試しください）"); return; }
+  const rec = new SR();
+  rec.lang = "ja-JP"; rec.continuous = true; rec.interimResults = true;
+  rec.onresult = (e) => {
+    let interim = "";
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      const r = e.results[i];
+      if (r.isFinal) L.pending += r[0].transcript + "。";
+      else interim += r[0].transcript;
+    }
+    L.interim = interim || L.interim;
+    const el = $("listenInterim");
+    if (el) el.innerHTML = "<bdi>" + esc(((L.pending.slice(-40)) + L.interim).slice(-60)) + "</bdi>";
+  };
+  rec.onend = () => {
+    /* Chromeは無音が続くと勝手に止まるので、聞いているあいだは繋ぎ直す */
+    if (L.on) { clearTimeout(L.restartTimer); L.restartTimer = setTimeout(() => { try { rec.start(); } catch (e) {} }, 300); }
+  };
+  rec.onerror = (e) => {
+    if (e.error === "not-allowed" || e.error === "service-not-allowed") {
+      stopListen(true);
+      L.err = "マイクが使えませんでした。ブラウザのマイク許可を確認してください";
+      renderListen();
+    }
+  };
+  try { rec.start(); } catch (e) { toast("音声認識を開始できませんでした"); return; }
+  L.rec = rec; L.on = true; L.err = ""; L.lastSent = Date.now();
+  L.timer = setInterval(() => flushListen(false), LISTEN_TICK_MS);
+  if (S.mode !== "systems") setMode("systems"); /* 矢が見えるように */
+  renderActions(); renderListen();
+  toast("🎙️ 聞いています。話に出た人と得損が、盤面に描き足されていきます");
+}
+function stopListen(silent) {
+  if (!L.on && !L.rec) return;
+  L.on = false;
+  clearInterval(L.timer); clearTimeout(L.restartTimer);
+  if (L.rec) { try { L.rec.stop(); } catch (e) {} L.rec = null; }
+  flushListen(true); /* 言い残しを最後にひと便 */
+  L.interim = "";
+  renderActions(); renderListen();
+  if (!silent) toast("聞き取りを終了しました。ログから1件ずつ取り消せます");
+}
+
+/* ================= 📼 録音済みから描く =================
+   会議の文字起こし（貼り付け・txt/vtt/srt）や音声ファイルを読み込み、
+   発言を「便」に分けて順にAIへ送り、盤面が会議の進行どおりに育っていく。 */
+const R = {
+  on: false, paused: false, running: false, chunks: [], idx: 0,
+  fast: false, skipped: 0, err: "", srcName: "",
+};
+/* 音声ファイルのブラウザ内文字起こし（実験的）の状態 */
+const W = { busy: false, cancel: false, msg: "", pct: -1 };
+var WHISPER_MODEL = "onnx-community/whisper-base"; /* 日本語なら base 以上を推奨 */
+var WHISPER_CDN = "https://cdn.jsdelivr.net/npm/@huggingface/transformers@3.4.0";
+const REPLAY_CHUNK = 600;      /* 1便の目安の長さ */
+const REPLAY_MAX_CHUNKS = 60;  /* 長すぎる会議はここまで（約3.6万字） */
+const REPLAY_WAIT_MS = 3200;   /* ふつう再生の便の間隔 */
+const REPLAY_FAST_MS = 350;    /* ⏩一気のときの間隔（API連打を避ける最低限） */
+
+/* VTT/SRTの番号・時刻行などを取り除き、発言だけにする */
+function cleanTranscript(text) {
+  return String(text || "").replace(/\r/g, "").replace(/^﻿/, "")
+    .split("\n").filter((line) => {
+      const s = line.trim();
+      if (!s) return false;
+      if (/^WEBVTT/.test(s) || /^(NOTE|STYLE|REGION)\b/.test(s)) return false;
+      if (/^\d+$/.test(s)) return false; /* SRTの通し番号 */
+      if (/\d{1,2}:\d{2}(:\d{2})?[.,]\d{1,3}\s*-->/.test(s)) return false; /* 時刻行 */
+      if (/^\[?\d{1,2}:\d{2}(:\d{2})?\]?$/.test(s)) return false; /* 時刻だけの行 */
+      return true;
+    }).join("\n");
+}
+/* 文の切れ目で「便」に分ける */
+function splitTranscript(text) {
+  const t = cleanTranscript(text);
+  const parts = [];
+  let buf = "";
+  for (let i = 0; i < t.length; i++) {
+    buf += t[i];
+    if ("。．！？!?\n".includes(t[i])) { parts.push(buf); buf = ""; }
+  }
+  if (buf) parts.push(buf);
+  const chunks = [];
+  let cur = "";
+  parts.forEach((p) => {
+    if ((cur + p).length > REPLAY_CHUNK && cur.trim().length >= 80) { chunks.push(cur.trim()); cur = p; }
+    else cur += p;
+  });
+  if (cur.trim().length >= 20) chunks.push(cur.trim());
+  else if (cur.trim() && chunks.length) chunks[chunks.length - 1] += cur.trim();
+  return chunks.slice(0, REPLAY_MAX_CHUNKS);
+}
+
+function startReplay(text, srcName, fast) {
+  if (L.on) { toast("🎙️の聞き取り中です。先に終了してください"); return false; }
+  if (R.on) { toast("再生中です。先に中止してください"); return false; }
+  const chunks = splitTranscript(text);
+  if (!chunks.length) { toast("文字起こしから文章を取り出せませんでした"); return false; }
+  R.on = true; R.paused = false; R.chunks = chunks; R.idx = 0;
+  R.fast = !!fast; R.skipped = 0; R.err = ""; R.srcName = srcName || "";
+  if (S.mode !== "systems") setMode("systems"); /* 矢が見えるように */
+  closeGuide();
+  renderActions(); renderListen();
+  toast("📼 " + chunks.length + "便に分けて、盤面を育てていきます");
+  runReplay();
+  return true;
+}
+async function runReplay() {
+  if (R.running) return; /* 二重再生を防ぐ */
+  R.running = true;
+  try {
+    while (R.on && !R.paused && R.idx < R.chunks.length) {
+      let ok = false;
+      for (let attempt = 0; attempt < 2 && !ok; attempt++) {
+        try { await sendListenChunk(R.chunks[R.idx]); ok = true; }
+        catch (e) { if (attempt === 0) await sleepMs(1500); }
+      }
+      if (!R.on) return; /* 待っているあいだに中止された */
+      if (!ok) { R.skipped++; R.err = "送れなかった便が" + R.skipped + "つあります（飛ばして続行）"; }
+      R.idx++;
+      renderListen();
+      if (R.idx < R.chunks.length && R.on && !R.paused) {
+        await sleepReplay(R.fast ? REPLAY_FAST_MS : REPLAY_WAIT_MS);
+      }
+    }
+  } finally { R.running = false; }
+  if (R.on && R.idx >= R.chunks.length) {
+    R.on = false;
+    renderActions(); renderListen();
+    toast("📼 最後まで描き終えました。ログから1件ずつ取り消せます");
+  }
+}
+const sleepMs = (ms) => new Promise((ok) => setTimeout(ok, ms));
+/* 便と便のあいだの待ち。⏸/⏩/■を押した瞬間に切り上げられる */
+function sleepReplay(ms) {
+  return new Promise((ok) => {
+    R.wakeTimer = setTimeout(() => { R.wake = null; ok(); }, ms);
+    R.wake = ok;
+  });
+}
+function wakeReplay() {
+  if (!R.wake) return;
+  clearTimeout(R.wakeTimer);
+  const w = R.wake; R.wake = null; w();
+}
+function pauseReplay() { R.paused = true; wakeReplay(); renderListen(); }
+function resumeReplay(fast) {
+  if (!R.on) return;
+  R.paused = false;
+  if (fast != null) R.fast = !!fast;
+  renderListen();
+  runReplay();
+}
+function stopReplay() {
+  R.on = false; R.paused = false;
+  wakeReplay();
+  renderActions(); renderListen();
+  toast("再生を中止しました（描いたところまでは残っています）");
+}
+
+/* ---- 音声ファイル → 文字（実験的・ブラウザの中だけで処理） ---- */
+async function decodeTo16kMono(file) {
+  const buf = await file.arrayBuffer();
+  const AC = window.AudioContext || window.webkitAudioContext;
+  const ac = new AC();
+  const decoded = await ac.decodeAudioData(buf);
+  ac.close();
+  if (decoded.duration > 5400) throw new Error("90分を超える録音はブラウザでは扱えません。分割するか、文字起こしテキストでお試しください");
+  const off = new OfflineAudioContext(1, Math.ceil(decoded.duration * 16000), 16000);
+  const src = off.createBufferSource();
+  src.buffer = decoded; src.connect(off.destination); src.start();
+  const rendered = await off.startRendering();
+  return rendered.getChannelData(0);
+}
+async function transcribeAudioFile(file) {
+  W.busy = true; W.cancel = false; W.pct = -1;
+  W.msg = "文字起こしの部品を読み込んでいます…（初回は数十MBの取得があります）";
+  renderListen();
+  try {
+    const T = await import(WHISPER_CDN);
+    if (W.cancel) return null;
+    const device = navigator.gpu ? "webgpu" : "wasm";
+    const asr = await T.pipeline("automatic-speech-recognition", WHISPER_MODEL, {
+      dtype: "q8", device: device,
+      progress_callback: (p) => {
+        if (p && p.status === "progress" && p.total) {
+          W.pct = Math.round((p.loaded / p.total) * 100);
+          W.msg = "文字起こしモデルを取得中… " + W.pct + "%";
+          const el = $("wMsg"); if (el) el.textContent = W.msg;
+        }
+      },
+    });
+    if (W.cancel) return null;
+    W.msg = "音声を読み込んでいます…"; W.pct = -1; renderListen();
+    const audio = await decodeTo16kMono(file);
+    if (W.cancel) return null;
+    W.msg = "文字にしています…（録音の長さによって数分かかります）"; renderListen();
+    const out = await asr(audio, {
+      language: "japanese", task: "transcribe",
+      chunk_length_s: 30, stride_length_s: 5,
+    });
+    if (W.cancel) return null;
+    return (out && out.text) ? String(out.text) : "";
+  } finally {
+    W.busy = false; W.msg = ""; W.pct = -1;
+    renderListen();
+  }
+}
+function cancelTranscribe() { W.cancel = true; W.busy = false; W.msg = ""; renderListen(); toast("文字起こしを中止しました"); }
+
+/* ---- 読み込みモーダル ---- */
+function openImport() {
+  const m = $("guideModal");
+  m.className = "modal-back";
+  m.hidden = false;
+  m.innerHTML = '<div class="modal-box" role="dialog" aria-modal="true" aria-label="録音済みから描く">' +
+    '<div class="modal-head"><h2>📼 録音済みから描く</h2>' +
+    '<button type="button" class="modal-close" data-close="1" aria-label="閉じる">✕</button></div>' +
+    '<p class="modal-lead">終わった会議からも盤面を起こせます。読み込むと発言が<b>便</b>に分かれ、' +
+    "会議の進行どおりに関係者・得と損・影響の矢が描き足されていきます。" +
+    "送るのは<b>文字だけ</b>で、実名は役割名に置き換えて記録します。</p>" +
+    '<div class="imp-sec"><div class="imp-t">① 文字起こしを貼り付ける</div>' +
+    '<textarea id="impText" class="txt" rows="6" placeholder="ここに会議の文字起こしを貼り付け（ZoomやiPhoneボイスメモの文字起こしなど。話者名や時刻が混ざっていてもかまいません）"></textarea></div>' +
+    '<div class="imp-sec"><div class="imp-t">② またはファイルを選ぶ</div>' +
+    '<div class="imp-row"><label class="imp-file">📄 文字起こしファイル (.txt .vtt .srt)' +
+    '<input type="file" id="impFile" accept=".txt,.vtt,.srt,.text,.md" hidden></label>' +
+    '<label class="imp-file exp">🎧 音声ファイル (.m4a .mp3 .wav など／実験的)' +
+    '<input type="file" id="impAudio" accept="audio/*,.m4a,.mp3,.wav,.aac,.ogg,.webm" hidden></label></div>' +
+    '<div class="imp-note" id="impFileNote">音声はこのブラウザの中だけで文字にします（外に送りません）。' +
+    "初回はモデルの取得に数十MB・文字化に数分かかります。うまくいかないときは文字起こしテキストでお試しください。</div></div>" +
+    '<div class="imp-sec"><div class="imp-t">③ 描き方を選んで開始</div>' +
+    '<div class="imp-row">' +
+    '<button type="button" class="sbtn primary" data-imp="play">▶ 再生しながら描く</button>' +
+    '<button type="button" class="sbtn" data-imp="fast">⏩ 一気に反映</button></div>' +
+    '<div class="imp-note">「再生しながら」は数秒おきに1便ずつ。ワークショップの振り返り向き。' +
+    "「一気に」は最短で最後まで反映します。どちらも1件ずつ取り消せます。</div></div>" +
+    "</div>";
+  m.querySelector(".modal-box").addEventListener("click", (e) => e.stopPropagation());
+  m.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeGuide));
+  m.addEventListener("click", closeGuide);
+  document.body.style.overflow = "hidden";
+
+  const state = { text: "", fromFile: "" };
+  const noteEl = m.querySelector("#impFileNote");
+  m.querySelector("#impFile").addEventListener("change", async (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    state.text = await readTextFileSmart(f);
+    state.fromFile = f.name;
+    noteEl.textContent = "✓ " + f.name + " を読み込みました（" + state.text.length + "字）。③で開始してください。";
+  });
+  m.querySelector("#impAudio").addEventListener("change", async (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    if (W.busy) { toast("文字起こし中です"); return; }
+    closeGuide();
+    let text = null;
+    try { text = await transcribeAudioFile(f); }
+    catch (err) {
+      toast("音声の文字起こしに失敗しました");
+      L.err = "音声の文字起こしができませんでした（" + String(err && err.message || err).slice(0, 80) +
+        "）。Zoomやボイスメモの文字起こしテキストを読み込む方法をお試しください";
+      renderListen();
+      return;
+    }
+    if (text == null) return; /* 中止 */
+    if (text.trim().length < 20) {
+      L.err = "音声から文章を取り出せませんでした。文字起こしテキストの読み込みをお試しください";
+      renderListen();
+      return;
+    }
+    startReplay(text, f.name, false);
+  });
+  m.querySelectorAll("[data-imp]").forEach((b) => b.addEventListener("click", () => {
+    const pasted = m.querySelector("#impText").value;
+    const text = pasted.trim().length >= 20 ? pasted : state.text;
+    if (!text || text.trim().length < 20) { toast("文字起こしを貼り付けるか、ファイルを選んでください"); return; }
+    startReplay(text, state.fromFile, b.getAttribute("data-imp") === "fast");
+  }));
+}
+/* 文字コードを気にせず読む（UTF-8→だめならShift_JIS） */
+async function readTextFileSmart(file) {
+  const buf = await file.arrayBuffer();
+  try { return new TextDecoder("utf-8", { fatal: true }).decode(buf); }
+  catch (e) {
+    try { return new TextDecoder("shift_jis").decode(buf); }
+    catch (e2) { return new TextDecoder("utf-8").decode(buf); }
+  }
+}
+
+function renderListen() {
+  const bar = $("listenBar");
+  if (!bar) return;
+  if (!L.on && !R.on && !W.busy && !L.log.length && !L.err && !R.err) { bar.innerHTML = ""; return; }
+  const t2 = (d) => { const p = (n) => String(n).padStart(2, "0"); return p(d.getHours()) + ":" + p(d.getMinutes()); };
+  let out = '<div class="listen-bar"><div class="listen-head">';
+  if (W.busy) {
+    out += '<span class="listen-dot"></span>' +
+      '<span class="listen-title">🎧 音声を文字にしています</span>' +
+      '<span class="listen-interim" id="wMsg">' + esc(W.msg) + "</span>" +
+      '<button type="button" class="sbtn danger" data-listen="wcancel">■ 中止</button>';
+  } else if (R.on) {
+    const pct = Math.round((R.idx / Math.max(R.chunks.length, 1)) * 100);
+    out += '<span class="listen-dot' + (R.paused ? " off" : "") + '"></span>' +
+      '<span class="listen-title">📼 ' + (R.paused ? "一時停止中" : "再生して描いています") + "</span>" +
+      '<span class="replay-count">' + R.idx + " / " + R.chunks.length + "便（" + pct + "%）" +
+      (R.srcName ? "　" + esc(R.srcName) : "") + "</span>" +
+      '<span class="replay-track"><span class="replay-fill" style="width:' + pct + '%"></span></span>' +
+      (R.paused
+        ? '<button type="button" class="sbtn primary" data-listen="resume">▶ 再開</button>'
+        : '<button type="button" class="sbtn" data-listen="pause">⏸ 一時停止</button>') +
+      (R.fast ? "" : '<button type="button" class="sbtn" data-listen="fast">⏩ 一気に最後まで</button>') +
+      '<button type="button" class="sbtn danger" data-listen="rstop">■ 中止</button>';
+  } else {
+    out += '<span class="listen-dot' + (L.on ? "" : " off") + '"></span>' +
+      '<span class="listen-title">' + (L.on ? (L.busy ? "🎙️ AIが描き足しています…" : "🎙️ 聞きながら描いています") : "🎙️📼 聞き取りの記録") + "</span>" +
+      (L.on ? '<span class="listen-interim" id="listenInterim"><bdi>' + esc((L.pending.slice(-40) + L.interim).slice(-60)) + "</bdi></span>" +
+        '<button type="button" class="sbtn danger" data-listen="stop">■ 終了</button>' : "");
+  }
+  out += "</div>";
+  if (L.err) out += '<div class="listen-err">' + esc(L.err) + "</div>";
+  if (R.err) out += '<div class="listen-err">' + esc(R.err) + "</div>";
+  if (L.log.length) {
+    out += '<div class="listen-log">' + L.log.map((b) =>
+      '<div class="lg-item' + (b.undone ? " undone" : "") + '">' +
+      '<span class="lg-time">' + t2(b.at) + "</span>" +
+      '<span class="lg-body">' + b.items.map(esc).join("　") + "</span>" +
+      (b.undone ? "" : '<button type="button" class="lg-undo" data-lundo="' + b.id + '">取り消す</button>') +
+      "</div>").join("") + "</div>";
+  }
+  if (L.on) {
+    out += '<p class="listen-note">音声はこの端末の中で文字になり、<b>文字だけ</b>をAI中継（きづきくみたてのサーバー）へ送ります。' +
+      "実名が出ても役割名に置き換えて記録します。会議の参加者には聞き取り中であることを伝えてください。</p>";
+  }
+  bar.innerHTML = out + "</div>";
+  const on = (sel, fn) => { const el = bar.querySelector(sel); if (el) el.addEventListener("click", fn); };
+  on('[data-listen="stop"]', () => stopListen(false));
+  on('[data-listen="pause"]', pauseReplay);
+  on('[data-listen="resume"]', () => resumeReplay(null));
+  on('[data-listen="fast"]', () => { R.fast = true; if (R.paused) resumeReplay(true); else { wakeReplay(); renderListen(); } });
+  on('[data-listen="rstop"]', stopReplay);
+  on('[data-listen="wcancel"]', cancelTranscribe);
+  bar.querySelectorAll("[data-lundo]").forEach((b) =>
+    b.addEventListener("click", () => undoListenBatch(Number(b.getAttribute("data-lundo")))));
+}
+
 function openSaveBox() {
   const m = $("guideModal");
   disarmSave();
@@ -2194,6 +2768,53 @@ function redrawLinks(svg, list) {
   if (g) g.innerHTML = linkInner(list);
 }
 
+/* ---- 場のスケール（入れ子）----
+   会議室のなかの人は街にも地球にもいる。外へ広げるほど、見える人が増えていく。 */
+const SCALE_RANK = { room: 0, town: 1, earth: 2 };
+const scaleOf = (s) => (s && SCALE_RANK[s.scale] != null ? s.scale : "room");
+const inScale = (s, scale) => SCALE_RANK[scaleOf(s)] <= (SCALE_RANK[scale] == null ? 0 : SCALE_RANK[scale]);
+const visibleAt = (list, scale) => list.filter((s) => inScale(s, scale));
+/* いま盤面に出ている関係者（拠点のなかにいるときは、その拠点の全員） */
+function fieldList() {
+  return S.currentSiteId ? siteMembers(S.currentSiteId) : visibleAt(S.stakeholders, S.scale);
+}
+/* スケールごとの人数（累計・その層だけ） */
+function scaleCounts() {
+  const own = { room: 0, town: 0, earth: 0 };
+  S.stakeholders.forEach((s) => { own[scaleOf(s)]++; });
+  return {
+    own: own,
+    total: { room: own.room, town: own.room + own.town, earth: own.room + own.town + own.earth },
+  };
+}
+/* いちばん外にいる人まで届くスケール（🔭で視野を広げたときに使う） */
+function widestScale(list) {
+  let w = "room";
+  list.forEach((s) => { if (SCALE_RANK[scaleOf(s)] > SCALE_RANK[w]) w = scaleOf(s); });
+  return w;
+}
+
+/* 層ごとの輪の大きさ。内側ほど身近な人。
+   人数に応じて輪をふくらませるので、内側に大勢いても重ならない。 */
+const SCALE_ORDER = ["room", "town", "earth"];
+const RING_MIN = 74, RING_MAX = 272, RING_FLAT = 0.484;
+function ringsFor(list, scale) {
+  const shown = SCALE_ORDER.filter((id) => SCALE_RANK[id] <= (SCALE_RANK[scale] == null ? 0 : SCALE_RANK[scale]));
+  const counts = {};
+  shown.forEach((id) => { counts[id] = 0; });
+  list.forEach((s) => { const g = scaleOf(s); if (counts[g] != null) counts[g]++; });
+  const total = shown.reduce((a, id) => a + counts[id], 0) || 1;
+  const single = shown.length === 1;
+  let cum = 0;
+  const out = {};
+  shown.forEach((id) => {
+    cum += counts[id];
+    const r = single ? RING_MAX : RING_MIN + (RING_MAX - RING_MIN) * (cum / total);
+    out[id] = [r, r * RING_FLAT, counts[id]];
+  });
+  return out;
+}
+
 function tokenPositions(n) {
   const cx = 400, cy = 350, rx = 265, ry = 128, pts = [];
   for (let i = 0; i < n; i++) {
@@ -2201,6 +2822,38 @@ function tokenPositions(n) {
     pts.push({ x: cx + rx * Math.cos(ang), y: cy + ry * Math.sin(ang) });
   }
   return pts;
+}
+/* 層ごとに同心の輪へ並べる。拠点のなかなど層を使わない盤面では、今までどおり一重の輪。 */
+function ringPositions(list, scale, layered) {
+  const cx = 400, cy = 350;
+  if (!layered) return tokenPositions(list.length);
+  const rings = ringsFor(list, scale);
+  const groups = {};
+  list.forEach((s, i) => { const g = scaleOf(s); (groups[g] = groups[g] || []).push(i); });
+  const out = new Array(list.length);
+  Object.keys(groups).forEach((id) => {
+    const r = rings[id] || rings.earth || rings.town || rings.room;
+    const idx = groups[id], n = idx.length;
+    /* 層ごとに少しずらして、内と外のコマが真上に重ならないようにする */
+    const off = SCALE_RANK[id] * 0.42;
+    idx.forEach((gi, j) => {
+      const ang = -Math.PI / 2 + off + (j * 2 * Math.PI) / Math.max(n, 1);
+      out[gi] = { x: cx + r[0] * Math.cos(ang), y: cy + r[1] * Math.sin(ang) };
+    });
+  });
+  return out;
+}
+/* 層の輪をうっすら描いて、入れ子になっていることを見せる */
+function ringGuides(list, scale, earth) {
+  const rings = ringsFor(list, scale);
+  const ids = Object.keys(rings).filter((id) => rings[id][2] > 0);
+  if (ids.length < 2) return "";
+  const stroke = earth ? "#FFFFFF" : COLORS.sub;
+  return '<g pointer-events="none">' + ids.map((id) => {
+    const r = rings[id];
+    return '<ellipse cx="400" cy="350" rx="' + r[0].toFixed(1) + '" ry="' + r[1].toFixed(1) +
+      '" fill="none" stroke="' + stroke + '" stroke-width="1.5" stroke-dasharray="5 7" opacity="0.28"/>';
+  }).join("") + "</g>";
 }
 /* ---- コマの位置と大きさ ----
    手で動かしたコマは s.pos を持つ。持たないコマは今までどおり輪に並ぶ。 */
@@ -2211,8 +2864,8 @@ function tokenScale(s) {
   if (!isFinite(k) || k <= 0) return 1;
   return clampNum(k, SIZE_MIN, SIZE_MAX);
 }
-function layoutPositions(list) {
-  const base = tokenPositions(list.length);
+function layoutPositions(list, scale, layered) {
+  const base = ringPositions(list, scale || S.scale, layered == null ? !S.currentSiteId : layered);
   return list.map((s, i) => {
     const p = s && s.pos;
     if (p && isFinite(p.x) && isFinite(p.y)) return { x: Number(p.x), y: Number(p.y) };
@@ -2297,7 +2950,8 @@ function sizeHandleMarkup(k) {
 }
 function fieldMarkup(scale, list) {
   scale = scale || S.scale;
-  list = list || S.stakeholders;
+  list = list || fieldList();
+  const layered = !S.currentSiteId;
   const earth = scale === "earth";
   const sky = SKY[scale] || SKY.room;
   const axes = lensAxisIds(), hs = lensHorizonIds();
@@ -2321,6 +2975,7 @@ function fieldMarkup(scale, list) {
       '<circle cx="90" cy="180" r="1.5" opacity="0.5"/><circle cx="540" cy="35" r="1.5" opacity="0.7"/></g>';
   }
   out += (GROUNDS[scale] || GROUNDS.room)();
+  if (layered) out += ringGuides(list, scale, earth); /* 入れ子の層をうっすら見せる */
   if (S.mode === "systems") out += linkMarkup(list, positions); /* 矢はコマの下に敷く */
 
   list.forEach((s, i) => {
@@ -2334,7 +2989,7 @@ function fieldMarkup(scale, list) {
     const labelSize = list.length >= 10 ? 12 : 14;
     const mark = v === "gain" ? "＋" : v === "loss" ? "−" : v === "mixed" ? "±" : "・";
     const k = tokenScale(s);
-    out += '<g class="token" data-id="' + esc(s.id) + '" transform="translate(' + p.x + ',' + p.y + ')">' +
+    out += '<g class="token' + (L.fresh[s.id] ? " fresh" : "") + '" data-id="' + esc(s.id) + '" transform="translate(' + p.x + ',' + p.y + ')">' +
       '<g class="tk-body" transform="scale(' + k.toFixed(3) + ')">' +
       '<ellipse cx="0" cy="8" rx="20" ry="7" fill="#000" opacity="0.18"/>' +
       '<path d="M0,6 L-7,-8 L7,-8 Z" fill="' + cone + '"/>' +
@@ -2348,9 +3003,15 @@ function fieldMarkup(scale, list) {
       (sel ? sizeHandleMarkup(k) : "") + "</g>";
   });
 
+  const outside = layered ? S.stakeholders.length - list.length : 0;
   if (!list.length) {
     out += '<text x="400" y="345" text-anchor="middle" font-size="17" fill="' + (earth ? "#DCE6F5" : COLORS.sub) +
-      '" font-weight="700">「＋ 関係者を追加」から、この場に人を招きましょう</text>';
+      '" font-weight="700">' + (outside > 0
+        ? "この場にはまだ誰もいません。外側に" + outside + "人います"
+        : "「＋ 関係者を追加」から、この場に人を招きましょう") + "</text>";
+  } else if (outside > 0) {
+    out += '<text x="400" y="' + (earth ? 40 : 38) + '" text-anchor="middle" font-size="13" font-weight="700" fill="' +
+      (earth ? "#B9C8E0" : COLORS.sub) + '">🔭 スケールを広げると、さらに' + outside + "人が見えてきます</text>";
   }
   if (earth) {
     out += '<text x="400" y="604" text-anchor="middle" font-size="13" font-weight="700" fill="#B9C8E0">' +
@@ -2375,12 +3036,18 @@ function cellMarkup(c) {
 function tableMarkup() {
   const axes = AXES.filter((a) => lensAxisIds().includes(a.id));
   const hs = HORIZONS.filter((h) => lensHorizonIds().includes(h.id));
+  const rows = visibleAt(S.stakeholders, S.scale);
+  const outside = S.stakeholders.length - rows.length;
   let out = '<div class="tables">';
+  if (outside > 0) {
+    out += '<div class="tbl-note">いまは「' + esc((SCALES.find((x) => x.id === S.scale) || {}).label || "") +
+      '」の' + rows.length + "人を表示しています。外側にあと" + outside + "人います（上のスケールで切り替え）。</div>";
+  }
   axes.forEach((axis) => {
     out += '<div class="tbl-card"><div class="tbl-head">' + esc(axis.icon + " " + axis.label) + "の観点</div>" +
       '<div class="tbl-scroll"><table><thead><tr><th>関係者</th>' +
       hs.map((h) => "<th>" + esc(h.label) + "</th>").join("") + "</tr></thead><tbody>";
-    S.stakeholders.forEach((s) => {
+    rows.forEach((s) => {
       out += '<tr><td class="who">' + esc(s.emoji + " " + s.name) + "</td>" +
         hs.map((h) => "<td>" + cellMarkup(getCell(S.data, s.id, axis.id, h.id)) + "</td>").join("") + "</tr>";
     });
@@ -2613,9 +3280,10 @@ function renderStage() {
     bindTokens(stage, members);
     if (site.field === "earth") bindEarthSpin(stage.querySelector("svg.field"));
   } else if (S.view === "field") {
+    const list = fieldList();
     stage.className = "stage-field";
-    stage.innerHTML = fieldMarkup();
-    bindTokens(stage, S.stakeholders);
+    stage.innerHTML = fieldMarkup(S.scale, list);
+    bindTokens(stage, list);
     if (S.scale === "earth") bindEarthSpin(stage.querySelector("svg.field"));
   } else if (S.stakeholders.length) {
     stage.className = "";
@@ -2633,8 +3301,11 @@ function renderControls() {
     '<button type="button" class="pill' + (m.id === "systems" ? " sys" : "") + (S.mode === m.id ? " on" : "") +
     '" data-mode="' + m.id + '">' + esc(m.label) + "</button>").join("");
   $("modeNote").innerHTML = (MODES.find((m) => m.id === S.mode) || MODES[0]).note;
+  const cnt = scaleCounts();
   $("scaleBtns").innerHTML = SCALES.map((s) =>
-    '<button type="button" class="pill' + (S.scale === s.id ? " on" : "") + '" data-scale="' + s.id + '" title="' + esc(s.desc) + '">' + esc(s.label) + "</button>").join("");
+    '<button type="button" class="pill' + (S.scale === s.id ? " on" : "") + '" data-scale="' + s.id +
+    '" title="' + esc(s.desc + "：ここまでで" + cnt.total[s.id] + "人") + '">' + esc(s.label) +
+    (S.stakeholders.length ? '<span class="pill-n">' + cnt.total[s.id] + "</span>" : "") + "</button>").join("");
   $("axisBtns").innerHTML = '<button type="button" class="pill' + (S.lensAxis === "all" ? " on" : "") + '" data-axis="all">すべて</button>' +
     AXES.map((a) => '<button type="button" class="pill' + (S.lensAxis === a.id ? " on" : "") + '" data-axis="' + a.id + '">' + esc(a.icon + " " + a.label) + "</button>").join("");
   $("horizonBtns").innerHTML = '<button type="button" class="pill' + (S.lensHorizon === "all" ? " on" : "") + '" data-horizon="all">すべて</button>' +
@@ -2668,8 +3339,14 @@ function renderActions() {
       (confirmHome ? "もう一度押すともどります" : "↩︎ はじめの画面にもどる") + "</button>";
   }
   const saveCount = loadSaves().length;
-  out += '<button type="button" class="sbtn primary" data-act="add">＋ 関係者を追加</button>' +
-    '<button type="button" class="sbtn save" data-act="saves">💾 保存箱' + (saveCount ? "（" + saveCount + "）" : "") + "</button>" +
+  out += '<button type="button" class="sbtn primary" data-act="add">＋ 関係者を追加</button>';
+  if (LISTEN_ENDPOINT) {
+    out += '<button type="button" class="sbtn' + (L.on ? " listen-on" : "") + '" data-act="listen">' +
+      (L.on ? "🎙️ 聞いています…（押すと終了）" : "🎙️ 聞きながら描く") + "</button>" +
+      '<button type="button" class="sbtn' + (R.on ? " listen-on" : "") + '" data-act="import">' +
+      (R.on ? "📼 再生中…" : "📼 録音済みから描く") + "</button>";
+  }
+  out += '<button type="button" class="sbtn save" data-act="saves">💾 保存箱' + (saveCount ? "（" + saveCount + "）" : "") + "</button>" +
     '<button type="button" class="sbtn" data-act="share">🔗 この盤面をURLで共有</button>' +
     '<button type="button" class="sbtn" data-act="md">📋 Markdownをコピー</button>';
   if (hasCustomLayout()) {
@@ -2688,6 +3365,8 @@ function renderActions() {
   box.querySelectorAll("[data-act]").forEach((b) => b.addEventListener("click", () => {
     const a = b.getAttribute("data-act");
     if (a === "add") addStakeholder();
+    else if (a === "listen") { if (L.on) stopListen(false); else startListen(); }
+    else if (a === "import") { if (!R.on) openImport(); }
     else if (a === "saves") openSaveBox();
     else if (a === "relayout") relayoutBoard();
     else if (a === "share") shareUrl();
@@ -2803,8 +3482,10 @@ function renderPanel() {
       '<div class="guide-step"><span class="no">①</span><span>話し合うテーマを決める</span></div>' +
       '<div class="guide-step"><span class="no">②</span><span>「＋ 関係者を追加」で、この場に登場人物を招く</span></div>' +
       '<div class="guide-step"><span class="no">③</span><span>フィールドのコマをクリックして、その人の状況と、<b>観点（経済・環境・社会）× 時間軸（短期〜長期）</b>ごとのメリット・デメリットを記入する</span></div>' +
-      '<div class="guide-step"><span class="no">④</span><span>上のレンズを切り替えると、「誰が得して、誰が損するか」が色で見えてくる</span></div>' +
-      '<div class="guide-step"><span class="no">⑤</span><span>「一覧表」に切り替えて全体を俯瞰し、対話へ</span></div>' +
+      '<div class="guide-step"><span class="no">④</span><span><b>スケール</b>（会議室→街→地球）を広げると、外側にいる関係者が加わっていく。' +
+      '会議室の人は街にも地球にもいる、という<b>入れ子</b>になっている。コマを選んで「この人がいる場」で入れ替えられる</span></div>' +
+      '<div class="guide-step"><span class="no">⑤</span><span>上のレンズを切り替えると、「誰が得して、誰が損するか」が色で見えてくる</span></div>' +
+      '<div class="guide-step"><span class="no">⑥</span><span>「一覧表」に切り替えて全体を俯瞰し、対話へ</span></div>' +
       '<div class="guide-note">画面いちばん下の帯にある<b>ケース</b>を押すと、記入済みの例をすぐ試せます。' +
       '「次のケース ▶」で11のケースを順ぐりに一周でき、いつでも別のケースに切り替えられます。<br><br>' +
       '影響がまわって返ってくる<b>輪</b>を見たいときは、上の<b>モード</b>を「🔄 システム思考」に切り替えてください。' +
@@ -2820,6 +3501,10 @@ function renderPanel() {
     '<button type="button" class="sbtn danger" id="delBtn" style="white-space:nowrap">削除</button></div>' +
     '<div class="emoji-row">' + EMOJIS.map((em) =>
       '<button type="button" class="emoji-btn' + (s.emoji === em ? " on" : "") + '" data-emoji="' + esc(em) + '">' + esc(em) + "</button>").join("") + "</div>" +
+    '<label class="lbl">この人がいる場（内側ほど身近、外側ほど遠い）</label>' +
+    '<div class="mini-row gap-b" style="margin-top:6px">' + SCALES.map((sc) =>
+      '<button type="button" class="pill mini' + (scaleOf(s) === sc.id ? " on" : "") + '" data-sscale="' + sc.id +
+      '" title="' + esc(sc.desc) + '">' + esc(sc.label) + "</button>").join("") + "</div>" +
     '<label class="lbl" for="sitInput">この人（たち）の置かれている状況</label>' +
     '<textarea id="sitInput" class="txt" rows="3" style="margin:4px 0 14px" placeholder="立場・事情・大切にしていること など">' + esc(s.situation) + "</textarea>" +
     (S.mode === "systems" ? linkEditorMarkup(s) : "") +
@@ -2854,6 +3539,16 @@ function renderPanel() {
     p.querySelectorAll("[data-emoji]").forEach((x) => x.classList.toggle("on", x === b));
     p.querySelector(".panel-emoji").textContent = b.getAttribute("data-emoji");
     renderStage(); save();
+  }));
+  p.querySelectorAll("[data-sscale]").forEach((b) => b.addEventListener("click", () => {
+    const id = b.getAttribute("data-sscale");
+    if (scaleOf(s) === id) return;
+    updateStakeholder(s.id, { scale: id });
+    /* 外側へ移した人が消えないよう、盤面のスケールもそこまで広げる */
+    let msg = "「" + ((SCALES.find((x) => x.id === id) || {}).label || "") + "」に移しました";
+    if (SCALE_RANK[id] > SCALE_RANK[S.scale]) { S.scale = id; msg += "。スケールも合わせて広げました"; }
+    renderControls(); renderStage(); renderActions(); renderPanel(); save();
+    toast(msg);
   }));
   p.querySelectorAll("[data-eaxis]").forEach((b) => b.addEventListener("click", () => {
     S.editAxis = b.getAttribute("data-eaxis"); renderPanel();
@@ -2938,17 +3633,17 @@ function renderAi() {
 
 function renderAll() {
   $("themeInput").value = S.theme;
-  renderAi(); renderControls(); renderLegend(); renderScenario();
+  renderAi(); renderControls(); renderLegend(); renderScenario(); renderListen();
   renderStage(); renderActions(); renderPanel(); renderLoops(); renderCaseBar(); save();
 }
 
 /* ================= 操作 ================= */
 function addStakeholder() {
-  const s = { id: uid(), name: "関係者" + (S.stakeholders.length + 1), emoji: EMOJIS[S.stakeholders.length % EMOJIS.length], situation: "" };
+  const s = { id: uid(), scale: S.currentSiteId ? "room" : S.scale, name: "関係者" + (S.stakeholders.length + 1), emoji: EMOJIS[S.stakeholders.length % EMOJIS.length], situation: "" };
   if (S.world) s.siteId = S.currentSiteId || homeSiteId();
   /* 手で並べたあとなら、既にあるコマを動かさずに空き地へ置く */
   if (hasCustomLayout()) {
-    const here = S.world ? S.stakeholders.filter((x) => x.siteId === s.siteId) : S.stakeholders;
+    const here = S.currentSiteId ? siteMembers(S.currentSiteId) : visibleAt(S.stakeholders, S.scale);
     freezeLayout(here);
     s.pos = freeSpot(here);
   }
@@ -3021,7 +3716,10 @@ function expandCase() {
   } else if (extra.data) {
     S.data = Object.assign({}, S.data, clone(extra.data));
   }
-  renderStage(); renderActions(); renderPanel(); save();
+  /* 🔭 は「視野を広げる」ので、加わった人が見えるところまでスケールも広げる */
+  const w = widestScale(S.stakeholders);
+  if (SCALE_RANK[w] > SCALE_RANK[S.scale] && !S.currentSiteId) S.scale = w;
+  renderControls(); renderStage(); renderActions(); renderPanel(); save();
 }
 function clearBoard(msg) {
   confirmReset = false; confirmHome = false;
@@ -3187,7 +3885,8 @@ function exportMarkdown() {
   S.stakeholders.forEach((s) => {
     const k = tokenScale(s);
     const weight = k >= 1.45 ? "影響：大きい\n" : k <= 0.8 ? "影響：小さい\n" : "";
-    md += "## " + s.emoji + " " + s.name + "\n" + weight + (s.situation ? "状況：" + s.situation + "\n" : "") + "\n";
+    const place = "場：" + ((SCALES.find((x) => x.id === scaleOf(s)) || {}).label || "") + "\n";
+    md += "## " + s.emoji + " " + s.name + "\n" + place + weight + (s.situation ? "状況：" + s.situation + "\n" : "") + "\n";
     AXES.forEach((a) => {
       const rows = HORIZONS.map((h) => {
         const c = getCell(S.data, s.id, a.id, h.id);
@@ -3347,6 +4046,10 @@ async function generateFromBusiness() {
     const b = e.target.closest("[data-scale]"); if (!b) return;
     S.scale = b.getAttribute("data-scale");
     S.currentSiteId = null; /* 拠点の中にいても、スケールを選んだら全体の盤面にもどる */
+    /* 選んでいた人がこのスケールの外なら、いったん選択を外す */
+    const sel = selected();
+    if (sel && !inScale(sel, S.scale)) S.selectedId = null;
+    S.hoverId = null;
     renderControls(); renderStage(); renderActions(); renderPanel(); save();
   });
   $("axisBtns").addEventListener("click", (e) => {
