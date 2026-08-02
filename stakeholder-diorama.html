@@ -211,7 +211,9 @@ button:focus-visible{outline:2px solid var(--indigo); outline-offset:2px;}
 }
 #actions{display:flex; gap:8px; margin-top:12px; flex-wrap:wrap;}
 svg.field{width:100%; height:auto; display:block;}
-svg.field .token{cursor:pointer;}
+svg.field .token{cursor:grab; touch-action:none;}
+svg.field .token.dragging{cursor:grabbing;}
+svg.field .tk-size{cursor:nwse-resize; touch-action:none;}
 
 /* ---- 世界地図と拠点 ---- */
 .stage-frame{border-radius:18px; overflow:hidden; box-shadow:0 6px 24px rgba(42,52,57,.12);}
@@ -220,7 +222,7 @@ svg.globe:active{cursor:grabbing;}
 /* 「地球」スケールのフィールドも回せる（コマは通常のカーソルに戻す） */
 svg.field.spin{touch-action:none; cursor:grab;}
 svg.field.spin:active{cursor:grabbing;}
-svg.field.spin .token{cursor:pointer;}
+svg.field.spin .token{cursor:grab;}
 svg.globe .site{cursor:pointer;}
 .role-row, .site-row{display:flex; gap:6px; align-items:center; flex-wrap:wrap; margin-bottom:8px;}
 .site-name{font-size:.95rem; font-weight:900;}
@@ -261,6 +263,29 @@ svg.globe .site{cursor:pointer;}
 @media (max-width:640px){
   .modal-box{padding:18px 16px; max-height:88vh;}
 }
+
+/* ---- 保存箱 ---- */
+.save-new{
+  display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+  background:#F3F7F4; border:1.5px solid var(--border); border-radius:14px;
+  padding:12px 14px; margin:4px 0 16px;
+}
+.save-new .txt{flex:1 1 220px; min-width:0;}
+.save-list{display:flex; flex-direction:column; gap:10px;}
+.save-item{
+  border:1.5px solid var(--border); border-radius:14px; padding:11px 13px; background:#FFF;
+}
+.save-item.on{border-color:var(--indigo); background:#F4F8FC;}
+.save-item-top{display:flex; gap:8px; align-items:center;}
+.save-item-top .txt{flex:1 1 auto; min-width:0; font-weight:800; font-size:.85rem;}
+.save-meta{font-size:.68rem; color:var(--sub); margin:6px 0 8px; line-height:1.8;}
+.save-btns{display:flex; gap:6px; flex-wrap:wrap;}
+.save-btns .sbtn{padding:5px 12px; font-size:.7rem;}
+.save-empty{
+  padding:26px 16px; text-align:center; color:var(--sub); font-size:.8rem;
+  border:1.5px dashed var(--border); border-radius:14px; line-height:1.9;
+}
+.sbtn.save{border-color:var(--indigo); background:#EAF1F7; color:var(--indigo-dark);}
 
 /* ---- 一覧表 ---- */
 .tables{display:flex; flex-direction:column; align-items:stretch; gap:20px;}
@@ -423,7 +448,7 @@ body{padding-bottom:calc(var(--bar-h, 96px) + 26px);}
     </div>
     <input id="themeInput" class="theme-input" type="text"
            placeholder="話し合うテーマを入力（例：社員食堂を廃止するべきか）">
-    <p class="note-lead">入力した内容は、このブラウザの中だけに保存されます。ほかの人と同じ盤面を見たいときは「🔗 この盤面をURLで共有」を押してください。実名や社外秘の情報は入力しないでください。</p>
+    <p class="note-lead">入力した内容は、このブラウザの中だけに保存されます。過去の取り組みを残しておきたいときは「💾 保存箱」に名前をつけて保存でき、あとからいつでも呼び出せます。ほかの人と同じ盤面を見たいときは「🔗 この盤面をURLで共有」を押してください。実名や社外秘の情報は入力しないでください。</p>
   </header>
 
   <section id="aiSection" class="card" hidden></section>
@@ -1474,6 +1499,11 @@ const CASE_MENU = [
 const AI_ENDPOINT = "";
 
 const STORE_KEY = "stakeholder-diorama:v2";
+/* 名前をつけて保存した盤面（このブラウザの中だけ。サーバーには送らない） */
+const SAVES_KEY = "stakeholder-diorama:saves:v1";
+const SAVES_MAX = 60;
+/* コマの大きさの下限・上限（1が既定） */
+const SIZE_MIN = 0.55, SIZE_MAX = 2.4;
 
 /* ================= 状態 ================= */
 const S = {
@@ -1549,6 +1579,195 @@ function save() {
   saveTimer = setTimeout(() => {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(payload())); } catch (e) { /* 保存できない設定でも動かす */ }
   }, 500);
+}
+
+/* ================= 保存箱（名前をつけて何枚も残す） =================
+   保存先はこのブラウザの localStorage だけ。サーバーには何も送らない。 */
+function loadSaves() {
+  try {
+    const a = JSON.parse(localStorage.getItem(SAVES_KEY) || "[]");
+    return Array.isArray(a) ? a.filter((x) => x && x.id && x.payload) : [];
+  } catch (e) { return []; }
+}
+function writeSaves(arr) {
+  try { localStorage.setItem(SAVES_KEY, JSON.stringify(arr.slice(0, SAVES_MAX))); return true; }
+  catch (e) { return false; }
+}
+function saveStamp(iso) {
+  const d = new Date(iso);
+  if (isNaN(d.getTime())) return "";
+  const p = (n) => String(n).padStart(2, "0");
+  return d.getFullYear() + "/" + p(d.getMonth() + 1) + "/" + p(d.getDate()) + " " + p(d.getHours()) + ":" + p(d.getMinutes());
+}
+function defaultSaveName() {
+  if (S.theme && S.theme.trim()) return S.theme.trim().slice(0, 40);
+  const m = CASE_MENU.find((x) => x.id === S.caseId);
+  if (m) return m.label;
+  return "無題の盤面";
+}
+function saveSnapshot(entry) {
+  return {
+    id: entry && entry.id ? entry.id : "b" + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    name: entry && entry.name ? entry.name : defaultSaveName(),
+    at: new Date().toISOString(),
+    theme: S.theme || "",
+    n: S.stakeholders.length,
+    mode: S.mode,
+    caseLabel: (CASE_MENU.find((x) => x.id === S.caseId) || {}).label || "",
+    payload: clone(payload()),
+  };
+}
+function storeCurrent(name) {
+  if (!S.stakeholders.length && !S.theme.trim()) {
+    toast("まだ保存するものがありません。テーマか関係者を入れてください");
+    return false;
+  }
+  const arr = loadSaves();
+  arr.unshift(saveSnapshot({ name: (name || "").trim() || defaultSaveName() }));
+  if (!writeSaves(arr)) { toast("保存できませんでした（ブラウザの空きが足りないようです）"); return false; }
+  toast("✓ 保存しました");
+  return true;
+}
+function overwriteSave(id) {
+  const arr = loadSaves();
+  const i = arr.findIndex((x) => x.id === id);
+  if (i < 0) return false;
+  arr[i] = saveSnapshot({ id: id, name: arr[i].name });
+  if (!writeSaves(arr)) { toast("上書きできませんでした（ブラウザの空きが足りないようです）"); return false; }
+  toast("✓ 上書きしました");
+  return true;
+}
+function renameSave(id, name) {
+  const arr = loadSaves();
+  const i = arr.findIndex((x) => x.id === id);
+  if (i < 0) return;
+  arr[i].name = name.slice(0, 60);
+  writeSaves(arr);
+}
+function deleteSave(id) {
+  writeSaves(loadSaves().filter((x) => x.id !== id));
+  toast("削除しました");
+}
+function restoreSave(id) {
+  const e = loadSaves().find((x) => x.id === id);
+  if (!e) return;
+  confirmReset = false; confirmHome = false;
+  clearTimeout(confirmTimer); clearTimeout(homeTimer);
+  pendingCase = null; clearTimeout(pendingTimer);
+  applyPayload(clone(e.payload));
+  history.replaceState(null, "", location.pathname);
+  closeGuide();
+  renderAll();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  toast("開きました：" + e.name);
+}
+
+let armedSave = null, armedKind = null, armedSaveTimer = null;
+function armSave(id, kind) {
+  armedSave = id; armedKind = kind;
+  clearTimeout(armedSaveTimer);
+  armedSaveTimer = setTimeout(() => { armedSave = null; armedKind = null; renderSaveBox(); }, 3500);
+  renderSaveBox();
+}
+function disarmSave() {
+  armedSave = null; armedKind = null; clearTimeout(armedSaveTimer);
+}
+
+function saveBoxMarkup() {
+  const arr = loadSaves();
+  const dirty = boardIsDirty() || S.stakeholders.length > 0;
+  let out = '<div class="modal-box" role="dialog" aria-modal="true" aria-label="保存箱">' +
+    '<div class="modal-head"><h2>💾 保存箱</h2>' +
+    '<button type="button" class="modal-close" data-close="1" aria-label="閉じる">✕</button></div>' +
+    '<p class="modal-lead">これまでの取り組みを、名前をつけて何枚でも残せます。' +
+    '保存先は<b>このブラウザの中だけ</b>で、サーバーには送りません。' +
+    '別の端末や人に見せたいときは「🔗 この盤面をURLで共有」を使ってください。</p>' +
+    '<div class="save-new">' +
+    '<input id="saveNameInput" class="txt" type="text" maxlength="60" placeholder="この盤面の名前" value="' +
+    esc(defaultSaveName()) + '">' +
+    '<button type="button" class="sbtn primary" id="saveNowBtn"' + (dirty ? "" : " disabled") + '>いまの盤面を保存</button></div>';
+  if (!arr.length) {
+    out += '<div class="save-empty">まだ何も保存されていません。<br>' +
+      'テーマと関係者を入れたら、上の「いまの盤面を保存」を押してみてください。</div>';
+  } else {
+    out += '<div class="save-list">' + arr.map((e) => {
+      const armedOpen = armedSave === e.id && armedKind === "open";
+      const armedDel = armedSave === e.id && armedKind === "del";
+      const armedOw = armedSave === e.id && armedKind === "ow";
+      const meta = [saveStamp(e.at), "関係者 " + (e.n || 0) + "人",
+        e.mode === "systems" ? "🔄 システム思考" : "👀 みんなの視点",
+        e.caseLabel ? "もと：" + e.caseLabel : ""].filter(Boolean).join("　/　");
+      return '<div class="save-item' + (armedOpen || armedDel || armedOw ? " on" : "") + '">' +
+        '<div class="save-item-top"><input class="txt" type="text" maxlength="60" data-rename="' + esc(e.id) +
+        '" value="' + esc(e.name) + '" aria-label="保存した盤面の名前"></div>' +
+        '<div class="save-meta">' + esc(meta) + (e.theme ? "<br>テーマ：" + esc(e.theme) : "") + "</div>" +
+        '<div class="save-btns">' +
+        '<button type="button" class="sbtn primary" data-open="' + esc(e.id) + '">' +
+        (armedOpen ? "もう一度押すと開きます" : "この盤面を開く") + "</button>" +
+        '<button type="button" class="sbtn" data-ow="' + esc(e.id) + '">' +
+        (armedOw ? "もう一度押すと上書きします" : "いまの盤面で上書き") + "</button>" +
+        '<button type="button" class="sbtn danger" data-del="' + esc(e.id) + '">' +
+        (armedDel ? "もう一度押すと削除します" : "削除") + "</button></div></div>";
+    }).join("") + "</div>";
+  }
+  out += '<p class="modal-note">名前の欄はそのまま書きかえられます。' +
+    '「この盤面を開く」を押すと、いま画面にある盤面は置きかわります（保存していない記入は消えます）。<br>' +
+    'ブラウザの履歴やサイトデータを消すと、保存箱の中身も一緒に消えるのでご注意ください。</p></div>';
+  return out;
+}
+function renderSaveBox() {
+  const m = $("guideModal");
+  if (m.hidden) return;
+  const focusId = document.activeElement && document.activeElement.getAttribute
+    ? document.activeElement.getAttribute("data-rename") : null;
+  m.innerHTML = saveBoxMarkup();
+  bindSaveBox(m);
+  if (focusId) {
+    const el = m.querySelector('[data-rename="' + focusId + '"]');
+    if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); }
+  }
+}
+function bindSaveBox(m) {
+  m.querySelector(".modal-box").addEventListener("click", (e) => e.stopPropagation());
+  m.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", closeGuide));
+  const nameEl = m.querySelector("#saveNameInput");
+  const now = m.querySelector("#saveNowBtn");
+  if (now) now.addEventListener("click", () => {
+    if (storeCurrent(nameEl ? nameEl.value : "")) { disarmSave(); renderSaveBox(); renderActions(); }
+  });
+  if (nameEl) nameEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && now && !now.disabled) now.click();
+  });
+  m.querySelectorAll("[data-rename]").forEach((el) => el.addEventListener("input", () => {
+    renameSave(el.getAttribute("data-rename"), el.value);
+  }));
+  m.querySelectorAll("[data-open]").forEach((b) => b.addEventListener("click", () => {
+    const id = b.getAttribute("data-open");
+    if (armedSave === id && armedKind === "open") { disarmSave(); restoreSave(id); return; }
+    armSave(id, "open");
+  }));
+  m.querySelectorAll("[data-ow]").forEach((b) => b.addEventListener("click", () => {
+    const id = b.getAttribute("data-ow");
+    if (armedSave === id && armedKind === "ow") { disarmSave(); overwriteSave(id); renderSaveBox(); return; }
+    armSave(id, "ow");
+  }));
+  m.querySelectorAll("[data-del]").forEach((b) => b.addEventListener("click", () => {
+    const id = b.getAttribute("data-del");
+    if (armedSave === id && armedKind === "del") { disarmSave(); deleteSave(id); renderSaveBox(); renderActions(); return; }
+    armSave(id, "del");
+  }));
+}
+function openSaveBox() {
+  const m = $("guideModal");
+  disarmSave();
+  m.className = "modal-back";
+  m.hidden = false;
+  m.innerHTML = saveBoxMarkup();
+  bindSaveBox(m);
+  m.addEventListener("click", closeGuide);
+  document.body.style.overflow = "hidden";
+  const el = m.querySelector("#saveNameInput");
+  if (el) { el.focus(); el.select(); }
 }
 
 /* ================= フィールド（SVGジオラマ） ================= */
@@ -1934,18 +2153,23 @@ function bindLinkEditor(p, s) {
 
 /* 盤面に矢を描く（コマの下に敷く） */
 function linkMarkup(list, positions) {
-  const idx = {};
-  list.forEach((s, i) => { idx[s.id] = positions[i]; });
+  return '<g class="links">' + linkInner(list, positions) + "</g>";
+}
+function linkInner(list, positions) {
+  positions = positions || layoutPositions(list);
+  const idx = {}, ks = {};
+  list.forEach((s, i) => { idx[s.id] = positions[i]; ks[s.id] = tokenScale(s); });
   const shown = S.links.filter((l) => idx[l.from] && idx[l.to]);
   if (!shown.length) return "";
-  let out = '<g class="links">';
+  let out = "";
   shown.forEach((l) => {
-    const a = { x: idx[l.from].x, y: idx[l.from].y - 26 };
-    const b = { x: idx[l.to].x, y: idx[l.to].y - 26 };
+    const ka = ks[l.from], kb = ks[l.to];
+    const a = { x: idx[l.from].x, y: idx[l.from].y - 26 * ka };
+    const b = { x: idx[l.to].x, y: idx[l.to].y - 26 * kb };
     const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
     const ux = dx / len, uy = dy / len;
-    const ax = a.x + ux * 26, ay = a.y + uy * 26;
-    const bx = b.x - ux * 30, by = b.y - uy * 30;
+    const ax = a.x + ux * (21 * ka + 5), ay = a.y + uy * (21 * ka + 5);
+    const bx = b.x - ux * (21 * kb + 9), by = b.y - uy * (21 * kb + 9);
     /* 往復の矢が重ならないよう、進行方向の左へふくらませる */
     const bow = 30;
     const qx = (ax + bx) / 2 - uy * bow, qy = (ay + by) / 2 + ux * bow;
@@ -1961,7 +2185,13 @@ function linkMarkup(list, positions) {
       '<text y="4.5" text-anchor="middle" font-size="12" font-weight="900" fill="' + k.color + '">' + k.mark + "</text>" +
       (l.delay ? '<text x="0" y="-14" text-anchor="middle" font-size="11">⏳</text>' : "") + "</g>";
   });
-  return out + "</g>";
+  return out;
+}
+/* ドラッグ中は矢だけ描き直す（盤面ごと作り直すと指が離れてしまうため） */
+function redrawLinks(svg, list) {
+  if (!svg) return;
+  const g = svg.querySelector("g.links");
+  if (g) g.innerHTML = linkInner(list);
 }
 
 function tokenPositions(n) {
@@ -1972,15 +2202,78 @@ function tokenPositions(n) {
   }
   return pts;
 }
+/* ---- コマの位置と大きさ ----
+   手で動かしたコマは s.pos を持つ。持たないコマは今までどおり輪に並ぶ。 */
+const FIELD_W = 800, FIELD_H = 620;
+const clampNum = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+function tokenScale(s) {
+  const k = Number(s && s.size);
+  if (!isFinite(k) || k <= 0) return 1;
+  return clampNum(k, SIZE_MIN, SIZE_MAX);
+}
+function layoutPositions(list) {
+  const base = tokenPositions(list.length);
+  return list.map((s, i) => {
+    const p = s && s.pos;
+    if (p && isFinite(p.x) && isFinite(p.y)) return { x: Number(p.x), y: Number(p.y) };
+    return base[i];
+  });
+}
+function nodePos(s, list) {
+  const i = list.findIndex((x) => x.id === s.id);
+  return i < 0 ? { x: 400, y: 350 } : layoutPositions(list)[i];
+}
+function hasCustomLayout() {
+  return S.stakeholders.some((s) => (s.pos && isFinite(s.pos.x)) || (s.size && Number(s.size) !== 1));
+}
+/* ひとつでも手で動かしたら、他のコマもその場に固定する。
+   あとから関係者を増やしても、動かしていないコマが勝手にずれないようにするため。 */
+function freezeLayout(list) {
+  const pts = layoutPositions(list);
+  list.forEach((s, i) => {
+    if (!s.pos || !isFinite(s.pos.x)) {
+      s.pos = { x: Math.round(pts[i].x * 10) / 10, y: Math.round(pts[i].y * 10) / 10 };
+    }
+  });
+}
+/* 手で並べたあとに関係者を足すとき、空いている場所をさがす */
+function freeSpot(list) {
+  const taken = layoutPositions(list);
+  const near = (x, y) => taken.some((p) => p && Math.hypot(p.x - x, p.y - y) < 84);
+  for (let r = 0; r < 6; r++) {
+    for (let c = 0; c < 7; c++) {
+      const x = 110 + c * 96, y = 180 + r * 74;
+      if (!near(x, y)) return { x: x, y: y };
+    }
+  }
+  return { x: 400, y: 350 };
+}
+function relayoutBoard() {
+  S.stakeholders.forEach((s) => { delete s.pos; delete s.size; });
+  renderStage(); renderActions(); save();
+  toast("コマを輪の並びにもどしました");
+}
+/* 画面の座標をSVGの座標（0〜800 / 0〜620）に直す */
+function svgPoint(svg, e) {
+  if (svg.createSVGPoint && svg.getScreenCTM()) {
+    const pt = svg.createSVGPoint();
+    pt.x = e.clientX; pt.y = e.clientY;
+    const r = pt.matrixTransform(svg.getScreenCTM().inverse());
+    return { x: r.x, y: r.y };
+  }
+  const b = svg.getBoundingClientRect();
+  return { x: (e.clientX - b.left) * FIELD_W / (b.width || 1), y: (e.clientY - b.top) * FIELD_H / (b.height || 1) };
+}
 function tipMarkup(list) {
   list = list || S.stakeholders;
   const s = list.find((x) => x.id === S.hoverId);
   if (!s) return "";
   const i = list.findIndex((x) => x.id === S.hoverId);
-  const p = tokenPositions(list.length)[i];
+  const p = layoutPositions(list)[i];
   if (!p) return "";
+  const k = tokenScale(s);
   const tx = Math.min(Math.max(p.x, 150), 650);
-  const ty = p.y < 300 ? p.y + 55 : p.y - 130;
+  const ty = p.y < 300 ? p.y + 34 + 26 * k : Math.max(6, p.y - 82 - 52 * k);
   const sit = s.situation || "まだ状況が入力されていません";
   const cut = sit.slice(0, 22) + (sit.length > 22 ? "…" : "");
   return '<g transform="translate(' + tx + ',' + ty + ')" pointer-events="none">' +
@@ -1989,13 +2282,26 @@ function tipMarkup(list) {
     '<text x="-132" y="44" font-size="11.5" fill="' + COLORS.sub + '">' + esc(cut) + '</text>' +
     '<text x="-132" y="63" font-size="11" fill="' + COLORS.indigo + '" font-weight="700">クリックして詳しく入力 →</text></g>';
 }
+/* 名札は、大きくしたコマの足もとに合わせて下へずらす */
+const labelY = (k) => 15 * k + 13;
+/* 選んだコマの右下に出る「つまんで大きさを変える」ハンドル */
+const HANDLE_A = 0.7071;
+const handleX = (k) => 21 * k * HANDLE_A + 3;
+const handleY = (k) => -26 * k + 21 * k * HANDLE_A + 3;
+function sizeHandleMarkup(k) {
+  return '<g class="tk-size" transform="translate(' + handleX(k).toFixed(1) + "," + handleY(k).toFixed(1) + ')">' +
+    '<circle r="17" fill="#FFFFFF" opacity="0.01"/>' +
+    '<circle r="10.5" fill="#FFFFFF" stroke="' + COLORS.yamabuki + '" stroke-width="2.5"/>' +
+    '<path d="M-4,4 L4,-4 M4,-4 L0.6,-4 M4,-4 L4,-0.6 M-4,4 L-0.6,4 M-4,4 L-4,0.6" fill="none" stroke="' +
+    COLORS.yamabuki + '" stroke-width="2.2" stroke-linecap="round"/></g>';
+}
 function fieldMarkup(scale, list) {
   scale = scale || S.scale;
   list = list || S.stakeholders;
   const earth = scale === "earth";
   const sky = SKY[scale] || SKY.room;
   const axes = lensAxisIds(), hs = lensHorizonIds();
-  const positions = tokenPositions(list.length);
+  const positions = layoutPositions(list);
   let out = '<svg class="field" viewBox="0 0 800 620" role="img" aria-label="関係者のジオラマ">' +
     '<defs><linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">' +
     '<stop offset="0%" stop-color="' + sky[0] + '"/>' +
@@ -2027,15 +2333,19 @@ function fieldMarkup(scale, list) {
     const labelFill = earth ? "#FFFFFF" : COLORS.ink;
     const labelSize = list.length >= 10 ? 12 : 14;
     const mark = v === "gain" ? "＋" : v === "loss" ? "−" : v === "mixed" ? "±" : "・";
+    const k = tokenScale(s);
     out += '<g class="token" data-id="' + esc(s.id) + '" transform="translate(' + p.x + ',' + p.y + ')">' +
+      '<g class="tk-body" transform="scale(' + k.toFixed(3) + ')">' +
       '<ellipse cx="0" cy="8" rx="20" ry="7" fill="#000" opacity="0.18"/>' +
       '<path d="M0,6 L-7,-8 L7,-8 Z" fill="' + cone + '"/>' +
       '<circle cx="0" cy="-26" r="21" fill="#FFFFFF" stroke="' + ring + '" stroke-width="' + (sel ? 5 : 4) + '"/>' +
       '<text x="0" y="-19" text-anchor="middle" font-size="20">' + esc(s.emoji) + '</text>' +
       (v ? '<g transform="translate(14,-42)"><circle r="8" fill="' + verdictColor(v) + '" stroke="#FFF" stroke-width="2"/>' +
         '<text y="3.5" text-anchor="middle" font-size="9" fill="#FFF" font-weight="700">' + mark + '</text></g>' : "") +
-      '<text x="0" y="28" text-anchor="middle" font-size="' + labelSize + '" font-weight="700" fill="' + labelFill +
-      '" style="paint-order:stroke; stroke:' + (earth ? "#1E2A45" : "#FFFFFF") + '; stroke-width:3">' + esc(s.name) + '</text></g>';
+      "</g>" +
+      '<text class="tk-label" x="0" y="' + labelY(k).toFixed(1) + '" text-anchor="middle" font-size="' + labelSize + '" font-weight="700" fill="' + labelFill +
+      '" style="paint-order:stroke; stroke:' + (earth ? "#1E2A45" : "#FFFFFF") + '; stroke-width:3">' + esc(s.name) + "</text>" +
+      (sel ? sizeHandleMarkup(k) : "") + "</g>";
   });
 
   if (!list.length) {
@@ -2044,7 +2354,10 @@ function fieldMarkup(scale, list) {
   }
   if (earth) {
     out += '<text x="400" y="604" text-anchor="middle" font-size="13" font-weight="700" fill="#B9C8E0">' +
-      '🌏 ドラッグで地球を回せます</text>';
+      '🌏 背景をドラッグで地球が回ります／コマはつかんで動かせます</text>';
+  } else if (list.length) {
+    out += '<text x="400" y="606" text-anchor="middle" font-size="12" font-weight="700" fill="' + COLORS.sub +
+      '" opacity="0.75">コマはつかんで動かせます。選ぶと右下の◯で大きさを変えられます</text>';
   }
   out += '<g id="tipLayer">' + tipMarkup(list) + "</g></svg>";
   return out;
@@ -2160,15 +2473,111 @@ function backToGlobe() {
   renderControls(); renderStage(); renderActions(); renderPanel(); save();
 }
 function bindTokens(stage, list) {
+  const svg = stage.querySelector("svg.field");
   stage.querySelectorAll(".token").forEach((g) => {
     const id = g.getAttribute("data-id");
-    g.addEventListener("click", () => {
-      const svg = g.ownerSVGElement;
-      if (svg && (svg._spinMoved || 0) > 8) return; /* 地球を回しただけの指を誤爆させない */
-      S.selectedId = id; renderStage(); renderPanel();
-    });
+    const s = list.find((x) => x.id === id);
+    if (!s || !svg) return;
+    bindTokenDrag(g, s, list, svg);
+    const handle = g.querySelector(".tk-size");
+    if (handle) bindTokenResize(handle, g, s, list, svg);
     g.addEventListener("mouseenter", () => { S.hoverId = id; const l = $("tipLayer"); if (l) l.innerHTML = tipMarkup(list); });
     g.addEventListener("mouseleave", () => { S.hoverId = null; const l = $("tipLayer"); if (l) l.innerHTML = ""; });
+  });
+}
+
+/* コマをつかんで動かす。動かさずに離したら「選ぶ」＝これまでのクリックと同じ */
+function bindTokenDrag(g, s, list, svg) {
+  let drag = null, moved = 0, last = null;
+  const onMove = (e) => {
+    if (!drag) return;
+    moved += Math.abs(e.clientX - last.x) + Math.abs(e.clientY - last.y);
+    last = { x: e.clientX, y: e.clientY };
+    if (moved < 4) return; /* 指のわずかな震えでは動かさない */
+    const p = svgPoint(svg, e);
+    s.pos = {
+      x: Math.round(clampNum(p.x + drag.dx, 46, FIELD_W - 46) * 10) / 10,
+      y: Math.round(clampNum(p.y + drag.dy, 78, FIELD_H - 42) * 10) / 10,
+    };
+    g.setAttribute("transform", "translate(" + s.pos.x + "," + s.pos.y + ")");
+    redrawLinks(svg, list);
+    const l = $("tipLayer"); if (l) l.innerHTML = "";
+    e.preventDefault();
+  };
+  const onEnd = () => {
+    if (!drag) return;
+    drag = null;
+    g.classList.remove("dragging");
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onEnd);
+    window.removeEventListener("pointercancel", onEnd);
+    if (moved < 6) {
+      S.hoverId = null;
+      S.selectedId = s.id;
+      renderStage(); renderPanel();
+    } else {
+      freezeLayout(list);
+      renderActions(); save();
+    }
+    moved = 0;
+  };
+  g.addEventListener("pointerdown", (e) => {
+    if (e.target.closest && e.target.closest(".tk-size")) return; /* 大きさハンドルは別あつかい */
+    e.stopPropagation(); /* 地球を回さない */
+    const cur = nodePos(s, list);
+    const p = svgPoint(svg, e);
+    drag = { dx: cur.x - p.x, dy: cur.y - p.y };
+    moved = 0;
+    last = { x: e.clientX, y: e.clientY };
+    g.classList.add("dragging");
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onEnd);
+    window.addEventListener("pointercancel", onEnd);
+  });
+}
+
+/* 選んだコマの右下のハンドルをつまんで、なめらかに大きさを変える */
+function bindTokenResize(handle, g, s, list, svg) {
+  let st = null;
+  const apply = (k) => {
+    const body = g.querySelector(".tk-body");
+    const label = g.querySelector(".tk-label");
+    if (body) body.setAttribute("transform", "scale(" + k.toFixed(3) + ")");
+    if (label) label.setAttribute("y", labelY(k).toFixed(1));
+    handle.setAttribute("transform", "translate(" + handleX(k).toFixed(1) + "," + handleY(k).toFixed(1) + ")");
+  };
+  /* コマから遠ざけると大きく、近づけると小さく。
+     どの向きに引いても効くので、指でもマウスでも同じように使える。
+     RATE は「大きさ1つぶんに必要な距離（px）」。大きいほどゆっくり変わる。 */
+  const RATE = 78;
+  /* つかんだ向きに沿って測るので、コマを通り越しても向きが反転しない */
+  const along = (p, st) => (p.x - st.c.x) * st.ux + (p.y - (st.c.y - 20)) * st.uy;
+  const onMove = (e) => {
+    if (!st) return;
+    const k = clampNum(st.k + (along(svgPoint(svg, e), st) - st.d) / RATE, SIZE_MIN, SIZE_MAX);
+    s.size = Math.round(k * 100) / 100;
+    apply(k);
+    redrawLinks(svg, list);
+    e.preventDefault();
+  };
+  const onEnd = () => {
+    if (!st) return;
+    st = null;
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onEnd);
+    window.removeEventListener("pointercancel", onEnd);
+    renderActions(); save();
+  };
+  handle.addEventListener("pointerdown", (e) => {
+    e.stopPropagation(); e.preventDefault();
+    const c = nodePos(s, list);
+    const p = svgPoint(svg, e);
+    const vx = p.x - c.x, vy = p.y - (c.y - 20), len = Math.hypot(vx, vy) || 1;
+    /* つかんだ瞬間に大きさが飛ばないよう、そのときの位置を基準にする */
+    st = { c: c, k: tokenScale(s), ux: vx / len, uy: vy / len, d: len };
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onEnd);
+    window.addEventListener("pointercancel", onEnd);
   });
 }
 
@@ -2258,9 +2667,14 @@ function renderActions() {
     out += '<button type="button" class="sbtn back' + (confirmHome ? " armed" : "") + '" data-act="home">' +
       (confirmHome ? "もう一度押すともどります" : "↩︎ はじめの画面にもどる") + "</button>";
   }
+  const saveCount = loadSaves().length;
   out += '<button type="button" class="sbtn primary" data-act="add">＋ 関係者を追加</button>' +
+    '<button type="button" class="sbtn save" data-act="saves">💾 保存箱' + (saveCount ? "（" + saveCount + "）" : "") + "</button>" +
     '<button type="button" class="sbtn" data-act="share">🔗 この盤面をURLで共有</button>' +
     '<button type="button" class="sbtn" data-act="md">📋 Markdownをコピー</button>';
+  if (hasCustomLayout()) {
+    out += '<button type="button" class="sbtn" data-act="relayout">🔀 並べ直す</button>';
+  }
   if (extra && !extraPlaced && S.stakeholders.length) {
     out += '<button type="button" class="sbtn expand" data-act="expand">' + esc(extra.label) + "</button>";
   }
@@ -2274,6 +2688,8 @@ function renderActions() {
   box.querySelectorAll("[data-act]").forEach((b) => b.addEventListener("click", () => {
     const a = b.getAttribute("data-act");
     if (a === "add") addStakeholder();
+    else if (a === "saves") openSaveBox();
+    else if (a === "relayout") relayoutBoard();
     else if (a === "share") shareUrl();
     else if (a === "md") exportMarkdown();
     else if (a === "expand") expandCase();
@@ -2530,6 +2946,12 @@ function renderAll() {
 function addStakeholder() {
   const s = { id: uid(), name: "関係者" + (S.stakeholders.length + 1), emoji: EMOJIS[S.stakeholders.length % EMOJIS.length], situation: "" };
   if (S.world) s.siteId = S.currentSiteId || homeSiteId();
+  /* 手で並べたあとなら、既にあるコマを動かさずに空き地へ置く */
+  if (hasCustomLayout()) {
+    const here = S.world ? S.stakeholders.filter((x) => x.siteId === s.siteId) : S.stakeholders;
+    freezeLayout(here);
+    s.pos = freeSpot(here);
+  }
   S.stakeholders.push(s);
   S.selectedId = s.id;
   renderStage(); renderActions(); renderPanel(); save();
@@ -2737,6 +3159,7 @@ function openSysGuide() {
 }
 function closeGuide() {
   const m = $("guideModal");
+  disarmSave();
   m.hidden = true;
   m.innerHTML = "";
   m.className = "";
@@ -2762,7 +3185,9 @@ function exportMarkdown() {
     : "";
   let md = "# " + (S.theme || "（テーマ未設定）") + scenLabel + "\n\n";
   S.stakeholders.forEach((s) => {
-    md += "## " + s.emoji + " " + s.name + "\n" + (s.situation ? "状況：" + s.situation + "\n" : "") + "\n";
+    const k = tokenScale(s);
+    const weight = k >= 1.45 ? "影響：大きい\n" : k <= 0.8 ? "影響：小さい\n" : "";
+    md += "## " + s.emoji + " " + s.name + "\n" + weight + (s.situation ? "状況：" + s.situation + "\n" : "") + "\n";
     AXES.forEach((a) => {
       const rows = HORIZONS.map((h) => {
         const c = getCell(S.data, s.id, a.id, h.id);
