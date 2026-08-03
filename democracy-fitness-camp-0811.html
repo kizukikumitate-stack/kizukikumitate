@@ -714,10 +714,37 @@
     padding: 2rem 1.5rem;
     transition: background 0.2s;
     position: relative;
-    cursor: default;
+    cursor: pointer;
+    /* button化に伴うリセット（タップ・キーボードで開閉できるようにするため） */
+    display: block;
+    width: 100%;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    -webkit-appearance: none;
+    appearance: none;
   }
 
+  .muscle-item .muscle-num,
+  .muscle-item .muscle-name { display: block; }
+
   .muscle-item:hover { background: #263c52; }
+  .muscle-item:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+
+  /* 「開ける」ことを示すアフォーダンス */
+  .muscle-item::after {
+    content: '＋';
+    position: absolute;
+    top: 0.8rem;
+    right: 0.9rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--gold);
+    opacity: 0.55;
+  }
+  .muscle-item.open::after { content: '−'; }
 
   .muscle-tooltip {
     display: none;
@@ -750,7 +777,27 @@
     border-top-color: rgba(15, 25, 50, 0.97);
   }
 
-  .muscle-item:hover .muscle-tooltip { display: block; animation: tooltipFade 0.2s ease; }
+  /* ホバー可能な端末のみホバーで表示（タッチ端末はタップ開閉と衝突するため分離） */
+  @media (hover: hover) {
+    .muscle-item:hover .muscle-tooltip { display: block; animation: tooltipFade 0.2s ease; }
+  }
+
+  /* タップ・キーボードでの開閉（aria-expanded と連動） */
+  .muscle-item.open .muscle-tooltip { display: block; animation: tooltipFade 0.2s ease; }
+
+  /* タッチ幅ではポップアップが画面端で見切れるため、セル内に展開する */
+  @media (max-width: 768px) {
+    .muscle-item.open .muscle-tooltip {
+      position: static;
+      transform: none;
+      width: auto;
+      margin-top: 0.7rem;
+      pointer-events: auto;
+      animation: none;
+      text-align: left;
+    }
+    .muscle-item.open .muscle-tooltip::after { display: none; }
+  }
 
   @keyframes tooltipFade {
     from { opacity: 0; transform: translateX(-50%) translateY(4px); }
@@ -1616,6 +1663,31 @@
   .countdown-banner.expired .countdown-num {
     color: rgba(255,255,255,0.5);
     text-shadow: none;
+  }
+
+  /* ── 締切連動の表示切替（ページ末尾のJSが期日通過で自動適用）── */
+  .price-card.pc-expired { opacity: 0.55; }
+  .price-card .pc-status {
+    margin-top: 0.9rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #b0521f;
+    line-height: 1.7;
+  }
+  .price-card.pc-expired .pc-status { color: #8a8a8a; }
+  .pricing-status-note {
+    margin: 0 0 1.6rem;
+    padding: 0.9rem 1.2rem;
+    background: rgba(60, 52, 137, 0.06);
+    border-left: 3px solid #3C3489;
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+  .register-btn.closed {
+    background: rgba(255,255,255,0.14);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.55);
+    box-shadow: none;
   }
 
   /* ── REGISTER ── */
@@ -3439,7 +3511,7 @@
     </div>
     <div class="hero-info-item">
       <div class="hero-info-label">Fee</div>
-      <div class="hero-info-value">約¥66,000〜<br><span style="opacity:0.6; font-size:0.78rem;">総額の目安（プログラム¥26,400〜＋宿泊）</span></div>
+      <div class="hero-info-value" id="heroFeeValue">約¥66,000〜<br><span style="opacity:0.6; font-size:0.78rem;">総額の目安（プログラム¥26,400〜＋宿泊）</span></div>
     </div>
     <div class="hero-info-item">
       <div class="hero-info-label">Capacity</div>
@@ -3504,46 +3576,46 @@
     <div class="section-label">10 MUSCLES</div>
     <h2 class="section-heading">2日間で鍛える<br>「10の筋肉」</h2>
     <div class="muscles-grid">
-      <div class="muscle-item">
-        <div class="muscle-num">01</div><div class="muscle-name">好奇心筋</div>
-        <div class="muscle-tooltip">自分と違う意見や知らない世界に対して、警戒ではなく興味を持って向き合う力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">02</div><div class="muscle-name">傾聴筋</div>
-        <div class="muscle-tooltip">論理と感情の両方を深く聴き、相手の言葉をまず丸ごと受け取る力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">03</div><div class="muscle-name">共感筋</div>
-        <div class="muscle-tooltip">自分と異なる立場や価値観を持つ人の気持ちに寄り添い、「なぜそう感じるのか」を理解しようとする力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">04</div><div class="muscle-name">勇気筋</div>
-        <div class="muscle-tooltip">批判を恐れず、自分の考えを発言し・行動に移せる力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">05</div><div class="muscle-name">意見筋</div>
-        <div class="muscle-tooltip">「みんなと同じでいい」ではなく、自分の考えを持ち、それを言葉にする力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">06</div><div class="muscle-name">反対意見<br>表明筋</div>
-        <div class="muscle-tooltip">多数派や権威に流されず、「私は違う意見です」と建設的に伝える力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">07</div><div class="muscle-name">言葉への<br>自信筋</div>
-        <div class="muscle-tooltip">うまく話せなくても、自分の言葉で伝えようとする力。完璧でなくていい</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">08</div><div class="muscle-name">妥協筋</div>
-        <div class="muscle-tooltip">自分が譲れないものを守りながら、相手が譲れないものも取り込み、お互いが納得できる状態を生み出す力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">09</div><div class="muscle-name">活動家筋</div>
-        <div class="muscle-tooltip">「誰かがやればいい」ではなく、自分事として動き出す力</div>
-      </div>
-      <div class="muscle-item">
-        <div class="muscle-num">10</div><div class="muscle-name">動員筋</div>
-        <div class="muscle-tooltip">一人ではできないことを実現するために、周囲の人を巻き込み、協力を得ながら前に進めていく力</div>
-      </div>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">01</span><span class="muscle-name">好奇心筋</span>
+        <span class="muscle-tooltip">自分と違う意見や知らない世界に対して、警戒ではなく興味を持って向き合う力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">02</span><span class="muscle-name">傾聴筋</span>
+        <span class="muscle-tooltip">論理と感情の両方を深く聴き、相手の言葉をまず丸ごと受け取る力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">03</span><span class="muscle-name">共感筋</span>
+        <span class="muscle-tooltip">自分と異なる立場や価値観を持つ人の気持ちに寄り添い、「なぜそう感じるのか」を理解しようとする力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">04</span><span class="muscle-name">勇気筋</span>
+        <span class="muscle-tooltip">批判を恐れず、自分の考えを発言し・行動に移せる力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">05</span><span class="muscle-name">意見筋</span>
+        <span class="muscle-tooltip">「みんなと同じでいい」ではなく、自分の考えを持ち、それを言葉にする力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">06</span><span class="muscle-name">反対意見<br>表明筋</span>
+        <span class="muscle-tooltip">多数派や権威に流されず、「私は違う意見です」と建設的に伝える力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">07</span><span class="muscle-name">言葉への<br>自信筋</span>
+        <span class="muscle-tooltip">うまく話せなくても、自分の言葉で伝えようとする力。完璧でなくていい</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">08</span><span class="muscle-name">妥協筋</span>
+        <span class="muscle-tooltip">自分が譲れないものを守りながら、相手が譲れないものも取り込み、お互いが納得できる状態を生み出す力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">09</span><span class="muscle-name">活動家筋</span>
+        <span class="muscle-tooltip">「誰かがやればいい」ではなく、自分事として動き出す力</span>
+      </button>
+      <button type="button" class="muscle-item" aria-expanded="false">
+        <span class="muscle-num">10</span><span class="muscle-name">動員筋</span>
+        <span class="muscle-tooltip">一人ではできないことを実現するために、周囲の人を巻き込み、協力を得ながら前に進めていく力</span>
+      </button>
     </div>
   </div>
 </section>
@@ -4127,7 +4199,7 @@
     <span>早割締切まで あと <span class="countdown-num" id="earlyDays">—</span> 日</span>
   </div>
   <h2 class="register-heading">お申込み</h2>
-  <p class="register-sub">
+  <p class="register-sub" id="registerSub">
     早割締切：<strong>2026年6月30日（火）</strong>／申込締切：<strong>2026年7月31日（金）</strong><br>
     定員に達し次第、受付を締め切ります。お早めにどうぞ。
   </p>
@@ -4585,9 +4657,9 @@
 <div class="sticky-cta" id="stickyCta" aria-hidden="true">
   <div class="sticky-cta-text">
     <strong>北軽井沢合宿2026</strong>
-    早割 ¥26,400〜（6/30まで・宿泊費別途）
+    <span id="stickyCtaLine">8/11–12開催・1泊2日（宿泊費別途）</span>
   </div>
-  <a href="./democracy-fitness-camp-0811-signup.html" class="sticky-cta-btn">お申込み →</a>
+  <a href="./democracy-fitness-camp-0811-signup.html" class="sticky-cta-btn" id="stickyCtaBtn">お申込み →</a>
 </div>
 
 <!-- Lightbox -->
@@ -4604,26 +4676,123 @@
     if (!isOpen) item.classList.add('open');
   }
 
-  // 早割カウントダウン
+  // ── 締切連動の表示切替 ──
+  // このページの締切・開催日の唯一の正。日程変更はこの3行だけ直せばよい。
+  // 期日通過で カウントダウン / sticky CTA / ヒーローFee / 料金カード / 申込セクション を一括切替する。
   (function() {
-    const banner = document.getElementById('earlyCountdown');
-    const numEl = document.getElementById('earlyDays');
-    if (!banner || !numEl) return;
-    const deadline = new Date('2026-06-30T23:59:59+09:00');
+    const EARLY_DEADLINE = new Date('2026-06-30T23:59:59+09:00'); // 早割締切
+    const APPLY_DEADLINE = new Date('2026-07-31T23:59:59+09:00'); // 申込締切
+    const EVENT_END      = new Date('2026-08-12T23:59:59+09:00'); // 開催終了
+
     const now = new Date();
-    const diffMs = deadline - now;
-    const days = Math.ceil(diffMs / (1000 * 60 * 60 * 24));
-    if (days > 0) {
-      numEl.textContent = days;
-      banner.style.display = 'inline-flex';
-    } else if (days >= -1) {
-      // 当日
-      banner.innerHTML = '<span class="countdown-icon">⏰</span><span>本日が早割締切です</span>';
-      banner.style.display = 'inline-flex';
-    } else {
-      // 締切後：表示しない（または通常価格に切り替え案内）
-      banner.style.display = 'none';
+    const phase = now <= EARLY_DEADLINE ? 'early'
+                : now <= APPLY_DEADLINE ? 'normal'
+                : now <= EVENT_END      ? 'closed'
+                : 'ended';
+    const daysTo = d => Math.ceil((d - now) / (1000 * 60 * 60 * 24));
+
+    // 1) カウントダウンバナー
+    const banner = document.getElementById('earlyCountdown');
+    if (banner) {
+      if (phase === 'early') {
+        const days = daysTo(EARLY_DEADLINE);
+        banner.innerHTML = days > 0
+          ? '<span class="countdown-icon">⏰</span><span>早割締切まで あと <span class="countdown-num">' + days + '</span> 日</span>'
+          : '<span class="countdown-icon">⏰</span><span>本日が早割締切です</span>';
+        banner.style.display = 'inline-flex';
+      } else if (phase === 'normal') {
+        const days = daysTo(APPLY_DEADLINE);
+        banner.innerHTML = days > 0
+          ? '<span class="countdown-icon">⏰</span><span>申込締切まで あと <span class="countdown-num">' + days + '</span> 日</span>'
+          : '<span class="countdown-icon">⏰</span><span>本日が申込締切です</span>';
+        banner.style.display = 'inline-flex';
+      } else if (phase === 'closed') {
+        banner.classList.add('expired');
+        banner.innerHTML = '<span>申込受付は終了しました</span>';
+        banner.style.display = 'inline-flex';
+      } else {
+        banner.style.display = 'none';
+      }
     }
+
+    // 2) sticky CTA
+    const ctaLine = document.getElementById('stickyCtaLine');
+    const ctaBtn  = document.getElementById('stickyCtaBtn');
+    if (ctaLine && ctaBtn) {
+      if (phase === 'early') {
+        ctaLine.textContent = '早割 ¥35,200〜（6/30まで・宿泊費別途）';
+      } else if (phase === 'normal') {
+        ctaLine.textContent = '¥35,200〜（宿泊費別途）・申込は7/31まで';
+      } else if (phase === 'closed') {
+        ctaLine.textContent = '申込受付は終了しました';
+        ctaBtn.textContent = '次回のご案内 →';
+        ctaBtn.href = './democracy-fitness.html';
+      } else {
+        const cta = document.getElementById('stickyCta');
+        if (cta) cta.remove();
+      }
+    }
+
+    // 3) ヒーローの Fee（早割終了後は最安がペア割 ¥35,200 になる）
+    if (phase !== 'early') {
+      const fee = document.getElementById('heroFeeValue');
+      if (fee) fee.innerHTML = '約¥74,800〜<br><span style="opacity:0.6; font-size:0.78rem;">総額の目安（プログラム¥35,200〜＋宿泊）</span>';
+    }
+
+    // 4) 料金カード
+    if (phase !== 'early') {
+      const bestCard = document.querySelector('.price-card.best'); // ペア早割（6/30必須）
+      if (bestCard && !bestCard.querySelector('.pc-status')) {
+        bestCard.classList.add('pc-expired');
+        const st = document.createElement('div');
+        st.className = 'pc-status';
+        st.textContent = '早割期間は終了しました';
+        bestCard.appendChild(st);
+      }
+      const featCard = document.querySelector('.price-card.featured'); // 早割 or ペア割
+      if (featCard && !featCard.querySelector('.pc-status')) {
+        const st = document.createElement('div');
+        st.className = 'pc-status';
+        st.textContent = '※早割は終了しました（ペア割は引き続き適用されます）';
+        featCard.appendChild(st);
+      }
+    }
+    if (phase === 'closed' || phase === 'ended') {
+      const grid = document.querySelector('.pricing-grid');
+      if (grid) {
+        const note = document.createElement('div');
+        note.className = 'pricing-status-note';
+        note.textContent = '本イベントの申込受付は終了しました。以下は開催時の参加費の記録です。';
+        grid.parentNode.insertBefore(note, grid);
+      }
+    }
+
+    // 5) 申込セクション
+    if (phase === 'closed' || phase === 'ended') {
+      const sub = document.getElementById('registerSub');
+      if (sub) {
+        sub.innerHTML = '申込受付は終了しました。たくさんのお申込みをありがとうございました。<br>'
+          + '次回開催のご案内は <a href="./democracy-fitness.html" style="color: white; text-decoration: underline;">Democracy Fitness のページ</a>でお知らせします。';
+      }
+      const btn = document.getElementById('apply-form-btn');
+      if (btn) {
+        btn.classList.add('closed');
+        btn.textContent = '受付は終了しました — 次回のご案内はこちら →';
+        btn.href = './democracy-fitness.html';
+      }
+    }
+  })();
+
+  // 10の筋肉: タップ/キーボードで開閉（ホバー表示は @media (hover: hover) 側で維持）
+  (function() {
+    const items = document.querySelectorAll('.muscle-item');
+    items.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const isOpen = btn.classList.contains('open');
+        items.forEach(el => { el.classList.remove('open'); el.setAttribute('aria-expanded', 'false'); });
+        if (!isOpen) { btn.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); }
+      });
+    });
   })();
 
   // Sticky CTA：ヒーロー通過後に表示、フッター手前で非表示
