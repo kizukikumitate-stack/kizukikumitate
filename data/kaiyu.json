@@ -149,6 +149,36 @@
       ]
     },
     {
+      "id": "karuizawa-offsite",
+      "path": "karuizawa-offsite.html",
+      "title": "軽井沢オフサイト・経営合宿",
+      "tag": "ソリューション",
+      "desc": "場所を変えただけの合宿は、景色のいい定例会議で終わる。軽井沢在住の設計者が、会場選びからプログラム設計・当日進行・持ち帰り後の定着まで伴走します。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-08-07",
+      "band": true,
+      "next": [
+        "democracy-fitness",
+        "taiwa-teichaku"
+      ]
+    },
+    {
+      "id": "gaikokujinzai-teichaku",
+      "path": "gaikokujinzai-teichaku.html",
+      "title": "外国人材の職場定着",
+      "tag": "ソリューション",
+      "desc": "採用はできた。それでも辞めていく——原因を本人の日本語力ではなく職場側の環境要因として診断し、対話と仕組みで設計し直す定着支援です。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-08-07",
+      "band": true,
+      "next": [
+        "taiwa-teichaku",
+        "1on1-zukan"
+      ]
+    },
+    {
       "id": "democracy-fitness-career",
       "path": "democracy-fitness-career.html",
       "title": "個人向けキャリア開発",

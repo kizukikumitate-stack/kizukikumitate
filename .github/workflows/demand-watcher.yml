@@ -1,0 +1,51 @@
+name: 需要ウォッチャー（週次）
+
+on:
+  schedule:
+    - cron: "0 22 * * 0"   # 毎週月曜 7:00 JST
+  workflow_dispatch:        # 手動実行も可
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 依存インストール
+        run: pip install pyyaml google-api-python-client google-auth
+
+      - name: 需要分析を実行
+        id: watcher
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GSC_CREDENTIALS: ${{ secrets.GSC_CREDENTIALS }}
+        run: python scripts/demand_watcher.py
+
+      - name: レポートをコミット
+        run: |
+          git config user.name "demand-watcher"
+          git config user.email "bot@kizukikumitate.com"
+          git add reports/
+          git diff --cached --quiet && exit 0
+          git commit -m "需要レポート $(date +%F)"
+          # 他のbot（ナビ・回遊バンド自動更新）と競合しても落とさない
+          git pull --rebase --autostash
+          git push
+
+      - name: Issueとして起票
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh label create "demand-watcher" --color "0E8A16" --description "需要ウォッチャーの週次レポート" 2>/dev/null || true
+          gh issue create \
+            --title "📊 需要ウォッチャー $(date +%F)" \
+            --body-file "${{ steps.watcher.outputs.report_path }}" \
+            --label "demand-watcher"

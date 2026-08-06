@@ -1,0 +1,168 @@
+# きづきくみたて工房 資産レジストリ（需要ウォッチャーの入力・唯一の正）
+#
+# 検索ワードと既存資産のマッチングに使う。新しい図鑑・ツール・サービスを公開したら、
+# ここに1エントリ追加するだけで「受け皿あり」と認識される（tags を書くのが仕事）。
+# タグは「キーワードに部分一致するか」で判定されるので、短めの語を並べること。
+#
+# 使い方: python3 scripts/demand_watcher.py（週次で GitHub Actions が自動実行）
+
+seed_keywords:
+  # サジェスト収集の種ワード。ここを増やせば監視範囲が広がる
+  - "1on1"
+  - "1on1 意味ない"
+  - "フィードバック 研修"
+  - "コーチング 研修"
+  - "生成AI 定着"
+  - "生成AI 研修 効果"
+  - "AI時代 管理職"
+  - "研修 効果測定"
+  - "組織開発"
+  - "心理的安全性"
+  - "対話 職場"
+  - "合意形成"
+  - "PTA 改革"
+  - "リスキリング 定着"
+  # 軽井沢オフサイト（ローカルSEO）
+  - "経営合宿"
+  - "オフサイトミーティング"
+  - "軽井沢 合宿"
+  - "役員合宿"
+  # 外国人材の職場定着
+  - "外国人 採用 定着"
+  - "特定技能 離職"
+  - "外国人社員 コミュニケーション"
+  - "やさしい日本語 研修"
+
+assets:
+  - id: zukan-1on1
+    name: 1on1の成功と失敗の図鑑
+    type: zukan
+    url: /1on1-zukan.html
+    tags: [1on1, 面談, 部下, 話すことがない, 形骸化, 意味ない]
+    service_bridge: 対話定着デザイン / 1on1研修
+
+  - id: jirei-1on1
+    name: 事例 No.011 1on1の定着
+    type: casebook
+    url: /jirei-1on1.html
+    tags: [1on1 定着, 1on1 続かない, 1on1 導入, オフサイト 定着]
+    service_bridge: 対話定着デザイン
+
+  - id: taiwa-teichaku
+    name: 対話定着デザイン（BEM診断＋対話筋トレ）
+    type: service
+    url: /taiwa-teichaku.html
+    tags: [定着, 行動変容, 環境要因, 転移, 離職, リテンション, エンゲージメント]
+    service_bridge: 対話定着デザイン
+
+  - id: education-roi-zukan
+    name: 教育の費用対効果図鑑
+    type: zukan
+    url: /education-roi-zukan.html
+    tags: [費用対効果, ROI, 効果測定, カークパトリック, 研修 効果]
+    service_bridge: 研修設計プログラム
+
+  - id: goikeisei-zukan
+    name: 合意形成図鑑
+    type: zukan
+    url: /goikeisei-zukan.html
+    tags: [合意形成, 住民参加, 市民議会, 自治会, 管理組合]
+    service_bridge: 自治体・コミュニティ対話ファシリテーション
+
+  - id: nigate-zukan
+    name: ホモ・サピエンスの苦手図鑑
+    type: zukan
+    url: /nigate-zukan.html
+    tags: [バイアス, 認知, 損失回避, 現状維持, 同調]
+    service_bridge: 対話力向上プログラム
+
+  - id: chie-zukan
+    name: ホモ・サピエンスの知恵図鑑
+    type: zukan
+    url: /chie-zukan.html
+    tags: [心理的安全性, 効力感, 内発的動機, レジリエンス]
+    service_bridge: 対話力向上プログラム
+
+  - id: reflection-zukan
+    name: ふりかえりの技法図鑑
+    type: zukan
+    url: /reflection-zukan.html
+    tags: [ふりかえり, 内省, KPT, 経験学習, リフレクション]
+    service_bridge: 研修設計プログラム
+
+  - id: jirei
+    name: 世界の成功と失敗事例集
+    type: casebook
+    url: /jirei.html
+    tags: [事例, 失敗事例, 成功事例, 分岐点, 理念, 評価制度, 縦割り, 目標管理]
+    service_bridge: 各種研修・コンサルティング
+
+  - id: democracy-fitness
+    name: デモクラシーフィットネス
+    type: program
+    url: /democracy-fitness.html
+    tags: [民主主義, 対話 トレーニング, 会議, ワークショップ]
+    service_bridge: DF体験会・企業研修
+
+  - id: mirai-risk-calc
+    name: 未来のリスク計算機シリーズ
+    type: tool
+    url: /risk-calculators.html
+    tags: [人口減少, 学校統廃合, 採用難, 技能承継, 地域, 試算]
+    service_bridge: 対話キット販売
+
+  - id: pta-toolkit
+    name: PTA対話・改革ツールキット
+    type: toolkit
+    url: /pta-korekara.html
+    tags: [PTA, 役員, 負担, 保護者]
+    service_bridge: PTAキット販売
+
+  - id: dialogue-program
+    name: 対話力向上プログラム（管理職研修・1on1/フィードバック/コーチング）
+    type: training
+    url: /dialogue-program.html
+    tags: [管理職, コーチング, フィードバック, 研修, 対話力, 傾聴]
+    service_bridge: 管理職研修（企業向け）
+
+  - id: karuizawa-offsite
+    name: 軽井沢オフサイト・経営合宿
+    type: service
+    url: /karuizawa-offsite.html
+    tags: [経営合宿, オフサイト, 軽井沢 合宿, 役員合宿, チームビルディング 合宿, ファシリテーター]
+    service_bridge: 合宿設計＋当日ファシリテーション
+
+  - id: gaikokujinzai-teichaku
+    name: 外国人材定着支援ページ
+    type: service
+    url: /gaikokujinzai-teichaku.html
+    tags: [外国人 定着, 特定技能 離職, 外国人社員 コミュニケーション, やさしい日本語, 外国人材 受け入れ]
+    service_bridge: 受け入れ環境の定着デザイン
+
+# スコアリング設定
+scoring:
+  # 需要スコア = 出現数 × 意図の重み。意図語が含まれるサジェストは重み付け
+  intent_words:
+    high: [失敗, 意味ない, 定着しない, 効果ない, やり方, 改善, 形骸化, 比較, 費用]   # 悩み・購買意図
+    mid: [とは, 事例, メリット, デメリット]
+  # 同じ語でも文脈が違う検索を落とす（例: ゲームの「1on1」＝1対1の対戦）。
+  # レポートに雑音が混ざったら、ここに1語足すだけで次回から消える
+  noise_words:
+    - valorant
+    - apex
+    - ブロスタ
+    - 第五人格
+    - 第五
+    - コンパス
+    - スプラ
+    - フォートナイト
+    - ポケモン
+    - デュエル
+    - 2k26
+    - 2k25
+    - バスケ
+    - サッカー
+    - 格闘
+    - 対戦
+  # 資産マッチ 0件 かつ 需要スコア上位 → 「新サービス候補」として起案対象
+  new_service_threshold: 5
