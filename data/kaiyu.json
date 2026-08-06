@@ -1130,6 +1130,21 @@
       ]
     },
     {
+      "id": "jirei-1on1",
+      "path": "jirei-1on1.html",
+      "title": "事例 No.011 1on1の定着",
+      "tag": "事例集",
+      "desc": "続いた会社と、形だけ残った会社。分岐点は「導入の日ではなく、三ヶ月後の続け方を先に設計したか」。ヤフーの実名事例と、全社一斉導入の典型パターンを併記します。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-08-06",
+      "band": true,
+      "next": [
+        "1on1-zukan",
+        "taiwa-teichaku"
+      ]
+    },
+    {
       "id": "tenshoku-no-sho",
       "path": "tenshoku-no-sho.html",
       "title": "みんなで作る 生涯キャリア図鑑",

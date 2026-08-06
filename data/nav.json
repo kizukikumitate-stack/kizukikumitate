@@ -340,6 +340,11 @@
             "desc": "対話の道具にした会社と、書類で終わった会社の分岐点"
           },
           {
+            "label": "1on1の定着",
+            "href": "jirei-1on1.html",
+            "desc": "続いた会社と、形だけ残った会社の分岐点"
+          },
+          {
             "label": "おもしろ人事制度",
             "href": "jirei-omoshiro-jinji.html",
             "desc": "思想から育てた制度と、話題づくりの制度の分岐点"
@@ -767,6 +772,10 @@
     },
     {
       "path": "jirei-mokuhyo.html",
+      "variant": "standard"
+    },
+    {
+      "path": "jirei-1on1.html",
       "variant": "standard"
     },
     {

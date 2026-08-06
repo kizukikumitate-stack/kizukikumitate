@@ -11,19 +11,19 @@
   gtag('js', new Date());
   gtag('config', 'G-E3YZKY8DQG');
 </script>
-<title>1on1の成功と失敗の図鑑 | きづきくみたて工房</title>
-<meta name="description" content="職場の1on1に生息する、うまくいくパターン24種としくじりパターン26種の観察図鑑。進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……だれかのせいにせず、二人のあいだで起きる現象として眺めながら、次の1on1で試す一歩を1つ見つけられます。">
+<title>1on1の成功と失敗の図鑑｜「意味ない」と感じたら読む逆引きガイド｜きづきくみたて工房</title>
+<meta name="description" content="1on1が形骸化する・話すことがない・部下が話さない——その原因は資質ではなく環境にある。うまくいくパターン24種としくじりパターン26種を併記し、症状から逆引きできる観察図鑑。診断と処方箋の入口つき。">
 <link rel="canonical" href="https://kizukikumitate.com/1on1-zukan.html">
 <meta property="og:type" content="website">
 <meta property="og:title" content="1on1の成功と失敗の図鑑｜うちの1on1、どれ?">
-<meta property="og:description" content="進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵した観察図鑑。">
+<meta property="og:description" content="進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功24・失敗26のパターンを、出没場面と対処法つきで収蔵した観察図鑑。症状から引ける逆引きつき。">
 <meta property="og:url" content="https://kizukikumitate.com/1on1-zukan.html">
 <meta property="og:image" content="https://kizukikumitate.com/1on1-zukan-ogp.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="1on1の成功と失敗の図鑑｜うちの1on1、どれ?">
-<meta name="twitter:description" content="進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功14・失敗16のパターンを、出没場面と対処法つきで収蔵した観察図鑑。">
+<meta name="twitter:description" content="進捗報告会オバケ、即アドバイス魔、なんでも言える結界師……職場の1on1に生息する成功24・失敗26のパターンを、出没場面と対処法つきで収蔵した観察図鑑。症状から引ける逆引きつき。">
 <meta name="twitter:image" content="https://kizukikumitate.com/1on1-zukan-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&display=swap" rel="stylesheet">
@@ -283,6 +283,45 @@
   }
   .howto b{color:var(--ink);}
 
+  /* ===== 悩み別逆引き（症状から標本を引く） ===== */
+  .gyaku, .faq{max-width:1040px;margin:38px auto 0;padding:0 16px;}
+  .gyaku h2, .faq h2{font-size:clamp(19px,3.2vw,25px);font-weight:800;letter-spacing:.04em;text-align:center;}
+  .gyaku-lead, .faq-lead{max-width:640px;margin:12px auto 0;font-size:13.5px;color:var(--sub);text-align:center;}
+  .gyaku-list{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:22px;}
+  .gyaku-item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:4px solid var(--accent);
+    border-radius:12px;
+    padding:18px 20px 16px;
+    scroll-margin-top:calc(var(--navh) + 72px);
+  }
+  .gyaku-item h3{font-size:16.5px;font-weight:800;letter-spacing:.02em;}
+  .gyaku-item p{font-size:13.5px;margin-top:9px;}
+  .gyaku-specs{list-style:none;margin:13px 0 0;padding:12px 0 0;border-top:1px dashed var(--line);display:flex;flex-direction:column;align-items:stretch;gap:7px;}
+  .gyaku-specs li{font-size:12.5px;color:var(--sub);}
+  .gyaku-specs a{color:var(--ink);font-weight:700;text-decoration:none;border-bottom:1px solid var(--line);}
+  .gyaku-specs a:hover{color:var(--accent);border-bottom-color:var(--accent);}
+  .gyaku-specs .g-no{
+    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;
+    color:#fff;border-radius:5px;padding:1px 7px;margin-right:5px;vertical-align:1px;
+  }
+  .gyaku-specs .g-bad{background:var(--bad);}
+  .gyaku-specs .g-good{background:var(--good);}
+  .gyaku-cta{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px;}
+  .gyaku-cta .g-lead{font-size:12px;color:var(--sub);}
+  .gyaku-cta a{
+    display:inline-block;background:var(--ink);color:#fff;
+    font-size:13px;font-weight:700;text-decoration:none;
+    border-radius:999px;padding:8px 18px;transition:background .15s;
+  }
+  .gyaku-cta a:hover{background:var(--accent);}
+  .card{scroll-margin-top:calc(var(--navh) + 72px);}
+  .card.flash{box-shadow:0 0 0 3px var(--accent),0 6px 18px rgba(43,42,38,.12);}
+  .faq-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-top:10px;}
+  .faq-q{font-size:14px;font-weight:800;}
+  .faq-a{font-size:13px;color:var(--sub);margin-top:6px;}
+
   /* ===== 共通グローバルナビ・フッター（サイト共通パーツ） ===== */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -382,7 +421,7 @@
   "url": "https://kizukikumitate.com/1on1-zukan.html",
   "image": "https://kizukikumitate.com/1on1-zukan-ogp.png",
   "datePublished": "2026-07-20",
-  "dateModified": "2026-07-20",
+  "dateModified": "2026-08-06",
   "author": {
     "@type": "Person",
     "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
@@ -399,6 +438,39 @@
     }
   },
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
+<!-- ===== よくある質問（FAQPage） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "1on1は意味ないのでは？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "意味のない1on1は実在しますが、原因の多くは評価面談との混在・目的の不在・実施率だけが報告される運用という構造にあります。道具ではなく環境の問題であり、環境を見立て直せば変えられます。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "1on1で話すことがない時はどうすればいい？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "話題を話す側が持ち込む設計に変えることが、本質的な解決です。聞く側が「今週何かある？」と切り出す形式は、アジェンダの持ち主が入れ替わっているサインです。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "1on1が形骸化するのはなぜ？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "行動科学の知見では、行動が続かない原因の大半は個人の意欲ではなく、情報・道具・仕組みといった環境要因の欠落にあります。定着には制度の導入だけでなく、環境の設計が必要です。"
+      }
+    }
+  ]
 }
 </script>
 </head>
@@ -505,6 +577,7 @@
         <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
         <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
         <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
+        <a href="./jirei-1on1.html" title="続いた会社と、形だけ残った会社の分岐点">1on1の定着</a>
         <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
         <span class="nav-dd-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.63rem;font-weight:700;letter-spacing:.14em;color:#9a95c0;white-space:nowrap;padding:.5rem 1.5rem .2rem;border-top:1px solid #ececf3;margin-top:.35rem;padding-top:.55rem;">社会の事例</span>
         <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
@@ -638,6 +711,7 @@
       <a href="./jirei-hyoka.html" title="対話とセットで変えた会社と、制度だけ差し替えた会社の分岐点">評価制度の改訂</a>
       <a href="./jirei-tatewari.html" title="仕組みで橋を架けた会社と、交流に頼った会社の分岐点">縦割りの解消</a>
       <a href="./jirei-mokuhyo.html" title="対話の道具にした会社と、書類で終わった会社の分岐点">目標設定と目標管理</a>
+      <a href="./jirei-1on1.html" title="続いた会社と、形だけ残った会社の分岐点">1on1の定着</a>
       <a href="./jirei-omoshiro-jinji.html" title="思想から育てた制度と、話題づくりの制度の分岐点">おもしろ人事制度</a>
       <span class="mobile-acc-heading" style="display:block;font-family:'Jost','Noto Sans JP',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.12em;color:#9a95c0;padding:.55rem 0 .1rem;text-align:center;border-top:1px solid #ececf3;margin-top:.3rem;padding-top:.5rem;">社会の事例</span>
       <a href="./jirei-shotengai.html" title="高松丸亀町商店街はなぜ再生できたのか、の事例">商店街の立て直し</a>
@@ -725,6 +799,93 @@
     3. 二人で同じカードを見ながら「うちの1on1どれ?」と話すと、それ自体が良い1on1になる。
   </div>
 </main>
+
+<!-- ===== 悩み別逆引き ===== -->
+<section class="gyaku" id="gyaku" aria-labelledby="gyaku-title">
+  <h2 id="gyaku-title">こんなときは、どの標本を読むか。</h2>
+  <p class="gyaku-lead">図鑑は頭から読むものではない。いま困っている症状から、逆に引くためにある。ここでは現場でよく聞く五つの症状と、その入口を示す。</p>
+  <div class="gyaku-list">
+
+    <article class="gyaku-item" id="imi-nai">
+      <h3>「1on1、意味なくない?」と思ったら</h3>
+      <p>その直感は、たぶん正しい。意味のない1on1は実在する。ただし原因は、あなたや相手の資質ではない。よくある構造は三つある。</p>
+      <p>ひとつ、評価面談と混ざっている。話すほど査定に響く場で、本音が出るはずがない。ふたつ、目的が誰にも説明されていない。「会社がやれと言うから」の時間は、双方にとって持ち出しである。みっつ、実施率だけが人事に報告され、中身は誰も見ていない。意味がないのは1on1という道具ではなく、それが置かれた環境のほうだ。</p>
+      <ul class="gyaku-specs">
+        <li><a class="spec-link" href="#p-f-07"><span class="g-no g-bad">F-07</span>評価面談ミキサー</a>　査定が混ざった場では、模範解答だけが並ぶ。</li>
+        <li><a class="spec-link" href="#p-f-13"><span class="g-no g-bad">F-13</span>目的迷子</a>　何のための時間かを、どちらも説明できない。</li>
+        <li><a class="spec-link" href="#p-f-01"><span class="g-no g-bad">F-01</span>進捗報告会オバケ</a>　会議名だけが1on1で、中身は進捗確認。</li>
+      </ul>
+      <p class="gyaku-cta"><span class="g-lead">環境のどこが詰まっているかを見立てる</span><a href="./yokai/">会社の妖怪診断（無料・3分）</a></p>
+    </article>
+
+    <article class="gyaku-item" id="hanasu-koto-ga-nai">
+      <h3>話すことがなくなったら</h3>
+      <p>ネタ切れは、続いている証拠でもある。ただし「今週何かある?」から始まる1on1は、アジェンダの持ち主が聞く側になっている。</p>
+      <p>この時間の主役は話す側であり、話題は話す側から持ち込まれる設計になっていなければ、いずれ雑談か沈黙に行き着く。話すことがないのではない。話すことを持ち込む仕組みがないのだ。</p>
+      <ul class="gyaku-specs">
+        <li><a class="spec-link" href="#p-s-01"><span class="g-no g-good">S-01</span>アジェンダは話す側のもの</a>　議題の所有権を渡すところから始める。</li>
+        <li><a class="spec-link" href="#p-s-11"><span class="g-no g-good">S-11</span>事前メモ持参勢</a>　前日1分の準備で、30分の価値が変わる。</li>
+        <li><a class="spec-link" href="#p-f-14"><span class="g-no g-bad">F-14</span>ネタ切れ無言勢</a>　「特にないです」は、たいてい在庫切れではない。</li>
+      </ul>
+      <p class="gyaku-cta"><span class="g-lead">議題の型と問いを組織ごと設計する</span><a href="./dialogue-program.html">対話力向上プログラム（企業向け研修）</a></p>
+    </article>
+
+    <article class="gyaku-item" id="keigaika">
+      <h3>制度はあるのに、形骸化していたら</h3>
+      <p>導入初月は全員やっていた。半年後、カレンダーには残っているが、中身は進捗確認に戻っている——これは意志の弱さではなく、行動科学でいう「環境要因」の欠落である。</p>
+      <p>ギルバート（トーマス・ギルバート／行動工学モデル（BEM）の提唱者。人の成果を個人の資質と環境の両面から分析した）によれば、行動が続かない原因の大半は個人の知識や意欲ではなく、情報・道具・仕組みといった環境の側にある。形骸化は怠慢の別名ではなく、続ける理由が環境に埋め込まれていない、という診断名だ。</p>
+      <ul class="gyaku-specs">
+        <li><a class="spec-link" href="#p-f-05"><span class="g-no g-bad">F-05</span>リスケ無限ループ</a>　枠が動く場は、優先度の低さとして伝わる。</li>
+        <li><a class="spec-link" href="#p-f-16"><span class="g-no g-bad">F-16</span>やりっぱなし製造機</a>　決めたことが次回に接続されない。</li>
+        <li><a class="spec-link" href="#p-s-15"><span class="g-no g-good">S-15</span>1on1をふりかえる人</a>　場そのものを二人で育て直す。</li>
+        <li><a href="./jirei-1on1.html">事例集「1on1の定着」</a>　続いた会社と続かなかった会社の分岐点。</li>
+      </ul>
+      <p class="gyaku-cta"><span class="g-lead">続く仕組みごと設計する</span><a href="./taiwa-teichaku.html">対話定着デザイン</a></p>
+    </article>
+
+    <article class="gyaku-item" id="buka-ga-hanasanai">
+      <h3>部下が話してくれなかったら</h3>
+      <p>沈黙は拒絶ではなく、多くの場合は安全性の計算結果である。「正直に話しても損をしない」と確信できるまで、人は当たり障りのないことしか言わない。これはホモ・サピエンスの仕様であって、その人の性格ではない。</p>
+      <p>権威の勾配がある場では、聞く側が先にリスクを取る——自分から弱みを見せる、評価と切り離すと宣言して実際に守る——ことでしか、天秤は動かない。</p>
+      <ul class="gyaku-specs">
+        <li><a class="spec-link" href="#p-f-15"><span class="g-no g-bad">F-15</span>建前バリア</a>　様子見の膜は、安全だと分かるまで薄くならない。</li>
+        <li><a class="spec-link" href="#p-s-13"><span class="g-no g-good">S-13</span>自己開示から始める人</a>　先に開くのは、勾配の上にいる側から。</li>
+        <li><a class="spec-link" href="#p-s-08"><span class="g-no g-good">S-08</span>なんでも言える結界師</a>　心理的安全性は、場に張るもの。</li>
+        <li><a href="./nigate-zukan.html#cards">ホモ・サピエンスの苦手図鑑 No.012 権威勾配</a>　この仕様の詳細はこちら。</li>
+      </ul>
+      <p class="gyaku-cta"><span class="g-lead">聞く側の筋トレから始める</span><a href="./dialogue-program-trial.html">デモクラシーフィットネス体験会</a></p>
+    </article>
+
+    <article class="gyaku-item" id="yarikata">
+      <h3>そもそも、やり方から知りたかったら</h3>
+      <p>型は存在する。ただし型だけ学んで現場に戻ると、数週間で元に戻ることも分かっている。研修転移の研究が繰り返し示してきた事実だ。</p>
+      <p>だからこの図鑑は、やり方と一緒に「続かなかった実例」を併記している。始める前に、失敗標本のほうから読んでほしい。自分が踏みそうな順に、心当たりが並んでいるはずだ。</p>
+      <ul class="gyaku-specs">
+        <li><a href="#sec-bad">失敗パターン編（全26種）</a>　まず、やらないことを決めるために。</li>
+        <li><a href="#sec-good">成功パターン編（全24種）</a>　次に、ひとつだけ選んで試すために。</li>
+      </ul>
+      <p class="gyaku-cta"><span class="g-lead">型と、続ける運用をまとめて学ぶ</span><a href="./dialogue-program.html">対話力向上プログラム（企業向け研修）</a></p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <h2 id="faq-title">よくある質問</h2>
+  <div class="faq-item">
+    <p class="faq-q">1on1は意味ないのでは?</p>
+    <p class="faq-a">意味のない1on1は実在しますが、原因の多くは評価面談との混在・目的の不在・実施率だけが報告される運用という構造にあります。道具ではなく環境の問題であり、環境を見立て直せば変えられます。</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">1on1で話すことがない時はどうすればいい?</p>
+    <p class="faq-a">話題を話す側が持ち込む設計に変えることが、本質的な解決です。聞く側が「今週何かある?」と切り出す形式は、アジェンダの持ち主が入れ替わっているサインです。</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">1on1が形骸化するのはなぜ?</p>
+    <p class="faq-a">行動科学の知見では、行動が続かない原因の大半は個人の意欲ではなく、情報・道具・仕組みといった環境要因の欠落にあります。定着には制度の導入だけでなく、環境の設計が要ります。</p>
+  </div>
+</section>
 
 <div class="pagenote">1on1の成功と失敗の図鑑 — 全パターンはフィクションですが、あなたの職場に実在する可能性があります。</div>
 
@@ -994,6 +1155,7 @@ function roleLabel(r){ return "ふたり共通"; }
 DATA.forEach(d=>{
   const card = document.createElement('div');
   card.className = 'card ' + d.type;
+  card.id = 'p-' + d.no.toLowerCase();
   card.dataset.type = d.type;
   card.dataset.role = d.role;
   card.dataset.text = (d.name+d.alias+d.desc+d.scene+d.fix+d.cat+d.quote).toLowerCase();
@@ -1067,6 +1229,40 @@ document.getElementById('search').addEventListener('input', e=>{
   curQ = e.target.value.trim().toLowerCase();
   applyFilter();
 });
+
+/* 逆引きセクションから標本カードへ飛ぶとき、絞り込みを解除して該当カードを開く */
+function revealSpecimen(hash){
+  const card = hash && document.getElementById(hash.slice(1));
+  if(!card || !card.classList.contains('card')) return false;
+  if(curType !== 'all' || curQ){
+    curType = 'all'; curQ = '';
+    document.getElementById('search').value = '';
+    document.querySelectorAll('#type-filter .chip').forEach(c=>c.classList.toggle('active', c.dataset.type === 'all'));
+    applyFilter();
+  }
+  if(!card.classList.contains('open')){
+    card.classList.add('open');
+    card.setAttribute('aria-expanded','true');
+  }
+  card.classList.add('flash');
+  setTimeout(()=>card.classList.remove('flash'), 1600);
+  card.scrollIntoView({behavior:'smooth', block:'start'});
+  return true;
+}
+
+document.addEventListener('click', e=>{
+  const a = e.target.closest('a.spec-link');
+  if(!a) return;
+  const hash = a.getAttribute('href');
+  if(revealSpecimen(hash)){
+    e.preventDefault();
+    history.replaceState(null, '', hash);
+  }
+});
+
+window.addEventListener('DOMContentLoaded', ()=>{
+  if(location.hash.startsWith('#p-')) revealSpecimen(location.hash);
+});
 </script>
 <!-- KAIYU START -->
 <aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
@@ -1124,7 +1320,7 @@ document.getElementById('search').addEventListener('input', e=>{
   <div class="kaiyu-grid">
     <a class="kaiyu-card" href="./reflection-zukan.html"><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">ふりかえりの技法図鑑</span><span class="kaiyu-desc">ジャーナリング・ORID・KPT・AAR・プレモーテム・免疫マップ……ひとりでもチームでも使えるふりかえりの技法23種を、やり方・所要時間・由来・コツつきで収蔵。</span><span class="kaiyu-arw">→</span></a>
     <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./rocket-inside.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">目指す未来</span><span class="kaiyu-name">ロケットの中 ― 工房のサブエージェント</span><span class="kaiyu-desc">工房で実際に働いているAIエージェントを、生涯キャリア図鑑と同じジョブカードにして、3つのフロアに分けて並べたページ。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./jirei-1on1.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">事例集</span><span class="kaiyu-name">事例 No.011 1on1の定着</span><span class="kaiyu-desc">続いた会社と、形だけ残った会社。分岐点は「導入の日ではなく、三ヶ月後の続け方を先に設計したか」。ヤフーの実名事例と、全社一斉導入の典型パターンを併記します。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
 </aside>
