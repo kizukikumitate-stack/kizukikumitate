@@ -48,6 +48,9 @@ Democracy Fitness 等のハブ。
 - *-mockup.html / preview-diagram.html / od-overflow-check.html / ogp-generator.html — 作業用（ナビ非掲載）
 - data/nav.json + scripts/update-nav.py — グローバルナビ・フッターの台帳・自動同期（唯一の正）
 - data/kaiyu.json + scripts/update-kaiyu.py — サイト内回遊バンドの台帳・自動更新
+- config/assets.yaml + scripts/demand_watcher.py — 需要ウォッチャー（週次）の台帳・本体。
+  Googleサジェストを集めて既存資産とマッチさせ、受け皿のないワードは新サービス候補として
+  Issue起票する。手順は config/demand-watcher.md、レポートは reports/ に溜まる
 - scripts/update-calculators.py — 未来リスク計算機6本の共通パーツ（版・出典・免責・ライセンス・
   「簡易試算」バッジ）の正。6本はCSS/JSがコピペ共有なので、共通文言を手で1本ずつ直すと必ず
   取り残しが出る。`<!-- CALC-COMMON START/END -->` 間が生成物。版を上げるときは VERSION を
@@ -117,6 +120,9 @@ Democracy Fitness 等のハブ。
   ⚠️ sitemap.xml だけは**ジェネレーターが無く手動メンテ**で、update-nav.py を通しても入らず CI も
   検証しない＝黙って漏れる。現状ナビ掲載35ページに対し21件しか載っておらず、実際に漏れ続けている。
   形式は既存エントリのコピーでよい（`loc` / `lastmod` / `changefreq: monthly` / `priority: 0.6`）
+- **新規ページを作ったら `config/assets.yaml` の `assets` にも1エントリ追加する**（需要ウォッチャーの
+  資産レジストリ。`tags` を書くだけで検索ワードの受け皿として認識される）。⚠️ ここに無いと、
+  すでに受け皿があるワードを「受け皿なし＝新サービス候補」と誤判定し、毎週同じ起案が出続ける
 - ローカル確認: `python3 scripts/update-nav.py`（生成）/ `--check`（検証のみ）
 - 詳細は `scripts/update-nav.py` の冒頭コメントと `data/nav.json` の `_comment` を読む
 
@@ -228,8 +234,10 @@ Democracy Fitness 等のハブ。
 - 意図的に汎用 `ogp.png` のままにするページ（法定表記など）は `_exclude` に理由付きで登録
 - 数字を扱うページ（未来リスク計算機）は `template:"calc"`（「簡易試算」バッジ＋
   具体値なしの概念チャート）を使い、コピーは中立・煽らない（数字ページの原則と整合）
-- 画像は 1200×630・ルート直下 `<name>-ogp.png`。`systems-thinking-zukan` だけは
-  因果ループ図入りの専用デザイン（台帳外・`_bespoke`）
+- 画像は 1200×630・ルート直下 `<name>-ogp.png`
+- **写真入り・図入りなど専用デザインのOGPは `_bespoke` に理由付きで登録し、`pages` からは外す**
+  （`pages` に残すと全再生成でテキストテンプレに上書きされ、写真が黙って消える）。
+  現在の該当: `systems-thinking-zukan`（因果ループ図）/ `karuizawa-offsite`（合宿会場の写真）
 
 ### 文言のトーン（森本さんの好み）
 
