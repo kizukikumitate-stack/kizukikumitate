@@ -717,16 +717,16 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <div class="wrap">
   <header class="dq">
-    <h1>はたらく<span class="deco">現在地</span>診断</h1>
-    <p class="sub">はたらくことで得られる4つのほうしゅう——💰収入・❤️やりがい・⏳時間の自由・⭐市場価値。いまのあなたは、どれが満たされ、どれが渇いている？</p>
+    <h1 id="pageH1">はたらく<span class="deco">現在地</span>診断</h1>
+    <p class="sub" id="pageSub">はたらくことで得られる4つのほうしゅう——💰収入・❤️やりがい・⏳時間の自由・⭐市場価値。いまのあなたは、どれが満たされ、どれが渇いている？</p>
     <div class="pair-links">
-      <a class="pair-link" href="./tenshoku-no-sho.html">📖 生涯キャリア図鑑を見る</a>
-      <a class="pair-link" href="./gyokai-zukan.html">🗺 業界図鑑を見る</a>
+      <a class="pair-link" id="pairCareerLink" href="./tenshoku-no-sho.html">📖 生涯キャリア図鑑を見る</a>
+      <a class="pair-link" id="pairIndustryLink" href="./gyokai-zukan.html">🗺 業界図鑑を見る</a>
     </div>
   </header>
 
   <section id="introPanel" class="dq intro">
-    <p><b style="color:var(--ink)">8つの質問</b>で、あなたがいま求めているほうしゅうを。そのあと<b style="color:var(--ink)">15枚のカード</b>で、はたらく中で「わりと平気なこと」と「できれば避けたいこと」を3つずつ。この2つから、あなたに合いそうな職業と大陸をおすすめします。回答は保存されず、URLで結果を共有できます。</p>
+    <p id="introText"><b style="color:var(--ink)">8つの質問</b>で、あなたがいま求めているほうしゅうを。そのあと<b style="color:var(--ink)">15枚のカード</b>で、はたらく中で「わりと平気なこと」と「できれば避けたいこと」を3つずつ。この2つから、あなたに合いそうな職業と大陸をおすすめします。回答は保存されず、URLで結果を共有できます。</p>
     <div class="reward-legend">
       <span class="chip">💰 収入</span>
       <span class="chip">❤️ やりがい</span>
@@ -768,7 +768,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <h2 class="cards-title" id="cardTitle" tabindex="-1">これは、わりと平気</h2>
     <p class="cards-lead" id="cardLead">はたらく中で起きることを15枚並べました。この中で<b>「自分はわりと平気」なものを3つ</b>選んでください。</p>
     <div class="card-grid" id="cardGrid" role="group" aria-labelledby="cardTitle"></div>
-    <p class="cards-count" aria-live="polite"><span id="cardCount">0</span> / 3 まい</p>
+    <p class="cards-count" aria-live="polite"><span id="cardCount">0</span><span id="cardCountSuffix"> / 3 まい</span></p>
     <div class="q-nav">
       <button type="button" class="ghost-btn" id="cardPrev">◀ もどる</button>
       <button type="button" class="big-btn" id="cardNext" disabled>次へ</button>
@@ -783,43 +783,43 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     <span class="code-badge" id="codeBadge" hidden></span>
     <p class="result-desc" id="resDesc"></p>
     <p class="picked-line" id="resPicks" hidden></p>
-    <div class="sec-label">あなたのニーズと、いまの差分</div>
+    <div class="sec-label" id="secGapsLabel">あなたのニーズと、いまの差分</div>
     <div class="gap-table" id="resGaps"></div>
-    <p class="res-note"><a class="how-link" href="#howto">▼ この結果がどう選ばれたか、しくみを読む</a></p>
-    <div class="sec-label">おすすめの探索先（生涯キャリア図鑑の職業）</div>
+    <p class="res-note"><a class="how-link" id="howtoLink" href="#howto">▼ この結果がどう選ばれたか、しくみを読む</a></p>
+    <div class="sec-label" id="secJobsLabel">おすすめの探索先（生涯キャリア図鑑の職業）</div>
     <div class="links" id="resJobs"></div>
     <p class="res-note" id="resJobsNote" hidden></p>
     <div class="sec-label" id="resIndsLabel">おすすめの探索先（業界図鑑の大陸）</div>
     <div class="links" id="resInds"></div>
     <p class="res-note" id="resIndsNote" hidden></p>
-    <p class="res-note res-caveat">※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは、図鑑の★の高さに加えて、あなたが選んだカード（耐性のタグ付けも編集部の判断です）で絞り込んだ目安です。同じ職業でも会社や働き方で大きく変わります。ここに出ていない職業も図鑑には129職ぶん収蔵されているので、気になる道は図鑑から直接さがしてみてください。</p>
+    <p class="res-note res-caveat" id="resCaveat">※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは、図鑑の★の高さに加えて、あなたが選んだカード（耐性のタグ付けも編集部の判断です）で絞り込んだ目安です。同じ職業でも会社や働き方で大きく変わります。ここに出ていない職業も図鑑には129職ぶん収蔵されているので、気になる道は図鑑から直接さがしてみてください。</p>
     <section id="adventureBook" class="dq book" aria-label="わたしの冒険の書">
       <div class="book-frame">
-        <div class="book-eyebrow">はたらく現在地診断</div>
-        <h2 class="book-title">わたしの冒険の書</h2>
+        <div class="book-eyebrow" id="bkEyebrow">はたらく現在地診断</div>
+        <h2 class="book-title" id="bkBookTitle">わたしの冒険の書</h2>
         <div class="book-name">
-          <label for="bkName">冒険者の名前</label>
+          <label for="bkName" id="bkNameLabel">冒険者の名前</label>
           <input id="bkName" type="text" placeholder="お名前・ニックネーム（任意）" autocomplete="off">
           <span class="book-date" id="bkDate"></span>
         </div>
         <div class="book-sec">
-          <div class="book-h">いまの現在地</div>
+          <div class="book-h" id="bkSecLabel1">いまの現在地</div>
           <div class="book-type" id="bkType"></div>
           <div class="book-gaps" id="bkGaps"></div>
         </div>
         <div class="book-sec">
-          <div class="book-h">わたしが選んだカード</div>
+          <div class="book-h" id="bkSecLabel2">わたしが選んだカード</div>
           <div class="book-cards" id="bkCards"></div>
         </div>
         <div class="book-sec">
-          <div class="book-h">目指してみたい道</div>
+          <div class="book-h" id="bkSecLabel3">目指してみたい道</div>
           <input id="bkGoal" type="text" placeholder="気になった職業や大陸を書いてみよう（例：データサイエンティスト／医療・福祉の大陸）" autocomplete="off">
         </div>
         <div class="book-sec">
-          <div class="book-h">今日の一歩</div>
+          <div class="book-h" id="bkSecLabel4">今日の一歩</div>
           <textarea id="bkStep" placeholder="今日、これからひとつだけ試してみること（例：気になった職業カードを1つ読む）"></textarea>
         </div>
-        <div class="book-foot">きづきくみたて工房 ／ みんなで作る 生涯キャリア図鑑・業界図鑑</div>
+        <div class="book-foot" id="bkFoot">きづきくみたて工房 ／ みんなで作る 生涯キャリア図鑑・業界図鑑</div>
       </div>
     </section>
     <div class="result-actions">
@@ -1121,7 +1121,9 @@ function renderQuestion(){
   });
   prevBtn.disabled = qi===0;
   nextBtn.disabled = !answers[qi];
-  nextBtn.textContent = qi===QUESTIONS.length-1 ? '結果を見る' : '次へ';
+  nextBtn.textContent = qi===QUESTIONS.length-1
+    ? (LANG==='en' ? 'See my result' : '結果を見る')
+    : (LANG==='en' ? 'Next' : '次へ');
 }
 /* 質問を切り替えたら、質問文へフォーカスを移す
    （nextBtn は次の問で disabled になるため、フォーカスが body に落ちてしまう） */
@@ -1164,10 +1166,16 @@ function currentPicks(){ return cardStepNo===1 ? okTags : avoidTags; }
 function renderCards(){
   const picks = currentPicks();
   const locked = cardStepNo===2 ? okTags : [];
-  cardTitle.textContent = cardStepNo===1 ? 'これは、わりと平気' : 'これは、できれば避けたい';
-  cardLead.innerHTML = cardStepNo===1
-    ? 'はたらく中で起きることを15枚ならべました。この中で<b>「自分はわりと平気」なものを3つ</b>選んでください。順番は気にしなくて大丈夫です。'
-    : '今度は逆に、<b>「これは避けたい」ものを3つ</b>選んでください。<span style="color:var(--ink-muted)">（1つ前で選んだ3枚は選べません）</span>';
+  cardTitle.textContent = LANG==='en'
+    ? (cardStepNo===1 ? 'Things I can handle' : "Things I'd rather avoid")
+    : (cardStepNo===1 ? 'これは、わりと平気' : 'これは、できれば避けたい');
+  cardLead.innerHTML = LANG==='en'
+    ? (cardStepNo===1
+      ? "Here are 15 things that can happen at work. Pick <b>3 that you can handle fairly well</b>. The order doesn't matter."
+      : "Now the opposite: pick <b>3 things you'd rather avoid</b>. <span style=\"color:var(--ink-muted)\">(The 3 you picked before can't be chosen again.)</span>")
+    : (cardStepNo===1
+      ? 'はたらく中で起きることを15枚ならべました。この中で<b>「自分はわりと平気」なものを3つ</b>選んでください。順番は気にしなくて大丈夫です。'
+      : '今度は逆に、<b>「これは避けたい」ものを3つ</b>選んでください。<span style="color:var(--ink-muted)">（1つ前で選んだ3枚は選べません）</span>');
   cardGrid.innerHTML = TAISEI.map(t=>{
     const i = picks.indexOf(t.k);
     const dis = locked.indexOf(t.k)>=0;
@@ -1180,12 +1188,16 @@ function renderCards(){
       '<span class="tc-desc">'+t.d+'</span></button>';
   }).join('');
   document.getElementById('cardCount').textContent = String(picks.length);
-  document.getElementById('cardStep').textContent = cardStepNo===1 ? 'あと 2 ステップ' : 'あと 1 ステップ';
+  document.getElementById('cardStep').textContent = LANG==='en'
+    ? (cardStepNo===1 ? '2 steps left' : '1 step left')
+    : (cardStepNo===1 ? 'あと 2 ステップ' : 'あと 1 ステップ');
   const track = document.getElementById('cardTrack');
   document.getElementById('cardBar').style.width = (picks.length/CARD_PICK*100)+'%';
   if(track) track.setAttribute('aria-valuenow', String(picks.length));
   cardNext.disabled = picks.length !== CARD_PICK;
-  cardNext.textContent = cardStepNo===1 ? '次へ' : '結果を見る';
+  cardNext.textContent = LANG==='en'
+    ? (cardStepNo===1 ? 'Next' : 'See my result')
+    : (cardStepNo===1 ? '次へ' : '結果を見る');
 }
 cardGrid.addEventListener('click', e=>{
   const b = e.target.closest('.tcard');
@@ -1312,7 +1324,7 @@ function showResult(opts){
   document.getElementById('resIndsLabel').hidden = ir.list.length===0 && !t.indsNote;
   const code = currentCode();
   const codeBadge = document.getElementById('codeBadge');
-  if(code){ codeBadge.textContent = '案内コード: '+code; codeBadge.hidden = false; } else { codeBadge.hidden = true; }
+  if(code){ codeBadge.textContent = (LANG==='en' ? 'Guide code: ' : '案内コード: ')+code; codeBadge.hidden = false; } else { codeBadge.hidden = true; }
   /* マイ冒険の書を埋める（現在地→目指す道→今日の一歩を1枚に） */
   fillAdventureBook(t, nameSuffix, r2, jr);
   quizPanel.hidden = true;
@@ -1342,7 +1354,9 @@ function fillAdventureBook(t, nameSuffix, r2, jr){
   }
   /* 日付（ブラウザのローカル日付） */
   const d = new Date();
-  document.getElementById('bkDate').textContent = d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
+  document.getElementById('bkDate').textContent = LANG==='en'
+    ? EN_MONTHS[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear()
+    : d.getFullYear()+'年'+(d.getMonth()+1)+'月'+d.getDate()+'日';
   /* 目指す道: まだ空なら、いちばんのおすすめ職を下書きとして入れておく（編集可） */
   const goal = document.getElementById('bkGoal');
   if(!goal.value && jr.list.length) goal.value = jr.list[0].n;
@@ -1534,6 +1548,80 @@ try{
 }catch(e){}
 if(LANG !== 'en') LANG = 'ja';
 
+/* ================= 静的UIの英日化（chunk2） =================
+   ここで訳すのは「常に同じ文字列」（見出し・ボタン・冒険の書のラベル・注記）だけ。
+   QUESTIONS/TAISEI（chunk3）、TYPES/JOBP/INDP/REWARDS/GAP_WORD/tagNames/toast（chunk4）、
+   howto長文（chunk5）は意図的にここでは触らない（訳が半端に混ざるのを防ぐため）。
+   renderQuestion() / renderCards() 内の一部ボタン文言もこの辞書と同じ訳語を直書きしている
+   （LANG は本スクリプトより前に定義された関数からも、呼び出し時点で参照できるため問題ない）。 */
+const EN_MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const UI_STRINGS = {
+  h1: { ja: 'はたらく<span class="deco">現在地</span>診断', en: 'Where Am I, <span class="deco">at Work</span>?' },
+  sub: { ja: 'はたらくことで得られる4つのほうしゅう——💰収入・❤️やりがい・⏳時間の自由・⭐市場価値。いまのあなたは、どれが満たされ、どれが渇いている？', en: "There are 4 rewards you get from work — 💰Pay, ❤️Purpose, ⏳Time freedom, and ⭐Market value. Right now, which of these feels full, and which feels like it's missing?" },
+  pairCareer: { ja: '📖 生涯キャリア図鑑を見る', en: '📖 View the Career Atlas' },
+  pairIndustry: { ja: '🗺 業界図鑑を見る', en: '🗺 View the Industry Atlas' },
+  introText: { ja: '<b style="color:var(--ink)">8つの質問</b>で、あなたがいま求めているほうしゅうを。そのあと<b style="color:var(--ink)">15枚のカード</b>で、はたらく中で「わりと平気なこと」と「できれば避けたいこと」を3つずつ。この2つから、あなたに合いそうな職業と大陸をおすすめします。回答は保存されず、URLで結果を共有できます。', en: 'Answer <b style="color:var(--ink)">8 questions</b> about what you need most from work right now. Then pick <b style="color:var(--ink)">15 cards</b> to show what you can handle at work and what you\'d rather avoid, 3 each. From these two, we\'ll suggest jobs and continents that might fit you. Nothing is saved — you can share your result through the URL.' },
+  startBtn: { ja: '診断をはじめる（約3分）', en: 'Start the diagnosis (about 3 min)' },
+  backBtn: { ja: '◀ もどる', en: '◀ Back' },
+  progAriaLabel: { ja: '回答した質問の数', en: 'Number of questions answered' },
+  cardAriaLabel: { ja: '選んだカードの枚数', en: 'Number of cards chosen' },
+  cardCountSuffix: { ja: ' / 3 まい', en: ' / 3 cards' },
+  secGapsLabel: { ja: 'あなたのニーズと、いまの差分', en: 'Your needs and the current gap' },
+  howtoLink: { ja: '▼ この結果がどう選ばれたか、しくみを読む', en: '▼ Read how this result was chosen' },
+  secJobsLabel: { ja: 'おすすめの探索先（生涯キャリア図鑑の職業）', en: 'Suggested next stops (jobs in the Career Atlas)' },
+  resIndsLabel: { ja: 'おすすめの探索先（業界図鑑の大陸）', en: 'Suggested next stops (continents in the Industry Atlas)' },
+  resCaveat: { ja: '※ この診断は、いまの気持ちを整理して図鑑を読む入口にするための簡易的なものです。職業や業界の向き不向きを判定するものではありません。おすすめは、図鑑の★の高さに加えて、あなたが選んだカード（耐性のタグ付けも編集部の判断です）で絞り込んだ目安です。同じ職業でも会社や働き方で大きく変わります。ここに出ていない職業も図鑑には129職ぶん収蔵されているので、気になる道は図鑑から直接さがしてみてください。', en: '※ This diagnosis is a simple tool to help you sort out how you feel right now and open the door to the atlases — it does not judge whether a job or industry suits you. Suggestions are a rough guide based on the atlas star ratings plus the cards you picked (the tolerance tags are an editorial judgment, not official statistics). The same job can look very different depending on the company or way of working. The atlas holds 129 jobs in total, including ones not shown here, so feel free to browse it directly for other paths.' },
+  bkEyebrow: { ja: 'はたらく現在地診断', en: 'Where Am I, at Work?' },
+  bkBookTitle: { ja: 'わたしの冒険の書', en: 'My Adventure Log' },
+  bkNameLabel: { ja: '冒険者の名前', en: "Adventurer's name" },
+  bkNamePlaceholder: { ja: 'お名前・ニックネーム（任意）', en: 'Name or nickname (optional)' },
+  bkSecLabel1: { ja: 'いまの現在地', en: 'Where you are now' },
+  bkSecLabel2: { ja: 'わたしが選んだカード', en: 'Cards I chose' },
+  bkSecLabel3: { ja: '目指してみたい道', en: "A path I'd like to explore" },
+  bkGoalPlaceholder: { ja: '気になった職業や大陸を書いてみよう（例：データサイエンティスト／医療・福祉の大陸）', en: 'Write a job or continent that caught your eye (e.g. Data Scientist / the Healthcare & Welfare continent)' },
+  bkSecLabel4: { ja: '今日の一歩', en: "Today's one step" },
+  bkStepPlaceholder: { ja: '今日、これからひとつだけ試してみること（例：気になった職業カードを1つ読む）', en: 'One thing to try today (e.g. read one job card that caught your eye)' },
+  bkFoot: { ja: 'きづきくみたて工房 ／ みんなで作る 生涯キャリア図鑑・業界図鑑', en: 'Kizukikumitate Workshop / the community-built Career Atlas & Industry Atlas' },
+  shareBtn: { ja: '🔗 結果を共有する', en: '🔗 Share my result' },
+  printBtn: { ja: '🖨 冒険の書を印刷・PDF保存', en: '🖨 Print / save the adventure log as PDF' },
+  restartBtn: { ja: '↺ もう一度診断する', en: '↺ Take the diagnosis again' }
+};
+function applyUIStrings(){
+  const t = key => UI_STRINGS[key][LANG === 'en' ? 'en' : 'ja'];
+  document.getElementById('pageH1').innerHTML = t('h1');
+  document.getElementById('pageSub').textContent = t('sub');
+  document.getElementById('pairCareerLink').textContent = t('pairCareer');
+  document.getElementById('pairIndustryLink').textContent = t('pairIndustry');
+  document.getElementById('introText').innerHTML = t('introText');
+  document.getElementById('startBtn').textContent = t('startBtn');
+  document.getElementById('prevBtn').textContent = t('backBtn');
+  document.getElementById('cardPrev').textContent = t('backBtn');
+  const progTrack = document.getElementById('progTrack');
+  if(progTrack) progTrack.setAttribute('aria-label', t('progAriaLabel'));
+  const cardTrack = document.getElementById('cardTrack');
+  if(cardTrack) cardTrack.setAttribute('aria-label', t('cardAriaLabel'));
+  document.getElementById('cardCountSuffix').textContent = t('cardCountSuffix');
+  document.getElementById('secGapsLabel').textContent = t('secGapsLabel');
+  document.getElementById('howtoLink').textContent = t('howtoLink');
+  document.getElementById('secJobsLabel').textContent = t('secJobsLabel');
+  document.getElementById('resIndsLabel').textContent = t('resIndsLabel');
+  document.getElementById('resCaveat').textContent = t('resCaveat');
+  document.getElementById('bkEyebrow').textContent = t('bkEyebrow');
+  document.getElementById('bkBookTitle').textContent = t('bkBookTitle');
+  document.getElementById('bkNameLabel').textContent = t('bkNameLabel');
+  document.getElementById('bkName').placeholder = t('bkNamePlaceholder');
+  document.getElementById('bkSecLabel1').textContent = t('bkSecLabel1');
+  document.getElementById('bkSecLabel2').textContent = t('bkSecLabel2');
+  document.getElementById('bkSecLabel3').textContent = t('bkSecLabel3');
+  document.getElementById('bkGoal').placeholder = t('bkGoalPlaceholder');
+  document.getElementById('bkSecLabel4').textContent = t('bkSecLabel4');
+  document.getElementById('bkStep').placeholder = t('bkStepPlaceholder');
+  document.getElementById('bkFoot').textContent = t('bkFoot');
+  document.getElementById('shareBtn').textContent = t('shareBtn');
+  document.getElementById('printBtn').textContent = t('printBtn');
+  document.getElementById('restartBtn').textContent = t('restartBtn');
+}
+
 const JA_META = {
   title: document.title,
   description: document.querySelector('meta[name="description"]').content,
@@ -1576,9 +1664,11 @@ langBtn.addEventListener("click", ()=>{
     history.replaceState(null, '', u);
   }catch(e){}
   applyMetaLang();
+  applyUIStrings();
   syncLangBtn();
 });
 applyMetaLang();
+applyUIStrings();
 syncLangBtn();
 document.body.appendChild(langBtn);
 </script>
