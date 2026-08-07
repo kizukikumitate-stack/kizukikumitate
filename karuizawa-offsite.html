@@ -26,6 +26,7 @@
 <meta name="twitter:description" content="場所を変えただけの合宿は、景色のいい定例会議で終わる。軽井沢在住の設計者が、会場選びからプログラム設計・当日進行・持ち帰り後の定着まで伴走します。">
 <meta name="twitter:image" content="https://kizukikumitate.com/karuizawa-offsite-ogp.png">
 <link rel="canonical" href="https://kizukikumitate.com/karuizawa-offsite.html">
+<link rel="preload" as="image" href="./images/karuizawa/hero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
@@ -65,6 +66,7 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(26px,4vw,38px);line-h
 
 /* ---------- hero ---------- */
 .hero{background:var(--koiai);color:var(--kinari);padding:150px 0 90px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(20,31,51,.72) 0%,rgba(20,31,51,.82) 55%,rgba(20,31,51,.94) 100%),url("./images/karuizawa/hero.webp");background-size:cover;background-position:center 42%;background-repeat:no-repeat}
 .hero::after{content:"";position:absolute;inset:0;background:
   radial-gradient(ellipse 60% 50% at 85% 15%, rgba(63,107,130,.28), transparent 65%),
   radial-gradient(ellipse 50% 45% at 10% 90%, rgba(34,64,107,.5), transparent 60%);
@@ -261,6 +263,11 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 .venue .place{font-size:12.5px;color:var(--usuzumi);letter-spacing:.08em;margin-bottom:12px}
 .venue p{font-size:14.5px;line-height:1.9}
 .venue a{color:var(--ai);text-underline-offset:3px}
+.venue-shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:20px}
+@media(max-width:680px){.venue-shots{grid-template-columns:minmax(0,1fr)}}
+.venue-shots figure{margin:0;display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.venue-shots img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:4px;display:block}
+.venue-shots figcaption{font-size:11.5px;line-height:1.7;color:var(--usuzumi)}
 .plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:42px}
 @media(max-width:820px){.plans{grid-template-columns:minmax(0,1fr)}}
 .plan{border:1px solid var(--line);border-radius:6px;padding:24px 22px 26px;display:flex;flex-direction:column;align-items:stretch;gap:10px;background:#fff}
@@ -901,11 +908,16 @@ nav {
         <p class="place">群馬県・北軽井沢（長野原町）／軽井沢駅から車で約30分</p>
         <p>焚き火を囲む対話を、そのまま設計に織り込める会場です。屋内のセッションスペースと屋外の焚き火場が地続きで、構造化した議論と、構造化しない時間を、同じ流れの中に置けます。きづきくみたて工房は、この会場で合宿版デモクラシーフィットネスを開催しています。<br><a href="./democracy-fitness-camp-0811.html">→ TAKIVIVAでの開催実績（合宿版デモクラシーフィットネス）</a>　<a href="https://takiviva.net/" target="_blank" rel="noopener">→ 会場公式サイト</a></p>
       </div>
+      <div class="venue-shots">
+        <figure><img src="./images/karuizawa/hall.webp" alt="TAKIVIVAのメインホール。コンクリート天井の下に長テーブルが伸びる、ワークと対話の中心空間" width="900" height="675" loading="lazy" decoding="async"><figcaption>メインホール ── 全員の視線が一枚のテーブルに集まる</figcaption></figure>
+        <figure><img src="./images/karuizawa/fire.webp" alt="切り株の椅子に囲まれた屋外の焚き火台。夜の自由対話の場" width="900" height="675" loading="lazy" decoding="async"><figcaption>屋外の焚き火台 ── 構造化しない時間のための場所</figcaption></figure>
+        <figure><img src="./images/karuizawa/lounge.webp" alt="大きな窓から森を望むTAKIVIVAのラウンジ・カフェ空間" width="900" height="675" loading="lazy" decoding="async"><figcaption>ラウンジ ── 休憩と、小さな相談のための余白</figcaption></figure>
+      </div>
       <p style="margin-top:30px"><strong>会場選びだけのご相談も歓迎です。</strong>目的と人数と季節をうかがえば、この土地で「その話をするのに向いている場所」をお伝えできます。紹介料はいただいていないので、率直にお答えします。</p>
       <div class="area">
         <span>軽井沢町</span><span>北軽井沢</span><span>御代田町</span><span>佐久市</span><span>小諸市</span><span>長野県東信エリア</span>
       </div>
-      <p class="note" style="margin-top:18px">上記エリアを中心に対応しています。エリア外でも、オンラインでの設計支援や、現地への出張はご相談ください。</p>
+      <p class="note" style="margin-top:18px">写真はいずれも、きづきくみたて工房がTAKIVIVAで開催した合宿の記録です。上記エリアを中心に対応しています。エリア外でも、オンラインでの設計支援や、現地への出張はご相談ください。</p>
     </div>
   </div>
 </section>

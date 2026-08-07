@@ -11,7 +11,8 @@
     "sub": "サブコピー1〜2行"
   },
   "_bespoke": [
-    "systems-thinking-zukan.html（因果ループ図入りの専用デザイン。この台帳・テンプレの管理外）"
+    "systems-thinking-zukan.html（因果ループ図入りの専用デザイン。この台帳・テンプレの管理外）",
+    "karuizawa-offsite.html（北軽井沢TAKIVIVAの自前写真を敷いた専用デザイン。テキストテンプレで再生成すると写真が消えるため台帳の管理外）"
   ],
   "_exclude": {
     "tokushoho.html": "法定表記ページ。汎用ogp.pngで可",
@@ -88,16 +89,6 @@
       "eyebrow": "SOLUTION ／ リテンション設計",
       "title": "対話定着デザイン",
       "sub": "離職の真因「対話の不在」に、診断×対話×効果測定で介入する。"
-    },
-    {
-      "page": "karuizawa-offsite.html",
-      "img": "karuizawa-offsite-ogp.png",
-      "template": "standard",
-      "theme": "paper",
-      "acc": "#0f6e56",
-      "eyebrow": "SOLUTION ／ 軽井沢",
-      "title": "軽井沢オフサイト・経営合宿",
-      "sub": "軽井沢まで来て、いつもの会議をしていないか。設計から当日まで伴走します。"
     },
     {
       "page": "gaikokujinzai-teichaku.html",
