@@ -132,6 +132,13 @@ assets:
     tags: [経営合宿, オフサイト, 軽井沢 合宿, 役員合宿, チームビルディング 合宿, ファシリテーター]
     service_bridge: 合宿設計＋当日ファシリテーション
 
+  - id: takibi-innovation-camp
+    name: TAKIBI INNOVATION CAMP（合宿型オープンイノベーション）
+    type: service
+    url: /takibi-innovation-camp.html
+    tags: [オープンイノベーション, 防災テック, 官民連携, 自治体 連携, フィジカルAI, 共創 合宿, 実証実験]
+    service_bridge: 自治体×大企業の共創合宿（パイロットクラス）
+
   - id: gaikokujinzai-teichaku
     name: 外国人材定着支援ページ
     type: service

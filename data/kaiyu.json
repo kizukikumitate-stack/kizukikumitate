@@ -1298,6 +1298,17 @@
         "unlearn-zukan",
         "shinkai-scope"
       ]
+    },
+    {
+      "id": "takibi-innovation-camp",
+      "path": "takibi-innovation-camp.html",
+      "title": "TAKIBI INNOVATION CAMP",
+      "tag": "ソリューション",
+      "desc": "自治体の課題を複数の大企業と共に解く合宿型オープンイノベーション。Vol.1は防災テック×フィジカルAI。パイロットクラス募集中。",
+      "theme": "night",
+      "category": "solution",
+      "added": "2026-08-14",
+      "band": false
     }
   ]
 }

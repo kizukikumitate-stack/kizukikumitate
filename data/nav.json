@@ -953,6 +953,10 @@
     {
       "path": "systems-thinking.html",
       "reason": "４次元トンボのメガネ（stakeholder-diorama）の解説＋チュートリアル。ツールと同じ磨き込み中のテスト公開・noindex で、ツールからのリンクのみ。ツールと世界観を揃えた自己完結ページのため、ナビ・フッター・回遊・棚を出さない。正式リリース時にツールと一緒に pages へ移す"
+    },
+    {
+      "path": "takibi-innovation-camp.html",
+      "reason": "TAKIBI INNOVATION CAMP（合宿型オープンイノベーション）のコンセプト兼パイロットクラス募集LP。焚き火の闇夜×炎色の独自世界観のため共通ナビ・フッター・回遊・棚は出さない（facilitator-training と同方針・2026-08-14 追加）"
     }
   ]
 }
