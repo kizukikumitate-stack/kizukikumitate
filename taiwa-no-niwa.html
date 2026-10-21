@@ -12,10 +12,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>対話の庭 — 会議室では言えないことが、庭では言える。｜やまとわ × きづきくみたて工房</title>
-<meta name="description" content="会社の敷地に「対話が生まれる場所」をつくる。伊那谷の山採り苗でつくる庭と、森の循環を組織の健全な新陳代謝に取り戻す対話。やまとわ × きづきくみたて工房。まずは森を歩き、火を囲む二日間から。">
+<meta name="description" content="会社の敷地に「対話が生まれる場所」をつくる。伊那谷の山採り苗でつくる庭と、森の循環を組織の健全な新陳代謝に取り戻す対話。やまとわ × きづきくみたて工房。まずは森を歩き、自社のロジックモデルとSX・長期戦略の提案を持ち帰る二日間から。">
 <link rel="canonical" href="https://kizukikumitate.com/taiwa-no-niwa.html">
 <meta property="og:title" content="対話の庭 — 会議室では言えないことが、庭では言える。">
-<meta property="og:description" content="会社の敷地に、対話が生まれる庭をつくる。森の循環を、組織の健全な新陳代謝に取り戻す。やまとわ × きづきくみたて工房｜まずは森を歩き、火を囲む二日間から。">
+<meta property="og:description" content="会社の敷地に、対話が生まれる庭をつくる。森の循環を、組織の健全な新陳代謝に取り戻す。やまとわ × きづきくみたて工房｜まずは森を歩き、ロジックモデルと長期戦略の提案を持ち帰る二日間から。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kizukikumitate.com/taiwa-no-niwa.html">
 <meta property="og:image" content="https://kizukikumitate.com/taiwa-no-niwa-ogp.png">
@@ -205,6 +205,80 @@ section{padding-block:72px}
 .whyforest .rhythm p{font-size:14px;margin-top:0;line-height:1.85}
 @media (max-width:560px){.whyforest .rhythm{grid-template-columns:minmax(0, 1fr)}}
 
+/* 08 take-home: logic model */
+.lm{display:grid;grid-template-columns:repeat(5,minmax(0, 1fr));gap:0;margin-top:40px;border:1px solid var(--line);background:var(--ground)}
+.lm .n{padding:18px 14px 20px;border-right:1px solid var(--line);position:relative;min-width:0}
+.lm .n:last-child{border-right:0;background:var(--light-soft)}
+.lm .n .t{font-size:10.5px;letter-spacing:.14em;color:var(--ink-3);font-weight:700;margin-bottom:6px}
+.lm .n h3{font-size:17px;margin-bottom:6px;word-break:auto-phrase;line-break:strict;hanging-punctuation:allow-end}
+.lm .n p{font-size:12.5px;color:var(--ink-2);line-height:1.75}
+.lm .n::after{content:"";position:absolute;right:-6px;top:50%;width:10px;height:10px;border-top:1px solid var(--ink-3);border-right:1px solid var(--ink-3);transform:translateY(-50%) rotate(45deg);background:var(--ground);z-index:1}
+.lm .n:last-child::after{display:none}
+.lm .n:nth-child(4)::after{background:var(--ground)}
+.lmaxis{display:flex;justify-content:space-between;gap:8px;margin-top:10px;font-size:11px;letter-spacing:.12em;color:var(--ink-3)}
+.lmaxis span{flex:1 1 0;min-width:0}
+.lmaxis span:last-child{text-align:right;color:var(--moss);font-weight:700}
+@media (max-width:720px){
+  .lm{grid-template-columns:minmax(0, 1fr)}
+  .lm .n{border-right:0;border-bottom:1px solid var(--line)}
+  .lm .n:last-child{border-bottom:0}
+  .lm .n::after{right:auto;top:auto;left:50%;bottom:-6px;transform:translateX(-50%) rotate(135deg)}
+  .lmaxis{display:none}
+}
+/* 08 two days */
+.days{margin-top:48px;display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1fr);gap:28px}
+.day{border-top:2px solid var(--moss);padding-top:16px}
+.day .d{font-size:11px;letter-spacing:.18em;color:var(--moss);font-weight:700}
+.day h3{font-size:20px;margin:6px 0 16px}
+.day ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:stretch;gap:14px}
+.day li{display:grid;grid-template-columns:44px minmax(0, 1fr);gap:12px;min-width:0}
+.day li .w{font-family:"Shippori Mincho B1",serif;font-size:13px;color:var(--ink-3);letter-spacing:.08em;padding-top:3px}
+.day li b{display:block;font-size:15px;font-weight:700;margin-bottom:3px}
+.day li b i{font-style:normal;font-size:10.5px;letter-spacing:.14em;color:var(--light);background:var(--bark);padding:2px 6px;border-radius:2px;margin-left:8px;vertical-align:2px;font-weight:700}
+.day li p{font-size:13.5px;color:var(--ink-2);line-height:1.8}
+@media (max-width:560px){.days{grid-template-columns:minmax(0, 1fr)}}
+/* 08 deliverables */
+.takehome{margin-top:44px;border-top:1px solid var(--line)}
+.takehome .item{display:grid;grid-template-columns:28px minmax(0, 1fr);gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.takehome .item .no{font-family:"Shippori Mincho B1",serif;font-size:20px;color:var(--moss);line-height:1.2}
+.takehome .item h3{font-size:17px;margin-bottom:4px}
+.takehome .item p{font-size:14px;color:var(--ink-2);line-height:1.8}
+/* 08 to management */
+.toboard{margin-top:44px;background:var(--bark);color:var(--bark-ink);padding:28px 28px 30px}
+.toboard .eyebrow{color:var(--bark-ink-2);margin-bottom:10px}
+.toboard .eyebrow b{color:var(--light)}
+.toboard h3{font-size:22px;margin-bottom:12px;line-height:1.5}
+.toboard h3 em{font-style:normal;color:var(--light)}
+.toboard p{font-size:14.5px;color:var(--bark-ink-2);line-height:1.9}
+.toboard p + p{margin-top:10px}
+.toboard .flow{display:grid;grid-template-columns:repeat(3,minmax(0, 1fr));gap:14px;margin-top:22px}
+.toboard .flow div{border-top:1px solid var(--bark-2);padding-top:12px}
+.toboard .flow b{display:block;font-family:"Shippori Mincho B1",serif;font-size:16px;color:var(--bark-ink);margin-bottom:4px}
+.toboard .flow small{display:block;font-size:10.5px;letter-spacing:.14em;color:var(--light);margin-bottom:6px;font-weight:700}
+.toboard .flow p{font-size:13px}
+@media (max-width:640px){.toboard{padding:24px 20px 26px}.toboard .flow{grid-template-columns:minmax(0, 1fr)}}
+/* 09 approval */
+.ringi{margin-top:36px;border-top:1px solid var(--line)}
+.ringi .row{display:grid;grid-template-columns:112px minmax(0, 1fr);gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.ringi .row .k{font-size:12px;letter-spacing:.14em;color:var(--moss);font-weight:700;padding-top:4px}
+.ringi .row p{font-size:14.5px;color:var(--ink-2);line-height:1.85}
+.ringi .row p b{color:var(--ink)}
+@media (max-width:480px){.ringi .row{grid-template-columns:minmax(0, 1fr);gap:4px}}
+.ties{display:grid;grid-template-columns:repeat(3,minmax(0, 1fr));gap:16px;margin-top:28px}
+.tie{background:var(--ground-2);padding:20px 20px 22px}
+.tie h3{font-size:16.5px;margin-bottom:8px;word-break:auto-phrase;line-break:strict;hanging-punctuation:allow-end}
+.tie p{font-size:13.5px;color:var(--ink-2);line-height:1.8}
+@media (max-width:640px){.ties{grid-template-columns:minmax(0, 1fr)}}
+.forward{margin-top:44px;border:1px solid var(--line);background:var(--ground)}
+.forward summary{cursor:pointer;list-style:none;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:700;font-size:15px}
+.forward summary::-webkit-details-marker{display:none}
+.forward summary span{font-size:12px;color:var(--ink-3);font-weight:500;letter-spacing:.06em;flex:none}
+.forward[open] summary{border-bottom:1px solid var(--line)}
+.forward .body{padding:20px 22px 22px}
+.forward .mail{font-size:14px;color:var(--ink-2);line-height:1.95;white-space:pre-wrap;word-break:auto-phrase;line-break:strict;hanging-punctuation:allow-end;overflow-wrap:break-word;margin:0;font-family:inherit}
+.forward .act{margin-top:16px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.forward .act .btn{padding:10px 16px;font-size:13px}
+.forward .act .ok{font-size:12.5px;color:var(--moss);min-height:1em}
 /* CTA */
 .cta{background:var(--ground-2);padding-block:88px}
 .cta h2{font-size:clamp(26px,4.6vw,38px);font-weight:800}
@@ -232,7 +306,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   <div class="wrap">
     <div class="who"><span><i></i>やまとわ</span><span><i></i>きづきくみたて工房</span><span>長野・伊那谷</span></div>
     <h1>会議室では言えないことが、<em>庭</em>では言える。</h1>
-    <p class="sub">対話の庭は、会社の敷地に「対話が生まれる場所」をつくる仕事です。そして、森の循環を組織の新陳代謝に取り戻すための、最初の一歩でもあります。</p>
+    <p class="sub">対話の庭は、会社の敷地に「対話が生まれる場所」をつくる仕事です。そして、森の循環を組織の新陳代謝に取り戻すための、最初の一歩でもあります。まずは森を歩き、自社のロジックモデルと長期戦略の提案を持ち帰る二日間から。</p>
     <div class="ctaRow">
       <a class="btn primary" href="#start">まず、森を歩く</a>
       <a class="btn ghost" href="#why">なぜ庭なのか</a>
@@ -443,9 +517,116 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   </div>
 </section>
 
+<div class="rule"></div>
+
+<section id="takehome">
+  <div class="wrap">
+    <div class="eyebrow"><b>08</b>　持ち帰るもの</div>
+    <h2 class="serif" style="font-size:clamp(22px,3.6vw,30px)">歩いて、火を囲んで、<br>一枚の地図を持ち帰る。</h2>
+    <p class="lead" style="margin-top:20px">森を歩く二日間は、感じるだけの時間では終わりません。自分たちの事業が社会に残したいもの（インパクト）を言葉にし、そこへ至る道筋を一枚の「ロジックモデル」に描いて持ち帰ります。その地図が、経営層への提案になります。</p>
+    <div class="stack" style="margin-top:28px">
+      <p>ロジックモデルとは、投じるもの・活動・直接の結果・起きる変化・社会に残したいもの、を一本の因果でつないだ地図です。もともとは社会的な事業や行政の評価で使われてきた道具で、「なぜその活動が、その成果につながるのか」を関係者のあいだで確かめるために描かれます。</p>
+      <p>なぜ森で描くのか。会議室では、1〜2年で回収する物差しが強すぎて、長い因果を描けません。倒木更新の森は、十年、百年の時間軸で因果がつながっている場所です。倒れた木と、差し込む光と、次の芽を自分の目で見たあとでは、時間軸が自然に長くなります。</p>
+    </div>
+    <div class="lm" role="list" aria-label="ロジックモデルの五つの箱">
+      <div class="n" role="listitem"><div class="t">INPUT</div><h3>投じるもの</h3><p>人、時間、お金、場所。いま自分たちが差し出せるもの。</p></div>
+      <div class="n" role="listitem"><div class="t">ACTIVITY</div><h3>活動</h3><p>実際にやること。庭をつくる、対話の場を持つ、事業を動かす。</p></div>
+      <div class="n" role="listitem"><div class="t">OUTPUT</div><h3>直接の結果</h3><p>活動から直接に生まれるもの。回数、人数、できあがったもの。</p></div>
+      <div class="n" role="listitem"><div class="t">OUTCOME</div><h3>起きる変化</h3><p>人や組織や地域に起きる変化。定着、発言、新しい芽。</p></div>
+      <div class="n" role="listitem"><div class="t">IMPACT</div><h3>残したいもの</h3><p>十年先に、社会に残っていてほしいこと。ここから逆算して描く。</p></div>
+    </div>
+    <div class="lmaxis" aria-hidden="true"><span>いま</span><span>1年</span><span>3年</span><span>5年</span><span>10年先</span></div>
+
+    <div class="days">
+      <div class="day">
+        <div class="d">DAY 1</div>
+        <h3>森を歩き、残したいものを言葉にする</h3>
+        <ol>
+          <li><div class="w">昼</div><div><b>森を歩く</b><p>何かを考えようとせず、ただ歩く。倒れた木と、差し込む光と、次の芽を見る。森を知る人が隣で、その営みを言葉にします。</p></div></li>
+          <li><div class="w">夕</div><div><b>残したいものを言葉にする<i>WORK</i></b><p>自分たちの事業が十年後、社会に何を残していたいか。隣に並んで、同じ風景を見ながら話します。ここで出た言葉が、地図のいちばん右の箱になります。</p></div></li>
+          <li><div class="w">夜</div><div><b>火を囲む</b><p>向かい合わずに、同じ炎を見ながら話す。役割の前にいる自分の話。昼に森で見たものが、自分の話になっていきます。</p></div></li>
+        </ol>
+      </div>
+      <div class="day">
+        <div class="d">DAY 2</div>
+        <h3>地図を描き、提出の道筋を決める</h3>
+        <ol>
+          <li><div class="w">朝</div><div><b>ロジックモデルを描く<i>WORK</i></b><p>残したいものから逆算して、起きる変化・直接の結果・活動・投じるものを一枚に描きます。参加者同士で互いの地図を読み合い、因果の飛びすぎや抜けを見つけます。</p></div></li>
+          <li><div class="w">昼</div><div><b>経営層への提出を設計する<i>WORK</i></b><p>誰に、いつ、どの会議で、どう出すか。提案書の目次と、最初の一ページの文面まで、ここで決めて帰ります。</p></div></li>
+          <li><div class="w">帰路</div><div><b>伊那谷から戻る</b><p>地図は紙で一枚、手元に残ります。社内で見せる最初の一枚です。</p></div></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="takehome">
+      <div class="item"><div class="no">一</div><div><h3>一枚のロジックモデル</h3><p>自分たちの事業のインパクトと、そこへ至る道筋。社内で議論の土台にできる、最初の版。</p></div></div>
+      <div class="item"><div class="no">二</div><div><h3>経営層への提案の骨子</h3><p>SX・長期戦略の提案書の目次と、最初の一ページ。提出先と提出日を決めた状態で持ち帰ります。</p></div></div>
+      <div class="item"><div class="no">三</div><div><h3>測り方の候補</h3><p>人・自然・物語の三つの層で、何を指標にするか。インパクト加重会計の視点から、候補を一緒に書き出します。</p></div></div>
+      <div class="item"><div class="no">四</div><div><h3>森で見たものの記録</h3><p>写真と言葉。経営層に出すときにも、社内で共有するときにも使える、物語の素材。</p></div></div>
+    </div>
+
+    <div class="toboard">
+      <div class="eyebrow"><b>FINAL</b>　最終的に、経営層へ</div>
+      <h3>持ち帰った地図を、<em>SX・長期戦略の提案</em>として提出する。</h3>
+      <p>SX（サステナビリティ・トランスフォーメーション／社会や環境の持続可能性と、事業の長期的な成長を同じ軸で考える経営の転換）は、言葉としては広まりましたが、自社の事業の因果で語れる会社はまだ少ないと感じています。ロジックモデルは、その因果を一枚で語る道具です。</p>
+      <p>森で描いた地図は、参加者自身が経営層に提出します。それが、この二日間の到達点です。研修の報告書ではなく、長期戦略の提案として。</p>
+      <div class="flow">
+        <div><small>合宿中</small><b>提出を設計する</b><p>提出先、提出日、どの会議に載せるか。目次と最初の一ページまで決めます。</p></div>
+        <div><small>合宿後</small><b>地図を見直す</b><p>提出の前に一度、オンラインで地図と提案を一緒に見直す時間を持ちます。</p></div>
+        <div><small>提出</small><b>経営層に出す</b><p>SX・長期戦略とそのロジックモデルを、参加者が経営層に提出。ここで完了報告になります。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<section id="approval">
+  <div class="wrap">
+    <div class="eyebrow"><b>09</b>　決裁のために</div>
+    <h2 class="serif" style="font-size:clamp(22px,3.6vw,30px)">「森へ行きたい」ではなく、<br>「長期戦略の提案を持ち帰る」と言える。</h2>
+    <p class="lead" style="margin-top:20px">参加を申し出る側にも、許可を出す側にも、説明できる言葉が要ります。この二日間を社内でどう位置づけられるかを、稟議の項目に沿って整理しました。</p>
+    <div class="ringi">
+      <div class="row"><div class="k">目的</div><p>自社事業の長期インパクトとロジックモデルを策定し、<b>SX・長期戦略の提案として経営層に提出</b>する。</p></div>
+      <div class="row"><div class="k">位置づけ</div><p>次期中期経営計画・サステナビリティ方針の検討材料づくり。体験型の研修ではなく、<b>戦略策定の一工程</b>として位置づけられます。</p></div>
+      <div class="row"><div class="k">対象</div><p>事業責任者、次世代の経営候補、人事・サステナビリティ担当。提出までを見据えて、<b>上司と部下のペアでの参加</b>をおすすめしています。</p></div>
+      <div class="row"><div class="k">成果物</div><p>ロジックモデル一枚、経営層への提案の骨子、提出先と提出日。<b>持ち帰るものが先に決まっている</b>二日間です。</p></div>
+      <div class="row"><div class="k">費用</div><p>初回の森を歩く二日間は<b>実費のみ</b>。内訳と金額は、相談時にお伝えします。</p></div>
+      <div class="row"><div class="k">日程・場所</div><p>2026年10月31日（土）〜11月1日（日）、一泊二日。長野・伊那谷。3〜6名の少人数。</p></div>
+      <div class="row"><div class="k">完了報告</div><p>帰社後、経営層へのSX・長期戦略の提案の提出をもって完了。<b>報告書ではなく提案書</b>が成果です。</p></div>
+    </div>
+
+    <p class="lead" style="margin-top:44px;font-size:17px">すでに会社に求められていることと、地続きです。</p>
+    <div class="ties">
+      <div class="tie"><h3>人的資本の開示</h3><p>人材育成やエンゲージメントの方針を開示するとき、「なぜその施策が成果につながるのか」の因果が問われます。ロジックモデルは、その説明そのものです。</p></div>
+      <div class="tie"><h3>自然との関係の開示</h3><p>TNFD（自然関連財務情報開示タスクフォース）のような枠組みで、事業と自然資本の関係を自社の言葉で描くことが求められ始めています。森に立って描く地図は、その最初の一歩になります。</p></div>
+      <div class="tie"><h3>中期経営計画・統合報告</h3><p>財務の数字と、非財務の物語をつなぐ論理が、いつも足りません。地図と、森で見たものの記録は、そのまま素材になります。</p></div>
+    </div>
+
+    <details class="forward">
+      <summary>上司に転送できる文面を用意しました<span>そのまま送れます</span></summary>
+      <div class="body">
+<pre class="mail" id="fwdText">件名：森を歩く二日間（対話の庭）への参加について
+
+お疲れさまです。10月31日（土）〜11月1日（日）に長野・伊那谷で行われる「森を歩く二日間」への参加を相談させてください。
+
+目的は、私たちの事業が長期的に社会に残したいもの（インパクト）と、そこへ至る道筋を一枚のロジックモデルに描き、SX・長期戦略の提案として経営層に提出することです。体験型の研修ではなく、次の中期経営計画やサステナビリティ方針の検討材料をつくる、戦略策定の一工程として参加したいと考えています。
+
+持ち帰るものは、①ロジックモデル一枚、②経営層への提案の骨子、③測り方の候補、④森で見たものの記録、の四つです。帰社後、提案の提出をもって完了報告とします。
+
+初回は実費のみでの実施です。詳細はこちらのページにまとまっています。
+https://kizukikumitate.com/taiwa-no-niwa.html
+
+ご検討をお願いいたします。</pre>
+        <div class="act"><button type="button" class="btn ghost" id="fwdCopy">文面をコピーする</button><span class="ok" id="fwdOk" aria-live="polite"></span></div>
+      </div>
+    </details>
+  </div>
+</section>
+
 <section class="cta" id="start">
   <div class="wrap">
-    <div class="eyebrow"><b>08</b>　最初の一歩</div>
+    <div class="eyebrow"><b>10</b>　最初の一歩</div>
     <h2>庭をつくる前に、<br>まず森を歩きませんか。</h2>
     <p class="lead">数百万円の庭は、資料では決まりません。伊那谷の森を歩き、倒木と光と芽を自分の目で見て、隣に並んで話す。そこから始めるのがいちばん確かだと考えています。</p>
     <div class="whyforest">
@@ -459,8 +640,8 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
       <p>組織の新陳代謝を取り戻すには、一人ひとりが自分の移り変わりに向き合う場が要ります。森と火と対話は、その場をつくるための、いちばん確かな道具だと考えています。</p>
     </div>
     <div class="steps">
-      <div class="step"><div class="t">PILOT</div><h3>森を歩く二日間</h3><p>3〜6名の少人数で、伊那谷の森を歩き、夜は火を囲んで「組織の健全な新陳代謝」と自分自身の移り変わりを考える一泊二日。2026年10月31日（土）〜11月1日（日）、初回は実費のみで実施予定。</p><a class="btn primary" href="mailto:y.morimoto@kizukikumitate.com?subject=%E5%AF%BE%E8%A9%B1%E3%81%AE%E5%BA%AD%EF%BC%9A%E6%A3%AE%E3%82%92%E6%AD%A9%E3%81%8F%E4%BA%8C%E6%97%A5%E9%96%93">参加を相談する</a></div>
-      <div class="step"><div class="t">TALK</div><h3>まず話を聞く</h3><p>敷地の条件、社内の課題、予算の入口。庭が成立するかどうかを、一緒に確かめるところから。</p><a class="btn ghost" href="mailto:y.morimoto@kizukikumitate.com?subject=%E5%AF%BE%E8%A9%B1%E3%81%AE%E5%BA%AD%EF%BC%9A%E7%9B%B8%E8%AB%87">相談する</a></div>
+      <div class="step"><div class="t">PILOT</div><h3>森を歩く二日間</h3><p>3〜6名の少人数で、伊那谷の森を歩き、夜は火を囲んで「組織の健全な新陳代謝」と自分自身の移り変わりを考える一泊二日。自社事業のロジックモデルを描き、経営層へのSX・長期戦略の提案を持ち帰ります。2026年10月31日（土）〜11月1日（日）、初回は実費のみで実施予定。</p><a class="btn primary" href="mailto:y.morimoto@kizukikumitate.com?subject=%E5%AF%BE%E8%A9%B1%E3%81%AE%E5%BA%AD%EF%BC%9A%E6%A3%AE%E3%82%92%E6%AD%A9%E3%81%8F%E4%BA%8C%E6%97%A5%E9%96%93">参加を相談する</a></div>
+      <div class="step"><div class="t">TALK</div><h3>まず話を聞く</h3><p>敷地の条件、社内の課題、予算の入口。庭が成立するかどうかを、一緒に確かめるところから。稟議に必要な資料のご相談も、ここから。</p><a class="btn ghost" href="mailto:y.morimoto@kizukikumitate.com?subject=%E5%AF%BE%E8%A9%B1%E3%81%AE%E5%BA%AD%EF%BC%9A%E7%9B%B8%E8%AB%87">相談する</a></div>
     </div>
   </div>
 </section>
@@ -472,5 +653,17 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   </div>
 </footer>
 
+<script>
+(function(){
+  var btn=document.getElementById('fwdCopy'),txt=document.getElementById('fwdText'),ok=document.getElementById('fwdOk');
+  if(!btn||!txt)return;
+  btn.addEventListener('click',function(){
+    var t=txt.textContent;
+    function done(){ok.textContent='コピーしました';setTimeout(function(){ok.textContent='';},2400);if(window.gtag){gtag('event','select_content',{content_type:'forward_mail',item_id:'taiwa-no-niwa'});}}
+    function fallback(){var r=document.createRange();r.selectNodeContents(txt);var sel=window.getSelection();sel.removeAllRanges();sel.addRange(r);try{document.execCommand('copy');done();}catch(e){ok.textContent='長押しで選択してコピーしてください';}sel.removeAllRanges();}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(done,fallback);}else{fallback();}
+  });
+})();
+</script>
 </body>
 </html>
