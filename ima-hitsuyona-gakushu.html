@@ -230,8 +230,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 .col > section[id]{scroll-margin-top:calc(var(--navh) + 20px)}
 @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
 /* ---- 読了プログレス（固定ナビの下端に重ねる） ---- */
-.readbar{position:fixed;top:calc(var(--navh) - 3px);left:0;right:0;height:3px;z-index:101;pointer-events:none}
-.readbar i{display:block;height:100%;width:0;background:#009944;transition:width .1s linear}
+.readbar{position:fixed;top:calc(var(--navh) - 6px);left:0;right:0;height:6px;z-index:101;pointer-events:none}
+.readbar i{display:block;height:100%;width:0;background:#009944;border-radius:0 3px 3px 0;box-shadow:0 1px 4px rgba(0,153,68,.45);transition:width .1s linear}
 @media (prefers-reduced-motion: reduce){.readbar i{transition:none}}
 
   /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
