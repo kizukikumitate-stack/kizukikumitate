@@ -274,8 +274,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   .ref .rn{font-size:17px}
   /* 補足カードはスマホでは縦積みに。アイコンを横に並べたままだと本文が1行15字ほどしか
      入らず、日本語の読みやすい1行25〜35字から大きく外れるため（漫画カードは画像が主役なので除外） */
-  .ref:not(.manga){grid-template-columns:minmax(0,1fr);gap:14px;justify-items:start}
-  .ref:not(.manga) img{width:76px;height:76px}
+  
   .sum{font-size:16px;line-height:1.7}
   .cmp .cl,.cmp .cr{font-size:14.5px;line-height:1.65}
   .cmph{font-size:12.5px}
@@ -288,6 +287,32 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   .col [style*="font-size: 13.5px"],.col [style*="font-size:13.5px"]{font-size:15px!important;line-height:1.8!important}
   .col [style*="font-size: 14.5px"],.col [style*="font-size:14.5px"]{font-size:15.5px!important}
 }
+
+/* ---- 3分で読む要点（長い読み物の入口。ここだけで結論が分かるようにする） ---- */
+.gist{margin:0 48px 48px;padding:28px 30px;border:1.5px solid #CFD2CB;border-radius:14px;background:#F6F5F0}
+.gist .lab{font-family:"Zen Kaku Gothic New",sans-serif;font-size:12px;letter-spacing:.14em;font-weight:900;color:#009944;padding-bottom:16px}
+.gist .gg{padding-bottom:16px}
+.gist .gg:last-of-type{padding-bottom:4px}
+.gist .gh{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:14px;color:#14191E;opacity:.55;padding-bottom:8px;letter-spacing:.04em}
+.gist ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
+.gist li{position:relative;padding-left:1.15em;font-size:15px;line-height:1.85}
+.gist li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:#009944}
+.gist .gf{margin-top:10px;padding-top:16px;border-top:1px solid #CFD2CB;font-size:13.5px;opacity:.75;line-height:1.75}
+@media(max-width:900px){.gist{margin:0 16px 36px;padding:20px 18px}.gist .lab{padding-bottom:12px}.gist li{font-size:15px}}
+
+/* ---- 補足カードは折りたたみに（理論の出どころは、読みたい人だけが開く） ---- */
+.ref.note{display:block;padding:0;align-items:stretch;overflow:hidden}
+.ref.note>summary{display:flex;align-items:center;gap:14px;padding:14px 16px;cursor:pointer;list-style:none}
+.ref.note>summary::-webkit-details-marker{display:none}
+.ref.note>summary:focus-visible{outline:2px solid #009944;outline-offset:-4px;border-radius:12px}
+.ref.note .sm-ico{width:52px;height:52px;border-radius:9px;object-fit:cover;flex:none;display:block}
+.ref.note .sm-tx{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1}
+.ref.note .sm-tx .rk{display:block}
+.ref.note .sm-tx .rn{display:block;font-size:16px;line-height:1.35;text-align:left}
+.ref.note .sm-ar{flex:none;width:9px;height:9px;margin-right:4px;border-right:2px solid #14191E;border-bottom:2px solid #14191E;opacity:.45;transform:rotate(45deg);transition:transform .2s}
+.ref.note[open] .sm-ar{transform:rotate(-135deg)}
+@media(prefers-reduced-motion:reduce){.ref.note .sm-ar{transition:none}}
+.ref.note .rbody{padding:0 16px 16px;display:flex;flex-direction:column;gap:6px}
 
   /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
   @media (min-width: 1501px) {
@@ -654,6 +679,35 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <a href="#c10"><b>10</b>では、どこから始めるか</a>
 </div>
 </div>
+<section class="gist" aria-label="この記事の要点">
+<p class="lab">3分で読む、この記事の要点</p>
+<div class="gg">
+<p class="gh">何が起きているか</p>
+<ul>
+<li>社会は加速度的に、組織は直線的にしか変われません。その差が「未来からの不足」として積み上がります。</li>
+<li>足りないのは、ビジョン・戦略・実践の三つ。どれも対話からしか生まれず、どれも学校では習いませんでした。</li>
+</ul>
+</div>
+<div class="gg">
+<p class="gh">なぜ、研修をしても戻るのか</p>
+<ul>
+<li>人の行動は「個人 × 環境」で決まります。本人が学んでも、受け止める職場が変わらなければ元に戻ります。更新するのは「仕組み」と「認知」の両方です。</li>
+<li>更新には、誰かが何かを手放す必要があります。手放す人は、決める人・動く人・影響を受ける人・見ている人の4種類。決める人の合意だけでは進みません。</li>
+<li>そして、その合意形成は、説明では埋まりません。</li>
+</ul>
+</div>
+<div class="gg">
+<p class="gh">では、どうするか</p>
+<ul>
+<li>仕事の置き場所を入れ替えます。意識は「指示された定型業務」に集まりますが、未来は「自分で作る非定型業務」にしかありません。</li>
+<li>始めるのは全員ではなく、Will（意思）のある数人から。</li>
+<li>Willは教わって育つものではなく、自分で作り直したときに更新されます。だから「教わる学び」ではなく「作る学び」。遊び心は余興ではなく、続けるためのエンジンです。</li>
+<li>一人のWillは、一人のままでは消えます。個人の意思を組織の意思に変える筋肉が、デモクラシーです。</li>
+<li>制度を捨てる必要はありません。今ある新入社員研修・1on1・管理職研修の、中身の学び方から変えられます。</li>
+</ul>
+</div>
+<p class="gf">以下は、ここに至るまでを10章に分けたものです。気になる章から読んでいただいてかまいません。</p>
+</section>
 
 
 <!-- 1 -->
@@ -805,15 +859,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="body">組織に当てはめると、環境側が「仕組み」、個人側が「認知」です。</p>
 <p class="cap">参考：T. F. Gilbert, Human Competence（1978）の行動工学モデル（BEM）</p>
 </section>
-<aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-gilbert.webp" alt="人と道具を載せた天秤" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
-<p class="rn">トーマス・F・ギルバート</p>
+<details class="ref note" style="border-color: #009944">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-gilbert.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">トーマス・F・ギルバート</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">Thomas F. Gilbert（1927–1995）／ 著書 Human Competence（1978）</p>
 <p class="rb">「パフォーマンス・テクノロジーの父」と呼ばれる心理学者。人が期待どおりに動かない原因を、個人側（知識・能力・動機）と環境側（情報・道具・報酬）の6つに分けて診断する行動工学モデル（BEM）を提唱しました。きづきくみたて工房の研修設計の土台です。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel dark" style="gap: 24px">
 <p class="lbl" style="color: #37bef0">組織を​動かしている、​二つのもの</p>
@@ -838,15 +894,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="border-color:#7f4f21"><div class="k" style="color:#7f4f21;opacity:1">仕組みの更新の肝</div><div class="h" style="color:#7f4f21">組織的負債の返済</div><p>過去の決定、もう目的を失ったルール、誰も見直さない手順。放置された仕組みは利息を生み、変えるコストを年々増やします。借金と同じで、返すなら早いほど安い。</p></div>
 </div>
 </section>
-<aside class="ref" style="border-color: #e5588a">
-<img loading="lazy" src="images/gakushu/ref-unlearn.webp" alt="ノートを消す消しゴムと、値札の付いた古い帳簿の山" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #e5588a">補足 ／ 言葉の出どころ</p>
-<p class="rn">アンラーニングと​組織的負債</p>
+<details class="ref note" style="border-color: #e5588a">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-unlearn.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #e5588a">補足 ／ 言葉の出どころ</span><span class="rn">アンラーニングと​組織的負債</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">Bo Hedberg（1981）／ Steve Blank（2015）</p>
 <p class="rb">アンラーニング（学習棄却）は、経営学者ヘドバーグが「組織はどう学び、どう忘れるか」として論じた概念で、日本では松尾睦氏（北海道大学）らの研究で知られています。組織的負債は、起業家教育で知られるスティーブ・ブランクが、ソフトウェアの「技術的負債」になぞらえて提唱した言葉です。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel ink" style="gap: 32px">
 <p class="lbl">どちらにも​共通する、土台</p>
@@ -861,15 +919,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big" style="font-size: 36px">手放すにも、​返済するにも、​この感覚が​要る。</p>
 <p class="cap">これが低いと、正しい方針があっても、人は前提を手放しませんし、負債に手をつけません。効力感は、小さな成功の積み重ねでしか育ちません。以降の章は、この二つをどう育てるかの話でもあります。</p>
 </section>
-<aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-bandura.webp" alt="積み木の階段を登る人と太陽" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
-<p class="rn">アルバート・バンデューラ</p>
+<details class="ref note" style="border-color: #009944">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-bandura.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">アルバート・バンデューラ</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">Albert Bandura（1925–2021）／ スタンフォード大学</p>
 <p class="rb">「自分はやればできる」という信念を自己効力感と名づけた心理学者。効力感は、小さな成功体験、他者の成功を見ること、励まし、心身の状態の4つから育つとしました。集団に当てはめた「集団効力感」も同じ系譜です。</p>
 </div>
-</aside>
+</details>
 
 <!-- 3 -->
 <section class="panel rule" id="c3">
@@ -908,15 +968,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">決める人の​合意だけ​取れても、​進まない。</p>
 <p class="cap">見落とされがちなのは「動く人」と「影響を受ける人」。立場の違う人たちとの、高度な合意形成が必要になります。</p>
 </section>
-<aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-freeman.webp" alt="建物を囲んで手をつなぐ6人" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
-<p class="rn">R・エドワード・フリーマン</p>
+<details class="ref note" style="border-color: #009944">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-freeman.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">R・エドワード・フリーマン</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">R. Edward Freeman ／ 著書 Strategic Management: A Stakeholder Approach（1984）</p>
 <p class="rb">企業は株主だけでなく、従業員・顧客・取引先・地域など「影響を与え、影響を受けるすべての人」に責任を負うとするステークホルダー理論の提唱者。本ページの「決める人・動く人・影響を受ける人・見ている人」の分け方は、この考え方を現場向けに翻訳したものです。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel sky" style="gap: 24px">
 <p class="lbl" style="color: #ffde00">では、​この合意形成は​いつ必要に​なるのか</p>
@@ -1061,15 +1123,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">認知は、​教わっても​更新されない。​作り直した​ときに、​更新される。</p>
 <p class="cap">教わった知識は、古い前提の上に積まれるだけです。自分の手で形にして初めて、本人も気づいていなかった前提が表に出て、本人の手で書き換わります。アンラーニングは、作ることで起きます。そして「作って見せたら通じた」という小さな成功が、自己効力感を育てます。参考：S. パパート（MITメディアラボ）の構築主義</p>
 </section>
-<aside class="ref" style="border-color: #ffde00">
-<img loading="lazy" src="images/gakushu/ref-papert.webp" alt="線を描くロボットの亀と、積み上がるブロック" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #ffde00">補足 ／ 理論の出どころ</p>
-<p class="rn">シーモア・パパートと​MITメディアラボ</p>
+<details class="ref note" style="border-color: #ffde00">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-papert.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #ffde00">補足 ／ 理論の出どころ</span><span class="rn">シーモア・パパートと​MITメディアラボ</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">Seymour Papert（1928–2016）／ Mitchel Resnick（Lifelong Kindergarten）</p>
 <p class="rb">子ども向けプログラミング言語LOGOを作った数学者・教育学者。「人は何かを作るときに最もよく学ぶ」というコンストラクショニズムを唱え、「ハードファン」という言葉も彼のものです。弟子のミッチェル・レズニックは、その思想を引き継いでScratchを生み、「生涯幼稚園」という学び方を提唱しています。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel">
 <p class="st">「作る学び」は、​右上の​仕事の​<span class="ac">予行演習</span>でもある。</p>
@@ -1102,15 +1166,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">遊び心は​余興ではなく、​変化の​エンジン。</p>
 <p class="cap" style="opacity: .8">LEGO® SERIOUS PLAY® の名前にある「真剣に遊ぶ」は、まさにこれです。創造性は、安心と遊びの中でしか出てきません。プレイフルラーニングは、重い話を軽くするためではなく、重い話を最後まで運ぶためにあります。</p>
 </section>
-<aside class="ref" style="border-color: #cf0029">
-<img loading="lazy" src="images/gakushu/ref-lsp.webp" alt="ブロックの作品を組み立てる二つの手" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #cf0029">補足 ／ 手法の出どころ</p>
-<p class="rn">LEGO® SERIOUS PLAY®</p>
+<details class="ref note" style="border-color: #cf0029">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-lsp.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #cf0029">補足 ／ 手法の出どころ</span><span class="rn">LEGO® SERIOUS PLAY®</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">レゴ社（デンマーク）／ 1990年代後半に開発、2010年にオープンソース化</p>
 <p class="rb">経営戦略を「語る」のではなく「作る」ために、レゴ社とスイスIMDの研究者（ヨハン・ルース、バート・ヴィクター）が開発した手法。パパートのコンストラクショニズムを理論的な背景に持ちます。全員が作り、全員が語る「100%参加」が原則で、認定ファシリテーターが進行します。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel" style="gap: 24px">
 <p class="lbl" style="color: #cf0029">森の​中で、​2日間</p>
@@ -1137,15 +1203,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">デモクラシーとは、​個人の​意思を​中心に、​主体的に​活動を​広げていく​こと。</p>
 <p class="cap">北欧では、これを「鍛えられる筋肉」として扱います。デモクラシーフィットネス（デンマーク発）は、その筋肉を短い反復で実際に動かすトレーニングです。</p>
 </section>
-<aside class="ref" style="border-color: #0062b1">
-<img loading="lazy" src="images/gakushu/ref-wedo.webp" alt="吹き出しのダンベルが置かれたベンチと、北欧の家" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #0062b1">補足 ／ 団体の出どころ</p>
-<p class="rn">We Do Democracy</p>
+<details class="ref note" style="border-color: #0062b1">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-wedo.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #0062b1">補足 ／ 団体の出どころ</span><span class="rn">We Do Democracy</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">デンマーク・コペンハーゲン ／ デモクラシーフィットネス開発元</p>
 <p class="rb">民主主義を「制度」ではなく「毎日使う筋肉」として鍛え直すことを掲げるデンマークの団体。30分の短いトレーニングで一つの筋肉を反復する「デモクラシーフィットネス」を開発し、学校・企業・自治体に広げています。きづきくみたて工房は、日本の認定トレーナーとして展開しています。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel ink" style="gap: 24px">
 <p class="lbl">デモクラシーは、​この構造の​どこで​効くか</p>
@@ -1205,30 +1273,34 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">勇気を​求めず、​勇気が​要らない​場を作る。</p>
 <p class="cap">これが、個人のWillを組織の意思にするための、具体的な方法です。</p>
 </section>
-<aside class="ref" style="border-color: #e5588a">
-<img loading="lazy" src="images/gakushu/ref-topaasia.webp" alt="白樺のテーブルの上のカードとコーヒー" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #e5588a">補足 ／ 手法の出どころ</p>
-<p class="rn">TOPAASIA</p>
+<details class="ref note" style="border-color: #e5588a">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-topaasia.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #e5588a">補足 ／ 手法の出どころ</span><span class="rn">TOPAASIA</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">フィンランド発の対話カード ／ きづきくみたて工房が日本公式パートナー</p>
 <p class="rb">フィンランドで生まれた、カードを引いて語る対話ツール。引いた言葉を手がかりに話すので、自分の意見を正面から言わなくても意思が場に出ます。振り返りや1on1、チームの対話の習慣化に使われています。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel">
 <p class="st">安心だけでは、​足りない。</p>
 <p class="body">心理的安全性は、ぬるい職場を作るためのものではありません。高い目標と組み合わさってはじめて、学習が起きます。反対意見を述べる筋肉が弱いままだと、仲は良いが新しいことは起きない「居心地のよい停滞」にとどまります。そして「言ったら動いた」という経験の積み重ねが、組織効力感を作ります。</p>
 <p class="cap">参考：Edmondson, A. C. の心理的安全性と目標・基準の2軸の整理</p>
 </section>
-<aside class="ref" style="border-color: #6a7582">
-<img loading="lazy" src="images/gakushu/ref-edmondson.webp" alt="テーブルの上の吹き出しと、それを受け止める手" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #6a7582">補足 ／ 理論の出どころ</p>
-<p class="rn">エイミー・C・エドモンドソン</p>
+<details class="ref note" style="border-color: #6a7582">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-edmondson.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #6a7582">補足 ／ 理論の出どころ</span><span class="rn">エイミー・C・エドモンドソン</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">Amy C. Edmondson ／ ハーバード・ビジネススクール</p>
 <p class="rb">1999年の論文でチームの「心理的安全性」を実証的に示し、著書『恐れのない組織』で広く知られるようになった経営学者。心理的安全性と目標・基準の高さを掛け合わせた4象限は、「安心だけでは足りない」ことを示す整理として本ページでも使っています。</p>
 </div>
-</aside>
+</details>
 
 <!-- 10 -->
 <section class="panel rule" id="c10">
@@ -1280,24 +1352,28 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">測る​道具は、​すでに​ある。</p>
 <p class="cap">9章のデータは、この診断で測ったものです。Lv3の指標は組織ごとに違うので、最初の相談で一緒に決めます。参考：D. L. Kirkpatrick の4段階評価モデル（1959）</p>
 </section>
-<aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-kirkpatrick.webp" alt="四段の階段と、いちばん上に置かれたチェック済みの用紙" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
-<p class="rn">ドナルド・L・カークパトリック</p>
+<details class="ref note" style="border-color: #009944">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-kirkpatrick.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">ドナルド・L・カークパトリック</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">Donald L. Kirkpatrick（1924–2014）／ ウィスコンシン大学</p>
 <p class="rb">1959年に発表した研修評価の4段階（反応・学習・行動・成果）は、半世紀以上たった今も、企業研修の効果測定の共通言語です。「満足度が高かった」で終わりがちな研修を、行動と成果まで追いかけるための枠組み。きづきくみたて工房では、HPI（人間パフォーマンス改善）の考え方とあわせて、設計の段階から測り方を組み込むために使っています。</p>
 </div>
-</aside>
-<aside class="ref" style="border-color: #0062b1; margin-top: -24px">
-<img loading="lazy" src="images/gakushu/ref-humancapital.webp" alt="開いた帳簿から育つ若木と、積まれた硬貨" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #0062b1">補足 ／ 経営の文脈</p>
-<p class="rn">人的資本経営と、​開示できる指標</p>
+</details>
+<details class="ref note" style="border-color: #0062b1; margin-top: -24px">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-humancapital.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #0062b1">補足 ／ 経営の文脈</span><span class="rn">人的資本経営と、​開示できる指標</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">経済産業省「人材版伊藤レポート」（2020、2.0は2022）／ 内閣官房「人的資本可視化指針」（2022）</p>
 <p class="rb">人材を「費用」ではなく「資本」として捉え、その投資と結果を投資家や社会に説明する流れが、上場企業を中心に進んでいます。2023年3月期からは有価証券報告書での人的資本の開示も始まりました。対話力やデモクラ筋のような「組織の筋肉」は、前後で測れば、育成方針とその結果を示す指標の一つになります。ただし本ページは、開示のためではなく、組織が変われるようになるために書いています。</p>
 </div>
-</aside>
+</details>
 
 <section class="panel" style="gap: 24px">
 <p class="st sm">「どこから」の​答えは、​いちばん​困っていて、​いちばん​動きたい​数人の​ところに​ある。</p>
@@ -1315,15 +1391,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big">うまく​いった​ところから、​広げる。</p>
 <p class="cap">この3ステップは、きづきくみたて工房の「グッドスパイラルワークショップ」の型を、最小単位にしたものです。6章で見たとおり、最初から全員は動きません。1チームの「言ったら動いた」が、組織効力感の最初の一歩になります。期間と頻度は目安で、組織に合わせて調整します。</p>
 </section>
-<aside class="ref" style="border-color: #ffde00">
-<img loading="lazy" src="images/gakushu/ref-goodspiral.webp" alt="三色の螺旋階段と、頂上の電球" width="480" height="480">
-<div class="rt">
-<p class="rk" style="color: #7f4f21">補足 ／ 手法の出どころ</p>
-<p class="rn">グッドスパイラルワークショップ</p>
+<details class="ref note" style="border-color: #ffde00">
+<summary>
+<img class="sm-ico" loading="lazy" src="images/gakushu/ref-goodspiral.webp" alt="" width="480" height="480">
+<span class="sm-tx"><span class="rk" style="color: #7f4f21">補足 ／ 手法の出どころ</span><span class="rn">グッドスパイラルワークショップ</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
 <p class="rm">きづきくみたて工房 ／ 屋号の由来になった型</p>
 <p class="rb">「気づきのワーク」で思い込みや前提をほぐし、「くみたてのワーク」で気づいたことを行動やビジョンに組み立て、「スパイラルアップ」で個人と組織の成長が互いを高め合う循環を続ける。上の3ステップは、この型をそのまま最小単位にしたものです。工房の名前の「きづき・くみたて」は、ここから来ています。</p>
 </div>
-</aside>
+</details>
 
 <!-- CLOSE -->
 <section class="panel rule" style="gap: 20px; padding-bottom: 40px; min-height: 0">
