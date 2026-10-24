@@ -11,11 +11,11 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>デモクラ筋白書2026 速報版｜37人のベースラインが示す「個人より組織が弱い」</title>
-<meta name="description" content="デモクラ筋診断のベースラインデータ(n=37)を分析。10筋中9筋で個人評価が組織評価を上回り、唯一「勇気」だけが逆転。心理的安全性があっても人は発言しない——3つの発見と、実施後に検証する仮説を事前宣言する。">
+<title>デモクラ筋白書2026 速報版（2026年10月再集計・n=74）｜個人より組織が弱い</title>
+<meta name="description" content="デモクラ筋診断のベースラインデータを分析。2026年10月にn=74で再集計しても、10筋中9筋で個人評価が組織評価を上回り、唯一「勇気」だけが逆転するパターンは変わらなかった。心理的安全性があっても人は発言しない——3つの発見と、検証中の仮説。">
 <link rel="canonical" href="https://kizukikumitate.com/democracy-fitness-hakusho-2026.html">
 <meta property="og:title" content="デモクラ筋白書2026 速報版">
-<meta property="og:description" content="個人の筋力より、組織の環境が弱い——37人のベースライン分析と3つの発見">
+<meta property="og:description" content="個人の筋力より、組織の環境が弱い——74人のベースライン分析と3つの発見（2026年10月再集計）">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://kizukikumitate.com/democracy-fitness-hakusho-2026.html">
 <meta property="og:image" content="https://kizukikumitate.com/hakusho-ogp.png">
@@ -23,7 +23,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="デモクラ筋白書2026 速報版">
-<meta name="twitter:description" content="個人の筋力より、組織の環境が弱い——37人のベースライン分析と3つの発見">
+<meta name="twitter:description" content="個人の筋力より、組織の環境が弱い——74人のベースライン分析と3つの発見（2026年10月再集計）">
 <meta name="twitter:image" content="https://kizukikumitate.com/hakusho-ogp.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,7 @@
   "isBasedOn": {
     "@type": "Dataset",
     "name": "デモクラ筋診断 ベースライン回答データ(2026)",
-    "description": "デモクラ筋診断(法人版・意識版)の回答。品質フィルタ適用後n=37。回答期間2026-03-21〜2026-07-07。",
+    "description": "デモクラ筋診断(法人版・意識版)の回答。品質フィルタ適用後n=74（速報版初出時はn=37）。回答期間2026-03-21〜2026-09-19。2026-10-24再集計。",
     "creator": { "@id": "https://kizukikumitate.com/#org" }
   },
   "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -119,6 +119,11 @@ blockquote.item small{display:block;font-family:'Zen Kaku Gothic New',sans-serif
 .pledge .note{font-size:13px;color:var(--ink-soft);margin-top:14px;padding-right:70px}
 
 /* 限界 */
+.recount-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:16px 0 20px}
+.rc{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:18px 20px}
+.rc-k{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-weight:700;font-size:13px;letter-spacing:.12em;color:var(--teal);margin-bottom:8px}
+.rc ul{margin:0;padding-left:1.2em}.rc li{font-size:14.5px;line-height:1.75;margin-bottom:6px;word-break:keep-all;overflow-wrap:anywhere}
+@media (max-width:768px){.recount-grid{grid-template-columns:minmax(0,1fr)}}
 .limits{background:#F2F0E9;border:1px solid var(--line);border-radius:8px;padding:22px 24px;margin:8px 0 20px}
 .limits h3{font-size:16px;margin-bottom:10px;color:var(--indigo)}
 .limits p{font-size:14px;color:var(--ink-soft);margin-bottom:10px}
@@ -364,7 +369,7 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
       <button class="nav-dropdown-toggle" type="button">調査・データ <span class="nav-caret">▾</span></button>
       <div class="nav-dropdown-menu">
         <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
-        <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析" class="active">デモクラ筋白書2026 速報版</a>
+        <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=74)を分析" class="active">デモクラ筋白書2026 速報版</a>
         <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
       </div>
     </li>
@@ -500,7 +505,7 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     <button class="mobile-acc-toggle" type="button">調査・データ <span class="mobile-acc-caret">▾</span></button>
     <div class="mobile-acc-panel">
       <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
-      <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析" class="active">デモクラ筋白書2026 速報版</a>
+      <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=74)を分析" class="active">デモクラ筋白書2026 速報版</a>
       <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
     </div>
   </div>
@@ -522,8 +527,8 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
   <div class="wrap">
     <div class="series">DEMOCRACY FITNESS WHITE PAPER 2026 / 速報版</div>
     <h1>デモクラ筋白書 2026<span class="headline">個人の筋力より、組織の環境が弱い</span></h1>
-    <div class="meta">n=37｜2026-03-21〜07-07｜デモクラ筋診断（法人版・意識版）ベースライン分析</div>
-    <p class="lead">対話に必要な10の筋肉——デモクラ筋。その診断データが37人分たまりました。まだ小さなサンプルです。しかし、そこにはすでに、はっきりとしたパターンが浮かんでいます。本速報版はベースライン（トレーニング実施前）の観察報告であり、これから検証する仮説をここに事前宣言します。</p>
+    <div class="meta">n=74｜2026-03-21〜09-19｜デモクラ筋診断（法人版・意識版）ベースライン分析｜2026-10-24 再集計（初出 2026-07-19 n=37）</div>
+    <p class="lead">対話に必要な10の筋肉——デモクラ筋。その診断データは、2026年7月の初出時点で37人分、同年10月の再集計で74人分になりました。まだ小さなサンプルです。しかし、サンプルが2倍になっても、最初に浮かんだパターンは一つも崩れませんでした。本速報版はベースライン（トレーニング実施前）の観察報告であり、検証中の仮説をここに事前宣言しています。</p>
   </div>
 </header>
 
@@ -540,12 +545,12 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
   <section id="finding1">
     <div class="f-label">FINDING 01</div>
     <h2>個人の筋力より、組織の環境が弱い</h2>
-    <p>診断は同じ回答者に、各筋を2つのレイヤーで尋ねます。「自分自身はどうか」（個人評価）と、「自分の組織はどうか」（組織評価）。この2つを比べたとき、10筋中9筋で個人評価が組織評価を上回りました。総合スコアの差は<span class="stat">+0.52点</span>（個人3.84 vs 組織3.31、対応のあるt検定 p&lt;0.000001）。回答者37人のうち<span class="stat">29人</span>が、自分自身より組織を低く評価しています（組織を高く評価したのはわずか3人でした）。</p>
+    <p>診断は同じ回答者に、各筋を2つのレイヤーで尋ねます。「自分自身はどうか」（個人評価）と、「自分の組織はどうか」（組織評価）。この2つを比べたとき、10筋中9筋で個人評価が組織評価を上回りました。総合スコアの差は<span class="stat">+0.52点</span>（個人3.79 vs 組織3.27、対応のあるt検定 p&lt;0.000001、Wilcoxon p&lt;0.00001）。回答者74人のうち<span class="stat">62人</span>が、自分自身より組織を低く評価しています（組織を高く評価したのは12人でした）。初出のn=37では29人／37人（78%）、今回は62人／74人（84%）と、割合はむしろ強まりました。</p>
     <figure class="figure">
       <img src="assets/img/hakusho/fig1_dumbbell.png" alt="10のデモクラ筋について個人評価と組織評価を比較したダンベルチャート。共感筋のギャップが+1.02で最大、勇気筋のみ組織が個人を上回る逆転を示す" loading="lazy">
-      <figcaption>図1：10のデモクラ筋 個人評価 vs 組織評価（n=37・逆転項目変換済み・5点満点）。ギャップ最大は共感筋の+1.02、次いで良い妥協筋+0.86。勇気筋のみ逆転。</figcaption>
+      <figcaption>図1：10のデモクラ筋 個人評価 vs 組織評価（n=74・2026年10月再集計・逆転項目変換済み・5点満点）。ギャップ最大は共感筋の+1.02、次いで言葉への自信筋+0.73、好奇心筋+0.71。勇気筋のみ逆転。</figcaption>
     </figure>
-    <p>ギャップが最も大きいのは共感筋（個人4.09／組織3.07）と良い妥協筋（個人3.70／組織2.85）。つまり「相手の事情を理解しようとする気持ち」も「より良い落としどころを探す意志」も、個人の中には十分にあるのに、組織の議論の場ではそれが発揮されていない——回答者たちはそう認識しています。</p>
+    <p>ギャップが最も大きいのは共感筋（個人4.09／組織3.07）。次いで言葉への自信筋（個人3.91／組織3.19）、好奇心筋（個人4.10／組織3.40）、反対意見筋（個人3.81／組織3.20）、良い妥協筋（個人3.51／組織2.93）が続きます。つまり「相手の事情を理解しようとする気持ち」も「より良い落としどころを探す意志」も、個人の中には十分にあるのに、組織の議論の場ではそれが発揮されていない——回答者たちはそう認識しています。</p>
     <p>これは、パフォーマンス改善の古典であるGilbertの行動工学モデル（BEM）が繰り返し示してきたこと——<b>成果の障害の大半は個人の能力不足ではなく環境要因にある</b>——と一致するパターンです。</p>
     <div class="counter"><b>正直な併記：</b>このパターンは自己奉仕バイアス（人は自分を甘く、環境を厳しく評価する傾向）でも説明できます。本白書はどちらの解釈が正しいかをこのデータだけで断定しません。ただし重要なのは、<b>どちらの解釈を取っても導かれる結論が同じ</b>だという点です。介入すべきは「個人へのスキル注入型の研修」ではなく、「組織の対話の構造」である——individualを責めても、この数字は動きません。</div>
   </section>
@@ -553,9 +558,9 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
   <section id="finding2">
     <div class="f-label">FINDING 02</div>
     <h2>唯一の逆転筋「勇気」——安全な環境があっても、踏み出せない</h2>
-    <p>10筋のうち、勇気筋だけが逆のパターンを示しました。個人3.31に対して組織3.44と、<b>唯一、組織評価が個人評価を上回った筋肉</b>です（この差は統計的に有意ではありません）。そして全60設問の中で、個人評価の最低点はこの設問でした。</p>
-    <blockquote class="item">「不快に感じることがあっても、その場で正直に伝えている」— <span class="stat">2.76</span><small>個人評価・全設問中最弱</small></blockquote>
-    <p>一方で、組織側の「本音を言っても安全だと感じられる」は3.53と、相対的に悪くない水準です。環境としての安全性はある程度整っている。それでも、個人は踏み出せていない。</p>
+    <p>10筋のうち、勇気筋だけが逆のパターンを示しました。個人3.31に対して組織3.38と、<b>唯一、組織評価が個人評価を上回った筋肉</b>です（差−0.07、対応のあるt検定 p=0.52、Wilcoxon p=0.60で統計的に有意ではありません。初出時のn=37では個人3.31／組織3.44、差−0.13でした）。そして全60設問の中で、個人評価の最低点はこの設問でした。</p>
+    <blockquote class="item">「不快に感じることがあっても、その場で正直に伝えている」— <span class="stat">2.82</span><small>個人評価・全設問中最弱（初出時 2.76）</small></blockquote>
+    <p>一方で、組織側の「本音を言っても安全だと感じられる」は3.50、「ありのままの自分で参加できる雰囲気がある」は3.66と、相対的に悪くない水準です。環境としての安全性はある程度整っている。それでも、個人は踏み出せていない。</p>
     <p>この観察は、組織開発の現場で広く共有されている前提——<b>「心理的安全性を整えれば、発言は自然に増える」</b>——に疑問を投げかけます。安全性は発言の必要条件かもしれませんが、十分条件ではない。使われない筋肉は、安全なジムの中でも育ちません。勇気筋は、環境整備ではなくトレーニングの対象である——これが本データから立ち上がる仮説です。</p>
   </section>
 
@@ -564,11 +569,11 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     <h2>組織の最弱点は「話し始め」ではなく「決め方」</h2>
     <p>全設問を変換後スコアの低い順に並べると、ワースト3はすべて合意形成——「決め方」に関する組織評価に集中しました。</p>
     <figure class="figure">
-      <img src="assets/img/hakusho/fig2_weakest.png" alt="スコアが低い5つの設問の横棒グラフ。声が大きい人や立場が上の人の意見に落ち着くことが多い、が2.24で最弱" loading="lazy">
-      <figcaption>図2：最も弱い5つの状態（変換後スコア・中立=3を下回るものが4項目）。赤=組織評価、緑=個人評価。</figcaption>
+      <img src="assets/img/hakusho/fig2_weakest.png" alt="スコアが低い5つの設問の横棒グラフ。声が大きい人や立場が上の人の意見に落ち着くことが多い、が2.43で最弱" loading="lazy">
+      <figcaption>図2：最も弱い5つの状態（n=74・変換後スコア・5項目すべてが中立=3を下回る）。赤=組織評価、緑=個人評価。</figcaption>
     </figure>
-    <blockquote class="item">「声が大きい人や立場が上の人の意見に落ち着くことが多い」— <span class="stat">2.24</span><small>良い妥協筋・組織評価（逆転項目・変換後）・全設問中最弱</small></blockquote>
-    <p>次点は「会議では発言する人が固定されている」（2.59）、「合意が取れるまで対話を続ける時間が確保されている」（2.62）。会話は始まっている。しかし、結論は対話ではなく声量と役職で決まり、合意形成に時間が割かれていない——それが回答者たちの見ている組織の姿です。</p>
+    <blockquote class="item">「声が大きい人や立場が上の人の意見に落ち着くことが多い」— <span class="stat">2.43</span><small>良い妥協筋・組織評価（逆転項目・変換後）・全設問中最弱（初出時 2.24）</small></blockquote>
+    <p>次点は「会議では発言する人が固定されている」（2.65）、「不快に感じても、その場で正直に伝えている」（2.82・個人）、「誰かがやるだろうという傍観者意識」（2.82）、「合意が取れるまで対話を続ける時間が確保されている」（2.87）。会話は始まっている。しかし、結論は対話ではなく声量と役職で決まり、合意形成に時間が割かれていない——それが回答者たちの見ている組織の姿です。</p>
   </section>
 
   <section id="hypotheses">
@@ -580,21 +585,46 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
       <ol>
         <li><b>H1：</b>トレーニング後、最も伸びるのは<b>勇気筋の個人スコア</b>である。環境は既に整いつつあるため、個人の一歩が変われば数値に直結すると予測する。</li>
         <li><b>H2：</b>個人と組織のギャップ（+0.52）は、<b>組織単位で受講した群でのみ縮小</b>する。個人参加では個人スコアだけが上がり、ギャップはむしろ拡大しうる。</li>
-        <li><b>H3：</b>「声が大きい人で決まる」（2.24）は、<b>合意形成の型を導入した組織でのみ改善</b>する。個人の意識変化だけでは動かない。</li>
+        <li><b>H3：</b>「声が大きい人で決まる」（初出2.24→再集計2.43）は、<b>合意形成の型を導入した組織でのみ改善</b>する。個人の意識変化だけでは動かない。</li>
       </ol>
       <p class="note">検証結果は、外れた場合も含めて本白書の第1号（2026年末予定）で公開します。</p>
     </div>
   </section>
 
+  <section id="recount">
+    <div class="f-label">RE-AGGREGATION 2026-10</div>
+    <h2>再集計：サンプルが2倍になって、何が変わり、何が変わらなかったか</h2>
+    <p>速報版の初出（2026年7月19日、n=37）から3か月、福岡・名古屋・北軽井沢合宿などの体験会を経て、品質フィルタ適用後の回答は<span class="stat">74件</span>になりました。同じ手順（3月21日以降／意識版のみ／60問完答／直線回答・完全重複を除外／逆転項目は6−値）で2026年10月24日に再集計しました。</p>
+    <div class="recount-grid">
+      <div class="rc"><div class="rc-k">変わらなかったこと</div>
+        <ul>
+          <li>10筋中9筋で個人＞組織。総合の差は<b>+0.52</b>で初出と同じ値</li>
+          <li>唯一の逆転は<b>勇気筋</b>（−0.13 → −0.07、どちらも有意差なし）</li>
+          <li>全60問の最弱は<b>「声が大きい人や立場が上の人の意見に落ち着く」</b>（2.24 → 2.43）</li>
+          <li>個人側の最弱は<b>「不快に感じても、その場で正直に伝えている」</b>（2.76 → 2.82）</li>
+          <li>自分より組織を低く評価した人の割合は 78%（29/37）→ <b>84%（62/74）</b></li>
+        </ul>
+      </div>
+      <div class="rc"><div class="rc-k">変わったこと</div>
+        <ul>
+          <li>ギャップ2位が良い妥協筋（+0.86）から<b>言葉への自信筋（+0.73）</b>に。良い妥協筋は+0.59で5位に下がった（組織評価が2.85→2.93と少し上がったため）</li>
+          <li>最弱5項目が<b>すべて中立（3.0）を下回った</b>（初出時は4項目）</li>
+          <li>最弱の「声の大きい人で決まる」が2.24→2.43と改善。ただし依然として全設問で最も低い</li>
+        </ul>
+      </div>
+    </div>
+    <p>サンプルが倍になって動いたのは順位の細部だけで、3つの発見の骨格は一つも崩れませんでした。これは「n=37の偶然ではなかった」ことの、ささやかな証拠です。次の再集計は、合宿型プログラムのpre/postデータが揃う2026年末を予定しています。</p>
+  </section>
+
   <section id="methods">
     <div class="f-label">METHODS &amp; LIMITATIONS</div>
     <h2>方法と、このデータの限界</h2>
-    <p>対象はデモクラ筋診断（法人版・意識版、全60問・5件法）の回答のうち、設問が安定した2026年3月21日以降で、直線回答・完全重複を除外した37件。各筋は個人3問+組織3問で測定し、逆転項目は変換（6−値）してから集計しています。個人vs組織の比較は同一回答者内の対応データとして、対応のあるt検定とWilcoxon符号順位検定の両方で確認しました。</p>
+    <p>対象はデモクラ筋診断（法人版・意識版、全60問・5件法）の回答のうち、設問が安定した2026年3月21日以降で、直線回答・完全重複・学生版（40問）を除外した74件（2026年10月24日時点。初出時は7月7日までの37件）。各筋は個人3問+組織3問で測定し、逆転項目は変換（6−値）してから集計しています。個人vs組織の比較は同一回答者内の対応データとして、対応のあるt検定とWilcoxon符号順位検定の両方で確認しました。</p>
     <div class="limits">
       <h3>限界（読み手に先に伝えたいこと）</h3>
       <p><b>サンプルの偏り：</b>回答者はDemocracy Fitness体験会等の参加者が中心です。つまり対話への関心が高い層に偏っており、「日本の組織一般」を代表しません。</p>
       <p><b>自己評価であること：</b>測っているのは自己認識であり、行動の実測ではありません（行動実績版の蓄積は始まったばかりです）。</p>
-      <p><b>因果は語れない：</b>本速報版は記述統計と仮説の提示に徹しています。n=37で断定できることは多くありません——だからこそ、仮説を宣言し、検証を続けます。</p>
+      <p><b>因果は語れない：</b>本速報版は記述統計と仮説の提示に徹しています。n=74で断定できることは多くありません——だからこそ、仮説を宣言し、検証を続けます。</p>
     </div>
   </section>
 
@@ -662,7 +692,7 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     <div class="shelf-title">📚 調査・データの棚</div>
     <div class="shelf-list" role="navigation">
       <a href="./research.html" title="独自調査データの発行棚。白書・効果検証を公開">観測室について（調査・データ）</a>
-      <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=37)を分析" class="active">デモクラ筋白書2026 速報版</a>
+      <a href="./democracy-fitness-hakusho-2026.html" title="デモクラ筋診断のベースラインデータ(n=74)を分析" class="active">デモクラ筋白書2026 速報版</a>
       <a href="./jijitsu-daicho.html" title="資格・経歴・実績を出典つきで一覧する公式レジストリ">事実の台帳（発行者情報）</a>
     </div>
   </aside>
