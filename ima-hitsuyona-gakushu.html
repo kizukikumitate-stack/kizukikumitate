@@ -125,15 +125,17 @@ p,h1,h2,h3{margin:0}
 .btn:hover{color:#FFFFFF;background:#00753a}
 .svgfull{width:100%;height:auto;display:block}
 .rule{border-top:1px solid #CFD2CB;padding-top:40px}
-.toc{padding:8px 48px 40px;display:flex;flex-direction:column}
-.toc .lab{font-size:11px;letter-spacing:.16em;font-weight:700;opacity:.6;padding-bottom:10px}
-.toc .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}
-.toc a{display:block;padding:8px 0;border-top:1px solid #CFD2CB;color:#14191E;text-decoration:none;line-height:1.5;font-size:13px;word-break:keep-all}
-.toc a:hover{color:#009944}
-.toc a b{font-family:"Zen Kaku Gothic New",sans-serif;color:#009944;margin-right:6px}
+.toc{padding:4px 48px 44px;display:flex;flex-direction:column}
+.toc .lab{font-family:"Zen Kaku Gothic New",sans-serif;font-size:11px;letter-spacing:.2em;font-weight:700;color:#14191E;opacity:.55;padding-bottom:12px}
+/* 左に1〜5、右に6〜10。番号は独立カラムに置き、1桁でも2桁でもタイトルの頭が揃う */
+.toc .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:30px;border-bottom:1px solid #CFD2CB}
+.toc a{display:grid;grid-template-columns:1.8em minmax(0,1fr);align-items:baseline;column-gap:.5em;padding:11px 0;border-top:1px solid #CFD2CB;color:#14191E;text-decoration:none;line-height:1.55;font-size:13.5px;word-break:keep-all;overflow-wrap:anywhere;transition:color .15s}
+.toc a b{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:12px;color:#009944;font-variant-numeric:tabular-nums;text-align:right;letter-spacing:.02em}
+.toc a:hover,.toc a:focus-visible{color:#009944}
+.toc a:focus-visible{outline:2px solid #009944;outline-offset:3px;border-radius:2px}
 @media (max-width:900px){
 .page{grid-template-columns:minmax(0,1fr);gap:24px}
-.toc{padding:8px 24px 32px}.toc .links{grid-template-columns:minmax(0,1fr)}
+.toc{padding:4px 24px 36px}.toc .links{grid-template-columns:minmax(0,1fr);grid-template-rows:none;grid-auto-flow:row}.toc a{padding:13px 0}
 .prof{grid-template-columns:116px minmax(0,1fr)!important;gap:14px!important}.prof img{width:116px!important;height:150px!important}
 .side{position:static}
 .panel{padding:72px 24px;min-height:0}
@@ -161,7 +163,7 @@ p,h1,h2,h3{margin:0}
 .cmp .ct{align-self:flex-start;font-size:10px;letter-spacing:.1em;font-weight:700;color:#009944;border:1px solid #009944;border-radius:999px;padding:1px 8px}
 
 /* ---------- global nav（台帳生成・data/nav.json が正・CSSはページ側） ---------- */
-:root{--navh:62px;--nv-ink:#14191E;--nv-line:#CFD2CB;--nv-acc:#1a5fad}
+:root{--nv-ink:#14191E;--nv-line:#CFD2CB;--nv-acc:#1a5fad}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;box-sizing:border-box}
 .nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
 .nav-logo img{height:36px;width:auto;object-fit:contain}
@@ -218,6 +220,16 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   }
 }
 
+/* ---- 固定ナビの実高さと、章アンカーの着地位置 ---- */
+:root{--navh:77px}                 /* 1500px以下はハンバーガーで背が高い */
+@media (min-width:1501px){:root{--navh:63px}}
+.col > section[id]{scroll-margin-top:calc(var(--navh) + 20px)}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+/* ---- 読了プログレス（固定ナビの下端に重ねる） ---- */
+.readbar{position:fixed;top:calc(var(--navh) - 3px);left:0;right:0;height:3px;z-index:101;pointer-events:none}
+.readbar i{display:block;height:100%;width:0;background:#009944;transition:width .1s linear}
+@media (prefers-reduced-motion: reduce){.readbar i{transition:none}}
+
   /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
   @media (min-width: 1501px) {
     nav { padding-left: 1.25rem; padding-right: 1.25rem; }
@@ -233,6 +245,34 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
     .nav-logo-text { font-size: 1rem; }
   }
 </style>
+<!-- ===== AI・検索エンジン向け構造化データ（Article） ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "今、この社会に必要な学習とは？（超図解）",
+  "url": "https://kizukikumitate.com/ima-hitsuyona-gakushu.html",
+  "image": "https://kizukikumitate.com/ima-hitsuyona-gakushu-ogp.png",
+  "datePublished": "2026-10-24",
+  "dateModified": "2026-10-24",
+  "author": {
+    "@type": "Person",
+    "@id": "https://kizukikumitate.com/#yasuhito-morimoto",
+    "name": "森本康仁",
+    "url": "https://kizukikumitate.com/jijitsu-daicho.html"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "@id": "https://kizukikumitate.com/#org",
+    "name": "きづきくみたて工房",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://kizukikumitate.com/logotype.png"
+    }
+  },
+  "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+}
+</script>
 </head>
 <body>
 <!-- NAV START -->
@@ -521,6 +561,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   </div>
 </div>
 <!-- NAV END -->
+<div class="readbar" aria-hidden="true"><i></i></div>
 
 <div class="page">
 
@@ -537,7 +578,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="subt">なぜ、​組織は​変化に​追いつけないのか</p>
 <p class="body">研修はやっている。方針も出している。それでも、現場が変わった実感がない。多くの経営者・人事の方が、同じことを口にします。何が起きているのかを、順番に見ていきます。</p>
 </div>
-<img src="images/gakushu/cover-A.webp" fetchpriority="high" alt="書類と箱を抱えてスニーカーで歩く現代の働き手たちの頭上を、色とりどりの矢印とロケットが追い越していく" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<img src="images/gakushu/cover-A.webp" fetchpriority="high" alt="書類と箱を抱えてスニーカーで歩く現代の働き手たちの頭上を、色とりどりの矢印とロケットが追い越していく" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="794">
 </header>
 
 <div class="toc" role="navigation" aria-label="目次">
@@ -707,7 +748,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">参考：T. F. Gilbert, Human Competence（1978）の行動工学モデル（BEM）</p>
 </section>
 <aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-gilbert.webp" alt="人と道具を載せた天秤">
+<img loading="lazy" src="images/gakushu/ref-gilbert.webp" alt="人と道具を載せた天秤" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
 <p class="rn">トーマス・F・ギルバート</p>
@@ -723,7 +764,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div><div class="h">認知</div><p>前提、常識、思い込み、「うちではこうだ」。目に見えず、本人も気づいていないもの。</p></div>
 </div>
 
-<img loading="lazy" src="images/gakushu/tugofwar.webp" alt="仕組みの機械を挟んで、二人が綱引きをしている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<img loading="lazy" src="images/gakushu/tugofwar.webp" alt="仕組みの機械を挟んで、二人が綱引きをしている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780">
 <p class="big">片方だけ​変えても、​もう片方が、​引き戻す。</p>
 <p class="cap">新しい制度を入れても、古い前提のまま運用される。研修で前提が変わっても、古い評価制度が元に戻す。どちらも、よくある光景です。</p>
 </section>
@@ -740,7 +781,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </section>
 <aside class="ref" style="border-color: #e5588a">
-<img loading="lazy" src="images/gakushu/ref-unlearn.webp" alt="ノートを消す消しゴムと、値札の付いた古い帳簿の山">
+<img loading="lazy" src="images/gakushu/ref-unlearn.webp" alt="ノートを消す消しゴムと、値札の付いた古い帳簿の山" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #e5588a">補足 ／ 言葉の出どころ</p>
 <p class="rn">アンラーニングと​組織的負債</p>
@@ -763,7 +804,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">これが低いと、正しい方針があっても、人は前提を手放しませんし、負債に手をつけません。効力感は、小さな成功の積み重ねでしか育ちません。以降の章は、この二つをどう育てるかの話でもあります。</p>
 </section>
 <aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-bandura.webp" alt="積み木の階段を登る人と太陽">
+<img loading="lazy" src="images/gakushu/ref-bandura.webp" alt="積み木の階段を登る人と太陽" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
 <p class="rn">アルバート・バンデューラ</p>
@@ -799,7 +840,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <section class="panel ink" style="gap: 24px">
 <p class="lbl">ステークホルダーの​4つの立場</p>
-<img loading="lazy" src="images/gakushu/stakeholders.webp" alt="方針を指す人、荷物を運ぶ人、机が片づけられて戸惑う人、腕を組んで見ている人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<img loading="lazy" src="images/gakushu/stakeholders.webp" alt="方針を指す人、荷物を運ぶ人、机が片づけられて戸惑う人、腕を組んで見ている人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780">
 <div class="figrow" style="gap: 8px">
 <div class="fig"><div class="nm">決める人</div><div class="ds">予算・方針・優先順位を決める</div></div>
 <div class="fig"><div class="nm">動く人</div><div class="ds">実際に手を動かし、負荷を引き受ける</div></div>
@@ -810,7 +851,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">見落とされがちなのは「動く人」と「影響を受ける人」。立場の違う人たちとの、高度な合意形成が必要になります。</p>
 </section>
 <aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-freeman.webp" alt="建物を囲んで手をつなぐ6人">
+<img loading="lazy" src="images/gakushu/ref-freeman.webp" alt="建物を囲んで手をつなぐ6人" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
 <p class="rn">R・エドワード・フリーマン</p>
@@ -951,8 +992,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="panel sun" style="gap: 24px">
 <p class="lbl">二つの​学び方</p>
 <div class="two" style="gap: 10px">
-<div style="border: 0; padding: 0; gap: 6px"><img loading="lazy" src="images/gakushu/classroom.webp" alt="黒板の前で先生が話し、会社員たちが席に座って聞いている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px"><p class="cap" style="opacity: .8; text-align: center">教わる</p></div>
-<div style="border: 0; padding: 0; gap: 6px"><img loading="lazy" src="images/gakushu/blocks.webp" alt="四人がテーブルでブロックを組み、作ったものを見せ合っている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px"><p class="cap" style="opacity: .8; text-align: center">作って、見せ合う</p></div>
+<div style="border: 0; padding: 0; gap: 6px"><img loading="lazy" src="images/gakushu/classroom.webp" alt="黒板の前で先生が話し、会社員たちが席に座って聞いている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780"><p class="cap" style="opacity: .8; text-align: center">教わる</p></div>
+<div style="border: 0; padding: 0; gap: 6px"><img loading="lazy" src="images/gakushu/blocks.webp" alt="四人がテーブルでブロックを組み、作ったものを見せ合っている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780"><p class="cap" style="opacity: .8; text-align: center">作って、見せ合う</p></div>
 </div>
 
 <div class="two">
@@ -963,7 +1004,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">教わった知識は、古い前提の上に積まれるだけです。自分の手で形にして初めて、本人も気づいていなかった前提が表に出て、本人の手で書き換わります。アンラーニングは、作ることで起きます。そして「作って見せたら通じた」という小さな成功が、自己効力感を育てます。参考：S. パパート（MITメディアラボ）の構築主義</p>
 </section>
 <aside class="ref" style="border-color: #ffde00">
-<img loading="lazy" src="images/gakushu/ref-papert.webp" alt="線を描くロボットの亀と、積み上がるブロック">
+<img loading="lazy" src="images/gakushu/ref-papert.webp" alt="線を描くロボットの亀と、積み上がるブロック" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #ffde00">補足 ／ 理論の出どころ</p>
 <p class="rn">シーモア・パパートと​MITメディアラボ</p>
@@ -986,7 +1027,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <section class="panel coral" style="gap: 28px">
 <p class="lbl">ハードファン</p>
-<img loading="lazy" src="images/gakushu/mountain.webp" alt="険しい山を、笑いながらロープで助け合って登る三人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<img loading="lazy" src="images/gakushu/mountain.webp" alt="険しい山を、笑いながらロープで助け合って登る三人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780">
 
 <p class="hero">難しいから、​面白い。</p>
 <p class="body" style="opacity: 1">パパートは、子どもたちがプログラミングに没頭する様子を「ハードファン（hard fun）」と呼びました。簡単だから楽しいのではありません。難しいのに楽しい。むしろ、難しいからこそ楽しい。人が最も粘り強く、最も創造的になるのは、この状態のときです。</p>
@@ -1004,7 +1045,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap" style="opacity: .8">LEGO® SERIOUS PLAY® の名前にある「真剣に遊ぶ」は、まさにこれです。創造性は、安心と遊びの中でしか出てきません。プレイフルラーニングは、重い話を軽くするためではなく、重い話を最後まで運ぶためにあります。</p>
 </section>
 <aside class="ref" style="border-color: #cf0029">
-<img loading="lazy" src="images/gakushu/ref-lsp.webp" alt="ブロックの作品を組み立てる二つの手">
+<img loading="lazy" src="images/gakushu/ref-lsp.webp" alt="ブロックの作品を組み立てる二つの手" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #cf0029">補足 ／ 手法の出どころ</p>
 <p class="rn">LEGO® SERIOUS PLAY®</p>
@@ -1016,7 +1057,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="panel" style="gap: 24px">
 <p class="lbl" style="color: #cf0029">森の​中で、​2日間</p>
 <p class="st">構造化した​議論と、​構造化しない​時間を、​地続きに​する。</p>
-<img loading="lazy" src="images/gakushu/takiviva-session.webp" alt="北軽井沢TAKIVIVAでの合宿版デモクラシーフィットネス2日目。テーブルを囲んでチェックインを書く参加者たち（顔はぼかし処理）" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<img loading="lazy" src="images/gakushu/takiviva-session.webp" alt="北軽井沢TAKIVIVAでの合宿版デモクラシーフィットネス2日目。テーブルを囲んでチェックインを書く参加者たち（顔はぼかし処理）" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="1050">
 <p class="body">群馬・北軽井沢のTAKIVIVAで、合宿版デモクラシーフィットネスを開いています。室内のセッションで10の筋肉すべてを2日間で動かし、夜は屋外の焚き火を囲む。肩書きを脱いだ時間にしか出てこない意思があり、翌朝の議論の質が変わります。</p>
 <p class="body">経営チームには、同じ場所で経営合宿も設計しています。全社に求める前に、トップ層が最初に練習する場として。</p>
 <p class="cap">写真：きづきくみたて工房がTAKIVIVAで開催した合宿版デモクラシーフィットネス（2026年8月）2日目の記録。経営合宿は、中期方針の策定・組織課題の棚卸し・新旧経営陣の引き継ぎなど、「何を決める合宿か」が決まっていない段階からの相談も受けています。</p>
@@ -1039,7 +1080,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">北欧では、これを「鍛えられる筋肉」として扱います。デモクラシーフィットネス（デンマーク発）は、その筋肉を短い反復で実際に動かすトレーニングです。</p>
 </section>
 <aside class="ref" style="border-color: #0062b1">
-<img loading="lazy" src="images/gakushu/ref-wedo.webp" alt="吹き出しのダンベルが置かれたベンチと、北欧の家">
+<img loading="lazy" src="images/gakushu/ref-wedo.webp" alt="吹き出しのダンベルが置かれたベンチと、北欧の家" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #0062b1">補足 ／ 団体の出どころ</p>
 <p class="rn">We Do Democracy</p>
@@ -1107,7 +1148,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">これが、個人のWillを組織の意思にするための、具体的な方法です。</p>
 </section>
 <aside class="ref" style="border-color: #e5588a">
-<img loading="lazy" src="images/gakushu/ref-topaasia.webp" alt="白樺のテーブルの上のカードとコーヒー">
+<img loading="lazy" src="images/gakushu/ref-topaasia.webp" alt="白樺のテーブルの上のカードとコーヒー" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #e5588a">補足 ／ 手法の出どころ</p>
 <p class="rn">TOPAASIA</p>
@@ -1122,7 +1163,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">参考：Edmondson, A. C. の心理的安全性と目標・基準の2軸の整理</p>
 </section>
 <aside class="ref" style="border-color: #6a7582">
-<img loading="lazy" src="images/gakushu/ref-edmondson.webp" alt="テーブルの上の吹き出しと、それを受け止める手">
+<img loading="lazy" src="images/gakushu/ref-edmondson.webp" alt="テーブルの上の吹き出しと、それを受け止める手" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #6a7582">補足 ／ 理論の出どころ</p>
 <p class="rn">エイミー・C・エドモンドソン</p>
@@ -1182,7 +1223,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">9章のデータは、この診断で測ったものです。Lv3の指標は組織ごとに違うので、最初の相談で一緒に決めます。参考：D. L. Kirkpatrick の4段階評価モデル（1959）</p>
 </section>
 <aside class="ref" style="border-color: #009944">
-<img loading="lazy" src="images/gakushu/ref-kirkpatrick.webp" alt="四段の階段と、いちばん上に置かれたチェック済みの用紙">
+<img loading="lazy" src="images/gakushu/ref-kirkpatrick.webp" alt="四段の階段と、いちばん上に置かれたチェック済みの用紙" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #009944">補足 ／ 理論の出どころ</p>
 <p class="rn">ドナルド・L・カークパトリック</p>
@@ -1191,7 +1232,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </aside>
 <aside class="ref" style="border-color: #0062b1; margin-top: -24px">
-<img loading="lazy" src="images/gakushu/ref-humancapital.webp" alt="開いた帳簿から育つ若木と、積まれた硬貨">
+<img loading="lazy" src="images/gakushu/ref-humancapital.webp" alt="開いた帳簿から育つ若木と、積まれた硬貨" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #0062b1">補足 ／ 経営の文脈</p>
 <p class="rn">人的資本経営と、​開示できる指標</p>
@@ -1217,7 +1258,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">この3ステップは、きづきくみたて工房の「グッドスパイラルワークショップ」の型を、最小単位にしたものです。6章で見たとおり、最初から全員は動きません。1チームの「言ったら動いた」が、組織効力感の最初の一歩になります。期間と頻度は目安で、組織に合わせて調整します。</p>
 </section>
 <aside class="ref" style="border-color: #ffde00">
-<img loading="lazy" src="images/gakushu/ref-goodspiral.webp" alt="三色の螺旋階段と、頂上の電球">
+<img loading="lazy" src="images/gakushu/ref-goodspiral.webp" alt="三色の螺旋階段と、頂上の電球" width="480" height="480">
 <div class="rt">
 <p class="rk" style="color: #7f4f21">補足 ／ 手法の出どころ</p>
 <p class="rn">グッドスパイラルワークショップ</p>
@@ -1264,7 +1305,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px"><i style="width:14px;height:14px;border-radius:50%;background:#6a7582;display:inline-block"></i>断る力</span>
 </div>
 <div class="prof" style="display: grid; grid-template-columns: 168px minmax(0,1fr); gap: 20px; align-items: center; padding-top: 8px">
-<img loading="lazy" src="images/gakushu/morimoto.webp" alt="森本康仁。白いキャップと眼鏡、DEMOCRACY FITNESSのTシャツで笑っている" style="width: 168px; height: 210px; object-fit: cover; border-radius: 12px; display: block">
+<img loading="lazy" src="images/gakushu/morimoto.webp" alt="森本康仁。白いキャップと眼鏡、DEMOCRACY FITNESSのTシャツで笑っている" style="width: 168px; height: 210px; object-fit: cover; border-radius: 12px; display: block" width="720" height="900">
 <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
 <p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px">きづきくみたて工房　森本康仁</p>
 <p class="cap">対話のトレーナー。目指しているのは、世界平和です。<br>長野県軽井沢町 ／ LEGO® SERIOUS PLAY® 認定ファシリテーター ／ デモクラシーフィットネス認定トレーナー（We Do Democracy, Denmark）／ TOPAASIA 日本公式パートナー</p>
@@ -1356,6 +1397,20 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   mobileClose.addEventListener('click', closeMenu);
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
+
+  // 読了プログレス（縦に長い読み物のため、どこまで来たかを細い線で示す）
+  (function(){
+    var bar = document.querySelector('.readbar i');
+    if (!bar) return;
+    var tick = function(){
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - window.innerHeight;
+      bar.style.width = (max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0) + '%';
+    };
+    window.addEventListener('scroll', tick, { passive: true });
+    window.addEventListener('resize', tick);
+    tick();
+  })();
   // 無料診断ボタンの押下を計測（select_item）
   document.addEventListener('click', function(e){
     var a = e.target.closest('a.btn');

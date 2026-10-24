@@ -23,6 +23,7 @@ BASE = "https://kizukikumitate.com/"
 
 # 図鑑・エッセイ（長文コンテンツ）ページ。サービスLP・ツール・イベント・妖怪世界観は含めない。
 ARTICLE_PAGES = [
+    "ima-hitsuyona-gakushu.html",
     "dialogue-zukan.html",
     "shikumi-zukan.html",
     "poverty-zukan.html",
