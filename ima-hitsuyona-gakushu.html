@@ -234,6 +234,51 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 .readbar i{display:block;height:100%;width:0;background:#009944;border-radius:0 3px 3px 0;box-shadow:0 1px 4px rgba(0,153,68,.45);transition:width .1s linear}
 @media (prefers-reduced-motion: reduce){.readbar i{transition:none}}
 
+/* ===== スマホの文字サイズ（Web デザインの原則で組んだ段階）=====
+   本文17 / カード本文15 / キャプション13.5 / ラベル12.5。
+   12px以下は文章に使わない。小さい文字ほど opacity を上げて実効コントラストを保つ。
+   インライン指定の font-size が勝つため、.col 配下だけ !important で引き上げる。 */
+@media (max-width:900px){
+  .body{font-size:17px;line-height:1.95;opacity:.94}
+  .cap{font-size:14px;line-height:1.8;opacity:.88}
+  span.cap{opacity:.85}
+  .two .k,.pair .k{font-size:12.5px;opacity:.9;line-height:1.5}
+  .toc .lab,.side .lab{font-size:12px;opacity:.7}
+  .cmp .ct{font-size:12px}
+  .sub,.stat .sub{font-size:15px;line-height:1.85}
+  .two p,.two li,.pair p,.eff p,.ref .rb{font-size:15px;line-height:1.8}
+  .card3 p{font-size:14.5px;line-height:1.75;opacity:.95}
+  .fig .ds{font-size:13px;line-height:1.65;opacity:.9}
+  .ref .rk{font-size:13px}
+  .ref .rm{font-size:12.5px;line-height:1.65;opacity:.82}
+  .mx .q p{font-size:13.5px;line-height:1.7;opacity:.9}
+  .mx .ax{font-size:12px;opacity:.9}
+  .mx .q b{font-size:14px}
+  .chip{font-size:13.5px;padding:6px 13px}
+  .toc a{font-size:14.5px;padding:14px 0}
+  .lbl{font-size:14.5px}
+  .card3 b{font-size:16px}
+  .two .h{font-size:17px}
+  .pair .h{font-size:20px}
+  .fig .nm{font-size:14px}
+  .ref .rn{font-size:17px}
+  /* 補足カードはスマホでは縦積みに。アイコンを横に並べたままだと本文が1行15字ほどしか
+     入らず、日本語の読みやすい1行25〜35字から大きく外れるため（漫画カードは画像が主役なので除外） */
+  .ref:not(.manga){grid-template-columns:minmax(0,1fr);gap:14px;justify-items:start}
+  .ref:not(.manga) img{width:76px;height:76px}
+  .sum{font-size:16px;line-height:1.7}
+  .cmp .cl,.cmp .cr{font-size:14.5px;line-height:1.65}
+  .cmph{font-size:12.5px}
+  /* インライン指定の引き上げ（本文カード・一覧行など） */
+  .col [style*="font-size: 13px"],.col [style*="font-size:13px"]{font-size:15px!important;line-height:1.8!important}
+  .col [style*="font-size: 12px"],.col [style*="font-size:12px"]{font-size:13.5px!important}
+  .col [style*="font-size: 11px"],.col [style*="font-size:11px"]{font-size:13px!important;line-height:1.7!important}
+  .col [style*="font-size: 14px"],.col [style*="font-size:14px"]{font-size:15px!important}
+  .col [style*="font-size: 15px"],.col [style*="font-size:15px"]{font-size:16px!important}
+  .col [style*="font-size: 13.5px"],.col [style*="font-size:13.5px"]{font-size:15px!important;line-height:1.8!important}
+  .col [style*="font-size: 14.5px"],.col [style*="font-size:14.5px"]{font-size:15.5px!important}
+}
+
   /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
   @media (min-width: 1501px) {
     nav { padding-left: 1.25rem; padding-right: 1.25rem; }
