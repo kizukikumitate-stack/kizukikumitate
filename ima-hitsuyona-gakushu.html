@@ -145,8 +145,8 @@ p,h1,h2,h3{margin:0}
 .figrow{grid-template-columns:repeat(2,minmax(0,1fr))}
 .two,.pair,.card3{grid-template-columns:minmax(0,1fr)}
 }
-.st,.big,.hero,.subt,.kw,.stat .mean,.chap h2,.two .h,.pair .h,.sum p,.lbl,.card3 b,.fig .nm,.mx .q b{word-break:keep-all;overflow-wrap:anywhere;line-break:strict}
-.st,.big,.hero,.subt{text-wrap:balance}
+.st,.big,.hero,.subt,.kw,.stat .mean,.chap h2,.two .h,.pair .h,.sum p,.lbl,.card3 b,.fig .nm,.mx .q b{word-break:normal;overflow-wrap:anywhere;line-break:strict;hanging-punctuation:allow-end}
+
 .ref{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:center;margin:40px 36px 56px;padding:20px;border:1.5px solid #CFD2CB;border-radius:14px;background:#F6F5F0;position:relative}
 .ref img{width:160px;height:160px;object-fit:cover;border-radius:10px;display:block}
 .ref .rt{display:flex;flex-direction:column;gap:4px;min-width:0}
@@ -217,9 +217,22 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
    本文  ＝文字単位で折り返す（日本語の通常の組み方）。右端がほぼ揃い、行末の位置が段落ごとに
           ばらつかない。長文に文節改行をかけると行末が大きく波打つため、本文には使わない。
    禁則（、。」）を行頭に置かない）とぶら下げ、最終行の孤立防止は全幅で効かせる。 */
-.body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p, .cmp .cl, .eff p, .src-v {
-  word-break: normal; overflow-wrap: break-word; line-break: strict; text-wrap: pretty; hanging-punctuation: allow-end;
+.body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p, .cmp .cl, .cmp .cr, .eff p, .src-v, .ref .rn, .prof p {
+  word-break: normal; overflow-wrap: break-word; line-break: strict; hanging-punctuation: allow-end;
 }
+/* ---- 右端を揃える（両端揃え）----
+   文字単位で折り返したうえで、余りを文字間に配分して右端を一直線にする。
+   最終行は左寄せのまま（組版の作法）。中央寄せ・右寄せの要素には掛けない。 */
+.col p, .col li, .col blockquote,
+.body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p,
+.cmp .cl, .cmp .cr, .eff p, .src-v, .prof p,
+.st, .big, .hero, .subt, .kw, .sum p, .lbl, .chap h2, .two .h, .pair .h, .ref .rn, .ref .rb, .ref .rm {
+  text-align: justify; text-justify: inter-character;
+}
+/* 中央・右寄せを保つもの（両端揃えを掛けない） */
+.mx .ax, .mx .ax.v, .chip, .toc a, .cmp .ct, .fig .nm, .stat .mean, .card3 b, .dots, .k { text-align: inherit; text-justify: auto; }
+/* 両端揃えを掛けない短い見出しは、1文字だけ行送りされないよう2行を均す */
+.card3 b,.fig .nm,.mx .q b,.cmp .ct,.chip{text-wrap:balance}
 @media (max-width: 768px) {
   html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 }
