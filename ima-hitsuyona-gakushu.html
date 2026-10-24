@@ -129,8 +129,9 @@ p,h1,h2,h3{margin:0}
 .toc .lab{font-family:"Zen Kaku Gothic New",sans-serif;font-size:11px;letter-spacing:.2em;font-weight:700;color:#14191E;opacity:.55;padding-bottom:12px}
 /* 左に1〜5、右に6〜10。番号は独立カラムに置き、1桁でも2桁でもタイトルの頭が揃う */
 .toc .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:30px;border-bottom:1px solid #CFD2CB}
-.toc a{display:grid;grid-template-columns:1.8em minmax(0,1fr);align-items:baseline;column-gap:.5em;padding:11px 0;border-top:1px solid #CFD2CB;color:#14191E;text-decoration:none;line-height:1.55;font-size:13.5px;word-break:keep-all;overflow-wrap:anywhere;transition:color .15s}
-.toc a b{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:12px;color:#009944;font-variant-numeric:tabular-nums;text-align:right;letter-spacing:.02em}
+.toc a{display:grid;grid-template-columns:1.5em minmax(0,1fr);align-items:baseline;column-gap:.45em;padding:11px 0;border-top:1px solid #CFD2CB;color:#14191E;text-decoration:none;line-height:1.55;font-size:14px;word-break:keep-all;overflow-wrap:anywhere;transition:color .15s}
+/* 番号は章題と同じ大きさで並べる（小さい番号だけ浮いて見えるため） */
+.toc a b{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:1em;color:#009944;font-variant-numeric:tabular-nums;text-align:right;letter-spacing:.02em}
 .toc a:hover,.toc a:focus-visible{color:#009944}
 .toc a:focus-visible{outline:2px solid #009944;outline-offset:3px;border-radius:2px}
 @media (max-width:900px){
@@ -242,10 +243,6 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 @media (min-width:1501px){:root{--navh:63px}}
 .col > section[id]{scroll-margin-top:calc(var(--navh) + 20px)}
 @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
-/* ---- 読了プログレス（固定ナビの下端に重ねる） ---- */
-.readbar{position:fixed;top:calc(var(--navh) - 6px);left:0;right:0;height:6px;z-index:101;pointer-events:none}
-.readbar i{display:block;height:100%;width:0;background:#009944;border-radius:0 3px 3px 0;box-shadow:0 1px 4px rgba(0,153,68,.45);transition:width .1s linear}
-@media (prefers-reduced-motion: reduce){.readbar i{transition:none}}
 
 /* ===== スマホの文字サイズ（Web デザインの原則で組んだ段階）=====
    本文17 / カード本文15 / キャプション13.5 / ラベル12.5。
@@ -623,7 +620,6 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   </div>
 </div>
 <!-- NAV END -->
-<div class="readbar" aria-hidden="true"><i></i></div>
 
 <div class="page">
 
@@ -1460,19 +1456,6 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   mobileMenu.querySelectorAll('.mobile-acc-toggle').forEach(function(btn){ btn.addEventListener('click', function(){ btn.parentElement.classList.toggle('open'); }); });
 
-  // 読了プログレス（縦に長い読み物のため、どこまで来たかを細い線で示す）
-  (function(){
-    var bar = document.querySelector('.readbar i');
-    if (!bar) return;
-    var tick = function(){
-      var doc = document.documentElement;
-      var max = doc.scrollHeight - window.innerHeight;
-      bar.style.width = (max > 0 ? Math.min(100, (window.scrollY / max) * 100) : 0) + '%';
-    };
-    window.addEventListener('scroll', tick, { passive: true });
-    window.addEventListener('resize', tick);
-    tick();
-  })();
   // 無料診断ボタンの押下を計測（select_item）
   document.addEventListener('click', function(e){
     var a = e.target.closest('a.btn');
