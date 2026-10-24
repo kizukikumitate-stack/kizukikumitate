@@ -1309,6 +1309,21 @@
       "category": "solution",
       "added": "2026-08-14",
       "band": false
+    },
+    {
+      "id": "ima-hitsuyona-gakushu",
+      "path": "ima-hitsuyona-gakushu.html",
+      "title": "なぜ今、この学習か（超図解）",
+      "tag": "ソリューション",
+      "desc": "社会は加速、組織は直線。追いつくために必要な学び方と決め方を、10章の図解で眺める。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-10-24",
+      "band": true,
+      "next": [
+        "dialogue-program",
+        "roadmap"
+      ]
     }
   ]
 }

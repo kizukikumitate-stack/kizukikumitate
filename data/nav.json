@@ -55,6 +55,11 @@
         "label": "ソリューション",
         "children": [
           {
+            "label": "なぜ今、この学習か（超図解）",
+            "href": "ima-hitsuyona-gakushu.html",
+            "desc": "社会の加速に組織が追いつけない構造を10章の図解で眺め、必要な学習を示す入口"
+          },
+          {
             "label": "研修設計プログラム",
             "href": "education-program.html",
             "desc": "課題診断から育成計画まで、研修設計の思考の型を学ぶ"
@@ -830,6 +835,10 @@
     },
     {
       "path": "genzaichi-shindan.html",
+      "variant": "standard"
+    },
+    {
+      "path": "ima-hitsuyona-gakushu.html",
       "variant": "standard"
     }
   ],

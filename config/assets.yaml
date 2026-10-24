@@ -125,6 +125,13 @@ assets:
     tags: [管理職, コーチング, フィードバック, 研修, 対話力, 傾聴]
     service_bridge: 管理職研修（企業向け）
 
+  - id: ima-hitsuyona-gakushu
+    name: 今、この社会に必要な学習とは？（超図解・経営/人事向け）
+    type: article
+    url: /ima-hitsuyona-gakushu.html
+    tags: [組織変革, 変革 失敗, 研修 効果 ない, 研修転移, アンラーニング, 組織的負債, 自己効力感, 組織効力感, 心理的安全性, 対話力, 合意形成, ステークホルダー, 人的資本経営, 効果測定 カークパトリック, コンストラクショニズム, 人材育成 課題]
+    service_bridge: 対話力向上プログラム・マインドセット研修・デモクラシーフィットネス
+
   - id: karuizawa-offsite
     name: 軽井沢オフサイト・経営合宿
     type: service
