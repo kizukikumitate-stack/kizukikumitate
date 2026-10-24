@@ -212,12 +212,16 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 .footer-copy{font-family:'Jost',sans-serif;color:rgba(255,255,255,0.6);font-size:0.85rem}
 @media (max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;align-items:center;gap:0.8rem;text-align:center}}
 
-/* ===== 日本語の禁則処理（本文系のみ。見出しは BudouX の文節区切り＋keep-all を維持） ===== */
+/* ===== 日本語の組み方 =====
+   見出し＝文節で改行（BudouX の ZWSP ＋ keep-all）。右端は揃わないが、意味で切れて読みやすい。
+   本文  ＝文字単位で折り返す（日本語の通常の組み方）。右端がほぼ揃い、行末の位置が段落ごとに
+          ばらつかない。長文に文節改行をかけると行末が大きく波打つため、本文には使わない。
+   禁則（、。」）を行頭に置かない）とぶら下げ、最終行の孤立防止は全幅で効かせる。 */
+.body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p, .cmp .cl, .eff p, .src-v {
+  word-break: normal; overflow-wrap: break-word; line-break: strict; text-wrap: pretty; hanging-punctuation: allow-end;
+}
 @media (max-width: 768px) {
   html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-  .body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p, .cmp .cl, .eff p {
-    word-break: auto-phrase; overflow-wrap: break-word; line-break: strict; text-wrap: pretty; hanging-punctuation: allow-end;
-  }
 }
 
 /* ---- 固定ナビの実高さと、章アンカーの着地位置 ---- */
