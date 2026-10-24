@@ -67,8 +67,12 @@ p,h1,h2,h3{margin:0}
 .st .ac{color:#009944}
 .ink .st .ac,.dark .st .ac{color:#37bef0}
 .body{font-size:16px;line-height:2;opacity:.88}
-.chap{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
-.chap .no{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:14px;letter-spacing:.2em;color:#009944}
+/* アイコンは1行目、2行目に「番号 + 章題」を同じ行で並べる。
+   欧文数字はキャップハイトまでしか伸びず和文より小さく見えるため、
+   章題22pxに対して26px（×1.18）にして見た目の高さを揃える */
+.chap{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;row-gap:12px;column-gap:10px;justify-items:start}
+.chap .ico{grid-column:1/-1}
+.chap .no{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:26px;line-height:1.35;letter-spacing:0;font-variant-numeric:tabular-nums;color:#009944}
 .ink .chap .no,.dark .chap .no{color:#37bef0}
 .chap h2{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:22px;line-height:1.35;opacity:.8}
 .big{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;line-height:1.2;letter-spacing:0;font-size:40px;margin-right:-16px}
