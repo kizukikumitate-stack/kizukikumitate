@@ -1325,6 +1325,38 @@
         "dialogue-program",
         "roadmap"
       ]
+    },
+    {
+      "id": "shinnyu-furikaeri",
+      "path": "shinnyu-furikaeri.html",
+      "title": "新入社員の振り返り習慣",
+      "tag": "ソリューション",
+      "desc": "新人が一人で15分ふりかえり、気づきと目標を1on1に持ち寄る習慣をつくる。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-10-24",
+      "band": true,
+      "next": [
+        "survey-katsuyo",
+        "topaasia",
+        "dialogue-program"
+      ]
+    },
+    {
+      "id": "survey-katsuyo",
+      "path": "survey-katsuyo.html",
+      "title": "サーベイ結果の活用",
+      "tag": "ソリューション",
+      "desc": "サーベイの結果を、職場の対話と行動に変える6か月のプログラム。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-10-24",
+      "band": true,
+      "next": [
+        "shinnyu-furikaeri",
+        "topaasia",
+        "od-program"
+      ]
     }
   ]
 }

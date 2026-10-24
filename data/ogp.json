@@ -770,6 +770,26 @@
       "eyebrow": "超図解 ／ 経営・人事の方へ",
       "title": "今、この社会に<br>必要な学習とは？",
       "sub": "社会は加速、組織は直線。追いつくための学び方と決め方を、10章で。"
+    },
+    {
+      "page": "shinnyu-furikaeri.html",
+      "img": "shinnyu-furikaeri-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#E8842C",
+      "eyebrow": "ソリューション ／ 人事・育成担当の方へ",
+      "title": "新入社員に、<br>振り返りの習慣を作る",
+      "sub": "一人で15分。気づきと目標を1on1に持ち寄る習慣が、上司の育成負担を軽くします。"
+    },
+    {
+      "page": "survey-katsuyo.html",
+      "img": "survey-katsuyo-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#17324D",
+      "eyebrow": "ソリューション ／ 人事・組織担当の方へ",
+      "title": "サーベイの結果は出た。<br>次の一手が見えない",
+      "sub": "結果を職場の対話と行動に変える6か月。人事が一人で抱えない進め方をつくります。"
     }
   ]
 }

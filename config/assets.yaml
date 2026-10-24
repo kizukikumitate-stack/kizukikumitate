@@ -180,3 +180,17 @@ scoring:
     - 対戦
   # 資産マッチ 0件 かつ 需要スコア上位 → 「新サービス候補」として起案対象
   new_service_threshold: 5
+
+  - id: shinnyu-furikaeri
+    name: 新入社員の振り返り習慣プログラム
+    type: service
+    url: /shinnyu-furikaeri.html
+    tags: [新入社員 研修, 新入社員 振り返り, 新人 1on1, 新入社員 育成, オンボーディング, 新人 フォロー, 振り返り 習慣, 早期離職 新卒]
+    service_bridge: 新入社員の振り返り習慣プログラム
+
+  - id: survey-katsuyo
+    name: サーベイ結果の活用プログラム
+    type: service
+    url: /survey-katsuyo.html
+    tags: [エンゲージメントサーベイ 活用, 組織サーベイ 結果, サーベイ フィードバック, サーベイ 結果 どうする, 従業員サーベイ 改善, スコア 上げる 組織, サーベイ 取りっぱなし]
+    service_bridge: サーベイ結果の活用プログラム

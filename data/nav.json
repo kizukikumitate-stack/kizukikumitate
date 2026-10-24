@@ -85,6 +85,16 @@
             "desc": "離職の真因「対話の不在」に診断×対話筋トレで介入"
           },
           {
+            "label": "新入社員の振り返り習慣",
+            "href": "shinnyu-furikaeri.html",
+            "desc": "新人が一人で15分ふりかえり、気づきを1on1に持ち寄る習慣をつくる"
+          },
+          {
+            "label": "サーベイ結果の活用",
+            "href": "survey-katsuyo.html",
+            "desc": "サーベイの結果を、職場の対話と行動に変える6か月のプログラム"
+          },
+          {
             "label": "軽井沢オフサイト・経営合宿",
             "href": "karuizawa-offsite.html",
             "desc": "軽井沢在住の設計者が合宿を設計から当日まで伴走"
@@ -839,6 +849,14 @@
     },
     {
       "path": "ima-hitsuyona-gakushu.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shinnyu-furikaeri.html",
+      "variant": "standard"
+    },
+    {
+      "path": "survey-katsuyo.html",
       "variant": "standard"
     }
   ],
