@@ -1308,7 +1308,8 @@
       "theme": "night",
       "category": "solution",
       "added": "2026-08-14",
-      "band": false
+      "band": false,
+      "auto": false
     },
     {
       "id": "ima-hitsuyona-gakushu",

@@ -1045,6 +1045,13 @@ footer{padding:3rem 24px;text-align:center;background:#fff;border-top:1px solid 
   .shelf-close { display: none; }
   .shelf-backdrop { display: none !important; }
 }
+@media (max-width: 900px) {
+  .shelf-late .shelf-tab { opacity: 0; pointer-events: none; transform: translateY(-50%) translateX(105%); transition: opacity 0.25s, transform 0.25s; }
+  .shelf-late.revealed .shelf-tab { opacity: 1; pointer-events: auto; transform: translateY(-50%) translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shelf-late .shelf-tab { transition: none; }
+}
 </style>
 <div class="shelf" id="siteShelf">
   <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 図鑑の棚</button>

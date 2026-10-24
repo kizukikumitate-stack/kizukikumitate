@@ -72,6 +72,12 @@ def load_themes():
 
 
 # 棚を設置しないページ（理由付き）
+# 棚のタブを「ページ最下部に到達してから」出すページ（狭い画面のみ）。
+# 長い読み物で、右端に常時タブがあると本文に重なって読みづらいもの。
+LATE_REVEAL = {
+    "ima-hitsuyona-gakushu.html": "超図解（縦に長い読み物）。スマホで本文に重なり読みづらいため、読み終わりで出す",
+}
+
 EXCLUDE = {
     "topaasia.html": "日英バイリンガルの製品ページ。日本語のみの棚は世界観に合わないため",
     "topaasia-data-notes.html": "同上（topaasia系）",
@@ -109,7 +115,7 @@ def target_pages(children):
     return pages
 
 
-def build_block(label, children, current, theme):
+def build_block(label, children, current, theme, late=False):
     title = esc(shelf_title(label))
     t = THEMES.get(theme, THEMES["paper"])
     rows = []
@@ -127,6 +133,21 @@ def build_block(label, children, current, theme):
             attrs += ' class="active"'
         rows.append(f'      <a {attrs}>{esc(c["label"])}</a>')
     links = "\n".join(rows)
+    late_cls = " shelf-late" if late else ""
+    late_js = ""
+    if late:
+        late_js = (
+            "  // 長い読み物では、最下部に近づいてからタブを出す（本文に重ならないように）\n"
+            "  var reveal = function() {\n"
+            "    var doc = document.documentElement;\n"
+            "    var atBottom = (window.innerHeight + window.scrollY) >= (doc.scrollHeight - 240);\n"
+            "    shelf.classList.toggle('revealed', atBottom);\n"
+            "    if (!atBottom && shelf.classList.contains('open')) setOpen(false);\n"
+            "  };\n"
+            "  window.addEventListener('scroll', reveal, { passive: true });\n"
+            "  window.addEventListener('resize', reveal);\n"
+            "  reveal();\n"
+        )
 
     return f"""{START}
 <style>
@@ -146,8 +167,15 @@ def build_block(label, children, current, theme):
   .shelf-close {{ display: none; }}
   .shelf-backdrop {{ display: none !important; }}
 }}
+@media (max-width: 900px) {{
+  .shelf-late .shelf-tab {{ opacity: 0; pointer-events: none; transform: translateY(-50%) translateX(105%); transition: opacity 0.25s, transform 0.25s; }}
+  .shelf-late.revealed .shelf-tab {{ opacity: 1; pointer-events: auto; transform: translateY(-50%) translateX(0); }}
+}}
+@media (prefers-reduced-motion: reduce) {{
+  .shelf-late .shelf-tab {{ transition: none; }}
+}}
 </style>
-<div class="shelf" id="siteShelf">
+<div class="shelf{late_cls}" id="siteShelf">
   <button class="shelf-tab" id="shelfTab" type="button" aria-haspopup="true" aria-expanded="false">📚 {title}</button>
   <div class="shelf-backdrop" id="shelfBackdrop"></div>
   <aside class="shelf-panel" aria-label="{title}">
@@ -175,7 +203,7 @@ def build_block(label, children, current, theme):
   document.getElementById('shelfClose').addEventListener('click', function() {{ setOpen(false); }});
   document.getElementById('shelfBackdrop').addEventListener('click', function() {{ setOpen(false); }});
   document.addEventListener('keydown', function(e) {{ if (e.key === 'Escape' && shelf.classList.contains('open')) setOpen(false); }});
-}})();
+{late_js}}})();
 </script>
 {END}"""
 
@@ -216,7 +244,7 @@ def main():
                 print(f"  ⚠️  {page}: ファイルが存在しません")
                 continue
             theme = themes.get(page, "paper")
-            if splice(page, build_block(cat["label"], cat["children"], page, theme)):
+            if splice(page, build_block(cat["label"], cat["children"], page, theme, page in LATE_REVEAL)):
                 updated += 1
     print(f"完了: {updated} ページ更新（対象 {len(seen)} ページ / カテゴリ {len(load_categories())}）")
 
