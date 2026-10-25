@@ -327,7 +327,7 @@ h1.chap{display:flex;flex-direction:column;align-items:flex-start}
 .share .shb.cp{background:#14191E}
 .share .shb svg{width:18px;height:18px;flex:none}
 .share .shb .mk{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1;letter-spacing:0}
-@media (max-width:900px){.share{padding:16px 14px;gap:10px}.share .shb{flex:1 1 calc(50% - 10px);justify-content:center;padding:0 12px;font-size:14px}}
+@media (max-width:900px){.share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px 14px}.share .sl{grid-column:1/-1;margin-right:0}.share .shb{width:100%;box-sizing:border-box;justify-content:center;padding:0 8px;font-size:13.5px;gap:7px}}
 
 /* ---------- global nav（台帳生成・data/nav.json が正・CSSはページ側） ---------- */
 :root{--nv-ink:#14191E;--nv-line:#CFD2CB;--nv-acc:#1a5fad}
@@ -389,6 +389,21 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 .col > section[id]{scroll-margin-top:calc(var(--navh) + 20px)}
 @media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
 
+
+  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
+  @media (min-width: 1501px) {
+    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .nav-links { gap: 1rem; }
+  }
+  @media (max-width: 1500px) {
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
+    .nav-logo { margin-right: 0; }
+  }
+  @media (max-width: 540px) {
+    nav { padding-left: 1rem; padding-right: 1rem; }
+    .nav-logo-text { font-size: 1rem; }
+  }
 </style>
 <!-- ===== AI・検索エンジン向け構造化データ（Article） ===== -->
 <script type="application/ld+json">
