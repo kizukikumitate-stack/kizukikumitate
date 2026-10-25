@@ -55,6 +55,7 @@ p,h1,h2,h3{margin:0}
 .ico{width:72px;height:72px;display:block}
 .ico.sm{width:44px;height:44px}
 .card3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.card4{grid-template-columns:repeat(2,minmax(0,1fr))}
 .card3>div{padding:16px 14px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;border-radius:14px;min-width:0}
 .card3 b{font-family:"Zen Kaku Gothic New",sans-serif;font-size:15px;line-height:1.35}
 .card3 p{font-size:12px;line-height:1.6}
@@ -153,102 +154,14 @@ p,h1,h2,h3{margin:0}
 .two,.pair,.card3{grid-template-columns:minmax(0,1fr)}
 }
 .st,.big,.hero,.subt,.kw,.stat .mean,.chap h2,.two .h,.pair .h,.sum p,.lbl,.card3 b,.fig .nm,.mx .q b{word-break:normal;overflow-wrap:anywhere;line-break:strict;hanging-punctuation:allow-end}
-
-.ref{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:center;margin:40px 36px 56px;padding:20px;border:1.5px solid #CFD2CB;border-radius:14px;background:#F6F5F0;position:relative}
-.ref img{width:160px;height:160px;object-fit:cover;border-radius:10px;display:block}
-.ref .rt{display:flex;flex-direction:column;gap:4px;min-width:0}
-.ref .rk{font-size:11px;letter-spacing:.14em;font-weight:700}
-.ref .rn{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1.3;word-break:keep-all;overflow-wrap:anywhere}
-.ref .rm{font-size:11px;opacity:.65;line-height:1.5}
-.ref .rb{font-size:13px;line-height:1.75;opacity:.9}
-.ref.manga{grid-template-columns:240px minmax(0,1fr);gap:22px;align-items:stretch}.ref.manga .mimg{align-self:stretch;min-height:260px;border-radius:10px}
-@media (max-width:900px){.ref.manga{grid-template-columns:120px minmax(0,1fr);align-items:stretch}.ref.manga .mimg{min-height:140px}.ref{grid-template-columns:84px minmax(0,1fr);gap:12px;margin:28px 16px 40px;padding:14px}.ref img{width:84px;height:84px}.ref .rn{font-size:16px}}
-.cmph{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:11px;letter-spacing:.12em;font-weight:700;opacity:.8}
-.cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-.cmp .cl{border:1.5px solid rgba(255,255,255,.45);padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;opacity:.9;word-break:keep-all;overflow-wrap:anywhere}
-.cmp .cr{background:#FFFFFF;color:#14191E;padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;font-weight:700;font-family:"Zen Kaku Gothic New",sans-serif;display:flex;flex-direction:column;gap:6px;word-break:keep-all;overflow-wrap:anywhere}
-.cmp .ct{align-self:flex-start;font-size:10px;letter-spacing:.1em;font-weight:700;color:#009944;border:1px solid #009944;border-radius:999px;padding:1px 8px}
-
-/* ---------- global nav（台帳生成・data/nav.json が正・CSSはページ側） ---------- */
-:root{--nv-ink:#14191E;--nv-line:#CFD2CB;--nv-acc:#1a5fad}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;box-sizing:border-box}
-.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
-.nav-logo img{height:36px;width:auto;object-fit:contain}
-.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:#1a5fad;letter-spacing:0.06em}
-.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;flex-wrap:wrap;margin-left:auto;margin-top:0;margin-bottom:0;padding:0}
-.nav-links a{font-family:'Zen Kaku Gothic New',sans-serif;font-size:0.82rem;color:var(--nv-ink);text-decoration:none;letter-spacing:0.04em}
-.nav-links a:hover,.nav-links a.active{color:var(--nv-acc)}
-.nav-dropdown{position:relative;display:flex;align-items:center}
-.nav-links > li > a{display:inline-flex;align-items:center;padding:0.4rem 0}
-.nav-dropdown-toggle{font-family:'Zen Kaku Gothic New',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--nv-ink);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
-.nav-caret{font-size:0.6em;transition:transform 0.25s}
-.nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--nv-acc)}
-.nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
-.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid var(--nv-line);box-shadow:0 14px 34px rgba(34,56,79,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300}
-.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
-.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
-.nav-dropdown-menu a{font-family:'Zen Kaku Gothic New',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;color:var(--nv-ink);text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s}
-.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:rgba(26,95,173,0.08);color:var(--nv-acc)}
-.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px)}
-.nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
-.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
-.nav-hamburger span{display:block;width:24px;height:2px;background:var(--nv-ink);margin:5px 0;transition:0.3s}
-.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem;box-sizing:border-box}
-.mobile-menu.open{display:flex}
-.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:var(--nv-ink);text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid var(--nv-line);transition:color 0.15s}
-.mobile-menu > a{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-weight:700;color:#3C3489;padding:1.15rem 0}
-.mobile-menu > a:first-child{border-top:1px solid var(--nv-line)}
-.mobile-menu a:hover,.mobile-menu a.active{color:var(--nv-acc)}
-.mobile-menu-label{font-family:'Shippori Mincho',serif;font-size:1.05rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;width:100%;text-align:center;margin:2rem 0 0.4rem}
-.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--nv-ink);line-height:1;padding:0.3rem}
-.mobile-acc{width:100%;border-bottom:1px solid var(--nv-line)}
-.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0}
-.mobile-acc-caret{font-size:0.75em;color:var(--nv-acc);transition:transform 0.25s}
-.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
-.mobile-acc-panel{display:none;flex-direction:column;align-items:stretch;padding-bottom:0.7rem}
-.mobile-acc.open .mobile-acc-panel{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));column-gap:0.5rem;max-width:34rem;margin:0 auto}
-.mobile-acc-panel .mobile-acc-heading{grid-column:1 / -1}
-.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:0.88rem;font-weight:600;color:var(--nv-ink);text-decoration:none;padding:0.45rem 0.1rem;width:100%;text-align:center;border:none;transition:color 0.15s;line-height:1.5;word-break:auto-phrase;overflow-wrap:break-word;line-break:strict;text-wrap:balance;hanging-punctuation:allow-end}
-.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:var(--nv-acc)}
-a.mobile-cat-link{display:flex;justify-content:center;align-items:center;width:100%;border-bottom:1px solid var(--nv-line);font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;text-decoration:none;padding:1.15rem 0;transition:color 0.15s}
-a.mobile-cat-link:hover,a.mobile-cat-link.active{color:var(--nv-acc)}
-
-/* ---------- 共通フッター（台帳生成・data/nav.json が正） ---------- */
-footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center;box-sizing:border-box}
-.footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9)}
-.footer-copy{font-family:'Jost',sans-serif;color:rgba(255,255,255,0.6);font-size:0.85rem}
-@media (max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;align-items:center;gap:0.8rem;text-align:center}}
-
-/* ===== 日本語の組み方 =====
-   見出し＝文節で改行（BudouX の ZWSP ＋ keep-all）。右端は揃わないが、意味で切れて読みやすい。
-   本文  ＝文字単位で折り返す（日本語の通常の組み方）。右端がほぼ揃い、行末の位置が段落ごとに
-          ばらつかない。長文に文節改行をかけると行末が大きく波打つため、本文には使わない。
-   禁則（、。」）を行頭に置かない）とぶら下げ、最終行の孤立防止は全幅で効かせる。 */
-.body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p, .cmp .cl, .cmp .cr, .eff p, .src-v, .ref .rn, .prof p {
-  word-break: normal; overflow-wrap: break-word; line-break: strict; hanging-punctuation: allow-end;
-}
-/* ---- 右端を揃える（両端揃え）----
-   文字単位で折り返したうえで、余りを文字間に配分して右端を一直線にする。
-   最終行は左寄せのまま（組版の作法）。中央寄せ・右寄せの要素には掛けない。 */
-.col p, .col li, .col blockquote,
-.body, .cap, .sub, .rb, .rm, .two p, .two li, .pair p, .card3 p, .fig .ds, .mx .q p,
-.cmp .cl, .cmp .cr, .eff p, .src-v, .prof p,
-.st, .big, .hero, .subt, .kw, .sum p, .lbl, .chap h2, .two .h, .pair .h, .ref .rn, .ref .rb, .ref .rm {
-  text-align: justify; text-justify: inter-character;
-}
-/* 中央・右寄せを保つもの（両端揃えを掛けない） */
-.mx .ax, .mx .ax.v, .chip, .toc a, .cmp .ct, .fig .nm, .stat .mean, .card3 b, .dots, .k { text-align: inherit; text-justify: auto; }
+/* 本文は文字単位で折り返す（右端がほぼ揃う）。禁則・ぶら下げ・最終行の孤立防止を効かせる */
+.body,.cap,.sub,.rb,.rm,.two p,.two li,.pair p,.card3 p,.fig .ds,.mx .q p,.cmp .cl,.cmp .cr,.eff p,.ref .rn,.prof p{word-break:normal;overflow-wrap:break-word;line-break:strict;hanging-punctuation:allow-end}
+/* 右端を揃える（両端揃え）。文字単位で折り返したうえで余りを文字間に配分する。最終行は左寄せのまま */
+.col p,.col li,.body,.cap,.sub,.rb,.rm,.two p,.two li,.pair p,.card3 p,.fig .ds,.mx .q p,.cmp .cl,.cmp .cr,.eff p,.prof p,.st,.big,.hero,.subt,.kw,.sum p,.lbl,.chap h2,.two .h,.pair .h,.ref .rn,.ref .rb,.ref .rm{text-align:justify;text-justify:inter-character}
+.mx .ax,.mx .ax.v,.chip,.toc a,.cmp .ct,.fig .nm,.stat .mean,.card3 b,.dots,.k{text-align:inherit;text-justify:auto}
 /* 両端揃えを掛けない短い見出しは、1文字だけ行送りされないよう2行を均す */
 .card3 b,.fig .nm,.mx .q b,.cmp .ct,.chip{text-wrap:balance}
-@media (max-width: 768px) {
-  html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-}
 
-/* ---- 固定ナビの実高さと、章アンカーの着地位置 ---- */
-:root{--navh:77px}                 /* 1500px以下はハンバーガーで背が高い */
-@media (min-width:1501px){:root{--navh:63px}}
-.col > section[id]{scroll-margin-top:calc(var(--navh) + 20px)}
-@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
 
 /* ===== スマホの文字サイズ（Web デザインの原則で組んだ段階）=====
    本文17 / カード本文15 / キャプション13.5 / ラベル12.5。
@@ -319,21 +232,163 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 .ref.note[open] .sm-ar{transform:rotate(-135deg)}
 @media(prefers-reduced-motion:reduce){.ref.note .sm-ar{transition:none}}
 .ref.note .rbody{padding:0 16px 16px;display:flex;flex-direction:column;gap:6px}
+.ref{display:grid;grid-template-columns:160px minmax(0,1fr);gap:20px;align-items:center;margin:40px 36px 56px;padding:20px;border:1.5px solid #CFD2CB;border-radius:14px;background:#F6F5F0;position:relative}
+.ref img{width:160px;height:160px;object-fit:cover;border-radius:10px;display:block}
+.ref .rt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.ref .rk{font-size:11px;letter-spacing:.14em;font-weight:700}
+.ref .rn{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1.3;word-break:keep-all;overflow-wrap:anywhere}
+.ref .rm{font-size:11px;opacity:.65;line-height:1.5}
+.ref .rb{font-size:13px;line-height:1.75;opacity:.9}
+.ref.manga{grid-template-columns:240px minmax(0,1fr);gap:22px;align-items:stretch}.ref.manga .mimg{align-self:stretch;min-height:260px;border-radius:10px}
+@media (max-width:900px){.ref.manga{grid-template-columns:120px minmax(0,1fr);align-items:stretch}.ref.manga .mimg{min-height:140px}.ref{grid-template-columns:84px minmax(0,1fr);gap:12px;margin:28px 16px 40px;padding:14px}.ref img{width:84px;height:84px}.ref .rn{font-size:16px}}
+.cmph{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:11px;letter-spacing:.12em;font-weight:700;opacity:.8}
+.cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cmp .cl{border:1.5px solid rgba(255,255,255,.45);padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;opacity:.9;word-break:keep-all;overflow-wrap:anywhere}
+.cmp .cr{background:#FFFFFF;color:#14191E;padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;font-weight:700;font-family:"Zen Kaku Gothic New",sans-serif;display:flex;flex-direction:column;gap:6px;word-break:keep-all;overflow-wrap:anywhere}
+.cmp .ct{align-self:flex-start;font-size:10px;letter-spacing:.1em;font-weight:700;color:#009944;border:1px solid #009944;border-radius:999px;padding:1px 8px}
 
-  /* ===== グローバルナビ折返し対策: 収まらない幅でハンバーガーに切替（右切れ防止・必ず style 終端直前） ===== */
-  @media (min-width: 1501px) {
-    nav { padding-left: 1.25rem; padding-right: 1.25rem; }
-    .nav-links { gap: 1rem; }
-  }
-  @media (max-width: 1500px) {
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; flex-direction: column; justify-content: center; }
-    .nav-logo { margin-right: 0; }
-  }
-  @media (max-width: 540px) {
-    nav { padding-left: 1rem; padding-right: 1rem; }
-    .nav-logo-text { font-size: 1rem; }
-  }
+/* タイトルと副題は縦に積む（グリッドの2列に入ると副題が細い列に押し込まれて縦書きのようになる） */
+h1.chap{display:flex;flex-direction:column;align-items:flex-start}
+
+/* ===== PC幅（901px以上）=====
+   ページ全体を1200pxまで広げる。図・カード・画像は広い幅を使い、
+   本文・見出し・図・イラストはすべて同じ1008px幅で折り返し、ページ全体で端を揃える */
+@media (min-width:901px){
+.page{grid-template-columns:minmax(0,1200px)}
+/* 余白を均等に。最小の高さ＋中央寄せをやめ、どのカードも上下112px・要素の間隔40pxに揃える */
+.panel{padding:112px 96px;min-height:0;justify-content:flex-start;gap:40px!important}
+/* 色のないエリアにも薄い地色を敷き、上下の色付きカードと同じ幅の帯に見せる */
+.panel:not(.ink):not(.dark):not(.sun):not(.coral):not(.sky):not(.plum){background:#F6F5F0}
+.panel.rule{border-top-color:#DCDDD6}
+.toc{padding:8px 96px 64px}
+.toc .lab{font-size:13px}
+.toc a{font-size:17px;padding:15px 0}
+.gist{margin:0 96px 64px;padding:40px 48px}
+.gist .lab{font-size:14px}.gist .gh{font-size:16px}
+.gist li{font-size:18px}.gist .gf{font-size:15.5px}
+.ref{margin:48px 96px 64px}
+.ref .rk{font-size:13px}.ref .rn{font-size:22px}.ref .rm{font-size:13.5px}.ref .rb{font-size:16px}
+.ref.note .sm-tx .rn{font-size:19px}
+.st{font-size:46px}.st.lg{font-size:60px}.st.sm{font-size:42px}
+.big{font-size:50px}
+.hero{font-size:56px!important}.subt{font-size:30px}
+.chap .no{font-size:32px}.chap h2{font-size:27px}
+.body{font-size:19px}
+.cap{font-size:15px}
+.lbl{font-size:38px;font-weight:900;letter-spacing:.04em;line-height:1.35}
+/* 100人のドット図は一画面に収まる大きさに抑える（幅いっぱいだと縦に1000px超えてしまう） */
+.dots{max-width:520px;width:100%;gap:10px;margin-inline:auto}
+.stat .num{font-size:72px}.stat .mean{font-size:26px}.stat .sub{font-size:16px}
+.card3,.figrow,.two,.pair,.cmp,.cmph{gap:16px}
+.card3>div{padding:24px 22px}
+.card3 b{font-size:20px}.card3 p{font-size:16px}
+.two>div,.pair>div{padding:26px 24px}
+.two .k,.pair .k,.cmph{font-size:13px}
+.two .h{font-size:22px}.pair .h{font-size:28px}
+.two p,.two ul,.pair p,.eff p{font-size:16.5px}
+.eff .h{font-size:22px}
+.fig .nm{font-size:20px}.fig .ds{font-size:15px}
+.mx .ax{font-size:13.5px}
+.mx .q{min-height:150px;padding:20px 18px}
+.mx .q b{font-size:18px}.mx .q p{font-size:15px}
+.cmp .cl,.cmp .cr{font-size:17px}.cmp .ct{font-size:12px}
+.chip{font-size:15px}.pchip{font-size:16px}
+.sum{font-size:20px}
+.btn{font-size:18px;min-height:58px}
+/* インラインで小さく指定された文字の引き上げ */
+.col [style*="font-size: 11px"]{font-size:13.5px!important}
+.col [style*="font-size: 12px"]{font-size:14.5px!important}
+.col [style*="font-size: 13px"]{font-size:15.5px!important}
+.col [style*="font-size: 13.5px"]{font-size:16px!important}
+.col [style*="font-size: 14px"]{font-size:16.5px!important}
+.col [style*="font-size: 14.5px"]{font-size:17px!important}
+.col [style*="font-size: 15px"]{font-size:17.5px!important}
+.col [style*="font-size: 16px"]{font-size:18px!important}
+.col [style*="font-size: 22px"]{font-size:27px!important}
+}
+/* 目次の番号は2桁（10）でも1行に収まるよう、番号カラムを広げて折り返しを禁止 */
+.toc a{grid-template-columns:1.9em minmax(0,1fr)}
+.toc a b{white-space:nowrap}
+/* 折れ線グラフは一画面に収まる幅に。数字の直後には一呼吸の余白 */
+.svgfull{max-width:640px;margin-inline:auto}
+.stat{gap:14px}
+.stat .num{margin-bottom:4px}
+/* 見出しは句読点の直後で改行する。句読点で区切った文節を一塊にし、行に収まらない文節ごと次の行へ送る */
+.seg{text-align:left;text-justify:auto}
+.seg>span{display:inline-block;max-width:100%}
+/* SNSシェアボタン：各サービスのブランドカラーで塗りつぶし、目立たせる */
+.share{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 22px;border-radius:14px;background:#FFFFFF;border:1.5px solid #CFD2CB;color:#14191E}
+.share .sl{font-family:"Zen Kaku Gothic New",sans-serif;font-size:13px;letter-spacing:.16em;font-weight:900;color:#009944;margin-right:6px}
+.share .shb{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 20px;border:0;border-radius:999px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:15px;color:#FFFFFF;text-decoration:none;cursor:pointer;line-height:1;white-space:nowrap;box-shadow:0 2px 0 rgba(20,25,30,.18);transition:transform .12s,filter .12s}
+.share .shb:hover{color:#FFFFFF;filter:brightness(1.08);transform:translateY(-1px)}
+.share .shb.x{background:#000000}
+.share .shb.fb{background:#1877F2}
+.share .shb.ln{background:#06C755}
+.share .shb.cp{background:#14191E}
+.share .shb svg{width:18px;height:18px;flex:none}
+.share .shb .mk{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1;letter-spacing:0}
+@media (max-width:900px){.share{padding:16px 14px;gap:10px}.share .shb{flex:1 1 calc(50% - 10px);justify-content:center;padding:0 12px;font-size:14px}}
+
+/* ---------- global nav（台帳生成・data/nav.json が正・CSSはページ側） ---------- */
+:root{--nv-ink:#14191E;--nv-line:#CFD2CB;--nv-acc:#1a5fad}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0.7rem 2rem;display:flex;align-items:center;background:rgba(255,255,255,0.97);backdrop-filter:blur(12px);border-bottom:3px solid #3C3489;box-sizing:border-box}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;text-decoration:none;flex-shrink:0;margin-right:4rem}
+.nav-logo img{height:36px;width:auto;object-fit:contain}
+.nav-logo-text{font-family:'Shippori Mincho',serif;font-size:1.1rem;font-weight:800;white-space:nowrap;color:#1a5fad;letter-spacing:0.06em}
+.nav-links{display:flex;gap:1.2rem;list-style:none;align-items:center;flex-wrap:wrap;margin-left:auto;margin-top:0;margin-bottom:0;padding:0}
+.nav-links a{font-family:'Zen Kaku Gothic New',sans-serif;font-size:0.82rem;color:var(--nv-ink);text-decoration:none;letter-spacing:0.04em}
+.nav-links a:hover,.nav-links a.active{color:var(--nv-acc)}
+.nav-dropdown{position:relative;display:flex;align-items:center}
+.nav-links > li > a{display:inline-flex;align-items:center;padding:0.4rem 0}
+.nav-dropdown-toggle{font-family:'Zen Kaku Gothic New',sans-serif;font-size:0.82rem;font-weight:400;letter-spacing:0.04em;color:var(--nv-ink);background:none;border:none;cursor:pointer;padding:0.4rem 0;display:inline-flex;align-items:center;gap:0.35em;white-space:nowrap;transition:color 0.3s}
+.nav-caret{font-size:0.6em;transition:transform 0.25s}
+.nav-dropdown:hover .nav-dropdown-toggle,.nav-dropdown:focus-within .nav-dropdown-toggle{color:var(--nv-acc)}
+.nav-dropdown:hover .nav-caret,.nav-dropdown:focus-within .nav-caret{transform:rotate(180deg)}
+.nav-dropdown-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(8px);min-width:210px;background:#fff;border:1px solid var(--nv-line);box-shadow:0 14px 34px rgba(34,56,79,0.14);border-radius:12px;padding:0.5rem 0;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity 0.2s,transform 0.2s;z-index:300}
+.nav-dropdown-menu::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px}
+.nav-dropdown:hover .nav-dropdown-menu,.nav-dropdown:focus-within .nav-dropdown-menu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(4px)}
+.nav-dropdown-menu a{font-family:'Zen Kaku Gothic New',sans-serif;font-size:0.84rem;font-weight:500;letter-spacing:0.02em;color:var(--nv-ink);text-decoration:none;padding:0.6rem 1.5rem;white-space:nowrap;transition:background 0.15s,color 0.15s}
+.nav-dropdown-menu a:hover,.nav-dropdown-menu a.active{background:rgba(26,95,173,0.08);color:var(--nv-acc)}
+.nav-dropdown:last-child .nav-dropdown-menu{left:auto;right:0;transform:translateX(0) translateY(8px)}
+.nav-dropdown:last-child:hover .nav-dropdown-menu,.nav-dropdown:last-child:focus-within .nav-dropdown-menu{transform:translateX(0) translateY(4px)}
+.nav-hamburger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:24px;height:2px;background:var(--nv-ink);margin:5px 0;transition:0.3s}
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:199;background:rgba(255,255,255,0.98);backdrop-filter:blur(12px);flex-direction:column;justify-content:flex-start;overflow-y:auto;align-items:center;gap:0;padding:5rem 1.5rem 3rem;box-sizing:border-box}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-family:'Shippori Mincho',serif;font-size:1.12rem;font-weight:600;color:var(--nv-ink);text-decoration:none;padding:0.75rem 0;width:100%;text-align:center;border-bottom:1px solid var(--nv-line);transition:color 0.15s}
+.mobile-menu > a{font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-weight:700;color:#3C3489;padding:1.15rem 0}
+.mobile-menu > a:first-child{border-top:1px solid var(--nv-line)}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--nv-acc)}
+.mobile-menu-label{font-family:'Shippori Mincho',serif;font-size:1.05rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;width:100%;text-align:center;margin:2rem 0 0.4rem}
+.mobile-menu-close{position:absolute;top:1.2rem;right:1.5rem;background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--nv-ink);line-height:1;padding:0.3rem}
+.mobile-acc{width:100%;border-bottom:1px solid var(--nv-line)}
+.mobile-acc-toggle{width:100%;display:flex;justify-content:center;align-items:center;gap:0.5em;background:none;border:none;cursor:pointer;font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;padding:1.15rem 0}
+.mobile-acc-caret{font-size:0.75em;color:var(--nv-acc);transition:transform 0.25s}
+.mobile-acc.open .mobile-acc-caret{transform:rotate(180deg)}
+.mobile-acc-panel{display:none;flex-direction:column;align-items:stretch;padding-bottom:0.7rem}
+.mobile-acc.open .mobile-acc-panel{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));column-gap:0.5rem;max-width:34rem;margin:0 auto}
+.mobile-acc-panel .mobile-acc-heading{grid-column:1 / -1}
+.mobile-acc-panel a{font-family:'Shippori Mincho',serif;font-size:0.88rem;font-weight:600;color:var(--nv-ink);text-decoration:none;padding:0.45rem 0.1rem;width:100%;text-align:center;border:none;transition:color 0.15s;line-height:1.5;word-break:auto-phrase;overflow-wrap:break-word;line-break:strict;text-wrap:balance;hanging-punctuation:allow-end}
+.mobile-acc-panel a:hover,.mobile-acc-panel a.active{color:var(--nv-acc)}
+a.mobile-cat-link{display:flex;justify-content:center;align-items:center;width:100%;border-bottom:1px solid var(--nv-line);font-family:'Jost','Zen Kaku Gothic New',sans-serif;font-size:1.15rem;font-weight:700;letter-spacing:0.1em;color:#3C3489;text-decoration:none;padding:1.15rem 0;transition:color 0.15s}
+a.mobile-cat-link:hover,a.mobile-cat-link.active{color:var(--nv-acc)}
+
+/* ---------- 共通フッター（台帳生成・data/nav.json が正） ---------- */
+footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display:flex;justify-content:space-between;align-items:center;box-sizing:border-box}
+.footer-logo{font-family:'Shippori Mincho',serif;font-size:1rem;font-weight:800;color:rgba(255,255,255,0.9)}
+.footer-copy{font-family:'Jost',sans-serif;color:rgba(255,255,255,0.6);font-size:0.85rem}
+@media (max-width:768px){footer{padding:2rem 1.5rem;flex-direction:column;align-items:center;gap:0.8rem;text-align:center}}
+
+@media (max-width: 768px) {
+  html, body { overflow-x: hidden; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+}
+
+/* ---- 固定ナビの実高さと、章アンカーの着地位置 ---- */
+:root{--navh:77px}                 /* 1500px以下はハンバーガーで背が高い */
+@media (min-width:1501px){:root{--navh:63px}}
+.col > section[id]{scroll-margin-top:calc(var(--navh) + 20px)}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+
 </style>
 <!-- ===== AI・検索エンジン向け構造化データ（Article） ===== -->
 <script type="application/ld+json">
@@ -664,14 +719,15 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <header class="panel" style="padding-top: 24px; gap: 20px">
 <p class="cap">2026.10 ／ きづきくみたて工房</p>
 <h1 class="chap" style="gap: 14px"><span class="hero" style="font-size: 44px">今、この​社会に​必要な​学習とは？</span><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.5; color: #009944">きづきくみたて工房が提供する学習体験</span></h1>
-<p class="body">本ページは、国内外のさまざまな先進的な教育実践から学ばせてもらった森本康仁が、これから必要な学習とは何かについて考えをまとめたものです。私が特に力を入れているところを中心にまとめているため、書かれていない大切なものが他にもたくさんあることでしょう。</p>
+<p class="body">本ページは、国内外のさまざまな先進的な教育実践から学ばせてもらった森本康仁が、これから必要な学習とは何かについて考えをまとめたものです。私が特に力を入れているところを中心にまとめているため、書かれていない大切なものが他にもたくさんあることでしょう。ひとことで言えば、いま必要なのは「大人の探究学習」だ、という話です。</p>
 <p class="body">共感してくださった方、「これも入れたほうがいい」と思われた方、「この部分は自分たちだけではできないので、一緒にやりたい」と感じた方は、ぜひご連絡ください。</p>
+<div class="share"><span class="sl">SHARE</span><a class="shb x" href="https://twitter.com/intent/tweet?text=%E4%BB%8A%E3%80%81%E3%81%93%E3%81%AE%E7%A4%BE%E4%BC%9A%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%AD%A6%E7%BF%92%E3%81%A8%E3%81%AF%EF%BC%9F%20%E2%94%80%E2%94%80%20%E8%B6%85%E5%9B%B3%E8%A7%A3%20%E3%81%AA%E3%81%9C%E3%80%81%E7%B5%84%E7%B9%94%E3%81%AF%E5%A4%89%E5%8C%96%E3%81%AB%E8%BF%BD%E3%81%84%E3%81%A4%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B%EF%BC%88%E3%81%8D%E3%81%A5%E3%81%8D%E3%81%8F%E3%81%BF%E3%81%9F%E3%81%A6%E5%B7%A5%E6%88%BF%EF%BC%89&amp;url=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>X で共有</a><a class="shb fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>Facebook で共有</a><a class="shb ln" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html&amp;text=%E4%BB%8A%E3%80%81%E3%81%93%E3%81%AE%E7%A4%BE%E4%BC%9A%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%AD%A6%E7%BF%92%E3%81%A8%E3%81%AF%EF%BC%9F%20%E2%94%80%E2%94%80%20%E8%B6%85%E5%9B%B3%E8%A7%A3%20%E3%81%AA%E3%81%9C%E3%80%81%E7%B5%84%E7%B9%94%E3%81%AF%E5%A4%89%E5%8C%96%E3%81%AB%E8%BF%BD%E3%81%84%E3%81%A4%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B%EF%BC%88%E3%81%8D%E3%81%A5%E3%81%8D%E3%81%8F%E3%81%BF%E3%81%9F%E3%81%A6%E5%B7%A5%E6%88%BF%EF%BC%89" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>LINE で送る</a><button class="shb cp" type="button" data-copy-link><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 10.5a3.2 3.2 0 0 0 4.5 0l2.2-2.2a3.2 3.2 0 0 0-4.5-4.5L8.6 4.9"></path><path d="M10.5 7.5a3.2 3.2 0 0 0-4.5 0L3.8 9.7a3.2 3.2 0 0 0 4.5 4.5l1.1-1.1"></path></svg>リンクをコピー</button></div>
 <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 28px; margin-top: 28px; border-top: 1px solid #CFD2CB">
 <span class="no" style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: .2em; color: #009944">超図解</span>
-<p class="subt">なぜ、​組織は​変化に​追いつけないのか</p>
+<p class="seg subt"><span>なぜ、</span><span>組織は​変化に​追いつけないのか</span></p>
 <p class="body">研修はやっている。方針も出している。それでも、現場が変わった実感がない。多くの経営者・人事の方が、同じことを口にします。何が起きているのかを、順番に見ていきます。</p>
 </div>
-<img src="images/gakushu/cover-A.webp" fetchpriority="high" alt="書類と箱を抱えてスニーカーで歩く現代の働き手たちの頭上を、色とりどりの矢印とロケットが追い越していく" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="794">
+<img src="images/gakushu/cover-A.webp" alt="書類と箱を抱えてスニーカーで歩く現代の働き手たちの頭上を、色とりどりの矢印とロケットが追い越していく" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
 </header>
 
 <div class="toc" role="navigation" aria-label="目次">
@@ -703,17 +759,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <ul>
 <li>人の行動は「個人 × 環境」で決まります。本人が学んでも、受け止める職場が変わらなければ元に戻ります。更新するのは「仕組み」と「認知」の両方です。</li>
 <li>更新には、誰かが何かを手放す必要があります。手放す人は、決める人・動く人・影響を受ける人・見ている人の4種類。決める人の合意だけでは進みません。</li>
-<li>そして、その合意形成は、説明では埋まりません。</li>
+<li>そして、その合意形成は、説明では埋まりません。手放す痛みは、理屈の前に感情として来るからです。説明は理性に届きますが、痛みには届きません。</li>
 </ul>
 </div>
 <div class="gg">
 <p class="gh">では、どうするか</p>
 <ul>
 <li>仕事の置き場所を入れ替えます。意識は「指示された定型業務」に集まりますが、未来は「自分で作る非定型業務」にしかありません。</li>
+<li>感情を、性格ではなくスキルとして扱います（SEL）。振り返り（リフレクション）で前提を表に出し、枠を掛け替える（リフレーミング）。その土台が、メタ認知です。</li>
 <li>始めるのは全員ではなく、Will（意思）のある数人から。</li>
 <li>Willは教わって育つものではなく、自分で作り直したときに更新されます。だから「教わる学び」ではなく「作る学び」。遊び心は余興ではなく、続けるためのエンジンです。</li>
 <li>一人のWillは、一人のままでは消えます。個人の意思を組織の意思にしていく力が、デモクラシーです。</li>
 <li>制度を捨てる必要はありません。今ある新入社員研修・1on1・管理職研修の、中身の学び方から変えられます。</li>
+<li>必要なのは、大人の探究学習です。文部科学省が学校で始めた「探究」を、会社で大人がやる。それは、あなたのWill（意思）の種から始まります。</li>
 </ul>
 </div>
 <p class="gf">以下は、ここに至るまでを10章に分けたものです。気になる章から読んでいただいてかまいません。</p>
@@ -723,7 +781,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <!-- 1 -->
 <section class="panel rule" id="c1">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 48a24 24 0 0 1 48 0"></path><path d="M36 48 50 30"></path><circle cx="36" cy="48" r="4" fill="#009944"></circle><path d="M8 58h56" stroke-opacity=".4"></path></svg><span class="no">1</span><h2>何が起きているのか</h2></div>
-<p class="st lg">世の中は、​速くなった。</p>
+<p class="seg st lg"><span>世の中は、</span><span>速くなった。</span></p>
 <p class="body">技術、顧客の期待、働き方。変化は一つひとつ積み重なり、積み重なるほどスピードを上げます。</p>
 </section>
 
@@ -739,12 +797,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <text x="330" y="190" fill="#FFFFFF" fill-opacity=".8" font-size="16" font-weight="700">組織の変化</text>
 <text x="24" y="284" fill="#FFFFFF" fill-opacity=".7" font-size="12">時間</text>
 </svg>
-<p class="big">社会は​加速度的に。​組織は​直線的に。</p>
+<p class="seg big"><span>社会は​加速度的に。</span><span>組織は​直線的に。</span></p>
 <p class="cap">組織は既存の業務を回すことに手一杯で、中身は少しずつしか変わりません。</p>
 </section>
 
 <section class="panel">
-<p class="st">この開き続ける​差が、​<span class="ac">「未来からの不足」</span>。</p>
+<p class="seg st"><span>この開き続ける​差が、</span><span><span class="ac">「未来からの不足」</span>。</span></p>
 <p class="body">放置すれば、差は広がり続けます。研修をしても埋まらないのは、研修の中身の問題ではなく、この差の広がる速度に、組織の変わる速度が追いついていないからです。</p>
 </section>
 
@@ -765,12 +823,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; line-height: 1.3">実践の不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">道筋があっても、日々の仕事の中で小さく試し、振り返り、続ける時間と習慣がない。目の前の業務に押し流され、未来のための活動が毎日ゼロになる。</p></div>
 </div>
 </div>
-<p class="big">ビジョン、​戦略、​実践。​三つとも、​対話から​しか生まれない。</p>
+<p class="seg big"><span>ビジョン、​戦略、​実践。</span><span>三つとも、​対話から​しか生まれない。</span></p>
 <p class="cap">ビジョンは誰かが配るものではなく、一人ひとりの中から引き出されるもの。戦略は立場の違う人と擦り合わせるもの。実践は仲間と続けるもの。このページは、この三つの不足を、どう埋めていくかの話です。</p>
 </section>
 
 <section class="panel">
-<p class="st">この三つは、​学校で​習わなかった。</p>
+<p class="seg st"><span>この三つは、</span><span>学校で​習わなかった。</span></p>
 <p class="body">ただし、学校が悪いのではありません。義務教育は、確かに多くのものを育ててきました。読み書き計算と知識の土台。決まった時間に集まり、集団で動く力。学級会や係活動での話し合いの経験。そして「正解に辿り着く力」。これは、変化が遅く正解が長持ちする時代には、最も有効な能力でした。</p>
 <p class="body">問題は、学校が最適化されてきた時代と、今の時代がずれたことです。社会は加速し、学校は直線的にしか変われない。1章と同じ構図が、ここにもあります。</p>
 <p class="cap">筆者（森本）は公立小学校で9年間教えました。この項は、その実感から書いています。</p>
@@ -786,7 +844,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="cmp"><div class="cl">和を乱さないこと</div><div class="cr">反対意見を、​関係を​壊さずに言う<span class="ct">デモクラシー</span></div></div>
 <div class="cmp"><div class="cl">一人で​解き、​一人で​採点される</div><div class="cr">作って​見せ合い、​作り直す<span class="ct">作る学び</span></div></div>
 </div>
-<p class="big">学級会は​あった。​けれど、​本当に​利害が​ぶつかる​決定は、​扱わなかった。</p>
+<p class="seg big"><span>学級会は​あった。</span><span>けれど、​本当に​利害が​ぶつかる​決定は、​扱わなかった。</span></p>
 <p class="cap">だから多くの人が、大人になって初めて、痛みを伴う合意形成に素手で向き合うことになります。現行の学習指導要領は「主体的・対話的で深い学び」を掲げ、学校は変わり始めています。ただ、今の経営層・管理職の多くは、その前の教育を受けた世代です。</p>
 </section>
 
@@ -794,13 +852,13 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="lbl" style="color: #37bef0">その結果が、数字に出ています</p>
 <div class="two" style="gap: 10px">
 <div class="stat" style="border-color: #37bef0; padding: 20px 18px"><p class="num" style="color: #37bef0; font-size: 44px">45.1%</p><p class="mean" style="font-size: 18px">「自分​自身に​満足している」​日本の​若者の​割合。</p><p class="sub">他の6か国（米・英・独・仏・韓・スウェーデン）は70〜87%。自己効力感の土台の差です。</p></div>
-<div class="stat" style="border-color: #37bef0; padding: 20px 18px"><p class="num" style="color: #37bef0; font-size: 44px">32.5%</p><p class="mean" style="font-size: 18px">「自分の​参加で、​社会を​少し変えられるかもしれない」と​思う割合。</p><p class="sub">7か国中、最低。個人の意思が社会の意思になると信じられていない、という数字です。</p></div>
+<div class="stat" style="border-color: #37bef0; padding: 20px 18px"><p class="num" style="color: #37bef0; font-size: 44px">32.5%</p><p class="seg mean" style="font-size: 18px"><span>「自分の​参加で、</span><span>社会を​少し変えられるかもしれない」と​思う割合。</span></p><p class="sub">7か国中、最低。個人の意思が社会の意思になると信じられていない、という数字です。</p></div>
 </div>
 <p class="cap">出所：内閣府「我が国と諸外国の若者の意識に関する調査」（平成30年度）、13〜29歳対象。</p>
 </section>
 
 <section class="panel">
-<p class="st">そして​会社も、​教えてくれなかった。</p>
+<p class="seg st"><span>そして​会社も、</span><span>教えてくれなかった。</span></p>
 <p class="body">会社もまた、多くのものを教えてくれました。業務の手順と、商品・顧客の知識。報告・連絡・相談と、納期を守ること。役職に応じた責任の取り方。そして「与えられた仕事を、正確に回す力」。学校の「正解に辿り着く力」の、職場版です。</p>
 <p class="body">ただし、その教え方の大半はOJT、つまり「先輩を見て覚えろ」でした。これは、先輩が今と同じ仕事をしていた時代の仕組みです。</p>
 </section>
@@ -816,7 +874,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="cmp"><div class="cl">評価面談の、​受け方</div><div class="cr">評価と​信頼を​分けて、​人と関わる方法<span class="ct">関わり</span></div></div>
 <div class="cmp"><div class="cl">管理職に​なったら、​管理職研修</div><div class="cr">学び方​そのもの。​何を手放し、​何を学び直すか<span class="ct">アンラーニング</span></div></div>
 </div>
-<p class="big">先輩も、​答えを​持っていない​時代に​なった。</p>
+<p class="seg big"><span>先輩も、</span><span>答えを​持っていない​時代に​なった。</span></p>
 <p class="cap">見て覚えるOJTは、見る相手が同じ仕事をしていた時代の仕組みです。社会が加速すると、先輩の答えも古くなります。学校でも、会社でも、教わらなかった。だから今、大人の学び方そのものを見直す必要があります。</p>
 </section>
 
@@ -835,21 +893,21 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <section class="panel dark" style="gap: 24px">
 <p class="lbl" style="color: #37bef0">放って​おくと、​何を​失うのか</p>
-<p class="st">対話は、​贅沢ではない。</p>
+<p class="seg st"><span>対話は、</span><span>贅沢ではない。</span></p>
 <p class="body">「対話に時間を使う余裕はない」とよく言われます。けれど、対話がないまま回っている組織は、別の形で、すでに払っています。見えにくいだけです。</p>
 <div style="display: flex; flex-direction: column; gap: 0">
 <div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">採用し直す費用</b><p style="font-size: 13px; line-height: 1.6">新卒1人の採用に、平均で約94万円。大卒の3人に1人は3年以内に離職します。採用費、教える時間、引き継ぎの穴が、そのたびに発生します。</p></div>
 <div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">決まらない会議</b><p style="font-size: 13px; line-height: 1.6">従業員1万人規模の企業で、ムダと感じられている社内会議は年間約67万時間（332人分の年間労働時間）、人件費で約15億円相当という試算があります。</p></div>
 <div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">黙っている現場</b><p style="font-size: 13px; line-height: 1.6">現場が気づいている問題が、上がってこない。気づいてから手を打つまでの遅れは、どの帳簿にも載りません。</p></div>
 </div>
-<p class="big">省いた​分は、​別の​請求書で​届く。</p>
+<p class="seg big"><span>省いた​分は、</span><span>別の​請求書で​届く。</span></p>
 <p class="cap">出所：リクルート就職みらい研究所「就職白書2020」（新卒採用1人あたりの平均採用費）、厚生労働省「新規学卒就職者の離職状況」（大卒3年以内離職率は近年3割台で推移）、パーソル総合研究所・中原淳「長時間労働に関する実態調査」（2017〜18年）の「ムダな社内会議」の試算。</p>
 </section>
 
 <!-- 2 -->
 <section class="panel rule" id="c2">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="28" cy="36" r="11"></circle><path d="M28 17v6M28 49v6M9 36h6M41 36h6M14.6 22.6l4.2 4.2M37.2 45.2l4.2 4.2M14.6 49.4l4.2-4.2M37.2 26.8l4.2-4.2"></path><path d="M50 22c8 0 14 6 14 14s-6 14-14 14" stroke-dasharray="4 4"></path><path d="M56 30c3 2 3 10 0 12" ></path></svg><span class="no">2</span><h2>なぜ、​追いつけないのか</h2></div>
-<p class="st">変わらないのは、​変えたくないから​ではない。</p>
+<p class="seg st"><span>変わらないのは、</span><span>変えたくないから​ではない。</span></p>
 <p class="body">多くの組織が、すでに手は打っています。それでも戻ってしまう。まず、その「戻り方」を見てみます。</p>
 </section>
 
@@ -860,18 +918,18 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px">研修をした</b><p style="font-size: 13px; opacity: .9">受講直後は前向きだった。現場に戻ると、忙しさと古い評価軸が、学んだことを押し流した。</p></div>
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px">トップが宣言した</b><p style="font-size: 13px; opacity: .9">方針は正しかった。ただ、現場の「うちではこうだ」が変わらず、部署をまたいだ途端に止まった。</p></div>
 </div>
-<p class="big">研修が​悪いのではない。​受け止める​側の​職場が、​変わっていない。</p>
+<p class="seg big"><span>研修が​悪いのではない。</span><span>受け止める​側の​職場が、​変わっていない。</span></p>
 </section>
 
 <section class="panel">
-<p class="st">人の行動は、​<span class="ac">個人</span>と<span class="ac">環境</span>の掛け算で​決まる。</p>
+<p class="seg st"><span>人の行動は、</span><span><span class="ac">個人</span>と<span class="ac">環境</span>の掛け算で​決まる。</span></p>
 <p class="body">パフォーマンス研究のT. ギルバートは、人が期待どおりに動かないとき、原因の大半は個人の能力や意欲ではなく、その人を取り巻く環境側にあると整理しました。情報、道具、評価、手順。環境が古いまま個人だけを変えても、行動は戻ります。逆も同じです。</p>
 <p class="body">組織に当てはめると、環境側が「仕組み」、個人側が「認知」です。</p>
 <p class="cap">参考：T. F. Gilbert, Human Competence（1978）の行動工学モデル（BEM）</p>
 </section>
 <details class="ref note" style="border-color: #009944">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-gilbert.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-gilbert.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">トーマス・F・ギルバート</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -888,25 +946,25 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div><div class="h">認知</div><p>前提、常識、思い込み、「うちではこうだ」。目に見えず、本人も気づいていないもの。</p></div>
 </div>
 
-<img loading="lazy" src="images/gakushu/tugofwar.webp" alt="仕組みの機械を挟んで、二人が綱引きをしている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780">
-<p class="big">片方だけ​変えても、​もう片方が、​引き戻す。</p>
+<img src="images/gakushu/tugofwar.webp" alt="仕組みの機械を挟んで、二人が綱引きをしている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<p class="seg big"><span>片方だけ​変えても、</span><span>もう片方が、</span><span>引き戻す。</span></p>
 <p class="cap">新しい制度を入れても、古い前提のまま運用される。研修で前提が変わっても、古い評価制度が元に戻す。どちらも、よくある光景です。</p>
 </section>
 
 <section class="panel">
-<p class="st">だから、​更新するのは​<span class="ac">「仕組み」と「認知」</span>、両方。</p>
+<p class="seg st"><span>だから、</span><span>更新するのは​<span class="ac">「仕組み」と「認知」</span>、</span><span>両方。</span></p>
 <p class="body">ただし、二つの更新は性質が違います。それぞれに「肝」があります。</p>
 </section>
 
 <section class="panel" style="gap: 20px">
 <div class="pair">
-<div style="border-color:#e5588a"><div class="k" style="color:#e5588a;opacity:1">認知の更新の肝</div><div class="h" style="color:#e5588a">アンラーニング</div><p>新しいことを学ぶ前に、これまで正しかった前提を手放すこと。「学び直し」ではなく「学びほぐし」。手放さないまま上に積んでも、古い前提が判断を決め続けます。</p></div>
+<div style="border-color:#e5588a"><div class="k" style="color:#e5588a;opacity:1">認知の更新の肝</div><div class="h" style="color:#e5588a">アンラーニング</div><p>新しいことを学ぶ前に、これまで正しかった前提を手放すこと。「学び直し」ではなく「学びほぐし」。手放さないまま上に積んでも、古い前提が判断を決め続けます。やり方は4章で扱います（リフレクションとリフレーミング）。</p></div>
 <div style="border-color:#7f4f21"><div class="k" style="color:#7f4f21;opacity:1">仕組みの更新の肝</div><div class="h" style="color:#7f4f21">組織的負債の返済</div><p>過去の決定、もう目的を失ったルール、誰も見直さない手順。放置された仕組みは利息を生み、変えるコストを年々増やします。借金と同じで、返すなら早いほど安い。</p></div>
 </div>
 </section>
 <details class="ref note" style="border-color: #e5588a">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-unlearn.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-unlearn.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #e5588a">補足 ／ 言葉の出どころ</span><span class="rn">アンラーニングと​組織的負債</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -926,12 +984,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="kw">組織効力感</p>
 <p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 20px; opacity: .9">うちのチームなら、できる。</p>
 </div>
-<p class="big" style="font-size: 36px">手放すにも、​返済するにも、​この感覚が​要る。</p>
+<p class="seg big" style="font-size: 36px"><span>手放すにも、</span><span>返済するにも、</span><span>この感覚が​要る。</span></p>
 <p class="cap">これが低いと、正しい方針があっても、人は前提を手放しませんし、負債に手をつけません。効力感は、小さな成功の積み重ねでしか育ちません。以降の章は、この二つをどう育てるかの話でもあります。</p>
 </section>
 <details class="ref note" style="border-color: #009944">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-bandura.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-bandura.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">アルバート・バンデューラ</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -944,7 +1002,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <!-- 3 -->
 <section class="panel rule" id="c3">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 44c0 8 8 14 16 14h4"></path><path d="M14 44V30l10-4 6 4v10"></path><rect x="40" y="14" width="18" height="18" rx="3"></rect><path d="M49 36v6M44 40l5 6 5-6" ></path></svg><span class="no">3</span><h2>変わるには、​痛みが伴う</h2></div>
-<p class="st">何かを​手放さずに、​更新は​起きない。</p>
+<p class="seg st"><span>何かを​手放さずに、</span><span>更新は​起きない。</span></p>
 <p class="body">慣れた手順。既得の役割。これまで正しかったやり方。アンラーニングも、負債の返済も、誰かが何かを手放すということです。だから、痛みを伴う意思決定になります。</p>
 </section>
 
@@ -957,30 +1015,30 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0">評価される人</b><p style="font-size: 13px; line-height: 1.6">これまで評価されてきた強みが、評価されなくなるかもしれない。</p></div>
 <div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0">他部署・労組</b><p style="font-size: 13px; line-height: 1.6">直接は関わらないが、「次はうちか」と見ている。</p></div>
 </div>
-<p class="big">一つの​変更が、​立場の​違う何人もの「手放すもの」に​届く。</p>
+<p class="seg big"><span>一つの​変更が、</span><span>立場の​違う何人もの「手放すもの」に​届く。</span></p>
 <p class="cap">仕組みは一人の中に収まっていません。複数の人にまたがっています。だから、仕組みを変える決定は、一人では下せないのです。</p>
 </section>
 
 <section class="panel">
-<p class="st">手放す人たちを、​整理すると​<span class="ac">4種類</span>になる。</p>
+<p class="seg st"><span>手放す人たちを、</span><span>整理すると​<span class="ac">4種類</span>になる。</span></p>
 <p class="body">プロジェクトの成否に影響する人、あるいはプロジェクトから影響を受ける人。これをステークホルダーと呼びます。意思決定者だけではありません。</p>
 </section>
 
 <section class="panel ink" style="gap: 24px">
 <p class="lbl">ステークホルダーの​4つの立場</p>
-<img loading="lazy" src="images/gakushu/stakeholders.webp" alt="方針を指す人、荷物を運ぶ人、机が片づけられて戸惑う人、腕を組んで見ている人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780">
+<img src="images/gakushu/stakeholders.webp" alt="方針を指す人、荷物を運ぶ人、机が片づけられて戸惑う人、腕を組んで見ている人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
 <div class="figrow" style="gap: 8px">
 <div class="fig"><div class="nm">決める人</div><div class="ds">予算・方針・優先順位を決める</div></div>
 <div class="fig"><div class="nm">動く人</div><div class="ds">実際に手を動かし、負荷を引き受ける</div></div>
 <div class="fig"><div class="nm">影響を​受ける人</div><div class="ds">業務や立場が変わる</div></div>
 <div class="fig"><div class="nm">見ている人</div><div class="ds">直接関わらないが、評価や判断に関わる</div></div>
 </div>
-<p class="big">決める人の​合意だけ​取れても、​進まない。</p>
+<p class="seg big"><span>決める人の​合意だけ​取れても、</span><span>進まない。</span></p>
 <p class="cap">見落とされがちなのは「動く人」と「影響を受ける人」。立場の違う人たちとの、高度な合意形成が必要になります。</p>
 </section>
 <details class="ref note" style="border-color: #009944">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-freeman.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-freeman.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">R・エドワード・フリーマン</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -992,7 +1050,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <section class="panel sky" style="gap: 24px">
 <p class="lbl" style="color: #ffde00">では、​この合意形成は​いつ必要に​なるのか</p>
-<p class="st">抽象的な​「変化」ではなく、​予定表に​載っている​あの件。</p>
+<p class="seg st"><span>抽象的な​「変化」ではなく、</span><span>予定表に​載っている​あの件。</span></p>
 <p class="body">立場の違う人たちの「手放すもの」が同時に動く場面は、特別なものではありません。多くの会社で、すでに来期の計画に載っています。</p>
 <div class="card3">
 <div style="border: 1.5px solid rgba(255,255,255,.6)"><b>事業承継</b><p style="opacity: .92">先代の「正しかったやり方」を、誰がどこまで手放すか。</p></div>
@@ -1002,14 +1060,14 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="border: 1.5px solid rgba(255,255,255,.6)"><b>拠点・部門の​統廃合</b><p style="opacity: .92">影響を受ける人がいちばん多く、見ている人もいちばん多い。</p></div>
 <div style="border: 1.5px solid rgba(255,255,255,.6)"><b>評価・​働き方の​見直し</b><p style="opacity: .92">上で見たとおり、人事だけの仕事ではない。</p></div>
 </div>
-<p class="big">対話力は、​この​一つ​ひとつの​成否に​直結する。</p>
+<p class="seg big"><span>対話力は、</span><span>この​一つ​ひとつの​成否に​直結する。</span></p>
 <p class="cap">いずれも「決める人」の合意だけでは進まず、「動く人」「影響を受ける人」との対話が要る案件です。研修のテーマとしてではなく、来期の案件の準備として考えると、必要な順番が見えてきます。</p>
 </section>
 
 <!-- 4 -->
 <section class="panel rule" id="c4">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18h30a6 6 0 0 1 6 6v10a6 6 0 0 1-6 6H24l-8 7v-7h-6a6 6 0 0 1-6-6V24a6 6 0 0 1 6-6z"></path><path d="M30 44h26a6 6 0 0 1 6 6v6a6 6 0 0 1-6 6h-4v6l-7-6H30"></path></svg><span class="no">4</span><h2>説明では、​埋まらない</h2></div>
-<p class="st">「ちゃんと​説明したのに、​伝わっていなかった」</p>
+<p class="seg st"><span>「ちゃんと​説明したのに、</span><span>伝わっていなかった」</span></p>
 <p class="body">同じ言葉を聞いても、立場が違えば受け取り方は違います。経営層は「いつ回収できるのか」と聞き、現場は「負荷はどれだけ増えるのか」と聞いています。ただ、ズレには二種類あります。</p>
 </section>
 
@@ -1018,19 +1076,68 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div><div class="h" style="color: #37bef0">言い方を​変えれば、​届くズレ</div><p>情報が足りないだけ。用語や前提が違うだけ。相手の関心に合わせて言い換えれば通じる。</p><p style="font-weight: 700; opacity: 1">→ 伝え方の問題</p></div>
 <div class="fill"><div class="h">どちらかが​譲らないと、​動かない対立</div><p>一方が得をすると、他方が損をする。優先順位や価値観そのものが違う。誰かが何かを手放さないと進まない。</p><p style="font-weight: 700; opacity: 1">→ 伝え方の問題ではない</p></div>
 </div>
-<p class="big">組織の​変化で​止まるのは、​ほぼ、​右側。</p>
+<p class="seg big"><span>組織の​変化で​止まるのは、</span><span>ほぼ、</span><span>右側。</span></p>
 <p class="cap">言い方の工夫で突破しようとすると、消耗します。これは、立場の違う人が互いの前提を見せ合い、壊し、作り直すことでしか動きません。</p>
 </section>
+<section class="panel dark" style="gap: 24px">
+<p class="lbl" style="color: #37bef0">右側が、​説明で​動かない、​もう一つの​理由</p>
+<p class="seg st"><span>痛みは、</span><span>頭ではなく、</span><span>先に​体で起きる。</span></p>
+<p class="body">3章の評価制度の例に戻ります。「これまで評価されてきた強みが、評価されなくなるかもしれない」。これを聞いた人の中で最初に起きるのは、損得の計算ではありません。守りの反応です。</p>
+<div class="two">
+<div style="border-color: rgba(236,236,232,.5)"><div class="k" style="color: #37bef0; opacity: 1">損失回避</div><div class="h">失う痛みは、​得る喜びの​約2倍。</div><p>同じ大きさでも、失うほうが得るより強く感じられる。カーネマンとトヴェルスキーが実験で示した、人の判断の癖です。「新しい評価軸で得るもの」の説明は、「今の強みを失う痛み」の半分の重さでしか届きません。</p></div>
+<div style="border-color: rgba(236,236,232,.5)"><div class="k" style="color: #37bef0; opacity: 1">5つの脅威</div><div class="h">地位・見通し・裁量・​つながり・公平さ。</div><p>この5つのどれかが脅かされると、人は理屈の前に防御に入ります（D. ロックのSCARFモデル）。評価制度の変更は、この5つを一度に揺らします。</p></div>
+</div>
+<p class="seg big"><span>説明は、​理性に届く。</span><span>痛みは、​情動で起きる。</span><span>届く層が、​違う。</span></p>
+<p class="cap">だから「ちゃんと説明したのに」になります。説明が悪いのではなく、届けている層が違うのです。右側の対立を前に進めるには、感情を扱う技術が要ります。</p>
+</section>
+
+<section class="panel ink" style="gap: 24px">
+<p class="lbl">感情を扱う​技術は、​学べる</p>
+<p class="seg st"><span>感情は、</span><span>性格ではなく、</span><span>スキルとして​扱う。</span></p>
+<p class="body">それが SEL（Social and Emotional Learning、社会性と情動の学習）です。米国のCASELが整理した5つの力は、どれも「生まれつき」ではなく、練習で育つものとして扱われます。</p>
+<div class="card3">
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">1</span><b>自分の感情に気づく</b><p>「いま、守りに入っているな」と、自分で分かる。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">2</span><b>自分を整える</b><p>反応と行動のあいだに、一拍置ける。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">3</span><b>相手の感情に気づく</b><p>相手の「反対」の下にある痛みを読む。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">4</span><b>関係を築く</b><p>立場が違っても、話を続けられる。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">5</span><b>責任ある決定をする</b><p>感情を踏まえたうえで、決める。</p></div>
+</div>
+<p class="seg big"><span>これも、</span><span>学校が​先に始めている。</span></p>
+<p class="cap">SELは1990年代から米国の学校で広がり、OECDは2019年から「社会情動的スキル調査」を行っています。日本でも「非認知能力」の名で語られ、学習指導要領の「学びに向かう力、人間性等」に入っています。探究と同じく、ここでも大人の側は、まだ始まったばかりかもしれません。大人向けには、この5つを「対話の前の準備運動」として扱います。</p>
+</section>
+
+<section class="panel sun" style="gap: 24px">
+<p class="lbl">認知を​更新する、​二つの動き</p>
+<p class="seg st"><span>手放すには、</span><span>まず​自分の前提が​見えないと​いけない。</span></p>
+<p class="body">感情に気づけるようになると、次に見えてくるのが、その感情を生んでいる前提です。アンラーニングは、意志の力で前提を捨てることではありません。二つの動きでできています。</p>
+<div class="pair">
+<div style="background: #FFFFFF; border-color: #FFFFFF"><div class="k" style="color: #009944">動き 1 ／ 振り返り</div><div class="h">リフレクション</div><p>起きたこと、そのとき感じたこと、そう感じた理由になっている前提を、言葉にして外に出す。一人で書いてもいいのですが、人に話すほうが、本人も気づいていなかった前提が出てきます。</p></div>
+<div style="background: #FFFFFF; border-color: #FFFFFF"><div class="k" style="color: #cf0029">動き 2 ／ 枠の掛け替え</div><div class="h">リフレーミング</div><p>同じ事実を、別の枠で見直す。「負荷が増える」を「裁量が増える」と言い換えることではなく、相手の枠を一度、自分の口で言ってみること。言えたとき、自分の枠が一つの枠にすぎなかったと分かります。</p></div>
+</div>
+<p class="seg big"><span>二つの​土台に​あるのが、​メタ認知。</span><span>自分の考え方を、​一段上から​眺める力。</span></p>
+<p class="cap" style="opacity: .85">「自分はいま、こう考えている」と気づける力を、心理学ではメタ認知と呼びます（J. フラベル、1979）。リフレクションはメタ認知を働かせる手順で、リフレーミングはその結果として起きる掛け替えです。この記事の8色の一つが「メタ認知」なのも、ここに理由があります。アンラーニングとは、メタ認知を使って前提を表に出し（リフレクション）、掛け替える（リフレーミング）ことです。</p>
+</section>
+<details class="ref note" style="border-color: #ffde00">
+<summary>
+<svg class="sm-ico" viewBox="0 0 52 52" aria-hidden="true"><rect width="52" height="52" rx="9" fill="#ffde00"></rect><circle cx="26" cy="24" r="11" fill="none" stroke="#14191E" stroke-width="2.5"></circle><path d="M20 40h12M22 45h8" stroke="#14191E" stroke-width="2.5" stroke-linecap="round"></path><path d="M21 24c2-4 8-4 10 0" fill="none" stroke="#14191E" stroke-width="2.5" stroke-linecap="round"></path><circle cx="26" cy="19" r="2" fill="#14191E"></circle></svg>
+<span class="sm-tx"><span class="rk" style="color: #b89b00">補足 ／ 理論の出どころ</span><span class="rn">SEL・SCARF・メタ認知</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
+<p class="rm">CASEL（1994〜）／ D. Rock, SCARF（2008）／ J. H. Flavell（1979）／ D. A. Kolb（1984）、D. A. Schön（1983）</p>
+<p class="rb">SELは米国の非営利団体CASELが1994年に提唱した枠組みで、5つの力の整理も同団体によるものです。SCARFは神経科学の知見を職場向けに翻訳したデビッド・ロックの実務モデルで、学術的な定説というより「どこで人が守りに入るかの地図」として使っています。メタ認知は発達心理学者フラベルが名づけた概念です。リフレクションの方法論は、経験学習のコルブ（経験→振り返り→持論化→試行）と、省察的実践のショーンに拠っています。</p>
+</div>
+</details>
 
 <section class="panel">
-<p class="st lg">つまり、​<span class="ac">対話</span>からしか​生まれない。</p>
-<p class="body">指示でも、説得でもなく。遠回りに見えますが、他の道は結局ここに戻ってきます。</p>
+<p class="seg st lg"><span>つまり、</span><span><span class="ac">対話</span>からしか​生まれない。</span></p>
+<p class="body">指示でも、説得でもなく。遠回りに見えますが、他の道は結局ここに戻ってきます。対話とは、互いの感情と前提を場に出し（リフレクション）、枠を掛け替え合う（リフレーミング）ための形式です。一人ではメタ認知が働きにくいところを、相手の目が補います。</p>
 </section>
 
 <!-- 5 -->
 <section class="panel rule" id="c5">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="10" width="22" height="22" rx="3"></rect><rect x="40" y="10" width="22" height="22" rx="3" fill="#009944"></rect><rect x="10" y="40" width="22" height="22" rx="3" fill="#009944" fill-opacity=".25"></rect><rect x="40" y="40" width="22" height="22" rx="3"></rect><path d="M24 48 48 24M40 24h8v8"></path></svg><span class="no">5</span><h2>仕事の​置き場所を、​入れ替える</h2></div>
-<p class="st">では、「未来からの不足」を​埋める​仕事は、​誰がしているのか。</p>
+<p class="seg st"><span>では、</span><span>「未来からの不足」を​埋める​仕事は、</span><span>誰がしているのか。</span></p>
 <p class="body">組織の中の仕事を、二つの軸で分けてみます。「指示された仕事か、自分で作る仕事か」。「定型業務か、非定型業務か」。</p>
 </section>
 
@@ -1048,12 +1155,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="q"><b>自分で作る​定型業務</b><p>仕組み化、改善、手順の標準化。</p></div>
 <div></div><div></div><div></div>
 </div>
-<p class="big">意識は​左下に​集まり、​未来は​右上に​しかない。</p>
+<p class="seg big"><span>意識は​左下に​集まり、</span><span>未来は​右上に​しかない。</span></p>
 <p class="cap">「指示された定型業務」は、やるべきことが明確で評価もされやすい。だから意識が集まります。しかし、ここだけでは価値は「維持」にとどまります。1章のギャップを埋める活動は、右上の「自分で作る非定型業務」からしか生まれません。</p>
 </section>
 
 <section class="panel">
-<p class="st">左下から​右上へ。​この入れ替えが​起きないと、​組織は​変化に​<span class="ac">適応できない</span>。</p>
+<p class="seg st"><span>左下から​右上へ。</span><span>この入れ替えが​起きないと、​組織は​変化に​<span class="ac">適応できない</span>。</span></p>
 <p class="body">入れ替えには手順があります。左下の「指示された定型業務」を仕組み化して右下に移し、空いた時間を右上に回す。定型業務の仕組み化は、未来への投資です。</p>
 <p class="body">ただ、右上の仕事には決定的な特徴があります。誰にも頼まれていない。期限もない。評価もすぐには出ない。つまり、本人の中に「これをやりたい」という意志がなければ、始まりようがないのです。</p>
 </section>
@@ -1061,7 +1168,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <!-- 6 -->
 <section class="panel rule" id="c6">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M36 10c4 10 16 16 16 30a16 16 0 0 1-32 0c0-8 4-12 8-16 0 6 3 8 6 8 0-10 2-16 2-22z"></path><path d="M36 60a7 7 0 0 1-7-7c0-5 5-6 7-11 2 5 7 6 7 11a7 7 0 0 1-7 7z" fill="#009944"></path></svg><span class="no">6</span><h2>全員は、​動かない</h2></div>
-<p class="st">右上の​仕事は、​<span class="ac">Will</span>からしか​始まらない。</p>
+<p class="seg st"><span>右上の​仕事は、</span><span><span class="ac">Will</span>からしか​始まらない。</span></p>
 <p class="body">そして対話にも、ものすごく大きなエネルギーが要ります。強い意志（Will）のないところから、プロジェクトは生まれません。生まれても、続きません。これは、誰かの怠慢ではなく、人のエネルギーの性質です。</p>
 </section>
 
@@ -1073,7 +1180,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div><div class="k" style="color:#ffde00;opacity:1">エージェンシー</div><div class="h">自分の​意思で、​世界に​働きかける</div><p>目標を自分で立て、行動し、結果を引き受け、振り返る。右上の「自分で作る仕事」は、エージェンシーが仕事の形をとったものです。</p></div>
 <div class="fill" style="background:#37bef0;color:#14191E;border-color:#37bef0"><div class="k" style="opacity:.7">共同エージェンシー</div><div class="h">仲間や​組織と、​一緒に​働きかける</div><p>OECDは、個人のエージェンシーは仲間・教師・組織との相互作用の中で育つとして、これを「共同エージェンシー」と呼びました。9章のデモクラシーは、この共同エージェンシーの話です。</p></div>
 </div>
-<p class="big">Willは、​個人の​エージェンシー。​デモクラシーは、​共同エージェンシー。</p>
+<p class="seg big"><span>Willは、​個人の​エージェンシー。</span><span>デモクラシーは、​共同エージェンシー。</span></p>
 <p class="cap">参考：OECD Learning Compass 2030「Student Agency」「Co-agency」。日本の学習指導要領の「主体的・対話的で深い学び」も、同じ流れの中にあります。学校が育てようとし始めたこの力を、大人の職場でどう育てるかが、本ページの問いです。</p>
 </section>
 
@@ -1092,7 +1199,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
 </div>
-<p class="big">逆に言えば、​Willのある数人から​始めれば、​始まる。</p>
+<p class="seg big"><span>逆に言えば、</span><span>Willのある数人から​始めれば、</span><span>始まる。</span></p>
 <p class="cap">「どこから」の答えは、いつも、いちばん困っていて、いちばん動きたい数人のところにあります。最初から全社を動かす必要はありません。点の数は例えです。</p>
 <div class="stat" style="border-top: 1px solid rgba(255,255,255,.4); padding-top: 18px">
 <p class="num">8%</p>
@@ -1103,18 +1210,18 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </section>
 
 <section class="panel" style="gap: 20px">
-<p class="st sm">対話は​贅沢ではなく、​<span class="ac">コスト削減</span>です。</p>
+<p class="seg st sm"><span>対話は​贅沢ではなく、</span><span><span class="ac">コスト削減</span>です。</span></p>
 <p class="body">決まらない会議。元に戻る研修。途中で止まる方針。そのすべてに、組織はすでにお金を払っています。</p>
 </section>
 
 <!-- 7 -->
 <section class="panel rule" id="c7">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="10" y="44" width="52" height="16" rx="3" fill="#009944" fill-opacity=".25"></rect><rect x="18" y="28" width="36" height="16" rx="3"></rect><rect x="26" y="12" width="20" height="16" rx="3" fill="#009944"></rect><path d="M30 12v-4M42 12v-4M22 28v-4M50 28v-4"></path></svg><span class="no">7</span><h2>学び方を、​変える</h2></div>
-<p class="st">Willは、​教えて​育つものではない。</p>
+<p class="seg st"><span>Willは、</span><span>教えて​育つものではない。</span></p>
 <p class="body">では、右上の仕事を作れる人、自分の前提を手放せる人は、どうすれば育つのか。ここで、学び方そのものを見直す必要が出てきます。学習には、大きく二つのスタイルがあります。</p>
 <div class="two" style="gap: 10px">
-<div class="stat" style="border-color: #009944; padding: 20px 18px"><p class="num" style="color: #009944; font-size: 44px">約半数</p><p class="mean" style="font-size: 18px">日本の​就業者の​半分は、​会社の​外で何も​学んでいない。</p><p class="sub">勤務先以外での学習・自己啓発を「特に何もしていない」人の割合。18の国・地域で最も高い（52.6%）。</p><p class="cap">出所：パーソル総合研究所「グローバル就業実態・成長意識調査」（2022、18の国・地域）</p></div>
-<div class="stat" style="border-color: #009944; padding: 20px 18px"><p class="num" style="color: #009944; font-size: 44px">0.1%</p><p class="mean" style="font-size: 18px">会社も、​人にほとんど​投資していない。</p><p class="sub">日本企業の人材投資（OJT以外）のGDP比。米国の約2%に対し、約20分の1。</p><p class="cap">出所：経済産業省「未来人材ビジョン」（2022）、2010〜2014年平均。原データは学習院大学・宮川努教授の推計（厚生労働省「平成30年版 労働経済の分析」）</p></div>
+<div class="stat" style="border-color: #009944; padding: 20px 18px"><p class="num" style="color: #009944; font-size: 44px">約半数</p><p class="seg mean" style="font-size: 18px"><span>日本の​就業者の​半分は、</span><span>会社の​外で何も​学んでいない。</span></p><p class="sub">勤務先以外での学習・自己啓発を「特に何もしていない」人の割合。18の国・地域で最も高い（52.6%）。</p><p class="cap">出所：パーソル総合研究所「グローバル就業実態・成長意識調査」（2022、18の国・地域）</p></div>
+<div class="stat" style="border-color: #009944; padding: 20px 18px"><p class="num" style="color: #009944; font-size: 44px">0.1%</p><p class="seg mean" style="font-size: 18px"><span>会社も、</span><span>人にほとんど​投資していない。</span></p><p class="sub">日本企業の人材投資（OJT以外）のGDP比。米国の約2%に対し、約20分の1。</p><p class="cap">出所：経済産業省「未来人材ビジョン」（2022）、2010〜2014年平均。原データは学習院大学・宮川努教授の推計（厚生労働省「平成30年版 労働経済の分析」）</p></div>
 </div>
 <p class="body">学ばない人が多いのではなく、「教わる学び」しか用意されてこなかった、と見るほうが実態に近いと私は考えています。</p>
 </section>
@@ -1122,20 +1229,20 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="panel sun" style="gap: 24px">
 <p class="lbl">二つの​学び方</p>
 <div class="two" style="gap: 10px">
-<div style="border: 0; padding: 0; gap: 6px"><img loading="lazy" src="images/gakushu/classroom.webp" alt="黒板の前で先生が話し、会社員たちが席に座って聞いている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780"><p class="cap" style="opacity: .8; text-align: center">教わる</p></div>
-<div style="border: 0; padding: 0; gap: 6px"><img loading="lazy" src="images/gakushu/blocks.webp" alt="四人がテーブルでブロックを組み、作ったものを見せ合っている" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780"><p class="cap" style="opacity: .8; text-align: center">作って、見せ合う</p></div>
+<div style="border: 0; padding: 0; gap: 6px"><img src="images/gakushu/classroom.webp" alt="黒板の前で先生が話し、会社員たちが席に座って聞いている" style="width: 100%; max-width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 50%; display: block; border-radius: 10px"><p class="cap" style="opacity: .8; text-align: center">教わる</p></div>
+<div style="border: 0; padding: 0; gap: 6px"><img src="images/gakushu/blocks.webp" alt="四人がテーブルでブロックを組み、作ったものを見せ合っている" style="width: 100%; max-width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 0% 50%; display: block; border-radius: 10px"><p class="cap" style="opacity: .8; text-align: center">作って、見せ合う</p></div>
 </div>
 
 <div class="two">
 <div style="border-color: #14191E"><div class="k">これまでの学び方</div><div class="h">インストラクショニズム</div><p>正解を知っている人が、知らない人に教える。</p><ul><li>正解が、先にある</li><li>理解できたかを、テストで確かめる</li><li>教える側が、内容と順番を決める</li><li>変化が遅く、正解が長持ちする時代に向く</li></ul></div>
 <div class="fill" style="background: #14191E; color: #FFFFFF; border-color: #14191E"><div class="k" style="color: #ffde00">これからの学び方</div><div class="h" style="color: #ffde00">コンストラクショニズム</div><p>自分で何かを作り、人に見せ、壊して作り直す中で学ぶ。</p><ul><li>正解は、作りながら見つける</li><li>作ったものを見せ合い、問い合う</li><li>学ぶ側が、問いと形を決める</li><li>正解がすぐ古くなる時代に向く</li></ul></div>
 </div>
-<p class="big">認知は、​教わっても​更新されない。​作り直した​ときに、​更新される。</p>
-<p class="cap">教わった知識は、古い前提の上に積まれるだけです。自分の手で形にして初めて、本人も気づいていなかった前提が表に出て、本人の手で書き換わります。アンラーニングは、作ることで起きます。そして「作って見せたら通じた」という小さな成功が、自己効力感を育てます。参考：S. パパート（MITメディアラボ）の構築主義</p>
+<p class="seg big"><span>認知は、​教わっても​更新されない。</span><span>作り直した​ときに、​更新される。</span></p>
+<p class="cap">教わった知識は、古い前提の上に積まれるだけです。自分の手で形にして初めて、本人も気づいていなかった前提が表に出て、本人の手で書き換わります。作ったあとに振り返る（リフレクション）から、前提が言葉になります。作るだけで終わると、「楽しかった」で終わります。アンラーニングは、作って、振り返ることで起きます。そして「作って見せたら通じた」という小さな成功が、自己効力感を育てます。参考：S. パパート（MITメディアラボ）の構築主義</p>
 </section>
 <details class="ref note" style="border-color: #ffde00">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-papert.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-papert.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #ffde00">補足 ／ 理論の出どころ</span><span class="rn">シーモア・パパートと​MITメディアラボ</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1146,22 +1253,58 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </details>
 
 <section class="panel">
-<p class="st">「作る学び」は、​右上の​仕事の​<span class="ac">予行演習</span>でもある。</p>
+<p class="seg st"><span>「作る学び」は、</span><span>右上の​仕事の​<span class="ac">予行演習</span>でもある。</span></p>
 <p class="body">誰にも頼まれていないものを、自分で問いを立てて形にし、人に見せる。これは「自分で作る非定型業務」そのものの動きです。学び方を変えることは、仕事の置き場所を入れ替えるための、いちばん安全な練習です。</p>
 </section>
+
+<section class="panel sky" style="gap: 24px">
+<p class="lbl" style="color: #ffde00">学校は、​もう​変わり始めている</p>
+<p class="seg st"><span>「作る学び」は、​私の​思いつきではない。</span><span>国が、​学校で​始めている。</span></p>
+<p class="body">文部科学省は、2022年度から高校で「総合的な探究の時間」を必修にしました。小中学校の「総合的な学習の時間」は2002年から続いています。いまの学習指導要領の柱は「主体的・対話的で深い学び」。このページで書いてきたことと、ほとんど同じ言葉です。</p>
+<div class="card3 card4">
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #0062b1">文部科学省 ／ 探究の学習過程</span><b>探究のサイクル</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">1</span><span>課題の設定</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">2</span><span>情報の収集</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">3</span><span>整理・分析</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">4</span><span>まとめ・表現　→ 次の課題へ</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #009944">7章 ／ コンストラクショニズム</span><b>作って、見せ合う</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">1</span><span>問いを立てる</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">2</span><span>作る</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">3</span><span>見せ合い、問い合う</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">4</span><span>壊して、作り直す</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #cf0029">10章 ／ きづきくみたて工房</span><b>グッドスパイラル</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">1</span><span>気づき（前提をほぐす）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">2</span><span>くみたて（行動とビジョンに組む）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">3</span><span>スパイラルアップ（個人と組織が高め合う）</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #7f4f21">D. コルブ ／ 経験学習</span><b>経験して、振り返る</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">1</span><span>経験する</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">2</span><span>振り返る（リフレクション）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">3</span><span>持論にする（リフレーミング）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">4</span><span>試す　→ 次の経験へ</span></li></ul></div>
+</div>
+<p class="seg big"><span>取り残されているのは、</span><span>子どもではなく、</span><span>大人も​かもしれない。</span></p>
+<p class="cap" style="opacity: .9">四つとも、同じ形をしています。正解を教わるのではなく、自分で問いを立て、形にし、見せ合い、作り直す。学校はこの方向にすでに舵を切りました。会社の多くは、まだ「教わる学び」が中心のままではないでしょうか。</p>
+</section>
+
+<section class="panel dark" style="gap: 24px">
+<p class="lbl" style="color: #37bef0">探究で育った​世代が、​会社に入ってくる</p>
+<div class="stat">
+<p class="num">2025年〜</p>
+<p class="seg mean"><span>探究が必修だった​高校生が、</span><span>社会に出始める年。</span></p>
+<p class="sub">2022年度に高校1年生だった世代は、高卒なら2025年春、大卒なら2029年春から入社してきます。「問いは自分で立てるもの」として育った人たちです。</p>
+</div>
+<p class="seg big"><span>新人が探究型で​育っていても、</span><span>職場が「教わる型」の​ままなら、</span><span>元に戻る。</span></p>
+<p class="body">これは2章で見た「個人 × 環境」の、そのままの再演です。学校が先に変わり、受け止める側の大人だけが変わっていない。だから、いま必要なのは子どもの探究学習ではなく、<span style="color: #37bef0; font-weight: 700">大人の探究学習</span>です。</p>
+</section>
+<details class="ref note" style="border-color: #0062b1">
+<summary>
+<svg class="sm-ico" viewBox="0 0 52 52" aria-hidden="true"><rect width="52" height="52" rx="9" fill="#0062b1"></rect><path d="M12 22 26 14l14 8-14 8z" fill="#ffde00"></path><path d="M18 27v7c0 2 4 4 8 4s8-2 8-4v-7" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path><path d="M40 22v10" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"></path></svg>
+<span class="sm-tx"><span class="rk" style="color: #0062b1">補足 ／ 出どころ</span><span class="rn">総合的な探究の時間</span></span>
+<i class="sm-ar" aria-hidden="true"></i>
+</summary>
+<div class="rbody">
+<p class="rm">文部科学省「高等学校学習指導要領」（2018年告示、2022年度から年次進行で実施）</p>
+<p class="rb">高校では「総合的な学習の時間」が「総合的な探究の時間」に改められ、生徒が自ら課題を設定し、情報を集め、整理・分析し、まとめて表現する学習が全員必修になりました。同じ改訂で「理数探究」「日本史探究」など、教科名にも「探究」が入っています。筆者は公立小学校の教員を9年務めており、学校が「教わる学び」から動き出す現場を、内側から見てきました。</p>
+</div>
+</details>
 
 <!-- 8 -->
 <section class="panel rule" id="c8">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="34" cy="38" r="20"></circle><path d="M26 34h.1M42 34h.1" stroke-width="5"></path><path d="M24 44c4 6 16 6 20 0"></path><path d="M54 10l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#ffde00" stroke="#ffde00"></path><path d="M10 16l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#cf0029" stroke="#cf0029"></path></svg><span class="no">8</span><h2>遊びが、​本気を​引き出す</h2></div>
-<p class="st">難しい​問題を、​真面目に​解くだけでは、​続かない。</p>
+<p class="seg st"><span>難しい​問題を、</span><span>真面目に​解くだけでは、</span><span>続かない。</span></p>
 <p class="body">ここまでの話は、正直、重いです。アンラーニング、負債、痛み、対立。これを眉間にしわを寄せて取り組むと、Willのある数人が最初に燃え尽きます。</p>
 </section>
 
 <section class="panel coral" style="gap: 28px">
 <p class="lbl">ハードファン</p>
-<img loading="lazy" src="images/gakushu/mountain.webp" alt="険しい山を、笑いながらロープで助け合って登る三人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="780">
+<img src="images/gakushu/mountain.webp" alt="険しい山を、笑いながらロープで助け合って登る三人" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
 
-<p class="hero">難しいから、​面白い。</p>
+<p class="seg hero"><span>難しいから、</span><span>面白い。</span></p>
 <p class="body" style="opacity: 1">パパートは、子どもたちがプログラミングに没頭する様子を「ハードファン（hard fun）」と呼びました。簡単だから楽しいのではありません。難しいのに楽しい。むしろ、難しいからこそ楽しい。人が最も粘り強く、最も創造的になるのは、この状態のときです。</p>
 <p class="cap" style="opacity: .85">参考：S. Papert, "Hard Fun"（1998）。M. Resnick（MITメディアラボ）のLifelong Kindergartenも、遊びを通じた創造的学習を同じ系譜で扱っています。</p>
 </section>
@@ -1173,12 +1316,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="background: #FFFFFF"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#0062b1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="20" width="14" height="10" rx="2" fill="#0062b1"></rect><rect x="24" y="20" width="14" height="10" rx="2"></rect><rect x="15" y="8" width="14" height="10" rx="2" fill="#ffde00" stroke="#ffde00"></rect></svg><b>地位を、​脇に置く</b><p>ブロックやカードを握ると、役職が消えて手が動く。全員が同じ形で場に出せる。</p></div>
 <div style="background: #FFFFFF"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#e5588a" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M8 22a14 14 0 1 1 4 10"></path><path d="M8 32v-8h8"></path><circle cx="22" cy="22" r="3" fill="#e5588a"></circle></svg><b>反復を、​続けさせる</b><p>筋肉は反復でしか育たない。面白くなければ、二回目はない。</p></div>
 </div>
-<p class="big">遊び心は​余興ではなく、​変化の​エンジン。</p>
-<p class="cap" style="opacity: .8">LEGO® SERIOUS PLAY® の名前にある「真剣に遊ぶ」は、まさにこれです。創造性は、安心と遊びの中でしか出てきません。プレイフルラーニングは、重い話を軽くするためではなく、重い話を最後まで運ぶためにあります。</p>
+<p class="seg big"><span>遊び心は​余興ではなく、</span><span>変化の​エンジン。</span></p>
+<p class="cap" style="opacity: .8">遊びは、感情の側で効きます。守りに入った頭を、好奇心に切り替える。4章で見たSELの「自分を整える」を、個人の努力ではなく場の設計で肩代わりするのが、遊び心です。LEGO® SERIOUS PLAY® の名前にある「真剣に遊ぶ」は、まさにこれです。創造性は、安心と遊びの中でしか出てきません。プレイフルラーニングは、重い話を軽くするためではなく、重い話を最後まで運ぶためにあります。</p>
 </section>
 <details class="ref note" style="border-color: #cf0029">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-lsp.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-lsp.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #cf0029">補足 ／ 手法の出どころ</span><span class="rn">LEGO® SERIOUS PLAY®</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1188,11 +1331,24 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </details>
 
+<section class="panel plum" style="gap: 24px">
+<p class="lbl" style="color: #ffde00">気づくには、​いったん​外に出る</p>
+<p class="seg st"><span>職場の​中にいると、</span><span>職場の​前提は​見えない。</span></p>
+<p class="body">4章で、手放すにはまず自分の前提が見えないといけない、と書きました。ところが、前提がいちばん見えないのは、その前提が動いている場所、つまり職場の中にいるときです。時間割、肩書き、数字、効率。毎日それで動いているので、水の中の魚が水に気づかないように、見えません。</p>
+<div class="card3">
+<div style="background: #FFFFFF; color: #14191E"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#6a7582" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="12" width="14" height="20" rx="2"></rect><path d="M22 22h10M28 17l5 5-5 5"></path><path d="M38 32V18l-4 3"></path><path d="M30 34l8-14 4 14" fill="#6a7582" stroke="none" opacity=".35"></path></svg><b>体を、​移す</b><p>原理の違う環境に、身体ごと移す。森では、時間は時計ではなく日の傾きで進み、肩書きは誰も気にせず、焚き火は効率では燃えません。頭で「視点を変えよう」とするより、先に体を動かすほうが確実です。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#0062b1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h16M19 20v20"></path><circle cx="10" cy="9" r="2.6" fill="#0062b1"></circle><path d="M10 12v8"></path><path d="M16 15l10 13" stroke-dasharray="2 3" stroke-width="2"></path><path d="M22 40h20"></path><circle cx="27" cy="30" r="2.2" fill="#0062b1"></circle><path d="M27 32.5V38"></path><circle cx="33" cy="30" r="2.2" fill="#0062b1"></circle><path d="M33 32.5V38"></path><circle cx="39" cy="30" r="2.2" fill="#0062b1"></circle><path d="M39 32.5V38"></path></svg><b>角度が、​変わる</b><p>いつもの日常を、いつもと違う角度と距離から眺める。ハイフェッツの言う「バルコニーに上がる」は、比喩である前に、まず物理的に起きることです。遠くから見て初めて、ダンスフロアの模様が見えます。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#cf0029" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 36c-8 0-12-6-10-13 2 3 4 4 6 4-2-6 2-12 8-16 0 6 3 8 6 11 3-2 4-5 4-8 4 6 6 22-14 22z" fill="#ffde00" stroke="#cf0029"></path></svg><b>感じてから、​気づく</b><p>違和感、懐かしさ、妙な軽さ。頭で考える前に、体が先に反応します。その感覚を言葉にしたとき（リフレクション）、職場の中では扱えなかった問題が、初めて扱える大きさになります。</p></div>
+</div>
+<p class="seg big"><span>問題は、</span><span>問題の​中にいる​あいだは、</span><span>扱えない。</span></p>
+<p class="cap" style="opacity: .9">日本の人材育成では、ホームとアウェイを行き来して学ぶことを「越境学習」と呼びます（石山恒貴氏ほか）。普段の環境を離れること自体が目的ではありません。離れて、感じて、戻ってくることで、メタ認知が働き始めるのが目的です。遊び心と同じく、守りに入った頭を好奇心に切り替える装置として、場所を使います。だから、森に行きます。</p>
+</section>
+
 <section class="panel" style="gap: 24px">
 <p class="lbl" style="color: #cf0029">森の​中で、​2日間</p>
-<p class="st">構造化した​議論と、​構造化しない​時間を、​地続きに​する。</p>
-<img loading="lazy" src="images/gakushu/takiviva-session.webp" alt="北軽井沢TAKIVIVAでの合宿版デモクラシーフィットネス2日目。テーブルを囲んでチェックインを書く参加者たち（顔はぼかし処理）" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px" width="1400" height="1050">
-<p class="body">群馬・北軽井沢のTAKIVIVAで、合宿版デモクラシーフィットネスを開いています。室内のセッションで10の筋肉すべてを2日間で動かし、夜は屋外の焚き火を囲む。肩書きを脱いだ時間にしか出てこない意思があり、翌朝の議論の質が変わります。</p>
+<p class="seg st"><span>構造化した​議論と、</span><span>構造化しない​時間を、</span><span>地続きに​する。</span></p>
+<img src="images/gakushu/takiviva-session.webp" alt="北軽井沢TAKIVIVAでの合宿版デモクラシーフィットネス2日目。テーブルを囲んでチェックインを書く参加者たち（顔はぼかし処理）" style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 10px">
+<p class="body">群馬・北軽井沢の森の中、TAKIVIVAで、合宿版デモクラシーフィットネスを開いています。室内のセッションで10の筋肉すべてを2日間で動かし、夜は屋外の焚き火を囲む。肩書きを脱いだ時間にしか出てこない意思があり、翌朝の議論の質が変わります。</p>
 <p class="body">経営チームには、同じ場所で経営合宿も設計しています。全社に求める前に、トップ層が最初に練習する場として。</p>
 <p class="cap">写真：きづきくみたて工房がTAKIVIVAで開催した合宿版デモクラシーフィットネス（2026年8月）2日目の記録。経営合宿は、中期方針の策定・組織課題の棚卸し・新旧経営陣の引き継ぎなど、「何を決める合宿か」が決まっていない段階からの相談も受けています。</p>
 </section>
@@ -1200,7 +1356,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <!-- 9 -->
 <section class="panel rule" id="c9">
 <div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" aria-hidden="true"><circle cx="36" cy="14" r="6" fill="#009944"></circle><circle cx="58" cy="30" r="6"></circle><circle cx="50" cy="56" r="6"></circle><circle cx="22" cy="56" r="6"></circle><circle cx="14" cy="30" r="6"></circle><path d="M36 20v10M52 32l-10 4M48 50l-8-8M24 50l8-8M20 32l10 4" stroke-opacity=".6"></path><circle cx="36" cy="38" r="4" fill="#009944"></circle></svg><span class="no">9</span><h2>デモクラシーが、効く</h2></div>
-<p class="st">個人の​Willは、​一人のままでは​消える。</p>
+<p class="seg st"><span>個人の​Willは、</span><span>一人のままでは​消える。</span></p>
 <p class="body">作る学びと遊び心で、Willのある人が育ったとします。しかしその人が右上の仕事を始めた瞬間、3章と4章の壁にぶつかります。立場の違う人たちとの合意、譲らないと動かない対立。ここで要るのが、デモクラシーです。</p>
 </section>
 
@@ -1210,12 +1366,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div><div class="k">民主主義</div><div class="h">制度の言葉</div><p>選挙、多数決、議会、権利。国や政治の仕組みとしての言葉。「職場で民主主義」と聞くと、多くの人は多数決か、政治の話を思い浮かべます。</p></div>
 <div class="fill" style="color: #0062b1"><div class="k">デモクラシー</div><div class="h">日常の実践</div><p>一人ひとりが自分の意思を起点に、違う意見の人と関わりながら、主体的に活動の範囲を広げていくこと。聴く、問う、反対を述べる、譲る。制度ではなく、毎日の仕事の中で実際にやることです。</p></div>
 </div>
-<p class="big">デモクラシーとは、​個人の​意思を​中心に、​主体的に​活動を​広げていく​こと。</p>
+<p class="seg big"><span>デモクラシーとは、</span><span>個人の​意思を​中心に、</span><span>主体的に​活動を​広げていく​こと。</span></p>
 <p class="cap">北欧では、これを「鍛えられる筋肉」として扱います。デモクラシーフィットネス（デンマーク発）は、その筋肉を短い反復で実際に動かすトレーニングです。</p>
 </section>
 <details class="ref note" style="border-color: #0062b1">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-wedo.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-wedo.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #0062b1">補足 ／ 団体の出どころ</span><span class="rn">We Do Democracy</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1232,7 +1388,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p><b style="font-family: 'Zen Kaku Gothic New', sans-serif">Willを、広げる。</b><br>積極的に聴く、好奇心を持つ筋肉が、他の人のWillと接続します。一人の意思が、数人の合意になります。</p>
 <p><b style="font-family: 'Zen Kaku Gothic New', sans-serif">痛みを、分け合って決める。</b><br>譲らないと動かない対立を、妥協する筋肉で前に進めます。誰かが何かを手放す決定を、地位ではなく対話で下します。</p>
 </div>
-<p class="big">これが​できないと、​個人の​意思は​組織の​意思に​ならない。</p>
+<p class="seg big"><span>これが​できないと、</span><span>個人の​意思は​組織の​意思に​ならない。</span></p>
 <p class="st" style="font-size: 36px">意思を​形にできる​組織へ。</p>
 <p class="cap">Willのある数人が育っても、デモクラシーの筋肉がなければ、その意思は組織に広がりません。入れ替えは個人の中で終わり、組織は左下に戻ります。</p>
 </section>
@@ -1241,17 +1397,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="lbl" style="color: #37bef0">日本の組織で、実際に測ってみると</p>
 <div class="stat" style="border: 1.5px solid #37bef0; padding: 20px 22px">
 <p class="num" style="color: #37bef0">10筋中9筋</p>
-<p class="mean">個人は​「自分は​できている」。​組織は​「うちでは​できていない」。</p>
+<p class="seg mean"><span>個人は​「自分は​できている」。</span><span>組織は​「うちでは​できていない」。</span></p>
 <p class="sub">10のデモクラ筋のうち9つで、個人の自己評価が組織への評価を上回りました。回答者74人中62人が、自分より組織を低く評価しています。足りないのは個人の能力より、組織の環境という読みです。</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 8px">
-<p class="big">唯一の​例外が、​「勇気」の​筋肉。</p>
+<p class="seg big"><span>唯一の​例外が、</span><span>「勇気」の​筋肉。</span></p>
 <div class="chips" style="padding-top: 8px"><span class="chip">好奇心</span><span class="chip">傾聴</span><span class="chip">共感</span><span class="chip hi" style="background: #37bef0; color: #14191E; border-color: #37bef0">勇気</span><span class="chip">意見</span><span class="chip">意見の違い</span><span class="chip">自信を持って伝える</span><span class="chip">良い妥協</span><span class="chip">行動</span><span class="chip">巻き込み</span></div>
 <p class="cap" style="padding-top: 8px">勇気だけは、個人の自己評価（3.31）が組織への評価（3.38）を下回ります。「不快に感じても、その場で正直に伝えている」は、個人側60問中で最も低い項目でした。環境が整っていても、人は自動的には発言しない、ということです。</p>
 </div>
 <div class="stat" style="border-top: 1px solid rgba(236,236,232,.3); padding-top: 18px">
 <p class="num" style="color: #37bef0">2.43<span style="font-size: 22px; opacity: .7"> / 5</span></p>
-<p class="mean">「声が​大きい​人や、​立場が​上の人の​意見に​落ち着く」</p>
+<p class="seg mean"><span>「声が​大きい​人や、</span><span>立場が​上の人の​意見に​落ち着く」</span></p>
 <p class="sub">全60問中、最も低い評価（逆転項目を変換済み）。次いで「会議では発言する人が固定されている」2.65、「誰かがやるだろうという傍観者意識」2.82。組織の最弱点は、個人の筋肉ではなく「決め方」です。</p>
 </div>
 <p class="cap">「変えるべきだと皆が言うのに、誰も一歩を踏まない」症状は、この二つから来ています。Willが言葉にされず、言葉にされても地位に消される。</p>
@@ -1259,7 +1415,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </section>
 
 <section class="panel">
-<p class="st">ただし、​勇気を​<span class="ac">直接鍛えようとしない</span>。</p>
+<p class="seg st"><span>ただし、</span><span>勇気を​<span class="ac">直接鍛えようとしない</span>。</span></p>
 <p class="body">「勇気の筋肉が弱い」と分かると、人は勇気を出す練習をしたくなります。「もっと発言しましょう」「反対意見を言いましょう」。しかし、地位の高い声が結論を決める場で、個人に勇気だけを求めても、結局「できない」で終わります。本人が消耗して、終わります。</p>
 <p class="body">勇気の側ではなく、勇気がなくても意思が場に出る側を設計します。</p>
 </section>
@@ -1269,7 +1425,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
 <div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="6" y="24" width="14" height="10" rx="2" fill="#cf0029"></rect><rect x="22" y="24" width="14" height="10" rx="2" fill="#0062b1"></rect><rect x="14" y="12" width="14" height="10" rx="2" fill="#ffde00"></rect><rect x="30" y="6" width="10" height="14" rx="2" fill="#FFFFFF" transform="rotate(12 35 13)"></rect></svg><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px">1　本人の意思を、直接語らなくていい形にする</b></div>
-<p style="font-size: 13px; line-height: 1.7; opacity: .92">LEGO® SERIOUS PLAY® では、自分の考えをブロックの作品にして語ります。TOPAASIA では、引いたカードの言葉を手がかりに話します。「私はこう思う」と言わなくても、作品やカードが代わりに語ってくれる。地位に関係なく、全員が同じ形で意思を場に出せます。</p>
+<p style="font-size: 13px; line-height: 1.7; opacity: .92">LEGO® SERIOUS PLAY® では、自分の考えをブロックの作品にして語ります。TOPAASIA では、引いたカードの言葉を手がかりに話します。「私はこう思う」と言わなくても、作品やカードが代わりに語ってくれる。地位に関係なく、全員が同じ形で意思を場に出せます。作品やカードに感情を託すのは、SELの「自分の感情に気づき、言葉にする」を、安全な距離で行う方法でもあります。</p>
 </div>
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
 <div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#ffde00" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 22h20"></path><rect x="4" y="14" width="6" height="16" rx="2" fill="#ffde00"></rect><rect x="34" y="14" width="6" height="16" rx="2" fill="#ffde00"></rect><rect x="10" y="17" width="4" height="10" rx="1" fill="#ffde00"></rect><rect x="30" y="17" width="4" height="10" rx="1" fill="#ffde00"></rect></svg><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px">2　「鍛えられる」と知り、短く反復する</b></div>
@@ -1277,32 +1433,32 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
 <div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#ffde00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24l10-8 6 6 6-6 10 8"></path><path d="M16 16v10M28 16v10"></path><circle cx="22" cy="34" r="4" fill="#ffde00"></circle></svg><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px">3　反対意見を上手に扱い、良い妥協を目指し、良いものを広げる</b></div>
-<p style="font-size: 13px; line-height: 1.7; opacity: .92">反対意見を「攻撃」ではなく「材料」として受け取る。全員が納得する案ではなく、誰も置き去りにしない「良い妥協」を目指す。うまくいったことは一人の手柄にせず、他のチームに広げる。そして互いの試みをフォローし合う。この四つが回ると、勇気は要らなくなります。</p>
+<p style="font-size: 13px; line-height: 1.7; opacity: .92">反対意見を「攻撃」ではなく「材料」として受け取る（これが、4章のリフレーミングです）。全員が納得する案ではなく、誰も置き去りにしない「良い妥協」を目指す。うまくいったことは一人の手柄にせず、他のチームに広げる。そして互いの試みをフォローし合う。この四つが回ると、勇気は要らなくなります。</p>
 </div>
 </div>
-<p class="big">勇気を​求めず、​勇気が​要らない​場を作る。</p>
+<p class="seg big"><span>勇気を​求めず、</span><span>勇気が​要らない​場を作る。</span></p>
 <p class="cap">これが、個人のWillを組織の意思にするための、具体的な方法です。</p>
 </section>
 <details class="ref note" style="border-color: #e5588a">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-topaasia.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-topaasia.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #e5588a">補足 ／ 手法の出どころ</span><span class="rn">TOPAASIA</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
 <div class="rbody">
 <p class="rm">フィンランド発の対話カード ／ きづきくみたて工房が日本公式パートナー</p>
-<p class="rb">フィンランドで生まれた、カードを引いて語る対話ツール。引いた言葉を手がかりに話すので、自分の意見を正面から言わなくても意思が場に出ます。振り返りや1on1、チームの対話の習慣化に使われています。</p>
+<p class="rb">フィンランドで生まれた、カードを引いて語る対話ツール。引いた言葉を手がかりに話すので、自分の意見を正面から言わなくても意思が場に出ます。振り返り（リフレクション）や1on1、チームの対話の習慣化に使われています。引いたカードの言葉が、自分の考え方を一段上から眺めるメタ認知の足場になります。</p>
 </div>
 </details>
 
 <section class="panel">
-<p class="st">安心だけでは、​足りない。</p>
+<p class="seg st"><span>安心だけでは、</span><span>足りない。</span></p>
 <p class="body">心理的安全性は、ぬるい職場を作るためのものではありません。高い目標と組み合わさってはじめて、学習が起きます。反対意見を述べる筋肉が弱いままだと、仲は良いが新しいことは起きない「居心地のよい停滞」にとどまります。そして「言ったら動いた」という経験の積み重ねが、組織効力感を作ります。</p>
 <p class="cap">参考：Edmondson, A. C. の心理的安全性と目標・基準の2軸の整理</p>
 </section>
 <details class="ref note" style="border-color: #6a7582">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-edmondson.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-edmondson.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #6a7582">補足 ／ 理論の出どころ</span><span class="rn">エイミー・C・エドモンドソン</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1324,18 +1480,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p><span>1</span>​社会は加速し、組織は直線的にしか変われない。開く差の中身は、ビジョン・戦略・実践の不足。</p>
 <p><span>2</span>​追いつくには、​認知（アンラーニング）と​仕組み（組織的負債）の​両方を​更新する​しかない。​土台は​効力感。</p>
 <p><span>3</span>それは​痛みを​伴い、​立場の​違う人たちの​合意が​要る。</p>
-<p><span>4</span>その合意は、​説明ではなく​対話から​しか生まれない。</p>
-<p><span>5</span>​適応とは、​仕事を「指示された定型」から「自分で作る非定型」へ​入れ替える​こと。</p>
-<p><span>6</span>​右上の仕事も対話も、Will（個人のエージェンシー）のある数人からしか始まらない。</p>
-<p><span>7</span>​Willと​認知の​更新は、​教わる​学びではなく、​作る学びで​育つ。</p>
-<p><span>8</span>​難しい​問題ほど、​遊び心で​解く。​ハードファンが、​反復と​創造性を​支える。</p>
-<p><span>9</span>​個人の​Willを​組織の​意思に​運ぶのが、​デモクラシーの​筋肉。​これが​ないと、​意思は​個人の​中で​止まる。</p>
+<p><span>4</span>痛みは、​理屈の前に、​感情として来る。​説明は​理性に届くが、​痛みには​届かない。​感情を​扱う技術（SEL）と、​リフレクション・​リフレーミングを​支える​メタ認知が要る。</p>
+<p><span>5</span>その合意は、​説明ではなく​対話から​しか生まれない。</p>
+<p><span>6</span>組織の​適応は、​仕事を「指示された定型」から「自分で作る非定型」へ​入れ替える​ことから​始まる。</p>
+<p><span>7</span>​右上の仕事も対話も、Will（個人のエージェンシー）のある数人からしか始まらない。</p>
+<p><span>8</span>​Willと​認知の​更新は、​教わる​学びではなく、​作って、​振り返る​学びで​育つ。</p>
+<p><span>9</span>​難しい​問題ほど、​遊び心で​解く。​ハードファンが、​反復と​創造性を​支える。</p>
+<p><span>10</span>​個人の​Willを​組織の​意思に​運ぶのが、​デモクラシーの​筋肉。​これが​ないと、​意思は​個人の​中で​止まる。</p>
 </div>
 </section>
 
 <section class="panel sun" style="gap: 24px">
 <p class="lbl">今ある​制度を、​捨てなくていい</p>
-<p class="st">全部​やり直しではなく、​今ある​箱に​差し込む。</p>
+<p class="seg st"><span>全部​やり直しではなく、</span><span>今ある​箱に​差し込む。</span></p>
 <p class="body">階層別研修、OJT、1on1、エンゲージメントサーベイ。多くの会社には、すでに学習の「箱」があります。ここまでの話は、それを捨てる話ではありません。箱の中身を、教わる学びから作る学びへ、少しずつ入れ替える話です。</p>
 <div class="cmph"><span>今ある箱</span><span>差し込むもの</span></div>
 <div class="cmp" style="gap: 8px 10px">
@@ -1343,9 +1500,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="cl" style="border-color: rgba(20,25,30,.45); opacity: 1; display: flex; align-items: center; font-weight: 700">1on1</div><div class="cr"><span>TOPAASIAの​カードで、​意思を​直接語らなくていい形にする</span><span class="ct">9章</span></div>
 <div class="cl" style="border-color: rgba(20,25,30,.45); opacity: 1; display: flex; align-items: center; font-weight: 700">エンゲージメントサーベイ</div><div class="cr"><span>結果を​「眺めて​話す会」に​して、​デモクラ筋の​練習台にする</span><span class="ct">9章</span></div>
 <div class="cl" style="border-color: rgba(20,25,30,.45); opacity: 1; display: flex; align-items: center; font-weight: 700">部門方針・中期計画づくり</div><div class="cr"><span>LEGO® SERIOUS PLAY®で、​全員の​ビジョンを​形に​してから​擦り合わせる</span><span class="ct">1章・7章</span></div>
-<div class="cl" style="border-color: rgba(20,25,30,.45); opacity: 1; display: flex; align-items: center; font-weight: 700">OJT</div><div class="cr"><span>「先輩の​答え」に、​作って​見せ合う​振り返りを​添える</span><span class="ct">7章</span></div>
+<div class="cl" style="border-color: rgba(20,25,30,.45); opacity: 1; display: flex; align-items: center; font-weight: 700">OJT</div><div class="cr"><span>「先輩の​答え」に、​作って​見せ合う​振り返り（リフレクション）を​添える</span><span class="ct">7章</span></div>
 </div>
-<p class="big">最初に​変えるのは、​制度ではなく、​中身の​学び方。</p>
+<p class="seg big"><span>最初に​変えるのは、</span><span>制度ではなく、</span><span>中身の​学び方。</span></p>
 <p class="cap">制度を新しく作ると、2章で見た「半年後に形だけ残る」が起きやすくなります。すでに動いている箱に差し込めば、仕組み側の負債を増やさずに始められます。</p>
 </section>
 
@@ -1359,12 +1516,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv3　行動</b><p style="font-size: 13px; line-height: 1.6">会議で反対意見が出た回数、発言した人の数、決定までの日数。現場で数えられるものを、2〜3個だけ決める。</p></div>
 <div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv4　成果</b><p style="font-size: 13px; line-height: 1.6">離職率、新しい取り組みの提案件数、顧客からの評価。時間がかかるので、半年〜1年の軸で見る。</p></div>
 </div>
-<p class="big">測る​道具は、​すでに​ある。</p>
+<p class="seg big"><span>測る​道具は、</span><span>すでに​ある。</span></p>
 <p class="cap">9章のデータは、この診断で測ったものです。Lv3の指標は組織ごとに違うので、最初の相談で一緒に決めます。参考：D. L. Kirkpatrick の4段階評価モデル（1959）</p>
 </section>
 <details class="ref note" style="border-color: #009944">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-kirkpatrick.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-kirkpatrick.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #009944">補足 ／ 理論の出どころ</span><span class="rn">ドナルド・L・カークパトリック</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1375,7 +1532,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </details>
 <details class="ref note" style="border-color: #0062b1; margin-top: -24px">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-humancapital.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-humancapital.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #0062b1">補足 ／ 経営の文脈</span><span class="rn">人的資本経営と、​開示できる指標</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1386,24 +1543,24 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </details>
 
 <section class="panel" style="gap: 24px">
-<p class="st sm">「どこから」の​答えは、​いちばん​困っていて、​いちばん​動きたい​数人の​ところに​ある。</p>
+<p class="seg st sm"><span>「どこから」の​答えは、</span><span>いちばん​困っていて、</span><span>いちばん​動きたい​数人の​ところに​ある。</span></p>
 <p class="body">研修メニューを選ぶ前に、その数人がどこにいるか、そして彼らの筋肉の現在地がどうなっているかを見る。そこで初めて「誰に、何を、どの順番で」が決まります。</p>
 </section>
 
 <section class="panel dark" style="gap: 24px">
 <p class="lbl" style="color: #37bef0">はじめの​一歩は、​断れない​くらい​小さく</p>
-<p class="st">全社を​動かす前に、​1チーム・3か月。</p>
+<p class="seg st"><span>全社を​動かす前に、</span><span>1チーム・3か月。</span></p>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">1</span><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; word-break: keep-all">現在地を見る</b><span class="cap" style="opacity: .7">1週間</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">気づき</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">デモクラ筋診断を、いちばん動きたい数人のチームで受ける。個人と組織の差を、まず眺める。</p></div>
 <div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">2</span><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; word-break: keep-all">眺めて​話す会を、​1回開く</b><span class="cap" style="opacity: .7">半日</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">くみたて</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">結果を材料に、カードやブロックで「うちでいちばん弱い決め方」を話す。誰も正面から意見を言わなくていい形で。</p></div>
 <div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">3</span><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; word-break: keep-all">1チームで、​3か​月だけ反復する</b><span class="cap" style="opacity: .7">月1回・90分</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">スパイラルアップ</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">短い筋トレと、会議での小さな試み（反対意見を一つ出す、など）を続ける。3か月後に再診断して、次を決める。</p></div>
 </div>
-<p class="big">うまく​いった​ところから、​広げる。</p>
+<p class="seg big"><span>うまく​いった​ところから、</span><span>広げる。</span></p>
 <p class="cap">この3ステップは、きづきくみたて工房の「グッドスパイラルワークショップ」の型を、最小単位にしたものです。6章で見たとおり、最初から全員は動きません。1チームの「言ったら動いた」が、組織効力感の最初の一歩になります。期間と頻度は目安で、組織に合わせて調整します。</p>
 </section>
 <details class="ref note" style="border-color: #ffde00">
 <summary>
-<img class="sm-ico" loading="lazy" src="images/gakushu/ref-goodspiral.webp" alt="" width="480" height="480">
+<img class="sm-ico" src="images/gakushu/ref-goodspiral.webp" alt="">
 <span class="sm-tx"><span class="rk" style="color: #7f4f21">補足 ／ 手法の出どころ</span><span class="rn">グッドスパイラルワークショップ</span></span>
 <i class="sm-ar" aria-hidden="true"></i>
 </summary>
@@ -1414,7 +1571,32 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </details>
 
 <!-- CLOSE -->
-<section class="panel rule" style="gap: 20px; padding-bottom: 40px; min-height: 0">
+<!-- おわりに -->
+<section class="panel rule" style="gap: 24px">
+<div class="chap"><svg class="ico" viewBox="0 0 72 72" fill="none" stroke="#009944" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M36 62V34"></path><path d="M36 44c-10 0-16-6-18-16 10 0 16 6 18 16z" fill="#009944"></path><path d="M36 36c2-10 8-16 18-16-2 10-8 16-18 16z"></path><path d="M20 62h32"></path><circle cx="36" cy="14" r="4" fill="#ffde00" stroke="#ffde00"></circle></svg><h2>おわりに</h2></div>
+<p class="seg st lg"><span>必要なのは、</span><span>大人の​探究学習。</span></p>
+<p class="body">ここまでの10章は、ぜんぶ、大人の探究学習の設計図でした。自分で問いを立て（6章）、自分の感情と前提に気づき（4章）、作って見せ合い（7章）、立場の違う人と擦り合わせ（4章・9章）、小さく試して作り直す（10章）。文部科学省が子どもたちに用意し始めた学び方を、会社で、大人がやる。それだけのことです。</p>
+</section>
+
+<section class="panel ink" style="gap: 24px">
+<div class="dots" aria-label="10個の点のうち、1個だけが塗られている">
+<span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+<p class="seg st"><span>それは、</span><span>あなたの​Willの​種から​始まります。</span></p>
+<p class="body">6章の100個の点を、もう一度思い出してください。最初から全員は動きません。でも、白い点が一つあれば、始まります。「うちの会社、このままでいいのかな」と一度でも思ったことがあるなら、それがもう、Willの種です。探究は、正解を知っている人から教わるものではなく、問いを持った人から始まるものです。</p>
+<p class="seg hero"><span>だから、</span><span>一緒に​やりましょう。</span></p>
+<p class="body">問いの立て方、作り方、見せ合い方、擦り合わせ方。ここに書いたぶんは、私が持っています。でも、あなたの会社の問いは、あなたにしか立てられません。その種がどこにあるかを一緒に探すところから、始めませんか。</p>
+<div class="cta">
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScjL9sOOP-OF7tLLfaFbEPs7CyunNOgnvg3KWBR_8UktAqrCw/viewform" target="_blank" rel="noopener" style="background: #FFFFFF; color: #009944">Willの種を、一緒に探す（30分・無料）</a>
+<p class="cap" style="opacity: .9">オンラインで30分。研修の売り込みではなく、「うちの場合はどこからか」を一緒に考える時間です。</p>
+</div>
+<div style="border-top: 1px solid rgba(255,255,255,.35); padding-top: 24px">
+<p class="cap" style="padding-bottom: 14px; opacity: .95; font-weight: 700">この記事が役に立ちそうな人に、届けてください。</p>
+<div class="share"><span class="sl">SHARE</span><a class="shb x" href="https://twitter.com/intent/tweet?text=%E4%BB%8A%E3%80%81%E3%81%93%E3%81%AE%E7%A4%BE%E4%BC%9A%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%AD%A6%E7%BF%92%E3%81%A8%E3%81%AF%EF%BC%9F%20%E2%94%80%E2%94%80%20%E8%B6%85%E5%9B%B3%E8%A7%A3%20%E3%81%AA%E3%81%9C%E3%80%81%E7%B5%84%E7%B9%94%E3%81%AF%E5%A4%89%E5%8C%96%E3%81%AB%E8%BF%BD%E3%81%84%E3%81%A4%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B%EF%BC%88%E3%81%8D%E3%81%A5%E3%81%8D%E3%81%8F%E3%81%BF%E3%81%9F%E3%81%A6%E5%B7%A5%E6%88%BF%EF%BC%89&amp;url=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>X で共有</a><a class="shb fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>Facebook で共有</a><a class="shb ln" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html&amp;text=%E4%BB%8A%E3%80%81%E3%81%93%E3%81%AE%E7%A4%BE%E4%BC%9A%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%AD%A6%E7%BF%92%E3%81%A8%E3%81%AF%EF%BC%9F%20%E2%94%80%E2%94%80%20%E8%B6%85%E5%9B%B3%E8%A7%A3%20%E3%81%AA%E3%81%9C%E3%80%81%E7%B5%84%E7%B9%94%E3%81%AF%E5%A4%89%E5%8C%96%E3%81%AB%E8%BF%BD%E3%81%84%E3%81%A4%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B%EF%BC%88%E3%81%8D%E3%81%A5%E3%81%8D%E3%81%8F%E3%81%BF%E3%81%9F%E3%81%A6%E5%B7%A5%E6%88%BF%EF%BC%89" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>LINE で送る</a><button class="shb cp" type="button" data-copy-link><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 10.5a3.2 3.2 0 0 0 4.5 0l2.2-2.2a3.2 3.2 0 0 0-4.5-4.5L8.6 4.9"></path><path d="M10.5 7.5a3.2 3.2 0 0 0-4.5 0L3.8 9.7a3.2 3.2 0 0 0 4.5 4.5l1.1-1.1"></path></svg>リンクをコピー</button></div>
+</div>
+</section>
+
+<footer class="panel rule" style="gap: 20px; padding-bottom: 40px">
 <p class="cap" style="letter-spacing: .14em; font-weight: 700; color: #009944; opacity: 1">きづきくみたて工房について</p>
 <p class="body">この構造を、現在地を見るところから一緒に始める伴走をしています。マネジャー向けの「変化に適応するマインドセット研修」（仕事の置き場所の入れ替え）、多様なステークホルダーとの合意形成、デモクラシーフィットネス（デモクラ筋トレーニング）、LEGO® SERIOUS PLAY®やTOPAASIAを使った「作って学ぶ」ワークショップを、必要な順に組み合わせます。</p>
 <div class="pchips">
@@ -1425,8 +1607,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <span class="pchip" style="background: #009944; color: #FFFFFF">ステークホルダー合意形成</span>
 </div>
 <div class="cta">
-<a class="btn" href="mailto:y.morimoto@kizukikumitate.com?subject=%E8%B6%85%E5%9B%B3%E8%A7%A3%E3%82%92%E8%AA%AD%E3%81%BF%E3%81%BE%E3%81%97%E3%81%9F%EF%BC%88%E7%84%A1%E6%96%99%E8%A8%BA%E6%96%AD%E3%83%BB%E7%9B%B8%E8%AB%87%EF%BC%89">まず、現在地を見る（無料診断・相談）</a>
-<p class="cap">「うちの場合はどこからか」を一緒に考える30分の相談も受けています。</p>
+<a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScjL9sOOP-OF7tLLfaFbEPs7CyunNOgnvg3KWBR_8UktAqrCw/viewform" target="_blank" rel="noopener">Willの種を、一緒に探す（30分・無料）</a>
+<p class="cap">まず現在地を数字で見たい方には、デモクラ筋診断（無料）からご案内します。</p>
 </div>
 <aside class="ref manga" style="border-color: #7f4f21; margin: 12px 0 8px">
 <div class="mimg" role="img" aria-label="漫画『好循環の探究者たち』の冒頭ページ。眼鏡の少年と、教室に現れた臨時講師" style="background: url(images/gakushu/manga-p1.webp) center top / cover no-repeat"></div>
@@ -1451,15 +1633,15 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <span style="display:inline-flex;align-items:center;gap:6px;font-size:12px"><i style="width:14px;height:14px;border-radius:50%;background:#6a7582;display:inline-block"></i>断る力</span>
 </div>
 <div class="prof" style="display: grid; grid-template-columns: 168px minmax(0,1fr); gap: 20px; align-items: center; padding-top: 8px">
-<img loading="lazy" src="images/gakushu/morimoto.webp" alt="森本康仁。白いキャップと眼鏡、DEMOCRACY FITNESSのTシャツで笑っている" style="width: 168px; height: 210px; object-fit: cover; border-radius: 12px; display: block" width="720" height="900">
+<img src="images/gakushu/morimoto.webp" alt="森本康仁。白いキャップと眼鏡、DEMOCRACY FITNESSのTシャツで笑っている" style="width: 168px; height: 210px; object-fit: cover; border-radius: 12px; display: block">
 <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
 <p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px">きづきくみたて工房　森本康仁</p>
 <p class="cap">対話のトレーナー。目指しているのは、世界平和です。<br>長野県軽井沢町 ／ LEGO® SERIOUS PLAY® 認定ファシリテーター ／ デモクラシーフィットネス認定トレーナー（We Do Democracy, Denmark）／ TOPAASIA 日本公式パートナー</p>
-<a href="mailto:y.morimoto@kizukikumitate.com" style="font-weight: 700; text-decoration: none; font-size: 13px; overflow-wrap: anywhere">y.morimoto@kizukikumitate.com</a>
+<a href="https://kizukikumitate.com" style="font-weight: 700; text-decoration: none; font-size: 14px">kizukikumitate.com</a>
 </div>
 </div>
 </div>
-</section>
+</footer>
 
 </article>
 </div>
@@ -1628,5 +1810,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </script>
 <!-- SHELF END -->
 
+<script>
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('[data-copy-link]');
+  if (!b) return;
+  var url = 'https://kizukikumitate.com/ima-hitsuyona-gakushu.html';
+  var done = function () {
+    var n = b.lastChild;
+    if (n && n.nodeType === 3) { n.nodeValue = 'コピーしました'; setTimeout(function () { n.nodeValue = 'リンクをコピー'; }, 2000); }
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done, function () {});
+  }
+});
+</script>
 </body>
 </html>
