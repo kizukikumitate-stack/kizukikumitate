@@ -104,6 +104,13 @@ assets:
     tags: [民主主義, 対話 トレーニング, 会議, ワークショップ]
     service_bridge: DF体験会・企業研修
 
+  - id: democracy-fitness-voices
+    name: デモクラシーフィットネス 参加者の声
+    type: program
+    url: /democracy-fitness-voices.html
+    tags: [デモクラシーフィットネス 感想, デモクラシーフィットネス 評判, 対話 研修 感想, 参加者の声]
+    service_bridge: DF体験会・企業研修
+
   - id: mirai-risk-calc
     name: 未来のリスク計算機シリーズ
     type: tool
