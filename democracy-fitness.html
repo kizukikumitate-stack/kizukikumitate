@@ -834,6 +834,68 @@
     margin-top: 2.5rem;
     text-align: center;
   }
+  .insights-podcast {
+    display: flex;
+    gap: 1.6rem;
+    align-items: center;
+    margin-top: 2.5rem;
+    padding: 1.4rem 1.6rem;
+    background: #fff;
+    border-radius: 8px;
+    border-left: 5px solid var(--pink);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .insights-podcast:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .insights-podcast-img {
+    width: 300px;
+    max-width: 38%;
+    height: auto;
+    border-radius: 4px;
+    flex-shrink: 0;
+    display: block;
+  }
+  .insights-podcast-body { min-width: 0; flex: 1; }
+  @media (max-width: 700px) {
+    .insights-podcast { flex-direction: column; align-items: stretch; gap: 1rem; }
+    .insights-podcast-img { width: 100%; max-width: 100%; }
+  }
+  .insights-podcast-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pink);
+  }
+  .insights-podcast-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin: 0.4rem 0;
+    overflow-wrap: break-word;
+  }
+  .insights-podcast-desc {
+    font-size: 0.9rem;
+    line-height: 1.9;
+    color: var(--mid-gray);
+    overflow-wrap: break-word;
+  }
+  .insights-podcast-listen {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--pink);
+    margin-top: 0.6rem;
+  }
   .insights-footer-cta a {
     display: inline-block;
     padding: 0.85rem 2rem;
@@ -2190,6 +2252,16 @@
         </div>
       </a>
     </div>
+
+    <a class="insights-podcast" href="https://podcasts.apple.com/jp/podcast/51-%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E3%82%92-%E7%AD%8B%E3%83%88%E3%83%AC-%E3%81%99%E3%82%8B-%E3%83%87%E3%83%A2%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%E3%83%8D%E3%82%B9%E3%81%A8-%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%99%E8%82%B2%E7%8F%BE%E5%A0%B4%E3%81%AE%E5%8F%AF%E8%83%BD%E6%80%A7-%E3%82%B2%E3%82%B9%E3%83%88-%E6%A3%AE%E6%9C%AC%E5%BA%B7%E4%BB%81%E3%81%95%E3%82%93-%E5%BE%8C%E7%B7%A8/id1847165636?i=1000802049546" target="_blank" rel="noopener">
+      <img class="insights-podcast-img" src="./podcast-kokishin-51.jpg" alt="好奇心のたまり場 #51 カバーイラスト：教室で握手する高校生と大人、吹き出しのダンベル" width="1200" height="678" loading="lazy">
+      <div class="insights-podcast-body">
+        <div class="insights-podcast-label">Podcast ｜ 好奇心のたまり場 #51（2026.11.15・48分）</div>
+        <div class="insights-podcast-title">民主主義を「筋トレ」する？ デモクラシーフィットネスと、日本の教育現場の可能性</div>
+        <div class="insights-podcast-desc">福岡の現役高校教員で、同じく公認トレーナーのかわむーさんと対談しました。デモクラシーフィットネスの基本と10の「デモクラ筋」、日本の学校で政治的教養が育ちにくい背景、高校「公共」の授業で1年間取り組む構想について話しています。</div>
+        <div class="insights-podcast-listen">ポッドキャストで聴く →</div>
+      </div>
+    </a>
 
     <div class="insights-footer-cta">
       <a href="https://note.com/kizukikumitate/m/mb92fbf5e08b1" target="_blank" rel="noopener">noteマガジンで全記事を読む →</a>

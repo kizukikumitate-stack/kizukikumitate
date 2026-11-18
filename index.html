@@ -1260,6 +1260,29 @@
     gap: 1.8rem;
   }
 
+  .podcast-show {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--charcoal);
+    margin: 2.2rem 0 0.4rem;
+    padding-left: 0.8rem;
+    border-left: 4px solid var(--blue);
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+  .podcast-show span {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--mid-gray);
+    margin-left: 0.7rem;
+    white-space: nowrap;
+  }
+  .podcast-grid + .podcast-show { margin-top: 4.5rem; }
+  .podcast-show + .podcast-intro { margin-bottom: 2rem; }
+
   .podcast-card {
     background: white;
     border-radius: 8px;
@@ -2576,6 +2599,34 @@
 <section id="podcast">
   <div class="section-label">Podcast</div>
   <h2>ポッドキャスト出演</h2>
+
+  <h3 class="podcast-show">好奇心のたまり場<span>2026年11月・全2回</span></h3>
+  <p class="podcast-intro">福岡の現役高校教員・かわむーさんのポッドキャスト「好奇心のたまり場」に、前後編でゲスト出演。<br>教員からのキャリアと、デモクラシーフィットネスについて語っています。</p>
+  <div class="podcast-grid">
+
+    <a class="podcast-card fade-up" href="https://podcasts.apple.com/jp/podcast/50-%E5%85%88%E7%94%9F%E3%82%92%E8%BE%9E%E3%82%81%E3%81%9F%E3%82%89%E3%81%A9%E3%81%86%E3%81%AA%E3%82%8B%E3%81%AE-%E6%95%99%E5%93%A1%E3%81%AE%E3%82%AD%E3%83%A3%E3%83%AA%E3%82%A2%E3%81%A8%E4%B8%96%E9%96%93%E7%9F%A5%E3%82%89%E3%81%9A%E3%81%AE%E3%83%AA%E3%82%A2%E3%83%AB-%E3%82%B2%E3%82%B9%E3%83%88-%E6%A3%AE%E6%9C%AC%E5%BA%B7%E4%BB%81%E3%81%95%E3%82%93-%E5%89%8D%E7%B7%A8/id1847165636?i=1000800520987" target="_blank" rel="noopener">
+      <img class="podcast-img" src="./podcast-kokishin-50.jpg" alt="#50 カバーイラスト：教室からセブ島、ワークショップ、高原へと続く道" width="1200" height="674" loading="lazy">
+      <div class="podcast-card-body">
+        <div class="podcast-ep">#50 &nbsp;前編</div>
+      <div class="podcast-title">先生を辞めたらどうなるの？ 教員のキャリアと世間知らずのリアル</div>
+      <div class="podcast-desc">小学校教員を9年、セブ島での教育事業、民間企業を経て独立するまでの道のり。「教員は世間知らずなのか」という問いにも、元教員の立場から向き合う。</div>
+      <div class="podcast-listen">聴いてみる</div>
+      </div>
+    </a>
+
+    <a class="podcast-card fade-up" href="https://podcasts.apple.com/jp/podcast/51-%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E3%82%92-%E7%AD%8B%E3%83%88%E3%83%AC-%E3%81%99%E3%82%8B-%E3%83%87%E3%83%A2%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%BC%E3%83%95%E3%82%A3%E3%83%83%E3%83%88%E3%83%8D%E3%82%B9%E3%81%A8-%E6%97%A5%E6%9C%AC%E3%81%AE%E6%95%99%E8%82%B2%E7%8F%BE%E5%A0%B4%E3%81%AE%E5%8F%AF%E8%83%BD%E6%80%A7-%E3%82%B2%E3%82%B9%E3%83%88-%E6%A3%AE%E6%9C%AC%E5%BA%B7%E4%BB%81%E3%81%95%E3%82%93-%E5%BE%8C%E7%B7%A8/id1847165636?i=1000802049546" target="_blank" rel="noopener">
+      <img class="podcast-img" src="./podcast-kokishin-51.jpg" alt="#51 カバーイラスト：教室で握手する高校生と大人、吹き出しのダンベル" width="1200" height="678" loading="lazy">
+      <div class="podcast-card-body">
+        <div class="podcast-ep">#51 &nbsp;後編</div>
+      <div class="podcast-title">民主主義を「筋トレ」する？ デモクラシーフィットネスと、日本の教育現場の可能性</div>
+      <div class="podcast-desc">公認トレーナー同士で語る、デモクラシーフィットネスの基本と10の「デモクラ筋」。高校「公共」の授業で1年間取り組む構想も。</div>
+      <div class="podcast-listen">聴いてみる</div>
+      </div>
+    </a>
+
+  </div>
+
+  <h3 class="podcast-show">SONOSTA<span>全4回</span></h3>
   <p class="podcast-intro">
     ポッドキャスト「SONOSTA」に全4回にわたってゲスト出演。<br>
     キャリア・学び・人生設計について、約4時間にわたって語っています。
