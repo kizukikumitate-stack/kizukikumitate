@@ -141,6 +141,11 @@ table.nums small{display:block;font-size:12px;color:var(--ink-soft)}
 .toc a{display:inline-block;font-size:13px;text-decoration:none;color:var(--indigo);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
 .toc a:hover{border-color:var(--teal);color:var(--teal)}
 blockquote.item small b{font-weight:500;color:var(--dawn)}
+.scenes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:22px 0 8px}
+@media(max-width:600px){.scenes{grid-template-columns:minmax(0,1fr)}}
+.scenes figure{margin:0}
+.scenes img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.scenes figcaption{font-size:12.5px;color:var(--ink-soft);margin-top:6px;line-height:1.6}
 .point{font-family:'Shippori Mincho',serif;font-weight:800;font-size:17px;color:var(--indigo);margin:26px 0 4px}
 
 /* ---------- global nav（台帳生成・data/nav.json が正） ---------- */
@@ -571,6 +576,7 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     <p>満足度は53名のうち38名が満点の5点、12名が4点、3名が3点でした。2点以下をつけた方はいません。</p>
     <div class="counter"><b>正直な併記：</b>ここに集まっているのは、参加者全体のうち一部の方の声です。アンケートは任意で、答えてくださった方の割合（回収率）は回によってばらつきがあります。答えなかった方の感じ方は、この数字には入っていません。また、参加するのは対話に関心の高い方が中心です。回答数が少ない回もあるため、回ごとの数字は参考値としてご覧ください。</div>
     <ul class="toc">
+    <li><a href="#scenes">実施の様子</a></li>
     <li><a href="#v1">「民主主義」の印象が変わった</a></li>
     <li><a href="#v2">意見の違いが、楽しみになった</a></li>
     <li><a href="#v3">自分の対話のクセに気づいた</a></li>
@@ -580,6 +586,27 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     <li><a href="#v7">学校・教育の現場にこそ</a></li>
     <li><a href="#honest">耳の痛い声</a></li>
     </ul>
+  </section>
+
+  <section id="scenes">
+    <div class="f-label">SCENES</div>
+    <h2>実施の様子</h2>
+    <p>座って話し合うだけではありません。立って、動いて、位置で考えを示します。写真が残っている回から、当日の様子を紹介します。</p>
+    <div class="scenes">
+      <figure><img src="assets/img/voices/fukuoka-taikenkai-1.jpg" alt="一本のロープをはさんで立ち、テーマへの賛否を位置で示す参加者たち" width="1154" height="866" loading="lazy"><figcaption>福岡 体験会（4月）</figcaption></figure>
+      <figure><img src="assets/img/voices/fukuoka-taikenkai-2.jpg" alt="輪になって立ち、進行役の説明を聞く参加者たち" width="1154" height="866" loading="lazy"><figcaption>福岡 体験会（4月）</figcaption></figure>
+      <figure><img src="assets/img/voices/tokyo-1.jpg" alt="椅子を円形に並べて座り、振り返りの対話をする参加者たち" width="1154" height="866" loading="lazy"><figcaption>東京 体験会（6月）</figcaption></figure>
+      <figure><img src="assets/img/voices/nagoya-1.jpg" alt="立ったまま少人数で意見を交わす参加者たち" width="1154" height="866" loading="lazy"><figcaption>名古屋 体験会（6月）</figcaption></figure>
+      <figure><img src="assets/img/voices/nagoya-2.jpg" alt="床のロープをはさんで向き合い、意見を伝え合う参加者たち" width="1154" height="866" loading="lazy"><figcaption>名古屋 体験会（6月）</figcaption></figure>
+      <figure><img src="assets/img/voices/daigaku-1.jpg" alt="立って位置を移動しながら意見を表明する学生たち" width="1154" height="866" loading="lazy"><figcaption>大学での体験会（7月）</figcaption></figure>
+      <figure><img src="assets/img/voices/daigaku-2.jpg" alt="大きな輪になって座り、全体で振り返る学生たち" width="1154" height="866" loading="lazy"><figcaption>大学での体験会（7月）</figcaption></figure>
+      <figure><img src="assets/img/voices/karuizawa-1.jpg" alt="木のテーブルを囲み、進行役の話を聞く合宿の参加者たち" width="1154" height="866" loading="lazy"><figcaption>軽井沢 合宿（8月）</figcaption></figure>
+      <figure><img src="assets/img/voices/karuizawa-2.jpg" alt="合宿の夜の焚き火" width="1154" height="866" loading="lazy"><figcaption>軽井沢 合宿（8月）</figcaption></figure>
+      <figure><img src="assets/img/voices/fukuoka-gasshuku-1.jpg" alt="広い部屋の床に座り、二人組で対話する参加者たち" width="1154" height="866" loading="lazy"><figcaption>福岡 合宿（9月）</figcaption></figure>
+      <figure><img src="assets/img/voices/fukuoka-gasshuku-2.jpg" alt="ロープの両側に立ち、向かい合って意見を交わす参加者たち" width="1154" height="866" loading="lazy"><figcaption>福岡 合宿（9月）</figcaption></figure>
+      <figure><img src="assets/img/voices/nagasaki-1.jpg" alt="ガラス張りの会場の床に座り、少人数で対話する参加者たち" width="1154" height="866" loading="lazy"><figcaption>長崎（11月）</figcaption></figure>
+      <figure><img src="assets/img/voices/nagasaki-2.jpg" alt="一列に並び、テーマへの考えを立ち位置で示す参加者たち" width="1154" height="866" loading="lazy"><figcaption>長崎（11月）</figcaption></figure>
+    </div>
   </section>
 
   <section id="v1">
