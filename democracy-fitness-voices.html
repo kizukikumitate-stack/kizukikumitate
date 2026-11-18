@@ -205,6 +205,18 @@ main p{max-width:820px}
   main p,.hero .lead,.counter,.limits{max-width:none}
 }
 
+main section.topic{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px 20px 8px;margin-top:44px;box-shadow:0 3px 14px rgba(34,56,79,.05)}
+.topic-head{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;align-items:center;margin-bottom:8px}
+.topic-head img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border:0;border-radius:12px}
+.topic-txt p{margin-bottom:0}
+.topic .quotes blockquote.item{background:var(--washi);box-shadow:none}
+.topic .quotes blockquote.item::after{background:var(--washi)}
+.topic .counter{margin-bottom:26px}
+@media(min-width:900px){
+  main section.topic{padding:40px 44px 14px}
+  .topic-head{grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:40px;margin-bottom:14px}
+}
+
 /* ---------- global nav（台帳生成・data/nav.json が正） ---------- */
 :root{--navh:62px}
 body{padding-top:var(--navh)}
@@ -681,10 +693,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v1">
-    <div class="f-label">VOICE 01</div>
-    <h2>「民主主義」の印象が変わった</h2>
-    <p>民主主義は遠い制度の話ではなく、練習できる技術です。ここが伝わったという声が、いちばん多く届いています。</p>
+  <section id="v1" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v1.jpg?v=1" alt="遠くに小さく議事堂、手前で2人が小さなダンベルを持ち、金色の線でつながっているイラスト" width="960" height="619" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 01</div>
+        <h2>「民主主義」の印象が変わった</h2>
+        <p>民主主義は遠い制度の話ではなく、練習できる技術です。ここが伝わったという声が、いちばん多く届いています。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">民主主義は、今まで思想のイメージが強かったが、このワークを通じてメソッドのイメージに完全に移り変わった。<small><b>福岡 合宿（9月）</b></small></blockquote>
     <blockquote class="item">漠然と国レベルの話という印象でしたが、家庭でも職場でも民主主義を極めれば、身近な人たちがhappyで穏やかに過ごせるなと感じました。<small><b>福岡 合宿（9月）</b></small></blockquote>
@@ -693,10 +710,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v2">
-    <div class="f-label">VOICE 02</div>
-    <h2>意見の違いが、楽しみになった</h2>
-    <p>反対意見を「否定」ではなく「贈りもの」として受け取る。体験のあと、違う意見との向き合い方が変わったという声です。</p>
+  <section id="v2" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v2.jpg?v=1" alt="向かい合う2人のうち1人が、違う形ののぞく贈りものの箱を差し出しているイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 02</div>
+        <h2>意見の違いが、楽しみになった</h2>
+        <p>反対意見を「否定」ではなく「贈りもの」として受け取る。体験のあと、違う意見との向き合い方が変わったという声です。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">異なる意見に出逢うことに感謝を抱くことの大切さを気づけました<small><b>長崎（11月）</b></small></blockquote>
     <blockquote class="item">反対意見は否定ではなく思考を広げる材料であることを実感した。意見の違いを通して、自分の考えそのものが更新されていく感覚があった。<small><b>福岡 体験会（4月）</b></small></blockquote>
@@ -707,10 +729,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v3">
-    <div class="f-label">VOICE 03</div>
-    <h2>自分の対話のクセに気づいた</h2>
-    <p>対話を10の筋肉に分けてみると、得意なところと使っていないところが見えてきます。</p>
+  <section id="v3" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v3.jpg?v=1" alt="姿見の前に立つ人物と、鏡の中で頭のまわりに並ぶ10個の小さな円のイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 03</div>
+        <h2>自分の対話のクセに気づいた</h2>
+        <p>対話を10の筋肉に分けてみると、得意なところと使っていないところが見えてきます。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">私はコミュニケーション力が高いと思っていましたが、ひとつひとつ噛み砕いて見てみると決してそうではないんだなと気付くことができました。<small><b>福岡 合宿（9月）</b></small></blockquote>
     <blockquote class="item">自分の意見を主張することに熱中しすぎて、相手の意見をあまり聞けていなかった。<small><b>都留文科大学 国際教育学科（7月）</b></small></blockquote>
@@ -721,10 +748,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v4">
-    <div class="f-label">VOICE 04</div>
-    <h2>体を動かす、「筋トレ」という形式</h2>
-    <p>座って話し合うのではなく、立って、動いて、立場を表明します。「フィットネス」という形式そのものへの声です。</p>
+  <section id="v4" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v4.jpg?v=1" alt="床の1本の線の両側に人が立ち、1人が線をまたいで歩いているイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 04</div>
+        <h2>体を動かす、「筋トレ」という形式</h2>
+        <p>座って話し合うのではなく、立って、動いて、立場を表明します。「フィットネス」という形式そのものへの声です。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">デモクラシーフィットネスは、本当にフィットネスで、頭も心も汗をかきました。何より、楽しかったです<small><b>長崎（11月・主催者アンケート）</b></small></blockquote>
     <blockquote class="item">筋トレと同じように、どこの部位を使っているのかを意識しながらの対話トレーニングはとても効果があると感じました。<small><b>名古屋 体験会（6月）</b></small></blockquote>
@@ -735,10 +767,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v5">
-    <div class="f-label">VOICE 05</div>
-    <h2>安心して話せる場だった</h2>
-    <p>意見が分かれるテーマを扱うからこそ、場の安心感が土台になります。</p>
+  <section id="v5" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v5.jpg?v=1" alt="やわらかな弧に包まれて、小さな灯りを囲んで輪になって座る5人のイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 05</div>
+        <h2>安心して話せる場だった</h2>
+        <p>意見が分かれるテーマを扱うからこそ、場の安心感が土台になります。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">安全で安心な場で、初めての方たちと心を開いて対話できました<small><b>名古屋 体験会（6月）</b></small></blockquote>
     <blockquote class="item">場が心理的安全な雰囲気で思ったことを発言される方々を見て、参加してよかったと感じました。<small><b>長崎（11月・主催者アンケート）</b></small></blockquote>
@@ -748,10 +785,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v6">
-    <div class="f-label">VOICE 06</div>
-    <h2>職場・組織で活かしたい</h2>
-    <p>人事・経営・チームづくりに関わる方からの声です。</p>
+  <section id="v6" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v6.jpg?v=1" alt="丸いテーブルを囲む4人が金色の輪でつながっている、上から見たイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 06</div>
+        <h2>職場・組織で活かしたい</h2>
+        <p>人事・経営・チームづくりに関わる方からの声です。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">この思考システムを持っておくのとおかないとでは、他者との向き合い方、組織との関わり方が変わってくると思います<small><b>長崎（11月）</b></small></blockquote>
     <blockquote class="item">職場で自分の意見を思った通りに言える環境を仲間で作りたいと思い、それには全員がデモクラシーフィットネスの考えを知っていると全員の取り組む姿勢が変わると期待しています。<small><b>長崎（11月）</b></small></blockquote>
@@ -762,10 +804,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="v7">
-    <div class="f-label">VOICE 07</div>
-    <h2>学校・教育の現場にこそ</h2>
-    <p>先生、保護者、学生。教育に関わる立場からの声も多く届いています。</p>
+  <section id="v7" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-v7.jpg?v=1" alt="何も書かれていない黒板の前で、机を端に寄せて輪になって立つ5人のイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">VOICE 07</div>
+        <h2>学校・教育の現場にこそ</h2>
+        <p>先生、保護者、学生。教育に関わる立場からの声も多く届いています。</p>
+      </div>
+    </div>
     <div class="quotes">
     <blockquote class="item">学校にこそ 先生にこそ 必要な筋力です！<small><b>名古屋 体験会（6月）</b></small></blockquote>
     <blockquote class="item">教育現場に必要だと思ったから。なんとなく対話して、いい気分になってとかじゃなくて、やっぱり異なる人との話し合いをできるような環境になっていたので、大人にも子どもにも広がっていきたいなと思ったから。<small><b>名古屋 体験会（6月）</b></small></blockquote>
@@ -776,10 +823,15 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
     </div>
   </section>
 
-  <section id="honest">
-    <div class="f-label">HONEST VOICES</div>
-    <h2>耳の痛い声も、そのまま載せます</h2>
-    <p>ここからは、改善を求める声です。大きく4つの論点に分かれました。言葉は変えずに載せています。</p>
+  <section id="honest" class="topic">
+    <div class="topic-head">
+      <img src="assets/img/voices/illust-honest.jpg?v=1" alt="飛んでくる角ばった形を、もう1人が両手で受け止めて丸い金色の形に変えているイラスト" width="876" height="564" loading="lazy">
+      <div class="topic-txt">
+        <div class="f-label">HONEST VOICES</div>
+        <h2>耳の痛い声も、そのまま載せます</h2>
+        <p>ここからは、改善を求める声です。大きく4つの論点に分かれました。言葉は変えずに載せています。</p>
+      </div>
+    </div>
     <p class="point">「気づき」の先、鍛え方まで届いてほしい</p>
     <div class="quotes">
     <blockquote class="item">鍛えるというより、気づきを与えるプログラム<small><b>福岡 合宿（9月）</b></small></blockquote>
