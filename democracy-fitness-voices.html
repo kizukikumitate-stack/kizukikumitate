@@ -217,6 +217,24 @@ main section.topic{background:var(--card);border:1px solid var(--line);border-ra
   .topic-head{grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:40px;margin-bottom:14px}
 }
 
+.tocbox{background:var(--card);border:2px solid var(--gold);border-radius:18px;padding:26px 20px 18px;margin-top:44px;box-shadow:0 4px 18px rgba(34,56,79,.07)}
+main p.toc-h{font-family:'Shippori Mincho',serif;font-weight:800;font-size:clamp(22px,5.4vw,34px);line-height:1.5;color:var(--indigo);margin:6px 0 8px;max-width:none}
+.toc-h em{font-style:normal;color:var(--dawn);font-size:1.5em;line-height:1;padding:0 .08em}
+main p.toc-lead{margin-bottom:18px}
+.tocgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:0}
+.tocgrid a{padding:0 0 12px;overflow:hidden;background:var(--washi)}
+.tocgrid a img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border:0;border-radius:0;margin-bottom:10px}
+.tocgrid .k,.tocgrid .t{padding:0 12px}
+.tocgrid a.alt{border-style:dashed}
+main p.toc-sub{margin:18px 0 0;font-size:14px;color:var(--ink-soft);max-width:none}
+.toc-sub a{display:inline-block;margin:4px 6px 4px 0;font-size:14px;text-decoration:none;color:var(--indigo);background:var(--washi);border:1px solid var(--line);border-radius:999px;padding:4px 14px}
+@media(min-width:900px){
+  .tocbox{padding:40px 44px 26px}
+  .tocgrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+  .tocgrid .k,.tocgrid .t{padding:0 16px}
+  main p.toc-sub,.toc-sub a{font-size:15.5px}
+}
+
 /* ---------- global nav（台帳生成・data/nav.json が正） ---------- */
 :root{--navh:62px}
 body{padding-top:var(--navh)}
@@ -627,19 +645,19 @@ footer{border-top:0;padding:3rem 2rem;text-align:center}
 
   <div class="tocbox" aria-label="このページの内容">
     <div class="f-label">CONTENTS</div>
+    <p class="toc-h">参加者の声は、<em>7つ</em>に整理できることがわかりました</p>
+    <p class="toc-lead">53名の回答を読み込むと、声は7つのテーマに集まりました。気になるところから読めます。</p>
     <div class="tocgrid">
-      <a href="#numbers"><span class="k">NUMBERS</span><span class="t">まず、数字から</span></a>
-      <a href="#scenes"><span class="k">SCENES</span><span class="t">実施の様子</span></a>
-      <a href="#v1"><span class="k">VOICE 01</span><span class="t">「民主主義」の印象が変わった</span></a>
-      <a href="#v2"><span class="k">VOICE 02</span><span class="t">意見の違いが、楽しみになった</span></a>
-      <a href="#v3"><span class="k">VOICE 03</span><span class="t">自分の対話のクセに気づいた</span></a>
-      <a href="#v4"><span class="k">VOICE 04</span><span class="t">体を動かす、「筋トレ」という形式</span></a>
-      <a href="#v5"><span class="k">VOICE 05</span><span class="t">安心して話せる場だった</span></a>
-      <a href="#v6"><span class="k">VOICE 06</span><span class="t">職場・組織で活かしたい</span></a>
-      <a href="#v7"><span class="k">VOICE 07</span><span class="t">学校・教育の現場にこそ</span></a>
-      <a href="#honest"><span class="k">HONEST VOICES</span><span class="t">耳の痛い声も、そのまま載せます</span></a>
-      <a href="#methods"><span class="k">METHODS</span><span class="t">このページの作り方と、限界</span></a>
+      <a href="#v1"><img src="assets/img/voices/illust-v1.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 01</span><span class="t">「民主主義」の印象が変わった</span></a>
+      <a href="#v2"><img src="assets/img/voices/illust-v2.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 02</span><span class="t">意見の違いが、楽しみになった</span></a>
+      <a href="#v3"><img src="assets/img/voices/illust-v3.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 03</span><span class="t">自分の対話のクセに気づいた</span></a>
+      <a href="#v4"><img src="assets/img/voices/illust-v4.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 04</span><span class="t">体を動かす、「筋トレ」という形式</span></a>
+      <a href="#v5"><img src="assets/img/voices/illust-v5.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 05</span><span class="t">安心して話せる場だった</span></a>
+      <a href="#v6"><img src="assets/img/voices/illust-v6.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 06</span><span class="t">職場・組織で活かしたい</span></a>
+      <a href="#v7"><img src="assets/img/voices/illust-v7.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">VOICE 07</span><span class="t">学校・教育の現場にこそ</span></a>
+      <a href="#honest" class="alt"><img src="assets/img/voices/illust-honest.jpg?v=1" alt="" width="876" height="564" loading="lazy"><span class="k">HONEST VOICES</span><span class="t">そして、耳の痛い声</span></a>
     </div>
+    <p class="toc-sub">あわせて：<a href="#numbers">まず、数字から</a><a href="#scenes">実施の様子</a><a href="#methods">このページの作り方と、限界</a></p>
   </div>
 
   <section id="numbers">
