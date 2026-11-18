@@ -295,17 +295,34 @@ a.mobile-cat-link:hover,a.mobile-cat-link.active{color:var(--teal)}
 .pagenote p{margin-bottom:6px}
 .pagenote a{color:var(--teal)}
 
-/* ===== 日本語の禁則処理・自然な文節改行（モバイル） =====
-   - word-break: auto-phrase … CJK文節境界で改行（未対応ブラウザは normal にフォールバック）
+/* ===== 日本語の折り返し（モバイル） =====
+   読ませる文章は「右端まで詰めて両端揃え」にする（日本語組版の標準）。
+   - 以前は word-break: auto-phrase（文節改行）＋ text-wrap: pretty を全体に当てていたが、
+     文節や行の均しのために行が早めに折り返され、吹き出しや本文の右端が毎行ガタついていた
+   - 本文: word-break: normal ＋ text-align: justify … 行を右端まで使い切る（最終行は左寄せ）
    - line-break: strict … 、。」）等を行頭に置かない（禁則処理）
-   - text-wrap: pretty … 段落末の1文字孤立を防ぐ
-   見出しにも pretty を使う（balance は日本語だと行頭に句読点を呼び込むため使わない） */
+   - 見出しだけは文節改行のまま（短い行なので意味の切れ目で折るほうが読みやすい） */
 @media (max-width: 768px) {
   body,
-  h1, h2, h3, h4,
   p, li, dd, dt, blockquote, figcaption, th, td,
   .lead, .meta, .headline, .sub, .note, .limits, .pledge, .highlights, .hl,
   .item, .figure, .f-label, .series, .stat, .counter, .cta-sec {
+    word-break: normal;
+    overflow-wrap: break-word;
+    line-break: strict;
+    text-wrap: wrap;
+    hanging-punctuation: allow-end;
+  }
+  main p, main li, main dd, main blockquote, main .counter, main .limits, .hero .lead, .cta-sec p {
+    text-align: justify;
+    text-justify: inter-character;
+  }
+  /* 出典ラベル・目次のリンク列・表・スタンプは両端揃えにしない */
+  main blockquote small, main p.toc-sub, main p.toc-h, main th, main td, main figcaption {
+    text-align: start;
+    text-justify: auto;
+  }
+  h1, h2, h3, h4 {
     word-break: auto-phrase;
     overflow-wrap: break-word;
     line-break: strict;
