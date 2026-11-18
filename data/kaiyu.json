@@ -1343,6 +1343,22 @@
       ]
     },
     {
+      "id": "shinnyu-taiwa-training",
+      "path": "shinnyu-taiwa-training.html",
+      "title": "新入社員の対話力トレーニング",
+      "tag": "ソリューション",
+      "desc": "対話力は筋肉と同じように鍛えられる。2日間で10のデモクラ筋を体験する新入社員研修。",
+      "theme": "white",
+      "category": "solution",
+      "added": "2026-11-18",
+      "band": true,
+      "next": [
+        "shinnyu-furikaeri",
+        "democracy-fitness",
+        "taiwa-teichaku"
+      ]
+    },
+    {
       "id": "survey-katsuyo",
       "path": "survey-katsuyo.html",
       "title": "サーベイ結果の活用",

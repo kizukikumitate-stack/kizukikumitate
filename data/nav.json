@@ -90,6 +90,11 @@
             "desc": "新人が一人で15分ふりかえり、気づきを1on1に持ち寄る習慣をつくる"
           },
           {
+            "label": "新入社員の対話力トレーニング",
+            "href": "shinnyu-taiwa-training.html",
+            "desc": "2日間で10の対話の筋肉を体験する新入社員研修。提案資料あり"
+          },
+          {
             "label": "サーベイ結果の活用",
             "href": "survey-katsuyo.html",
             "desc": "サーベイの結果を、職場の対話と行動に変える6か月のプログラム"
@@ -861,6 +866,10 @@
     },
     {
       "path": "shinnyu-furikaeri.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shinnyu-taiwa-training.html",
       "variant": "standard"
     },
     {

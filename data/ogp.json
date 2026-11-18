@@ -773,6 +773,16 @@
       "sub": "一人で15分。気づきと目標を1on1に持ち寄る習慣が、上司の育成負担を軽くします。"
     },
     {
+      "page": "shinnyu-taiwa-training.html",
+      "img": "shinnyu-taiwa-training-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#C2410C",
+      "eyebrow": "ソリューション ／ 人事・研修担当の方へ",
+      "title": "新入社員のための<br>対話力トレーニング",
+      "sub": "対話力は、筋肉と同じように鍛えられます。2日間で10の筋肉を体験する研修です。"
+    },
+    {
       "page": "survey-katsuyo.html",
       "img": "survey-katsuyo-ogp.png",
       "template": "standard",

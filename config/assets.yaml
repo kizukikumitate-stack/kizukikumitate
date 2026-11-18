@@ -195,6 +195,13 @@ scoring:
     tags: [新入社員 研修, 新入社員 振り返り, 新人 1on1, 新入社員 育成, オンボーディング, 新人 フォロー, 振り返り 習慣, 早期離職 新卒]
     service_bridge: 新入社員の振り返り習慣プログラム
 
+  - id: shinnyu-taiwa-training
+    name: 新入社員のための対話力トレーニング
+    type: service
+    url: /shinnyu-taiwa-training.html
+    tags: [新入社員 対話力, 新入社員 コミュニケーション研修, 新人研修 対話, 新入社員 意見が言えない, 新入社員 研修 2日間, 対話力 トレーニング, 新人 会議 発言しない, 新入社員 研修 資料]
+    service_bridge: 新入社員のための対話力トレーニング
+
   - id: survey-katsuyo
     name: サーベイ結果の活用プログラム
     type: service
