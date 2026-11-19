@@ -208,3 +208,31 @@ scoring:
     url: /survey-katsuyo.html
     tags: [エンゲージメントサーベイ 活用, 組織サーベイ 結果, サーベイ フィードバック, サーベイ 結果 どうする, 従業員サーベイ 改善, スコア 上げる 組織, サーベイ 取りっぱなし]
     service_bridge: サーベイ結果の活用プログラム
+
+  - id: kenshu
+    name: 研修一覧（階層別・テーマ別・思考系シリーズ）
+    type: service
+    url: /kenshu.html
+    tags: [研修一覧, 階層別研修, 管理職研修, 若手社員研修, 中堅社員研修, コミュニケーション研修, チームビルディング研修, 1on1研修, ファシリテーション研修, D&I研修, 心理的安全性 研修, ロジカルシンキング研修, クリティカルシンキング研修, 問題解決研修, 仮説思考, 問いを立てる力, ストーリーテリング研修, 合意形成 研修]
+    service_bridge: 研修一覧からの相談
+
+  - id: taikengata-kenshu
+    name: 体験型研修（LEGO® SERIOUS PLAY®・デモクラシーフィットネス・軽井沢オフサイト）
+    type: service
+    url: /taikengata-kenshu.html
+    tags: [体験型研修, 体験型 研修 おすすめ, ユニーク 研修, 面白い 研修, 参加型研修, レゴ 研修, ゲーム 研修, アクティブラーニング 研修]
+    service_bridge: 体験型研修
+
+  - id: shikouryoku-series
+    name: 思考力強化シリーズ（全6回・年間プログラム）
+    type: training
+    url: /shikouryoku-series.html
+    tags: [思考力 研修, 思考力強化, ロジカルシンキング 研修, クリティカルシンキング 研修, 仮説思考 研修, 問題解決 研修, システム思考 研修, 年間研修, 連続研修]
+    service_bridge: 思考力強化シリーズ
+
+  - id: kaisoubetsu-series
+    name: 階層別 年間シリーズ研修（3年目・中堅・新任管理職）
+    type: training
+    url: /kaisoubetsu-series.html
+    tags: [3年目研修, 3年目社員 研修, 中堅社員研修, リーダー研修, 新任管理職研修, 階層別研修, 年間研修 階層別]
+    service_bridge: 階層別 年間シリーズ研修

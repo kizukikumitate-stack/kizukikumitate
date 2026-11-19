@@ -1373,6 +1373,66 @@
         "topaasia",
         "od-program"
       ]
+    },
+    {
+      "id": "kenshu",
+      "path": "kenshu.html",
+      "title": "研修一覧（階層別・テーマ別）",
+      "tag": "ソリューション",
+      "desc": "新入社員から管理職まで。階層別・テーマ別・思考系の研修を、ひと目で探せる一覧。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-11-19",
+      "band": true,
+      "next": [
+        "taikengata-kenshu",
+        "shikouryoku-series"
+      ]
+    },
+    {
+      "id": "taikengata-kenshu",
+      "path": "taikengata-kenshu.html",
+      "title": "体験型研修",
+      "tag": "ソリューション",
+      "desc": "聞くだけで終わらせない。全員が手と体を動かす、3つの体験型プログラム。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-11-19",
+      "band": true,
+      "next": [
+        "kenshu",
+        "democracy-fitness"
+      ]
+    },
+    {
+      "id": "shikouryoku-series",
+      "path": "shikouryoku-series.html",
+      "title": "思考力強化シリーズ（全6回）",
+      "tag": "ソリューション",
+      "desc": "2か月に1回、全6回。考える力を1年かけて、職場で使える力にする。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-11-19",
+      "band": true,
+      "next": [
+        "kaisoubetsu-series",
+        "kenshu"
+      ]
+    },
+    {
+      "id": "kaisoubetsu-series",
+      "path": "kaisoubetsu-series.html",
+      "title": "階層別 年間シリーズ研修",
+      "tag": "ソリューション",
+      "desc": "3年目・中堅・新任管理職。役割が変わる節目の1年間を、全6回で支える。",
+      "theme": "paper",
+      "category": "solution",
+      "added": "2026-11-19",
+      "band": true,
+      "next": [
+        "shikouryoku-series",
+        "kenshu"
+      ]
     }
   ]
 }
