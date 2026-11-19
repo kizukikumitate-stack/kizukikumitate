@@ -1433,6 +1433,36 @@
         "shikouryoku-series",
         "kenshu"
       ]
+    },
+    {
+      "id": "zukai-series",
+      "path": "zukai-series.html",
+      "title": "図解シリーズ",
+      "tag": "世界の知恵",
+      "desc": "大事なのに学ぶ機会がなかったテーマを、図解でわかりやすく。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-19",
+      "band": true,
+      "next": [
+        "minshushugi-kyoiku-rekishi",
+        "ima-hitsuyona-gakushu"
+      ]
+    },
+    {
+      "id": "minshushugi-kyoiku-rekishi",
+      "path": "minshushugi-kyoiku-rekishi.html",
+      "title": "図解で見る 日本の民主主義教育の歴史",
+      "tag": "世界の知恵",
+      "desc": "学校は民主主義をどう教えてきたか。制度と、変わりにくい土台の二層でたどる。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-19",
+      "band": true,
+      "next": [
+        "zukai-series",
+        "democracy-fitness"
+      ]
     }
   ]
 }

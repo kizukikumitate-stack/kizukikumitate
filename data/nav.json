@@ -309,6 +309,11 @@
             "band": true
           },
           {
+            "label": "図解シリーズ",
+            "href": "zukai-series.html",
+            "desc": "大事なのに学ぶ機会がなかったテーマを、図解でわかりやすくまとめる読み物"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html",
             "desc": "平和と民主主義とお金の流れを学ぶTEDトーク16本"
@@ -900,6 +905,14 @@
     },
     {
       "path": "kaisoubetsu-series.html",
+      "variant": "standard"
+    },
+    {
+      "path": "zukai-series.html",
+      "variant": "standard"
+    },
+    {
+      "path": "minshushugi-kyoiku-rekishi.html",
       "variant": "standard"
     }
   ],
