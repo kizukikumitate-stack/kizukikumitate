@@ -791,6 +791,46 @@
       "eyebrow": "ソリューション ／ 人事・組織担当の方へ",
       "title": "サーベイの結果は出た。<br>次の一手が見えない",
       "sub": "結果を職場の対話と行動に変える6か月。人事が一人で抱えない進め方をつくります。"
+    },
+    {
+      "page": "kenshu.html",
+      "img": "kenshu-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#00753A",
+      "eyebrow": "ソリューション ／ 人事・研修担当の方へ",
+      "title": "研修一覧<br>階層別・テーマ別・思考系",
+      "sub": "定番のテーマを、講義で終わらせない形で。目的に合わせて設計します。"
+    },
+    {
+      "page": "taikengata-kenshu.html",
+      "img": "taikengata-kenshu-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#00753A",
+      "eyebrow": "ソリューション ／ 人事・研修担当の方へ",
+      "title": "全員が手と体を動かす<br>体験型研修",
+      "sub": "聞くだけで終わらない研修を、3つの体験型プログラムから。"
+    },
+    {
+      "page": "shikouryoku-series.html",
+      "img": "shikouryoku-series-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#0062B1",
+      "eyebrow": "ソリューション ／ 人事・研修担当の方へ",
+      "title": "思考力強化シリーズ<br>全6回の年間プログラム",
+      "sub": "2か月に1回。学ぶ、職場で使う、振り返るを1年間くり返します。"
+    },
+    {
+      "page": "kaisoubetsu-series.html",
+      "img": "kaisoubetsu-series-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#00753A",
+      "eyebrow": "ソリューション ／ 人事・研修担当の方へ",
+      "title": "階層別 年間シリーズ研修<br>3年目・中堅・新任管理職",
+      "sub": "役割が変わる節目の1年間を、2か月に1回・全6回で支えます。"
     }
   ]
 }

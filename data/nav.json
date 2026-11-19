@@ -55,6 +55,16 @@
         "label": "ソリューション",
         "children": [
           {
+            "label": "研修一覧（階層別・テーマ別）",
+            "href": "kenshu.html",
+            "desc": "新入社員から管理職まで、階層別・テーマ別・思考系の研修を一覧できる入口"
+          },
+          {
+            "label": "体験型研修",
+            "href": "taikengata-kenshu.html",
+            "desc": "全員が手と体を動かす、3つの体験型プログラム"
+          },
+          {
             "label": "なぜ今、この学習か（超図解）",
             "href": "ima-hitsuyona-gakushu.html",
             "desc": "社会の加速に組織が追いつけない構造を10章の図解で眺め、必要な学習を示す入口"
@@ -874,6 +884,22 @@
     },
     {
       "path": "survey-katsuyo.html",
+      "variant": "standard"
+    },
+    {
+      "path": "kenshu.html",
+      "variant": "standard"
+    },
+    {
+      "path": "taikengata-kenshu.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shikouryoku-series.html",
+      "variant": "standard"
+    },
+    {
+      "path": "kaisoubetsu-series.html",
       "variant": "standard"
     }
   ],
