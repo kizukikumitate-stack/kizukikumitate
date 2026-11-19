@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3YZKY8DQG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E3YZKY8DQG');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ナイトパーク 最終仮説シート｜きづきくみたて工房</title>
+<meta name="description" content="合意形成ゲーム「ナイトパーク開園前夜」の最終仮説シート。研修の受講者がチームで入力し、その場で自動判定を受け取るためのページです。">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="ナイトパーク 最終仮説シート">
+<meta property="og:description" content="合意形成ゲーム「ナイトパーク開園前夜」の最終仮説を入力し、その場で自動判定を受け取るページです。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kizukikumitate.com/nightpark-sheet.html">
+<meta property="og:image" content="https://kizukikumitate.com/ogp.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ナイトパーク 最終仮説シート">
+<meta name="twitter:description" content="合意形成ゲーム「ナイトパーク開園前夜」の最終仮説を入力し、その場で自動判定を受け取るページです。">
+<meta name="twitter:image" content="https://kizukikumitate.com/ogp.png">
+<link rel="canonical" href="https://kizukikumitate.com/nightpark-sheet.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 配置の考え方：1カラムの記入用紙。①〜④を紙のシートと同じ順に並べ、判定は提出後に用紙の上へ出す */
+:root{
+  --paper:#f4f5f9;
+  --sheet:#ffffff;
+  --ink:#1b2340;
+  --muted:#5d6685;
+  --line:#d5d9e6;
+  --lantern:#b8690a;
+  --lantern-soft:#fbefd9;
+  --night:#232c57;
+  --good:#1d7a52;
+  --good-soft:#e2f3ea;
+  --warn:#a23a2c;
+  --warn-soft:#fbe9e5;
+  --font-display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --font-body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --paper:#10142a;--sheet:#1a2040;--ink:#eceefa;--muted:#a3abc9;--line:#343c66;
+    --lantern:#f0b24a;--lantern-soft:#3a2f1a;--night:#0b0f22;
+    --good:#6fd3a3;--good-soft:#173527;--warn:#f09a8b;--warn-soft:#3d1f1a;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --paper:#10142a;--sheet:#1a2040;--ink:#eceefa;--muted:#a3abc9;--line:#343c66;
+  --lantern:#f0b24a;--lantern-soft:#3a2f1a;--night:#0b0f22;
+  --good:#6fd3a3;--good-soft:#173527;--warn:#f09a8b;--warn-soft:#3d1f1a;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.7}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px 64px;display:flex;flex-direction:column;gap:20px}
+header.top{background:var(--night);color:#f3f4fb;padding:28px 16px 24px}
+header.top .in{max-width:760px;margin:0 auto;padding:0}
+.eyebrow{font-size:13px;letter-spacing:.08em;color:#f0b24a;margin:0 0 4px}
+h1{font-family:var(--font-display);font-size:28px;line-height:1.3;margin:0 0 10px;text-wrap:balance}
+header.top p{margin:0;font-size:14px;color:#cfd4ee;max-width:38em}
+section.card{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+h2{font-size:18px;line-height:1.4;margin:0;text-wrap:balance;display:flex;gap:10px;align-items:baseline}
+h2 .no{font-family:var(--font-display);color:var(--lantern);font-size:22px;flex:none}
+h3{font-size:15px;margin:0}
+.hint{font-size:13px;color:var(--muted);margin:0}
+label.fl{font-size:13px;font-weight:700;color:var(--muted);display:block;margin-bottom:4px}
+input[type=text],textarea,select{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{min-height:76px;resize:vertical}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible,.seg label:focus-within{outline:3px solid var(--lantern);outline-offset:2px}
+input:disabled,textarea:disabled,select:disabled{opacity:.75}
+.base{display:flex;gap:8px;flex-wrap:wrap}
+.pill{position:relative}
+.pill input{position:absolute;opacity:0;inset:0}
+.pill span{display:block;padding:8px 22px;border:1px solid var(--line);border-radius:999px;background:var(--paper);font-weight:700;cursor:pointer}
+.pill input:checked+span{background:var(--night);border-color:var(--night);color:#fff}
+.pill input:focus-visible+span{outline:3px solid var(--lantern);outline-offset:2px}
+.rows{display:flex;flex-direction:column;gap:8px}
+.numrow{display:flex;gap:8px;align-items:center}
+.numrow b{flex:none;width:1.6em;color:var(--lantern)}
+.person{border-top:1px solid var(--line);padding-top:14px;display:flex;flex-direction:column;gap:12px}
+.person:first-of-type{border-top:0;padding-top:0}
+.kind{display:flex;flex-direction:column;gap:8px}
+.kind .tag{font-size:13px;font-weight:700;padding:2px 10px;border-radius:4px;align-self:flex-start}
+.kind.ng .tag{background:var(--warn-soft);color:var(--warn)}
+.kind.ok .tag{background:var(--good-soft);color:var(--good)}
+.line{display:flex;gap:8px;align-items:stretch}
+.line input[type=text]{flex:1;min-width:0}
+.seg{display:flex;flex:none;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg label{position:relative;cursor:pointer}
+.seg input{position:absolute;opacity:0;inset:0}
+.seg span{display:flex;align-items:center;height:100%;padding:0 12px;font-size:14px;font-weight:700;color:var(--muted);background:var(--paper)}
+.seg input:checked+span{background:var(--lantern);color:#fff}
+.order{display:grid;grid-template-columns:auto minmax(0, 1fr);gap:8px 10px;align-items:start}
+.order .n{font-family:var(--font-display);font-size:20px;color:var(--lantern);padding-top:6px}
+.order .f{display:flex;flex-direction:column;gap:6px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+button{font:inherit;font-weight:700;border-radius:8px;padding:12px 22px;cursor:pointer;border:1px solid var(--night);background:var(--night);color:#fff}
+a.btn{display:inline-block;font-weight:700;border-radius:8px;padding:12px 22px;border:1px solid var(--night);background:var(--night);color:#fff;text-decoration:none}
+a.btn:focus-visible{outline:3px solid var(--lantern);outline-offset:2px}
+.credit{font-size:12px;color:var(--muted);margin:0;text-align:center}
+.credit a{color:inherit}
+.send-note{margin:0;font-weight:700;background:var(--lantern-soft);border-radius:8px;padding:10px 14px;font-size:15px}
+button.sub{background:transparent;color:var(--ink);border-color:var(--line)}
+.err{background:var(--warn-soft);color:var(--warn);border-radius:8px;padding:10px 14px;font-size:14px;margin:0}
+.err:empty{display:none}
+#result{border-color:var(--lantern);border-width:2px}
+#result[hidden],a.btn[hidden]{display:none}
+.score{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-end}
+.score .big{font-family:var(--font-display);font-size:56px;line-height:1;font-variant-numeric:tabular-nums}
+.score .big small{font-size:20px;color:var(--muted);font-family:var(--font-body)}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px;background:var(--lantern-soft);color:var(--lantern);font-variant-numeric:tabular-nums}
+.chip.g{background:var(--good-soft);color:var(--good)}
+.chip.w{background:var(--warn-soft);color:var(--warn)}
+table.res{width:100%;border-collapse:collapse;font-size:14px}
+table.res th,table.res td{text-align:left;padding:8px 6px;border-top:1px solid var(--line);vertical-align:top}
+table.res th{font-size:12px;color:var(--muted);font-weight:700}
+table.res td.st{white-space:nowrap;font-weight:700}
+.st.hit{color:var(--good)}
+.st.miss{color:var(--muted)}
+.tw{overflow-x:auto}
+ul.fb{margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:4px;font-size:15px}
+#copyout{display:none;min-height:180px;font-size:13px}
+#copyout.show{display:block}
+.note{font-size:13px;color:var(--muted);margin:0}
+@media (max-width:480px){
+  h1{font-size:23px}
+  section.card{padding:16px}
+  .line{flex-wrap:wrap}
+  .line input[type=text]{flex-basis:100%}
+  .score .big{font-size:46px}
+}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <p class="eyebrow">ナイトパーク開園前夜　合意形成ゲーム</p>
+  <h1>最終仮説シート</h1>
+  <p>チームで1回、代表の方が入力してください。提出すると、3人の「折れられない・折れられる」をいくつ押さえられたかの自動判定がこの画面に出ます。分からないことは、分からないと書いてかまいません。</p>
+</div></header>
+
+<div class="wrap">
+<section class="card" id="result" hidden aria-live="polite">
+  <h2><span class="no">判定</span><span id="r-team"></span></h2>
+  <div class="score">
+    <div class="big"><span id="r-total">0</span><small> / 13点</small></div>
+    <div class="chips" id="r-chips"></div>
+  </div>
+  <div class="tw"><table class="res"><thead><tr><th>相手</th><th>種類</th><th>書いた内容</th><th>判定</th></tr></thead><tbody id="r-rows"></tbody></table></div>
+  <ul class="fb" id="r-fb"></ul>
+  <p class="note">この判定は、書かれた言葉を手がかりにした自動照合です。「判定できず」は不正解と決まったわけではありません。種明かしのあと、自己採点表でチームで確かめてください。点数は味付けで、勝ち負けを決めるものではありません。</p>
+  <p class="send-note" id="send-status" role="status">講師に送信しています。</p>
+  <div class="actions">
+    <a class="btn" id="btn-send" href="#" target="_blank" rel="noopener" hidden>講師に送る（フォームが開きます）</a>
+    <button type="button" class="sub" id="btn-copy">回答と判定をコピー</button>
+    <button type="button" class="sub" id="btn-edit">修正して出し直す</button>
+    <span class="note" id="copy-msg"></span>
+  </div>
+  <textarea id="copyout" readonly aria-label="回答と判定のテキスト"></textarea>
+</section>
+
+<form id="form" novalidate>
+<div class="wrap" style="padding:0">
+<section class="card">
+  <div><label class="fl" for="team">チーム名</label><input type="text" id="team" maxlength="30" placeholder="例）チーム3" autocomplete="off"></div>
+</section>
+
+<section class="card">
+  <h2><span class="no">①</span>仮説の案</h2>
+  <p class="hint">松・竹・梅のどれをベースに、何を変えるか。変える点は3つまでです。</p>
+  <div class="base" role="radiogroup" aria-label="ベースにする案">
+    <label class="pill"><input type="radio" name="base" id="base-ume" value="梅"><span>梅</span></label>
+    <label class="pill"><input type="radio" name="base" id="base-take" value="竹"><span>竹</span></label>
+    <label class="pill"><input type="radio" name="base" id="base-matsu" value="松"><span>松</span></label>
+  </div>
+  <div class="rows">
+    <div class="numrow"><b>1</b><input type="text" id="chg1" maxlength="120" placeholder="例）△△を□□に変える" aria-label="変える点1"></div>
+    <div class="numrow"><b>2</b><input type="text" id="chg2" maxlength="120" aria-label="変える点2"></div>
+    <div class="numrow"><b>3</b><input type="text" id="chg3" maxlength="120" aria-label="変える点3"></div>
+  </div>
+</section>
+
+<section class="card">
+  <h2><span class="no">②</span>踏まない「折れられない」と、使う「折れられる」</h2>
+  <p class="hint">1行に1つ書き、情報シートで確かめた事実には（事）、仮説には（仮）を選びます。書けない行は空欄のままにしてください。</p>
+  <div id="people"></div>
+</section>
+
+<section class="card">
+  <h2><span class="no">③</span>合意を取る順番と、その理由</h2>
+  <p class="hint">例）〇〇さんは△△を失う懸念があるので、□□の前に個別で合意を取る。回る順に3人分書きます。</p>
+  <div class="order" id="order"></div>
+</section>
+
+<section class="card">
+  <h2><span class="no">④</span>分からないまま出した点</h2>
+  <p class="hint">仮説も立てられなかった点と、その理由。</p>
+  <textarea id="unknown" maxlength="600" aria-label="分からないまま出した点"></textarea>
+</section>
+
+<section class="card">
+  <p class="err" id="err" role="alert"></p>
+  <div class="actions">
+    <button type="submit" id="btn-submit">提出して判定を見る</button>
+    <span class="note">入力中の内容は、この端末のブラウザに一時保存されます。</span>
+  </div>
+</section>
+</div>
+</form>
+<p class="credit">提供：<a href="https://kizukikumitate.com/">きづきくみたて工房</a></p>
+</div>
+
+<script>
+/*JUDGE-START*/
+var PEOPLE=[{k:"pres",name:"社長"},{k:"ops",name:"運営管理本部長"},{k:"hotel",name:"グループホテル社長"}];
+function norm(s){
+  s=(s||"").normalize("NFKC").toLowerCase().replace(/[\s,、，]/g,"");
+  var m=[["パーセント","%"],["二十二時","22時"],["十一時","11時"],["五十","50"],["百室","100室"],["百名","100名"],["百人","100人"],
+    ["五千万","5千万"],["5000万","5千万"],["0.5億","5千万"],["四年","4年"],["四億","4億"],["二億","2億"],["二段階","2段階"],["十五","15"],["二時間","2時間"]];
+  m.forEach(function(p){s=s.split(p[0]).join(p[1]);});
+  return s;
+}
+function any(){var r=Array.prototype.slice.call(arguments);return function(t){return r.some(function(x){return x.test(t);});};}
+var ITEMS={
+ pres:{ng:[
+   {label:"利益率15％を下回る計画で始めない",test:any(/利益率|15%|赤字|採算|営業利益/)},
+   {label:"本部長が反対のまま・点検を削る形で始めない",test:function(t){return (/本部長|運営管理|現場/.test(t)&&/反対|合意|納得|同意|賛成|了承|頭越し|押し切|ok/.test(t))||(/点検/.test(t)&&/削|減|圧縮|短縮|守|維持/.test(t))||/安全.*(担保|確保|犠牲|軽視)/.test(t);}}
+ ],ok:[
+   {label:"段階導入（金土日祝＋夏季／投資4億＋2億）",test:any(/段階|金土日|週末|土日|夏季|4億|分割|分け|2年目|限定/)},
+   {label:"200万人の達成を「4年」に言い直す",test:any(/4年|(達成|期限|時期|公約|200万|3年).*(延|後ろ|見直|言い直|遅|ずら|変更|先送)/)}
+ ]},
+ ops:{ng:[
+   {label:"乗り物の点検2時間を削らない",test:any(/点検|安全/)},
+   {label:"残業頼みにしない・シフト設計から本部を外さない",test:any(/残業|シフト|疲弊|離職|過重|負荷|負担|頭越し|本部.*(外|抜)|決められてから|勝手に/)}
+ ],ok:[
+   {label:"開園11時で朝に点検／夜は新エリア＋中央広場に限定",test:any(/11時|開園.*(遅|ずら|後ろ|繰り下|変更)|朝.*点検|新エリア|中央広場|(エリア|範囲).*(限定|絞)/)},
+   {label:"既存キャスト50名を夜間に回す",test:any(/50(名|人)|既存/)}
+ ]},
+ hotel:{ng:[
+   {label:"宿泊プランの価格と配分を一方的に決めない",test:any(/価格|配分|販売権|料金|一方的|取り分|収益|値付け/)},
+   {label:"企画が固まった後に初めて声をかけない",test:any(/後出し|後から|事後|下請け|(固|決)[めま](る|った|て)?(前|後|あと|から)|最初から|企画段階|早い段階|初期|先に(相談|声|話)|蚊帳の外|巻き込|声(を|が)か|一緒に(設計|企画|作|つく)/)}
+ ],ok:[
+   {label:"レストラン22時延長／100室をナイト連動プラン専用",test:any(/レストラン|22時|100室|改装|専用|客室.*(出|提供|充)/)},
+   {label:"販促費 年5千万円をナイト連動に充てる",test:any(/販促|5千万|広告|プロモ|予算.*(出|充|拠出|使)/)}
+ ]}
+};
+/* answers: {lines:{pres:{ng:[{text,mark}],ok:[...]},...}, order:[{who,reason}]} */
+function judge(a){
+  var out={rows:[],fact:0,guess:0,per:{},order:false,total:0};
+  PEOPLE.forEach(function(p){
+    out.per[p.k]={ng:0,ok:0};
+    ["ng","ok"].forEach(function(kind){
+      var items=ITEMS[p.k][kind],taken=[false,false],lines=a.lines[p.k][kind];
+      var rows=lines.map(function(l){return {who:p.name,kind:kind,text:l.text,mark:l.mark,hit:null};});
+      /* 先に1項目だけに合う行を割り当て、次に残りを割り当てる（1行は1項目まで） */
+      [1,2].forEach(function(pass){
+        lines.forEach(function(l,i){
+          if(rows[i].hit||!l.text.trim())return;
+          var t=norm(l.text),c=[];
+          items.forEach(function(it,j){if(!taken[j]&&it.test(t))c.push(j);});
+          if(c.length===0||(pass===1&&c.length>1))return;
+          taken[c[0]]=true;rows[i].hit=items[c[0]].label;
+        });
+      });
+      rows.forEach(function(r){
+        if(r.hit){out.per[p.k][kind]++;if(r.mark==="事")out.fact++;else out.guess++;}
+        out.rows.push(r);
+      });
+    });
+  });
+  var o=a.order,who=o.map(function(x){return x.who;});
+  var distinct=who.filter(function(w,i){return w&&who.indexOf(w)===i;}).length===3;
+  out.orderLast=o[2]&&o[2].who==="pres";
+  out.orderReasons=o.every(function(x){return (x.reason||"").trim().length>=8;});
+  out.order=!!(distinct&&out.orderLast&&out.orderReasons);
+  out.total=out.fact+out.guess+(out.order?1:0);
+  return out;
+}
+if(typeof module!=="undefined")module.exports={judge:judge,norm:norm};
+/*JUDGE-END*/
+
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var KEY="nightpark-final-v1",submits=0,locked=false;
+  var KIND={ng:"折れられない",ok:"折れられる"};
+
+  function el(tag,attrs,kids){var e=document.createElement(tag);for(var k in attrs||{}){if(k==="text")e.textContent=attrs[k];else e.setAttribute(k,attrs[k]);}(kids||[]).forEach(function(c){e.appendChild(c);});return e;}
+
+  /* ② の入力欄 */
+  var people=$("people");
+  PEOPLE.forEach(function(p){
+    var box=el("div",{class:"person"},[el("h3",{text:p.name})]);
+    ["ng","ok"].forEach(function(kind){
+      var k=el("div",{class:"kind "+kind},[el("span",{class:"tag",text:"「"+KIND[kind]+"」"})]);
+      [1,2].forEach(function(n){
+        var id=p.k+"-"+kind+"-"+n;
+        var seg=el("div",{class:"seg",role:"radiogroup","aria-label":"事実か仮説か"});
+        ["事","仮"].forEach(function(m,i){
+          seg.appendChild(el("label",{},[el("input",{type:"radio",name:id+"-mark",id:id+"-mark-"+i,value:m}),el("span",{text:"（"+m+"）"})]));
+        });
+        k.appendChild(el("div",{class:"line"},[el("input",{type:"text",id:id,maxlength:"100","aria-label":p.name+"の"+KIND[kind]+" "+n}),seg]));
+      });
+      box.appendChild(k);
+    });
+    people.appendChild(box);
+  });
+
+  /* ③ の入力欄 */
+  var order=$("order");
+  [1,2,3].forEach(function(n){
+    var sel=el("select",{id:"ord"+n+"-who","aria-label":n+"番目に回る相手"},[el("option",{value:"",text:"相手を選ぶ"})]);
+    PEOPLE.forEach(function(p){sel.appendChild(el("option",{value:p.k,text:p.name}));});
+    order.appendChild(el("div",{class:"n",text:String(n)}));
+    order.appendChild(el("div",{class:"f"},[sel,el("textarea",{id:"ord"+n+"-why",maxlength:"200",placeholder:"理由","aria-label":n+"番目の理由"})]));
+  });
+
+  function markOf(id){var c=document.querySelector('input[name="'+id+'-mark"]:checked');return c?c.value:"";}
+  function collect(){
+    var b=document.querySelector('input[name="base"]:checked');
+    var a={team:$("team").value.trim(),base:b?b.value:"",changes:[$("chg1").value.trim(),$("chg2").value.trim(),$("chg3").value.trim()],lines:{},order:[],unknown:$("unknown").value.trim()};
+    PEOPLE.forEach(function(p){a.lines[p.k]={};["ng","ok"].forEach(function(kind){a.lines[p.k][kind]=[1,2].map(function(n){var id=p.k+"-"+kind+"-"+n;return {text:$(id).value.trim(),mark:markOf(id)};});});});
+    [1,2,3].forEach(function(n){a.order.push({who:$("ord"+n+"-who").value,reason:$("ord"+n+"-why").value.trim()});});
+    return a;
+  }
+  function fill(a){
+    if(!a)return;
+    $("team").value=a.team||"";
+    if(a.base){var r=document.querySelector('input[name="base"][value="'+a.base+'"]');if(r)r.checked=true;}
+    (a.changes||[]).forEach(function(c,i){$("chg"+(i+1)).value=c||"";});
+    PEOPLE.forEach(function(p){["ng","ok"].forEach(function(kind){((a.lines||{})[p.k]||{})[kind]&&a.lines[p.k][kind].forEach(function(l,i){
+      var id=p.k+"-"+kind+"-"+(i+1);$(id).value=l.text||"";
+      if(l.mark){var m=document.querySelector('input[name="'+id+'-mark"][value="'+l.mark+'"]');if(m)m.checked=true;}
+    });});});
+    (a.order||[]).forEach(function(o,i){$("ord"+(i+1)+"-who").value=o.who||"";$("ord"+(i+1)+"-why").value=o.reason||"";});
+    $("unknown").value=a.unknown||"";
+  }
+  function save(){try{localStorage.setItem(KEY,JSON.stringify({a:collect(),submits:submits}));}catch(e){}}
+  try{var s=JSON.parse(localStorage.getItem(KEY)||"null");if(s){fill(s.a);submits=s.submits||0;}}catch(e){}
+  $("form").addEventListener("input",save);
+  $("form").addEventListener("change",save);
+
+  function validate(a){
+    var e=[];
+    if(!a.team)e.push("チーム名を入力してください。");
+    if(!a.base)e.push("①で松・竹・梅のどれをベースにするか選んでください。");
+    var nomark=0,filled=0;
+    PEOPLE.forEach(function(p){["ng","ok"].forEach(function(k){a.lines[p.k][k].forEach(function(l){if(l.text){filled++;if(!l.mark)nomark++;}});});});
+    if(filled===0)e.push("②を1行以上書いてください。");
+    if(nomark)e.push("②で（事）か（仮）を選んでいない行が"+nomark+"行あります。");
+    var who=a.order.map(function(o){return o.who;});
+    if(who.some(function(w){return !w;}))e.push("③で回る順番を3人分選んでください。");
+    else if(who.filter(function(w,i){return who.indexOf(w)===i;}).length<3)e.push("③で同じ相手が2回選ばれています。");
+    return e;
+  }
+  function nameOf(k){var p=PEOPLE.filter(function(x){return x.k===k;})[0];return p?p.name:"未選択";}
+
+  function feedback(a,r){
+    var f=[];
+    if(r.fact+r.guess>0){
+      if(r.guess>r.fact)f.push("押さえた"+(r.fact+r.guess)+"項目のうち"+r.guess+"項目は仮説です。現実の場面なら、誰に何と聞けば事実に変えられるかを振り返りで話してみてください。");
+      else f.push("押さえた"+(r.fact+r.guess)+"項目のうち"+r.fact+"項目はシートで確かめた事実です。残りの空欄を、どの題名のシートなら埋められたかを考えてみてください。");
+    }
+    var low=PEOPLE.map(function(p){return {n:p.name,v:r.per[p.k].ng+r.per[p.k].ok};}).sort(function(x,y){return x.v-y.v;});
+    if(low[0].v<low[2].v)f.push(low[0].n+"について拾えた項目が"+low[0].v+" / 4で、3人の中でいちばん少なくなっています。");
+    var ng=0,ok=0;PEOPLE.forEach(function(p){ng+=r.per[p.k].ng;ok+=r.per[p.k].ok;});
+    if(ng<ok)f.push("「折れられる」に比べて「折れられない」が薄めです。踏んではいけない点を知らないまま案を出すと、合意が壊れるおそれがあります。");
+    if(ok<ng)f.push("「折れられない」は押さえられています。相手が条件次第で出せるものを、別の人の懸念への答えに使えないか見直してみてください。");
+    if(!r.order){
+      if(!r.orderLast)f.push("順番は、"+nameOf(a.order[2].who)+"を最後に置いています。なぜその順にしたかを、種明かしで3人の答えと照らしてください。");
+      else f.push("順番は社長が最後になっています。3人分の理由を一文ずつ書けると○になります。");
+    }else f.push("順番は○です。理由が3人の「折れられない・折れられる」に基づいているかは、種明かしのあとチームで確かめてください。");
+    return f;
+  }
+
+  function show(a,r){
+    $("r-team").textContent=a.team;
+    $("r-total").textContent=r.total;
+    var ch=$("r-chips");ch.textContent="";
+    var ng=0,ok=0;PEOPLE.forEach(function(p){ng+=r.per[p.k].ng;ok+=r.per[p.k].ok;});
+    [["折れられない "+ng+" / 6","w"],["折れられる "+ok+" / 6","g"],["順番 "+(r.order?"○":"×"),""],["（事）"+r.fact+"個",""],["（仮）"+r.guess+"個",""]].forEach(function(c){ch.appendChild(el("span",{class:"chip "+c[1],text:c[0]}));});
+    var tb=$("r-rows");tb.textContent="";
+    r.rows.forEach(function(row){
+      if(!row.text)return;
+      tb.appendChild(el("tr",{},[el("td",{text:row.who}),el("td",{text:KIND[row.kind]}),el("td",{text:row.text+"（"+row.mark+"）"}),
+        el("td",{class:"st "+(row.hit?"hit":"miss"),text:row.hit?"○（"+row.mark+"）":"判定できず"})]));
+    });
+    PEOPLE.forEach(function(p){["ng","ok"].forEach(function(k){
+      var rest=2-r.per[p.k][k];
+      if(rest>0)tb.appendChild(el("tr",{},[el("td",{text:p.name}),el("td",{text:KIND[k]}),el("td",{text:"まだ押さえられていない項目"}),el("td",{class:"st miss",text:"あと"+rest+"つ"})]));
+    });});
+    var fb=$("r-fb");fb.textContent="";feedback(a,r).forEach(function(t){fb.appendChild(el("li",{text:t}));});
+    $("copyout").value=asText(a,r);
+    $("btn-send").href=formUrl(a,r);
+    $("result").hidden=false;
+    $("result").scrollIntoView({block:"start"});
+  }
+
+  function asText(a,r){
+    var L=[];
+    L.push("【ナイトパーク 最終仮説】"+a.team+"（提出"+submits+"回目）");
+    L.push("自動判定："+r.total+" / 13点　（事）"+r.fact+"　（仮）"+r.guess+"　順番"+(r.order?"○":"×"));
+    L.push("");
+    L.push("① "+a.base+"をベースに");
+    a.changes.forEach(function(c,i){if(c)L.push("　"+(i+1)+"．"+c);});
+    L.push("");L.push("②");
+    PEOPLE.forEach(function(p){
+      L.push("■"+p.name);
+      ["ng","ok"].forEach(function(k){r.rows.filter(function(x){return x.who===p.name&&x.kind===k&&x.text;}).forEach(function(x){
+        L.push("　"+KIND[k]+"："+x.text+"（"+x.mark+"）→ "+(x.hit?"○":"判定できず"));
+      });});
+    });
+    L.push("");L.push("③");
+    a.order.forEach(function(o,i){L.push("　"+(i+1)+"．"+nameOf(o.who)+"："+(o.reason||"（理由なし）"));});
+    L.push("");L.push("④ "+(a.unknown||"（記入なし）"));
+    return L.join("\n");
+  }
+
+  /* Googleフォームを入力済みの状態で開くリンク。URLが長くなりすぎるときは回答全文の末尾を省く */
+  var FORM="https://docs.google.com/forms/d/e/1FAIpQLSfAJdG-j5BN8-M3m9NjSvp2aP_kUzLhIRkKV55L9Nnvctv7Yg/viewform?usp=pp_url";
+  var FORM_POST=FORM.replace("/viewform?usp=pp_url","/formResponse");
+  function summary(r){return r.total+"/13点 （事）"+r.fact+" （仮）"+r.guess+" 順番"+(r.order?"○":"×")+" 提出"+submits+"回目";}
+  /* 提出と同時にGoogleフォームへ送る。応答の中身は読めないので、通信エラーのときだけ手動の送信ボタンを出す */
+  function sendToForm(a,r){
+    var st=$("send-status"),btn=$("btn-send");
+    btn.hidden=true;st.textContent="講師に送信しています。";
+    var body=new URLSearchParams();
+    body.append("entry.2005620554",a.team);
+    body.append("entry.1045781291",summary(r));
+    body.append("entry.1065046570",asText(a,r));
+    function failed(){st.textContent="自動で送信できませんでした。「講師に送る」を押し、開いたフォームのいちばん下で「送信」を押してください。";btn.hidden=false;}
+    try{
+      fetch(FORM_POST,{method:"POST",mode:"no-cors",body:body}).then(function(){st.textContent="講師に送信しました。このまま種明かしをお待ちください。";},failed);
+    }catch(e){failed();}
+  }
+  function formUrl(a,r){
+    var sum=summary(r);
+    var head=FORM+"&entry.2005620554="+encodeURIComponent(a.team)+"&entry.1045781291="+encodeURIComponent(sum)+"&entry.1065046570=";
+    var full=asText(a,r),n=full.length,body=full;
+    while((head+encodeURIComponent(body)).length>7500&&n>100){n-=50;body=full.slice(0,n)+"\n…（長いため以下省略）";}
+    return head+encodeURIComponent(body);
+  }
+
+  function lock(on){
+    locked=on;
+    Array.prototype.forEach.call($("form").querySelectorAll("input,textarea,select"),function(c){c.disabled=on;});
+    $("btn-submit").disabled=on;
+    $("btn-submit").textContent=on?"提出済みです（上の判定をご覧ください）":"提出して判定を見る";
+  }
+
+  $("form").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    if(locked)return;
+    var a=collect(),e=validate(a);
+    $("err").textContent=e.join(" ");
+    if(e.length){$("err").scrollIntoView({block:"center"});return;}
+    submits++;save();
+    var r=judge(a);
+    show(a,r);
+    lock(true);
+    sendToForm(a,r);
+  });
+  $("btn-edit").addEventListener("click",function(){
+    lock(false);$("result").hidden=true;$("copyout").classList.remove("show");$("copy-msg").textContent="";
+    $("form").scrollIntoView({block:"start"});
+  });
+  $("btn-copy").addEventListener("click",function(){
+    var t=$("copyout").value,msg=$("copy-msg");
+    function manual(){$("copyout").classList.add("show");$("copyout").focus();$("copyout").select();msg.textContent="自動でコピーできませんでした。下の文章を選んでコピーしてください。";}
+    try{navigator.clipboard.writeText(t).then(function(){msg.textContent="コピーしました。";},manual);}catch(e){manual();}
+  });
+})();
+</script>
+</body>
+</html>
