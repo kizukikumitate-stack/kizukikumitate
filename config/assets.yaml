@@ -257,3 +257,10 @@ scoring:
     url: /minshushugi-kyoiku-roadmap.html
     tags: [民主主義教育, 民主主義 教育 大人, 主権者教育 社会人, 主権者教育 地域, シティズンシップ教育, 対話 研修 自治体, 民主主義 学ぶ]
     service_bridge: デモクラシーフィットネス
+
+  - id: taiwa-towa
+    name: 図解で見る 対話とは何であって、何でないのか
+    type: article
+    url: /taiwa-towa.html
+    tags: [対話とは, 対話 意味, 対話 議論 違い, 対話 会話 違い, 対話力, 対話力とは, ダイアローグ 語源, 対話 難しい, 対話教育, 対話 本音]
+    service_bridge: 対話力向上プログラム・デモクラシーフィットネス
