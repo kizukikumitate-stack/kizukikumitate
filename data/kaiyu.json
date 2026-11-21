@@ -1508,6 +1508,21 @@
         "taiwa-towa",
         "ima-hitsuyona-gakushu"
       ]
+    },
+    {
+      "id": "tou-chikara",
+      "path": "tou-chikara.html",
+      "title": "図解で見る 問う力とは何か",
+      "tag": "世界の知恵",
+      "desc": "疑問は理解と現実の接触から生まれる。頭の問いと身体の問い、世界の鍛え方を図で整理。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-21",
+      "band": true,
+      "next": [
+        "taiwa-towa",
+        "shikouryoku-series"
+      ]
     }
   ]
 }

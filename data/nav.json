@@ -339,6 +339,11 @@
             "desc": "図解シリーズ5。求めるものと届くもののずれ、介入のタイミング、投資の返り方を確かめる"
           },
           {
+            "label": "図解6｜問う力とは何か",
+            "href": "tou-chikara.html",
+            "desc": "図解シリーズ6。疑問が生まれる2つの条件、頭の問いと身体の問い、世界の鍛え方を整理する"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html",
             "desc": "平和と民主主義とお金の流れを学ぶTEDトーク16本"
@@ -950,6 +955,10 @@
     },
     {
       "path": "shain-kyoiku-kikai.html",
+      "variant": "standard"
+    },
+    {
+      "path": "tou-chikara.html",
       "variant": "standard"
     }
   ],

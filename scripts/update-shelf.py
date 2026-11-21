@@ -80,6 +80,7 @@ LATE_REVEAL = {
     "minshushugi-kyoiku-roadmap.html": "図解シリーズ3（縦に長い読み物）。同上の理由で読み終わりで出す",
     "taiwa-towa.html": "図解シリーズ4（縦に長い読み物）。同上の理由で読み終わりで出す",
     "shain-kyoiku-kikai.html": "図解シリーズ5（縦に長い読み物）。同上の理由で読み終わりで出す",
+    "tou-chikara.html": "図解シリーズ6（縦に長い読み物）。同上の理由で読み終わりで出す",
 }
 
 EXCLUDE = {

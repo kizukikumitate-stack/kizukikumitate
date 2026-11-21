@@ -21,6 +21,7 @@ SERIES = [
     ("minshushugi-kyoiku-roadmap.html", "日本の民主主義教育を広げるロードマップ", "学校、職場、地域、家庭。学ぶ場を、誰が、誰のお金で、誰に届けるのかを描きます。"),
     ("taiwa-towa.html", "対話とは何であって、何でないのか", "対話を討論や雑談と分け、6つの動きと3つの難所に分解して、どこに投資するかを考えます。"),
     ("shain-kyoiku-kikai.html", "社員が求めている教育機会", "求めるものと届くもののずれ、介入のタイミング、投資の返り方を図と計算機で確かめます。"),
+    ("tou-chikara.html", "問う力とは何か", "疑問が生まれる2つの条件、頭の問いと身体の問い、世界の鍛え方を図で整理します。"),
 ]
 START, END = "<!-- ZUKAI-SERIES START -->", "<!-- ZUKAI-SERIES END -->"
 # 色はリテラル。ページごとに var() の値が違うため（シリーズ1は独自パレット）。
@@ -30,7 +31,7 @@ CSS = """<style>
 .zsn .zsn-in{max-width:1008px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:22px}
 .zsn .zsn-h{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-weight:900;font-size:20px;letter-spacing:.12em;color:#F5C542}
 .zsn .zsn-h a{font-size:15px;letter-spacing:0;color:#F6F5F0}
-.zsn .zsn-g{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.zsn .zsn-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .zsn .zsn-c{display:flex;flex-direction:column;align-items:stretch;gap:8px;background:#222A32;color:#F6F5F0;border-radius:14px;padding:22px;text-decoration:none;border:3px solid transparent}
 .zsn a.zsn-c:hover{border-color:#F5C542;color:#F6F5F0}
 .zsn .zsn-c.cur{background:#F5C542;color:#14191E}
