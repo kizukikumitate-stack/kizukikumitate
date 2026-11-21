@@ -329,6 +329,11 @@
             "desc": "図解シリーズ3。学校、職場、地域、家庭で、学ぶ場を誰が誰のお金で誰に届けるのかを描く"
           },
           {
+            "label": "図解4｜対話とは何であって、何でないのか",
+            "href": "taiwa-towa.html",
+            "desc": "図解シリーズ4。対話を討論や雑談と分け、6つの動きと3つの難所に分解する"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html",
             "desc": "平和と民主主義とお金の流れを学ぶTEDトーク16本"
@@ -932,6 +937,10 @@
     },
     {
       "path": "minshushugi-kyoiku-roadmap.html",
+      "variant": "standard"
+    },
+    {
+      "path": "taiwa-towa.html",
       "variant": "standard"
     }
   ],

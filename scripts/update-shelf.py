@@ -78,6 +78,7 @@ LATE_REVEAL = {
     "ima-hitsuyona-gakushu.html": "超図解（縦に長い読み物）。スマホで本文に重なり読みづらいため、読み終わりで出す",
     "minshushugi-kyoiku-rekishi.html": "図解シリーズ2（縦に長い読み物）。同上の理由で読み終わりで出す",
     "minshushugi-kyoiku-roadmap.html": "図解シリーズ3（縦に長い読み物）。同上の理由で読み終わりで出す",
+    "taiwa-towa.html": "図解シリーズ4（縦に長い読み物）。同上の理由で読み終わりで出す",
 }
 
 EXCLUDE = {

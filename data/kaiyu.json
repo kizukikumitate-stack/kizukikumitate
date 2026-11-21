@@ -1478,6 +1478,21 @@
         "minshushugi-kyoiku-rekishi",
         "democracy-fitness"
       ]
+    },
+    {
+      "id": "taiwa-towa",
+      "path": "taiwa-towa.html",
+      "title": "図解で見る 対話とは何であって、何でないのか",
+      "tag": "世界の知恵",
+      "desc": "対話は討論でも雑談でも説得でもない。6つの動きと3つの難所に分解して考える。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-21",
+      "band": true,
+      "next": [
+        "dialogue-program",
+        "minshushugi-kyoiku-roadmap"
+      ]
     }
   ]
 }
