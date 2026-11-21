@@ -115,6 +115,26 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .stp .n{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:40px;line-height:1;color:#F5C542}
 .zk .stp h3{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:22px;line-height:1.4}
 .zk .stp p{font-size:15.5px;line-height:1.7}
+.zk .src li{font-size:14px;line-height:1.7;color:#4A5560;margin-bottom:6px}
+.zk .rg{display:flex;flex-direction:column;gap:14px}
+.zk .rg .rw{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:14px;align-items:center;font-weight:700;font-size:16px}
+.zk .rg .tk{position:relative;height:26px;border-radius:8px;background:#E7E3D6}
+.zk .rg .tk i{position:absolute;top:0;bottom:0;border-radius:8px;background:#1B4FA8;min-width:8px}
+.zk .rg .tk i.lo{background:#B23A0A}
+.zk .rg .tk u{position:absolute;top:-6px;bottom:-6px;left:12%;width:3px;background:#14191E}
+.zk .rg .rv{font-weight:900;text-align:right;white-space:nowrap}
+.zk .card .pct{font-weight:900;font-size:40px;line-height:1.15;color:#1B4FA8}
+.zk .g4 .card{padding:22px}
+.zk .g4 .card h3{font-size:19px}
+.zk .fee{background:#fff;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.zk .fee b{font-weight:900;font-size:22px;line-height:1.3}
+.zk .fee span{display:flex;justify-content:space-between;gap:10px;font-size:15.5px;line-height:1.7;border-top:1px solid #E7E3D6;padding-top:6px}
+.zk .fee span em{font-style:normal;font-weight:900}
+.zk .fee.lo{background:#F3D9CC;color:#4A1703}
+.zk .fee.lo span{border-top-color:#DDB6A3}
+.zk .ask{border-radius:14px;padding:32px;display:flex;flex-direction:column;gap:12px;background:#F5C542;color:#14191E}
+.zk .ask h3{font-weight:900;font-size:26px;line-height:1.4}
+.zk .ask p{font-size:17px;line-height:1.8}
 .zk .hist{display:flex;flex-direction:column;gap:8px;background:#fff;border-radius:14px;padding:32px;text-decoration:none;color:#14191E;border:3px solid #14191E}
 .zk .hist:hover{color:#14191E;background:#F6F5F0}
 .zk .hist .ht{font-weight:900;font-size:30px;line-height:1.4}
@@ -140,6 +160,10 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .hero{font-size:30px}.zk .st{font-size:24px;text-align:center}.zk .no{text-align:center;font-size:15px;letter-spacing:.04em}.zk .big{font-size:22px}.zk .lead{font-size:17px}
 .zk .g3,.zk .g4,.zk .g2,.zk .stp{grid-template-columns:minmax(0,1fr);gap:14px}
 .zk .tile b{font-size:30px}
+.zk .rg .rw{grid-template-columns:minmax(0,1fr);gap:4px}
+.zk .rg .rv{text-align:left}
+.zk .card .pct{font-size:34px}
+.zk .ask{padding:22px}.zk .ask h3{font-size:21px}
 .zk .chain{grid-template-columns:minmax(0,1fr);gap:8px}
 .zk .ch,.zk .cd{display:none}
 .zk .cn{justify-content:flex-start;font-size:34px;margin-top:16px}
@@ -829,6 +853,72 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </div></section>
 
+<section class="paper"><div class="wrap panel">
+<p class="no">8　いくらあればできるのか</p>
+<h2 class="st seg"><span>技術はすでにあります。</span><br><span>投資も</span><span>大きくありません。</span></h2>
+<p class="lead">対話の力を鍛える方法はすでに世界のあちこちで形になっています。足りないのは場と予算です。ではいくらあればできるのでしょうか。講師料を1日30万円と置いてざっと試算しました。</p>
+<div class="g3">
+<div class="card" style="background: #F6F5F0"><span class="k">企業・団体</span><p class="pct">約60万円</p><h3 class="seg"><span>25人が2日間で</span><span>10の筋肉をすべて体験</span></h3><p>1人あたり約2.4万円です。100人の会社が全員で受けても約240万円です。</p></div>
+<div class="card" style="background: #F6F5F0"><span class="k">自治体</span><p class="pct">年 約100万円</p><h3 class="seg"><span>住民向けの連続講座を</span><span>年に1本</span></h3><p>全5回・30人で、会場と広報を含めた目安です。職員研修を足しても年160万円ほどです。</p></div>
+<div class="card" style="background: #F6F5F0"><span class="k">学校</span><p class="pct">約30万円</p><h3 class="seg"><span>教員研修を1日</span></h3><p>先生が体験したあとは、授業の中で先生自身が続けていけます。</p></div>
+</div>
+<p class="cap">講師料1日30万円・1グループ25人と仮定した目安です。実際の費用は内容や人数によって変わります。</p>
+<h3 class="st seg" style="font-size: 30px"><span>1日30万円は</span><span>相場の中では低いほうです。</span></h3>
+<div class="rg">
+<div class="rw"><p>自治体の謝金基準（6時間）</p><div class="tk"><i class="lo" style="left: 0.5%; width: 2.3%"></i><u></u></div><p class="rv">約1.3万〜7万円</p></div>
+<div class="rw"><p>フリーランス講師に直接</p><div class="tk"><i style="left: 6%; width: 10%"></i><u></u></div><p class="rv">15万〜40万円</p></div>
+<div class="rw"><p>研修会社に依頼</p><div class="tk"><i style="left: 12%; width: 20%"></i><u></u></div><p class="rv">30万〜80万円</p></div>
+<div class="rw"><p>大手のコンサル系</p><div class="tk"><i style="left: 48%; width: 52%"></i><u></u></div><p class="rv">120万〜250万円</p></div>
+</div>
+<p class="cap">1日あたりの費用の目安です。黒い線が30万円の位置です。研修会社や発注サイトが公開している相場をもとにまとめました。公的な統計はありません。</p>
+<h3 class="st seg" style="font-size: 30px"><span>ほかの費用と比べると</span><span>とても小さな金額です。</span></h3>
+<div class="g4">
+<div class="card" style="background: #DCE8F7"><p class="pct">約2.6%</p><h3 class="seg"><span>新卒1人の</span><span>採用コストと比べて</span></h3><p>1人あたり約2.4万円は、新卒1人を採用する費用（平均93.6万円）の約2.6%です。</p></div>
+<div class="card" style="background: #DCE8F7"><p class="pct">約3分の2</p><h3 class="seg"><span>1人あたりの</span><span>教育研修費と比べて</span></h3><p>企業が従業員1人にかける教育研修費は年36,036円です。その1年分に収まります。</p></div>
+<div class="card" style="background: #DCE8F7"><p class="pct">約0.2%</p><h3 class="seg"><span>選挙1回の</span><span>経費と比べて</span></h3><p>年100万円の住民講座は、広島市が衆院選1回のために組んだ経費（約4.7億円）の約0.2%です。</p></div>
+<div class="card" style="background: #DCE8F7"><p class="pct">約0.0015%</p><h3 class="seg"><span>地方の歳出全体と</span><span>比べて</span></h3><p>全国1,741の市区町村が年100万円ずつ使っても約17億円。地方の歳出（約116兆円）の約0.0015%です。</p></div>
+</div>
+</div></section>
+
+<section class="sky"><div class="wrap panel">
+<p class="no">9　投資の効果</p>
+<h2 class="st seg"><span>効果は</span><span>時間が経つほど</span><br><span>積み上がっていきます。</span></h2>
+<p class="lead">対話の力は一度身につくと使うたびに鍛えられ、周りの人にも広がります。だから効果は足し算ではなく、複利のように積み上がると考えています。100人の会社を例に、どれだけ効果があれば元が取れるのかを計算しました。</p>
+<div class="slab">
+<p style="font-weight: 900; font-size: 22px">前提：100人の会社が10年続けた場合</p>
+<ul class="li">
+<li>投資：初年度に全員で受けて約240万円。翌年からは新しく入った人のために年約60万円。10年間の合計は約780万円です。</li>
+<li>人件費：1人あたり年500万円、合計で年5億円と仮定します。</li>
+<li>効果：仕事の質が毎年少しずつ上がり、それが翌年以降も残ると仮定します。</li>
+</ul>
+</div>
+<div class="g3">
+<div class="card"><span class="k">年0.03%ずつ良くなると</span><p class="pct">元が取れる</p><p>10年間の効果の合計が約780万円になり、投資額と並びます。1万分の3の改善です。</p></div>
+<div class="card"><span class="k">年0.1%ずつ良くなると</span><p class="pct">約3.5倍</p><p>10年間の効果の合計は約2,760万円。投資額の約3.5倍です。</p></div>
+<div class="card" style="background: #14191E; color: #F6F5F0"><span class="k" style="color: #F5C542">年0.5%ずつ良くなると</span><p class="pct" style="color: #F5C542">約18倍</p><p>10年間の効果の合計は約1億4,000万円。投資額の約18倍です。</p></div>
+</div>
+<p>もっと身近な計算もあります。1人を採用する費用は新卒で平均93.6万円、中途で平均103.3万円です。辞めずに済む人が毎年1人増えるだけで、年60万円の維持費を上回ります。大学を卒業して就職した人の31.2%が3年以内に辞めています。</p>
+<p class="cap">これは「どれだけ効果があれば元が取れるか」を示す計算です。効果の大きさを約束するものではありません。実際の効果は、離職率や対話の力の診断などで測りながら確かめていく必要があります。</p>
+</div></section>
+
+<section class="sun"><div class="wrap panel">
+<p class="no" style="color: #14191E">10　予算のお願い</p>
+<h2 class="st seg"><span>いまの価格帯では</span><br><span>教える側が続けられません。</span></h2>
+<p class="lead">2章で書いたとおり、教える側が続けられなければ場は続きません。1日あたりの対価と1年間に登壇できる日数から、実践者の年間の売上を計算してみます。1日の登壇には設計、準備、移動、営業の時間が別にかかります。</p>
+<div class="g4">
+<div class="fee lo"><b>謝金基準<br>1日 3.6万円</b><span>月1日<em>43万円</em></span><span>月2日<em>86万円</em></span><span>月4日<em>173万円</em></span></div>
+<div class="fee"><b>1日<br>15万円</b><span>月1日<em>180万円</em></span><span>月2日<em>360万円</em></span><span>月4日<em>720万円</em></span></div>
+<div class="fee"><b>1日<br>30万円</b><span>月1日<em>360万円</em></span><span>月2日<em>720万円</em></span><span>月4日<em>1,440万円</em></span></div>
+<div class="fee"><b>1日<br>50万円</b><span>月1日<em>600万円</em></span><span>月2日<em>1,200万円</em></span><span>月4日<em>2,400万円</em></span></div>
+</div>
+<p class="cap" style="color: #14191E">年間の売上の目安です。ここから交通費、教材費、準備や営業にかかる時間をまかないます。謝金基準は1時間6,000円で6時間とした場合です。</p>
+<p>行政の謝金基準では毎週登壇しても生活が成り立ちません。1日30万円でも、登壇が月に1日か2日の実践者には余裕がありません。この価格帯のままでは志のある人ほど続けられなくなります。</p>
+<div class="g2">
+<div class="ask"><h3 class="seg"><span>企業・団体の</span><span>みなさまへ</span></h3><p>研修費のうち1人あたり年2万〜3万円を対話の練習に充ててください。新しい予算を積まなくても、いまの教育研修費の中で組み替えられる金額です。</p></div>
+<div class="ask"><h3 class="seg"><span>自治体の</span><span>みなさまへ</span></h3><p>住民講座と職員研修に年100万〜160万円を用意してください。時間あたりの謝金ではなく委託事業や研修費として組んでいただくことで、地域の実践者が続けられます。</p></div>
+</div>
+</div></section>
+
 <section class="sun"><div class="wrap panel">
 <p class="no" style="color: #14191E">おわりに</p>
 <h2 class="st seg"><span>一人では、</span><span>届けきれません。</span><br><span>一緒に広げていきませんか。</span></h2>
@@ -836,6 +926,17 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <a class="btn" href="democracy-fitness.html">体験会と研修を見る</a>
 <p><a class="back" href="zukai-series.html">図解シリーズの一覧へ</a>　／　<a class="back" href="index.html">トップページへ</a></p>
 <p class="cap" style="color: #14191E">きづきくみたて工房　森本康仁</p>
+</div></section>
+<section class="paper"><div class="wrap panel" style="gap: 20px">
+<h2 style="font-size: 20px; font-weight: 900">参考にした資料</h2>
+<ul class="src">
+<li><a href="https://hondana-storage.s3.amazonaws.com/1244/files/pr_2510.pdf.pdf">産労総合研究所「2025年度（第49回）教育研修費用の実態調査」</a>（従業員1人あたりの教育研修費用 36,036円）</li>
+<li><a href="https://imitsu.jp/cost/training/">PRONIアイミツ「社員研修の費用相場」</a>／<a href="https://atsoho.com/blog/compliance-kenshu-hiyo">研修の依頼先別の費用相場の解説</a>／<a href="https://www.issoh.co.jp/column/details/15999/">提供会社のタイプ別の価格帯の解説</a>（講師派遣1日あたりの相場）</li>
+<li><a href="https://www.pref.gifu.lg.jp/uploaded/attachment/396470.pdf">岐阜県「研修講師等に対する謝金（報償費）支給基準」</a>／<a href="https://wwwtb.mlit.go.jp/hokushin/content/000373641.pdf">国土交通省 北陸信越運輸局「講師謝金支給基準（令和8年度）」</a></li>
+<li>就職みらい研究所「就職白書2020」（1人あたりの平均採用コスト：新卒93.6万円、中途103.3万円）</li>
+<li><a href="https://www.mhlw.go.jp/stf/houdou/0000177553_00011.html">厚生労働省「新規学卒就職者の離職状況（令和5年3月卒業者）」</a></li>
+<li><a href="https://www.city.hiroshima.lg.jp/shisei/kouhou/1004010/1027481/1027482/1030191.html">広島市「衆議院議員総選挙等の執行に係る補正予算の専決処分」2024年10月</a>／<a href="https://www.soumu.go.jp/main_content/001084184.pdf">総務省「令和8年版地方財政白書」のポイント</a>（令和6年度の地方の歳出 115兆9,823億円）</li>
+</ul>
 </div></section>
 </main>
 
