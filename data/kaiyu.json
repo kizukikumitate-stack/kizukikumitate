@@ -1493,6 +1493,21 @@
         "dialogue-program",
         "minshushugi-kyoiku-roadmap"
       ]
+    },
+    {
+      "id": "shain-kyoiku-kikai",
+      "path": "shain-kyoiku-kikai.html",
+      "title": "図解で見る 社員が求めている教育機会",
+      "tag": "世界の知恵",
+      "desc": "学びたい人は9割、学べている人は3分の1。ずれと介入のタイミング、投資の返り方を図と計算機で。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-21",
+      "band": true,
+      "next": [
+        "taiwa-towa",
+        "ima-hitsuyona-gakushu"
+      ]
     }
   ]
 }
