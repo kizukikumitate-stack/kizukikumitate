@@ -119,6 +119,20 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .card .vq{font-size:17px;line-height:1.85;font-weight:700}
 .zk .sb{display:flex;height:64px;border-radius:12px;overflow:hidden;font-weight:900;font-size:17px;color:#14191E}
 .zk .sb span{display:flex;align-items:center;justify-content:center;text-align:center;padding:0 6px;line-height:1.3}
+.zk .ldw{display:flex;flex-direction:column;gap:12px}
+.zk .ld{display:grid;grid-template-columns:130px minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:center;background:#F6F5F0;border-radius:14px;padding:20px 28px}
+.zk .ld.top{background:#14191E;color:#F6F5F0}
+.zk .ld .ln{font-weight:900;font-size:34px;line-height:1.2;color:#1B4FA8;text-align:left}
+.zk .ld.top .ln{color:#F5C542}
+.zk .ld .lw{font-size:17px;line-height:1.6;text-align:left}
+.zk .ld .lm{font-weight:900;font-size:30px;line-height:1.2;white-space:nowrap;text-align:left}
+.zk .ld .lq{font-size:15.5px;line-height:1.6;text-align:left}
+.zk .ld .lq b{display:block;font-size:12px;letter-spacing:.1em;color:#1B4FA8}
+.zk .ld.top .lq b{color:#F5C542}
+.zk .more{background:#F6F5F0;border-radius:14px;padding:20px 28px}
+.zk .more summary{font-weight:900;font-size:17px;cursor:pointer;color:#1B4FA8;min-height:44px;display:flex;align-items:center}
+.zk .more>div{display:flex;flex-direction:column;gap:18px;margin-top:14px}
+.zk .more li{font-size:15.5px;line-height:1.8;margin-bottom:8px}
 .zk .rg{display:flex;flex-direction:column;gap:14px}
 .zk .rg .rw{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:14px;align-items:center;font-weight:700;font-size:16px}
 .zk .rg .tk{position:relative;height:26px;border-radius:8px;background:#E7E3D6}
@@ -168,6 +182,9 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .rg .rv{text-align:left}
 .zk .card .pct{font-size:34px}
 .zk .sb{font-size:12.5px;height:56px}
+.zk .ld{grid-template-columns:minmax(0,1fr);gap:4px;padding:18px 20px}
+.zk .ld .ln{font-size:26px}.ld .lm{font-size:26px}
+.zk .more{padding:16px 18px}
 .zk .ask{padding:22px}.zk .ask h3{font-size:21px}
 .zk .chain{grid-template-columns:minmax(0,1fr);gap:8px}
 .zk .ch,.zk .cd{display:none}
@@ -881,44 +898,42 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 <section class="paper"><div class="wrap panel">
 <p class="no">8　いくらあれば最低限できるのか</p>
-<h2 class="st seg"><span>技術はすでにあります。</span><br><span>投資も</span><span>大きくありません。</span></h2>
-<p class="lead">対話の力を鍛える方法はすでに世界のあちこちで形になっています。足りないのは場と予算です。では最低限いくらあればできるのでしょうか。実施費用を1日30万円と置いてざっと試算しました。</p>
-<div class="g3">
-<div class="card" style="background: #F6F5F0"><span class="k">企業・団体</span><p class="pct">約60万円</p><h3 class="seg"><span>25人が2日間で</span><span>10の筋肉をすべて体験</span></h3><p>1人あたり約2.4万円です。100人の会社が全員で受けても約240万円です。</p></div>
-<div class="card" style="background: #F6F5F0"><span class="k">自治体</span><p class="pct">年 約100万円</p><h3 class="seg"><span>住民向けの連続講座を</span><span>年に1本</span></h3><p>全5回・30人で、会場と広報を含めた目安です。職員研修を足しても年160万円ほどです。</p></div>
-<div class="card" style="background: #F6F5F0"><span class="k">学校</span><p class="pct">約30万円</p><h3 class="seg"><span>教員研修を1日</span></h3><p>先生が体験したあとは、授業の中で先生自身が続けていけます。</p></div>
+<h2 class="st seg"><span>1人1万円から</span><span>始められます。</span></h2>
+<p class="lead">対話の力を鍛える方法はすでに世界のあちこちで形になっています。足りないのは場と予算です。では最低限いくらあればできるのでしょうか。1回の実施費用を30万円、参加を30人までとすると1人あたり1万円です。この1万円を単位にして、チームから国まで広げてみます。</p>
+<div class="ldw">
+<div class="ld"><p class="ln">チーム</p><p class="lw">30人が1回</p><p class="lm">30万円</p><p class="lq"><b>決める人</b>上司とメンバー</p></div>
+<div class="ld"><p class="ln">組織</p><p class="lw">300人の会社で全員</p><p class="lm">300万円</p><p class="lq"><b>決める人</b>経営、人事、社員</p></div>
+<div class="ld"><p class="ln">地域</p><p class="lw">人口1万人の町で350人</p><p class="lm">約350万円</p><p class="lq"><b>決める人</b>首長、議会、住民</p></div>
+<div class="ld top"><p class="ln">国</p><p class="lw">1億2,000万人の全員が10年かけて</p><p class="lm">年 約1,200億円</p><p class="lq"><b>決める人</b>国会、省庁、有権者</p></div>
 </div>
-<p class="cap">実施費用1日30万円・1グループ25人と仮定した目安です。実際の費用は内容や人数によって変わります。</p>
-<h3 class="st seg" style="font-size: 30px"><span>1日30万円は</span><span>相場の中では低いほうです。</span></h3>
+<p class="big seg"><span>国民1人あたり年1,000円を10年。</span><br><span>それで全員に1回ずつ届きます。</span></p>
+<div class="g2">
+<div class="card" style="background: #DCE8F7"><p class="pct">約3割</p><h3 class="seg"><span>組織では</span><span>いまの研修費の中で</span></h3><p>企業が従業員1人にかける教育研修費は年36,036円です。1人1万円はその約3割で、新しい予算を積まなくても組み替えられます。</p></div>
+<div class="card" style="background: #DCE8F7"><p class="pct">約0.1%</p><h3 class="seg"><span>国では</span><span>一般会計と比べて</span></h3><p>年約1,200億円は、令和8年度の国の一般会計（122兆3,092億円）の約0.1%です。文部科学省の予算と比べると約2%です。</p></div>
+</div>
+<div class="slab">
+<p style="font-weight: 900; font-size: 22px">最初の目標は、3.5%です。</p>
+<p>全員でなくても、一部の人から社会は変わり始めると言われています。社会運動の研究では、人口の3.5%が参加した運動のほとんどが成功していました。日本なら420万人、約420億円です。10年かけるなら年約42億円です。その先に、広がりが加速すると言われる16%、集団の慣習が入れ替わったという実験の25%があります。</p>
+</div>
+<p>1人1万円は、始めるための金額です。対話の力は1回では身につきません。10の筋肉をすべて体験する2日間のプログラムは、25人で約60万円、1人あたり約2.4万円が目安です。続けて鍛える費用は、その先に別にかかります。</p>
+<details class="more"><summary>くわしい計算と前提を見る</summary><div>
+<ul class="li">
+<li>1回30万円で30人という前提は、毎回30人が集まる場合の数字です。人数が少なければ1人あたりは高くなります。</li>
+<li>全員が1年で受ける場合は約1兆2,000億円で、文部科学省の予算（5兆8,809億円）の約20%、国の一般会計の約1%にあたります。</li>
+<li>3.5%は420万人で約420億円、16%は1,920万人で約1,920億円、25%は3,000万人で約3,000億円です。</li>
+<li>3つの割合は、政治の運動、商品の普及、実験の中の慣習という別々の場面で得られた目安です。対話のトレーニングに同じ割合が当てはまると確かめられたわけではありません。3.5%には例外があり、25%は実験によって15〜35%の幅がありました。一度受けた人がそのまま変化の担い手になるとも限りません。</li>
+<li>1人1万円は、新卒1人を採用する費用（平均93.6万円）の約1%です。</li>
+<li>自治体が住民向けの連続講座を年に1本開く場合は、全5回・30人で会場と広報を含めて年約100万円が目安です。広島市が衆院選1回のために組んだ経費（約4.7億円）の約0.2%です。全国1,741の市区町村が年100万円ずつ使っても約17億円で、地方の歳出（約116兆円）の約0.0015%です。</li>
+</ul>
+<p class="k">1日あたりの実施費用の相場</p>
 <div class="rg">
 <div class="rw"><p>自治体の謝金基準（6時間）</p><div class="tk"><i class="lo" style="left: 0.5%; width: 2.3%"></i><u></u></div><p class="rv">約1.3万〜7万円</p></div>
 <div class="rw"><p>フリーランス講師に直接</p><div class="tk"><i style="left: 6%; width: 10%"></i><u></u></div><p class="rv">15万〜40万円</p></div>
 <div class="rw"><p>研修会社に依頼</p><div class="tk"><i style="left: 12%; width: 20%"></i><u></u></div><p class="rv">30万〜80万円</p></div>
 <div class="rw"><p>大手のコンサル系</p><div class="tk"><i style="left: 48%; width: 52%"></i><u></u></div><p class="rv">120万〜250万円</p></div>
 </div>
-<p class="cap">1日あたりの費用の目安です。黒い線が30万円の位置です。研修会社や発注サイトが公開している相場をもとにまとめました。公的な統計はありません。</p>
-<h3 class="st seg" style="font-size: 30px"><span>ほかの費用と比べると</span><span>とても小さな金額です。</span></h3>
-<div class="g4">
-<div class="card" style="background: #DCE8F7"><p class="pct">約2.6%</p><h3 class="seg"><span>新卒1人の</span><span>採用コストと比べて</span></h3><p>1人あたり約2.4万円は、新卒1人を採用する費用（平均93.6万円）の約2.6%です。</p></div>
-<div class="card" style="background: #DCE8F7"><p class="pct">約3分の2</p><h3 class="seg"><span>1人あたりの</span><span>教育研修費と比べて</span></h3><p>企業が従業員1人にかける教育研修費は年36,036円です。その1年分に収まります。</p></div>
-<div class="card" style="background: #DCE8F7"><p class="pct">約0.2%</p><h3 class="seg"><span>選挙1回の</span><span>経費と比べて</span></h3><p>年100万円の住民講座は、広島市が衆院選1回のために組んだ経費（約4.7億円）の約0.2%です。</p></div>
-<div class="card" style="background: #DCE8F7"><p class="pct">約0.0015%</p><h3 class="seg"><span>地方の歳出全体と</span><span>比べて</span></h3><p>全国1,741の市区町村が年100万円ずつ使っても約17億円。地方の歳出（約116兆円）の約0.0015%です。</p></div>
-</div>
-<h3 class="st seg" style="font-size: 30px"><span>日本に住む全員が受けたとしても</span><span>国の予算の約1%です。</span></h3>
-<div class="g3">
-<div class="card" style="background: #F6F5F0"><p class="pct">約1.2兆円</p><h3 class="seg"><span>1億2,000万人の全員が</span><span>1回ずつ受けた場合</span></h3><p>1回30万円で30人が受けると1人あたり1万円です。全員分で約1兆2,000億円になります。子どもから高齢の方まで含めた大づかみの数字です。</p></div>
-<div class="card" style="background: #F6F5F0"><p class="pct">年 約2%</p><h3 class="seg"><span>文部科学省の予算と</span><span>比べて</span></h3><p>10年かけて届けると年約1,200億円です。令和8年度の文部科学省の予算（5兆8,809億円）の約2.0%にあたります。</p></div>
-<div class="card" style="background: #F6F5F0"><p class="pct">年 約0.1%</p><h3 class="seg"><span>国の予算と</span><span>比べて</span></h3><p>同じく年約1,200億円は、令和8年度の国の一般会計（122兆3,092億円）の約0.1%です。</p></div>
-</div>
-<p class="cap">1年ですべて行う場合は、文部科学省の予算の約20%、国の一般会計の約1%にあたります。1回30万円で30人まで受けられると仮定し、1人が1回受ける場合で計算しました。</p>
-<h3 class="st seg" style="font-size: 30px"><span>全員でなくても</span><span>一部の人から社会は変わり始めます。</span></h3>
-<p>社会の変化には、ある割合を超えると一気に広がる「ティッピングポイント」があると言われています。研究で示されてきた3つの目安に当てはめて、必要な人数と費用を計算しました。</p>
-<div class="g3">
-<div class="card" style="background: #DCE8F7"><span class="k">3.5%：社会運動の研究</span><p class="pct">約420億円</p><h3 class="seg"><span>420万人が</span><span>受けた場合</span></h3><p>非暴力の運動に人口の3.5%が参加すると、ほとんどが成功したという研究があります。文部科学省の予算の約0.7%です。</p></div>
-<div class="card" style="background: #DCE8F7"><span class="k">16%：普及の理論</span><p class="pct">約1,920億円</p><h3 class="seg"><span>1,920万人が</span><span>受けた場合</span></h3><p>新しいものは、最初の16%に届くと広がりが加速すると言われています。文部科学省の予算の約3.3%です。</p></div>
-<div class="card" style="background: #DCE8F7"><span class="k">25%：社会の慣習の実験</span><p class="pct">約3,000億円</p><h3 class="seg"><span>3,000万人が</span><span>受けた場合</span></h3><p>集団の約25%が新しいやり方を続けると、全体の慣習が入れ替わったという実験があります。文部科学省の予算の約5.1%です。</p></div>
-</div>
-<p class="cap">1人あたり1万円で、1回ずつ受けた場合の合計です。3つの目安は政治の運動、商品の普及、実験の中の慣習という別々の場面で得られたもので、対話のトレーニングに同じ割合が当てはまると確かめられたわけではありません。3.5%には例外があり、25%は実験によって15〜35%の幅がありました。一度受けた人がそのまま変化の担い手になるとも限りません。</p>
+<p class="cap">黒い線が30万円の位置です。研修会社や発注サイトが公開している相場をもとにまとめました。公的な統計はありません。1日30万円は相場の中では低いほうです。</p>
+</div></details>
 </div></section>
 
 <section class="sky"><div class="wrap panel">
@@ -955,7 +970,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div></section>
 
 <section class="sun"><div class="wrap panel">
-<p class="no" style="color: #14191E">10　予算のお願い</p>
+<p class="no" style="color: #14191E">10　実践者の実情</p>
 <h2 class="st seg"><span>いまの価格帯では</span><br><span>教える側が続けられません。</span></h2>
 <p class="lead">「1日30万円ももらえれば十分ではないか」と感じる方もいると思います。けれども30万円は、登壇した1日の対価ではありません。その裏にある準備の日数、経費、税金や社会保険料をまかなったあとに残るものが、実践者の生活費です。</p>
 <p class="k" style="color: #14191E">1日30万円の行き先（個人で直接受けた場合の目安）</p>
@@ -972,9 +987,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 <p class="cap" style="color: #14191E">経費の割合、税金と社会保険料の割合、準備にかかる日数は仮定です。研修会社を通して受ける場合は、講師に渡るのは研修費用の4〜5割ほどという解説もあり、手元に残る額はさらに小さくなります。</p>
 <p>1日30万円でも余裕があるわけではありません。行政の謝金基準ではまったく成り立ちません。この価格帯のままでは志のある人ほど続けられなくなります。</p>
-<div class="g2">
-<div class="ask"><h3 class="seg"><span>企業・団体の</span><span>みなさまへ</span></h3><p>研修費のうち1人あたり年2万〜3万円を対話の練習に充ててください。新しい予算を積まなくても、いまの教育研修費の中で組み替えられる金額です。</p></div>
-<div class="ask"><h3 class="seg"><span>自治体の</span><span>みなさまへ</span></h3><p>住民講座と職員研修のために、追加で年100万〜160万円を用意してください。時間あたりの謝金ではなく委託事業や研修費として組んでいただくことで、地域の実践者が続けられます。</p></div>
+</div></section>
+
+<section class="ink"><div class="wrap panel">
+<p class="no">11　みんなで決める</p>
+<h2 class="st seg"><span>何にお金を使うかを</span><span>話し合って決めること。</span><br><span>それ自体が民主主義です。</span></h2>
+<p class="lead">ここまでの数字は、誰かにお願いするためのものではありません。職場で、地域で、国で、何に投資するのかをみんなで話し合うための材料です。人への投資を、組織ぐるみ、地域ぐるみ、国ぐるみで決めていきましょう。</p>
+<div class="g3">
+<div class="card"><span class="k">働く方</span><h3 class="seg"><span>職場に提案する</span></h3><p>研修に対話の練習を入れてほしいと声に出してみてください。30人のチームなら30万円です。</p></div>
+<div class="card"><span class="k">経営・人事の方</span><h3 class="seg"><span>研修費を</span><span>組み替える</span></h3><p>いまの教育研修費の中から1人1万円を対話の練習に充ててください。新しい予算を積まなくても始められます。</p></div>
+<div class="card"><span class="k">住民の方</span><h3 class="seg"><span>自治体の予算に</span><span>意見を出す</span></h3><p>計画や予算への意見募集、議員への相談など、入口はいくつもあります。人口1万人の町なら約350万円が最初の目標です。</p></div>
+<div class="card"><span class="k">議員・首長・行政の方</span><h3 class="seg"><span>事業として</span><span>予算を組む</span></h3><p>住民講座と職員研修のために、追加で年100万〜160万円が目安です。時間あたりの謝金ではなく委託事業や研修費として組むことで、地域の実践者が続けられます。</p></div>
+<div class="card"><span class="k">実践者の方</span><h3 class="seg"><span>数字を持って</span><span>地元で提案する</span></h3><p>このページの数字と前提を、提案の材料に使ってください。うまくいった形もいかなかった形も持ち寄って、一緒に磨いていきましょう。</p></div>
+<div class="card" style="background: #F5C542; color: #14191E"><span class="k" style="color: #14191E">私の立場</span><h3 class="seg"><span>数字と前提を</span><span>すべて開きます</span></h3><p>私自身も対価を受け取る立場です。だからこそ計算の前提を隠さずに載せました。おかしいと思う点があれば、ぜひ教えてください。</p></div>
 </div>
 </div></section>
 
