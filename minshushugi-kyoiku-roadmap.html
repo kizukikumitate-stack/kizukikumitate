@@ -117,6 +117,8 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .stp p{font-size:15.5px;line-height:1.7}
 .zk .src li{font-size:14px;line-height:1.7;color:#4A5560;margin-bottom:6px}
 .zk .card .vq{font-size:17px;line-height:1.85;font-weight:700}
+.zk .sb{display:flex;height:64px;border-radius:12px;overflow:hidden;font-weight:900;font-size:17px;color:#14191E}
+.zk .sb span{display:flex;align-items:center;justify-content:center;text-align:center;padding:0 6px;line-height:1.3}
 .zk .rg{display:flex;flex-direction:column;gap:14px}
 .zk .rg .rw{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:14px;align-items:center;font-weight:700;font-size:16px}
 .zk .rg .tk{position:relative;height:26px;border-radius:8px;background:#E7E3D6}
@@ -127,6 +129,7 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .card .pct{font-weight:900;font-size:40px;line-height:1.15;color:#1B4FA8}
 .zk .g4 .card{padding:22px}
 .zk .g4 .card h3{font-size:19px}
+.zk .g4 .card .pct{font-size:30px;white-space:nowrap}
 .zk .fee{background:#fff;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px}
 .zk .fee b{font-weight:900;font-size:22px;line-height:1.3}
 .zk .fee span{display:flex;justify-content:space-between;gap:10px;font-size:15.5px;line-height:1.7;border-top:1px solid #E7E3D6;padding-top:6px}
@@ -164,6 +167,7 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .rg .rw{grid-template-columns:minmax(0,1fr);gap:4px}
 .zk .rg .rv{text-align:left}
 .zk .card .pct{font-size:34px}
+.zk .sb{font-size:12.5px;height:56px}
 .zk .ask{padding:22px}.zk .ask h3{font-size:21px}
 .zk .chain{grid-template-columns:minmax(0,1fr);gap:8px}
 .zk .ch,.zk .cd{display:none}
@@ -905,20 +909,28 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="sky"><div class="wrap panel">
 <p class="no">9　投資の効果</p>
 <h2 class="st seg"><span>効果は</span><span>時間が経つほど</span><br><span>積み上がっていきます。</span></h2>
-<p class="lead">対話の力は一度身につくと使うたびに鍛えられ、周りの人にも広がります。だから効果は足し算ではなく、複利のように積み上がると考えています。100人の会社を例に、どれだけ効果があれば元が取れるのかを計算しました。</p>
+<p class="lead">対話の力は一度身につくと使うたびに鍛えられ、周りの人にも広がります。だから効果は複利のように積み上がると考えています。ただし人の行動はすぐに劇的には変わりません。そこで、ごく小さな変化が毎年少しずつ積み上がる場合を計算しました。</p>
+<p class="k">まず、目安になる数字</p>
+<div class="g4">
+<div class="card"><p class="pct">平均66日</p><h3 class="seg"><span>新しい行動が</span><span>習慣になるまで</span></h3><p>習慣づくりを調べた研究では、新しい行動が自然にできるようになるまで平均66日かかりました。人によって18日から254日の幅があります。</p></div>
+<div class="card"><p class="pct">年約61時間</p><h3 class="seg"><span>ムダだと感じる</span><span>会議の時間</span></h3><p>1,500人規模の会社での推計を1人あたりに直した数字です。年2,000時間働くとすると約3%、人件費では1人あたり年約14万円です。</p></div>
+<div class="card"><p class="pct">年0.2〜1.4%</p><h3 class="seg"><span>日本全体の</span><span>生産性の伸び</span></h3><p>時間あたりの実質労働生産性の上昇率は、2024年度が0.2%、2025年度が1.4%でした。国全体でも1年に動くのはこのくらいです。</p></div>
+<div class="card"><p class="pct">年6〜7%</p><h3 class="seg"><span>大学教育の</span><span>投資としての収益率</span></h3><p>大卒と高卒の賃金の差から計算した、大学教育への投資の収益率です。研究ではおおむね6〜7%で推移してきました。</p></div>
+</div>
 <div class="slab">
 <p style="font-weight: 900; font-size: 22px">前提：100人の会社が10年続けた場合</p>
 <ul class="li">
 <li>投資：初年度に全員で受けて約240万円。翌年からは新しく入った人のために年約60万円。10年間の合計は約780万円です。</li>
-<li>人件費：1人あたり年500万円、合計で年5億円と仮定します。</li>
-<li>効果：仕事の質が毎年少しずつ上がり、それが翌年以降も残ると仮定します。</li>
+<li>人件費：1人あたり年500万円、年2,000時間働くと仮定します。会社全体では年5億円です。</li>
+<li>効果：会議や話し合いの質が上がり、1人あたりの時間が毎年少しずつ有効に使えるようになると仮定します。前の年の分は翌年以降も残ります。</li>
 </ul>
 </div>
 <div class="g3">
-<div class="card"><span class="k">年0.03%ずつ良くなると</span><p class="pct">元が取れる</p><p>10年間の効果の合計が約780万円になり、投資額と並びます。1万分の3の改善です。</p></div>
-<div class="card"><span class="k">年0.1%ずつ良くなると</span><p class="pct">約3.5倍</p><p>10年間の効果の合計は約2,760万円。投資額の約3.5倍です。</p></div>
-<div class="card" style="background: #14191E; color: #F6F5F0"><span class="k" style="color: #F5C542">年0.5%ずつ良くなると</span><p class="pct" style="color: #F5C542">約18倍</p><p>10年間の効果の合計は約1億4,000万円。投資額の約18倍です。</p></div>
+<div class="card"><span class="k">1人あたり毎年36分ぶん（年0.03%）</span><p class="pct">元が取れる</p><p>10年間の効果の合計が約780万円になり、投資額と並びます。10年目でも1人あたり年6時間ぶんで、ムダだと感じる会議の1割ほどです。</p></div>
+<div class="card"><span class="k">1人あたり毎年2時間ぶん（年0.1%）</span><p class="pct">約3.5倍</p><p>10年間の効果の合計は約2,760万円です。10年目で1人あたり年20時間ぶん。ムダだと感じる会議の3分の1ほどが減る計算です。</p></div>
+<div class="card" style="background: #14191E; color: #F6F5F0"><span class="k" style="color: #F5C542">1人あたり毎年10時間ぶん（年0.5%）</span><p class="pct" style="color: #F5C542">約18倍</p><p>10年間の効果の合計は約1億4,000万円です。10年目で1人あたり年約100時間ぶん。週に2時間ほどの余裕が生まれる計算です。</p></div>
 </div>
+<p>大学教育と比べてみます。1人あたり毎年約43分ぶんの改善が積み上がると、この投資の収益率は年6〜7%になり、大学教育と並びます。毎年2時間ぶんなら年約40%です。必要な変化はとても小さいのに、積み上がると大きな差になります。</p>
 <p>もっと身近な計算もあります。1人を採用する費用は新卒で平均93.6万円、中途で平均103.3万円です。辞めずに済む人が毎年1人増えるだけで、年60万円の維持費を上回ります。大学を卒業して就職した人の31.2%が3年以内に辞めています。</p>
 <p class="cap">これは「どれだけ効果があれば元が取れるか」を示す計算です。効果の大きさを約束するものではありません。実際の効果は、離職率や対話の力の診断などで測りながら確かめていく必要があります。</p>
 </div></section>
@@ -926,15 +938,21 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="sun"><div class="wrap panel">
 <p class="no" style="color: #14191E">10　予算のお願い</p>
 <h2 class="st seg"><span>いまの価格帯では</span><br><span>教える側が続けられません。</span></h2>
-<p class="lead">2章で書いたとおり、教える側が続けられなければ場は続きません。1日あたりの対価と1年間に登壇できる日数から、実践者の年間の売上を計算してみます。1日の登壇には設計、準備、移動、営業の時間が別にかかります。</p>
-<div class="g4">
-<div class="fee lo"><b>謝金基準<br>1日 3.6万円</b><span>月1日<em>43万円</em></span><span>月2日<em>86万円</em></span><span>月4日<em>173万円</em></span></div>
-<div class="fee"><b>1日<br>15万円</b><span>月1日<em>180万円</em></span><span>月2日<em>360万円</em></span><span>月4日<em>720万円</em></span></div>
-<div class="fee"><b>1日<br>30万円</b><span>月1日<em>360万円</em></span><span>月2日<em>720万円</em></span><span>月4日<em>1,440万円</em></span></div>
-<div class="fee"><b>1日<br>50万円</b><span>月1日<em>600万円</em></span><span>月2日<em>1,200万円</em></span><span>月4日<em>2,400万円</em></span></div>
+<p class="lead">「1日30万円ももらえれば十分ではないか」と感じる方もいると思います。けれども30万円は、登壇した1日の対価ではありません。その裏にある準備の日数、経費、税金や社会保険料をまかなったあとに残るものが、実践者の生活費です。</p>
+<p class="k" style="color: #14191E">1日30万円の行き先（個人で直接受けた場合の目安）</p>
+<div class="sb"><span style="flex: 25; background: #B9BDB8">経費</span><span style="flex: 22.5; background: #8A9199; color: #fff">税・社会保険</span><span style="flex: 52.5; background: #14191E; color: #F5C542">手元に残る 約16万円</span></div>
+<div class="g3">
+<div class="card"><p class="pct">約7.5万円</p><h3 class="seg"><span>経費</span></h3><p>交通費、宿泊費、教材、道具、資格の更新、学び続けるための費用です。売上の4分の1と仮定しました。</p></div>
+<div class="card"><p class="pct">約7万円</p><h3 class="seg"><span>税金と社会保険料</span></h3><p>所得税、住民税、国民健康保険、国民年金などです。経費を引いた残りの約3割と仮定しました。</p></div>
+<div class="card" style="background: #14191E; color: #F6F5F0"><p class="pct" style="color: #F5C542">約16万円</p><h3 class="seg"><span>手元に残る金額</span></h3><p>ここから生活費と、仕事が途切れたときの備えを出します。会社員のような有給休暇や退職金はありません。</p></div>
 </div>
-<p class="cap" style="color: #14191E">年間の売上の目安です。ここから交通費、教材費、準備や営業にかかる時間をまかないます。謝金基準は1時間6,000円で6時間とした場合です。</p>
-<p>行政の謝金基準では毎週登壇しても生活が成り立ちません。1日30万円でも、登壇が月に1日か2日の実践者には余裕がありません。この価格帯のままでは志のある人ほど続けられなくなります。</p>
+<div class="g3">
+<div class="card"><p class="pct">5日</p><h3 class="seg"><span>1日の登壇に</span><span>かかる日数</span></h3><p>打ち合わせ、設計、資料づくり、移動、振り返りに4日ほどかかります。約16万円を5日で割ると、1日あたり約3万円です。</p></div>
+<div class="card"><p class="pct" style="white-space: nowrap">年約380万円</p><h3 class="seg"><span>月に2日</span><span>登壇した場合</span></h3><p>年24日の登壇で、手元に残るのは約380万円です。登壇のない日も営業、発信、学びにあてていて、そこに対価は出ません。</p></div>
+<div class="card" style="background: #F3D9CC; color: #4A1703"><p class="pct" style="color: #7A2606; font-size: 32px; white-space: nowrap">1日約4,000円</p><h3 class="seg"><span>行政の</span><span>謝金基準の場合</span></h3><p>1時間6,000円で6時間なら3.6万円です。同じ計算をすると手元に約2万円。5日で割ると1日あたり約4,000円です。</p></div>
+</div>
+<p class="cap" style="color: #14191E">経費の割合、税金と社会保険料の割合、準備にかかる日数は仮定です。研修会社を通して受ける場合は、講師に渡るのは研修費用の4〜5割ほどという解説もあり、手元に残る額はさらに小さくなります。</p>
+<p>1日30万円でも余裕があるわけではありません。行政の謝金基準ではまったく成り立ちません。この価格帯のままでは志のある人ほど続けられなくなります。</p>
 <div class="g2">
 <div class="ask"><h3 class="seg"><span>企業・団体の</span><span>みなさまへ</span></h3><p>研修費のうち1人あたり年2万〜3万円を対話の練習に充ててください。新しい予算を積まなくても、いまの教育研修費の中で組み替えられる金額です。</p></div>
 <div class="ask"><h3 class="seg"><span>自治体の</span><span>みなさまへ</span></h3><p>住民講座と職員研修に年100万〜160万円を用意してください。時間あたりの謝金ではなく委託事業や研修費として組んでいただくことで、地域の実践者が続けられます。</p></div>
@@ -956,6 +974,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <li><a href="https://imitsu.jp/cost/training/">PRONIアイミツ「社員研修の費用相場」</a>／<a href="https://atsoho.com/blog/compliance-kenshu-hiyo">研修の依頼先別の費用相場の解説</a>／<a href="https://www.issoh.co.jp/column/details/15999/">提供会社のタイプ別の価格帯の解説</a>（講師派遣1日あたりの相場）</li>
 <li><a href="https://www.pref.gifu.lg.jp/uploaded/attachment/396470.pdf">岐阜県「研修講師等に対する謝金（報償費）支給基準」</a>／<a href="https://wwwtb.mlit.go.jp/hokushin/content/000373641.pdf">国土交通省 北陸信越運輸局「講師謝金支給基準（令和8年度）」</a></li>
 <li>就職みらい研究所「就職白書2020」（1人あたりの平均採用コスト：新卒93.6万円、中途103.3万円）</li>
+<li><a href="https://www.itmedia.co.jp/business/spv/1901/31/news026_3.html">パーソル総合研究所・中原淳「長時間労働に関する実態調査」</a>（ムダだと感じる会議の時間と人件費の推計）／Lally ほか「How are habits formed: Modelling habit formation in the real world」European Journal of Social Psychology 2010</li>
+<li><a href="https://kyodonewsprwire.jp/release/202511078673">日本生産性本部「日本の労働生産性の動向2025」</a>、同「2026」／<a href="https://www.jil.go.jp/institute/zassi/backnumber/2018/05/pdf/029-038.pdf">北條雅一「学歴収益率についての研究の現状と課題」日本労働研究雑誌 2018</a></li>
 <li><a href="https://www.mhlw.go.jp/stf/houdou/0000177553_00011.html">厚生労働省「新規学卒就職者の離職状況（令和5年3月卒業者）」</a></li>
 <li><a href="https://www.city.hiroshima.lg.jp/shisei/kouhou/1004010/1027481/1027482/1030191.html">広島市「衆議院議員総選挙等の執行に係る補正予算の専決処分」2024年10月</a>／<a href="https://www.soumu.go.jp/main_content/001084184.pdf">総務省「令和8年版地方財政白書」のポイント</a>（令和6年度の地方の歳出 115兆9,823億円）</li>
 </ul>
