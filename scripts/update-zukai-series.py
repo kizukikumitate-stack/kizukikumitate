@@ -22,7 +22,7 @@ SERIES = [
 START, END = "<!-- ZUKAI-SERIES START -->", "<!-- ZUKAI-SERIES END -->"
 # 色はリテラル。ページごとに var() の値が違うため（シリーズ1は独自パレット）。
 CSS = """<style>
-.zsn{background:#14191E;color:#F6F5F0;font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN",system-ui,sans-serif;line-height:1.7;padding:72px 24px;box-sizing:border-box}
+.zsn{background:#14191E;color:#F6F5F0;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",system-ui,sans-serif;line-height:1.7;padding:72px 24px;box-sizing:border-box}
 .zsn *{box-sizing:border-box}
 .zsn .zsn-in{max-width:1008px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:22px}
 .zsn .zsn-h{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-weight:900;font-size:20px;letter-spacing:.12em;color:#F5C542}
