@@ -271,3 +271,10 @@ scoring:
     url: /shain-kyoiku-kikai.html
     tags: [人材育成 投資, 人的資本 投資, 教育研修費 平均, 研修費 1人あたり, 社員教育 ニーズ, リスキリング 企業, 離職防止 研修, キャリア面談, WILL CAN MUST, 研修 効果測定]
     service_bridge: 研修一覧・研修設計プログラム
+
+  - id: tou-chikara
+    name: 図解で見る 問う力とは何か
+    type: article
+    url: /tou-chikara.html
+    tags: [問う力, 質問力, 問いを立てる力, 質問力 研修, 問いを立てる 研修, 問題発見力, 課題設定力, 違和感, センスオブワンダー, 好奇心 とは]
+    service_bridge: 思考力強化シリーズ・研修一覧
