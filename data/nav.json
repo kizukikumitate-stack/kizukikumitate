@@ -334,6 +334,11 @@
             "desc": "図解シリーズ4。対話を討論や雑談と分け、6つの動きと3つの難所に分解する"
           },
           {
+            "label": "図解5｜社員が求めている教育機会",
+            "href": "shain-kyoiku-kikai.html",
+            "desc": "図解シリーズ5。求めるものと届くもののずれ、介入のタイミング、投資の返り方を確かめる"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html",
             "desc": "平和と民主主義とお金の流れを学ぶTEDトーク16本"
@@ -941,6 +946,10 @@
     },
     {
       "path": "taiwa-towa.html",
+      "variant": "standard"
+    },
+    {
+      "path": "shain-kyoiku-kikai.html",
       "variant": "standard"
     }
   ],
