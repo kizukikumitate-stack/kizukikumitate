@@ -3,6 +3,7 @@
 
 正は下の SERIES（番号順）。図解を足すときは SERIES に1行足して実行するだけで、
 全ページの帯に新しい回が並び、前後リンクも張り替わる。
+前後リンクは周回する（最後の回の「次」は1へ、1の「前」は最後の回へ）。
 各ページの <!-- ZUKAI-SERIES START --> 〜 <!-- ZUKAI-SERIES END --> の中身は生成物なので
 手で書き換えないこと。初回は <!-- KAIYU START --> の直前に差し込む。
 
@@ -28,17 +29,20 @@ CSS = """<style>
 .zsn .zsn-in{max-width:1008px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:22px}
 .zsn .zsn-h{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-weight:900;font-size:20px;letter-spacing:.12em;color:#F5C542}
 .zsn .zsn-h a{font-size:15px;letter-spacing:0;color:#F6F5F0}
-.zsn .zsn-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.zsn .zsn-g{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
 .zsn .zsn-c{display:flex;flex-direction:column;align-items:stretch;gap:8px;background:#222A32;color:#F6F5F0;border-radius:14px;padding:22px;text-decoration:none;border:3px solid transparent}
 .zsn a.zsn-c:hover{border-color:#F5C542;color:#F6F5F0}
 .zsn .zsn-c.cur{background:#F5C542;color:#14191E}
 .zsn .zsn-n{font-weight:900;font-size:40px;line-height:1;color:#F5C542}
 .zsn .zsn-c.cur .zsn-n{color:#14191E}
-.zsn .zsn-t{font-weight:900;font-size:19px;line-height:1.45}
+.zsn .zsn-t{font-weight:900;font-size:17.5px;line-height:1.45}
 .zsn .zsn-d{font-size:14.5px;line-height:1.7}
 .zsn .zsn-pn{margin:0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:700;font-size:16px}
 .zsn .zsn-pn a{color:#F5C542;text-decoration:none;padding:10px 0;min-height:44px}
 .zsn .zsn-pn a:hover{text-decoration:underline}
+@media (max-width:1000px){
+.zsn .zsn-g{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 @media (max-width:760px){
 .zsn{padding:52px 22px}
 .zsn .zsn-g{grid-template-columns:minmax(0,1fr);gap:12px}
@@ -56,13 +60,15 @@ def block(cur: int) -> str:
             cards.append(f'<div class="zsn-c cur" aria-current="page">{inner}<span class="zsn-d">いま読んでいるページです。</span></div>')
         else:
             cards.append(f'<a class="zsn-c" href="{path}">{inner}<span class="zsn-d">{desc}</span></a>')
-    pn = []
-    if cur > 0:
-        pn.append(f'<a href="{SERIES[cur - 1][0]}">← 前の図解（{cur}）{SERIES[cur - 1][1]}</a>')
-    else:
-        pn.append("<span></span>")
-    if cur < len(SERIES) - 1:
-        pn.append(f'<a href="{SERIES[cur + 1][0]}">次の図解（{cur + 2}）{SERIES[cur + 1][1]} →</a>')
+    # 前後リンクは周回する：1の「前」は最後の回、最後の回の「次」は1。
+    last = len(SERIES) - 1
+    p, n = (cur - 1) % len(SERIES), (cur + 1) % len(SERIES)
+    pl = "最後の図解" if cur == 0 else "前の図解"
+    nl = "最初の図解に戻る" if cur == last else "次の図解"
+    pn = [
+        f'<a href="{SERIES[p][0]}">← {pl}（{p + 1}）{SERIES[p][1]}</a>',
+        f'<a href="{SERIES[n][0]}">{nl}（{n + 1}）{SERIES[n][1]} →</a>',
+    ]
     return "\n".join([
         START,
         '<section class="zsn" aria-label="図解シリーズ">',
