@@ -7,6 +7,11 @@
 各ページの <!-- ZUKAI-SERIES START --> 〜 <!-- ZUKAI-SERIES END --> の中身は生成物なので
 手で書き換えないこと。初回は <!-- KAIYU START --> の直前に差し込む。
 
+冒頭の紹介カード（全回を並べ、いまの回に印を付ける）も同じ SERIES から生成する。
+各ページの <!-- ZUKAI-INTRO START --> 〜 <!-- ZUKAI-INTRO END --> が生成物。置き場所はページごとに
+違うので、新しい回を作るときは冒頭の好きな位置にこの2行のマーカーを置いてから実行する
+（マーカーが無いページは --check で失敗する）。
+
   python3 scripts/update-zukai-series.py          生成
   python3 scripts/update-zukai-series.py --check  差分があれば exit 1
 """
@@ -51,6 +56,47 @@ CSS = """<style>
 .zsn .zsn-t{font-size:18px}
 }
 </style>"""
+
+
+ISTART, IEND = "<!-- ZUKAI-INTRO START -->", "<!-- ZUKAI-INTRO END -->"
+# 冒頭の紹介カード。地色の違う区画（黄・水色・濃紺・図解1の独自配色）に置くので色はリテラル。
+ICSS = """<style>
+.zin{display:flex;flex-direction:column;align-items:stretch;gap:12px;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",system-ui,sans-serif;line-height:1.6;box-sizing:border-box}
+.zin *{box-sizing:border-box}
+.zin .zin-h{font-weight:900;font-size:15px;letter-spacing:.12em;text-align:left}
+.zin .zin-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.zin .zin-c{display:flex;flex-direction:column;align-items:stretch;gap:6px;background:#FFFFFF;color:#14191E;border-radius:14px;padding:18px 20px;text-decoration:none;border:3px solid transparent;text-align:left}
+.zin a.zin-c:hover{border-color:#1B4FA8;color:#14191E}
+.zin .zin-c.cur{background:#14191E;color:#F6F5F0;border-color:#F5C542}
+.zin .zin-n{font-weight:900;font-size:13px;letter-spacing:.1em;color:#1B4FA8}
+.zin .zin-c.cur .zin-n{color:#F5C542}
+.zin .zin-t{font-weight:900;font-size:18px;line-height:1.45;word-break:auto-phrase;line-break:strict;text-wrap:balance;hanging-punctuation:allow-end}
+@media (max-width:760px){
+.zin .zin-g{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.zin .zin-c{padding:14px}
+.zin .zin-t{font-size:15px}
+}
+</style>"""
+
+
+def intro(cur: int) -> str:
+    cards = []
+    for i, (path, title, _desc) in enumerate(SERIES):
+        if i == cur:
+            cards.append(f'<div class="zin-c cur" aria-current="page"><span class="zin-n">図解 {i + 1}　この回</span><span class="zin-t">{title}</span></div>')
+        else:
+            cards.append(f'<a class="zin-c" href="{path}"><span class="zin-n">図解 {i + 1}</span><span class="zin-t">{title}</span></a>')
+    return "\n".join([
+        ISTART,
+        '<div class="zin" role="group" aria-label="図解シリーズの全回">',
+        ICSS,
+        f'<div class="zin-h">図解シリーズ　全{len(SERIES)}回</div>',
+        '<div class="zin-g">',
+        *cards,
+        "</div>",
+        "</div>",
+        IEND,
+    ])
 
 
 def block(cur: int) -> str:
@@ -102,6 +148,12 @@ def main() -> int:
                 print(f"❌ {path}: 差し込み位置（{anchor}）が見つかりません")
                 return 1
             new = s.replace(anchor, b + "\n\n" + anchor)
+        if ISTART in new:
+            ib = intro(i)
+            new = re.sub(re.escape(ISTART) + r".*?" + re.escape(IEND), lambda _m: ib, new, count=1, flags=re.S)
+        else:
+            print(f"❌ {path}: 冒頭の紹介カードのマーカー（{ISTART}）がありません")
+            return 1
         if new != s:
             dirty.append(path)
             if not check:
