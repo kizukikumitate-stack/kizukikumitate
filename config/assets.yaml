@@ -250,3 +250,10 @@ scoring:
     url: /minshushugi-kyoiku-rekishi.html
     tags: [民主主義教育, 民主主義 教育 歴史, 主権者教育, 主権者教育 歴史, シティズンシップ教育, 18歳選挙権, PTA 歴史, 公民館 歴史, 教育基本法, 政治的中立]
     service_bridge: デモクラシーフィットネス
+
+  - id: minshushugi-kyoiku-roadmap
+    name: 図解で見る 日本の民主主義教育を広げるロードマップ
+    type: article
+    url: /minshushugi-kyoiku-roadmap.html
+    tags: [民主主義教育, 民主主義 教育 大人, 主権者教育 社会人, 主権者教育 地域, シティズンシップ教育, 対話 研修 自治体, 民主主義 学ぶ]
+    service_bridge: デモクラシーフィットネス

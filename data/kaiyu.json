@@ -1445,8 +1445,8 @@
       "added": "2026-11-19",
       "band": true,
       "next": [
-        "minshushugi-kyoiku-rekishi",
-        "ima-hitsuyona-gakushu"
+        "minshushugi-kyoiku-roadmap",
+        "minshushugi-kyoiku-rekishi"
       ]
     },
     {
@@ -1460,7 +1460,22 @@
       "added": "2026-11-19",
       "band": true,
       "next": [
-        "zukai-series",
+        "minshushugi-kyoiku-roadmap",
+        "democracy-fitness"
+      ]
+    },
+    {
+      "id": "minshushugi-kyoiku-roadmap",
+      "path": "minshushugi-kyoiku-roadmap.html",
+      "title": "図解で見る 日本の民主主義教育を広げるロードマップ",
+      "tag": "世界の知恵",
+      "desc": "学校、職場、地域、家庭。民主主義を学ぶ場を、誰が、誰のお金で、誰に届けるのか。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-21",
+      "band": true,
+      "next": [
+        "minshushugi-kyoiku-rekishi",
         "democracy-fitness"
       ]
     }

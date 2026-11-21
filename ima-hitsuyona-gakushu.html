@@ -30,9 +30,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="images/gakushu/cover-A.webp">
-<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=BIZ+UDPGothic:wght@400;700&family=Jost:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Shippori+Mincho:wght@600;800&family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Jost:wght@400;700&display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#ECECE8;color:#14191E;padding-top:var(--navh);font-family:"BIZ UDPGothic","Hiragino Sans","Noto Sans JP",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#ECECE8;color:#14191E;padding-top:var(--navh);font-family:"Noto Sans JP","Hiragino Sans",sans-serif;line-height:1.9;-webkit-font-smoothing:antialiased}
 .page a{color:#009944}.page a:hover{color:#00753a}
 p,h1,h2,h3{margin:0}
 .page{display:grid;grid-template-columns:minmax(0,600px);justify-content:center;gap:56px;padding-block:40px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));box-sizing:border-box;position:relative}
@@ -40,7 +40,7 @@ p,h1,h2,h3{margin:0}
 .side .lab{font-size:11px;letter-spacing:.16em;font-weight:700;opacity:.6;padding-bottom:10px}
 .side a{display:block;padding:8px 0;border-top:1px solid #CFD2CB;color:#14191E;text-decoration:none;line-height:1.5}
 .side a:hover{color:#009944}
-.side a b{font-family:"Zen Kaku Gothic New",sans-serif;color:#009944;margin-right:6px}
+.side a b{font-family:"Noto Sans JP",sans-serif;color:#009944;margin-right:6px}
 .col{display:flex;flex-direction:column;gap:0;min-width:0;position:relative}
 .panel{position:relative;padding:112px 48px;display:flex;flex-direction:column;justify-content:center;gap:36px;box-sizing:border-box;min-height:560px}
 .panel.ink{background:#009944;color:#FFFFFF}
@@ -57,12 +57,12 @@ p,h1,h2,h3{margin:0}
 .card3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
 .card4{grid-template-columns:repeat(2,minmax(0,1fr))}
 .card3>div{padding:16px 14px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;border-radius:14px;min-width:0}
-.card3 b{font-family:"Zen Kaku Gothic New",sans-serif;font-size:15px;line-height:1.35}
+.card3 b{font-family:"Noto Sans JP",sans-serif;font-size:15px;line-height:1.35}
 .card3 p{font-size:12px;line-height:1.6}
 .pchips{display:flex;flex-wrap:wrap;gap:10px}
-.pchip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:14px;color:#14191E}
+.pchip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:14px;color:#14191E}
 .conf{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-.st{font-family:"Shippori Mincho B1","Hiragino Mincho ProN","Noto Serif JP",serif;font-weight:800;font-size:36px;line-height:1.5;letter-spacing:.02em;margin-right:-16px}
+.st{font-family:"Noto Sans JP","Hiragino Sans",sans-serif;font-weight:800;font-size:36px;line-height:1.5;letter-spacing:.02em;margin-right:-16px}
 .st.lg{font-size:45px;line-height:1.4}
 .st.sm{font-size:34px}
 .st .ac{color:#009944}
@@ -73,28 +73,28 @@ p,h1,h2,h3{margin:0}
    章題22pxに対して26px（×1.18）にして見た目の高さを揃える */
 .chap{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:baseline;row-gap:12px;column-gap:10px;justify-items:start}
 .chap .ico{grid-column:1/-1}
-.chap .no{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:26px;line-height:1.35;letter-spacing:0;font-variant-numeric:tabular-nums;color:#009944}
+.chap .no{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:26px;line-height:1.35;letter-spacing:0;font-variant-numeric:tabular-nums;color:#009944}
 .ink .chap .no,.dark .chap .no{color:#37bef0}
-.chap h2{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:22px;line-height:1.35;opacity:.8}
-.big{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;line-height:1.2;letter-spacing:0;font-size:40px;margin-right:-16px}
-.hero{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:52px;line-height:1.15;letter-spacing:-.01em}
-.subt{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:28px;line-height:1.3}
-.kw{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:60px;line-height:1.1;letter-spacing:-.01em}
+.chap h2{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:22px;line-height:1.35;opacity:.8}
+.big{font-family:"Noto Sans JP",sans-serif;font-weight:900;line-height:1.2;letter-spacing:0;font-size:40px;margin-right:-16px}
+.hero{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:52px;line-height:1.15;letter-spacing:-.01em}
+.subt{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:28px;line-height:1.3}
+.kw{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:60px;line-height:1.1;letter-spacing:-.01em}
 .big.n{font-size:104px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 .cap{font-size:12px;opacity:.7;line-height:1.6}
 .stat{display:flex;flex-direction:column;gap:6px}
-.stat .num{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.stat .mean{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:22px;line-height:1.4}
+.stat .num{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:56px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.stat .mean{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:22px;line-height:1.4}
 .stat .sub{font-size:13px;line-height:1.7;opacity:.9}
 @media (max-width:900px){.stat .num{font-size:44px}.stat .mean{font-size:17px}}
-.lbl{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:14px;letter-spacing:.08em}
+.lbl{font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:14px;letter-spacing:.08em}
 .figrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 .fig{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
-.fig .nm{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:15px;line-height:1.3}
+.fig .nm{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:15px;line-height:1.3}
 .fig .ds{font-size:11px;opacity:.85;line-height:1.5}
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .two>div{border:1.5px solid currentColor;padding:18px 16px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.two .h{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1.35}
+.two .h{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:18px;line-height:1.35}
 .two .k{font-size:11px;letter-spacing:.12em;font-weight:700;opacity:.75}
 .two p{font-size:13px;line-height:1.7;opacity:.9}
 .two ul{margin:0;padding-left:1.1em;font-size:13px;line-height:1.7;display:flex;flex-direction:column;gap:3px}
@@ -107,7 +107,7 @@ p,h1,h2,h3{margin:0}
 .mx .ax{font-size:11px;font-weight:700;opacity:.8;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.3}
 .mx .ax.v{line-height:1.35;padding-right:4px}
 .mx .q{border:1.5px solid rgba(255,255,255,.6);padding:14px 12px;display:flex;flex-direction:column;gap:4px;min-height:118px;box-sizing:border-box}
-.mx .q b{font-family:"Zen Kaku Gothic New",sans-serif;font-size:14px;line-height:1.3}
+.mx .q b{font-family:"Noto Sans JP",sans-serif;font-size:14px;line-height:1.3}
 .mx .q p{font-size:11px;line-height:1.5;opacity:.85}
 .mx .q.from{background:rgba(20,25,30,.35);border-color:#ECECE8}
 .mx .q.to{background:#FFFFFF;color:#009944;border-color:#FFFFFF}
@@ -118,20 +118,20 @@ p,h1,h2,h3{margin:0}
 .pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .pair>div{padding:18px 16px;display:flex;flex-direction:column;gap:8px;border:1.5px solid currentColor;min-width:0}
 .pair .k{font-size:11px;letter-spacing:.12em;font-weight:700}
-.pair .h{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:24px;line-height:1.3}
+.pair .h{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:24px;line-height:1.3}
 .pair p{font-size:13px;line-height:1.7;opacity:.9}
 .eff{border:1.5px solid #37bef0;padding:18px 16px;display:flex;flex-direction:column;gap:6px}
-.eff .h{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;color:#37bef0}
+.eff .h{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:18px;color:#37bef0}
 .eff p{font-size:13px;line-height:1.7}
-.sum{display:flex;flex-direction:column;gap:12px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:17px;line-height:1.5}
+.sum{display:flex;flex-direction:column;gap:12px;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:17px;line-height:1.5}
 .sum p span{color:#37bef0;margin-right:10px}
 .cta{display:flex;flex-direction:column;gap:14px}
-.page .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:#009944;color:#FFFFFF;text-decoration:none;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;font-size:16px;align-self:flex-start}
+.page .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:#009944;color:#FFFFFF;text-decoration:none;font-family:"Noto Sans JP",sans-serif;font-weight:700;font-size:16px;align-self:flex-start}
 .page .btn:hover{color:#FFFFFF;background:#00753a}
 .svgfull{width:100%;height:auto;display:block}
 .rule{border-top:1px solid #CFD2CB;padding-top:40px}
 .toc{padding:4px 48px 44px;display:flex;flex-direction:column}
-.toc .lab{font-family:"Zen Kaku Gothic New",sans-serif;font-size:11px;letter-spacing:.2em;font-weight:700;color:#14191E;opacity:.55;padding-bottom:12px}
+.toc .lab{font-family:"Noto Sans JP",sans-serif;font-size:11px;letter-spacing:.2em;font-weight:700;color:#14191E;opacity:.55;padding-bottom:12px}
 /* 左に1〜5、右に6〜10。番号は独立カラムに置き、1桁でも2桁でもタイトルの頭が揃う */
 .toc .links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:30px;border-bottom:1px solid #CFD2CB}
 .toc a{display:grid;grid-template-columns:1.5em minmax(0,1fr);align-items:baseline;column-gap:.4em;padding:11px 0;border-top:1px solid #CFD2CB;color:#14191E;text-decoration:none;line-height:1.55;font-size:14px;word-break:keep-all;overflow-wrap:anywhere;transition:color .15s}
@@ -209,10 +209,10 @@ p,h1,h2,h3{margin:0}
 
 /* ---- 3分で読む要点（長い読み物の入口。ここだけで結論が分かるようにする） ---- */
 .gist{margin:0 48px 48px;padding:28px 30px;border:1.5px solid #CFD2CB;border-radius:14px;background:#F6F5F0}
-.gist .lab{font-family:"Zen Kaku Gothic New",sans-serif;font-size:12px;letter-spacing:.14em;font-weight:900;color:#009944;padding-bottom:16px}
+.gist .lab{font-family:"Noto Sans JP",sans-serif;font-size:12px;letter-spacing:.14em;font-weight:900;color:#009944;padding-bottom:16px}
 .gist .gg{padding-bottom:16px}
 .gist .gg:last-of-type{padding-bottom:4px}
-.gist .gh{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:14px;color:#14191E;opacity:.55;padding-bottom:8px;letter-spacing:.04em}
+.gist .gh{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:14px;color:#14191E;opacity:.55;padding-bottom:8px;letter-spacing:.04em}
 .gist ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:9px}
 .gist li{position:relative;padding-left:1.15em;font-size:15px;line-height:1.85}
 .gist li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;border-radius:50%;background:#009944}
@@ -236,7 +236,7 @@ p,h1,h2,h3{margin:0}
 .ref img{width:160px;height:160px;object-fit:cover;border-radius:10px;display:block}
 .ref .rt{display:flex;flex-direction:column;gap:4px;min-width:0}
 .ref .rk{font-size:11px;letter-spacing:.14em;font-weight:700}
-.ref .rn{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1.3;word-break:keep-all;overflow-wrap:anywhere}
+.ref .rn{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:18px;line-height:1.3;word-break:keep-all;overflow-wrap:anywhere}
 .ref .rm{font-size:11px;opacity:.65;line-height:1.5}
 .ref .rb{font-size:13px;line-height:1.75;opacity:.9}
 .ref.manga{grid-template-columns:240px minmax(0,1fr);gap:22px;align-items:stretch}.ref.manga .mimg{align-self:stretch;min-height:260px;border-radius:10px}
@@ -244,7 +244,7 @@ p,h1,h2,h3{margin:0}
 .cmph{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;font-size:11px;letter-spacing:.12em;font-weight:700;opacity:.8}
 .cmp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 .cmp .cl{border:1.5px solid rgba(255,255,255,.45);padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;opacity:.9;word-break:keep-all;overflow-wrap:anywhere}
-.cmp .cr{background:#FFFFFF;color:#14191E;padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;font-weight:700;font-family:"Zen Kaku Gothic New",sans-serif;display:flex;flex-direction:column;gap:6px;word-break:keep-all;overflow-wrap:anywhere}
+.cmp .cr{background:#FFFFFF;color:#14191E;padding:12px 14px;font-size:14px;line-height:1.5;border-radius:10px;font-weight:700;font-family:"Noto Sans JP",sans-serif;display:flex;flex-direction:column;gap:6px;word-break:keep-all;overflow-wrap:anywhere}
 .cmp .ct{align-self:flex-start;font-size:10px;letter-spacing:.1em;font-weight:700;color:#009944;border:1px solid #009944;border-radius:999px;padding:1px 8px}
 
 /* タイトルと副題は縦に積む（グリッドの2列に入ると副題が細い列に押し込まれて縦書きのようになる） */
@@ -318,15 +318,15 @@ h1.chap{display:flex;flex-direction:column;align-items:flex-start}
 .seg>span{display:inline-block;max-width:100%}
 /* SNSシェアボタン：各サービスのブランドカラーで塗りつぶし、目立たせる */
 .share{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 22px;border-radius:14px;background:#FFFFFF;border:1.5px solid #CFD2CB;color:#14191E}
-.share .sl{font-family:"Zen Kaku Gothic New",sans-serif;font-size:13px;letter-spacing:.16em;font-weight:900;color:#00753a;margin-right:6px}
-.share .shb{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 20px;border:0;border-radius:999px;font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:15px;color:#FFFFFF;text-decoration:none;cursor:pointer;line-height:1;white-space:nowrap;box-shadow:0 2px 0 rgba(20,25,30,.18);transition:transform .12s,filter .12s}
+.share .sl{font-family:"Noto Sans JP",sans-serif;font-size:13px;letter-spacing:.16em;font-weight:900;color:#00753a;margin-right:6px}
+.share .shb{display:inline-flex;align-items:center;gap:9px;min-height:48px;padding:0 20px;border:0;border-radius:999px;font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:15px;color:#FFFFFF;text-decoration:none;cursor:pointer;line-height:1;white-space:nowrap;box-shadow:0 2px 0 rgba(20,25,30,.18);transition:transform .12s,filter .12s}
 .share .shb:hover{color:#FFFFFF;filter:brightness(1.08);transform:translateY(-1px)}
 .share .shb.x{background:#000000}
 .share .shb.fb{background:#1466D1}
 .share .shb.ln{background:#0B8139}
 .share .shb.cp{background:#14191E}
 .share .shb svg{width:18px;height:18px;flex:none}
-.share .shb .mk{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:900;font-size:18px;line-height:1;letter-spacing:0}
+.share .shb .mk{font-family:"Noto Sans JP",sans-serif;font-weight:900;font-size:18px;line-height:1;letter-spacing:0}
 @media (max-width:900px){.share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px 14px}.share .sl{grid-column:1/-1;margin-right:0}.share .shb{width:100%;box-sizing:border-box;justify-content:center;padding:0 8px;font-size:13.5px;gap:7px}}
 
 /* ---------- global nav（台帳生成・data/nav.json が正・CSSはページ側） ---------- */
@@ -741,12 +741,12 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <!-- TITLE -->
 <header class="panel" style="padding-top: 24px; gap: 20px">
 <p class="cap">2026.10 ／ きづきくみたて工房</p>
-<h1 class="chap" style="gap: 14px"><span class="hero" style="font-size: 44px">今、この​社会に​必要な​学習とは？</span><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.5; color: #009944">きづきくみたて工房が提供する学習体験</span></h1>
+<h1 class="chap" style="gap: 14px"><span class="hero" style="font-size: 44px">今、この​社会に​必要な​学習とは？</span><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 22px; line-height: 1.5; color: #009944">きづきくみたて工房が提供する学習体験</span></h1>
 <p class="body">本ページは、国内外のさまざまな先進的な教育実践から学ばせてもらった森本康仁が、これから必要な学習とは何かについて考えをまとめたものです。私が特に力を入れているところを中心にまとめているため、書かれていない大切なものが他にもたくさんあることでしょう。ひとことで言えば、いま必要なのは「大人の探究学習」だ、という話です。</p>
 <p class="body">共感してくださった方、「これも入れたほうがいい」と思われた方、「この部分は自分たちだけではできないので、一緒にやりたい」と感じた方は、ぜひご連絡ください。</p>
 <div class="share"><span class="sl">SHARE</span><a class="shb x" href="https://twitter.com/intent/tweet?text=%E4%BB%8A%E3%80%81%E3%81%93%E3%81%AE%E7%A4%BE%E4%BC%9A%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%AD%A6%E7%BF%92%E3%81%A8%E3%81%AF%EF%BC%9F%20%E2%94%80%E2%94%80%20%E8%B6%85%E5%9B%B3%E8%A7%A3%20%E3%81%AA%E3%81%9C%E3%80%81%E7%B5%84%E7%B9%94%E3%81%AF%E5%A4%89%E5%8C%96%E3%81%AB%E8%BF%BD%E3%81%84%E3%81%A4%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B%EF%BC%88%E3%81%8D%E3%81%A5%E3%81%8D%E3%81%8F%E3%81%BF%E3%81%9F%E3%81%A6%E5%B7%A5%E6%88%BF%EF%BC%89&amp;url=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>X で共有</a><a class="shb fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>Facebook で共有</a><a class="shb ln" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fkizukikumitate.com%2Fima-hitsuyona-gakushu.html&amp;text=%E4%BB%8A%E3%80%81%E3%81%93%E3%81%AE%E7%A4%BE%E4%BC%9A%E3%81%AB%E5%BF%85%E8%A6%81%E3%81%AA%E5%AD%A6%E7%BF%92%E3%81%A8%E3%81%AF%EF%BC%9F%20%E2%94%80%E2%94%80%20%E8%B6%85%E5%9B%B3%E8%A7%A3%20%E3%81%AA%E3%81%9C%E3%80%81%E7%B5%84%E7%B9%94%E3%81%AF%E5%A4%89%E5%8C%96%E3%81%AB%E8%BF%BD%E3%81%84%E3%81%A4%E3%81%91%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B%EF%BC%88%E3%81%8D%E3%81%A5%E3%81%8D%E3%81%8F%E3%81%BF%E3%81%9F%E3%81%A6%E5%B7%A5%E6%88%BF%EF%BC%89" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>LINE で送る</a><button class="shb cp" type="button" data-copy-link><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 10.5a3.2 3.2 0 0 0 4.5 0l2.2-2.2a3.2 3.2 0 0 0-4.5-4.5L8.6 4.9"></path><path d="M10.5 7.5a3.2 3.2 0 0 0-4.5 0L3.8 9.7a3.2 3.2 0 0 0 4.5 4.5l1.1-1.1"></path></svg>リンクをコピー</button></div>
 <div style="display: flex; flex-direction: column; gap: 6px; padding-top: 28px; margin-top: 28px; border-top: 1px solid #CFD2CB">
-<span class="no" style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: .2em; color: #009944">超図解</span>
+<span class="no" style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 13px; letter-spacing: .2em; color: #009944">超図解 ／ 図解シリーズ 1</span>
 <p class="seg subt"><span>なぜ、</span><span>組織は​変化に​追いつけないのか</span></p>
 <p class="body">研修はやっている。方針も出している。それでも、現場が変わった実感がない。多くの経営者・人事の方が、同じことを口にします。何が起きているのかを、順番に見ていきます。</p>
 </div>
@@ -834,16 +834,16 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="body" style="opacity: .9">足りないのは、お金や人手の前に、この三つです。上から順に欠けていきます。</p>
 <div style="display: flex; flex-direction: column; gap: 10px">
 <div style="display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; align-items: start; border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; border-radius: 12px">
-<div style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 26px; line-height: 1; color: #ffde00">1</div>
-<div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; line-height: 1.3">ビジョンの不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">「3年後、どんな未来に辿り着きたいか」の像が、一人ひとりの中にない。あっても、共有されていない。上から配られた言葉はあるが、自分の言葉になっていない。</p></div>
+<div style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 26px; line-height: 1; color: #ffde00">1</div>
+<div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 18px; line-height: 1.3">ビジョンの不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">「3年後、どんな未来に辿り着きたいか」の像が、一人ひとりの中にない。あっても、共有されていない。上から配られた言葉はあるが、自分の言葉になっていない。</p></div>
 </div>
 <div style="display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; align-items: start; border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; border-radius: 12px">
-<div style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 26px; line-height: 1; color: #37bef0">2</div>
-<div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; line-height: 1.3">戦略の不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">その未来から今を振り返ったとき、何を変え、何を手放し、誰と合意するのか。道筋が描かれていない。描かれていても、立場の違う人たちと擦り合わせられていない。</p></div>
+<div style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 26px; line-height: 1; color: #37bef0">2</div>
+<div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 18px; line-height: 1.3">戦略の不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">その未来から今を振り返ったとき、何を変え、何を手放し、誰と合意するのか。道筋が描かれていない。描かれていても、立場の違う人たちと擦り合わせられていない。</p></div>
 </div>
 <div style="display: grid; grid-template-columns: 44px minmax(0,1fr); gap: 14px; align-items: start; border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; border-radius: 12px">
-<div style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 26px; line-height: 1; color: #009944">3</div>
-<div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 18px; line-height: 1.3">実践の不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">道筋があっても、日々の仕事の中で小さく試し、振り返り、続ける時間と習慣がない。目の前の業務に押し流され、未来のための活動が毎日ゼロになる。</p></div>
+<div style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 26px; line-height: 1; color: #009944">3</div>
+<div style="display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 18px; line-height: 1.3">実践の不足</b><p style="font-size: 13px; line-height: 1.7; opacity: .88">道筋があっても、日々の仕事の中で小さく試し、振り返り、続ける時間と習慣がない。目の前の業務に押し流され、未来のための活動が毎日ゼロになる。</p></div>
 </div>
 </div>
 <p class="seg big"><span>ビジョン、​戦略、​実践。</span><span>三つとも、​対話から​しか生まれない。</span></p>
@@ -919,9 +919,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="seg st"><span>対話は、</span><span>贅沢ではない。</span></p>
 <p class="body">「対話に時間を使う余裕はない」とよく言われます。けれど、対話がないまま回っている組織は、別の形で、すでに払っています。見えにくいだけです。</p>
 <div style="display: flex; flex-direction: column; gap: 0">
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">採用し直す費用</b><p style="font-size: 13px; line-height: 1.6">新卒1人の採用に、平均で約94万円。大卒の3人に1人は3年以内に離職します。採用費、教える時間、引き継ぎの穴が、そのたびに発生します。</p></div>
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">決まらない会議</b><p style="font-size: 13px; line-height: 1.6">従業員1万人規模の企業で、ムダと感じられている社内会議は年間約67万時間（332人分の年間労働時間）、人件費で約15億円相当という試算があります。</p></div>
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">黙っている現場</b><p style="font-size: 13px; line-height: 1.6">現場が気づいている問題が、上がってこない。気づいてから手を打つまでの遅れは、どの帳簿にも載りません。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">採用し直す費用</b><p style="font-size: 13px; line-height: 1.6">新卒1人の採用に、平均で約94万円。大卒の3人に1人は3年以内に離職します。採用費、教える時間、引き継ぎの穴が、そのたびに発生します。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">決まらない会議</b><p style="font-size: 13px; line-height: 1.6">従業員1万人規模の企業で、ムダと感じられている社内会議は年間約67万時間（332人分の年間労働時間）、人件費で約15億円相当という試算があります。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0; word-break: keep-all">黙っている現場</b><p style="font-size: 13px; line-height: 1.6">現場が気づいている問題が、上がってこない。気づいてから手を打つまでの遅れは、どの帳簿にも載りません。</p></div>
 </div>
 <p class="seg big"><span>省いた​分は、</span><span>別の​請求書で​届く。</span></p>
 <p class="cap">出所：リクルート就職みらい研究所「就職白書2020」（新卒採用1人あたりの平均採用費）、厚生労働省「新規学卒就職者の離職状況」（大卒3年以内離職率は近年3割台で推移）、パーソル総合研究所・中原淳「長時間労働に関する実態調査」（2017〜18年）の「ムダな社内会議」の試算。</p>
@@ -937,9 +937,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="panel ink" style="gap: 22px">
 <p class="lbl">変えようとして、​戻った​経験は​ありませんか</p>
 <div style="display: flex; flex-direction: column; gap: 10px">
-<div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px">新しい制度を入れた</b><p style="font-size: 13px; opacity: .9">評価制度、1on1、提案制度。半年後、形だけが残り、運用は以前と同じに戻った。</p></div>
-<div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px">研修をした</b><p style="font-size: 13px; opacity: .9">受講直後は前向きだった。現場に戻ると、忙しさと古い評価軸が、学んだことを押し流した。</p></div>
-<div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 15px">トップが宣言した</b><p style="font-size: 13px; opacity: .9">方針は正しかった。ただ、現場の「うちではこうだ」が変わらず、部署をまたいだ途端に止まった。</p></div>
+<div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 15px">新しい制度を入れた</b><p style="font-size: 13px; opacity: .9">評価制度、1on1、提案制度。半年後、形だけが残り、運用は以前と同じに戻った。</p></div>
+<div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 15px">研修をした</b><p style="font-size: 13px; opacity: .9">受講直後は前向きだった。現場に戻ると、忙しさと古い評価軸が、学んだことを押し流した。</p></div>
+<div style="border: 1.5px solid rgba(255,255,255,.6); padding: 14px 16px; display: flex; flex-direction: column; gap: 4px"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 15px">トップが宣言した</b><p style="font-size: 13px; opacity: .9">方針は正しかった。ただ、現場の「うちではこうだ」が変わらず、部署をまたいだ途端に止まった。</p></div>
 </div>
 <p class="seg big"><span>研修が​悪いのではない。</span><span>受け止める​側の​職場が、​変わっていない。</span></p>
 </section>
@@ -1001,11 +1001,11 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="lbl">どちらにも​共通する、土台</p>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <p class="kw">自己効力感</p>
-<p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 20px; opacity: .9">自分は、やればできる。</p>
+<p style="font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 20px; opacity: .9">自分は、やればできる。</p>
 </div>
 <div style="display: flex; flex-direction: column; gap: 6px">
 <p class="kw">組織効力感</p>
-<p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 700; font-size: 20px; opacity: .9">うちのチームなら、できる。</p>
+<p style="font-family: 'Noto Sans JP', sans-serif; font-weight: 700; font-size: 20px; opacity: .9">うちのチームなら、できる。</p>
 </div>
 <p class="seg big" style="font-size: 36px"><span>手放すにも、</span><span>返済するにも、</span><span>この感覚が​要る。</span></p>
 <p class="cap">これが低いと、正しい方針があっても、人は前提を手放しませんし、負債に手をつけません。効力感は、小さな成功の積み重ねでしか育ちません。以降の章は、この二つをどう育てるかの話でもあります。</p>
@@ -1033,10 +1033,10 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="lbl" style="color: #37bef0">では、​誰が手放すのか</p>
 <p class="body">たとえば、評価制度を一つ変えるとします。一見、人事の仕事です。しかし実際に手放すものが生じるのは、人事だけではありません。</p>
 <div style="display: flex; flex-direction: column; gap: 8px">
-<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0">経営</b><p style="font-size: 13px; line-height: 1.6">今期の数字との整合を、説明する責任を負う。</p></div>
-<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0">現場の管理職</b><p style="font-size: 13px; line-height: 1.6">慣れた評価の仕方を捨て、部下に新しい基準を説明する負荷を引き受ける。</p></div>
-<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0">評価される人</b><p style="font-size: 13px; line-height: 1.6">これまで評価されてきた強みが、評価されなくなるかもしれない。</p></div>
-<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #37bef0">他部署・労組</b><p style="font-size: 13px; line-height: 1.6">直接は関わらないが、「次はうちか」と見ている。</p></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0">経営</b><p style="font-size: 13px; line-height: 1.6">今期の数字との整合を、説明する責任を負う。</p></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0">現場の管理職</b><p style="font-size: 13px; line-height: 1.6">慣れた評価の仕方を捨て、部下に新しい基準を説明する負荷を引き受ける。</p></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(236,236,232,.25); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0">評価される人</b><p style="font-size: 13px; line-height: 1.6">これまで評価されてきた強みが、評価されなくなるかもしれない。</p></div>
+<div style="display: grid; grid-template-columns: 110px minmax(0,1fr); gap: 12px; align-items: baseline; padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #37bef0">他部署・労組</b><p style="font-size: 13px; line-height: 1.6">直接は関わらないが、「次はうちか」と見ている。</p></div>
 </div>
 <p class="seg big"><span>一つの​変更が、</span><span>立場の​違う何人もの「手放すもの」に​届く。</span></p>
 <p class="cap">仕組みは一人の中に収まっていません。複数の人にまたがっています。だから、仕組みを変える決定は、一人では下せないのです。</p>
@@ -1119,11 +1119,11 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="seg st"><span>感情は、</span><span>性格ではなく、</span><span>スキルとして​扱う。</span></p>
 <p class="body">それが SEL（Social and Emotional Learning、社会性と情動の学習）です。米国のCASELが整理した5つの力は、どれも「生まれつき」ではなく、練習で育つものとして扱われます。</p>
 <div class="card3">
-<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">1</span><b>自分の感情に気づく</b><p>「いま、守りに入っているな」と、自分で分かる。</p></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">2</span><b>自分を整える</b><p>反応と行動のあいだに、一拍置ける。</p></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">3</span><b>相手の感情に気づく</b><p>相手の「反対」の下にある痛みを読む。</p></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">4</span><b>関係を築く</b><p>立場が違っても、話を続けられる。</p></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">5</span><b>責任ある決定をする</b><p>感情を踏まえたうえで、決める。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">1</span><b>自分の感情に気づく</b><p>「いま、守りに入っているな」と、自分で分かる。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">2</span><b>自分を整える</b><p>反応と行動のあいだに、一拍置ける。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">3</span><b>相手の感情に気づく</b><p>相手の「反対」の下にある痛みを読む。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">4</span><b>関係を築く</b><p>立場が違っても、話を続けられる。</p></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 22px; color: #009944; line-height: 1">5</span><b>責任ある決定をする</b><p>感情を踏まえたうえで、決める。</p></div>
 </div>
 <p class="seg big"><span>これも、</span><span>学校が​先に始めている。</span></p>
 <p class="cap">SELは1990年代から米国の学校で広がり、OECDは2019年から「社会情動的スキル調査」を行っています。日本でも「非認知能力」の名で語られ、学習指導要領の「学びに向かう力、人間性等」に入っています。探究と同じく、ここでも大人の側は、まだ始まったばかりかもしれません。大人向けには、この5つを「対話の前の準備運動」として扱います。</p>
@@ -1285,10 +1285,10 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="seg st"><span>「作る学び」は、​私の​思いつきではない。</span><span>国が、​学校で​始めている。</span></p>
 <p class="body">文部科学省は、2022年度から高校で「総合的な探究の時間」を必修にしました。小中学校の「総合的な学習の時間」は2002年から続いています。いまの学習指導要領の柱は「主体的・対話的で深い学び」。このページで書いてきたことと、ほとんど同じ言葉です。</p>
 <div class="card3 card4">
-<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #0062b1">文部科学省 ／ 探究の学習過程</span><b>探究のサイクル</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">1</span><span>課題の設定</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">2</span><span>情報の収集</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">3</span><span>整理・分析</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">4</span><span>まとめ・表現　→ 次の課題へ</span></li></ul></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #009944">7章 ／ コンストラクショニズム</span><b>作って、見せ合う</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">1</span><span>問いを立てる</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">2</span><span>作る</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">3</span><span>見せ合い、問い合う</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">4</span><span>壊して、作り直す</span></li></ul></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #cf0029">10章 ／ きづきくみたて工房</span><b>グッドスパイラル</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">1</span><span>気づき（前提をほぐす）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">2</span><span>くみたて（行動とビジョンに組む）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">3</span><span>スパイラルアップ（個人と組織が高め合う）</span></li></ul></div>
-<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #7f4f21">D. コルブ ／ 経験学習</span><b>経験して、振り返る</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">1</span><span>経験する</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">2</span><span>振り返る（リフレクション）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">3</span><span>持論にする（リフレーミング）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">4</span><span>試す　→ 次の経験へ</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #0062b1">文部科学省 ／ 探究の学習過程</span><b>探究のサイクル</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">1</span><span>課題の設定</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">2</span><span>情報の収集</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">3</span><span>整理・分析</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #0062b1; font-variant-numeric: tabular-nums">4</span><span>まとめ・表現　→ 次の課題へ</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #009944">7章 ／ コンストラクショニズム</span><b>作って、見せ合う</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">1</span><span>問いを立てる</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">2</span><span>作る</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">3</span><span>見せ合い、問い合う</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #009944; font-variant-numeric: tabular-nums">4</span><span>壊して、作り直す</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #cf0029">10章 ／ きづきくみたて工房</span><b>グッドスパイラル</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">1</span><span>気づき（前提をほぐす）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">2</span><span>くみたて（行動とビジョンに組む）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #cf0029; font-variant-numeric: tabular-nums">3</span><span>スパイラルアップ（個人と組織が高め合う）</span></li></ul></div>
+<div style="background: #FFFFFF; color: #14191E"><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #7f4f21">D. コルブ ／ 経験学習</span><b>経験して、振り返る</b><ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; font-size: 13px; line-height: 1.6"><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">1</span><span>経験する</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">2</span><span>振り返る（リフレクション）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">3</span><span>持論にする（リフレーミング）</span></li><li style="display: flex; gap: 8px; align-items: baseline"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; color: #7f4f21; font-variant-numeric: tabular-nums">4</span><span>試す　→ 次の経験へ</span></li></ul></div>
 </div>
 <p class="seg big"><span>取り残されているのは、</span><span>子どもではなく、</span><span>大人も​かもしれない。</span></p>
 <p class="cap" style="opacity: .9">四つとも、同じ形をしています。正解を教わるのではなく、自分で問いを立て、形にし、見せ合い、作り直す。学校はこの方向にすでに舵を切りました。会社の多くは、まだ「教わる学び」が中心のままではないでしょうか。</p>
@@ -1407,9 +1407,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <section class="panel ink" style="gap: 24px">
 <p class="lbl">デモクラシーは、​この構造の​どこで​効くか</p>
 <div style="display: flex; flex-direction: column; gap: 14px; font-size: 15px; line-height: 1.8">
-<p><b style="font-family: 'Zen Kaku Gothic New', sans-serif">Willを、消さない。</b><br>反対意見を述べる筋肉がなければ、一人のWillは「今は無理」で止まります。言い出せる筋肉が、右上の仕事を生かします。</p>
-<p><b style="font-family: 'Zen Kaku Gothic New', sans-serif">Willを、広げる。</b><br>積極的に聴く、好奇心を持つ筋肉が、他の人のWillと接続します。一人の意思が、数人の合意になります。</p>
-<p><b style="font-family: 'Zen Kaku Gothic New', sans-serif">痛みを、分け合って決める。</b><br>譲らないと動かない対立を、妥協する筋肉で前に進めます。誰かが何かを手放す決定を、地位ではなく対話で下します。</p>
+<p><b style="font-family: 'Noto Sans JP', sans-serif">Willを、消さない。</b><br>反対意見を述べる筋肉がなければ、一人のWillは「今は無理」で止まります。言い出せる筋肉が、右上の仕事を生かします。</p>
+<p><b style="font-family: 'Noto Sans JP', sans-serif">Willを、広げる。</b><br>積極的に聴く、好奇心を持つ筋肉が、他の人のWillと接続します。一人の意思が、数人の合意になります。</p>
+<p><b style="font-family: 'Noto Sans JP', sans-serif">痛みを、分け合って決める。</b><br>譲らないと動かない対立を、妥協する筋肉で前に進めます。誰かが何かを手放す決定を、地位ではなく対話で下します。</p>
 </div>
 <p class="seg big"><span>これが​できないと、</span><span>個人の​意思は​組織の​意思に​ならない。</span></p>
 <p class="st" style="font-size: 36px">意思を​形にできる​組織へ。</p>
@@ -1447,15 +1447,15 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="lbl" style="color: #ffde00">勇気が​なくても、​意思が​場に出る​三つの設計</p>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
-<div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="6" y="24" width="14" height="10" rx="2" fill="#cf0029"></rect><rect x="22" y="24" width="14" height="10" rx="2" fill="#0062b1"></rect><rect x="14" y="12" width="14" height="10" rx="2" fill="#ffde00"></rect><rect x="30" y="6" width="10" height="14" rx="2" fill="#FFFFFF" transform="rotate(12 35 13)"></rect></svg><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px">1　本人の意思を、直接語らなくていい形にする</b></div>
+<div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" aria-hidden="true"><rect x="6" y="24" width="14" height="10" rx="2" fill="#cf0029"></rect><rect x="22" y="24" width="14" height="10" rx="2" fill="#0062b1"></rect><rect x="14" y="12" width="14" height="10" rx="2" fill="#ffde00"></rect><rect x="30" y="6" width="10" height="14" rx="2" fill="#FFFFFF" transform="rotate(12 35 13)"></rect></svg><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px">1　本人の意思を、直接語らなくていい形にする</b></div>
 <p style="font-size: 13px; line-height: 1.7; opacity: .92">LEGO® SERIOUS PLAY® では、自分の考えをブロックの作品にして語ります。TOPAASIA では、引いたカードの言葉を手がかりに話します。「私はこう思う」と言わなくても、作品やカードが代わりに語ってくれる。地位に関係なく、全員が同じ形で意思を場に出せます。作品やカードに感情を託すのは、SELの「自分の感情に気づき、言葉にする」を、安全な距離で行う方法でもあります。</p>
 </div>
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
-<div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#ffde00" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 22h20"></path><rect x="4" y="14" width="6" height="16" rx="2" fill="#ffde00"></rect><rect x="34" y="14" width="6" height="16" rx="2" fill="#ffde00"></rect><rect x="10" y="17" width="4" height="10" rx="1" fill="#ffde00"></rect><rect x="30" y="17" width="4" height="10" rx="1" fill="#ffde00"></rect></svg><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px">2　「鍛えられる」と知り、短く反復する</b></div>
+<div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#ffde00" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M12 22h20"></path><rect x="4" y="14" width="6" height="16" rx="2" fill="#ffde00"></rect><rect x="34" y="14" width="6" height="16" rx="2" fill="#ffde00"></rect><rect x="10" y="17" width="4" height="10" rx="1" fill="#ffde00"></rect><rect x="30" y="17" width="4" height="10" rx="1" fill="#ffde00"></rect></svg><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px">2　「鍛えられる」と知り、短く反復する</b></div>
 <p style="font-size: 13px; line-height: 1.7; opacity: .92">デモクラシーフィットネスは、聴く・問う・反対を述べる・譲るを「性格」ではなく「筋肉」として扱います。鍛えられると知ること自体が、効力感の第一歩です。そして筋肉と同じで、一度の研修ではなく、短い反復でしか育ちません。</p>
 </div>
 <div style="border: 1.5px solid rgba(255,255,255,.6); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px">
-<div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#ffde00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24l10-8 6 6 6-6 10 8"></path><path d="M16 16v10M28 16v10"></path><circle cx="22" cy="34" r="4" fill="#ffde00"></circle></svg><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px">3　反対意見を上手に扱い、良い妥協を目指し、良いものを広げる</b></div>
+<div style="display:flex;gap:12px;align-items:center"><svg class="ico sm" viewBox="0 0 44 44" fill="none" stroke="#ffde00" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 24l10-8 6 6 6-6 10 8"></path><path d="M16 16v10M28 16v10"></path><circle cx="22" cy="34" r="4" fill="#ffde00"></circle></svg><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px">3　反対意見を上手に扱い、良い妥協を目指し、良いものを広げる</b></div>
 <p style="font-size: 13px; line-height: 1.7; opacity: .92">反対意見を「攻撃」ではなく「材料」として受け取る（これが、4章のリフレーミングです）。全員が納得する案ではなく、誰も置き去りにしない「良い妥協」を目指す。うまくいったことは一人の手柄にせず、他のチームに広げる。そして互いの試みをフォローし合う。この四つが回ると、勇気は要らなくなります。</p>
 </div>
 </div>
@@ -1534,10 +1534,10 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="st">「満足度」で​終わらせない。</p>
 <p class="body">研修の効果測定で定番の、D. カークパトリックの4段階に沿って置きます。どの段階を何で見るかを、始める前に決めておく。それだけで、「やった感」ではなく「変わったか」で語れるようになります。</p>
 <div style="display: flex; flex-direction: column; gap: 0">
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv1　反応</b><p style="font-size: 13px; line-height: 1.6">受講後のアンケート。ただし、ここで止まらない。</p></div>
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv2　学習</b><p style="font-size: 13px; line-height: 1.6">デモクラ筋診断（60問）を前後で受ける。個人と組織、10筋ごとに変化を見る。</p></div>
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv3　行動</b><p style="font-size: 13px; line-height: 1.6">会議で反対意見が出た回数、発言した人の数、決定までの日数。現場で数えられるものを、2〜3個だけ決める。</p></div>
-<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv4　成果</b><p style="font-size: 13px; line-height: 1.6">離職率、新しい取り組みの提案件数、顧客からの評価。時間がかかるので、半年〜1年の軸で見る。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv1　反応</b><p style="font-size: 13px; line-height: 1.6">受講後のアンケート。ただし、ここで止まらない。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv2　学習</b><p style="font-size: 13px; line-height: 1.6">デモクラ筋診断（60問）を前後で受ける。個人と組織、10筋ごとに変化を見る。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv3　行動</b><p style="font-size: 13px; line-height: 1.6">会議で反対意見が出た回数、発言した人の数、決定までの日数。現場で数えられるものを、2〜3個だけ決める。</p></div>
+<div style="display: grid; grid-template-columns: 120px minmax(0,1fr); gap: 12px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.3); padding: 10px 0"><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 14px; color: #ffde00; word-break: keep-all">Lv4　成果</b><p style="font-size: 13px; line-height: 1.6">離職率、新しい取り組みの提案件数、顧客からの評価。時間がかかるので、半年〜1年の軸で見る。</p></div>
 </div>
 <p class="seg big"><span>測る​道具は、</span><span>すでに​ある。</span></p>
 <p class="cap">9章のデータは、この診断で測ったものです。Lv3の指標は組織ごとに違うので、最初の相談で一緒に決めます。参考：D. L. Kirkpatrick の4段階評価モデル（1959）</p>
@@ -1574,9 +1574,9 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="lbl" style="color: #37bef0">はじめの​一歩は、​断れない​くらい​小さく</p>
 <p class="seg st"><span>全社を​動かす前に、</span><span>1チーム・3か月。</span></p>
 <div style="display: flex; flex-direction: column; gap: 12px">
-<div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">1</span><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; word-break: keep-all">現在地を見る</b><span class="cap" style="opacity: .7">1週間</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">気づき</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">デモクラ筋診断を、いちばん動きたい数人のチームで受ける。個人と組織の差を、まず眺める。</p></div>
-<div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">2</span><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; word-break: keep-all">眺めて​話す会を、​1回開く</b><span class="cap" style="opacity: .7">半日</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">くみたて</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">結果を材料に、カードやブロックで「うちでいちばん弱い決め方」を話す。誰も正面から意見を言わなくていい形で。</p></div>
-<div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">3</span><b style="font-family: 'Zen Kaku Gothic New', sans-serif; font-size: 17px; word-break: keep-all">1チームで、​3か​月だけ反復する</b><span class="cap" style="opacity: .7">月1回・90分</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">スパイラルアップ</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">短い筋トレと、会議での小さな試み（反対意見を一つ出す、など）を続ける。3か月後に再診断して、次を決める。</p></div>
+<div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">1</span><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px; word-break: keep-all">現在地を見る</b><span class="cap" style="opacity: .7">1週間</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">気づき</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">デモクラ筋診断を、いちばん動きたい数人のチームで受ける。個人と組織の差を、まず眺める。</p></div>
+<div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">2</span><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px; word-break: keep-all">眺めて​話す会を、​1回開く</b><span class="cap" style="opacity: .7">半日</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">くみたて</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">結果を材料に、カードやブロックで「うちでいちばん弱い決め方」を話す。誰も正面から意見を言わなくていい形で。</p></div>
+<div style="border: 1.5px solid rgba(236,236,232,.35); padding: 16px 18px; display: flex; flex-direction: column; gap: 6px"><div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap"><span style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 28px; color: #37bef0; line-height: 1">3</span><b style="font-family: 'Noto Sans JP', sans-serif; font-size: 17px; word-break: keep-all">1チームで、​3か​月だけ反復する</b><span class="cap" style="opacity: .7">月1回・90分</span><span style="font-size: 11px; letter-spacing: .12em; font-weight: 700; color: #37bef0; border: 1px solid #37bef0; border-radius: 999px; padding: 1px 8px; white-space: nowrap">スパイラルアップ</span></div><p style="font-size: 13px; line-height: 1.7; opacity: .92">短い筋トレと、会議での小さな試み（反対意見を一つ出す、など）を続ける。3か月後に再診断して、次を決める。</p></div>
 </div>
 <p class="seg big"><span>うまく​いった​ところから、</span><span>広げる。</span></p>
 <p class="cap">この3ステップは、きづきくみたて工房の「グッドスパイラルワークショップ」の型を、最小単位にしたものです。6章で見たとおり、最初から全員は動きません。1チームの「言ったら動いた」が、組織効力感の最初の一歩になります。期間と頻度は目安で、組織に合わせて調整します。</p>
@@ -1658,7 +1658,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="prof" style="display: grid; grid-template-columns: 168px minmax(0,1fr); gap: 20px; align-items: center; padding-top: 8px">
 <img src="images/gakushu/morimoto.webp" alt="森本康仁。白いキャップと眼鏡、DEMOCRACY FITNESSのTシャツで笑っている" style="width: 168px; height: 210px; object-fit: cover; border-radius: 12px; display: block">
 <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
-<p style="font-family: 'Zen Kaku Gothic New', sans-serif; font-weight: 900; font-size: 18px">きづきくみたて工房　森本康仁</p>
+<p style="font-family: 'Noto Sans JP', sans-serif; font-weight: 900; font-size: 18px">きづきくみたて工房　森本康仁</p>
 <p class="cap">対話のトレーナー。目指しているのは、世界平和です。<br>長野県軽井沢町 ／ LEGO® SERIOUS PLAY® 認定ファシリテーター ／ デモクラシーフィットネス認定トレーナー（We Do Democracy, Denmark）／ TOPAASIA 日本公式パートナー</p>
 <a href="https://kizukikumitate.com" style="font-weight: 700; text-decoration: none; font-size: 14px">kizukikumitate.com</a>
 </div>
@@ -1668,6 +1668,43 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 
 </article>
 </div>
+
+<!-- ZUKAI-SERIES START -->
+<section class="zsn" aria-label="図解シリーズ">
+<style>
+.zsn{background:#14191E;color:#F6F5F0;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",system-ui,sans-serif;line-height:1.7;padding:72px 24px;box-sizing:border-box}
+.zsn *{box-sizing:border-box}
+.zsn .zsn-in{max-width:1008px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;gap:22px}
+.zsn .zsn-h{margin:0;display:flex;justify-content:space-between;align-items:baseline;gap:16px;font-weight:900;font-size:20px;letter-spacing:.12em;color:#F5C542}
+.zsn .zsn-h a{font-size:15px;letter-spacing:0;color:#F6F5F0}
+.zsn .zsn-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.zsn .zsn-c{display:flex;flex-direction:column;align-items:stretch;gap:8px;background:#222A32;color:#F6F5F0;border-radius:14px;padding:22px;text-decoration:none;border:3px solid transparent}
+.zsn a.zsn-c:hover{border-color:#F5C542;color:#F6F5F0}
+.zsn .zsn-c.cur{background:#F5C542;color:#14191E}
+.zsn .zsn-n{font-weight:900;font-size:40px;line-height:1;color:#F5C542}
+.zsn .zsn-c.cur .zsn-n{color:#14191E}
+.zsn .zsn-t{font-weight:900;font-size:19px;line-height:1.45}
+.zsn .zsn-d{font-size:14.5px;line-height:1.7}
+.zsn .zsn-pn{margin:0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-weight:700;font-size:16px}
+.zsn .zsn-pn a{color:#F5C542;text-decoration:none;padding:10px 0;min-height:44px}
+.zsn .zsn-pn a:hover{text-decoration:underline}
+@media (max-width:760px){
+.zsn{padding:52px 22px}
+.zsn .zsn-g{grid-template-columns:minmax(0,1fr);gap:12px}
+.zsn .zsn-t{font-size:18px}
+}
+</style>
+<div class="zsn-in">
+<p class="zsn-h"><span>図解シリーズ</span><a href="zukai-series.html">一覧を見る</a></p>
+<div class="zsn-g">
+<div class="zsn-c cur" aria-current="page"><span class="zsn-n">1</span><span class="zsn-t">今、この社会に必要な学習とは？</span><span class="zsn-d">いま読んでいるページです。</span></div>
+<a class="zsn-c" href="minshushugi-kyoiku-rekishi.html"><span class="zsn-n">2</span><span class="zsn-t">日本の民主主義教育の歴史</span><span class="zsn-d">学校が民主主義をどう教えてきたのかを、制度と、変わりにくい土台の二層でたどります。</span></a>
+<a class="zsn-c" href="minshushugi-kyoiku-roadmap.html"><span class="zsn-n">3</span><span class="zsn-t">日本の民主主義教育を広げるロードマップ</span><span class="zsn-d">学校、職場、地域、家庭。学ぶ場を、誰が、誰のお金で、誰に届けるのかを描きます。</span></a>
+</div>
+<p class="zsn-pn"><span></span><a href="minshushugi-kyoiku-rekishi.html">次の図解（2）日本の民主主義教育の歴史 →</a></p>
+</div>
+</section>
+<!-- ZUKAI-SERIES END -->
 
 <!-- KAIYU START -->
 <aside class="kaiyu" data-kaiyu-theme="paper" aria-label="次のおすすめページ">
@@ -1725,7 +1762,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
   <div class="kaiyu-grid">
     <a class="kaiyu-card" href="./dialogue-program.html"><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">対話力向上プログラム</span><span class="kaiyu-desc">対話力向上研修。1on1・会議・組織の対話の質を根本から鍛える。</span><span class="kaiyu-arw">→</span></a>
     <a class="kaiyu-card" href="./roadmap.html"><span class="kaiyu-tag">目指す未来</span><span class="kaiyu-name">世界平和までのロードマップ</span><span class="kaiyu-desc">平和は、人の認知能力から始まる。工房の全体地図となる論考。</span><span class="kaiyu-arw">→</span></a>
-    <a class="kaiyu-card" href="./kenshu.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">ソリューション</span><span class="kaiyu-name">研修一覧（階層別・テーマ別）</span><span class="kaiyu-desc">新入社員から管理職まで。階層別・テーマ別・思考系の研修を、ひと目で探せる一覧。</span><span class="kaiyu-arw">→</span></a>
+    <a class="kaiyu-card" href="./minshushugi-kyoiku-roadmap.html"><span class="kaiyu-badge">新着</span><span class="kaiyu-tag">世界の知恵</span><span class="kaiyu-name">図解で見る 日本の民主主義教育を広げるロードマップ</span><span class="kaiyu-desc">学校、職場、地域、家庭。民主主義を学ぶ場を、誰が、誰のお金で、誰に届けるのか。</span><span class="kaiyu-arw">→</span></a>
   </div>
 </div>
 </aside>

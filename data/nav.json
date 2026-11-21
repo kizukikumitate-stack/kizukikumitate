@@ -914,6 +914,10 @@
     {
       "path": "minshushugi-kyoiku-rekishi.html",
       "variant": "standard"
+    },
+    {
+      "path": "minshushugi-kyoiku-roadmap.html",
+      "variant": "standard"
     }
   ],
   "exclude": [
