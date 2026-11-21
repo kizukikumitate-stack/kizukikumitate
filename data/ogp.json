@@ -832,6 +832,26 @@
       "eyebrow": "ソリューション ／ 人事・研修担当の方へ",
       "title": "階層別 年間シリーズ研修<br>3年目・中堅・新任管理職",
       "sub": "役割が変わる節目の1年間を、2か月に1回・全6回で支えます。"
+    },
+    {
+      "page": "zukai-series.html",
+      "img": "zukai-series-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1B4FA8",
+      "eyebrow": "世界の知恵 ／ 読み物",
+      "title": "図解シリーズ",
+      "sub": "大事なのに、学ぶ機会がなかったテーマを、図解でわかりやすく。"
+    },
+    {
+      "page": "minshushugi-kyoiku-rekishi.html",
+      "img": "minshushugi-kyoiku-rekishi-ogp.png",
+      "template": "standard",
+      "theme": "paper",
+      "acc": "#1B4FA8",
+      "eyebrow": "図解シリーズ",
+      "title": "図解で見る<br>日本の民主主義教育の歴史",
+      "sub": "学校は民主主義をどう教えてきたか。制度と、変わりにくい土台の二層でたどる。"
     }
   ]
 }

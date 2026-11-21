@@ -236,3 +236,17 @@ scoring:
     url: /kaisoubetsu-series.html
     tags: [3年目研修, 3年目社員 研修, 中堅社員研修, リーダー研修, 新任管理職研修, 階層別研修, 年間研修 階層別]
     service_bridge: 階層別 年間シリーズ研修
+
+  - id: zukai-series
+    name: 図解シリーズ（一覧）
+    type: article
+    url: /zukai-series.html
+    tags: [図解, 図解 わかりやすい, 超図解, 民主主義 図解, 学び直し]
+    service_bridge: デモクラシーフィットネス・対話力向上プログラム
+
+  - id: minshushugi-kyoiku-rekishi
+    name: 図解で見る 日本の民主主義教育の歴史
+    type: article
+    url: /minshushugi-kyoiku-rekishi.html
+    tags: [民主主義教育, 民主主義 教育 歴史, 主権者教育, 主権者教育 歴史, シティズンシップ教育, 18歳選挙権, PTA 歴史, 公民館 歴史, 教育基本法, 政治的中立]
+    service_bridge: デモクラシーフィットネス
