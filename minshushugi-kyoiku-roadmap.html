@@ -172,6 +172,15 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .ivl{display:flex;flex-direction:column;align-items:stretch;gap:4px;font-size:14.5px;line-height:1.5}
 .zk .ivl b{font-size:12px;letter-spacing:.1em;color:#1B4FA8}
 .zk .ivl a{padding:4px 0}
+.zk .share{display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:20px 22px;border-radius:14px;background:#FFFFFF;color:#14191E}
+.zk .share .sl{font-size:13px;letter-spacing:.16em;font-weight:900;color:#1B4FA8;margin-right:6px}
+.zk .share .shb{display:inline-flex;flex-direction:row;align-items:center;gap:9px;min-height:48px;padding:0 20px;border:0;border-radius:999px;font-family:inherit;font-weight:900;font-size:15px;color:#FFFFFF;text-decoration:none;cursor:pointer;line-height:1;white-space:nowrap}
+.zk .share .shb:hover{color:#FFFFFF;filter:brightness(1.15)}
+.zk .share .shb.x{background:#000000}
+.zk .share .shb.fb{background:#1466D1}
+.zk .share .shb.ln{background:#0B8139}
+.zk .share .shb.cp{background:#14191E}
+.zk .share .shb svg{width:18px;height:18px;flex:none}
 .zk .rg{display:flex;flex-direction:column;gap:14px}
 .zk .rg .rw{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:14px;align-items:center;font-weight:700;font-size:16px}
 .zk .rg .tk{position:relative;height:26px;border-radius:8px;background:#E7E3D6}
@@ -221,6 +230,9 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .rg .rv{text-align:left}
 .zk .card .pct{font-size:34px}
 .zk .sb{font-size:12.5px;height:56px}
+.zk .share{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:16px 14px}
+.zk .share .sl{grid-column:1/-1;margin-right:0}
+.zk .share .shb{width:100%;box-sizing:border-box;justify-content:center;padding:0 8px;font-size:13.5px;gap:7px}
 .zk .pt{font-size:17px}.pt .wrap{padding:16px 22px}
 .zk .ov{grid-template-columns:minmax(0,1fr)}
 .zk .ovar{transform:rotate(90deg)}
@@ -659,7 +671,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="crumb"><a class="back" href="index.html">ホーム</a> ／ <a class="back" href="zukai-series.html">図解シリーズ</a> ／ 3</p>
 <p class="no">図解シリーズ 3　民主主義教育のこれから</p>
 <h1 class="hero seg"><span>学校を出たあと、</span><br><span>民主主義を学ぶ場は</span><br><span>ありましたか。</span></h1>
-<p class="lead">この図解シリーズは私、森本康仁が「すごく大事なことなのに、全然学べていなかった」と感じたことから作りました。同じような気持ちの方と一緒に、できるだけわかりやすくポイントをつかめるようにまとめています。みんなで一緒に学んでいきましょう。</p>
+<p class="lead">この図解シリーズを作っているのは森本康仁です。小学校の教員から、民間企業や自治体の依頼を受けて人材育成をする仕事に移り、国内外の教育実践を調べてきました。その中で、日本の教育や学習、人材育成は全体として構造的な問題を抱えているのではないかと感じたことから作り始めました。同じような気持ちの方と一緒に、できるだけわかりやすくポイントをつかめるようにまとめています。みんなで一緒に学んでいきましょう。</p>
 <p class="lead">今回は日本の民主主義教育をこれからどう充実させていくのか、私なりのロードマップを描きます。学校、職場、地域、家庭の4つの場所で、誰が、誰のお金で、誰に届けるのか。全国の実践者のみなさんと一緒に考えるための、たたき台です。</p>
 <div class="g4">
 <div class="tile"><b>学校</b>先生から子どもたちへ</div>
@@ -1125,7 +1137,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="no" style="color: #14191E">おわりに</p>
 <h2 class="st seg"><span>一人では、</span><span>届けきれません。</span><br><span>一緒に広げていきませんか。</span></h2>
 <p class="lead">このロードマップは完成した計画ではありません。全国の志ある実践者のみなさんと話し合いながら、書き換えていくためのたたき台です。「自分の地域でもやってみたい」「この払い手とならできそうだ」と感じた方は、ぜひ声をかけてください。</p>
-<h3 class="st seg" style="font-size: 30px"><span>大事だと思った方は</span><span>周りの方と話してみてください。</span></h3>
+<h3 class="st seg" style="font-size: 30px"><span>大事だと思った方は</span><span>周りの方と</span><span>話してみてください。</span></h3>
 <p>このページを読んで大事なことだなと思った方は、ぜひ身近な方とこのページをもとに対話をしてみてください。結論を出す必要はありません。たとえば次の4つをテーマにしてみてください。</p>
 <div class="g4">
 <div class="card"><h3 class="seg"><span>共感できた点</span></h3></div>
@@ -1134,6 +1146,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="card" style="background: #14191E; color: #F6F5F0"><h3 class="seg"><span>私だったらこうすると思った点</span></h3></div>
 </div>
 <p>話して出てきた声は、ぜひ私にも聞かせてください。このロードマップを書き換える材料にします。</p>
+<div class="share"><span class="sl">SHARE</span><a class="shb x" href="https://twitter.com/intent/tweet?text=%E5%9B%B3%E8%A7%A3%E3%81%A7%E8%A6%8B%E3%82%8B%20%E6%97%A5%E6%9C%AC%E3%81%AE%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E6%95%99%E8%82%B2%E3%82%92%E5%BA%83%E3%81%92%E3%82%8B%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%97&amp;url=https%3A%2F%2Fkizukikumitate.com%2Fminshushugi-kyoiku-roadmap.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>X で共有</a><a class="shb fb" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fkizukikumitate.com%2Fminshushugi-kyoiku-roadmap.html" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>Facebook で共有</a><a class="shb ln" href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fkizukikumitate.com%2Fminshushugi-kyoiku-roadmap.html&amp;text=%E5%9B%B3%E8%A7%A3%E3%81%A7%E8%A6%8B%E3%82%8B%20%E6%97%A5%E6%9C%AC%E3%81%AE%E6%B0%91%E4%B8%BB%E4%B8%BB%E7%BE%A9%E6%95%99%E8%82%B2%E3%82%92%E5%BA%83%E3%81%92%E3%82%8B%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%97" target="_blank" rel="noopener"><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3H3v12h12v-4"></path><path d="M10 2h6v6M16 2 8 10"></path></svg>LINE で送る</a><button class="shb cp" type="button" data-copy-link><svg viewBox="0 0 18 18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 10.5a3.2 3.2 0 0 0 4.5 0l2.2-2.2a3.2 3.2 0 0 0-4.5-4.5L8.6 4.9"></path><path d="M10.5 7.5a3.2 3.2 0 0 0-4.5 0L3.8 9.7a3.2 3.2 0 0 0 4.5 4.5l1.1-1.1"></path></svg>リンクをコピー</button></div>
 <a class="btn" href="democracy-fitness.html">体験会と研修を見る</a>
 <p><a class="back" href="zukai-series.html">図解シリーズの一覧へ</a>　／　<a class="back" href="index.html">トップページへ</a></p>
 <p class="cap" style="color: #14191E">きづきくみたて工房　森本康仁</p>
@@ -1375,5 +1388,19 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 })();
 </script>
 <!-- SHELF END -->
+<script>
+document.addEventListener('click', function (e) {
+  var b = e.target.closest('[data-copy-link]');
+  if (!b) return;
+  var url = 'https://kizukikumitate.com/minshushugi-kyoiku-roadmap.html';
+  var done = function () {
+    var n = b.lastChild;
+    if (n && n.nodeType === 3) { n.nodeValue = 'コピーしました'; setTimeout(function () { n.nodeValue = 'リンクをコピー'; }, 2000); }
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(url).then(done, function () {});
+  }
+});
+</script>
 </body>
 </html>
