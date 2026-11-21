@@ -294,16 +294,16 @@
   <!-- STEP 2 : 恩恵 -->
   <section class="panel hidden" id="s2">
     <span class="stage-tag">水深 -50m · めぐみを見る</span>
-    <h2>そのやり方は、あなたを何から守ってきましたか?</h2>
-    <p class="guide">直したい課題は、たいてい「かつての有能な守り」です。ピンとくるものを1〜3つ。ぴったり来るものが無ければ、最後の「この中にない」から自分のことばで書けます。</p>
+    <h2>そのやり方はあなたを何から守ってきましたか?</h2>
+    <p class="guide">直したい課題はたいてい「かつての有能な守り」です。ピンとくるものを1〜3つ。ぴったり来るものが無ければ、最後の「この中にない」から自分のことばで書けます。</p>
     <div class="hint-chips" id="benefitChips"></div>
 
     <div class="own" id="ownBenefit">
-      <p class="own-q">そのやり方は、あなたを何から守ってきましたか。自分のことばで一文どうぞ。</p>
+      <p class="own-q">そのやり方はあなたを何から守ってきましたか。自分のことばで一文どうぞ。</p>
       <input type="text" id="ownBenefitText" placeholder="例: 誰かに落胆されること" oninput="onOwnBenefit()">
       <p class="own-q" style="margin-top:14px;">いま書いたものは、おおまかにどの怖さに近いですか。<span>（任意。浮上のときに流れてくるカードの手がかりになります）</span></p>
       <div class="own-tags" id="ownBenefitTags"></div>
-      <p class="own-note">選ばなくても進めます。その場合は、どの守りにも共通する3枚をお渡しします。</p>
+      <p class="own-note">選ばなくても進めます。その場合はどの守りにも共通する3枚をお渡しします。</p>
     </div>
 
     <div class="safety" id="safety2"></div>
@@ -344,13 +344,13 @@
   <!-- STEP 5 : 浮上・知恵カード -->
   <section class="panel hidden" id="s5">
     <span class="stage-tag" style="background:var(--accent2);">浮上中 · 別の見方に出会う</span>
-    <h2>浮上の途中で、3枚のカードが流れてきました</h2>
+    <h2>浮上の途中で3枚のカードが流れてきました</h2>
     <p class="guide"><span id="cardsLede"></span>出典は<a href="./unlearn-zukan.html" style="color:var(--accent);">アンラーン図鑑</a>です。</p>
     <div id="cards"></div>
     <div class="reframe" id="reframe"></div>
     <div class="exp" id="experiment"></div>
     <div class="own show">
-      <p class="own-q">この実験がしっくり来なければ、自分の実験を書いてください。<span>（書いた場合は、ノートにこちらが載ります）</span></p>
+      <p class="own-q">この実験がしっくり来なければ、自分の実験を書いてください。<span>（書いた場合はノートにこちらが載ります）</span></p>
       <input type="text" id="ownExp" placeholder="今週ためしてみる、小さなこと" oninput="onOwnExp()">
     </div>
     <button class="btn" onclick="go6()">海面へ ▴</button>
