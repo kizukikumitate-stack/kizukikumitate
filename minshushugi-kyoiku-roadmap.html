@@ -133,6 +133,45 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .more summary{font-weight:900;font-size:17px;cursor:pointer;color:#1B4FA8;min-height:44px;display:flex;align-items:center}
 .zk .more>div{display:flex;flex-direction:column;gap:18px;margin-top:14px}
 .zk .more li{font-size:15.5px;line-height:1.8;margin-bottom:8px}
+.zk section[id]{scroll-margin-top:90px}
+.zk .pt{background:#1B4FA8;color:#fff;font-weight:900;font-size:22px;letter-spacing:.06em}
+.zk .pt .wrap{padding:22px 96px}
+.zk .pt span{display:inline-block;margin-right:1em;padding:2px 14px;border-radius:99px;background:#F5C542;color:#14191E;font-size:15px;letter-spacing:.1em}
+.zk .ov{display:grid;grid-template-columns:minmax(0,1fr) 130px minmax(0,1fr);gap:16px;align-items:center}
+.zk .ovb{border-radius:14px;padding:26px 28px;display:flex;flex-direction:column;align-items:stretch;gap:12px}
+.zk .ovx{background:#14191E;color:#F6F5F0}
+.zk .ovo{background:#1B4FA8;color:#fff}
+.zk .ovh{font-weight:900;font-size:20px;color:#F5C542}
+.zk .ovb ol{margin:0;padding-left:1.4em;display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:16.5px;line-height:1.6}
+.zk .ovf{font-size:14px;border-top:1px solid rgba(255,255,255,.35);padding-top:10px}
+.zk .ovm{display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:900;font-size:17px;text-align:center}
+.zk .ovm p{text-align:center}
+.zk .ovar{width:56px;height:56px}
+.zk .toc5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.zk .tc{background:#fff;border-radius:14px;padding:18px;display:flex;flex-direction:column;align-items:stretch;gap:6px}
+.zk .tp{font-weight:900;font-size:12px;letter-spacing:.1em;color:#1B4FA8}
+.zk .tt{font-weight:900;font-size:18px;line-height:1.4;margin-bottom:4px;text-align:left}
+.zk .tc a{font-size:14px;line-height:1.5;text-decoration:none;padding:6px 0;border-top:1px solid #E7E3D6}
+.zk .tc a:hover{text-decoration:underline}
+.zk .lp{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr) 36px minmax(0,1fr);grid-template-areas:"a ab b bc c" "fa mid mid mid cd" "f ef e de d";gap:12px;align-items:center}
+.zk .ga{grid-area:a}.gb{grid-area:b}.gc{grid-area:c}.gd{grid-area:d}.ge{grid-area:e}.gf{grid-area:f}
+.zk .gab{grid-area:ab}.gbc{grid-area:bc}.gcd{grid-area:cd}.gde{grid-area:de}.gef{grid-area:ef}.gfa{grid-area:fa}
+.zk .lc{background:#222A32;border-radius:14px;padding:22px;display:flex;flex-direction:column;align-items:stretch;gap:6px;align-self:stretch}
+.zk .lc .lcn{font-weight:900;font-size:36px;line-height:1;color:#F5C542}
+.zk .lc h3{font-weight:900;font-size:21px;line-height:1.4}
+.zk .lc p{font-size:15.5px;line-height:1.75}
+.zk .lt{align-self:flex-start;font-weight:900;font-size:12px;letter-spacing:.06em;border:1.5px solid #F5C542;color:#F5C542;border-radius:99px;padding:1px 10px}
+.zk .lar{width:32px;height:32px;color:#F5C542;justify-self:center}
+.zk .lar.down{transform:rotate(90deg)}.lar.left{transform:rotate(180deg)}.lar.up{transform:rotate(270deg)}
+.zk .lmid{grid-area:mid;text-align:center;font-weight:700;font-size:16px;line-height:1.7;color:#C9CED3}
+.zk .iv{background:#fff;border-radius:14px;padding:22px 26px;display:grid;grid-template-columns:170px 32px minmax(0,1.3fr) minmax(0,1fr);gap:18px;align-items:center}
+.zk .ivp{display:flex;align-items:center;gap:12px}
+.zk .ivn{font-weight:900;font-size:40px;line-height:1;color:#1B4FA8}
+.zk .ivt{font-weight:900;font-size:20px;line-height:1.3;text-align:left}
+.zk .iva{font-size:16.5px;line-height:1.75}
+.zk .ivl{display:flex;flex-direction:column;align-items:stretch;gap:4px;font-size:14.5px;line-height:1.5}
+.zk .ivl b{font-size:12px;letter-spacing:.1em;color:#1B4FA8}
+.zk .ivl a{padding:4px 0}
 .zk .rg{display:flex;flex-direction:column;gap:14px}
 .zk .rg .rw{display:grid;grid-template-columns:230px minmax(0,1fr) 130px;gap:14px;align-items:center;font-weight:700;font-size:16px}
 .zk .rg .tk{position:relative;height:26px;border-radius:8px;background:#E7E3D6}
@@ -182,6 +221,16 @@ body{margin:0;background:#F6F5F0;padding-top:var(--navh);-webkit-font-smoothing:
 .zk .rg .rv{text-align:left}
 .zk .card .pct{font-size:34px}
 .zk .sb{font-size:12.5px;height:56px}
+.zk .pt{font-size:17px}.pt .wrap{padding:16px 22px}
+.zk .ov{grid-template-columns:minmax(0,1fr)}
+.zk .ovar{transform:rotate(90deg)}
+.zk .toc5{grid-template-columns:minmax(0,1fr)}
+.zk .lp{display:flex;flex-direction:column;align-items:stretch;gap:8px}
+.zk .ga{order:1}.gab{order:2}.gb{order:3}.gbc{order:4}.gc{order:5}.gcd{order:6}.gd{order:7}.gde{order:8}.ge{order:9}.gef{order:10}.gf{order:11}.lmid{order:12}
+.zk .gfa{display:none}
+.zk .lar,.lar.left,.lar.down{transform:rotate(90deg);align-self:center}
+.zk .iv{grid-template-columns:minmax(0,1fr);gap:10px;padding:20px}
+.zk .iv>.fa{display:none}
 .zk .ld{grid-template-columns:minmax(0,1fr);gap:4px;padding:18px 20px}
 .zk .ld .ln{font-size:26px}.ld .lm{font-size:26px}
 .zk .more{padding:16px 18px}
@@ -621,8 +670,27 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big seg"><span>まずは、</span><span>なぜ今なのかから</span><span>お話しします。</span></p>
 </div></section>
 
-<section class="paper"><div class="wrap panel">
-<p class="no">なぜ今、民主主義教育なのか</p>
+<section class="sky"><div class="wrap panel">
+<p class="no">全体図と目次</p>
+<h2 class="st seg"><span>広がらない輪を</span><span>6つの介入で</span><br><span>広がる輪に変えていきます。</span></h2>
+<div class="ov">
+<div class="ovb ovx"><p class="ovh">いま：広がらない輪</p><ol><li>土台が向いていない</li><li>学校で練習してこなかった</li><li>社会にも仕組みがない</li><li>問題だと認識されていない</li><li>投資が必要だと思われていない</li><li>担い手が育たない</li></ol><p class="ovf">場が増えず、また1に戻ります</p></div>
+<div class="ovm"><svg class="fa ovar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p>6つの介入</p></div>
+<div class="ovb ovo"><p class="ovh">目指す姿：広がる輪</p><ol><li>一人ひとりが自分の足で立つ</li><li>周囲に広がる</li><li>新たな価値が生まれる</li><li>社会がより良い状態になる</li><li>次の世代へ受け渡される</li></ol><p class="ovf">実践を重ねるほど強くなります</p></div>
+</div>
+<div class="toc5">
+<div class="tc"><p class="tp">第1部</p><p class="tt">なぜ今か</p><a href="#c1">1　なぜ今、民主主義教育なのか</a><a href="#c2">2　私の問題意識</a><a href="#c3">3　社会をどう良くするのか</a></div>
+<div class="tc"><p class="tp">第2部</p><p class="tt">なぜ広がらないのか</p><a href="#c4">4　4つの場所の現在地</a><a href="#c5">5　広がらない構造</a></div>
+<div class="tc"><p class="tp">第3部</p><p class="tt">どこに手を入れるか</p><a href="#c6">6　6つの介入</a><a href="#c7">7　払い手の地図</a><a href="#c8">8　間接的に届ける</a><a href="#c9">9　いま取り組んでいる場所</a><a href="#c10">10　参加した方の声</a></div>
+<div class="tc"><p class="tp">第4部</p><p class="tt">いくらかかるのか</p><a href="#c11">11　いくらあれば最低限できるのか</a><a href="#c12">12　投資の効果</a><a href="#c13">13　実践者の実情</a></div>
+<div class="tc"><p class="tp">第5部</p><p class="tt">どう進めるか</p><a href="#c14">14　ロードマップ</a><a href="#c15">15　実践者が続けられる形</a><a href="#c16">16　みんなで決める</a></div>
+</div>
+</div></section>
+
+<div class="pt"><div class="wrap"><span>第1部</span>なぜ今か</div></div>
+
+<section id="c1" class="paper"><div class="wrap panel">
+<p class="no">1　なぜ今、民主主義教育なのか</p>
 <h2 class="st seg"><span>テクノロジーが進むほど、</span><br><span>一人ひとりの意思と対話が</span><span>問われます。</span></h2>
 <p class="lead">私が「今こそ民主主義教育だ」と考える理由は、4つあります。生成AIをはじめとするデジタルテクノロジーの発達には、正の面と負の面があります。そしてその変化に制度と人の認知が追いついていません。</p>
 <div class="g2">
@@ -634,8 +702,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="big seg"><span>想いを持つこと。</span><span>制度を更新すること。</span><br><span>対話で認知を修正すること。</span><br><span>どれも、民主主義教育が育てる力です。</span></p>
 </div></section>
 
-<section class="sun"><div class="wrap panel">
-<p class="no" style="color: #14191E">はじめに　私の問題意識</p>
+<section id="c2" class="sun"><div class="wrap panel">
+<p class="no" style="color: #14191E">2　私の問題意識</p>
 <h2 class="st seg"><span>日本では、</span><span>民主主義を</span><br><span>ちゃんと学ぶ機会が、</span><span>ほとんどありませんでした。</span></h2>
 <p class="lead">日本の学校が民主主義をどう教えてきたのかを、150年の流れでたどったことがあります。制度は何度も書き換えられましたが、政治や社会について自分の意見を持ち、話し合って決める練習は学校の中でも外でも、長いあいだ十分には行われてきませんでした。</p>
 <a class="hist" href="minshushugi-kyoiku-rekishi.html">
@@ -653,8 +721,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p>これは誰かが悪いという話ではありません。学ぶ機会も、練習する場も、なかっただけです。</p>
 </div></section>
 
-<section class="sky"><div class="wrap panel">
-<p class="no">民主主義教育は社会をどう良くするのか</p>
+<section id="c3" class="sky"><div class="wrap panel">
+<p class="no">3　社会をどう良くするのか</p>
 <h2 class="st seg"><span>一人の実践が、</span><span>周りに広がり、</span><br><span>次の世代の土台になります。</span></h2>
 <p class="lead">民主主義を学ぶことは選挙や制度の知識を増やすことだけではありません。自分の意見を持ち、人の意見を聴き、違いを扱いながら一緒に決めて動く力を育てることです。その力が育つと何が起きるのか。育たないと何が起きるのか。左右に並べてみます。</p>
 <div class="chain">
@@ -682,11 +750,13 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <div class="cx"><b>学ぶ機会がないと</b><h3>同じ土台がそのまま渡る</h3><p>学ぶ機会がないまま、次の世代も同じところから始めます。</p></div>
 </div>
 <p>左の流れは放っておいても起きるものではありません。右の流れは誰も悪くなくても起きてしまいます。だから学ぶ機会と練習の場を、意識してつくる必要があると考えています。</p>
-<p class="big seg"><span>では、</span><span>どうすればよいのでしょうか。</span><br><span>ここから先は、</span><span>私が考える解決の道筋です。</span></p>
+<p class="big seg"><span>では、なぜ広がらないのでしょうか。</span><br><span>現在地と構造を見ていきます。</span></p>
 </div></section>
 
-<section class="paper"><div class="wrap panel">
-<p class="no">1　4つの場所の現在地</p>
+<div class="pt"><div class="wrap"><span>第2部</span>なぜ広がらないのか</div></div>
+
+<section id="c4" class="paper"><div class="wrap panel">
+<p class="no">4　4つの場所の現在地</p>
 <h2 class="st seg"><span>場があるのは、</span><span>学校だけです。</span><br><span>ほかの3つは、</span><span>場づくりから始まります。</span></h2>
 <p class="lead">民主主義を学ぶには3つのものが必要です。集まる「場」、教える「担い手」、そして費用を出す「払い手」です。4つの場所を、この3つで見比べます。色分けは私の見立てです。</p>
 <div class="g2">
@@ -718,22 +788,47 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p>学校の外には、これまで民主主義を体験して学ぶ機会がほとんどなかった大人が、たくさんいます。私もその一人でした。だからこそ、学校の外の3つの場所はとても難しい挑戦になります。</p>
 </div></section>
 
-<section class="sun"><div class="wrap panel">
-<p class="no" style="color: #14191E">2　なぜ広がらないのか</p>
-<h2 class="st seg"><span>教える側が続けられなければ、</span><br><span>場は続きません。</span></h2>
-<p class="lead">学校の外へ広げる道の一つは、メディアを通じて知ってもらうことです。この図解シリーズも、その一つです。けれども、知ることと、できるようになることは別です。練習の場が必要です。</p>
-<div class="g3">
-<div class="card"><h3>熱意だけで始める</h3><p>志のある人が手弁当で場を開きます。</p></div>
-<div class="card"><h3>生活が成り立たない</h3><p>収入にならないので、続けるほど負担が増えます。</p></div>
-<div class="card" style="background: #14191E; color: #F6F5F0"><h3>場がなくなる</h3><p>担い手が離れ、参加した人の学びも途切れます。</p></div>
+<section id="c5" class="ink"><div class="wrap panel">
+<p class="no">5　広がらない構造</p>
+<h2 class="st seg"><span>できなくて当たり前です。</span><br><span>誰のせいでもありません。</span></h2>
+<p class="lead">学校の外に広がらない理由は一つではありません。6つのことがつながって輪になり、回り続けています。</p>
+<div class="lp">
+<div class="lc ga"><p class="lcn">1</p><h3 class="seg"><span>土台が</span><span>向いていない</span></h3><p>その場の空気を読む、序列に従うなど、話し合いには向きにくい土台が長く続いてきました。</p></div>
+<svg class="lar gab" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg>
+<div class="lc gb"><p class="lcn">2</p><h3 class="seg"><span>学校で</span><span>練習してこなかった</span></h3><p>政治や意見の違いを扱うことは、学校では長く避けられてきました。</p></div>
+<svg class="lar gbc" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg>
+<div class="lc gc"><p class="lcn">3</p><h3 class="seg"><span>社会にも</span><span>仕組みがない</span></h3><p>職場にも地域にも家庭にも、対話を練習する場がほとんどありません。</p></div>
+<svg class="lar gfa up" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg>
+<p class="lmid">場が増えないので、土台も学校も社会の仕組みも変わりません。輪はこうして回り続けます。</p>
+<svg class="lar gcd down" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg>
+<div class="lc gf"><p class="lcn">6</p><h3 class="seg"><span>担い手が</span><span>育たない</span></h3><p>志のある人が手弁当で場を開いても、収入にならないので続けられません。場が増えません。</p></div>
+<svg class="lar gef left" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg>
+<div class="lc ge"><p class="lcn">5</p><span class="lt">私の見立て</span><h3 class="seg"><span>投資が必要だと</span><span>思われていない</span></h3><p>問題だと思われていないので、お金をかける理由が見つからず予算がつきません。</p></div>
+<svg class="lar gde left" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg>
+<div class="lc gd"><p class="lcn">4</p><span class="lt">私の見立て</span><h3 class="seg"><span>問題だと</span><span>認識されていない</span></h3><p>意見が出ない会議も、決まらない話し合いも「普通のこと」として受け止められています。</p></div>
 </div>
-<p class="big seg"><span>持続させるには、</span><span>担い手が稼げることが必要です。</span><br><span>つまり、</span><span>払い手が必要です。</span></p>
+<p class="big seg"><span>だから</span><span>輪のどこかに手を入れます。</span></p>
+<p class="cap">1の土台は、図解2で紹介した研究者たちの指摘にもとづく仮説です。日本人の本質だという意味ではありません。4と5は、現場で感じてきた私の見立てです。</p>
 </div></section>
 
-<section class="sky"><div class="wrap panel">
-<p class="no">3　払い手の地図</p>
+<div class="pt"><div class="wrap"><span>第3部</span>どこに手を入れるか</div></div>
+
+<section id="c6" class="sun"><div class="wrap panel">
+<p class="no" style="color: #14191E">6　6つの介入</p>
+<h2 class="st seg"><span>輪の6つの点に</span><span>それぞれ</span><span>手の入れ方があります。</span></h2>
+<p class="lead">輪は、どこか1か所を変えるだけでは止まりません。6つの点のそれぞれに手を入れていきます。このページの後半は、その介入を1つずつ説明するものです。</p>
+<div class="iv"><div class="ivp"><p class="ivn">1</p><p class="ivt">土台</p></div><svg class="fa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p class="iva">土台を言葉にして知ります。新しいものを外から入れるのではなく、もともとあった話し合いの系譜を鍛え直します。</p><div class="ivl"><b>この先の章</b><a href="minshushugi-kyoiku-rekishi.html">図解2　日本の民主主義教育の歴史</a></div></div>
+<div class="iv"><div class="ivp"><p class="ivn">2</p><p class="ivt">学校</p></div><svg class="fa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p class="iva">先生が自分で体験し、授業の中で続けていきます。</p><div class="ivl"><b>この先の章</b><a href="#c7">7　払い手の地図</a></div></div>
+<div class="iv"><div class="ivp"><p class="ivn">3</p><p class="ivt">社会の仕組み</p></div><svg class="fa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p class="iva">職場、地域、個人に練習の場をつくります。そのためのお金の流れが払い手の地図です。</p><div class="ivl"><b>この先の章</b><a href="#c7">7　払い手の地図</a><a href="#c8">8　間接的に届ける</a><a href="#c9">9　いま取り組んでいる場所</a></div></div>
+<div class="iv"><div class="ivp"><p class="ivn">4</p><p class="ivt">認識</p></div><svg class="fa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p class="iva">図解、診断、参加した方の声で、起きていることを見えるようにします。この図解シリーズもその一つです。</p><div class="ivl"><b>この先の章</b><a href="#c10">10　参加した方の声</a></div></div>
+<div class="iv"><div class="ivp"><p class="ivn">5</p><p class="ivt">投資の認識</p></div><svg class="fa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p class="iva">費用と効果の数字を前提ごと開き、何に投資するかをみんなで決めます。</p><div class="ivl"><b>この先の章</b><a href="#c11">11　いくらあれば最低限できるのか</a><a href="#c12">12　投資の効果</a><a href="#c16">16　みんなで決める</a></div></div>
+<div class="iv"><div class="ivp"><p class="ivn">6</p><p class="ivt">担い手</p></div><svg class="fa" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M4 16h22M18 8l8 8-8 8"/></svg><p class="iva">実践者が無理なく続けられる形と価格にします。</p><div class="ivl"><b>この先の章</b><a href="#c13">13　実践者の実情</a><a href="#c15">15　実践者が続けられる形</a></div></div>
+</div></section>
+
+<section id="c7" class="sky"><div class="wrap panel">
+<p class="no">7　払い手の地図</p>
 <h2 class="st seg"><span>誰のお金で、</span><span>誰が、</span><span>誰に届けるのか。</span></h2>
-<p class="lead">お金の流れで整理すると、学校のほかに4つの型が見えてきます。「直接」は民主主義を学ぶこと自体が目的の場、「間接」は別の目的の場の中で副次的に学ぶ場です。</p>
+<p class="lead">社会に練習の場をつくるにはお金の流れが必要です。お金の流れで整理すると、学校のほかに4つの型が見えてきます。「直接」は民主主義を学ぶこと自体が目的の場、「間接」は別の目的の場の中で副次的に学ぶ場です。</p>
 
 <div class="pay">
 <div><p class="n">学校</p><h3>教育の予算で</h3></div>
@@ -796,8 +891,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </div></section>
 
-<section class="paper"><div class="wrap panel">
-<p class="no">4　間接的に届ける</p>
+<section id="c8" class="paper"><div class="wrap panel">
+<p class="no">8　間接的に届ける</p>
 <h2 class="st seg"><span>「民主主義を</span><span>学びましょう」では、</span><br><span>なかなか届きません。</span></h2>
 <p class="lead">会社や行政が費用を出すのは、目の前の課題を解決するためです。だから相手の課題を入口にして、その中で民主主義に必要な力を練習します。これが「間接的、副次的に届ける」という考え方です。</p>
 <div class="swap">
@@ -811,8 +906,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </div></section>
 
-<section class="ink"><div class="wrap panel">
-<p class="no">5　いま取り組んでいる場所</p>
+<section id="c9" class="ink"><div class="wrap panel">
+<p class="no">9　いま取り組んでいる場所</p>
 <h2 class="st seg"><span>まず、</span><span>それぞれの型で</span><br><span>「続く実例」をつくります。</span></h2>
 <p class="lead">私が使っているのは、デンマーク発の「デモクラシーフィットネス」です。民主主義に必要な力を10の筋肉ととらえ、トレーニングで鍛えます。これまでに延べ200人以上の方が体験しました。</p>
 <div class="g2">
@@ -825,8 +920,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div>
 </div></section>
 
-<section class="paper"><div class="wrap panel">
-<p class="no">参加した方の声</p>
+<section id="c10" class="sun"><div class="wrap panel">
+<p class="no">10　参加した方の声</p>
 <h2 class="st seg"><span>体験した方は</span><span>何を持ち帰ったのでしょうか。</span></h2>
 <p class="lead">2026年4月から11月に開いた体験会と合宿7回のアンケートには53名が答えてくださいました。満足度の平均は5点満点で4.7です。声は原文のまま載せています。</p>
 <div class="g3">
@@ -846,58 +941,10 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <a class="btn" style="background: #1B4FA8; color: #fff" href="democracy-fitness-voices.html">参加者の声をすべて読む</a>
 </div></section>
 
-<section class="sky"><div class="wrap panel">
-<p class="no">6　ロードマップ</p>
-<h2 class="st seg"><span>3つのステップで、</span><span>全国へ広げます。</span></h2>
-<p class="lead">一人でできることには限りがあります。まず型をつくり、次に担い手を増やし、そして各地の実践者が自分の地域で続けられる状態を目指します。</p>
-<div class="mx">
-<span></span>
-<p class="h h1"><small>ステップ1</small>型をつくる</p>
-<p class="h h2"><small>ステップ2</small>担い手を増やす</p>
-<p class="h h3"><small>ステップ3</small>各地で続く</p>
+<div class="pt"><div class="wrap"><span>第4部</span>いくらかかるのか</div></div>
 
-<p class="r">学校</p>
-<p class="c"><b>ステップ1　型をつくる</b>先進校での実践を重ね、授業で使える形にまとめます。</p>
-<p class="c"><b>ステップ2　担い手を増やす</b>トレーナーの資格を持つ先生を増やし、教材を先生どうしで共有します。</p>
-<p class="c"><b>ステップ3　各地で続く</b>先生が自分の学校で回し、ほかの学校へ広がります。</p>
-
-<p class="r">地域</p>
-<p class="c"><b>ステップ1　型をつくる</b>軽井沢と長崎で、行政と組む形の実例をつくります。</p>
-<p class="c"><b>ステップ2　担い手を増やす</b>地元の主催者と実践者が組み、ほかの市町村に提案できる形にします。</p>
-<p class="c"><b>ステップ3　各地で続く</b>各地の行政の事業として、毎年続きます。</p>
-
-<p class="r">職場</p>
-<p class="c"><b>ステップ1　型をつくる</b>対話力の研修として、企業に届ける形を整えます。合宿でリーダーが体験します。</p>
-<p class="c"><b>ステップ2　担い手を増やす</b>合宿の参加者がトレーナーになり、共同で開催します。</p>
-<p class="c"><b>ステップ3　各地で続く</b>各地の実践者が、地元の企業や団体に届けます。</p>
-
-<p class="r">家庭</p>
-<p class="c"><b>ステップ1　型をつくる</b>学校、職場、地域で学んだ人が家に持ち帰ります。</p>
-<p class="c"><b>ステップ2　担い手を増やす</b>PTAなど、学校と家庭が交わる場で試します。</p>
-<p class="c"><b>ステップ3　各地で続く</b>親子で対話を練習する場が、地域に生まれます。</p>
-</div>
-<p class="cap">時期はまだ入れていません。いまはステップ1の途中です。</p>
-</div></section>
-
-<section class="ink"><div class="wrap panel">
-<p class="no">7　実践者が続けられる形</p>
-<h2 class="st seg"><span>参加した人が、</span><span>次の担い手になります。</span></h2>
-<p class="lead">広げるうえでいちばん大切なのは、志のある実践者が無理なく続けられることです。段階を踏んで、経験と収入の両方が積み上がる道をつくっていきます。</p>
-<div class="stp">
-<div><p class="n">1</p><h3>体験する</h3><p>体験会や合宿に参加し、自分で10の筋肉を鍛えます。</p></div>
-<div><p class="n">2</p><h3>トレーナーになる</h3><p>資格を取り、教える側の準備をします。</p></div>
-<div><p class="n">3</p><h3>一緒に開く</h3><p>共同開催で登壇の経験を積みます。費用の負担は小さく始めます。</p></div>
-<div><p class="n">4</p><h3>自分の地域で開く</h3><p>地元の行政、企業、学校を払い手にして、続く場をつくります。</p></div>
-</div>
-<div class="g3">
-<div class="card"><h3>共有するもの</h3><p>対話のコンテンツ、提案資料のひな形、参加者の声。一人ひとりが一から作らなくて済むようにします。</p></div>
-<div class="card"><h3>各地で決めること</h3><p>誰と組むか、どの払い手から始めるか。地域の事情に合わせて、実践者が決めます。</p></div>
-<div class="card" style="background: #F5C542; color: #14191E"><h3>目指す状態</h3><p>各地に対話を教えることで生活が成り立つ実践者がいる状態です。</p></div>
-</div>
-</div></section>
-
-<section class="paper"><div class="wrap panel">
-<p class="no">8　いくらあれば最低限できるのか</p>
+<section id="c11" class="paper"><div class="wrap panel">
+<p class="no">11　いくらあれば最低限できるのか</p>
 <h2 class="st seg"><span>1人1万円から</span><span>始められます。</span></h2>
 <p class="lead">対話の力を鍛える方法はすでに世界のあちこちで形になっています。足りないのは場と予算です。では最低限いくらあればできるのでしょうか。1回の実施費用を30万円、参加を30人までとすると1人あたり1万円です。この1万円を単位にして、チームから国まで広げてみます。</p>
 <div class="ldw">
@@ -936,8 +983,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </div></details>
 </div></section>
 
-<section class="sky"><div class="wrap panel">
-<p class="no">9　投資の効果</p>
+<section id="c12" class="sky"><div class="wrap panel">
+<p class="no">12　投資の効果</p>
 <h2 class="st seg"><span>効果は</span><span>時間が経つほど</span><br><span>積み上がっていきます。</span></h2>
 <p class="lead">対話の力は一度身につくと使うたびに鍛えられ、周りの人にも広がります。だから効果は複利のように積み上がると考えています。ただし人の行動はすぐに劇的には変わりません。そこで、ごく小さな変化が毎年少しずつ積み上がる場合を計算しました。</p>
 <p class="k">まず、目安になる数字</p>
@@ -969,8 +1016,8 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="cap">これは「どれだけ効果があれば元が取れるか」を示す計算です。効果の大きさを約束するものではありません。実際の効果は、離職率や対話の力の診断などで測りながら確かめていく必要があります。</p>
 </div></section>
 
-<section class="sun"><div class="wrap panel">
-<p class="no" style="color: #14191E">10　実践者の実情</p>
+<section id="c13" class="sun"><div class="wrap panel">
+<p class="no" style="color: #14191E">13　実践者の実情</p>
 <h2 class="st seg"><span>いまの価格帯では</span><br><span>教える側が続けられません。</span></h2>
 <p class="lead">「1日30万円ももらえれば十分ではないか」と感じる方もいると思います。けれども30万円は、登壇した1日の対価ではありません。その裏にある準備の日数、経費、税金や社会保険料をまかなったあとに残るものが、実践者の生活費です。</p>
 <p class="k" style="color: #14191E">1日30万円の行き先（個人で直接受けた場合の目安）</p>
@@ -989,8 +1036,60 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p>1日30万円でも余裕があるわけではありません。行政の謝金基準ではまったく成り立ちません。この価格帯のままでは志のある人ほど続けられなくなります。</p>
 </div></section>
 
-<section class="ink"><div class="wrap panel">
-<p class="no">11　みんなで決める</p>
+<div class="pt"><div class="wrap"><span>第5部</span>どう進めるか</div></div>
+
+<section id="c14" class="sky"><div class="wrap panel">
+<p class="no">14　ロードマップ</p>
+<h2 class="st seg"><span>3つのステップで、</span><span>全国へ広げます。</span></h2>
+<p class="lead">一人でできることには限りがあります。まず型をつくり、次に担い手を増やし、そして各地の実践者が自分の地域で続けられる状態を目指します。</p>
+<div class="mx">
+<span></span>
+<p class="h h1"><small>ステップ1</small>型をつくる</p>
+<p class="h h2"><small>ステップ2</small>担い手を増やす</p>
+<p class="h h3"><small>ステップ3</small>各地で続く</p>
+
+<p class="r">学校</p>
+<p class="c"><b>ステップ1　型をつくる</b>先進校での実践を重ね、授業で使える形にまとめます。</p>
+<p class="c"><b>ステップ2　担い手を増やす</b>トレーナーの資格を持つ先生を増やし、教材を先生どうしで共有します。</p>
+<p class="c"><b>ステップ3　各地で続く</b>先生が自分の学校で回し、ほかの学校へ広がります。</p>
+
+<p class="r">地域</p>
+<p class="c"><b>ステップ1　型をつくる</b>軽井沢と長崎で、行政と組む形の実例をつくります。</p>
+<p class="c"><b>ステップ2　担い手を増やす</b>地元の主催者と実践者が組み、ほかの市町村に提案できる形にします。</p>
+<p class="c"><b>ステップ3　各地で続く</b>各地の行政の事業として、毎年続きます。</p>
+
+<p class="r">職場</p>
+<p class="c"><b>ステップ1　型をつくる</b>対話力の研修として、企業に届ける形を整えます。合宿でリーダーが体験します。</p>
+<p class="c"><b>ステップ2　担い手を増やす</b>合宿の参加者がトレーナーになり、共同で開催します。</p>
+<p class="c"><b>ステップ3　各地で続く</b>各地の実践者が、地元の企業や団体に届けます。</p>
+
+<p class="r">家庭</p>
+<p class="c"><b>ステップ1　型をつくる</b>学校、職場、地域で学んだ人が家に持ち帰ります。</p>
+<p class="c"><b>ステップ2　担い手を増やす</b>PTAなど、学校と家庭が交わる場で試します。</p>
+<p class="c"><b>ステップ3　各地で続く</b>親子で対話を練習する場が、地域に生まれます。</p>
+</div>
+<p class="cap">時期はまだ入れていません。いまはステップ1の途中です。</p>
+</div></section>
+
+<section id="c15" class="ink"><div class="wrap panel">
+<p class="no">15　実践者が続けられる形</p>
+<h2 class="st seg"><span>参加した人が、</span><span>次の担い手になります。</span></h2>
+<p class="lead">広げるうえでいちばん大切なのは、志のある実践者が無理なく続けられることです。段階を踏んで、経験と収入の両方が積み上がる道をつくっていきます。</p>
+<div class="stp">
+<div><p class="n">1</p><h3>体験する</h3><p>体験会や合宿に参加し、自分で10の筋肉を鍛えます。</p></div>
+<div><p class="n">2</p><h3>トレーナーになる</h3><p>資格を取り、教える側の準備をします。</p></div>
+<div><p class="n">3</p><h3>一緒に開く</h3><p>共同開催で登壇の経験を積みます。費用の負担は小さく始めます。</p></div>
+<div><p class="n">4</p><h3>自分の地域で開く</h3><p>地元の行政、企業、学校を払い手にして、続く場をつくります。</p></div>
+</div>
+<div class="g3">
+<div class="card"><h3>共有するもの</h3><p>対話のコンテンツ、提案資料のひな形、参加者の声。一人ひとりが一から作らなくて済むようにします。</p></div>
+<div class="card"><h3>各地で決めること</h3><p>誰と組むか、どの払い手から始めるか。地域の事情に合わせて、実践者が決めます。</p></div>
+<div class="card" style="background: #F5C542; color: #14191E"><h3>目指す状態</h3><p>各地に対話を教えることで生活が成り立つ実践者がいる状態です。</p></div>
+</div>
+</div></section>
+
+<section id="c16" class="sky"><div class="wrap panel">
+<p class="no">16　みんなで決める</p>
 <h2 class="st seg"><span>何にお金を使うかを</span><span>話し合って決めること。</span><br><span>それ自体が民主主義です。</span></h2>
 <p class="lead">ここまでの数字は、誰かにお願いするためのものではありません。職場で、地域で、国で、何に投資するのかをみんなで話し合うための材料です。人への投資を、組織ぐるみ、地域ぐるみ、国ぐるみで決めていきましょう。</p>
 <div class="g3">
@@ -1020,6 +1119,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p><a class="back" href="zukai-series.html">図解シリーズの一覧へ</a>　／　<a class="back" href="index.html">トップページへ</a></p>
 <p class="cap" style="color: #14191E">きづきくみたて工房　森本康仁</p>
 </div></section>
+
 <section class="paper"><div class="wrap panel" style="gap: 20px">
 <h2 style="font-size: 20px; font-weight: 900">参考にした資料</h2>
 <ul class="src">
@@ -1038,6 +1138,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 </main>
 
 <!-- ZUKAI-SERIES START -->
+
 <section class="zsn" aria-label="図解シリーズ">
 <style>
 .zsn{background:#14191E;color:#F6F5F0;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",system-ui,sans-serif;line-height:1.7;padding:72px 24px;box-sizing:border-box}
@@ -1072,6 +1173,7 @@ footer{background:#26215C;border-top:3px solid #3C3489;padding:3rem 6rem;display
 <p class="zsn-pn"><a href="minshushugi-kyoiku-rekishi.html">← 前の図解（2）日本の民主主義教育の歴史</a></p>
 </div>
 </section>
+
 <!-- ZUKAI-SERIES END -->
 
 <!-- KAIYU START -->
