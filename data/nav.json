@@ -736,6 +736,15 @@
       "variant": "event"
     },
     {
+      "path": "democracy-fitness-camp-2027.html",
+      "variant": "event",
+      "logo_priority": true
+    },
+    {
+      "path": "democracy-fitness-camp-2027-signup.html",
+      "variant": "event"
+    },
+    {
       "path": "democracy-fitness-event-0427.html",
       "variant": "event"
     },

@@ -153,6 +153,13 @@ assets:
     tags: [オープンイノベーション, 防災テック, 官民連携, 自治体 連携, フィジカルAI, 共創 合宿, 実証実験]
     service_bridge: 自治体×大企業の共創合宿（パイロットクラス）
 
+  - id: democracy-fitness-camp-2027
+    name: 合宿版デモクラシーフィットネス2027 in 北軽井沢（季節に一度・4回開催）
+    type: service
+    url: /democracy-fitness-camp-2027.html
+    tags: [デモクラシーフィットネス 合宿, 対話 合宿, 北軽井沢 合宿, 合意形成 研修 合宿, 民主主義 教育 合宿, 焚き火 対話, 親子 合宿 対話, 学生 合宿 対話]
+    service_bridge: 1泊2日で10の筋肉を一気に体験する合宿（冬・春・夏・秋）
+
   - id: gaikokujinzai-teichaku
     name: 外国人材定着支援ページ
     type: service
