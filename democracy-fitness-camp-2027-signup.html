@@ -870,7 +870,7 @@
         <small style="display:block; margin-top:0.5rem;">12/9まで かつ 2名同時</small>
       </div>
     </div>
-    <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--ink); line-height: 1.9; background: #fffdf3; border-left: 3px solid #f0b429; padding: 0.7rem 0.9rem; text-align: left;"><strong>ほかの割引（1名あたり・税込）：</strong>3人割 ¥31,900（早割なら ¥23,100）／4人割 ¥28,600（早割なら ¥19,800）／学生割 ¥21,450／親子割 親はペア割・お子様 ¥14,300。下のフォームで人数・区分を選ぶと、適用される参加費が表示されます。詳しくは<a href="./democracy-fitness-camp-2027.html#feeTable" style="color: var(--accent);">料金早見表</a>へ。</p>
+    <p style="margin-top: 1rem; font-size: 0.82rem; color: var(--ink); line-height: 1.9; background: #fffdf3; border-left: 3px solid #f0b429; padding: 0.7rem 0.9rem; text-align: left;"><strong>ほかの割引（1名あたり・税込）：</strong>3人割 ¥31,900（早割なら ¥22,000）／4人割 ¥28,600（早割なら ¥17,600）／学生割 ¥21,450／親子割 親はペア割・お子様 ¥14,300。下のフォームで人数・区分を選ぶと、適用される参加費が表示されます。詳しくは<a href="./democracy-fitness-camp-2027.html#feeTable" style="color: var(--accent);">料金早見表</a>へ。</p>
     <p style="margin-top: 1rem; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.8;">※「プログラム参加費」は当社へ、<strong style="color: var(--ink);">「宿泊費」（1泊・全食事込み／最大¥39,600・税込）は会場TAKIVIVAへ直接お支払い</strong>いただきます（当フォームでは宿泊のご希望をうかがいます）。宿泊費は人数等により数千円程度お安くなる場合があります。日帰り・外部宿泊の方、お子様は、宿泊費の代わりに施設利用料 ¥13,500／1名（2日間）をTAKIVIVAへ。</p>
   </div>
 </section>
@@ -1126,11 +1126,11 @@
   const appliedPriceText = document.getElementById('applied-price-text');
   const pairInput = document.getElementById('pairPartnerName');
 
-  // 2027年の料金ルール（税抜）。人数割は1名増えるごとに-3,000（4名で打ち止め）、早割は1名-7,000／2名以上-8,000。
+  // 2027年の料金ルール（税抜）。通常は1名増えるごとに-3,000（4名で打ち止め）、早割は人数が多いほど厚く 1名-7,000／2名-8,000／3名-9,000／4名-10,000。
   // 学生割・親子割のお子様は時期・人数を問わず定額、他の割引と併用しない。
   const PRICE_TABLE = {
     normal: { 1: 39000, 2: 32000, 3: 29000, 4: 26000 },
-    early:  { 1: 32000, 2: 24000, 3: 21000, 4: 18000 },
+    early:  { 1: 32000, 2: 24000, 3: 20000, 4: 16000 },
   };
   const TIER_LABEL = {
     normal: { 1: '定価', 2: 'ペア割', 3: '3人割', 4: '4人割' },
