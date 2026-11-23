@@ -17,7 +17,7 @@
 
 <!-- OGP -->
 <meta property="og:title" content="合宿版デモクラシーフィットネス2027 in 北軽井沢〈冬〉 〜2日間で全10筋肉を鍛えます〜">
-<meta property="og:description" content="2027年1月9日（土）・10日（日）｜TAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を一気に体験｜プログラム参加費（税込）：定価42,900円／早割・ペア割35,200円／ペア早割26,400円／3人割・4人割・親子割・学生割あり（宿泊費別途）｜定員25名｜2027年は季節ごとに4回開催">
+<meta property="og:description" content="2027年1月9日（土）・10日（日）｜グッドデザイン金賞のきたもっくが運営するTAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を体験し、場を運営する人の話を聞き、これから必要な活動を対話で考える｜プログラム参加費（税込）：定価42,900円／早割・ペア割35,200円／ペア早割26,400円／3人割・4人割・親子割・学生割あり（宿泊費別途）｜定員25名｜2027年は季節ごとに4回開催">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://kizukikumitate.com/democracy-fitness-camp-2027.html">
 <meta property="og:image" content="https://kizukikumitate.com/democracy-fitness-event-ogp.png">
@@ -29,7 +29,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="合宿版デモクラシーフィットネス2027 in 北軽井沢〈冬〉 〜2日間で全10筋肉を鍛えます〜">
-<meta name="twitter:description" content="2027年1月9日（土）・10日（日）｜TAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を一気に体験｜プログラム参加費（税込）：定価42,900円／早割・ペア割35,200円／ペア早割26,400円／3人割・4人割・親子割・学生割あり（宿泊費別途）｜定員25名｜2027年は季節ごとに4回開催">
+<meta name="twitter:description" content="2027年1月9日（土）・10日（日）｜グッドデザイン金賞のきたもっくが運営するTAKIVIVA（北軽井沢）｜1泊2日で全10筋肉を体験し、場を運営する人の話を聞き、これから必要な活動を対話で考える｜プログラム参加費（税込）：定価42,900円／早割・ペア割35,200円／ペア早割26,400円／3人割・4人割・親子割・学生割あり（宿泊費別途）｜定員25名｜2027年は季節ごとに4回開催">
 <meta name="twitter:image" content="https://kizukikumitate.com/democracy-fitness-event-ogp.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -467,7 +467,57 @@
     line-height: 2;
     opacity: 0.85;
     max-width: 780px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── 3つの重なり（メソッド／場／人） ── */
+  .layer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
     margin-bottom: 4rem;
+  }
+  .layer-card {
+    background: rgba(240, 180, 41, 0.07);
+    border: 1px solid rgba(240, 180, 41, 0.3);
+    padding: 2.2rem 1.9rem 2rem;
+    min-width: 0;
+    position: relative;
+  }
+  .layer-num {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.22em;
+    font-size: 0.78rem;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+  .layer-card h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: var(--paper);
+    margin-bottom: 0.9rem;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+  .layer-card h3 em { font-style: normal; color: var(--gold); }
+  .layer-card p {
+    font-size: 0.9rem;
+    line-height: 1.95;
+    color: rgba(255,255,255,0.8);
+  }
+  .layer-card p strong { color: var(--paper); font-weight: 700; }
+  .why-camp-sub {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 1.6rem;
+    line-height: 1.6;
+  }
+  @media (max-width: 900px) {
+    .layer-grid { grid-template-columns: minmax(0, 1fr); gap: 1rem; margin-bottom: 3rem; }
   }
 
   .why-camp-grid {
@@ -3733,6 +3783,7 @@
       トレーニングは1種目30分、全部で10種目。<br>
       普段の体験会ではその一部しか扱えません。<br>
       10種目すべてを、北軽井沢の森の中で2日間、一気に体験します。<br>
+      ただし、10の筋肉を鍛えるだけの合宿ではありません。<br>
       2027年は、季節に一度。冬・春・夏・秋と、循環するように開いていきます。
     </p>
     <a href="#register" class="hero-cta">
@@ -3949,7 +4000,7 @@
           </svg>
         </div>
         <h3>人事・組織開発</h3>
-        <p>研修の効果が現場で続かない、対話文化の土台を厚くしたい。組織開発の実践引き出しを増やしたい方に。</p>
+        <p>研修の効果が現場で続かない、対話文化の土台を厚くしたい。事前・事後の診断で変化を測れるプログラムを探している方、組織開発の実践引き出しを増やしたい方に。</p>
       </div>
       <div class="for-whom-card">
         <div class="cool-icon">
@@ -3981,8 +4032,26 @@
 <section class="why-camp-section">
   <div class="why-camp-inner">
     <div class="section-label">WHY RETREAT</div>
-    <h2 class="section-heading">なぜ、合宿なのか。</h2>
-    <p class="why-camp-lead">デモクラシーフィットネスのトレーニングは1種目30<span class="jp-nowrap">分。</span>これまで日本ではそのトレーニングを組み込んだ2時間の体験会や半日のワークショップという形で各地で開催してきまし<span class="jp-nowrap">た。</span><strong>10の筋肉をすべて続けて体験できる機会は、国内でも数えるほどしかありませ<span class="jp-nowrap">ん。</span></strong>短時間のワークでは届かない深さと、合宿だからこそ生まれる関係性を、北軽井沢の2日間に込めまし<span class="jp-nowrap">た。</span></p>
+    <h2 class="section-heading">なぜ、合宿なのか。<br>— 10の筋肉を鍛えるだけの場ではありません。</h2>
+    <p class="why-camp-lead">この合宿では、3つの学びが重なりま<span class="jp-nowrap">す。</span>デンマーク発の<strong>メソッド</strong>、循環型の事業で地域を耕してきた人たちが運営する<strong>場</strong>、そして立場も世代も違う<strong>人</strong><span class="jp-nowrap">たち。</span>10の筋肉を体験しながら、「これから本当に必要な活動は何か」を、この場と、この顔ぶれで、対話を通じてみんなで考えま<span class="jp-nowrap">す。</span></p>
+    <div class="layer-grid">
+      <div class="layer-card">
+        <div class="layer-num">LAYER 01 · METHOD</div>
+        <h3><em>メソッド</em>——デンマーク本国認定の10種目。</h3>
+        <p>対話の力を10の「筋肉」に分け、1種目30分で鍛えるデンマーク発のプログラムを、本国から直接認定を受けたトレーナーが届けま<span class="jp-nowrap">す。</span>10種目をすべて続けて体験できる機会は、国内でも数えるほどしかありませ<span class="jp-nowrap">ん。</span></p>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 02 · PLACE</div>
+        <h3><em>場</em>——場そのものが、教材になる。</h3>
+        <p>会場TAKIVIVAを運営する<strong>きたもっく</strong>は、浅間山麓の森・薪・蜂蜜・キャンプ場を循環させる事業で<strong>グッドデザイン金賞</strong>を受けた会社で<span class="jp-nowrap">す。</span>1日目の朝、<strong>その「中の人」から直接話を聞く時間</strong>を設けました。自然を減らさず回復させる経営が「ネイチャーポジティブ」と呼ばれる前から積み重ねられてきた、先進的な実践の現場で<span class="jp-nowrap">す。</span></p>
+      </div>
+      <div class="layer-card">
+        <div class="layer-num">LAYER 03 · PEOPLE</div>
+        <h3><em>人</em>——立場も世代も違う仲間と、考える。</h3>
+        <p>経営・人事・教育・行政・NPO、そして2027年は親子や学生も加わりま<span class="jp-nowrap">す。</span>寝食をともにし、焚き火を囲みながら、<strong>これから本当に必要な活動は何か</strong>を対話で考え<span class="jp-nowrap">る。</span>終わった後も続いていく実践のネットワークが、ここから始まりま<span class="jp-nowrap">す。</span></p>
+      </div>
+    </div>
+    <h3 class="why-camp-sub">合宿だからこそ、できること。</h3>
     <div class="why-camp-grid">
       <div class="why-camp-card">
         <div class="cool-icon on-dark">
@@ -4070,9 +4139,14 @@
           <div class="timetable-desc">TAKIVIVA到着・ウェルカムドリンク</div>
         </div>
         <div class="timetable-row">
-          <div class="timetable-time">10:30–12:00</div>
+          <div class="timetable-time">10:30–11:15</div>
           <div class="timetable-item">オープニング／<br>場と問いに出会う</div>
           <div class="timetable-desc">自己紹介・2日間の目的・「循環×民主主義」のフレーミング</div>
+        </div>
+        <div class="timetable-row">
+          <div class="timetable-time">11:15–12:00</div>
+          <div class="timetable-item">きたもっくの人に聞く／<br>森と事業の循環</div>
+          <div class="timetable-desc">TAKIVIVAを運営するきたもっくのメンバーから、地域資源を循環させる事業の実践と、その裏側の試行錯誤を聞く（質疑あり）</div>
         </div>
         <div class="timetable-row">
           <div class="timetable-time">12:00–13:30</div>
@@ -4190,7 +4264,7 @@
       <p>敷地内には地域の食材を活かしたキッチン、ゆとりのある宿泊棟、広々としたセッションルーム、そしてそれを取り囲む森。外の喧騒や日常の通知から少し離れて、対話とリセットに集中できる環境です。</p>
       <p>私たちがTAKIVIVAを選んだのは、シンプルに「集中できる」「美味しい」「気持ちがいい」と感じたからです。加えてサステナビリティに対するこの場の姿勢——必要なものを大切に扱い、地域とつながりながら運営している姿勢——は、多様な意見と丁寧に向き合うデモクラシーフィットネスの空気と、自然に重なります。</p>
       <p>
-        TAKIVIVAを運営するのは、浅間山麓で地域に根ざした事業を続けてきた <a href="https://kitamoc.com/" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">有限会社きたもっく</a> です。キャンプ場・宿泊・薪・蜂蜜など、地域資源を循環させる事業デザインが評価され、<strong>2021年度グッドデザイン金賞</strong>を受賞しています。TAKIVIVAはその思想と実践が結晶した拠点です。
+        TAKIVIVAを運営するのは、浅間山麓で地域に根ざした事業を続けてきた <a href="https://kitamoc.com/" target="_blank" rel="noopener" style="color: var(--gold); text-decoration: underline;">有限会社きたもっく</a> です。キャンプ場・宿泊・薪・蜂蜜など、地域資源を循環させる事業デザインが評価され、<strong>2021年度グッドデザイン金賞</strong>を受賞しています。TAKIVIVAはその思想と実践が結晶した拠点です。<br><br>きたもっく自身はこの取り組みを「地域資源の循環」「地域未来創造事業」という自分たちの言葉で語っています。近年、企業経営の世界では、自然を減らさないだけでなく回復させる方向に事業を向ける<strong>「ネイチャーポジティブ」</strong>という考え方が広まっていますが、きたもっくの実践は、その言葉が語られるようになる前から積み重ねられてきた、国内でも先進的な実例と言えます。本合宿では1日目の朝に、その「中の人」から直接話を聞く時間を設けています。
       </p>
       <p>
         2日間、心地よい森と空間の中で、対話に没頭してください。
@@ -4267,9 +4341,10 @@
 
     <div class="speaker-bio">
       <h3>ファシリテータープロフィール</h3>
+      <p><strong>デモクラシーフィットネスのトレーナーだけをしている人間ではありません。</strong>人材開発・組織開発の実務家として、大手インフラ系企業や金融系企業をはじめ数百社の現場で、株主だけでなく社員・顧客・地域・自然まで含めた関係者全体の利益を考える経営（マルチステークホルダー資本主義）の実現に向けた実践を重ねてきました。そして国内外の先進的な実践を、資料で読むのではなく現地に足を運び、身体で学びに行くことを続けています。この合宿は、その積み重ねの上に設計されています。</p>
       <p>「時代が必要とする学びの機会を作り、届ける」をテーマに、日本を中心に人材開発・組織開発に従事。</p>
       <p>9年ほど東京都で小学校教員として勤めた後、単身セブ島に移住し、複数の教育事業の立ち上げに従事。2015年の帰国後は日本の教育系企業にて、多くの企業に研修やワークショップを提供。<strong>製造・金融・IT・サービス・医療・行政・NPO・教育機関など、業界・職種を横断して数百社にわたる組織の人事戦略・組織戦略の立案や教育施策の実施を支援</strong>してきた。</p>
-      <p>2022年末に独立。国内外の先進的な教育実践や働き方のリサーチをしながら、日本の伝統的な組織の働き方・学び方のアップデートに挑戦中。</p>
+      <p>2022年末に独立。デンマーク・シンガポール・フィリピンなど国内外の先進的な教育実践や働き方を現地で学びながら、日本の伝統的な組織の働き方・学び方のアップデートに挑戦中。</p>
       <p>2013年にシンガポールにて<strong>レゴ® シリアスプレイ®（LSP）</strong>の修了認定トレーニングを受講。以降、企業を中心に<strong>500以上の現場にLSPを提供</strong>するなど、日本でも有数の登壇数を誇るLSP修了認定ファシリテーターの一人。</p>
       <p>デモクラシーフィットネスにおいては、デンマーク・コペンハーゲンで開催された公式の<strong>「Democracy Fitness Trainer Camp」</strong>を修了し、本国の組織から直接トレーナー認定を受けている。あわせて、デンマーク社会の根っこにある対話文化・教育哲学・歴史を継続的にフィールドリサーチしている。（公式サイト：<a href="https://www.democracyfitness.org" target="_blank" rel="noopener" style="color: var(--accent);">www.democracyfitness.org</a>）</p>
       <p>2022年末に軽井沢に移住。森の中で人間社会と自然との共存の仕方について考え中。</p>
@@ -4485,17 +4560,17 @@
     <div class="pricing-benefits">
       <div class="pricing-benefits-label">BENEFITS</div>
       <h4 class="pricing-benefits-title">参加者だけの特典</h4>
-      <p class="pricing-benefits-lead">合宿で得た「対話の体力」を、その後も使い続け、社会に還元していく——そのための2つの権利を、参加者の皆さんにお渡ししま<span class="jp-nowrap">す。</span></p>
+      <p class="pricing-benefits-lead">合宿で得た「対話の体力」を、その後も使い続け、社会に還元していく——そのための2つの権利を、参加者の皆さんにお渡ししま<span class="jp-nowrap">す。</span>対話の練習が、合宿の中だけで終わらない仕組みで<span class="jp-nowrap">す。</span></p>
       <div class="pricing-benefits-grid">
         <div class="pricing-benefit-card">
           <div class="pricing-benefit-num">BENEFIT 01</div>
-          <h5 class="pricing-benefit-title">事前・事後の<br>「デモクラ筋診断」受講権</h5>
-          <p class="pricing-benefit-desc">合宿の前と後で、ご自身の10の筋肉の状態を可視化する<strong>「デモクラ筋診断」</strong>を受講できま<span class="jp-nowrap">す。</span>Before / After を比較することで、自分の変化と次に鍛えたい筋肉が明確になりま<span class="jp-nowrap">す。</span></p>
+          <h5 class="pricing-benefit-title">参加費の使い道まで、<br>参加者が民主的に決める。</h5>
+          <p class="pricing-benefit-desc">年度末の<strong>「1年間貯めた資金の投資先決定会議」</strong>への参加券と投票権をお渡しします。プログラム参加費（税抜）の<strong>10%</strong>から1年間積み立てた資金の使い道——どの団体・どの活動に寄付・投資するかを、参加者全員で議論して決めま<span class="jp-nowrap">す。</span>合宿で鍛えた筋肉を、そのまま使う場で<span class="jp-nowrap">す。</span></p>
         </div>
         <div class="pricing-benefit-card">
           <div class="pricing-benefit-num">BENEFIT 02</div>
-          <h5 class="pricing-benefit-title">年度末「1年間貯めた資金の<br>投資先決定会議」参加券＆投票権</h5>
-          <p class="pricing-benefit-desc">プログラム参加費（税抜）の<strong>10%</strong>から1年間積み立てた資金の使い道——どの団体・どの活動に寄付・投資するかを、参加者全員で議論し決定する年度末の会議への<strong>参加券と投票権</strong>をお渡ししま<span class="jp-nowrap">す。</span></p>
+          <h5 class="pricing-benefit-title">事前・事後の<br>「デモクラ筋診断」受講権</h5>
+          <p class="pricing-benefit-desc">合宿の前と後で、ご自身の10の筋肉の状態を可視化する<strong>「デモクラ筋診断」</strong>を受講できま<span class="jp-nowrap">す。</span>Before / After を比較することで、自分の変化と次に鍛えたい筋肉が明確になりま<span class="jp-nowrap">す。</span></p>
         </div>
       </div>
     </div>
