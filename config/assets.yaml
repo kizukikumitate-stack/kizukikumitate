@@ -278,3 +278,10 @@ scoring:
     url: /tou-chikara.html
     tags: [問う力, 質問力, 問いを立てる力, 質問力 研修, 問いを立てる 研修, 問題発見力, 課題設定力, 違和感, センスオブワンダー, 好奇心 とは]
     service_bridge: 思考力強化シリーズ・研修一覧
+
+  - id: gakko-kyoiku-hikaku
+    name: 図解で見る 日本の学校の強みと伸び代
+    type: article
+    url: /gakko-kyoiku-hikaku.html
+    tags: [日本の教育 海外 比較, 日本の学校 強み, 日本の教育 問題点, PISA 日本 順位, PIAAC 日本, 子どもの幸福度 日本, 教員 勤務時間 世界, 習い事 海外 比較, 主権者教育 海外, 金融教育 海外]
+    service_bridge: デモクラシーフィットネス・対話力向上プログラム

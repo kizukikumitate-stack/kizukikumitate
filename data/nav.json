@@ -344,6 +344,11 @@
             "desc": "図解シリーズ6。疑問が生まれる2つの条件、頭の問いと身体の問い、世界の鍛え方を整理する"
           },
           {
+            "label": "図解7｜日本の学校の強みと伸び代",
+            "href": "gakko-kyoiku-hikaku.html",
+            "desc": "図解シリーズ7。世界一の学力とその先の課題を国際調査で比べ、家庭と地域での補い方を考える"
+          },
+          {
             "label": "おすすめTED集",
             "href": "ted-collection.html",
             "desc": "平和と民主主義とお金の流れを学ぶTEDトーク16本"
@@ -959,6 +964,10 @@
     },
     {
       "path": "tou-chikara.html",
+      "variant": "standard"
+    },
+    {
+      "path": "gakko-kyoiku-hikaku.html",
       "variant": "standard"
     }
   ],

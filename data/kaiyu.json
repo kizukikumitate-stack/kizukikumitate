@@ -1523,6 +1523,21 @@
         "taiwa-towa",
         "shikouryoku-series"
       ]
+    },
+    {
+      "id": "gakko-kyoiku-hikaku",
+      "path": "gakko-kyoiku-hikaku.html",
+      "title": "図解で見る 日本の学校の強みと伸び代",
+      "tag": "世界の知恵",
+      "desc": "学力は世界トップ、実感と大人の生産性には伸び代。国際調査で日本の学校を世界と比べる。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-25",
+      "band": true,
+      "next": [
+        "taiwa-towa",
+        "minshushugi-kyoiku-roadmap"
+      ]
     }
   ]
 }
