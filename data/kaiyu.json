@@ -1523,6 +1523,21 @@
         "taiwa-towa",
         "shikouryoku-series"
       ]
+    },
+    {
+      "id": "gakko-kyoiku-hikaku",
+      "path": "gakko-kyoiku-hikaku.html",
+      "title": "図解で見る 日本の教育を世界と比べる",
+      "tag": "世界の知恵",
+      "desc": "15歳の学力から大人の暮らしまで。国際調査のデータで強みと伸び代を見ていきます。",
+      "theme": "paper",
+      "category": "chie",
+      "added": "2026-11-25",
+      "band": true,
+      "next": [
+        "taiwa-towa",
+        "minshushugi-kyoiku-roadmap"
+      ]
     }
   ]
 }
